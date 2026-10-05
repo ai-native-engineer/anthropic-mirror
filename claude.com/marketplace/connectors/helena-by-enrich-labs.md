@@ -72,10 +72,10 @@ monday.com project management & CRM for projects, tasks, portfolios, boards, wor
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
+![](https://assets.claude.com/e64f9962a277a8943b084a17b6a9386a7eb95a61.svg?w=128&fit=max&auto=format)
 
-### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
+### [Miro](https://claude.com/marketplace/connectors/miro)
 
-Faites vos courses rapidement
+Access and create new content on Miro boards
 
-[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
+[Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")

@@ -71,14 +71,6 @@ Create presentations, docs, socials, and sites with AI
 
 [Add Gamma in Claude (opens in new tab)](https://claude.ai/directory/ba1eef5a-c510-416e-b5fa-c34d523d81a1 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=getjobber.com&sz=96)
-
-### [Jobber](https://claude.com/marketplace/connectors/jobber)
-
-Get answers and take action with context from your Jobber account
-
-[Add Jobber in Claude (opens in new tab)](https://claude.ai/directory/d53b3c4b-c4c7-4886-8698-786cfaff70f2 "Add in Claude")
-
 ![](https://assets.claude.com/47f22a5129fd644c95a682e474b104001065dd42.jpg?w=128&fit=max&auto=format)
 
 ### [Zapier](https://claude.com/marketplace/connectors/zapier)
@@ -86,3 +78,11 @@ Get answers and take action with context from your Jobber account
 Automate workflows across thousands of apps via conversation
 
 [Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
+
+![](https://assets.claude.com/46519c8cd657205f9f26b243952e1bd41a07d517.svg?w=128&fit=max&auto=format)
+
+### [Salesforce - Beta](https://claude.com/marketplace/connectors/salesforce-headless-360)
+
+Sell, serve, and operate at scale with Salesforce.
+
+[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")

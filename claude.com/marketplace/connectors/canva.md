@@ -70,10 +70,10 @@ Fully editable PowerPoints, Meta ads, motion graphics & social.
 
 [Add Moda - Slides and Designs in Claude (opens in new tab)](https://claude.ai/directory/ea86601d-514b-42e4-aefc-32c6c51baf7e "Add in Claude")
 
-![](https://raw.githubusercontent.com/dropbox/dropbox-ai-plugins/refs/heads/main/codex/assets/logo-light.png)
+![](https://appexchange.salesforce.com/image_host/82be812c-159e-49b7-aa89-828b29c95e0b.png)
 
-### [Dropbox](https://claude.com/marketplace/connectors/dropbox)
+### [Blackthorn Forge MCP for Native Salesforce Event Management](https://claude.com/marketplace/connectors/blackthorn-beacon-event-management-for-salesforce)
 
-Search, organize, and take action on your Dropbox content
+Blackthorn's MCP server for Salesforce events: create, query, and report on events, attendees, tickets, sessions, forms, and email campaigns, over 100 available tools, live against your org.
 
-[Add Dropbox in Claude (opens in new tab)](https://claude.ai/directory/1e4280cc-037c-47f0-9873-56bea1871bdb "Add in Claude")
+[Add Blackthorn Forge MCP for Native Salesforce Event Management in Claude (opens in new tab)](https://claude.ai/directory/bb966230-ca18-4d33-8601-7d54184931c1 "Add in Claude")

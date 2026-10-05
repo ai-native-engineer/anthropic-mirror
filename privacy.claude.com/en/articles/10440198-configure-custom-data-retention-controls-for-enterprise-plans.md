@@ -2,7 +2,7 @@
 
 # Configure custom data retention controls for Enterprise plans
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 Table of contents
 

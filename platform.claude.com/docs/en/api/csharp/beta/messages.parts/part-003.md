@@ -3,6 +3,310 @@
 
 <!-- chunk-start -->
 
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserCloseTabConfig? CloseTab`
+
+          `close_tab`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserDoubleClickConfig? DoubleClick`
+
+          `double_click`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserFileUploadConfig? FileUpload`
+
+          `file_upload`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserFindConfig? Find`
+
+          `find`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserFormInputConfig? FormInput`
+
+          `form_input`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserGetPageTextConfig? GetPageText`
+
+          `get_page_text`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserHoldKeyConfig? HoldKey`
+
+          `hold_key`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserHoverConfig? Hover`
+
+          `hover`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserJavascriptExecConfig? JavascriptExec`
+
+          `javascript_exec`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserKeyConfig? Key`
+
+          `key`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserLeftClickConfig? LeftClick`
+
+          `left_click`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserLeftClickDragConfig? LeftClickDrag`
+
+          `left_click_drag`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserLeftMouseDownConfig? LeftMouseDown`
+
+          `left_mouse_down`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserLeftMouseUpConfig? LeftMouseUp`
+
+          `left_mouse_up`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserListTabsConfig? ListTabs`
+
+          `list_tabs`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserMiddleClickConfig? MiddleClick`
+
+          `middle_click`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserMouseMoveConfig? MouseMove`
+
+          `mouse_move`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserNavigateConfig? Navigate`
+
+          `navigate`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserNewTabConfig? NewTab`
+
+          `new_tab`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserReadConsoleConfig? ReadConsole`
+
+          `read_console`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserReadNetworkConfig? ReadNetwork`
+
+          `read_network`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserReadPageConfig? ReadPage`
+
+          `read_page`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserRightClickConfig? RightClick`
+
+          `right_click`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserScreenshotConfig? Screenshot`
+
+          `screenshot`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserScrollConfig? Scroll`
+
+          `scroll`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `BetaBrowserScrollToConfig? ScrollTo`
@@ -1226,19 +1530,23 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-          High-performance model for agents and coding
-
-        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-          High-performance model for agents and coding
-
         - `ClaudeMythosPreview("claude-mythos-preview")`
 
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
+
+        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
 
       - `JsonElement Name = "advisor"`
 
@@ -4620,19 +4928,23 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-        High-performance model for agents and coding
-
-      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-        High-performance model for agents and coding
-
       - `ClaudeMythosPreview("claude-mythos-preview")`
 
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
 
     - `JsonElement Name = "advisor"`
 
@@ -5182,19 +5494,23 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-          High-performance model for agents and coding
-
-        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-          High-performance model for agents and coding
-
         - `ClaudeMythosPreview("claude-mythos-preview")`
 
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
+
+        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
 
       - `required long OutputTokens`
 
@@ -10780,19 +11096,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                               Powerful intelligence for long-running agents and coding
 
-                            - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-                              High-performance model for agents and coding
-
-                            - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                              High-performance model for agents and coding
-
                             - `ClaudeMythosPreview("claude-mythos-preview")`
 
                               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                               New class of intelligence, strongest in coding and cybersecurity
+
+                            - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+                              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                              High-performance model for agents and coding
+
+                            - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                              High-performance model for agents and coding
 
                           - `JsonElement Name = "advisor"`
 
@@ -11945,6 +12265,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string userProfileID`
 
     Header param: The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
@@ -12392,6 +12714,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -12661,6 +12985,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -12929,6 +13255,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -13188,6 +13516,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -13348,6 +13678,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `string workspaceID`
 
@@ -16066,19 +16398,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             Powerful intelligence for long-running agents and coding
 
-                          - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-                            High-performance model for agents and coding
-
-                          - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                            High-performance model for agents and coding
-
                           - `ClaudeMythosPreview("claude-mythos-preview")`
 
                             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                             New class of intelligence, strongest in coding and cybersecurity
+
+                          - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+                            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                            High-performance model for agents and coding
+
+                          - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                            High-performance model for agents and coding
 
                         - `JsonElement Name = "advisor"`
 

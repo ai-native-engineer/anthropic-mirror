@@ -127,6 +127,17 @@ Juanny Romero, founder and CEO of Mothership Coffee Roasters, runs six cafés pl
 
 [Claude for Small Business: Monday Brief](https://youtu.be/yxeHQvby5JY)
 
+<!-- yt-inline:yxeHQvby5JY -->
+[![YouTube yxeHQvby5JY](https://img.youtube.com/vi/yxeHQvby5JY/hqdefault.jpg)](https://www.youtube.com/watch?v=yxeHQvby5JY)
+
+<details>
+<summary>자막: YouTube yxeHQvby5JY</summary>
+
+_(자막 없음)_
+
+</details>
+
+
 MON03
 
 Monday, 9:40pm
@@ -163,6 +174,17 @@ At Bambi Baby, a family-owned baby stroller and car seat retailer, about three i
 
 [Claude for Small Business: Speed to Lead](https://youtu.be/D2FcNf2v9KY)
 
+<!-- yt-inline:D2FcNf2v9KY -->
+[![YouTube D2FcNf2v9KY](https://img.youtube.com/vi/D2FcNf2v9KY/hqdefault.jpg)](https://www.youtube.com/watch?v=D2FcNf2v9KY)
+
+<details>
+<summary>자막: YouTube D2FcNf2v9KY</summary>
+
+_(자막 없음)_
+
+</details>
+
+
 WED04
 
 Wednesday
@@ -196,6 +218,17 @@ Weeks → minutesfrom scoping a deal to a statement of work out for signature
 KANE, a creative and growth agency in Princeton, New Jersey, used to spend weeks per deal on scoping, pricing, proposal writing, and contracting. Co-founders Michael and Joni Kazantzis built a Claude pipeline that scores fit from the meeting notes, prices from their own past projects, drafts the proposal, and has the statement of work out for signature within minutes of a yes. “We've taken an entire process that used to take us weeks and it's done almost within a few minutes in a day, and even the clients recognize that,” Michael Kazantzis said.
 
 [Claude for Small Business: Proposal Builder](https://youtu.be/ZV3oKch1t_I)
+
+<!-- yt-inline:ZV3oKch1t_I -->
+[![YouTube ZV3oKch1t_I](https://img.youtube.com/vi/ZV3oKch1t_I/hqdefault.jpg)](https://www.youtube.com/watch?v=ZV3oKch1t_I)
+
+<details>
+<summary>자막: YouTube ZV3oKch1t_I</summary>
+
+_(자막 없음)_
+
+</details>
+
 
 THU05
 
@@ -232,6 +265,17 @@ Kirsten Maitland, co-founder and CEO · Austin
 Kirsten Maitland, co-founder and CEO, launched Rebel Cheese, an Austin plant-based cheesemaker that went from one restaurant to a national e-commerce business after appearing on Shark Tank. The brand voice lived in her head and couldn't scale past her own hours. After vetting Claude on data security, she trained a voice skill on her own writing and connected it to her email and social tools. A teammate now drafts on-brand campaigns without routing every line through the founder. “I live in Claude, running multiple instances simultaneously across two computers to keep up with demand,” she said.
 
 [Claude for Small Business: Social Content Engine](https://youtu.be/z8sq-2SB35w)
+
+<!-- yt-inline:z8sq-2SB35w -->
+[![YouTube z8sq-2SB35w](https://img.youtube.com/vi/z8sq-2SB35w/hqdefault.jpg)](https://www.youtube.com/watch?v=z8sq-2SB35w)
+
+<details>
+<summary>자막: YouTube z8sq-2SB35w</summary>
+
+_(자막 없음)_
+
+</details>
+
 
 END06
 
@@ -278,6 +322,17 @@ HireEffect, a Dallas firm that runs bookkeeping, payroll, and HR for small busin
 They also built a governed reporting dashboard across five disparate systems, including QuickBooks and a CRM, that turned a two-hour monthly task into ten seconds; their Director of Bookkeeping built her own skill that turns a client P&L into a visual summary with discussion points already flagged.
 
 [Claude for Small Business: Close the Month](https://youtu.be/sD1_ERv4nDM)
+
+<!-- yt-inline:sD1_ERv4nDM -->
+[![YouTube sD1_ERv4nDM](https://img.youtube.com/vi/sD1_ERv4nDM/hqdefault.jpg)](https://www.youtube.com/watch?v=sD1_ERv4nDM)
+
+<details>
+<summary>자막: YouTube sD1_ERv4nDM</summary>
+
+_(자막 없음)_
+
+</details>
+
 
 See [the full list](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin) of workflows and integrations.
 

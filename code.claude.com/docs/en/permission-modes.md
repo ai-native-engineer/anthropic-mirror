@@ -83,7 +83,7 @@ The built-in default depends on how you run Claude Code. The first row that matc
 | `claude -p` or the [Agent SDK](https://code.claude.com/docs/en/agent-sdk/permissions#permission-modes) | `default` in sessions that [fetch feature flags](https://code.claude.com/docs/en/env-vars#features-that-need-feature-flag-fetching). In sessions that don't, such as on a third-party provider or with telemetry off, `auto` with Claude Code v2.1.285 or later and `default` on earlier versions. A session in an organization whose policy withholds the `auto` default starts in `default` instead |
 | In a terminal or through the [VS Code extension](https://code.claude.com/docs/en/vs-code) | `auto` with Claude Code v2.1.283 or later; on earlier versions, `auto` on Pro, Max, or Team plans in sessions that [fetch feature flags](https://code.claude.com/docs/en/env-vars#features-that-need-feature-flag-fetching), and `default` otherwise |
 
-In your [first session after an install or upgrade](https://code.claude.com/docs/en/env-vars#first-session-after-an-install-or-upgrade), Claude Code can choose the starting permission mode before its feature flags arrive. That session can start in a different permission mode than the table gives, and your next session matches the table.
+In your [first session after an install or upgrade](https://code.claude.com/docs/en/env-vars#first-session-after-an-install-or-upgrade), Claude Code can choose the starting permission mode before its feature flags arrive. That session can start in a different permission mode than the table gives.
 
 When the flag, a settings file, or the built-in default selects `auto` but auto mode isn't available to the session, Claude Code starts the session in Manual instead. Auto mode is unavailable when the session doesn't meet the [availability requirements](#eliminate-prompts-with-auto-mode), such as a settings file turning it off or a model that doesn't support it, or when Anthropic has temporarily turned it off server-side.
 
@@ -640,7 +640,7 @@ Protected directories:
 * `.devcontainer`
 * `.yarn`
 * `.mvn`
-* `.claude`, except for `.claude/worktrees` where Claude stores its own git worktrees
+* `.claude`, except for `.claude/worktrees` where Claude stores its own git worktrees, and except for the markdown files in Claude's own [auto memory](https://code.claude.com/docs/en/memory#storage-location) directory in a session started without `--restricted`
 * A directory you loaded with [`--plugin-dir`](https://code.claude.com/docs/en/plugins/mods/create#change-a-mod-with-claude), because Claude Code reloads and runs a mod's code from it when a file changes
 
 Protected files:

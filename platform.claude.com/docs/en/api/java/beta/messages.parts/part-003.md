@@ -3,9 +3,363 @@
 
 <!-- chunk-start -->
 
+        minimum: 1
+
+      - `Optional<Boolean> strict`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `Optional<BetaUserLocation> userLocation`
+
+        Parameters for the user's location. Used to provide more relevant search results.
+
+    - `class BetaWebFetchTool20260209`
+
+      - `JsonValue type = "web_fetch_20260209"`
+
+      - `JsonValue name = "web_fetch"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `Optional<List<AllowedCaller>> allowedCallers`
+
+        - `DIRECT("direct")`
+
+        - `CODE_EXECUTION_20250825("code_execution_20250825")`
+
+        - `CODE_EXECUTION_20260120("code_execution_20260120")`
+
+        - `CODE_EXECUTION_20260521("code_execution_20260521")`
+
+      - `Optional<List<String>> allowedDomains`
+
+        List of domains to allow fetching from
+
+      - `Optional<List<String>> blockedDomains`
+
+        List of domains to block fetching from
+
+      - `Optional<BetaCacheControlEphemeral> cacheControl`
+
+        Create a cache control breakpoint at this content block.
+
+      - `Optional<BetaCitationsConfigParam> citations`
+
+        Citations configuration for fetched documents. Citations are disabled by default.
+
+      - `Optional<Boolean> deferLoading`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `Optional<Long> maxContentTokens`
+
+        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        minimum: 1
+
+      - `Optional<Long> maxUses`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `Optional<Boolean> strict`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `Optional<BetaWebFetchUrlSources> urlSources`
+
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+    - `class BetaWebFetchTool20260309`
+
+      Web fetch tool with use_cache parameter for bypassing cached content.
+
+      - `JsonValue type = "web_fetch_20260309"`
+
+      - `JsonValue name = "web_fetch"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `Optional<List<AllowedCaller>> allowedCallers`
+
+        - `DIRECT("direct")`
+
+        - `CODE_EXECUTION_20250825("code_execution_20250825")`
+
+        - `CODE_EXECUTION_20260120("code_execution_20260120")`
+
+        - `CODE_EXECUTION_20260521("code_execution_20260521")`
+
+      - `Optional<List<String>> allowedDomains`
+
+        List of domains to allow fetching from
+
+      - `Optional<List<String>> blockedDomains`
+
+        List of domains to block fetching from
+
+      - `Optional<BetaCacheControlEphemeral> cacheControl`
+
+        Create a cache control breakpoint at this content block.
+
+      - `Optional<BetaCitationsConfigParam> citations`
+
+        Citations configuration for fetched documents. Citations are disabled by default.
+
+      - `Optional<Boolean> deferLoading`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `Optional<Long> maxContentTokens`
+
+        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        minimum: 1
+
+      - `Optional<Long> maxUses`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `Optional<Boolean> strict`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `Optional<BetaWebFetchUrlSources> urlSources`
+
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `Optional<Boolean> useCache`
+
+        Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+    - `class BetaWebSearchTool20260318`
+
+      - `JsonValue type = "web_search_20260318"`
+
+      - `JsonValue name = "web_search"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `Optional<List<AllowedCaller>> allowedCallers`
+
+        - `DIRECT("direct")`
+
+        - `CODE_EXECUTION_20250825("code_execution_20250825")`
+
+        - `CODE_EXECUTION_20260120("code_execution_20260120")`
+
+        - `CODE_EXECUTION_20260521("code_execution_20260521")`
+
+      - `Optional<List<String>> allowedDomains`
+
+        If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+      - `Optional<List<String>> blockedDomains`
+
+        If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+      - `Optional<BetaCacheControlEphemeral> cacheControl`
+
+        Create a cache control breakpoint at this content block.
+
+      - `Optional<Boolean> deferLoading`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `Optional<Long> maxUses`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `Optional<ResponseInclusion> responseInclusion`
+
+        How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+        - `FULL("full")`
+
+        - `EXCLUDED("excluded")`
+
+      - `Optional<Boolean> strict`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `Optional<BetaUserLocation> userLocation`
+
+        Parameters for the user's location. Used to provide more relevant search results.
+
+    - `class BetaWebFetchTool20260318`
+
+      - `JsonValue type = "web_fetch_20260318"`
+
+      - `JsonValue name = "web_fetch"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `Optional<List<AllowedCaller>> allowedCallers`
+
+        - `DIRECT("direct")`
+
+        - `CODE_EXECUTION_20250825("code_execution_20250825")`
+
+        - `CODE_EXECUTION_20260120("code_execution_20260120")`
+
+        - `CODE_EXECUTION_20260521("code_execution_20260521")`
+
+      - `Optional<List<String>> allowedDomains`
+
+        List of domains to allow fetching from
+
+      - `Optional<List<String>> blockedDomains`
+
+        List of domains to block fetching from
+
+      - `Optional<BetaCacheControlEphemeral> cacheControl`
+
+        Create a cache control breakpoint at this content block.
+
+      - `Optional<BetaCitationsConfigParam> citations`
+
+        Citations configuration for fetched documents. Citations are disabled by default.
+
+      - `Optional<Boolean> deferLoading`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `Optional<Long> maxContentTokens`
+
+        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        minimum: 1
+
+      - `Optional<Long> maxUses`
+
+        Maximum number of times the tool can be used in the API request.
+
+        minimum: 1
+
+      - `Optional<ResponseInclusion> responseInclusion`
+
+        How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+        - `FULL("full")`
+
+        - `EXCLUDED("excluded")`
+
+      - `Optional<Boolean> strict`
+
+        When true, guarantees schema validation on tool names and inputs
+
+      - `Optional<BetaWebFetchUrlSources> urlSources`
+
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `Optional<Boolean> useCache`
+
+        Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+    - `class BetaAdvisorTool20260301`
+
+      - `JsonValue type = "advisor_20260301"`
+
+      - `Model model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `CLAUDE_SONNET_5_5("claude-sonnet-5-5")`
+
+          Efficient model for coding and agents
+
+        - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
+
+        - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
+
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+        - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+          Efficient model for coding and agents
+
+        - `CLAUDE_FABLE_5("claude-fable-5")`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `CLAUDE_MYTHOS_5("claude-mythos-5")`
+
+          Most capable model for cybersecurity and biology research
+
+        - `CLAUDE_OPUS_5("claude-opus-5")`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
+
+          Best combination of speed and intelligence
+
+        - `CLAUDE_HAIKU_4_5("claude-haiku-4-5")`
+
+          Fastest model with near-frontier intelligence
+
+        - `CLAUDE_HAIKU_4_5_20251001("claude-haiku-4-5-20251001")`
+
+          Fastest model with near-frontier intelligence
+
+        - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+        - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
+
+        - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
 
       - `JsonValue name = "advisor"`
 
@@ -2013,19 +2367,23 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-          High-performance model for agents and coding
-
-        - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-          High-performance model for agents and coding
-
         - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+        - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
+
+        - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
 
       - `JsonValue name = "advisor"`
 
@@ -5407,19 +5765,23 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-        High-performance model for agents and coding
-
-      - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-        High-performance model for agents and coding
-
       - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+      - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
 
     - `JsonValue name = "advisor"`
 
@@ -5969,19 +6331,23 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-          High-performance model for agents and coding
-
-        - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-          High-performance model for agents and coding
-
         - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+        - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
+
+        - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
 
       - `long outputTokens`
 
@@ -8613,6 +8979,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
     - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `Optional<String> userProfileId`
 
@@ -11679,19 +12047,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                               Powerful intelligence for long-running agents and coding
 
-                            - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-                              High-performance model for agents and coding
-
-                            - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                              High-performance model for agents and coding
-
                             - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
                               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                               New class of intelligence, strongest in coding and cybersecurity
+
+                            - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+                              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                              High-performance model for agents and coding
+
+                            - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                              High-performance model for agents and coding
 
                           - `JsonValue name = "advisor"`
 
@@ -13015,6 +13387,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -13295,6 +13669,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -13572,6 +13948,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -13842,6 +14220,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `Optional<String> workspaceId`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -14013,6 +14393,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
     - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `Optional<String> workspaceId`
 
@@ -16731,19 +17113,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             Powerful intelligence for long-running agents and coding
 
-                          - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-                            High-performance model for agents and coding
-
-                          - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                            High-performance model for agents and coding
-
                           - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
                             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                             New class of intelligence, strongest in coding and cybersecurity
+
+                          - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+                            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                            High-performance model for agents and coding
+
+                          - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                            High-performance model for agents and coding
 
                         - `JsonValue name = "advisor"`
 

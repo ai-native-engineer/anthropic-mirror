@@ -488,5 +488,3 @@ Code with Claude: Extended will not be livestreamed. Sessions will be recorded a
 Is there a cost to attend?
 
 No, in-person attendance is free.
-
-Code with Claude: Extended Tokyo — June 11, 2026

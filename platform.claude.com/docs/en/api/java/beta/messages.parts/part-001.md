@@ -128,6 +128,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `Optional<String> userProfileId`
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
@@ -3173,19 +3175,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                           Powerful intelligence for long-running agents and coding
 
-                        - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-                          High-performance model for agents and coding
-
-                        - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                          High-performance model for agents and coding
-
                         - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
                           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                           New class of intelligence, strongest in coding and cybersecurity
+
+                        - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+                          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          High-performance model for agents and coding
+
+                        - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          High-performance model for agents and coding
 
                       - `JsonValue name = "advisor"`
 
@@ -6613,19 +6619,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       Powerful intelligence for long-running agents and coding
 
-                    - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-                      High-performance model for agents and coding
-
-                    - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                      High-performance model for agents and coding
-
                     - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
                       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                       New class of intelligence, strongest in coding and cybersecurity
+
+                    - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
+
+                    - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
 
                   - `JsonValue name = "advisor"`
 
@@ -8147,6 +8157,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
 
     - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `Optional<String> userProfileId`
 
@@ -11181,19 +11193,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                           Powerful intelligence for long-running agents and coding
 
-                        - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-                          High-performance model for agents and coding
-
-                        - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                          High-performance model for agents and coding
-
                         - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
                           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                           New class of intelligence, strongest in coding and cybersecurity
+
+                        - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+                          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          High-performance model for agents and coding
+
+                        - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          High-performance model for agents and coding
 
                       - `JsonValue name = "advisor"`
 
@@ -11940,19 +11956,23 @@ public final class Main {
 
       Powerful intelligence for long-running agents and coding
 
-    - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-      High-performance model for agents and coding
-
-    - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-      High-performance model for agents and coding
-
     - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+    - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
 
   - `long outputTokens`
 
@@ -12084,19 +12104,23 @@ public final class Main {
 
       Powerful intelligence for long-running agents and coding
 
-    - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-      High-performance model for agents and coding
-
-    - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-      High-performance model for agents and coding
-
     - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+    - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
 
   - `JsonValue name = "advisor"`
 
@@ -17317,19 +17341,23 @@ public final class Main {
 
                   Powerful intelligence for long-running agents and coding
 
-                - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-                  High-performance model for agents and coding
-
-                - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                  High-performance model for agents and coding
-
                 - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
                   **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                   New class of intelligence, strongest in coding and cybersecurity
+
+                - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+                  **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                  High-performance model for agents and coding
+
+                - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                  **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                  High-performance model for agents and coding
 
               - `JsonValue name = "advisor"`
 
@@ -19449,19 +19477,23 @@ public final class Main {
 
                   Powerful intelligence for long-running agents and coding
 
-                - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-                  High-performance model for agents and coding
-
-                - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                  High-performance model for agents and coding
-
                 - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
                   **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                   New class of intelligence, strongest in coding and cybersecurity
+
+                - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+                  **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                  High-performance model for agents and coding
+
+                - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                  **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                  High-performance model for agents and coding
 
               - `JsonValue name = "advisor"`
 
@@ -23203,19 +23235,23 @@ public final class Main {
 
                     Powerful intelligence for long-running agents and coding
 
-                  - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-                    High-performance model for agents and coding
-
-                  - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                    High-performance model for agents and coding
-
                   - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
                     **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                     New class of intelligence, strongest in coding and cybersecurity
+
+                  - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+                    **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                    High-performance model for agents and coding
+
+                  - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                    **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                    High-performance model for agents and coding
 
                 - `JsonValue name = "advisor"`
 
@@ -26466,19 +26502,23 @@ public final class Main {
 
                     Powerful intelligence for long-running agents and coding
 
-                  - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-                    High-performance model for agents and coding
-
-                  - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                    High-performance model for agents and coding
-
                   - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
                     **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                     New class of intelligence, strongest in coding and cybersecurity
+
+                  - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+                    **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                    High-performance model for agents and coding
+
+                  - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                    **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                    High-performance model for agents and coding
 
                 - `JsonValue name = "advisor"`
 
@@ -27593,19 +27633,23 @@ public final class Main {
 
         Powerful intelligence for long-running agents and coding
 
-      - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-        High-performance model for agents and coding
-
-      - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-        High-performance model for agents and coding
-
       - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+      - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
 
   - `BetaFallbackInfo to`
 
@@ -27735,19 +27779,23 @@ public final class Main {
 
         Powerful intelligence for long-running agents and coding
 
-      - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-        High-performance model for agents and coding
-
-      - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-        High-performance model for agents and coding
-
       - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+      - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
 
   - `BetaFallbackInfoParam to`
 
@@ -27988,19 +28036,23 @@ public final class Main {
 
       Powerful intelligence for long-running agents and coding
 
-    - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-      High-performance model for agents and coding
-
-    - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-      High-performance model for agents and coding
-
     - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+    - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
 
 ### Beta Fallback Info Param
 
@@ -28078,19 +28130,23 @@ public final class Main {
 
       Powerful intelligence for long-running agents and coding
 
-    - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-      High-performance model for agents and coding
-
-    - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-      High-performance model for agents and coding
-
     - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+    - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
 
 ### Beta Fallback Message Iteration Usage
 
@@ -28213,19 +28269,23 @@ public final class Main {
 
       Powerful intelligence for long-running agents and coding
 
-    - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-      High-performance model for agents and coding
-
-    - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-      High-performance model for agents and coding
-
     - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+    - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
 
   - `long outputTokens`
 
@@ -28314,19 +28374,23 @@ public final class Main {
 
       Powerful intelligence for long-running agents and coding
 
-    - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-      High-performance model for agents and coding
-
-    - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-      High-performance model for agents and coding
-
     - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+    - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
 
   - `Optional<Long> maxTokens`
 
@@ -28560,19 +28624,23 @@ public final class Main {
 
         Powerful intelligence for long-running agents and coding
 
-      - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-        High-performance model for agents and coding
-
-      - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-        High-performance model for agents and coding
-
       - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+      - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
 
     - `Optional<Long> maxTokens`
 
@@ -29790,281 +29858,3 @@ public final class Main {
       - `JsonValue type = "redacted_thinking"`
 
       - `String data`
-
-        The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
-
-        Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
-
-        See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
-
-    - `class BetaToolUseBlock`
-
-      - `JsonValue type = "tool_use"`
-
-      - `String id`
-
-        pattern: ^[a-zA-Z0-9_-]+$
-
-      - `Input input`
-
-      - `String name`
-
-        minLength: 1
-
-      - `Optional<Caller> caller`
-
-        - `class BetaDirectCaller`
-
-          Tool invocation directly from the model.
-
-          - `JsonValue type = "direct"`
-
-        - `class BetaServerToolCaller`
-
-          Tool invocation generated by a server-side tool.
-
-          - `JsonValue type = "code_execution_20250825"`
-
-          - `String toolId`
-
-            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `class BetaServerToolCaller20260120`
-
-          - `JsonValue type = "code_execution_20260120"`
-
-          - `String toolId`
-
-            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `Optional<String> toolsetName`
-
-        For a toolset member tool_use, the toolset family.
-
-        minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
-
-    - `class BetaServerToolUseBlock`
-
-      - `JsonValue type = "server_tool_use"`
-
-      - `String id`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `Input input`
-
-      - `Name name`
-
-        - `ADVISOR("advisor")`
-
-        - `WEB_SEARCH("web_search")`
-
-        - `WEB_FETCH("web_fetch")`
-
-        - `CODE_EXECUTION("code_execution")`
-
-        - `BASH_CODE_EXECUTION("bash_code_execution")`
-
-        - `TEXT_EDITOR_CODE_EXECUTION("text_editor_code_execution")`
-
-        - `TOOL_SEARCH_TOOL_REGEX("tool_search_tool_regex")`
-
-        - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
-
-      - `Optional<Caller> caller`
-
-        - `class BetaDirectCaller`
-
-          Tool invocation directly from the model.
-
-        - `class BetaServerToolCaller`
-
-          Tool invocation generated by a server-side tool.
-
-        - `class BetaServerToolCaller20260120`
-
-    - `class BetaWebSearchToolResultBlock`
-
-      - `JsonValue type = "web_search_tool_result"`
-
-      - `BetaWebSearchToolResultBlockContent content`
-
-        - `class BetaWebSearchToolResultError`
-
-          - `JsonValue type = "web_search_tool_result_error"`
-
-          - `BetaWebSearchToolResultErrorCode errorCode`
-
-            - `INVALID_TOOL_INPUT("invalid_tool_input")`
-
-            - `UNAVAILABLE("unavailable")`
-
-            - `MAX_USES_EXCEEDED("max_uses_exceeded")`
-
-            - `TOO_MANY_REQUESTS("too_many_requests")`
-
-            - `QUERY_TOO_LONG("query_too_long")`
-
-            - `REQUEST_TOO_LARGE("request_too_large")`
-
-        - `List<BetaWebSearchResultBlock>`
-
-          - `JsonValue type = "web_search_result"`
-
-          - `String encryptedContent`
-
-          - `Optional<String> pageAge`
-
-          - `String title`
-
-          - `String url`
-
-      - `String toolUseId`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `Optional<Caller> caller`
-
-        - `class BetaDirectCaller`
-
-          Tool invocation directly from the model.
-
-        - `class BetaServerToolCaller`
-
-          Tool invocation generated by a server-side tool.
-
-        - `class BetaServerToolCaller20260120`
-
-    - `class BetaWebFetchToolResultBlock`
-
-      - `JsonValue type = "web_fetch_tool_result"`
-
-      - `Content content`
-
-        - `class BetaWebFetchToolResultErrorBlock`
-
-          - `JsonValue type = "web_fetch_tool_result_error"`
-
-          - `BetaWebFetchToolResultErrorCode errorCode`
-
-            - `INVALID_TOOL_INPUT("invalid_tool_input")`
-
-            - `URL_TOO_LONG("url_too_long")`
-
-            - `URL_NOT_ALLOWED("url_not_allowed")`
-
-            - `URL_NOT_IN_PRIOR_CONTEXT("url_not_in_prior_context")`
-
-            - `URL_NOT_ACCESSIBLE("url_not_accessible")`
-
-            - `UNSUPPORTED_CONTENT_TYPE("unsupported_content_type")`
-
-            - `TOO_MANY_REQUESTS("too_many_requests")`
-
-            - `MAX_USES_EXCEEDED("max_uses_exceeded")`
-
-            - `UNAVAILABLE("unavailable")`
-
-            - `CONTENT_TOO_LARGE("content_too_large")`
-
-        - `class BetaWebFetchBlock`
-
-          - `JsonValue type = "web_fetch_result"`
-
-          - `BetaDocumentBlock content`
-
-            - `JsonValue type = "document"`
-
-            - `Optional<BetaCitationConfig> citations`
-
-              Citation configuration for the document
-
-              - `boolean enabled`
-
-            - `Source source`
-
-              - `class BetaBase64PdfSource`
-
-                - `JsonValue type = "base64"`
-
-                - `String data`
-
-                  format: byte
-
-                - `JsonValue mediaType = "application/pdf"`
-
-              - `class BetaPlainTextSource`
-
-                - `JsonValue type = "text"`
-
-                - `String data`
-
-                - `JsonValue mediaType = "text/plain"`
-
-            - `Optional<String> title`
-
-              The title of the document
-
-          - `Optional<String> retrievedAt`
-
-            ISO 8601 timestamp when the content was retrieved
-
-          - `String url`
-
-            Fetched content URL
-
-      - `String toolUseId`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `Optional<Caller> caller`
-
-        - `class BetaDirectCaller`
-
-          Tool invocation directly from the model.
-
-        - `class BetaServerToolCaller`
-
-          Tool invocation generated by a server-side tool.
-
-        - `class BetaServerToolCaller20260120`
-
-    - `class BetaAdvisorToolResultBlock`
-
-      - `JsonValue type = "advisor_tool_result"`
-
-      - `Content content`
-
-        - `class BetaAdvisorToolResultError`
-
-          - `JsonValue type = "advisor_tool_result_error"`
-
-          - `ErrorCode errorCode`
-
-            - `MAX_USES_EXCEEDED("max_uses_exceeded")`
-
-            - `PROMPT_TOO_LONG("prompt_too_long")`
-
-            - `TOO_MANY_REQUESTS("too_many_requests")`
-
-            - `OVERLOADED("overloaded")`
-
-            - `UNAVAILABLE("unavailable")`
-
-            - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
-
-            - `MODEL_NOT_FOUND("model_not_found")`
-
-        - `class BetaAdvisorResultBlock`
-
-          - `JsonValue type = "advisor_result"`
-
-          - `Optional<String> stopReason`
-
-            The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
-
-          - `String text`
-
-        - `class BetaAdvisorRedactedResultBlock`
-
-          - `JsonValue type = "advisor_redacted_result"`

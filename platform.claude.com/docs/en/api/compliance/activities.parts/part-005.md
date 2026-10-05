@@ -3,6 +3,42 @@
 
 <!-- chunk-start -->
 
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
             Asserting party: the GCP project the organization is bound to.
 
             - `type: optional "gcp"`
@@ -32133,6 +32169,10 @@
 
       format: date-time
 
+    - `ip_range: optional string or null`
+
+      The IP range added to the allowlist, e.g. "192.0.2.0/24", which is not enforced while it is inactive or the IP allowlist is turned off; absent for activities recorded before this field was added.
+
     - `organization_id: optional string or null`
 
       Organization ID this activity is associated with
@@ -32364,6 +32404,10 @@
       When this activity occurred.
 
       format: date-time
+
+    - `ip_range: optional string or null`
+
+      The IP range removed from the allowlist, e.g. "192.0.2.0/24"; absent for activities recorded before this field was added.
 
     - `organization_id: optional string or null`
 
@@ -32599,7 +32643,15 @@
 
     - `ip_allowlist_enabled: optional boolean or null`
 
-      Whether the organization's IP allowlist is turned on (true) or off (false) after this change; absent or null when the change was to an individual IP range, and for activities recorded before this field was added.
+      Whether the organization's IP allowlist is turned on (true) or off (false) after this change; absent when the change did not turn the IP allowlist on or off, and for activities recorded before this field was added.
+
+    - `ip_range: optional string or null`
+
+      The IP range this change applied to, as it is after the change, e.g. "192.0.2.0/24"; absent when the change was not to an individual IP range, and for activities recorded before this field was added.
+
+    - `ip_range_active: optional boolean or null`
+
+      Whether the IP range is active on the allowlist (true) or saved but inactive (false) after this change; absent when the change did not turn the range on or off.
 
     - `organization_id: optional string or null`
 
@@ -32608,6 +32660,10 @@
     - `organization_uuid: optional string or null`
 
       Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `previous_ip_range: optional string or null`
+
+      The IP range before this change; absent unless the range itself was changed.
 
   - `OrgInviteLinkDisabled object`
 
@@ -42348,98 +42404,3 @@
     - `id: optional string`
 
       Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-  - `OrgUserViewed object`
-
-    An organization user was viewed.
-
-    - `type: optional "org_user_viewed"`
-
-      default: org_user_viewed
-
-    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
-
-      - `APIActor object`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `UserActor object`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-      - `UnauthenticatedUserActor object`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-        - `email_address: optional string or null`
-
-          format: email
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-      - `AdminAPIKeyActor object`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor

@@ -3,6 +3,88 @@
 
 <!-- chunk-start -->
 
+**GET** `/v1/environments/{environment_id}/work/poll`
+
+Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
+
+Long poll for work items in the queue.
+
+#### Parameters
+
+- `environment_id: str`
+
+- `block_ms: Optional[int]`
+
+  How long to wait for work to arrive before returning. Must be 1-999 in milliseconds. Defaults to non-blocking (returns immediately if no work is available).
+
+  minimum: 1
+
+- `reclaim_older_than_ms: Optional[int]`
+
+  Reclaim unacknowledged work items older than this many milliseconds. If omitted, uses the default (5000ms).
+
+  minimum: 1
+
+- `betas: Optional[List[AnthropicBetaParam]]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `str`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
   - `"dreaming-2026-04-21"`
 
   - `"thinking-token-count-2026-05-13"`
@@ -46,6 +128,258 @@
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
+
+- `anthropic_worker_id: Optional[str]`
+
+  Unique identifier for the specific worker polling, used to track aggregated environment-level work metrics in Console
+
+#### Returns
+
+- `class BetaSelfHostedWork`
+
+  Work resource representing a unit of work in a self-hosted environment.
+
+  Work items are queued when sessions are created or when long-dormant sessions
+  receive new messages. The environment worker polls for work to execute in a
+  self-hosted sandbox.
+
+  - `type: Literal["work"]`
+
+    The type of object (always 'work')
+
+    default: work
+
+  - `id: str`
+
+    Work identifier (e.g., 'work_...')
+
+  - `acknowledged_at: Optional[str]`
+
+    RFC 3339 timestamp when the work item was acknowledged and assigned to a self-hosted sandbox
+
+  - `created_at: str`
+
+    RFC 3339 timestamp when work was created
+
+  - `data: BetaSessionWorkData`
+
+    The actual work to be performed
+
+    - `type: Literal["session"]`
+
+      Type of work data
+
+    - `id: str`
+
+      Session identifier (e.g., 'session_...')
+
+  - `environment_id: str`
+
+    Environment identifier this work belongs to (e.g., `env_...`)
+
+  - `latest_heartbeat_at: Optional[str]`
+
+    RFC 3339 timestamp of the most recent heartbeat
+
+  - `metadata: Dict[str, str]`
+
+    User-provided metadata key-value pairs associated with this work item
+
+  - `secret: Optional[str]`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
+  - `started_at: Optional[str]`
+
+    RFC 3339 timestamp when work execution started
+
+  - `state: Literal["queued", "starting", "active", 2 more]`
+
+    Current state of the work item
+
+    - `"queued"`
+
+    - `"starting"`
+
+    - `"active"`
+
+    - `"stopping"`
+
+    - `"stopped"`
+
+  - `stop_requested_at: Optional[str]`
+
+    RFC 3339 timestamp when stop was requested
+
+  - `stopped_at: Optional[str]`
+
+    RFC 3339 timestamp when work execution stopped
+
+#### Example
+
+```python
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
+)
+beta_self_hosted_work = client.beta.environments.work.poll(
+    environment_id="env_011CZkZ9X2dpNyB7HsEFoRfW",
+)
+print(beta_self_hosted_work.id)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "acknowledged_at": "acknowledged_at",
+  "created_at": "created_at",
+  "data": {
+    "id": "id",
+    "type": "session"
+  },
+  "environment_id": "environment_id",
+  "latest_heartbeat_at": "latest_heartbeat_at",
+  "metadata": {
+    "foo": "string"
+  },
+  "secret": "secret",
+  "started_at": "started_at",
+  "state": "queued",
+  "stop_requested_at": "stop_requested_at",
+  "stopped_at": "stopped_at",
+  "type": "work"
+}
+```
+
+### Acknowledge Work
+
+`beta.environments.work.ack(work_id, **kwargs)  -> BetaSelfHostedWork`
+
+**POST** `/v1/environments/{environment_id}/work/{work_id}/ack`
+
+Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
+
+Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting' and removing it from the queue.
+
+#### Parameters
+
+- `environment_id: str`
+
+- `work_id: str`
+
+- `betas: Optional[List[AnthropicBetaParam]]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `str`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 #### Returns
 
@@ -300,6 +634,8 @@ Record a heartbeat for a work item to maintain the lease.
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 #### Returns
 
 - `class BetaSelfHostedWorkHeartbeatResponse`
@@ -493,6 +829,8 @@ Stop a work item, initiating graceful or forced shutdown.
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -753,6 +1091,8 @@ List work items in an environment.
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 #### Returns
 
 - `class BetaSelfHostedWork`
@@ -1007,6 +1347,8 @@ Update work item metadata with merge semantics.
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1255,6 +1597,8 @@ Get statistics about the work queue for an environment.
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1452,9 +1796,13 @@ Create Session
 
         - `"claude-sonnet-4-5"`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -1528,9 +1876,13 @@ Create Session
 
           - `"claude-sonnet-4-5"`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -2522,6 +2874,8 @@ Create Session
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -2624,9 +2978,13 @@ Create Session
 
         - `"claude-sonnet-4-5"`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -3830,6 +4188,8 @@ List Sessions
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -3932,9 +4292,13 @@ List Sessions
 
         - `"claude-sonnet-4-5"`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -5060,6 +5424,8 @@ Get Session
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -5162,9 +5528,13 @@ Get Session
 
         - `"claude-sonnet-4-5"`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -6769,6 +7139,8 @@ Update Session
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -6871,9 +7243,13 @@ Update Session
 
         - `"claude-sonnet-4-5"`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -7994,6 +8370,8 @@ Delete Session
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -8152,6 +8530,8 @@ Archive Session
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -8254,9 +8634,13 @@ Archive Session
 
         - `"claude-sonnet-4-5"`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -9490,6 +9874,8 @@ List Events
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -11265,9 +11651,13 @@ List Events
 
           - `"claude-sonnet-4-5"`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -12441,6 +12831,8 @@ Send Events
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -13064,6 +13456,8 @@ Stream Events
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -14839,9 +15233,13 @@ Stream Events
 
           - `"claude-sonnet-4-5"`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -15702,6 +16100,8 @@ Add Session Resource
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -15889,6 +16289,8 @@ List Session Resources
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -16168,6 +16570,8 @@ Get Session Resource
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -16441,6 +16845,8 @@ Update Session Resource
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -16709,6 +17115,8 @@ Delete Session Resource
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -16880,6 +17288,8 @@ List Session Threads
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -16988,9 +17398,13 @@ List Session Threads
 
           - `"claude-sonnet-4-5"`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -17800,6 +18214,8 @@ Get Session Thread
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -17908,9 +18324,13 @@ Get Session Thread
 
           - `"claude-sonnet-4-5"`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -18715,6 +19135,8 @@ Archive Session Thread
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -18823,9 +19245,13 @@ Archive Session Thread
 
           - `"claude-sonnet-4-5"`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -19637,6 +20063,8 @@ List Session Thread Events
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -21412,9 +21840,13 @@ List Session Thread Events
 
           - `"claude-sonnet-4-5"`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -22225,6 +22657,8 @@ Stream Session Thread Events
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -24000,9 +24434,13 @@ Stream Session Thread Events
 
           - `"claude-sonnet-4-5"`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -25248,6 +25686,8 @@ Create Deployment
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -26027,6 +26467,8 @@ List Deployments
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -26758,6 +27200,8 @@ Get Deployment
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -27887,6 +28331,8 @@ Update Deployment
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -28614,6 +29060,8 @@ Archive Deployment
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -29343,6 +29791,8 @@ Run Deployment Now
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -29732,6 +30182,8 @@ Pause Deployment
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -30460,6 +30912,8 @@ Unpause Deployment
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -31241,6 +31695,8 @@ List Deployment Runs
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -31634,6 +32090,8 @@ Get Deployment Run
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -32033,6 +32491,8 @@ Create Vault
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -32238,6 +32698,8 @@ List Vaults
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -32436,6 +32898,8 @@ Get Vault
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -32642,6 +33106,8 @@ Update Vault
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -32837,6 +33303,8 @@ Delete Vault
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -32998,6 +33466,8 @@ Archive Vault
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -33368,6 +33838,8 @@ Create Credential
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -33703,6 +34175,8 @@ List Credentials
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -34028,6 +34502,8 @@ Get Credential
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -34480,6 +34956,8 @@ Update Credential
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -34801,6 +35279,8 @@ Delete Credential
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -34967,6 +35447,8 @@ Archive Credential
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -35289,6 +35771,8 @@ Validate Credential
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -35578,6 +36062,8 @@ Create a memory store
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -35596,11 +36082,25 @@ Create a memory store
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
 
+  - `archived_at: Optional[datetime]`
+
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
+
+    format: date-time
+
   - `created_at: datetime`
 
     Timestamp when the store was created.
 
     format: date-time
+
+  - `description: str`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `metadata: Dict[str, str]`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
 
   - `name: str`
 
@@ -35611,20 +36111,6 @@ Create a memory store
     Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
     format: date-time
-
-  - `archived_at: Optional[datetime]`
-
-    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
-
-    format: date-time
-
-  - `description: Optional[str]`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: Optional[Dict[str, str]]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
 
 #### Example
 
@@ -35648,15 +36134,15 @@ print(beta_managed_agents_memory_store.id)
 ```json
 {
   "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z",
   "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
   "description": "description",
   "metadata": {
     "foo": "string"
-  }
+  },
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z"
 }
 ```
 
@@ -35800,6 +36286,8 @@ List memory stores
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -35818,11 +36306,25 @@ List memory stores
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
 
+  - `archived_at: Optional[datetime]`
+
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
+
+    format: date-time
+
   - `created_at: datetime`
 
     Timestamp when the store was created.
 
     format: date-time
+
+  - `description: str`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `metadata: Dict[str, str]`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
 
   - `name: str`
 
@@ -35833,20 +36335,6 @@ List memory stores
     Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
     format: date-time
-
-  - `archived_at: Optional[datetime]`
-
-    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
-
-    format: date-time
-
-  - `description: Optional[str]`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: Optional[Dict[str, str]]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
 
 #### Example
 
@@ -35871,15 +36359,15 @@ print(page.id)
   "data": [
     {
       "id": "id",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "name": "name",
-      "type": "memory_store",
-      "updated_at": "2019-12-27T18:11:19.117Z",
       "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
       "description": "description",
       "metadata": {
         "foo": "string"
-      }
+      },
+      "name": "name",
+      "type": "memory_store",
+      "updated_at": "2019-12-27T18:11:19.117Z"
     }
   ],
   "next_page": "next_page"
@@ -36004,6 +36492,8 @@ Retrieve a memory store
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -36022,11 +36512,25 @@ Retrieve a memory store
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
 
+  - `archived_at: Optional[datetime]`
+
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
+
+    format: date-time
+
   - `created_at: datetime`
 
     Timestamp when the store was created.
 
     format: date-time
+
+  - `description: str`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `metadata: Dict[str, str]`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
 
   - `name: str`
 
@@ -36037,20 +36541,6 @@ Retrieve a memory store
     Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
     format: date-time
-
-  - `archived_at: Optional[datetime]`
-
-    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
-
-    format: date-time
-
-  - `description: Optional[str]`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: Optional[Dict[str, str]]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
 
 #### Example
 
@@ -36074,15 +36564,15 @@ print(beta_managed_agents_memory_store.id)
 ```json
 {
   "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z",
   "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
   "description": "description",
   "metadata": {
     "foo": "string"
-  }
+  },
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z"
 }
 ```
 
@@ -36220,6 +36710,8 @@ Update a memory store
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -36238,11 +36730,25 @@ Update a memory store
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
 
+  - `archived_at: Optional[datetime]`
+
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
+
+    format: date-time
+
   - `created_at: datetime`
 
     Timestamp when the store was created.
 
     format: date-time
+
+  - `description: str`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `metadata: Dict[str, str]`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
 
   - `name: str`
 
@@ -36253,20 +36759,6 @@ Update a memory store
     Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
     format: date-time
-
-  - `archived_at: Optional[datetime]`
-
-    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
-
-    format: date-time
-
-  - `description: Optional[str]`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: Optional[Dict[str, str]]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
 
 #### Example
 
@@ -36290,15 +36782,15 @@ print(beta_managed_agents_memory_store.id)
 ```json
 {
   "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z",
   "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
   "description": "description",
   "metadata": {
     "foo": "string"
-  }
+  },
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z"
 }
 ```
 
@@ -36419,6 +36911,8 @@ Delete a memory store
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -36582,6 +37076,8 @@ Archive a memory store
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -36600,11 +37096,25 @@ Archive a memory store
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
 
+  - `archived_at: Optional[datetime]`
+
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
+
+    format: date-time
+
   - `created_at: datetime`
 
     Timestamp when the store was created.
 
     format: date-time
+
+  - `description: str`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `metadata: Dict[str, str]`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
 
   - `name: str`
 
@@ -36615,20 +37125,6 @@ Archive a memory store
     Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
     format: date-time
-
-  - `archived_at: Optional[datetime]`
-
-    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
-
-    format: date-time
-
-  - `description: Optional[str]`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: Optional[Dict[str, str]]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
 
 #### Example
 
@@ -36652,15 +37148,15 @@ print(beta_managed_agents_memory_store.id)
 ```json
 {
   "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z",
   "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
   "description": "description",
   "metadata": {
     "foo": "string"
-  }
+  },
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z"
 }
 ```
 
@@ -36805,6 +37301,8 @@ Create a memory
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -37047,6 +37545,8 @@ List memories
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -37291,6 +37791,8 @@ Retrieve a memory
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `workspace_id: Optional[str]`
 
@@ -37537,6 +38039,8 @@ Update a memory
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `workspace_id: Optional[str]`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -37580,527 +38084,3 @@ Update a memory
     ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `path: str`
-
-    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `updated_at: datetime`
-
-    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
-
-    format: date-time
-
-  - `content: Optional[str]`
-
-    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-#### Example
-
-```python
-import os
-from anthropic import Anthropic
-
-client = Anthropic(
-    api_key=os.environ.get(
-        "ANTHROPIC_API_KEY"
-    ),  # This is the default and can be omitted
-)
-beta_managed_agents_memory = client.beta.memory_stores.memories.update(
-    memory_id="memory_id",
-    memory_store_id="memory_store_id",
-)
-print(beta_managed_agents_memory.id)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "content_sha256": "content_sha256",
-  "content_size_bytes": 0,
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "memory_store_id": "memory_store_id",
-  "memory_version_id": "memory_version_id",
-  "path": "path",
-  "type": "memory",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "content": "content"
-}
-```
-
-### Delete a memory
-
-`beta.memory_stores.memories.delete(memory_id, **kwargs)  -> BetaManagedAgentsDeletedMemory`
-
-**DELETE** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
-
-Delete a memory
-
-#### Parameters
-
-- `memory_store_id: str`
-
-  The ID of the memory store that holds the memory (`memstore_...`).
-
-- `memory_id: str`
-
-  The ID of the memory to delete (`mem_...`).
-
-- `expected_content_sha256: Optional[str]`
-
-  Delete the memory only if its current `content_sha256` equals this value, given as 64 lowercase hexadecimal characters. Omit it to delete unconditionally.
-
-  If the hashes differ, the request fails with HTTP status 409 and nothing is deleted.
-
-- `betas: Optional[List[AnthropicBetaParam]]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `str`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-- `workspace_id: Optional[str]`
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsDeletedMemory`
-
-  Tombstone returned by [Delete a memory](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
-
-  - `type: Literal["memory_deleted"]`
-
-  - `id: str`
-
-    ID of the deleted memory (a `mem_...` value).
-
-#### Example
-
-```python
-import os
-from anthropic import Anthropic
-
-client = Anthropic(
-    api_key=os.environ.get(
-        "ANTHROPIC_API_KEY"
-    ),  # This is the default and can be omitted
-)
-beta_managed_agents_deleted_memory = client.beta.memory_stores.memories.delete(
-    memory_id="memory_id",
-    memory_store_id="memory_store_id",
-)
-print(beta_managed_agents_deleted_memory.id)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "type": "memory_deleted"
-}
-```
-
-## Beta › Memory Stores › Memory Versions
-
-### List memory versions
-
-`beta.memory_stores.memory_versions.list(memory_store_id, **kwargs)  -> SyncPageCursor[BetaManagedAgentsMemoryVersion]`
-
-**GET** `/v1/memory_stores/{memory_store_id}/memory_versions`
-
-List memory versions
-
-#### Parameters
-
-- `memory_store_id: str`
-
-  The ID of the memory store whose version history to list (`memstore_...`).
-
-- `api_key_id: Optional[str]`
-
-  Return only versions written with the API key that has this ID.
-
-- `created_at_gte: Optional[Union[str, datetime]]`
-
-  Return versions created at or after this time (inclusive).
-
-  format: date-time
-
-- `created_at_lte: Optional[Union[str, datetime]]`
-
-  Return versions created at or before this time (inclusive).
-
-  format: date-time
-
-- `limit: Optional[int]`
-
-  The maximum number of versions to return per page. Defaults to 20.
-
-  format: int32
-
-- `memory_id: Optional[str]`
-
-  Return only versions of the memory with this ID (`mem_...`).
-
-  The filter still works after the memory is deleted. The results then include the version whose `operation` is `deleted`.
-
-- `operation: Optional[BetaManagedAgentsMemoryVersionOperation]`
-
-  Return only versions that record this kind of change.
-
-  - `"created"`
-
-    The memory was created. The first version in any memory's lineage.
-
-  - `"modified"`
-
-    The memory's `content`, `path`, or both were changed via update. Writes the agent makes through the filesystem mount also appear as `modified`.
-
-  - `"deleted"`
-
-    The memory was deleted. The `content`, `content_size_bytes`, and `content_sha256` fields are `null` on this version. The preceding version, while it is retained, records the deleted content's size and hash.
-
-- `page: Optional[str]`
-
-  The `next_page` value from a previous response, to get the next page. Omit it to get the first page.
-
-- `service_account_id: Optional[str]`
-
-  Return only versions written by the service account with this ID (`svac_...`).
-
-- `session_id: Optional[str]`
-
-  Return only versions written by the session with this ID.
-
-- `view: Optional[BetaManagedAgentsMemoryView]`
-
-  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
-
-  - `"basic"`
-
-    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
-
-  - `"full"`
-
-    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
-
-- `betas: Optional[List[AnthropicBetaParam]]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `str`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-- `workspace_id: Optional[str]`
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsMemoryVersion`
-
-  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and are not deleted with the memory; each version is retained for at least the version retention period after it was written, unless the store itself is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
-
-  - `type: Literal["memory_version"]`
-
-  - `id: str`
-
-    Unique identifier for this version (a `memver_...` value).
-
-  - `created_at: datetime`
-
-    When this version was written, in RFC 3339 format.
-
-    format: date-time
-
-  - `memory_id: str`
-
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
-
-  - `memory_store_id: str`
-
-    ID of the memory store this version belongs to (a `memstore_...` value).
-
-  - `operation: BetaManagedAgentsMemoryVersionOperation`
-
-    The kind of mutation this version records: `created`, `modified`, or `deleted`.
-
-    - `"created"`
-
-      The memory was created. The first version in any memory's lineage.
-
-    - `"modified"`
-
-      The memory's `content`, `path`, or both were changed via update. Writes the agent makes through the filesystem mount also appear as `modified`.
-
-    - `"deleted"`
-
-      The memory was deleted. The `content`, `content_size_bytes`, and `content_sha256` fields are `null` on this version. The preceding version, while it is retained, records the deleted content's size and hash.
-
-  - `content: Optional[str]`
-
-    The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
-
-  - `content_sha256: Optional[str]`
-
-    Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
-
-  - `content_size_bytes: Optional[int]`
-
-    Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
-
-    format: int32
-
-  - `created_by: Optional[BetaManagedAgentsActor]`
-
-    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](https://platform.claude.com/docs/en/api/beta/sessions/retrieve).
-
-    - `class BetaManagedAgentsSessionActor`
-
-      An agent acting during a session, for example through the session's mounted filesystem. It names the session itself, not the user or API key that started the session.
-
-      - `type: Literal["session_actor"]`
-
-      - `session_id: str`
-
-        ID of the session (a `sesn_...` value). Look up the session via [Retrieve a session](https://platform.claude.com/docs/en/api/beta/sessions/retrieve) for further provenance.
-
-        minLength: 1
-
-    - `class BetaManagedAgentsAPIActor`
-
-      A direct caller of the public API, identified by the API key that authenticated the request.
-
-      - `type: Literal["api_actor"]`
-
-      - `api_key_id: str`
-
-        ID of the API key (an `apikey_...` value). This identifies the key, not the secret.
-
-        minLength: 1
-
-    - `class BetaManagedAgentsUserActor`
-
-      A human user, for example acting through the Anthropic Console.
-
-      - `type: Literal["user_actor"]`
-
-      - `user_id: str`
-
-        ID of the user (a `user_...` value).
-
-        minLength: 1
-
-    - `class BetaManagedAgentsServiceAccountActor`
-
-      A workload authenticated as a service account, for example via Workload Identity Federation.
-
-      - `type: Literal["service_account_actor"]`
-
-      - `service_account_id: str`
-
-        ID of the service account (a `svac_...` value).
-
-        minLength: 1
-
-  - `path: Optional[str]`

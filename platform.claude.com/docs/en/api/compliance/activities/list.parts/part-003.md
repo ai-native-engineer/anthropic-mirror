@@ -3,6 +3,48 @@
 
 <!-- chunk-start -->
 
+          Setting value immediately before this change
+
+      - `RedactContent object`
+
+        The organization content-redaction setting was changed.
+
+        - `type: optional "redact_content"`
+
+          default: redact_content
+
+        - `current_value: optional boolean or null`
+
+          Setting value immediately after this change
+
+        - `previous_value: optional boolean or null`
+
+          Setting value immediately before this change
+
+      - `PublicProjectsEnabled object`
+
+        The public projects setting was changed for the organization.
+
+        - `type: optional "public_projects_enabled"`
+
+          default: public_projects_enabled
+
+        - `current_value: optional boolean or null`
+
+          Setting value immediately after this change
+
+        - `previous_value: optional boolean or null`
+
+          Setting value immediately before this change
+
+      - `WebSearchEnabled object`
+
+        The web search setting was changed.
+
+        - `type: optional "web_search_enabled"`
+
+          default: web_search_enabled
+
         - `current_value: optional boolean or null`
 
           Setting value immediately after this change
@@ -42365,49 +42407,3 @@
         - `user_agent: optional string or null`
 
     - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-  - `SubscriptionQuantityUpdated object`
-
-    Contracted subscription seat quantity was updated.
-
-    - `type: optional "subscription_quantity_updated"`
-
-      default: subscription_quantity_updated
-
-    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
-
-      - `APIActor object`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-      - `UserActor object`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-        - `email_address: string`

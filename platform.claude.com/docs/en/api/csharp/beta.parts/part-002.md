@@ -3,6 +3,276 @@
 
 <!-- chunk-start -->
 
+          - `IReadOnlyList<string>? AllowedHosts`
+
+            Specifies domains the container can reach.
+
+      - `BetaPackagesParams? Packages`
+
+        Package manager configuration. Under `limited` networking, requires `networking.allow_package_managers` to be `true`. Omit on update to preserve the existing value.
+
+        - `Type Type`
+
+          Package configuration type
+
+        - `IReadOnlyList<string>? Apt`
+
+          Ubuntu/Debian packages to install
+
+        - `IReadOnlyList<string>? Cargo`
+
+          Rust packages to install
+
+        - `IReadOnlyList<string>? Gem`
+
+          Ruby packages to install
+
+        - `IReadOnlyList<string>? Go`
+
+          Go packages to install
+
+        - `IReadOnlyList<string>? Npm`
+
+          Node.js packages to install
+
+        - `IReadOnlyList<string>? Pip`
+
+          Python packages to install
+
+    - `class BetaSelfHostedConfigParams`
+
+      Request params for `self_hosted` environment configuration.
+
+      - `JsonElement Type = "self_hosted"`
+
+        Environment type
+
+  - `string? description`
+
+    Body param: Updated description of the environment. Omit to preserve; null clears to null; an empty string is stored as an empty string.
+
+    maxLength: 1024
+
+  - `IReadOnlyDictionary<string, string> metadata`
+
+    Body param: User-provided metadata key-value pairs. Set a value to null or empty string to delete the key.
+
+  - `string? name`
+
+    Body param: Updated name for the environment
+
+    minLength: 1, maxLength: 256
+
+  - `Scope? scope`
+
+    Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only.
+
+    - `Organization("organization")`
+
+    - `Account("account")`
+
+  - `IReadOnlyList<AnthropicBeta> betas`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
+  - `string workspaceID`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaEnvironment`
+
+  Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonElement Type = "environment"`
+
+    The type of object (always 'environment')
+
+  - `required string ID`
+
+    Environment identifier (e.g., 'env_...')
+
+  - `required string? ArchivedAt`
+
+    RFC 3339 timestamp when environment was archived, or null if not archived
+
+  - `required Config Config`
+
+    Environment configuration (either Anthropic Cloud or self-hosted)
+
+    - `class BetaCloudConfig`
+
+      `cloud` environment configuration.
+
+      - `JsonElement Type = "cloud"`
+
+        Environment type
+
+      - `required Networking Networking`
+
+        Network configuration policy.
+
+        - `class BetaUnrestrictedNetwork`
+
+          Unrestricted network access.
+
+          - `JsonElement Type = "unrestricted"`
+
+            Network policy type
+
+        - `class BetaLimitedNetwork`
+
+          Limited network access.
+
+          - `JsonElement Type = "limited"`
+
+            Network policy type
+
+          - `required bool AllowMcpServers`
+
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
+
+          - `required bool AllowPackageManagers`
+
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
+
+          - `required IReadOnlyList<string> AllowedHosts`
+
+            Specifies domains the container can reach.
+
+      - `required BetaPackages Packages`
+
+        Package manager configuration.
+
+        - `Type Type`
+
+          Package configuration type
+
+        - `required IReadOnlyList<string> Apt`
+
+          Ubuntu/Debian packages to install
+
+        - `required IReadOnlyList<string> Cargo`
+
+          Rust packages to install
+
+        - `required IReadOnlyList<string> Gem`
+
+          Ruby packages to install
+
+        - `required IReadOnlyList<string> Go`
+
+          Go packages to install
+
+        - `required IReadOnlyList<string> Npm`
+
+          Node.js packages to install
+
+        - `required IReadOnlyList<string> Pip`
+
           Python packages to install
 
     - `class BetaSelfHostedConfig`
@@ -219,6 +489,8 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -376,6 +648,8 @@ Archive an environment by ID. Archived environments cannot be used to create new
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `string workspaceID`
 
@@ -701,6 +975,8 @@ Retrieve detailed information about a specific work item.
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -958,6 +1234,8 @@ Long poll for work items in the queue.
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string anthropicWorkerID`
 
     Header param: Unique identifier for the specific worker polling, used to track aggregated environment-level work metrics in Console
@@ -1203,6 +1481,8 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
 #### Returns
 
@@ -1455,6 +1735,8 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
 #### Returns
 
 - `class BetaSelfHostedWorkHeartbeatResponse`
@@ -1644,6 +1926,8 @@ Stop a work item, initiating graceful or forced shutdown.
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `string workspaceID`
 
@@ -1900,6 +2184,8 @@ List work items in an environment.
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
 #### Returns
 
 - `class BetaSelfHostedWork`
@@ -2153,6 +2439,8 @@ Update work item metadata with merge semantics.
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -2395,6 +2683,8 @@ Get statistics about the work queue for an environment.
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -2590,9 +2880,13 @@ Create Session
 
           - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -2664,9 +2958,13 @@ Create Session
 
             - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
               High-performance model for agents and coding
 
             - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
               High-performance model for agents and coding
 
@@ -3644,6 +3942,8 @@ Create Session
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -3746,9 +4046,13 @@ Create Session
 
         - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -4326,7 +4630,7 @@ Create Session
 
     - `class BetaManagedAgentsGitHubRepositoryResource`
 
-      - `required Type Type`
+      - `required BetaManagedAgentsGitHubRepositoryResourceType Type`
 
       - `required string ID`
 
@@ -4370,7 +4674,7 @@ Create Session
 
     - `class BetaManagedAgentsFileResource`
 
-      - `required Type Type`
+      - `required BetaManagedAgentsFileResourceType Type`
 
       - `required string ID`
 
@@ -4394,7 +4698,7 @@ Create Session
 
       A memory store attached to an agent session.
 
-      - `required Type Type`
+      - `required BetaManagedAgentsMemoryStoreResourceType Type`
 
       - `required string MemoryStoreID`
 
@@ -4946,6 +5250,8 @@ List Sessions
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -5048,9 +5354,13 @@ List Sessions
 
         - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -5628,7 +5938,7 @@ List Sessions
 
     - `class BetaManagedAgentsGitHubRepositoryResource`
 
-      - `required Type Type`
+      - `required BetaManagedAgentsGitHubRepositoryResourceType Type`
 
       - `required string ID`
 
@@ -5672,7 +5982,7 @@ List Sessions
 
     - `class BetaManagedAgentsFileResource`
 
-      - `required Type Type`
+      - `required BetaManagedAgentsFileResourceType Type`
 
       - `required string ID`
 
@@ -5696,7 +6006,7 @@ List Sessions
 
       A memory store attached to an agent session.
 
-      - `required Type Type`
+      - `required BetaManagedAgentsMemoryStoreResourceType Type`
 
       - `required string MemoryStoreID`
 
@@ -6170,6 +6480,8 @@ Get Session
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -6272,9 +6584,13 @@ Get Session
 
         - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -6852,7 +7168,7 @@ Get Session
 
     - `class BetaManagedAgentsGitHubRepositoryResource`
 
-      - `required Type Type`
+      - `required BetaManagedAgentsGitHubRepositoryResourceType Type`
 
       - `required string ID`
 
@@ -6896,7 +7212,7 @@ Get Session
 
     - `class BetaManagedAgentsFileResource`
 
-      - `required Type Type`
+      - `required BetaManagedAgentsFileResourceType Type`
 
       - `required string ID`
 
@@ -6920,7 +7236,7 @@ Get Session
 
       A memory store attached to an agent session.
 
-      - `required Type Type`
+      - `required BetaManagedAgentsMemoryStoreResourceType Type`
 
       - `required string MemoryStoreID`
 
@@ -7413,6 +7729,8 @@ Update Session
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -7515,9 +7833,13 @@ Update Session
 
         - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -8095,7 +8417,7 @@ Update Session
 
     - `class BetaManagedAgentsGitHubRepositoryResource`
 
-      - `required Type Type`
+      - `required BetaManagedAgentsGitHubRepositoryResourceType Type`
 
       - `required string ID`
 
@@ -8139,7 +8461,7 @@ Update Session
 
     - `class BetaManagedAgentsFileResource`
 
-      - `required Type Type`
+      - `required BetaManagedAgentsFileResourceType Type`
 
       - `required string ID`
 
@@ -8163,7 +8485,7 @@ Update Session
 
       A memory store attached to an agent session.
 
-      - `required Type Type`
+      - `required BetaManagedAgentsMemoryStoreResourceType Type`
 
       - `required string MemoryStoreID`
 
@@ -8632,6 +8954,8 @@ Delete Session
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -8786,6 +9110,8 @@ Archive Session
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -8888,9 +9214,13 @@ Archive Session
 
         - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -9468,7 +9798,7 @@ Archive Session
 
     - `class BetaManagedAgentsGitHubRepositoryResource`
 
-      - `required Type Type`
+      - `required BetaManagedAgentsGitHubRepositoryResourceType Type`
 
       - `required string ID`
 
@@ -9512,7 +9842,7 @@ Archive Session
 
     - `class BetaManagedAgentsFileResource`
 
-      - `required Type Type`
+      - `required BetaManagedAgentsFileResourceType Type`
 
       - `required string ID`
 
@@ -9536,7 +9866,7 @@ Archive Session
 
       A memory store attached to an agent session.
 
-      - `required Type Type`
+      - `required BetaManagedAgentsMemoryStoreResourceType Type`
 
       - `required string MemoryStoreID`
 
@@ -10122,6 +10452,8 @@ List Events
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `string workspaceID`
 
@@ -11897,9 +12229,13 @@ List Events
 
           - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -13070,6 +13406,8 @@ Send Events
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -13695,6 +14033,8 @@ Stream Events
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `string workspaceID`
 
@@ -15470,9 +15810,13 @@ Stream Events
 
           - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -16334,6 +16678,8 @@ Add Session Resource
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -16344,7 +16690,7 @@ Add Session Resource
 
 - `class BetaManagedAgentsFileResource`
 
-  - `required Type Type`
+  - `required BetaManagedAgentsFileResourceType Type`
 
   - `required string ID`
 
@@ -16520,6 +16866,8 @@ List Session Resources
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -16532,7 +16880,7 @@ List Session Resources
 
   - `class BetaManagedAgentsGitHubRepositoryResource`
 
-    - `required Type Type`
+    - `required BetaManagedAgentsGitHubRepositoryResourceType Type`
 
     - `required string ID`
 
@@ -16576,7 +16924,7 @@ List Session Resources
 
   - `class BetaManagedAgentsFileResource`
 
-    - `required Type Type`
+    - `required BetaManagedAgentsFileResourceType Type`
 
     - `required string ID`
 
@@ -16600,7 +16948,7 @@ List Session Resources
 
     A memory store attached to an agent session.
 
-    - `required Type Type`
+    - `required BetaManagedAgentsMemoryStoreResourceType Type`
 
     - `required string MemoryStoreID`
 
@@ -16799,6 +17147,8 @@ Get Session Resource
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -16813,7 +17163,7 @@ Get Session Resource
 
   - `class BetaManagedAgentsGitHubRepositoryResource`
 
-    - `required Type Type`
+    - `required BetaManagedAgentsGitHubRepositoryResourceType Type`
 
     - `required string ID`
 
@@ -16857,7 +17207,7 @@ Get Session Resource
 
   - `class BetaManagedAgentsFileResource`
 
-    - `required Type Type`
+    - `required BetaManagedAgentsFileResourceType Type`
 
     - `required string ID`
 
@@ -16881,7 +17231,7 @@ Get Session Resource
 
     A memory store attached to an agent session.
 
-    - `required Type Type`
+    - `required BetaManagedAgentsMemoryStoreResourceType Type`
 
     - `required string MemoryStoreID`
 
@@ -17072,6 +17422,8 @@ Update Session Resource
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -17086,7 +17438,7 @@ Update Session Resource
 
   - `class BetaManagedAgentsGitHubRepositoryResource`
 
-    - `required Type Type`
+    - `required BetaManagedAgentsGitHubRepositoryResourceType Type`
 
     - `required string ID`
 
@@ -17130,7 +17482,7 @@ Update Session Resource
 
   - `class BetaManagedAgentsFileResource`
 
-    - `required Type Type`
+    - `required BetaManagedAgentsFileResourceType Type`
 
     - `required string ID`
 
@@ -17154,7 +17506,7 @@ Update Session Resource
 
     A memory store attached to an agent session.
 
-    - `required Type Type`
+    - `required BetaManagedAgentsMemoryStoreResourceType Type`
 
     - `required string MemoryStoreID`
 
@@ -17340,6 +17692,8 @@ Delete Session Resource
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -17352,7 +17706,7 @@ Delete Session Resource
 
   Confirmation of resource deletion.
 
-  - `required Type Type`
+  - `required BetaManagedAgentsDeleteSessionResourceType Type`
 
   - `required string ID`
 
@@ -17509,6 +17863,8 @@ List Session Threads
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -17617,9 +17973,13 @@ List Session Threads
 
           - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -18428,6 +18788,8 @@ Get Session Thread
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -18536,9 +18898,13 @@ Get Session Thread
 
           - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -19341,6 +19707,8 @@ Archive Session Thread
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -19449,9 +19817,13 @@ Archive Session Thread
 
           - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -20265,6 +20637,8 @@ List Session Thread Events
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `string workspaceID`
 
@@ -22040,9 +22414,13 @@ List Session Thread Events
 
           - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -22852,6 +23230,8 @@ Stream Session Thread Events
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `string workspaceID`
 
@@ -24627,9 +25007,13 @@ Stream Session Thread Events
 
           - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -25842,6 +26226,8 @@ Create Deployment
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -26613,6 +26999,8 @@ List Deployments
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -27340,6 +27728,8 @@ Get Deployment
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `string workspaceID`
 
@@ -28437,6 +28827,8 @@ Update Deployment
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -29160,6 +29552,8 @@ Archive Deployment
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `string workspaceID`
 
@@ -29885,6 +30279,8 @@ Run Deployment Now
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -30270,6 +30666,8 @@ Pause Deployment
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `string workspaceID`
 
@@ -30994,6 +31392,8 @@ Unpause Deployment
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `string workspaceID`
 
@@ -31763,6 +32163,8 @@ List Deployment Runs
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -32152,6 +32554,8 @@ Get Deployment Run
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `string workspaceID`
 
@@ -32547,6 +32951,8 @@ Create Vault
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -32745,6 +33151,8 @@ List Vaults
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -32939,6 +33347,8 @@ Get Vault
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `string workspaceID`
 
@@ -33141,6 +33551,8 @@ Update Vault
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -33332,6 +33744,8 @@ Delete Vault
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -33489,6 +33903,8 @@ Archive Vault
     - `McpClient2026_09_15("mcp-client-2026-09-15")`
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
   - `string workspaceID`
 
@@ -33855,6 +34271,8 @@ Create Credential
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -34187,6 +34605,8 @@ List Credentials
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -34510,6 +34930,8 @@ Get Credential
 
     - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
 
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -34738,615 +35160,3 @@ Update Credential
       - `string? AccessToken`
 
         Updated OAuth access token.
-
-        minLength: 1, maxLength: 8192
-
-      - `DateTimeOffset? ExpiresAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `BetaManagedAgentsMcpOAuthRefreshUpdateParams? Refresh`
-
-        Updated refresh token configuration.
-
-        - `string? RefreshToken`
-
-          Updated OAuth refresh token.
-
-          minLength: 1, maxLength: 8192
-
-        - `string? Scope`
-
-          Updated OAuth scope for the refresh request.
-
-          maxLength: 8192
-
-        - `TokenEndpointAuth TokenEndpointAuth`
-
-          - `class BetaManagedAgentsTokenEndpointAuthBasicUpdateParam`
-
-            Updated HTTP Basic authentication parameters for the token endpoint.
-
-            - `required Type Type`
-
-            - `string? ClientSecret`
-
-              Updated OAuth client secret.
-
-              minLength: 1, maxLength: 512
-
-          - `class BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
-
-            Updated POST body authentication parameters for the token endpoint.
-
-            - `required Type Type`
-
-            - `string? ClientSecret`
-
-              Updated OAuth client secret.
-
-              minLength: 1, maxLength: 512
-
-    - `class BetaManagedAgentsStaticBearerUpdateParams`
-
-      Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
-
-      - `required Type Type`
-
-      - `string? Token`
-
-        Updated static bearer token value.
-
-        minLength: 1, maxLength: 8192
-
-    - `class BetaManagedAgentsEnvironmentVariableUpdateParams`
-
-      Parameters for updating an environment variable credential. `secret_name` is immutable.
-
-      - `required Type Type`
-
-      - `BetaManagedAgentsInjectionLocationUpdateParams InjectionLocation`
-
-        Updated injection location.
-
-        - `bool Body`
-
-          Substitute when the placeholder appears in the request body.
-
-        - `bool Header`
-
-          Substitute when the placeholder appears in a request header value.
-
-      - `BetaManagedAgentsCredentialNetworkingParams? Networking`
-
-        Updated networking scope. Full replacement.
-
-        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
-
-          Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
-
-          - `required Type Type`
-
-        - `class BetaManagedAgentsLimitedCredentialNetworkingParams`
-
-          Substitute the secret only on requests to the listed hosts.
-
-          - `required Type Type`
-
-          - `required IReadOnlyList<string> AllowedHosts`
-
-            Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
-
-      - `string? SecretValue`
-
-        Updated secret value.
-
-        minLength: 1, maxLength: 4096
-
-  - `string? displayName`
-
-    Body param: Updated human-readable name for the credential. 1-255 characters.
-
-    minLength: 1, maxLength: 255
-
-  - `IReadOnlyDictionary<string, string>? metadata`
-
-    Body param: Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
-
-  - `IReadOnlyList<AnthropicBeta> betas`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
-
-  - `string workspaceID`
-
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsCredential`
-
-  A credential stored in a vault. Sensitive fields are never returned in responses.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier for the credential.
-
-  - `required DateTimeOffset? ArchivedAt`
-
-    When the credential was archived. Null if not archived.
-
-    format: date-time
-
-  - `required Auth Auth`
-
-    Authentication configuration for this credential.
-
-    - `class BetaManagedAgentsMcpOAuthAuthResponse`
-
-      OAuth credential details for an MCP server.
-
-      - `required Type Type`
-
-      - `required string McpServerUrl`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `DateTimeOffset? ExpiresAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `BetaManagedAgentsMcpOAuthRefreshResponse? Refresh`
-
-        Refresh token configuration, if the credential supports token refresh.
-
-        - `required string ClientID`
-
-          OAuth client ID.
-
-        - `required string TokenEndpoint`
-
-          Token endpoint URL used to refresh the access token.
-
-        - `required TokenEndpointAuth TokenEndpointAuth`
-
-          - `class BetaManagedAgentsTokenEndpointAuthNoneResponse`
-
-            Token endpoint requires no client authentication.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsTokenEndpointAuthBasicResponse`
-
-            Token endpoint uses HTTP Basic authentication with client credentials.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-            Token endpoint uses POST body authentication with client credentials.
-
-            - `required Type Type`
-
-        - `string? Resource`
-
-          OAuth resource indicator.
-
-        - `string? Scope`
-
-          OAuth scope for the refresh request.
-
-    - `class BetaManagedAgentsStaticBearerAuthResponse`
-
-      Static bearer token credential details for an MCP server.
-
-      - `required Type Type`
-
-      - `required string McpServerUrl`
-
-        URL of the MCP server this credential authenticates against.
-
-    - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
-
-      Environment variable credential details. The secret value is never returned.
-
-      - `required Type Type`
-
-      - `required BetaManagedAgentsInjectionLocationResponse InjectionLocation`
-
-        Where in the outbound request the secret value is substituted.
-
-        - `required bool Body`
-
-          Whether the placeholder is substituted in the request body.
-
-        - `required bool Header`
-
-          Whether the placeholder is substituted in request header values.
-
-      - `required Networking Networking`
-
-        Outbound hosts the secret value is substituted on.
-
-        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
-
-          The secret is substituted on any host the session's Environment network policy permits egress to.
-
-          - `required Type Type`
-
-        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-          The secret is substituted only on requests to the listed hosts.
-
-          - `required Type Type`
-
-          - `required IReadOnlyList<string> AllowedHosts`
-
-            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-      - `required string SecretName`
-
-        Name of the environment variable.
-
-  - `required DateTimeOffset CreatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required IReadOnlyDictionary<string, string> Metadata`
-
-    Arbitrary key-value metadata attached to the credential.
-
-  - `required DateTimeOffset UpdatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required string VaultID`
-
-    Identifier of the vault this credential belongs to.
-
-  - `string? DisplayName`
-
-    Human-readable name for the credential.
-
-#### Example
-
-```csharp
-CredentialUpdateParams parameters = new()
-{
-    VaultID = "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    CredentialID = "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-};
-
-var betaManagedAgentsCredential = await client.Beta.Vaults.Credentials.Update(parameters);
-
-Console.WriteLine(betaManagedAgentsCredential);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "archived_at": null,
-  "auth": {
-    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
-    "type": "static_bearer"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault_credential",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "display_name": "Example credential"
-}
-```
-
-### Delete Credential
-
-`BetaManagedAgentsDeletedCredential Beta.Vaults.Credentials.Delete(parameters, cancellationToken = default)`
-
-**DELETE** `/v1/vaults/{vault_id}/credentials/{credential_id}`
-
-Delete Credential
-
-#### Parameters
-
-- `CredentialDeleteParams parameters`
-
-  - `required string vaultID`
-
-    Path param: Identifier of the vault containing the credential.
-
-  - `required string credentialID`
-
-    Path param: Unique identifier of the credential to delete.
-
-  - `IReadOnlyList<AnthropicBeta> betas`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
-
-  - `string workspaceID`
-
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsDeletedCredential`
-
-  Confirmation of a deleted credential.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier of the deleted credential.
-
-#### Example
-
-```csharp
-CredentialDeleteParams parameters = new()
-{
-    VaultID = "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    CredentialID = "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-};
-
-var betaManagedAgentsDeletedCredential = await client.Beta.Vaults.Credentials.Delete(parameters);
-
-Console.WriteLine(betaManagedAgentsDeletedCredential);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "type": "vault_credential_deleted"
-}
-```
-
-### Archive Credential
-
-`BetaManagedAgentsCredential Beta.Vaults.Credentials.Archive(parameters, cancellationToken = default)`
-
-**POST** `/v1/vaults/{vault_id}/credentials/{credential_id}/archive`
-
-Archive Credential
-
-#### Parameters
-
-- `CredentialArchiveParams parameters`
-
-  - `required string vaultID`
-
-    Path param: Identifier of the vault containing the credential.
-
-  - `required string credentialID`
-
-    Path param: Unique identifier of the credential to archive.
-
-  - `IReadOnlyList<AnthropicBeta> betas`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`

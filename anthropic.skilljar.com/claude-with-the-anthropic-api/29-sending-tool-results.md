@@ -2,8 +2,6 @@
 
 # Sending tool results
 
-_(등록 또는 권한이 필요한 레슨)_
-
 <!-- jwplayer-srt: https://cdn.jwplayer.com/tracks/kelqoxIU.srt -->
 
 <details>

@@ -81,10 +81,10 @@ Create presentations, docs, socials, and sites with AI
 
 [Add Gamma in Claude (opens in new tab)](https://claude.ai/directory/ba1eef5a-c510-416e-b5fa-c34d523d81a1 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=getjobber.com&sz=96)
+![](https://assets.claude.com/47f22a5129fd644c95a682e474b104001065dd42.jpg?w=128&fit=max&auto=format)
 
-### [Jobber](https://claude.com/marketplace/connectors/jobber)
+### [Zapier](https://claude.com/marketplace/connectors/zapier)
 
-Get answers and take action with context from your Jobber account
+Automate workflows across thousands of apps via conversation
 
-[Add Jobber in Claude (opens in new tab)](https://claude.ai/directory/d53b3c4b-c4c7-4886-8698-786cfaff70f2 "Add in Claude")
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

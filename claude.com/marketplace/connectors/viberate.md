@@ -52,14 +52,6 @@ Search, create, autofill, and export Canva designs
 
 [Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-![](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg?w=128&fit=max&auto=format)
-
-### [Figma](https://claude.com/marketplace/connectors/figma)
-
-Generate diagrams and better code from Figma context
-
-[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
-
 ![](https://www.gemini.com/favicon.ico)
 
 ### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
@@ -69,6 +61,14 @@ Anthropic verifiedTrending
 Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
 
 [Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
+
+![](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg?w=128&fit=max&auto=format)
+
+### [Figma](https://claude.com/marketplace/connectors/figma)
+
+Generate diagrams and better code from Figma context
+
+[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
 

@@ -142,7 +142,7 @@ Browser automation and end-to-end testing MCP server by Microsoft. Enables Claud
 
 ## Trending connectors
 
-Show all 6
+Show all 7
 
 ![](https://www.google.com/s2/favicons?domain=slicktrip.com&sz=96)
 
@@ -203,6 +203,16 @@ Anthropic verifiedTrending
 Live crypto, stock, gold & oil trading data from Hyperliquid: see what the best traders and whales are doing on Bitcoin, ETH, the S&P 500 and more
 
 [Add Coinversa Pulse in Claude (opens in new tab)](https://claude.ai/directory/4f5d3539-79ae-4f8b-8011-356259b4dff6 "Add in Claude")
+
+![](https://tineo.ai/favicon/favicon-96x96.png)
+
+### [Tineo](https://claude.com/marketplace/connectors/tineo)
+
+Anthropic verifiedTrending
+
+Connect Tineo to Claude to review trips, flights, hotels and activities, and add or update itinerary details. Organize and share plans with friends in Tineo.
+
+[Add Tineo in Claude (opens in new tab)](https://claude.ai/directory/47af3906-6905-49b7-bde9-363c6b6fa3b8 "Add in Claude")
 
 ## New connectors
 
@@ -328,22 +338,6 @@ Connect your Notion workspace to search, update, and power workflows across tool
 
 [Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-![](https://assets.claude.com/bdf25f3db0bfe9b74855f504c31bd8522659edae.svg?w=128&fit=max&auto=format)
-
-### [Slack](https://claude.com/marketplace/connectors/slack)
-
-Send messages, create canvases, and fetch Slack data
-
-[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
-
-![](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg?w=128&fit=max&auto=format)
-
-### [Figma](https://claude.com/marketplace/connectors/figma)
-
-Generate diagrams and better code from Figma context
-
-[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
-
 ![](https://www.gemini.com/favicon.ico)
 
 ### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
@@ -353,6 +347,22 @@ Anthropic verifiedTrending
 Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
 
 [Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
+
+![](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg?w=128&fit=max&auto=format)
+
+### [Figma](https://claude.com/marketplace/connectors/figma)
+
+Generate diagrams and better code from Figma context
+
+[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
+
+![](https://assets.claude.com/bdf25f3db0bfe9b74855f504c31bd8522659edae.svg?w=128&fit=max&auto=format)
+
+### [Slack](https://claude.com/marketplace/connectors/slack)
+
+Send messages, create canvases, and fetch Slack data
+
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
 ![](https://assets.claude.com/cb89159037733bf1e8c66783990c1d38c53231d4.jpg?w=128&fit=max&auto=format)
 
@@ -410,13 +420,13 @@ Search for jobs on Indeed
 
 [Add Indeed in Claude (opens in new tab)](https://claude.ai/directory/78cb9092-b837-4439-845d-fdccd5723e7f "Add in Claude")
 
-![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
+![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
 
-### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
+### [Box](https://claude.com/marketplace/connectors/box)
 
-Faites vos courses rapidement
+Search, edit and get insights on your Box content
 
-[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
 ![](https://assets.claude.com/37ce5968b2e46e9c696132cd4970baeeff9a08f0.jpg?w=128&fit=max&auto=format)
 
@@ -425,14 +435,6 @@ Faites vos courses rapidement
 Access to Intercom data for better customer insights
 
 [Add Intercom in Claude (opens in new tab)](https://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771 "Add in Claude")
-
-![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
-
-### [Box](https://claude.com/marketplace/connectors/box)
-
-Search, edit and get insights on your Box content
-
-[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
 ![](https://assets.claude.com/e64f9962a277a8943b084a17b6a9386a7eb95a61.svg?w=128&fit=max&auto=format)
 
@@ -465,5 +467,13 @@ Search, recap, and act on your Zoom meetings
 Analyze, debug, and manage projects and deployments
 
 [Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")
+
+![](https://assets.claude.com/1f1b0d51c9561a9bd4de38331a65b5af8069e0a8.svg?w=128&fit=max&auto=format)
+
+### [Spotify](https://claude.com/marketplace/connectors/spotify)
+
+Music and podcast recommendations, just for you.
+
+[Add Spotify in Claude (opens in new tab)](https://claude.ai/directory/86925244-b3bb-415b-b7e8-6e3cd1392247 "Add in Claude")
 
 View more

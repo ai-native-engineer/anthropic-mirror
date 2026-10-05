@@ -14,7 +14,7 @@ url: https://platform.claude.com/docs/en/api/typescript/beta
 
 ### Anthropic Beta
 
-- `type AnthropicBeta = (string & {}) | "message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 46 more`
+- `type AnthropicBeta = (string & {}) | "message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 47 more`
 
   - `(string & {})`
 
@@ -115,6 +115,8 @@ url: https://platform.claude.com/docs/en/api/typescript/beta
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 ### Beta API Error
 
@@ -574,6 +576,8 @@ The Models API response can be used to determine which models are available for 
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -956,6 +960,8 @@ The Models API response can be used to determine information about a specific mo
     - `"mcp-client-2026-09-15"`
 
     - `"ce-plugins-2026-09-01"`
+
+    - `"spend-limit-reads-2026-09-26"`
 
   - `workspace_id?: string`
 
@@ -4263,19 +4269,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                           Powerful intelligence for long-running agents and coding
 
-                        - `"claude-sonnet-4-5"`
-
-                          High-performance model for agents and coding
-
-                        - `"claude-sonnet-4-5-20250929"`
-
-                          High-performance model for agents and coding
-
                         - `"claude-mythos-preview"`
 
                           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                           New class of intelligence, strongest in coding and cybersecurity
+
+                        - `"claude-sonnet-4-5"`
+
+                          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          High-performance model for agents and coding
+
+                        - `"claude-sonnet-4-5-20250929"`
+
+                          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          High-performance model for agents and coding
 
                         - `(string & {})`
 
@@ -5387,6 +5397,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `"mcp-client-2026-09-15"`
 
     - `"ce-plugins-2026-09-01"`
+
+    - `"spend-limit-reads-2026-09-26"`
 
   - `user_profile_id?: string`
 
@@ -8239,19 +8251,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       Powerful intelligence for long-running agents and coding
 
-                    - `"claude-sonnet-4-5"`
-
-                      High-performance model for agents and coding
-
-                    - `"claude-sonnet-4-5-20250929"`
-
-                      High-performance model for agents and coding
-
                     - `"claude-mythos-preview"`
 
                       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                       New class of intelligence, strongest in coding and cybersecurity
+
+                    - `"claude-sonnet-4-5"`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
+
+                    - `"claude-sonnet-4-5-20250929"`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
 
                     - `(string & {})`
 
@@ -12733,19 +12749,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                           Powerful intelligence for long-running agents and coding
 
-                        - `"claude-sonnet-4-5"`
-
-                          High-performance model for agents and coding
-
-                        - `"claude-sonnet-4-5-20250929"`
-
-                          High-performance model for agents and coding
-
                         - `"claude-mythos-preview"`
 
                           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                           New class of intelligence, strongest in coding and cybersecurity
+
+                        - `"claude-sonnet-4-5"`
+
+                          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          High-performance model for agents and coding
+
+                        - `"claude-sonnet-4-5-20250929"`
+
+                          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          High-performance model for agents and coding
 
                         - `(string & {})`
 
@@ -13682,6 +13702,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     - `"mcp-client-2026-09-15"`
 
     - `"ce-plugins-2026-09-01"`
+
+    - `"spend-limit-reads-2026-09-26"`
 
   - `user_profile_id?: string`
 
@@ -16818,19 +16840,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                               Powerful intelligence for long-running agents and coding
 
-                            - `"claude-sonnet-4-5"`
-
-                              High-performance model for agents and coding
-
-                            - `"claude-sonnet-4-5-20250929"`
-
-                              High-performance model for agents and coding
-
                             - `"claude-mythos-preview"`
 
                               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                               New class of intelligence, strongest in coding and cybersecurity
+
+                            - `"claude-sonnet-4-5"`
+
+                              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                              High-performance model for agents and coding
+
+                            - `"claude-sonnet-4-5-20250929"`
+
+                              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                              High-performance model for agents and coding
 
                             - `(string & {})`
 
@@ -17987,6 +18013,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `user_profile_id?: string`
 
     Header param: The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
@@ -18277,6 +18305,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -18564,6 +18594,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -18849,6 +18881,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -19126,6 +19160,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -19294,6 +19330,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"mcp-client-2026-09-15"`
 
     - `"ce-plugins-2026-09-01"`
+
+    - `"spend-limit-reads-2026-09-26"`
 
   - `workspace_id?: string`
 
@@ -22120,19 +22158,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             Powerful intelligence for long-running agents and coding
 
-                          - `"claude-sonnet-4-5"`
-
-                            High-performance model for agents and coding
-
-                          - `"claude-sonnet-4-5-20250929"`
-
-                            High-performance model for agents and coding
-
                           - `"claude-mythos-preview"`
 
                             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                             New class of intelligence, strongest in coding and cybersecurity
+
+                          - `"claude-sonnet-4-5"`
+
+                            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                            High-performance model for agents and coding
+
+                          - `"claude-sonnet-4-5-20250929"`
+
+                            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                            High-performance model for agents and coding
 
                           - `(string & {})`
 
@@ -23365,9 +23407,13 @@ Create Agent
 
       - `"claude-sonnet-4-5"`
 
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
         High-performance model for agents and coding
 
       - `"claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         High-performance model for agents and coding
 
@@ -24111,6 +24157,8 @@ Create Agent
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -24219,9 +24267,13 @@ Create Agent
 
       - `"claude-sonnet-4-5"`
 
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
         High-performance model for agents and coding
 
       - `"claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         High-performance model for agents and coding
 
@@ -24935,6 +24987,8 @@ List Agents
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -25043,9 +25097,13 @@ List Agents
 
       - `"claude-sonnet-4-5"`
 
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
         High-performance model for agents and coding
 
       - `"claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         High-performance model for agents and coding
 
@@ -25746,6 +25804,8 @@ Get Agent
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -25854,9 +25914,13 @@ Get Agent
 
       - `"claude-sonnet-4-5"`
 
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
         High-performance model for agents and coding
 
       - `"claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         High-performance model for agents and coding
 
@@ -26539,9 +26603,13 @@ Update Agent
 
       - `"claude-sonnet-4-5"`
 
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
         High-performance model for agents and coding
 
       - `"claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         High-performance model for agents and coding
 
@@ -27263,6 +27331,8 @@ Update Agent
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -27371,9 +27441,13 @@ Update Agent
 
       - `"claude-sonnet-4-5"`
 
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
         High-performance model for agents and coding
 
       - `"claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         High-performance model for agents and coding
 
@@ -28065,6 +28139,8 @@ Archive Agent
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -28173,9 +28249,13 @@ Archive Agent
 
       - `"claude-sonnet-4-5"`
 
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
         High-performance model for agents and coding
 
       - `"claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         High-performance model for agents and coding
 
@@ -28878,6 +28958,8 @@ List Agent Versions
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -28986,9 +29068,13 @@ List Agent Versions
 
       - `"claude-sonnet-4-5"`
 
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
         High-performance model for agents and coding
 
       - `"claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         High-performance model for agents and coding
 
@@ -29799,6 +29885,8 @@ Create a new environment with the specified configuration.
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -30134,6 +30222,8 @@ List environments with pagination support.
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -30461,6 +30551,8 @@ Retrieve a specific environment by ID.
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -30488,274 +30580,3 @@ Retrieve a specific environment by ID.
     RFC 3339 timestamp when environment was archived, or null if not archived
 
   - `config: BetaCloudConfig | BetaSelfHostedConfig`
-
-    Environment configuration (either Anthropic Cloud or self-hosted)
-
-    - `interface BetaCloudConfig`
-
-      `cloud` environment configuration.
-
-      - `type: "cloud"`
-
-        Environment type
-
-      - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
-
-        Network configuration policy.
-
-        - `interface BetaUnrestrictedNetwork`
-
-          Unrestricted network access.
-
-          - `type: "unrestricted"`
-
-            Network policy type
-
-        - `interface BetaLimitedNetwork`
-
-          Limited network access.
-
-          - `type: "limited"`
-
-            Network policy type
-
-          - `allow_mcp_servers: boolean`
-
-            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
-
-          - `allow_package_managers: boolean`
-
-            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
-
-          - `allowed_hosts: Array<string>`
-
-            Specifies domains the container can reach.
-
-      - `packages: BetaPackages`
-
-        Package manager configuration.
-
-        - `type?: "packages"`
-
-          Package configuration type
-
-          default: packages
-
-        - `apt: Array<string>`
-
-          Ubuntu/Debian packages to install
-
-        - `cargo: Array<string>`
-
-          Rust packages to install
-
-        - `gem: Array<string>`
-
-          Ruby packages to install
-
-        - `go: Array<string>`
-
-          Go packages to install
-
-        - `npm: Array<string>`
-
-          Node.js packages to install
-
-        - `pip: Array<string>`
-
-          Python packages to install
-
-    - `interface BetaSelfHostedConfig`
-
-      Configuration for self-hosted environments.
-
-      - `type: "self_hosted"`
-
-        Environment type
-
-  - `created_at: string`
-
-    RFC 3339 timestamp when environment was created
-
-  - `description: string | null`
-
-    User-provided description for the environment; null when unset
-
-  - `metadata: Record<string, string>`
-
-    User-provided metadata key-value pairs
-
-  - `name: string`
-
-    Human-readable name for the environment
-
-  - `updated_at: string`
-
-    RFC 3339 timestamp when environment was last updated
-
-  - `scope?: "organization" | "account"`
-
-    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
-
-    - `"organization"`
-
-    - `"account"`
-
-#### Example
-
-```typescript
-import Anthropic from "@anthropic-ai/sdk";
-
-const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
-});
-
-const betaEnvironment = await client.beta.environments.retrieve(
-  "env_011CZkZ9X2dpNyB7HsEFoRfW"
-);
-
-console.log(betaEnvironment.id);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "archived_at": null,
-  "config": {
-    "networking": {
-      "allow_mcp_servers": false,
-      "allow_package_managers": true,
-      "allowed_hosts": [
-        "api.example.com"
-      ],
-      "type": "limited"
-    },
-    "packages": {
-      "apt": [
-        "string"
-      ],
-      "cargo": [
-        "string"
-      ],
-      "gem": [
-        "string"
-      ],
-      "go": [
-        "string"
-      ],
-      "npm": [
-        "string"
-      ],
-      "pip": [
-        "pandas",
-        "numpy"
-      ],
-      "type": "packages"
-    },
-    "type": "cloud"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "description": "Python environment with data-analysis packages.",
-  "metadata": {},
-  "name": "python-data-analysis",
-  "type": "environment",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "scope": "organization"
-}
-```
-
-### Update Environment
-
-`client.beta.environments.update(environmentID, params, options?): BetaEnvironment`
-
-**POST** `/v1/environments/{environment_id}`
-
-Update an existing environment's configuration.
-
-#### Parameters
-
-- `environmentID: string`
-
-- `params: EnvironmentUpdateParams`
-
-  - `config?: BetaCloudConfigParams | BetaSelfHostedConfigParams | null`
-
-    Body param: Updated environment configuration
-
-    - `interface BetaCloudConfigParams`
-
-      Request params for `cloud` environment configuration.
-
-      Fields default to null; on update, omitted fields preserve the
-      existing value.
-
-      - `type: "cloud"`
-
-        Environment type
-
-      - `networking?: BetaUnrestrictedNetwork | BetaLimitedNetworkParams | null`
-
-        Network configuration policy. Omit on update to preserve the existing value.
-
-        - `interface BetaUnrestrictedNetwork`
-
-          Unrestricted network access.
-
-          - `type: "unrestricted"`
-
-            Network policy type
-
-        - `interface BetaLimitedNetworkParams`
-
-          Limited network request params.
-
-          Fields default to null; on update, omitted fields preserve the
-          existing value.
-
-          - `type: "limited"`
-
-            Network policy type
-
-          - `allow_mcp_servers?: boolean | null`
-
-            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array. Defaults to `false`.
-
-          - `allow_package_managers?: boolean | null`
-
-            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array. Defaults to `false` on creation. Must be `true` when `packages` are specified.
-
-          - `allowed_hosts?: Array<string> | null`
-
-            Specifies domains the container can reach.
-
-      - `packages?: BetaPackagesParams | null`
-
-        Package manager configuration. Under `limited` networking, requires `networking.allow_package_managers` to be `true`. Omit on update to preserve the existing value.
-
-        - `type?: "packages"`
-
-          Package configuration type
-
-          default: packages
-
-        - `apt?: Array<string> | null`
-
-          Ubuntu/Debian packages to install
-
-        - `cargo?: Array<string> | null`
-
-          Rust packages to install
-
-        - `gem?: Array<string> | null`
-
-          Ruby packages to install
-
-        - `go?: Array<string> | null`
-
-          Go packages to install
-
-        - `npm?: Array<string> | null`
-
-          Node.js packages to install

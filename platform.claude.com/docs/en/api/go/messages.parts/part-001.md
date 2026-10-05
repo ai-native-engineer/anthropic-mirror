@@ -3731,19 +3731,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Powerful intelligence for long-running agents and coding
 
-    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-      High-performance model for agents and coding
-
-    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-      High-performance model for agents and coding
-
     - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
 
   - `Role Assistant`
 
@@ -14495,19 +14499,23 @@ func main() {
 
       Powerful intelligence for long-running agents and coding
 
-    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-      High-performance model for agents and coding
-
-    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-      High-performance model for agents and coding
-
     - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
 
   - `Role Assistant`
 
@@ -17473,19 +17481,23 @@ func main() {
 
     Powerful intelligence for long-running agents and coding
 
-  - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-    High-performance model for agents and coding
-
-  - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-    High-performance model for agents and coding
-
   - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
     **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
     New class of intelligence, strongest in coding and cybersecurity
+
+  - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+    **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+    High-performance model for agents and coding
+
+  - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+    **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+    High-performance model for agents and coding
 
 ### Output Config
 
@@ -19703,19 +19715,23 @@ func main() {
 
         Powerful intelligence for long-running agents and coding
 
-      - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-        High-performance model for agents and coding
-
-      - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-        High-performance model for agents and coding
-
       - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+      - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
 
     - `Role Assistant`
 
@@ -20826,19 +20842,23 @@ func main() {
 
           Powerful intelligence for long-running agents and coding
 
-        - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-          High-performance model for agents and coding
-
-        - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
-
         - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+        - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
+
+        - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
 
       - `Role Assistant`
 
@@ -29297,19 +29317,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Powerful intelligence for long-running agents and coding
 
-        - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-          High-performance model for agents and coding
-
-        - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
-
         - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+        - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
+
+        - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
 
       - `CacheControl CacheControlEphemeral Optional`
 
@@ -32157,92 +32181,3 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             Skills loaded in the container
 
             - `Type ContainerSkillType`
-
-              Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
-              - `const ContainerSkillTypeAnthropic ContainerSkillType = "anthropic"`
-
-              - `const ContainerSkillTypeCustom ContainerSkillType = "custom"`
-
-            - `SkillID string`
-
-              Skill ID
-
-              minLength: 1, maxLength: 64
-
-            - `Version string`
-
-              The resolved version: a skill version ID for custom skills.
-
-              minLength: 1, maxLength: 64
-
-        - `Content []ContentBlockUnion`
-
-          Content generated by the model.
-
-          This is an array of content blocks, each of which has a `type` that determines its shape.
-
-          Example:
-
-          ```json
-          [{"type": "text", "text": "Hi, I'm Claude."}]
-          ```
-
-          If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
-
-          For example, if the input `messages` were:
-
-          ```json
-          [
-            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
-            {"role": "assistant", "content": "The best answer is ("}
-          ]
-          ```
-
-          Then the response `content` might be:
-
-          ```json
-          [{"type": "text", "text": "B)"}]
-          ```
-
-          - `type TextBlock`
-
-            - `Type Text`
-
-              default: text
-
-            - `Citations []TextCitationUnion`
-
-              Citations supporting the text block.
-
-              The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-
-              - `type CitationCharLocation`
-
-                - `Type CharLocation`
-
-                  default: char_location
-
-                - `CitedText string`
-
-                - `DocumentIndex int64`
-
-                  minimum: 0
-
-                - `DocumentTitle string`
-
-                - `EndCharIndex int64`
-
-                - `FileID string`
-
-                - `StartCharIndex int64`
-
-                  minimum: 0
-
-              - `type CitationPageLocation`
-
-                - `Type PageLocation`
-
-                  default: page_location
-
-                - `CitedText string`

@@ -206,7 +206,7 @@ Right-click any file path in the chat, diff viewer, or file pane to open a conte
 
 ### Switch view modes
 
-View modes control how much detail appears in the chat transcript. Switch modes from the **Transcript view** dropdown next to the send button, or press **Ctrl+O** on macOS or Windows to cycle through them. The Thinking mode appears in the dropdown only after Claude has produced thinking in the session you're viewing.
+View modes control how much detail appears in the chat transcript. To switch view modes, open the session menu from the caret beside the session title and select **Transcript view**, or press **Ctrl+O** on macOS or Windows to cycle through them. The Thinking mode appears in the menu only after Claude has produced thinking in the session you're viewing.
 
 | Mode | What it shows |
 | - | - |
@@ -383,10 +383,10 @@ See [Use Claude Code in the cloud](https://code.claude.com/docs/en/claude-code-o
 
 ### Continue in another surface
 
-The **Continue in** menu, accessible from the VS Code icon in the bottom right of the session toolbar, lets you move your session to another surface:
+To continue a session somewhere else, open the session menu from the caret beside the session title or from the session's row in the sidebar, then select **Open in**:
 
-* **Claude Code on the Web**: sends your local session to continue running in the cloud. Desktop pushes your branch, generates a summary of the conversation, and creates a new cloud session with the full context. You can then choose to archive the local session or keep it. This requires a clean working tree, and is not available for SSH sessions.
-* **Your IDE**: opens your project in a supported IDE at the current working directory.
+* Select **Cloud** to continue the session as a [cloud session](https://code.claude.com/docs/en/claude-code-on-the-web), with your conversation carried over as a summary. Before you confirm, the dialog states whether your files move too and whether this session is archived once the cloud one is ready. You can't move a session that runs over [SSH](#ssh-sessions) or in [WSL](https://code.claude.com/docs/en/desktop-wsl) this way.
+* Select an installed editor or your file manager to open the session's folder on disk there.
 
 ### Sessions from Dispatch
 
@@ -883,7 +883,7 @@ This table shows the desktop app equivalent for common CLI flags. Flags not list
 | `--dangerously-skip-permissions` | Bypass permissions mode. On Pro and Max plans, enable it in Settings → Claude Code → "Allow bypass permissions mode"; on Team and Enterprise plans, organization policy controls it |
 | `--add-dir` | Add multiple repos with the **+** button in cloud sessions |
 | `--allowedTools`, `--disallowedTools` | No per-session equivalent. Permission rules in [settings files](https://code.claude.com/docs/en/settings) still apply. |
-| `--verbose` | [Verbose view mode](#switch-view-modes) in the Transcript view dropdown |
+| `--verbose` | [Verbose view mode](#switch-view-modes) |
 | `--print`, `--output-format` | Not available. Desktop is interactive only. |
 | `ANTHROPIC_MODEL` env var | Model dropdown next to the send button |
 | `MAX_THINKING_TOKENS` env var | Set in the local environment editor. See [environment configuration](#environment-configuration). |

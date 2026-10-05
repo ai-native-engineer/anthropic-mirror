@@ -146,7 +146,7 @@ Accelerize360 is a Salesforce and Snowflake consultancy that helps businesses ha
 
 ## All partners
 
-198 partners
+218 partners
 
 [10Clouds Financial Institutions (opens in new tab)
 
@@ -188,14 +188,14 @@ adesso SE is one of Germany's largest IT service providers, with more than 11,30
 
 ![](https://api.eulerapp.com/partner-directory/assets/62bd1fe64c386a03a2029b4c9d005cd8)
 
-Aditi Consulting provides AI-powered digital engineering services, bringing strategic AI engineering expertise to leading enterprises at every stage of digital transformation, from AI readiness and data foundations to AI-powered operations.Select](https://partnerhub.claude.com/directory/partner/aditi-consulting-partner)[Agilisium (opens in new tab)
+Aditi Consulting provides AI-powered digital engineering services, bringing strategic AI engineering expertise to leading enterprises at every stage of digital transformation, from AI readiness and data foundations to AI-powered operations.Select](https://partnerhub.claude.com/directory/partner/aditi-consulting-partner)[AgileOps (opens in new tab)
+
+![](https://api.eulerapp.com/partner-directory/assets/a65ed9de0acee689f8dbfe7e2872df9c)
+
+Anthropic partner in Vietnam. We help businesses put Claude to work in real operations, from licensing and setup to integrations with SaaS platforms, plus tailored team training.](https://partnerhub.claude.com/directory/partner/agileops)[Agilisium (opens in new tab)
 
 ![](https://api.eulerapp.com/partner-directory/assets/280c5bec5ac37c8d810fd360f6b2bf26)
 
-Agilisium is the World's First Life Sciences Context-Centric AI Consulting & Services Company, from Molecule to Market. The company delivers cutting-edge solutions that drive impactful change by combining strong domain expertise with Contextual Autonomous Agentic AI and Advanced Analytics.Select](https://partnerhub.claude.com/directory/partner/1784259987879x368991120948368500)[AI Definitive Inc (opens in new tab)
-
-![](https://api.eulerapp.com/partner-directory/assets/0b2a140534ba6d4da615bac20d79656c)
-
-AI Definitive engineers enterprise AI for regulated industries, closing the gap between what is possible with AI and what actually ships, safely and at enterprise scale, building on Anthropic's Claude.Select](https://partnerhub.claude.com/directory/partner/ai-definitive)
+Agilisium is the World's First Life Sciences Context-Centric AI Consulting & Services Company, from Molecule to Market. The company delivers cutting-edge solutions that drive impactful change by combining strong domain expertise with Contextual Autonomous Agentic AI and Advanced Analytics.Select](https://partnerhub.claude.com/directory/partner/1784259987879x368991120948368500)
 
 View more

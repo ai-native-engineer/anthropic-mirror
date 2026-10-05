@@ -87,14 +87,6 @@ Search biomedical literature from PubMed
 
 [Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
-![](https://assets.claude.com/2ceed63f77b47ed3a782d750eb83f107b3c5226a.svg?w=128&fit=max&auto=format)
-
-### [Consensus](https://claude.com/marketplace/connectors/consensus)
-
-Explore scientific research
-
-[Add Consensus in Claude (opens in new tab)](https://claude.ai/directory/65247229-f0c7-49df-9044-fcbb8b3894c6 "Add in Claude")
-
 ![](https://appexchange.salesforce.com/image_host/82be812c-159e-49b7-aa89-828b29c95e0b.png)
 
 ### [Blackthorn Forge MCP for Native Salesforce Event Management](https://claude.com/marketplace/connectors/blackthorn-beacon-event-management-for-salesforce)
@@ -102,6 +94,14 @@ Explore scientific research
 Blackthorn's MCP server for Salesforce events: create, query, and report on events, attendees, tickets, sessions, forms, and email campaigns, over 100 available tools, live against your org.
 
 [Add Blackthorn Forge MCP for Native Salesforce Event Management in Claude (opens in new tab)](https://claude.ai/directory/bb966230-ca18-4d33-8601-7d54184931c1 "Add in Claude")
+
+![](https://assets.claude.com/2ceed63f77b47ed3a782d750eb83f107b3c5226a.svg?w=128&fit=max&auto=format)
+
+### [Consensus](https://claude.com/marketplace/connectors/consensus)
+
+Explore scientific research
+
+[Add Consensus in Claude (opens in new tab)](https://claude.ai/directory/65247229-f0c7-49df-9044-fcbb8b3894c6 "Add in Claude")
 
 ![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/clinical-trials.png)
 

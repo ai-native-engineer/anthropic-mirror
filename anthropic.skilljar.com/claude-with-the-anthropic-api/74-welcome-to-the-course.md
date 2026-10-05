@@ -2,8 +2,6 @@
 
 # Welcome to the course
 
-_(등록 또는 권한이 필요한 레슨)_
-
 <!-- jwplayer-srt: https://content.jwplatform.com/tracks/ZJ95Pl3X.srt -->
 
 <details>

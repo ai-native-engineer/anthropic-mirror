@@ -3,6 +3,371 @@
 
 <!-- chunk-start -->
 
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `triple_click?: BetaBrowserTripleClickConfig | null`
+
+          `triple_click`'s config overrides.
+
+          - `defer_loading?: boolean | null`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled?: boolean | null`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `wait?: BetaBrowserWaitConfig | null`
+
+          `wait`'s config overrides.
+
+          - `defer_loading?: boolean | null`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled?: boolean | null`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `zoom?: BetaBrowserZoomConfig | null`
+
+          `zoom`'s config overrides.
+
+          - `defer_loading?: boolean | null`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled?: boolean | null`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+    - `interface BetaToolComputerUse20241022`
+
+      - `type: "computer_20241022"`
+
+      - `display_height_px: number`
+
+        The height of the display in pixels.
+
+        minimum: 1
+
+      - `display_width_px: number`
+
+        The width of the display in pixels.
+
+        minimum: 1
+
+      - `name: "computer"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120" | "code_execution_20260521">`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control?: BetaCacheControlEphemeral | null`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading?: boolean`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `display_number?: number | null`
+
+        The X11 display number (e.g. 0, 1) for the display.
+
+        minimum: 0
+
+      - `input_examples?: Array<Record<string, unknown>>`
+
+      - `strict?: boolean`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `interface BetaMemoryTool20250818`
+
+      - `type: "memory_20250818"`
+
+      - `name: "memory"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120" | "code_execution_20260521">`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control?: BetaCacheControlEphemeral | null`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading?: boolean`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `input_examples?: Array<Record<string, unknown>>`
+
+      - `strict?: boolean`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `interface BetaToolComputerUse20250124`
+
+      - `type: "computer_20250124"`
+
+      - `display_height_px: number`
+
+        The height of the display in pixels.
+
+        minimum: 1
+
+      - `display_width_px: number`
+
+        The width of the display in pixels.
+
+        minimum: 1
+
+      - `name: "computer"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120" | "code_execution_20260521">`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control?: BetaCacheControlEphemeral | null`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading?: boolean`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `display_number?: number | null`
+
+        The X11 display number (e.g. 0, 1) for the display.
+
+        minimum: 0
+
+      - `input_examples?: Array<Record<string, unknown>>`
+
+      - `strict?: boolean`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `interface BetaToolTextEditor20241022`
+
+      - `type: "text_editor_20241022"`
+
+      - `name: "str_replace_editor"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120" | "code_execution_20260521">`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control?: BetaCacheControlEphemeral | null`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading?: boolean`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `input_examples?: Array<Record<string, unknown>>`
+
+      - `strict?: boolean`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `interface BetaToolComputerUse20251124`
+
+      - `type: "computer_20251124"`
+
+      - `display_height_px: number`
+
+        The height of the display in pixels.
+
+        minimum: 1
+
+      - `display_width_px: number`
+
+        The width of the display in pixels.
+
+        minimum: 1
+
+      - `name: "computer"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120" | "code_execution_20260521">`
+
+        - `"direct"`
+
+        - `"code_execution_20250825"`
+
+        - `"code_execution_20260120"`
+
+        - `"code_execution_20260521"`
+
+      - `cache_control?: BetaCacheControlEphemeral | null`
+
+        Create a cache control breakpoint at this content block.
+
+      - `defer_loading?: boolean`
+
+        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+      - `display_number?: number | null`
+
+        The X11 display number (e.g. 0, 1) for the display.
+
+        minimum: 0
+
+      - `enable_zoom?: boolean`
+
+        Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+      - `input_examples?: Array<Record<string, unknown>>`
+
+      - `strict?: boolean`
+
+        When true, guarantees schema validation on tool names and inputs
+
+    - `interface BetaComputerToolset20260801`
+
+      The computer toolset: a single `tools[]` entry (carrying no
+      `name`) that declares the computer tool family. The model is
+      served the family's tool with any members disabled via `configs`
+      removed from its schema. Every member is enabled by default, zoom
+      included. The single-tool options `display_number` and
+      `enable_zoom` are not fields of a toolset entry — it carries only
+      `type`, `configs`, and `cache_control`; zoom is controlled
+      via `configs.zoom.enabled`.
+
+      - `type: "computer_toolset_20260801"`
+
+      - `cache_control?: BetaCacheControlEphemeral | null`
+
+        Create a cache control breakpoint at this content block.
+
+      - `configs?: BetaComputerToolsetConfigs | null`
+
+        Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+        - `type?: BetaComputerTypeConfig | null`
+
+          `type`'s config overrides.
+
+          - `defer_loading?: boolean | null`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled?: boolean | null`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `cursor_position?: BetaComputerCursorPositionConfig | null`
+
+          `cursor_position`'s config overrides.
+
+          - `defer_loading?: boolean | null`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled?: boolean | null`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `double_click?: BetaComputerDoubleClickConfig | null`
+
+          `double_click`'s config overrides.
+
+          - `defer_loading?: boolean | null`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled?: boolean | null`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `hold_key?: BetaComputerHoldKeyConfig | null`
+
+          `hold_key`'s config overrides.
+
+          - `defer_loading?: boolean | null`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled?: boolean | null`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `key?: BetaComputerKeyConfig | null`
+
+          `key`'s config overrides.
+
+          - `defer_loading?: boolean | null`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled?: boolean | null`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `left_click?: BetaComputerLeftClickConfig | null`
+
+          `left_click`'s config overrides.
+
+          - `defer_loading?: boolean | null`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled?: boolean | null`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `left_click_drag?: BetaComputerLeftClickDragConfig | null`
+
+          `left_click_drag`'s config overrides.
+
+          - `defer_loading?: boolean | null`
+
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
           - `enabled?: boolean | null`
@@ -837,19 +1202,23 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `"claude-sonnet-4-5"`
-
-          High-performance model for agents and coding
-
-        - `"claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
-
         - `"claude-mythos-preview"`
 
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+        - `"claude-sonnet-4-5"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
+
+        - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
 
         - `(string & {})`
 
@@ -2859,19 +3228,23 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `"claude-sonnet-4-5"`
-
-          High-performance model for agents and coding
-
-        - `"claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
-
         - `"claude-mythos-preview"`
 
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+        - `"claude-sonnet-4-5"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
+
+        - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
 
         - `(string & {})`
 
@@ -6271,19 +6644,23 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `"claude-sonnet-4-5"`
-
-        High-performance model for agents and coding
-
-      - `"claude-sonnet-4-5-20250929"`
-
-        High-performance model for agents and coding
-
       - `"claude-mythos-preview"`
 
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+      - `"claude-sonnet-4-5"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `"claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
 
       - `(string & {})`
 
@@ -6843,19 +7220,23 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `"claude-sonnet-4-5"`
-
-          High-performance model for agents and coding
-
-        - `"claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
-
         - `"claude-mythos-preview"`
 
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+        - `"claude-sonnet-4-5"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
+
+        - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
 
         - `(string & {})`
 
@@ -12481,19 +12862,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                               Powerful intelligence for long-running agents and coding
 
-                            - `"claude-sonnet-4-5"`
-
-                              High-performance model for agents and coding
-
-                            - `"claude-sonnet-4-5-20250929"`
-
-                              High-performance model for agents and coding
-
                             - `"claude-mythos-preview"`
 
                               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                               New class of intelligence, strongest in coding and cybersecurity
+
+                            - `"claude-sonnet-4-5"`
+
+                              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                              High-performance model for agents and coding
+
+                            - `"claude-sonnet-4-5-20250929"`
+
+                              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                              High-performance model for agents and coding
 
                             - `(string & {})`
 
@@ -13650,6 +14035,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `user_profile_id?: string`
 
     Header param: The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
@@ -13940,6 +14327,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -14227,6 +14616,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -14512,6 +14903,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -14789,6 +15182,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `"ce-plugins-2026-09-01"`
 
+    - `"spend-limit-reads-2026-09-26"`
+
   - `workspace_id?: string`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -14957,6 +15352,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"mcp-client-2026-09-15"`
 
     - `"ce-plugins-2026-09-01"`
+
+    - `"spend-limit-reads-2026-09-26"`
 
   - `workspace_id?: string`
 
@@ -17783,19 +18180,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             Powerful intelligence for long-running agents and coding
 
-                          - `"claude-sonnet-4-5"`
-
-                            High-performance model for agents and coding
-
-                          - `"claude-sonnet-4-5-20250929"`
-
-                            High-performance model for agents and coding
-
                           - `"claude-mythos-preview"`
 
                             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                             New class of intelligence, strongest in coding and cybersecurity
+
+                          - `"claude-sonnet-4-5"`
+
+                            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                            High-performance model for agents and coding
+
+                          - `"claude-sonnet-4-5-20250929"`
+
+                            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                            High-performance model for agents and coding
 
                           - `(string & {})`
 

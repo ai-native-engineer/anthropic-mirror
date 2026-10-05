@@ -18,7 +18,7 @@ Claude can show current weather conditions and forecasts when you ask about the 
 
 Claude automatically displays temperatures in Fahrenheit for US locations and Celsius for everywhere else.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1791090900&signature=fad1fd4e0cf9e98b2295467f790f0b3fab75f4fb4848bcdafac71adae12abe15&req=diAjFsx6mYhdXvMW1HO4zXlB7D%2B63BiBdgndksVD5R3WJ68gEHlA15t3gpFn%0Am8BfFVoClR2ozJRw4oQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1791090900&signature=fad1fd4e0cf9e98b2295467f790f0b3fab75f4fb4848bcdafac71adae12abe15&req=diAjFsx6mYhdXvMW1HO4zXlB7D%2B63BiBdgndksVD5R3WJ68gEHlA15t3gpFn%0Am8BfFVoClR2ozJRw4oQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1791161100&signature=f4945e513eb6f9599d93c644c3ad6e398995a75b33f3d03059879ddc3f87bc55&req=diAjFsx6mYhdXvMW1HO4zXlB7D%2B70xmJdgndksVD5R1VcktHM9WjoYCz39RI%0A1HKLVUxxsuxurgplB7s%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1791161100&signature=f4945e513eb6f9599d93c644c3ad6e398995a75b33f3d03059879ddc3f87bc55&req=diAjFsx6mYhdXvMW1HO4zXlB7D%2B70xmJdgndksVD5R1VcktHM9WjoYCz39RI%0A1HKLVUxxsuxurgplB7s%3D%0A)
 
 Weather is powered by Google Maps (<https://policies.google.com/privacy>).
 
@@ -28,7 +28,7 @@ When you ask about recipes, Claude can display formatted recipe cards that are e
 
 **Note:** Visual recipe cards are available on web and desktop only. On mobile, Claude provides recipe information as text in the conversation.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1791090900&signature=5eac1fcec570d9f24caac47c3e8768c5a79669c73a99d60a7ab3a6e2953d4b88&req=diAjFsx6mYhdUPMW1HO4zUQperEV21SerIPm%2FImZVg32YY74zEXHKYhrqUW2%0Ad%2BKTbkaxG%2BWIPp7nt%2BM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1791090900&signature=5eac1fcec570d9f24caac47c3e8768c5a79669c73a99d60a7ab3a6e2953d4b88&req=diAjFsx6mYhdUPMW1HO4zUQperEV21SerIPm%2FImZVg32YY74zEXHKYhrqUW2%0Ad%2BKTbkaxG%2BWIPp7nt%2BM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1791161100&signature=e53b4bcd51d843a831ddf051f887925c57634e69295a0cfb8162ef3d1e95c2f5&req=diAjFsx6mYhdUPMW1HO4zUQperEU1FWWrIPm%2FImZVg3lZK3FZB1Kdq1zkiNX%0A8WVIkZ5ldYXDgS4RQuw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1791161100&signature=e53b4bcd51d843a831ddf051f887925c57634e69295a0cfb8162ef3d1e95c2f5&req=diAjFsx6mYhdUPMW1HO4zUQperEU1FWWrIPm%2FImZVg3lZK3FZB1Kdq1zkiNX%0A8WVIkZ5ldYXDgS4RQuw%3D%0A)
 
 ### Custom visuals
 
@@ -71,7 +71,7 @@ For example, if you ask Claude to help you plan a trip, it might ask you to:
 
 This content appears at the bottom of the chat. You can still type a response if you prefer.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1791090900&signature=262c21959bad92d356ebae551bb4a6fc5ebb5e62fd21a78d43bbae8461f15d65&req=diAjFsx6mYhcWfMW1HO4zWmF5vS%2BYB6rx4wz0C7CTAIdzXHruhpsHBkgZRSs%0A2HSRJbdMSvnJIotyRxw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1791090900&signature=262c21959bad92d356ebae551bb4a6fc5ebb5e62fd21a78d43bbae8461f15d65&req=diAjFsx6mYhcWfMW1HO4zWmF5vS%2BYB6rx4wz0C7CTAIdzXHruhpsHBkgZRSs%0A2HSRJbdMSvnJIotyRxw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1791161100&signature=425bdbb6f5887928fc341bf2dab2c31118b217797c7dfc42fbaca842c887aa4d&req=diAjFsx6mYhcWfMW1HO4zWmF5vS%2Fbx%2Bjx4wz0C7CTAI0Ck9GAiVvlngRFDA8%0A48axu8IBM3AUNEAChtI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1791161100&signature=425bdbb6f5887928fc341bf2dab2c31118b217797c7dfc42fbaca842c887aa4d&req=diAjFsx6mYhcWfMW1HO4zWmF5vS%2Fbx%2Bjx4wz0C7CTAI0Ck9GAiVvlngRFDA8%0A48axu8IBM3AUNEAChtI%3D%0A)
 
 ---
 

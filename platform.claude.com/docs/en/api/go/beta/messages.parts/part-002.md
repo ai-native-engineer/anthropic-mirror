@@ -3,6 +3,91 @@
 
 <!-- chunk-start -->
 
+                  - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
+
+                  - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
+
+                - `Name ToolSearchToolBm25`
+
+                  Name of the tool.
+
+                  This is how the tool will be called by the model and in `tool_use` blocks.
+
+                - `AllowedCallers []string Optional`
+
+                  - `const BetaToolSearchToolBm25_20251119AllowedCallerDirect BetaToolSearchToolBm25_20251119AllowedCaller = "direct"`
+
+                  - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20250825 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20250825"`
+
+                  - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20260120 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20260120"`
+
+                  - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20260521 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20260521"`
+
+                - `CacheControl BetaCacheControlEphemeral Optional`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `DeferLoading bool Optional`
+
+                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                - `Strict bool Optional`
+
+                  When true, guarantees schema validation on tool names and inputs
+
+              - `type BetaToolSearchToolRegex20251119`
+
+                - `Type BetaToolSearchToolRegex20251119Type`
+
+                  - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex20251119 BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex_20251119"`
+
+                  - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex"`
+
+                - `Name ToolSearchToolRegex`
+
+                  Name of the tool.
+
+                  This is how the tool will be called by the model and in `tool_use` blocks.
+
+                - `AllowedCallers []string Optional`
+
+                  - `const BetaToolSearchToolRegex20251119AllowedCallerDirect BetaToolSearchToolRegex20251119AllowedCaller = "direct"`
+
+                  - `const BetaToolSearchToolRegex20251119AllowedCallerCodeExecution20250825 BetaToolSearchToolRegex20251119AllowedCaller = "code_execution_20250825"`
+
+                  - `const BetaToolSearchToolRegex20251119AllowedCallerCodeExecution20260120 BetaToolSearchToolRegex20251119AllowedCaller = "code_execution_20260120"`
+
+                  - `const BetaToolSearchToolRegex20251119AllowedCallerCodeExecution20260521 BetaToolSearchToolRegex20251119AllowedCaller = "code_execution_20260521"`
+
+                - `CacheControl BetaCacheControlEphemeral Optional`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `DeferLoading bool Optional`
+
+                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                - `Strict bool Optional`
+
+                  When true, guarantees schema validation on tool names and inputs
+
+              - `type BetaMCPToolset`
+
+                Configuration for a group of tools from an MCP server.
+
+                Allows configuring enabled status and defer_loading for all tools
+                from an MCP server, with optional per-tool overrides.
+
+                - `Type MCPToolset`
+
+                - `MCPServerName string`
+
+                  Name of the MCP server to configure tools for
+
+                  minLength: 1, maxLength: 255
+
+                - `CacheControl BetaCacheControlEphemeral Optional`
+
                   Create a cache control breakpoint at this content block.
 
                 - `Configs map[string, BetaMCPToolConfig] Optional`
@@ -1009,19 +1094,23 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-        High-performance model for agents and coding
-
-      - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-        High-performance model for agents and coding
-
       - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+      - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
 
   - `To BetaFallbackInfo`
 
@@ -1153,19 +1242,23 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-        High-performance model for agents and coding
-
-      - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-        High-performance model for agents and coding
-
       - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+      - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
 
   - `To BetaFallbackInfoParamResp`
 
@@ -1414,19 +1507,23 @@
 
       Powerful intelligence for long-running agents and coding
 
-    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-      High-performance model for agents and coding
-
-    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-      High-performance model for agents and coding
-
     - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
 
 ### Beta Fallback Info Param
 
@@ -1504,19 +1601,23 @@
 
       Powerful intelligence for long-running agents and coding
 
-    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-      High-performance model for agents and coding
-
-    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-      High-performance model for agents and coding
-
     - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
 
 ### Beta Fallback Message Iteration Usage
 
@@ -1641,19 +1742,23 @@
 
       Powerful intelligence for long-running agents and coding
 
-    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-      High-performance model for agents and coding
-
-    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-      High-performance model for agents and coding
-
     - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
 
   - `OutputTokens int64`
 
@@ -1742,19 +1847,23 @@
 
       Powerful intelligence for long-running agents and coding
 
-    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-      High-performance model for agents and coding
-
-    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-      High-performance model for agents and coding
-
     - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
 
   - `MaxTokens int64 Optional`
 
@@ -1990,19 +2099,23 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-        High-performance model for agents and coding
-
-      - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-        High-performance model for agents and coding
-
       - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+      - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
 
     - `MaxTokens int64 Optional`
 
@@ -2468,19 +2581,23 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-        High-performance model for agents and coding
-
-      - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-        High-performance model for agents and coding
-
       - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+      - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
 
     - `OutputTokens int64`
 
@@ -6112,19 +6229,23 @@
 
                       Powerful intelligence for long-running agents and coding
 
-                    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-                      High-performance model for agents and coding
-
-                    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-                      High-performance model for agents and coding
-
                     - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
                       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                       New class of intelligence, strongest in coding and cybersecurity
+
+                    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
+
+                    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
 
                   - `Name Advisor`
 
@@ -7363,19 +7484,23 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-          High-performance model for agents and coding
-
-        - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
-
         - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+        - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
+
+        - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
 
       - `OutputTokens int64`
 
@@ -7674,19 +7799,23 @@
 
       Powerful intelligence for long-running agents and coding
 
-    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-      High-performance model for agents and coding
-
-    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-      High-performance model for agents and coding
-
     - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
 
   - `OutputTokens int64`
 
@@ -10666,19 +10795,23 @@
 
                         Powerful intelligence for long-running agents and coding
 
-                      - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-                        High-performance model for agents and coding
-
-                      - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-                        High-performance model for agents and coding
-
                       - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
                         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                         New class of intelligence, strongest in coding and cybersecurity
+
+                      - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+                        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        High-performance model for agents and coding
+
+                      - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+                        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        High-performance model for agents and coding
 
                     - `Name Advisor`
 
@@ -14232,19 +14365,23 @@
 
                       Powerful intelligence for long-running agents and coding
 
-                    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-                      High-performance model for agents and coding
-
-                    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-                      High-performance model for agents and coding
-
                     - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
                       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                       New class of intelligence, strongest in coding and cybersecurity
+
+                    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
+
+                    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
 
                   - `Name Advisor`
 
@@ -14986,19 +15123,23 @@
 
             Powerful intelligence for long-running agents and coding
 
-          - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-            High-performance model for agents and coding
-
-          - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-            High-performance model for agents and coding
-
           - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             New class of intelligence, strongest in coding and cybersecurity
+
+          - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            High-performance model for agents and coding
+
+          - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            High-performance model for agents and coding
 
         - `OutputTokens int64`
 
@@ -18080,19 +18221,23 @@
 
                         Powerful intelligence for long-running agents and coding
 
-                      - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-                        High-performance model for agents and coding
-
-                      - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-                        High-performance model for agents and coding
-
                       - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
                         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                         New class of intelligence, strongest in coding and cybersecurity
+
+                      - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+                        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        High-performance model for agents and coding
+
+                      - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+                        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        High-performance model for agents and coding
 
                     - `Name Advisor`
 
@@ -21920,19 +22065,23 @@
 
                           Powerful intelligence for long-running agents and coding
 
-                        - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-                          High-performance model for agents and coding
-
-                        - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-                          High-performance model for agents and coding
-
                         - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
                           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                           New class of intelligence, strongest in coding and cybersecurity
+
+                        - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+                          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          High-performance model for agents and coding
+
+                        - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+                          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          High-performance model for agents and coding
 
                       - `Name Advisor`
 
@@ -25702,19 +25851,23 @@
 
               Powerful intelligence for long-running agents and coding
 
-            - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-              High-performance model for agents and coding
-
-            - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
-
             - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
 
               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
               New class of intelligence, strongest in coding and cybersecurity
+
+            - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              High-performance model for agents and coding
+
+            - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              High-performance model for agents and coding
 
           - `Name Advisor`
 
@@ -26865,276 +27018,3 @@
             - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20260521 BetaToolComputerUse20250124AllowedCaller = "code_execution_20260521"`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `DisplayNumber int64 Optional`
-
-            The X11 display number (e.g. 0, 1) for the display.
-
-            minimum: 0
-
-          - `InputExamples []map[string, any] Optional`
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `type BetaToolTextEditor20241022`
-
-          - `Type TextEditor20241022`
-
-          - `Name StrReplaceEditor`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const BetaToolTextEditor20241022AllowedCallerDirect BetaToolTextEditor20241022AllowedCaller = "direct"`
-
-            - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20250825 BetaToolTextEditor20241022AllowedCaller = "code_execution_20250825"`
-
-            - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20260120 BetaToolTextEditor20241022AllowedCaller = "code_execution_20260120"`
-
-            - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20260521 BetaToolTextEditor20241022AllowedCaller = "code_execution_20260521"`
-
-          - `CacheControl BetaCacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `InputExamples []map[string, any] Optional`
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `type BetaToolComputerUse20251124`
-
-          - `Type Computer20251124`
-
-          - `DisplayHeightPx int64`
-
-            The height of the display in pixels.
-
-            minimum: 1
-
-          - `DisplayWidthPx int64`
-
-            The width of the display in pixels.
-
-            minimum: 1
-
-          - `Name Computer`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const BetaToolComputerUse20251124AllowedCallerDirect BetaToolComputerUse20251124AllowedCaller = "direct"`
-
-            - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20250825 BetaToolComputerUse20251124AllowedCaller = "code_execution_20250825"`
-
-            - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20260120 BetaToolComputerUse20251124AllowedCaller = "code_execution_20260120"`
-
-            - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20260521 BetaToolComputerUse20251124AllowedCaller = "code_execution_20260521"`
-
-          - `CacheControl BetaCacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `DisplayNumber int64 Optional`
-
-            The X11 display number (e.g. 0, 1) for the display.
-
-            minimum: 0
-
-          - `EnableZoom bool Optional`
-
-            Whether to enable an action to take a zoomed-in screenshot of the screen.
-
-          - `InputExamples []map[string, any] Optional`
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `type BetaComputerToolset20260801`
-
-          The computer toolset: a single `tools[]` entry (carrying no
-          `name`) that declares the computer tool family. The model is
-          served the family's tool with any members disabled via `configs`
-          removed from its schema. Every member is enabled by default, zoom
-          included. The single-tool options `display_number` and
-          `enable_zoom` are not fields of a toolset entry — it carries only
-          `type`, `configs`, and `cache_control`; zoom is controlled
-          via `configs.zoom.enabled`.
-
-          - `Type ComputerToolset20260801`
-
-          - `CacheControl BetaCacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `Configs BetaComputerToolsetConfigs Optional`
-
-            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
-
-            - `Type BetaComputerTypeConfig Optional`
-
-              `type`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `CursorPosition BetaComputerCursorPositionConfig Optional`
-
-              `cursor_position`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `DoubleClick BetaComputerDoubleClickConfig Optional`
-
-              `double_click`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `HoldKey BetaComputerHoldKeyConfig Optional`
-
-              `hold_key`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `Key BetaComputerKeyConfig Optional`
-
-              `key`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `LeftClick BetaComputerLeftClickConfig Optional`
-
-              `left_click`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `LeftClickDrag BetaComputerLeftClickDragConfig Optional`
-
-              `left_click_drag`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `LeftMouseDown BetaComputerLeftMouseDownConfig Optional`
-
-              `left_mouse_down`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `LeftMouseUp BetaComputerLeftMouseUpConfig Optional`
-
-              `left_mouse_up`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `MiddleClick BetaComputerMiddleClickConfig Optional`
-
-              `middle_click`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `MouseMove BetaComputerMouseMoveConfig Optional`
-
-              `mouse_move`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `RightClick BetaComputerRightClickConfig Optional`
-
-              `right_click`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.

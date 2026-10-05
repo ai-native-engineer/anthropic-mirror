@@ -64,10 +64,10 @@ Plain language search for faster contract answers and manage your contractual ob
 
 [Add Ironclad Contracts in Claude (opens in new tab)](https://claude.ai/directory/c5504c7c-d299-4637-a012-29ef1a2354a9 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=patlytics.ai&sz=96)
+![](https://assets.claude.com/e3b115fce72d31547c0858af4af4ab83a156c168.svg?w=128&fit=max&auto=format)
 
-### [Patlytics](https://claude.com/marketplace/connectors/patlytics)
+### [Datasite](https://claude.com/marketplace/connectors/datasite)
 
-Prior art, claims, and portfolio search
+Manage your M&A data room from Claude
 
-[Add Patlytics in Claude (opens in new tab)](https://claude.ai/directory/bbf58559-0ce4-4567-a5c9-947ce33e9f81 "Add in Claude")
+[Add Datasite in Claude (opens in new tab)](https://claude.ai/directory/3a148118-6b4a-443e-9a66-9e1ec243d119 "Add in Claude")

@@ -67,14 +67,6 @@ Sell, serve, and operate at scale with Salesforce.
 
 [Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
 
-![](https://assets.claude.com/07bae35b38ae52ac6425e5a507288a7bfabc1ffd.jpg?w=128&fit=max&auto=format)
-
-### [Stripe](https://claude.com/marketplace/connectors/stripe)
-
-Payment processing and financial infrastructure tools
-
-[Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
-
 ![](https://appexchange.salesforce.com/image_host/82be812c-159e-49b7-aa89-828b29c95e0b.png)
 
 ### [Blackthorn Forge MCP for Native Salesforce Event Management](https://claude.com/marketplace/connectors/blackthorn-beacon-event-management-for-salesforce)
@@ -82,6 +74,14 @@ Payment processing and financial infrastructure tools
 Blackthorn's MCP server for Salesforce events: create, query, and report on events, attendees, tickets, sessions, forms, and email campaigns, over 100 available tools, live against your org.
 
 [Add Blackthorn Forge MCP for Native Salesforce Event Management in Claude (opens in new tab)](https://claude.ai/directory/bb966230-ca18-4d33-8601-7d54184931c1 "Add in Claude")
+
+![](https://assets.claude.com/07bae35b38ae52ac6425e5a507288a7bfabc1ffd.jpg?w=128&fit=max&auto=format)
+
+### [Stripe](https://claude.com/marketplace/connectors/stripe)
+
+Payment processing and financial infrastructure tools
+
+[Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
 ![](https://www.coinversa.ai/web-app-manifest-512x512.png)
 

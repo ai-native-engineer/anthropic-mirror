@@ -17,7 +17,7 @@
 | Shortcut | Description | Context |
 | :- | :- | :- |
 | `Ctrl+C` | Interrupt, or clear input | Interrupts a running operation. If nothing is running, the first press clears the prompt input and a second press exits Claude Code |
-| `Ctrl+X Ctrl+K` | Stop all running [background subagents](https://code.claude.com/docs/en/sub-agents#run-subagents-in-foreground-or-background) in this session, and turn off [artifact auto-replies](https://code.claude.com/docs/en/artifacts#let-claude-reply-to-comments-on-its-own) for the rest of it. Press twice within 3 seconds to confirm | Subagent control |
+| `Ctrl+X Ctrl+K` | Stop all running [background subagents](https://code.claude.com/docs/en/sub-agents#run-subagents-in-foreground-or-background) in this session, and turn off [artifact auto-replies](https://code.claude.com/docs/en/artifacts#let-claude-reply-to-comments-on-its-own) for the rest of it. Press twice within 3 seconds to confirm. You can press it while a background subagent's permission prompt is open | Subagent control |
 | `Ctrl+D` | Exit Claude Code session | The first press shows a confirmation hint and a second press within 800ms exits. When the prompt has text, `Ctrl+D` deletes the character after the cursor instead |
 | `Ctrl+G` or `Ctrl+X Ctrl+E` | Open in default text editor | Edit your prompt or custom response in your default text editor. `Ctrl+X Ctrl+E` is the readline-native binding. Turn on **Show last response in external editor** in `/config` to prepend Claude's previous reply as `#`-commented context above your prompt; Claude Code strips the comment block when you save |
 | `Ctrl+L` | Redraw the screen | Forces a full terminal redraw, keeping input and conversation history. Use this to recover if the display becomes garbled or partially blank. See [Clear the conversation](https://code.claude.com/docs/en/fullscreen#clear-the-conversation) for fullscreen rendering |
@@ -413,6 +413,8 @@ Claude Code also skips individual suggestions in several situations, including:
 * While you're in plan mode
 * Your account is close to or at its usage limit. To keep suggestions on until you reach the limit, set [`CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION`](https://code.claude.com/docs/en/env-vars) to `true`. Before v2.1.238, Claude Code skipped them near the limit even with the variable set to `true`
 * In an [agent team](https://code.claude.com/docs/en/agent-teams), in teammates' sessions by default. The lead's session shows suggestions
+
+The notice `Showing fewer prompt suggestions · use one to bring them back` means Claude Code is showing suggestions less often because you left many in a row unused. To return to the usual frequency, use a suggestion or set [`CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION`](https://code.claude.com/docs/en/env-vars) to `true`.
 
 In print mode, Claude Code doesn't generate suggestions by default. Pass [`--prompt-suggestions`](https://code.claude.com/docs/en/cli-reference#cli-flags) with `-p "<prompt>" --output-format stream-json --verbose` to have Claude Code emit a `prompt_suggestion` message after each turn that generates one. The generator skips very short conversations and cold prompt caches here too, so a single short `-p` query can emit none.
 

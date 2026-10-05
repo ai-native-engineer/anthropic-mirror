@@ -2,6 +2,215 @@
 <!-- part of: https://platform.claude.com/docs/en/api/beta/messages -->
 
 <!-- chunk-start -->
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+    - `thinking: optional BetaThinkingConfigEnabled or BetaThinkingConfigDisabled or BetaThinkingConfigBetweenTools or BetaThinkingConfigAdaptive or null`
+
+      - `BetaThinkingConfigEnabled object`
+
+        - `type: "enabled"`
+
+        - `budget_tokens: number`
+
+          Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+          Must be ≥1024 and less than `max_tokens`.
+
+          See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+          minimum: 1024
+
+        - `block_binding: optional BetaThinkingBlockBinding or null`
+
+          Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
+
+          - `prefix_mismatch_behavior: optional BetaThinkingPrefixMismatchBehavior or null`
+
+            "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
+
+            - `"error"`
+
+            - `"drop_block"`
+
+        - `display: optional "summarized" or "omitted" or "updates" or null`
+
+          Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+          - `"summarized"`
+
+          - `"omitted"`
+
+          - `"updates"`
+
+      - `BetaThinkingConfigDisabled object`
+
+        - `type: "disabled"`
+
+      - `BetaThinkingConfigBetweenTools object`
+
+        - `type: "between_tools"`
+
+      - `BetaThinkingConfigAdaptive object`
+
+        - `type: "adaptive"`
+
+        - `block_binding: optional BetaThinkingBlockBinding or null`
+
+          Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
+
+        - `display: optional "summarized" or "omitted" or "updates" or null`
+
+          Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+          - `"summarized"`
+
+          - `"omitted"`
+
+          - `"updates"`
+
+  - `"default"`
+
+### Beta File Document Source
+
+- `BetaFileDocumentSource object`
+
+  - `type: "file"`
+
+  - `file_id: string`
+
+### Beta File Image Source
+
+- `BetaFileImageSource object`
+
+  - `type: "file"`
+
+  - `file_id: string`
+
+### Beta Image Block Param
+
+- `BetaImageBlockParam object`
+
+  - `type: "image"`
+
+  - `source: BetaBase64ImageSource or BetaURLImageSource or BetaFileImageSource`
+
+    - `BetaBase64ImageSource object`
+
+      - `type: "base64"`
+
+      - `data: string`
+
+        format: byte
+
+      - `media_type: "image/jpeg" or "image/png" or "image/gif" or "image/webp"`
+
+        - `"image/jpeg"`
+
+        - `"image/png"`
+
+        - `"image/gif"`
+
+        - `"image/webp"`
+
+    - `BetaURLImageSource object`
+
+      - `type: "url"`
+
+      - `url: string`
+
+    - `BetaFileImageSource object`
+
+      - `type: "file"`
+
+      - `file_id: string`
+
+  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `transformations: optional BetaImageTransformationsParam or null`
+
+    Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+    - `oversized_image: optional "downsize" or "error"`
+
+      What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+      - `"downsize"`
+
+      - `"error"`
+
+### Beta Image Transformations Param
+
+- `BetaImageTransformationsParam object`
+
+  Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+  - `oversized_image: optional "downsize" or "error"`
+
+    What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+    - `"downsize"`
+
+    - `"error"`
+
+### Beta Input JSON Delta
+
+- `BetaInputJSONDelta object`
+
+  - `type: "input_json_delta"`
+
+    default: input_json_delta
+
+  - `partial_json: string`
+
+### Beta Input Tokens Clear At Least
+
+- `BetaInputTokensClearAtLeast object`
+
+  - `type: "input_tokens"`
+
+  - `value: number`
+
+    minimum: 0
+
+### Beta Input Tokens Trigger
+
+- `BetaInputTokensTrigger object`
+
+  - `type: "input_tokens"`
+
+  - `value: number`
+
+    minimum: 1
+
+### Beta Input Transformation
+
+- `BetaInputTransformation = BetaThinkingDroppedInputTransformation or BetaThinkingMismatchAllowedInputTransformation`
+
+  One entry of `input_transformations`: either a change the API made to the
   request's input before showing it to the model, or a block that failed a
   binding check and was still shown to the model unchanged. The `type` field
   says which.
@@ -206,19 +415,23 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `"claude-sonnet-4-5"`
-
-        High-performance model for agents and coding
-
-      - `"claude-sonnet-4-5-20250929"`
-
-        High-performance model for agents and coding
-
       - `"claude-mythos-preview"`
 
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+      - `"claude-sonnet-4-5"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `"claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
 
       - `string`
 
@@ -3852,19 +4065,23 @@
 
                       Powerful intelligence for long-running agents and coding
 
-                    - `"claude-sonnet-4-5"`
-
-                      High-performance model for agents and coding
-
-                    - `"claude-sonnet-4-5-20250929"`
-
-                      High-performance model for agents and coding
-
                     - `"claude-mythos-preview"`
 
                       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                       New class of intelligence, strongest in coding and cybersecurity
+
+                    - `"claude-sonnet-4-5"`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
+
+                    - `"claude-sonnet-4-5-20250929"`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
 
                     - `string`
 
@@ -5105,19 +5322,23 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `"claude-sonnet-4-5"`
-
-          High-performance model for agents and coding
-
-        - `"claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
-
         - `"claude-mythos-preview"`
 
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+        - `"claude-sonnet-4-5"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
+
+        - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
 
         - `string`
 
@@ -5418,19 +5639,23 @@
 
       Powerful intelligence for long-running agents and coding
 
-    - `"claude-sonnet-4-5"`
-
-      High-performance model for agents and coding
-
-    - `"claude-sonnet-4-5-20250929"`
-
-      High-performance model for agents and coding
-
     - `"claude-mythos-preview"`
 
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+    - `"claude-sonnet-4-5"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `"claude-sonnet-4-5-20250929"`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
 
     - `string`
 
@@ -8416,19 +8641,23 @@
 
                         Powerful intelligence for long-running agents and coding
 
-                      - `"claude-sonnet-4-5"`
-
-                        High-performance model for agents and coding
-
-                      - `"claude-sonnet-4-5-20250929"`
-
-                        High-performance model for agents and coding
-
                       - `"claude-mythos-preview"`
 
                         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                         New class of intelligence, strongest in coding and cybersecurity
+
+                      - `"claude-sonnet-4-5"`
+
+                        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        High-performance model for agents and coding
+
+                      - `"claude-sonnet-4-5-20250929"`
+
+                        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        High-performance model for agents and coding
 
                       - `string`
 
@@ -11984,19 +12213,23 @@
 
                       Powerful intelligence for long-running agents and coding
 
-                    - `"claude-sonnet-4-5"`
-
-                      High-performance model for agents and coding
-
-                    - `"claude-sonnet-4-5-20250929"`
-
-                      High-performance model for agents and coding
-
                     - `"claude-mythos-preview"`
 
                       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                       New class of intelligence, strongest in coding and cybersecurity
+
+                    - `"claude-sonnet-4-5"`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
+
+                    - `"claude-sonnet-4-5-20250929"`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
 
                     - `string`
 
@@ -12740,19 +12973,23 @@
 
             Powerful intelligence for long-running agents and coding
 
-          - `"claude-sonnet-4-5"`
-
-            High-performance model for agents and coding
-
-          - `"claude-sonnet-4-5-20250929"`
-
-            High-performance model for agents and coding
-
           - `"claude-mythos-preview"`
 
             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             New class of intelligence, strongest in coding and cybersecurity
+
+          - `"claude-sonnet-4-5"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            High-performance model for agents and coding
 
           - `string`
 
@@ -15836,19 +16073,23 @@
 
                         Powerful intelligence for long-running agents and coding
 
-                      - `"claude-sonnet-4-5"`
-
-                        High-performance model for agents and coding
-
-                      - `"claude-sonnet-4-5-20250929"`
-
-                        High-performance model for agents and coding
-
                       - `"claude-mythos-preview"`
 
                         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                         New class of intelligence, strongest in coding and cybersecurity
+
+                      - `"claude-sonnet-4-5"`
+
+                        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        High-performance model for agents and coding
+
+                      - `"claude-sonnet-4-5-20250929"`
+
+                        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        High-performance model for agents and coding
 
                       - `string`
 
@@ -19678,19 +19919,23 @@
 
                           Powerful intelligence for long-running agents and coding
 
-                        - `"claude-sonnet-4-5"`
-
-                          High-performance model for agents and coding
-
-                        - `"claude-sonnet-4-5-20250929"`
-
-                          High-performance model for agents and coding
-
                         - `"claude-mythos-preview"`
 
                           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                           New class of intelligence, strongest in coding and cybersecurity
+
+                        - `"claude-sonnet-4-5"`
+
+                          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          High-performance model for agents and coding
+
+                        - `"claude-sonnet-4-5-20250929"`
+
+                          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          High-performance model for agents and coding
 
                         - `string`
 
@@ -23462,19 +23707,23 @@
 
               Powerful intelligence for long-running agents and coding
 
-            - `"claude-sonnet-4-5"`
-
-              High-performance model for agents and coding
-
-            - `"claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
-
             - `"claude-mythos-preview"`
 
               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
               New class of intelligence, strongest in coding and cybersecurity
+
+            - `"claude-sonnet-4-5"`
+
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"`
+
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              High-performance model for agents and coding
 
             - `string`
 
@@ -25669,19 +25918,23 @@
 
               Powerful intelligence for long-running agents and coding
 
-            - `"claude-sonnet-4-5"`
-
-              High-performance model for agents and coding
-
-            - `"claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
-
             - `"claude-mythos-preview"`
 
               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
               New class of intelligence, strongest in coding and cybersecurity
+
+            - `"claude-sonnet-4-5"`
+
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"`
+
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              High-performance model for agents and coding
 
             - `string`
 
@@ -27795,19 +28048,23 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `"claude-sonnet-4-5"`
-
-        High-performance model for agents and coding
-
-      - `"claude-sonnet-4-5-20250929"`
-
-        High-performance model for agents and coding
-
       - `"claude-mythos-preview"`
 
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+      - `"claude-sonnet-4-5"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `"claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
 
       - `string`
 
@@ -29312,285 +29569,3 @@
   - `signature: string`
 
     A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
-
-    This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
-
-    See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
-
-  - `thinking: string`
-
-    The text of Claude's thinking process for this block.
-
-### Beta Thinking Block Binding
-
-- `BetaThinkingBlockBinding object`
-
-  Controls for block binding: what happens when a thinking block this
-  request sends back fails the conversation check. Every field is optional;
-  an empty object means every default.
-
-  - `prefix_mismatch_behavior: optional BetaThinkingPrefixMismatchBehavior or null`
-
-    "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
-
-    - `"error"`
-
-    - `"drop_block"`
-
-### Beta Thinking Block Param
-
-- `BetaThinkingBlockParam object`
-
-  - `type: "thinking"`
-
-  - `signature: string`
-
-    The `signature` value of this thinking block, exactly as returned by the API in a previous response. Used to verify that the block was generated by Claude.
-
-    Thinking blocks must be passed back unmodified and in their original order; a modified block results in a 400 `invalid_request_error`.
-
-  - `thinking: string`
-
-    The `thinking` text of this block as returned by the API.
-
-### Beta Thinking Config Adaptive
-
-- `BetaThinkingConfigAdaptive object`
-
-  - `type: "adaptive"`
-
-  - `block_binding: optional BetaThinkingBlockBinding or null`
-
-    Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
-
-    - `prefix_mismatch_behavior: optional BetaThinkingPrefixMismatchBehavior or null`
-
-      "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
-
-      - `"error"`
-
-      - `"drop_block"`
-
-  - `display: optional "summarized" or "omitted" or "updates" or null`
-
-    Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
-    - `"summarized"`
-
-    - `"omitted"`
-
-    - `"updates"`
-
-### Beta Thinking Config Between Tools
-
-- `BetaThinkingConfigBetweenTools object`
-
-  - `type: "between_tools"`
-
-### Beta Thinking Config Disabled
-
-- `BetaThinkingConfigDisabled object`
-
-  - `type: "disabled"`
-
-### Beta Thinking Config Enabled
-
-- `BetaThinkingConfigEnabled object`
-
-  - `type: "enabled"`
-
-  - `budget_tokens: number`
-
-    Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
-
-    Must be ≥1024 and less than `max_tokens`.
-
-    See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
-
-    minimum: 1024
-
-  - `block_binding: optional BetaThinkingBlockBinding or null`
-
-    Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
-
-    - `prefix_mismatch_behavior: optional BetaThinkingPrefixMismatchBehavior or null`
-
-      "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
-
-      - `"error"`
-
-      - `"drop_block"`
-
-  - `display: optional "summarized" or "omitted" or "updates" or null`
-
-    Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
-    - `"summarized"`
-
-    - `"omitted"`
-
-    - `"updates"`
-
-### Beta Thinking Config Param
-
-- `BetaThinkingConfigParam = BetaThinkingConfigEnabled or BetaThinkingConfigDisabled or BetaThinkingConfigBetweenTools or BetaThinkingConfigAdaptive`
-
-  Configuration for enabling Claude's extended thinking.
-
-  When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
-
-  See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
-
-  - `BetaThinkingConfigEnabled object`
-
-    - `type: "enabled"`
-
-    - `budget_tokens: number`
-
-      Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
-
-      Must be ≥1024 and less than `max_tokens`.
-
-      See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
-
-      minimum: 1024
-
-    - `block_binding: optional BetaThinkingBlockBinding or null`
-
-      Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
-
-      - `prefix_mismatch_behavior: optional BetaThinkingPrefixMismatchBehavior or null`
-
-        "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
-
-        - `"error"`
-
-        - `"drop_block"`
-
-    - `display: optional "summarized" or "omitted" or "updates" or null`
-
-      Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
-      - `"summarized"`
-
-      - `"omitted"`
-
-      - `"updates"`
-
-  - `BetaThinkingConfigDisabled object`
-
-    - `type: "disabled"`
-
-  - `BetaThinkingConfigBetweenTools object`
-
-    - `type: "between_tools"`
-
-  - `BetaThinkingConfigAdaptive object`
-
-    - `type: "adaptive"`
-
-    - `block_binding: optional BetaThinkingBlockBinding or null`
-
-      Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
-
-    - `display: optional "summarized" or "omitted" or "updates" or null`
-
-      Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
-      - `"summarized"`
-
-      - `"omitted"`
-
-      - `"updates"`
-
-### Beta Thinking Delta
-
-- `BetaThinkingDelta object`
-
-  - `type: "thinking_delta"`
-
-    default: thinking_delta
-
-  - `estimated_tokens: number or null`
-
-    Per-frame increment of a coarse, running estimate of the tokens this thinking block has produced so far. Present whenever the `thinking-token-count-2026-05-13` beta is set; `null` unless `thinking.display` resolves to `"omitted"` and a count is due this frame. Sum the increments across `thinking_delta` frames on this block for a progress indicator. Each increment is a non-negative multiple of a fixed quantum and the cadence is rate-limited, so this is a deliberately lossy display hint, not a billable count; `usage.output_tokens` remains authoritative.
-
-  - `thinking: string`
-
-    The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
-
-### Beta Thinking Dropped Input Transformation
-
-- `BetaThinkingDroppedInputTransformation object`
-
-  - `type: "thinking_dropped"`
-
-    Always `thinking_dropped` for this entry type.
-
-    default: thinking_dropped
-
-  - `path: string`
-
-    Where the removed block was in your request, as `messages.{i}.content.{j}`:
-    `i` indexes the `messages` array you sent and `j` that message's `content`
-    array — the same form error messages use.
-
-  - `reason: "model_binding_mismatch" or "prefix_binding_mismatch" or "organization_binding_mismatch" or "end_user_binding_mismatch"`
-
-    Which binding check removed the block: `model_binding_mismatch` — it was
-    created by a model whose reasoning the requested model may not read;
-    `prefix_binding_mismatch` — the conversation before it differs from the
-    conversation it was created in (the rest of that turn's consecutive thinking
-    blocks are removed with it, each with this reason);
-    `organization_binding_mismatch` — it was created under a different
-    organization (an Anthropic organization, AWS account or Google Cloud project)
-    and this organization is not one of its additional organizations;
-    `end_user_binding_mismatch` — it was created for a different end user, or
-    was removed by the consumer-organization binding. A block that would fail
-    several checks reports one reason, in this order of precedence:
-    `organization_binding_mismatch`, `end_user_binding_mismatch`,
-    `model_binding_mismatch`, `prefix_binding_mismatch`.
-
-    - `"model_binding_mismatch"`
-
-    - `"prefix_binding_mismatch"`
-
-    - `"organization_binding_mismatch"`
-
-    - `"end_user_binding_mismatch"`
-
-### Beta Thinking Mismatch Allowed Input Transformation
-
-- `BetaThinkingMismatchAllowedInputTransformation object`
-
-  - `type: "thinking_mismatch_allowed"`
-
-    Always `thinking_mismatch_allowed` for this entry type.
-
-    default: thinking_mismatch_allowed
-
-  - `path: string`
-
-    Where the block is in your request, as `messages.{i}.content.{j}`:
-    `i` indexes the `messages` array you sent and `j` that message's `content`
-    array — the same form error messages use.
-
-  - `reason: "model_binding_mismatch" or "prefix_binding_mismatch" or "organization_binding_mismatch" or "end_user_binding_mismatch"`
-
-    Which binding check the block failed; the block was shown to the model all
-    the same. Always `prefix_binding_mismatch` today — the conversation before
-    the block differs from the conversation it was created in, or the block
-    carries no record of one on a model that requires it. Were the check
-    enforced for this request, the block would have been removed or the request
-    rejected (`thinking.block_binding.prefix_mismatch_behavior`). A removal also
-    takes the rest of that turn's consecutive thinking blocks, whereas here each
-    block is checked on its own, so `thinking_mismatch_allowed` entries are a
-    lower bound on what enforcement would remove.
-
-    - `"model_binding_mismatch"`
-
-    - `"prefix_binding_mismatch"`
-
-    - `"organization_binding_mismatch"`
-
-    - `"end_user_binding_mismatch"`

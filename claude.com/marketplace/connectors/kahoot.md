@@ -74,10 +74,10 @@ Free, national curriculum-aligned Oak teaching resources
 
 [Add Oak National Academy in Claude (opens in new tab)](https://claude.ai/directory/1399f75f-e240-4046-a3c9-711c6cd5d66a "Add in Claude")
 
-![](https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/ae/4c/82ae4ce7-6614-ea43-f543-d3cbd11e9726/AppIcon-0-0-1x_U007epad-0-10-0-85-220.png/512x512bb.png)
+![](https://assets.claude.com/62162a8aba6991bc7a9493e28b8870257536ae6a.jpg?w=128&fit=max&auto=format)
 
-### [Jotform Sign](https://claude.com/marketplace/connectors/jotform-sign)
+### [Learning Commons](https://claude.com/marketplace/connectors/learning-commons-knowledge-graph)
 
-Create, share, and edit e-signature documents right inside Claude
+K-12 standards, skills, and learning progressions
 
-[Add Jotform Sign in Claude (opens in new tab)](https://claude.ai/directory/c8e5e99b-788d-4e64-bf4d-ef65b4cb92d5 "Add in Claude")
+[Add Learning Commons in Claude (opens in new tab)](https://claude.ai/directory/6e94f5fc-5dc8-4f0a-9fcf-741bcab4e034 "Add in Claude")

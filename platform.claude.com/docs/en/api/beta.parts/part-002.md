@@ -3,6 +3,300 @@
 
 <!-- chunk-start -->
 
+  - `"spend-limit-reads-2026-09-26"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaEnvironment object`
+
+  Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
+
+    default: environment
+
+  - `id: string`
+
+    Environment identifier (e.g., 'env_...')
+
+  - `archived_at: string or null`
+
+    RFC 3339 timestamp when environment was archived, or null if not archived
+
+  - `config: BetaCloudConfig or BetaSelfHostedConfig`
+
+    Environment configuration (either Anthropic Cloud or self-hosted)
+
+    - `BetaCloudConfig object`
+
+      `cloud` environment configuration.
+
+      - `type: "cloud"`
+
+        Environment type
+
+      - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
+
+        Network configuration policy.
+
+        - `BetaUnrestrictedNetwork object`
+
+          Unrestricted network access.
+
+          - `type: "unrestricted"`
+
+            Network policy type
+
+        - `BetaLimitedNetwork object`
+
+          Limited network access.
+
+          - `type: "limited"`
+
+            Network policy type
+
+          - `allow_mcp_servers: boolean`
+
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
+
+          - `allow_package_managers: boolean`
+
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
+
+          - `allowed_hosts: array of string`
+
+            Specifies domains the container can reach.
+
+      - `packages: BetaPackages`
+
+        Package manager configuration.
+
+        - `type: optional "packages"`
+
+          Package configuration type
+
+          default: packages
+
+        - `apt: array of string`
+
+          Ubuntu/Debian packages to install
+
+        - `cargo: array of string`
+
+          Rust packages to install
+
+        - `gem: array of string`
+
+          Ruby packages to install
+
+        - `go: array of string`
+
+          Go packages to install
+
+        - `npm: array of string`
+
+          Node.js packages to install
+
+        - `pip: array of string`
+
+          Python packages to install
+
+    - `BetaSelfHostedConfig object`
+
+      Configuration for self-hosted environments.
+
+      - `type: "self_hosted"`
+
+        Environment type
+
+  - `created_at: string`
+
+    RFC 3339 timestamp when environment was created
+
+  - `description: string or null`
+
+    User-provided description for the environment; null when unset
+
+  - `metadata: map[string]`
+
+    User-provided metadata key-value pairs
+
+  - `name: string`
+
+    Human-readable name for the environment
+
+  - `updated_at: string`
+
+    RFC 3339 timestamp when environment was last updated
+
+  - `scope: optional "organization" or "account"`
+
+    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
+    - `"organization"`
+
+    - `"account"`
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "archived_at": null,
+  "config": {
+    "networking": {
+      "allow_mcp_servers": false,
+      "allow_package_managers": true,
+      "allowed_hosts": [
+        "api.example.com"
+      ],
+      "type": "limited"
+    },
+    "packages": {
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
+      "type": "packages"
+    },
+    "type": "cloud"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Python environment with data-analysis packages.",
+  "metadata": {},
+  "name": "python-data-analysis",
+  "type": "environment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "scope": "organization"
+}
+```
+
+### Update Environment
+
+**POST** `/v1/environments/{environment_id}`
+
+Update an existing environment's configuration.
+
+#### Path parameters
+
+- `environment_id: string`
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
   - `"structured-outputs-2025-11-13"`
 
   - `"task-budgets-2026-03-13"`
@@ -24,6 +318,8 @@
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -461,6 +757,8 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -617,6 +915,8 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -939,6 +1239,8 @@ Retrieve detailed information about a specific work item.
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1193,6 +1495,8 @@ Long poll for work items in the queue.
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"Anthropic-Worker-ID": optional string`
 
   Unique identifier for the specific worker polling, used to track aggregated environment-level work metrics in Console
@@ -1432,6 +1736,8 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 #### Returns
 
@@ -1680,6 +1986,8 @@ Record a heartbeat for a work item to maintain the lease.
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 #### Returns
 
 - `BetaSelfHostedWorkHeartbeatResponse object`
@@ -1859,6 +2167,8 @@ Stop a work item, initiating graceful or forced shutdown.
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -2122,6 +2432,8 @@ List work items in an environment.
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 #### Returns
 
 - `BetaSelfHostedWorkListResponse object`
@@ -2366,6 +2678,8 @@ Update work item metadata with merge semantics.
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -2617,6 +2931,8 @@ Get statistics about the work queue for an environment.
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -2790,6 +3106,8 @@ Create Session
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -2920,9 +3238,13 @@ Create Session
 
         - `"claude-sonnet-4-5"`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -3916,9 +4238,13 @@ Create Session
 
         - `"claude-sonnet-4-5"`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -5119,6 +5445,8 @@ List Sessions
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -5221,9 +5549,13 @@ List Sessions
 
         - `"claude-sonnet-4-5"`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -6350,6 +6682,8 @@ Get Session
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -6452,9 +6786,13 @@ Get Session
 
         - `"claude-sonnet-4-5"`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -7567,6 +7905,8 @@ Update Session
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -8155,9 +8495,13 @@ Update Session
 
         - `"claude-sonnet-4-5"`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -9274,6 +9618,8 @@ Delete Session
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -9425,6 +9771,8 @@ Archive Session
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -9527,9 +9875,13 @@ Archive Session
 
         - `"claude-sonnet-4-5"`
 
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
           High-performance model for agents and coding
 
         - `"claude-sonnet-4-5-20250929"`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           High-performance model for agents and coding
 
@@ -10758,6 +11110,8 @@ List Events
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -12533,9 +12887,13 @@ List Events
 
           - `"claude-sonnet-4-5"`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -13341,6 +13699,8 @@ Send Events
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -14326,6 +14686,8 @@ Stream Events
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -16101,9 +16463,13 @@ Stream Events
 
           - `"claude-sonnet-4-5"`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -16942,6 +17308,8 @@ Add Session Resource
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -17143,6 +17511,8 @@ List Session Resources
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -17419,6 +17789,8 @@ Get Session Resource
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -17672,6 +18044,8 @@ Update Session Resource
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -17939,6 +18313,8 @@ Delete Session Resource
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -18104,6 +18480,8 @@ List Session Threads
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -18212,9 +18590,13 @@ List Session Threads
 
           - `"claude-sonnet-4-5"`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -19019,6 +19401,8 @@ Get Session Thread
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -19127,9 +19511,13 @@ Get Session Thread
 
           - `"claude-sonnet-4-5"`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -19925,6 +20313,8 @@ Archive Session Thread
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -20033,9 +20423,13 @@ Archive Session Thread
 
           - `"claude-sonnet-4-5"`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -20841,6 +21235,8 @@ List Session Thread Events
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -22616,9 +23012,13 @@ List Session Thread Events
 
           - `"claude-sonnet-4-5"`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -23425,6 +23825,8 @@ Stream Session Thread Events
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -25200,9 +25602,13 @@ Stream Session Thread Events
 
           - `"claude-sonnet-4-5"`
 
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
             High-performance model for agents and coding
 
           - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             High-performance model for agents and coding
 
@@ -26036,6 +26442,8 @@ Create Deployment
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -27219,6 +27627,8 @@ List Deployments
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -27948,6 +28358,8 @@ Get Deployment
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -28667,6 +29079,8 @@ Update Deployment
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -29798,6 +30212,8 @@ Archive Deployment
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -30519,6 +30935,8 @@ Run Deployment Now
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -30901,6 +31319,8 @@ Pause Deployment
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -31622,6 +32042,8 @@ Unpause Deployment
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -32396,6 +32818,8 @@ List Deployment Runs
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -32787,6 +33211,8 @@ Get Deployment Run
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -33165,6 +33591,8 @@ Create Vault
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -33381,6 +33809,8 @@ List Vaults
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -33577,6 +34007,8 @@ Get Vault
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -33763,6 +34195,8 @@ Update Vault
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -33970,6 +34404,8 @@ Delete Vault
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -34124,6 +34560,8 @@ Archive Vault
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -34314,6 +34752,8 @@ Create Credential
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -34825,6 +35265,8 @@ List Credentials
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -35146,6 +35588,8 @@ Get Credential
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -35457,6 +35901,8 @@ Update Credential
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -35909,6 +36355,8 @@ Delete Credential
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -36067,6 +36515,8 @@ Archive Credential
   - `"mcp-client-2026-09-15"`
 
   - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 - `"anthropic-workspace-id": optional string`
 
@@ -36381,6 +36831,8 @@ Validate Credential
 
   - `"ce-plugins-2026-09-01"`
 
+  - `"spend-limit-reads-2026-09-26"`
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -36450,539 +36902,3 @@ Validate Credential
         The token endpoint returned a new access token.
 
       - `"failed"`
-
-        The token endpoint returned an error response. See `http_response` for detail.
-
-      - `"connect_error"`
-
-        The token endpoint could not be reached (DNS, TLS, or connection error).
-
-      - `"no_refresh_token"`
-
-        No refresh token is stored for the credential, so no exchange was attempted.
-
-  - `status: BetaManagedAgentsCredentialValidationStatus`
-
-    Overall verdict of the validation probe.
-
-    - `"valid"`
-
-      The credential successfully authenticated against its MCP server.
-
-    - `"invalid"`
-
-      The probe reached the MCP server and was rejected, and a refresh (if attempted) did not recover it.
-
-    - `"unknown"`
-
-      The probe could not determine validity — for example, a transport error or a successful refresh that was not re-probed.
-
-  - `validated_at: string`
-
-    When the validation probe was performed.
-
-    format: date-time
-
-  - `vault_id: string`
-
-    Identifier of the vault containing the credential.
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mcp_oauth_validate \
-    -X POST \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "has_refresh_token": true,
-  "mcp_probe": {
-    "http_response": {
-      "body": "body",
-      "body_truncated": true,
-      "content_type": "content_type",
-      "status_code": 0
-    },
-    "method": "method"
-  },
-  "refresh": {
-    "http_response": {
-      "body": "body",
-      "body_truncated": true,
-      "content_type": "content_type",
-      "status_code": 0
-    },
-    "status": "succeeded"
-  },
-  "status": "valid",
-  "type": "vault_credential_validation",
-  "validated_at": "2026-03-15T10:00:00Z",
-  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-}
-```
-
-## Beta › Memory Stores
-
-### Create a memory store
-
-**POST** `/v1/memory_stores`
-
-Create a memory store
-
-#### Headers
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-- `"anthropic-workspace-id": optional string`
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Body parameters
-
-- `name: string`
-
-  Human-readable name for the store. Required; 1–255 characters; no control characters. The mount-path slug under `/mnt/memory/` is derived from this name (lowercased, non-alphanumeric runs collapsed to a hyphen). Names need not be unique within a workspace.
-
-  minLength: 1, maxLength: 255
-
-- `description: optional string`
-
-  Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent.
-
-  maxLength: 1024
-
-- `metadata: optional map[string]`
-
-  Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Not visible to the agent.
-
-#### Returns
-
-- `BetaManagedAgentsMemoryStore object`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `type: "memory_store"`
-
-  - `id: string`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `created_at: string`
-
-    Timestamp when the store was created.
-
-    format: date-time
-
-  - `name: string`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `updated_at: string`
-
-    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
-
-    format: date-time
-
-  - `archived_at: optional string or null`
-
-    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
-
-    format: date-time
-
-  - `description: optional string`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: optional map[string]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/memory_stores \
-    -H 'Content-Type: application/json' \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: agent-memory-2026-07-22' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -d '{
-          "name": "x"
-        }'
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "metadata": {
-    "foo": "string"
-  }
-}
-```
-
-### List memory stores
-
-**GET** `/v1/memory_stores`
-
-List memory stores
-
-#### Query parameters
-
-- `"created_at[gte]": optional string`
-
-  Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
-
-  format: date-time
-
-- `"created_at[lte]": optional string`
-
-  Return only stores whose `created_at` is at or before this time (inclusive). Sent on the wire as `created_at[lte]`.
-
-  format: date-time
-
-- `include_archived: optional boolean`
-
-  When `true`, archived stores are included in the results. Defaults to `false` (archived stores are excluded).
-
-- `limit: optional number`
-
-  Maximum number of stores to return per page. Must be between 1 and 100. Defaults to 20 when omitted.
-
-  format: int32
-
-- `page: optional string`
-
-  Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
-
-#### Headers
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-- `"anthropic-workspace-id": optional string`
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `data: optional array of BetaManagedAgentsMemoryStore`
-
-  Memory stores on this page, newest first. Empty when there are no stores matching the filters.
-
-  - `type: "memory_store"`
-
-  - `id: string`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `created_at: string`
-
-    Timestamp when the store was created.
-
-    format: date-time
-
-  - `name: string`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `updated_at: string`
-
-    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
-
-    format: date-time
-
-  - `archived_at: optional string or null`
-
-    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
-
-    format: date-time
-
-  - `description: optional string`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: optional map[string]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-- `next_page: optional string or null`
-
-  Opaque cursor for the next page (a `page_...` value). Pass as `page` on the next request. `null` when there are no more results.
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/memory_stores \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: agent-memory-2026-07-22' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "name": "name",
-      "type": "memory_store",
-      "updated_at": "2019-12-27T18:11:19.117Z",
-      "archived_at": "2019-12-27T18:11:19.117Z",
-      "description": "description",
-      "metadata": {
-        "foo": "string"
-      }
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-### Retrieve a memory store
-
-**GET** `/v1/memory_stores/{memory_store_id}`
-
-Retrieve a memory store
-
-#### Path parameters
-
-- `memory_store_id: string`
-
-  ID of the memory store to retrieve (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`.
-
-#### Headers
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `string`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`

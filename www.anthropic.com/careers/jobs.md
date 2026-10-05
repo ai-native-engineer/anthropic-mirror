@@ -298,9 +298,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/4720576008)
 
 ## Applied AI
 
-54 Open Roles
+55 Open Roles
 
-54 Open Roles
+55 Open Roles
 
 [[London] Applied AI Architect, Partnerships
 
@@ -426,7 +426,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5413642008)[Applied AI En
 
 San Francisco, CA | New York City, NY
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5437172008)[Applied AI Engineer, Enterprise
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5437172008)[Applied AI Engineer, DNB
+
+London, UK
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5435282008)[Applied AI Engineer, Enterprise
 
 London, UK
 
@@ -538,9 +542,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5383388008)
 
 ## Compute
 
-27 Open Roles
+26 Open Roles
 
-27 Open Roles
+26 Open Roles
 
 [Capacity Deployment Lead - Data Center Operations
 
@@ -622,11 +626,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5409569008)[Product Engin
 
 Remote-Friendly, United States
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5399162008)[Regional Manager APAC, Data Center Capacity Delivery
-
-Sydney, Australia
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5405898008)[Reporting and Controls Lead, Data Center Capacity Delivery
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5399162008)[Reporting and Controls Lead, Data Center Capacity Delivery
 
 Remote-Friendly, United States
 

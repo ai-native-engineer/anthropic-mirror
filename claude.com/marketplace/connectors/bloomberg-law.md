@@ -70,10 +70,12 @@ Connect your Notion workspace to search, update, and power workflows across tool
 
 [Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-![](https://assets.claude.com/bdf25f3db0bfe9b74855f504c31bd8522659edae.svg?w=128&fit=max&auto=format)
+![](https://www.gemini.com/favicon.ico)
 
-### [Slack](https://claude.com/marketplace/connectors/slack)
+### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
 
-Send messages, create canvases, and fetch Slack data
+Anthropic verifiedTrending
 
-[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
+Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
+
+[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")

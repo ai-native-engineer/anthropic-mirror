@@ -352,3 +352,5 @@ eBook](https://resources.anthropic.com/hcls-transformation-guide)
 [Allow Claude to connect directly to FHIR-compliant systems to read and work with your data
 
 Skill](https://academy.claude.com/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)
+
+Healthcare | Claude by Anthropic

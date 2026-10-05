@@ -3,6 +3,177 @@
 
 <!-- chunk-start -->
 
+      - `required string ToolUseID`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+    - `class BetaContainerUploadBlock`
+
+      Response model for a file uploaded to the container.
+
+      - `JsonElement Type = "container_upload"`
+
+      - `required string FileID`
+
+    - `class BetaCompactionBlock`
+
+      A compaction block returned when autocompact is triggered.
+
+      When content is None, it indicates the compaction failed to produce a valid
+      summary (e.g., malformed output from the model). Clients may round-trip
+      compaction blocks with null content; the server treats them as no-ops.
+
+      - `JsonElement Type = "compaction"`
+
+      - `required string? Content`
+
+        Summary of compacted content, or null if compaction failed
+
+      - `required string? EncryptedContent`
+
+        Opaque metadata from prior compaction, to be round-tripped verbatim
+
+      - `string? Signature`
+
+        Signature over the summary, to be sent back with the block verbatim
+
+      - `IReadOnlyList<ToolChange>? ToolChanges`
+
+        The tool changes of the compacted range: the `tool_addition` and `tool_removal` blocks that take the request's `tools` to the tool set in effect at the end of the range, or `[]` when the range changed no tool. Absent when the server did not compute them. Send the block back unchanged.
+
+        - `class BetaResponseToolAdditionBlock`
+
+          An entry of a `compaction` block's `tool_changes`: a tool the
+          compacted range made available, as a reference to a `tools` entry or
+          MCP toolset, or as the tool definition in effect at the end of the
+          range, by value. Send it back unchanged.
+
+          - `JsonElement Type = "tool_addition"`
+
+          - `required Tool Tool`
+
+            The tool made available: a reference to a `tools` entry or MCP toolset, or a `tool_definition` carrying the definition by value.
+
+            - `class BetaResponseToolChangeToolReference`
+
+              Reference to a single tool, by the name the model uses to call it, as
+              a `compaction` block's `tool_changes` entry reports it: a tool
+              declared in `tools` or defined by an earlier `tool_addition` block.
+              Send it back unchanged with the block.
+
+              - `JsonElement Type = "tool_reference"`
+
+              - `required string Name`
+
+            - `class BetaResponseToolChangeMcpToolReference`
+
+              Reference to a single MCP tool, by its server and its name on that
+              server, as a `compaction` block's `tool_changes` entry reports it.
+              Send it back unchanged with the block.
+
+              - `JsonElement Type = "mcp_tool_reference"`
+
+              - `required string Name`
+
+              - `required string ServerName`
+
+            - `class BetaResponseToolChangeMcpToolsetReference`
+
+              Reference to every tool in the named MCP server's toolset, as a
+              `compaction` block's `tool_changes` entry reports it. Send it back
+              unchanged with the block.
+
+              - `JsonElement Type = "mcp_toolset_reference"`
+
+              - `required string ServerName`
+
+            - `class BetaToolChangeToolDefinition`
+
+              A tool defined by value, as a `compaction` block's `tool_changes` entry
+              reports it: `definition` is the tool's definition as it was sent, in the
+              form of a `tools` entry, without `cache_control`. Send it back unchanged
+              with the block.
+
+              - `JsonElement Type = "tool_definition"`
+
+              - `required BetaResponseToolUnion Definition`
+
+                - `class BetaResponseTool`
+
+                  A custom tool definition, as sent.
+
+                  - `Type? Type`
+
+                  - `required BetaResponseToolInputSchema InputSchema`
+
+                    [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+                    This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+                    - `JsonElement Type = "object"`
+
+                    - `IReadOnlyDictionary<string, JsonElement>? Properties`
+
+                    - `IReadOnlyList<string>? Required`
+
+                  - `required string Name`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                    minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+                  - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+                    - `Direct("direct")`
+
+                    - `CodeExecution20250825("code_execution_20250825")`
+
+                    - `CodeExecution20260120("code_execution_20260120")`
+
+                    - `CodeExecution20260521("code_execution_20260521")`
+
+                  - `bool DeferLoading`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `string Description`
+
+                    Description of what this tool does.
+
+                    Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
+
+                  - `bool? EagerInputStreaming`
+
+                    Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+                  - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
+
+                  - `bool Strict`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `class BetaToolBash20241022`
+
+                  - `JsonElement Type = "bash_20241022"`
+
+                  - `JsonElement Name = "bash"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+                    - `Direct("direct")`
+
+                    - `CodeExecution20250825("code_execution_20250825")`
+
+                    - `CodeExecution20260120("code_execution_20260120")`
+
+                    - `CodeExecution20260521("code_execution_20260521")`
+
                   - `BetaCacheControlEphemeral? CacheControl`
 
                     Create a cache control breakpoint at this content block.
@@ -1750,19 +1921,23 @@
 
                       Powerful intelligence for long-running agents and coding
 
-                    - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-                      High-performance model for agents and coding
-
-                    - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                      High-performance model for agents and coding
-
                     - `ClaudeMythosPreview("claude-mythos-preview")`
 
                       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                       New class of intelligence, strongest in coding and cybersecurity
+
+                    - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
+
+                    - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
 
                   - `JsonElement Name = "advisor"`
 
@@ -2951,19 +3126,23 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-          High-performance model for agents and coding
-
-        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-          High-performance model for agents and coding
-
         - `ClaudeMythosPreview("claude-mythos-preview")`
 
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
+
+        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
 
       - `required long OutputTokens`
 
@@ -3254,19 +3433,23 @@
 
       Powerful intelligence for long-running agents and coding
 
-    - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-      High-performance model for agents and coding
-
-    - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-      High-performance model for agents and coding
-
     - `ClaudeMythosPreview("claude-mythos-preview")`
 
       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
       New class of intelligence, strongest in coding and cybersecurity
+
+    - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
 
   - `required long OutputTokens`
 
@@ -6250,19 +6433,23 @@
 
                         Powerful intelligence for long-running agents and coding
 
-                      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-                        High-performance model for agents and coding
-
-                      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                        High-performance model for agents and coding
-
                       - `ClaudeMythosPreview("claude-mythos-preview")`
 
                         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                         New class of intelligence, strongest in coding and cybersecurity
+
+                      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+                        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        High-performance model for agents and coding
+
+                      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        High-performance model for agents and coding
 
                     - `JsonElement Name = "advisor"`
 
@@ -9664,19 +9851,23 @@
 
                       Powerful intelligence for long-running agents and coding
 
-                    - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-                      High-performance model for agents and coding
-
-                    - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                      High-performance model for agents and coding
-
                     - `ClaudeMythosPreview("claude-mythos-preview")`
 
                       **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                       New class of intelligence, strongest in coding and cybersecurity
+
+                    - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
+
+                    - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
 
                   - `JsonElement Name = "advisor"`
 
@@ -10394,19 +10585,23 @@
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-            High-performance model for agents and coding
-
-          - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-            High-performance model for agents and coding
-
           - `ClaudeMythosPreview("claude-mythos-preview")`
 
             **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
             New class of intelligence, strongest in coding and cybersecurity
+
+          - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            High-performance model for agents and coding
+
+          - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            High-performance model for agents and coding
 
         - `required long OutputTokens`
 
@@ -13370,19 +13565,23 @@
 
                         Powerful intelligence for long-running agents and coding
 
-                      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-                        High-performance model for agents and coding
-
-                      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                        High-performance model for agents and coding
-
                       - `ClaudeMythosPreview("claude-mythos-preview")`
 
                         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                         New class of intelligence, strongest in coding and cybersecurity
+
+                      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+                        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        High-performance model for agents and coding
+
+                      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        High-performance model for agents and coding
 
                     - `JsonElement Name = "advisor"`
 
@@ -17056,19 +17255,23 @@
 
                           Powerful intelligence for long-running agents and coding
 
-                        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-                          High-performance model for agents and coding
-
-                        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                          High-performance model for agents and coding
-
                         - `ClaudeMythosPreview("claude-mythos-preview")`
 
                           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
                           New class of intelligence, strongest in coding and cybersecurity
+
+                        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+                          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          High-performance model for agents and coding
+
+                        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          High-performance model for agents and coding
 
                       - `JsonElement Name = "advisor"`
 
@@ -20791,19 +20994,23 @@
 
               Powerful intelligence for long-running agents and coding
 
-            - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-              High-performance model for agents and coding
-
-            - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-              High-performance model for agents and coding
-
             - `ClaudeMythosPreview("claude-mythos-preview")`
 
               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
               New class of intelligence, strongest in coding and cybersecurity
+
+            - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              High-performance model for agents and coding
+
+            - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              High-performance model for agents and coding
 
           - `JsonElement Name = "advisor"`
 
@@ -22986,19 +23193,23 @@
 
               Powerful intelligence for long-running agents and coding
 
-            - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-              High-performance model for agents and coding
-
-            - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-              High-performance model for agents and coding
-
             - `ClaudeMythosPreview("claude-mythos-preview")`
 
               **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
               New class of intelligence, strongest in coding and cybersecurity
+
+            - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              High-performance model for agents and coding
+
+            - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              High-performance model for agents and coding
 
           - `JsonElement Name = "advisor"`
 
@@ -25096,19 +25307,23 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-        High-performance model for agents and coding
-
-      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-        High-performance model for agents and coding
-
       - `ClaudeMythosPreview("claude-mythos-preview")`
 
         **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
         New class of intelligence, strongest in coding and cybersecurity
+
+      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
 
     - `JsonElement Name = "advisor"`
 
@@ -28928,19 +29143,23 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-          High-performance model for agents and coding
-
-        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-          High-performance model for agents and coding
-
         - `ClaudeMythosPreview("claude-mythos-preview")`
 
           **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
 
           New class of intelligence, strongest in coding and cybersecurity
+
+        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
+
+        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          High-performance model for agents and coding
 
       - `JsonElement Name = "advisor"`
 
@@ -29420,307 +29639,3 @@
           `type`'s config overrides.
 
           - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserCloseTabConfig? CloseTab`
-
-          `close_tab`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserDoubleClickConfig? DoubleClick`
-
-          `double_click`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserFileUploadConfig? FileUpload`
-
-          `file_upload`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserFindConfig? Find`
-
-          `find`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserFormInputConfig? FormInput`
-
-          `form_input`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserGetPageTextConfig? GetPageText`
-
-          `get_page_text`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserHoldKeyConfig? HoldKey`
-
-          `hold_key`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserHoverConfig? Hover`
-
-          `hover`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserJavascriptExecConfig? JavascriptExec`
-
-          `javascript_exec`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserKeyConfig? Key`
-
-          `key`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserLeftClickConfig? LeftClick`
-
-          `left_click`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserLeftClickDragConfig? LeftClickDrag`
-
-          `left_click_drag`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserLeftMouseDownConfig? LeftMouseDown`
-
-          `left_mouse_down`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserLeftMouseUpConfig? LeftMouseUp`
-
-          `left_mouse_up`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserListTabsConfig? ListTabs`
-
-          `list_tabs`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserMiddleClickConfig? MiddleClick`
-
-          `middle_click`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserMouseMoveConfig? MouseMove`
-
-          `mouse_move`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserNavigateConfig? Navigate`
-
-          `navigate`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserNewTabConfig? NewTab`
-
-          `new_tab`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserReadConsoleConfig? ReadConsole`
-
-          `read_console`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserReadNetworkConfig? ReadNetwork`
-
-          `read_network`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserReadPageConfig? ReadPage`
-
-          `read_page`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserRightClickConfig? RightClick`
-
-          `right_click`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserScreenshotConfig? Screenshot`
-
-          `screenshot`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserScrollConfig? Scroll`
-
-          `scroll`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
