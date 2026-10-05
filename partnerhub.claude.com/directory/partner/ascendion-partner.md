@@ -4,9 +4,20 @@
 
 [Contact](https://partnerhub.claude.com/directory/partner/ascendion-partner/contact)[Visit Website](https://ascendion.com/)
 
+* India
+* Latin America
+* Southeast Asia
+
 * ANZ
+* India
 * Japan
+* Latin America
+* Middle East & Africa
+* Nordics
 * South Korea
+* Southeast Asia
+
+Location
 
 110 Allen Rd, Basking Ridge, NJ 07920, USA
 

@@ -4,6 +4,10 @@
 
 [Contact](https://partnerhub.claude.com/directory/partner/the-agile-monkeys-sl/contact)[Visit Website](https://www.theagilemonkeys.com/)
 
+* SMB (100–500 employees)
+
+* Latin America
+
 * Jumpstart for SMB
 
 English, Spanish

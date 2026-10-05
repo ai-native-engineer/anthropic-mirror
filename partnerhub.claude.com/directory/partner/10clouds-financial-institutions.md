@@ -4,10 +4,18 @@
 
 [Contact](https://partnerhub.claude.com/directory/partner/10clouds-financial-institutions/contact)[Visit Website](https://www.10clouds.com/)
 
+* < $25K
+
+* SMB (100–500 employees)
+
 * Japan
+* Middle East & Africa
+* Nordics
 * South Korea
 
 English, Polish
+
+Location
 
 Warsaw, Poland
 

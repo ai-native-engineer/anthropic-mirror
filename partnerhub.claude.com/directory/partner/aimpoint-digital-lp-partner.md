@@ -8,17 +8,33 @@ Resources
 
 [Generating Real Value From an AI Activation](https://www.aimpointdigital.com/blog/why-ai-for-everyone-stalls-and-what-the-teams-that-win-do-instead)[Databricks + Claude: Building Enterprise AI That Understands Your Data](https://www.aimpointdigital.com/blog/databricks-claude-building-enterprise-ai-that-understands-your-data)[Snowflake + Claude: Confidently Leverage Enterprise-grade AI at Scale with your Data](https://www.aimpointdigital.com/blog/snowflake-claude-confidently-leverage-enterprise-grade-ai-at-scale-with-your-data)[Making AI Pilots Successful with Claude](https://www.aimpointdigital.com/blog/pilots-dont-fail-at-the-demo-they-fail-at-the-review-our-hypothesis-leads-to-the-need-for-robust-training-and-enablement)
 
+* Other
+
+* < $25K
+
+* Cybersecurity & Threat Detection
+
 * Micro SMB (<100 employees)
 * Public Sector
+* SMB (100–500 employees)
 
 * Public Sector / Government
 
+* Latin America
+
 * ANZ
 * Greater China
+* India
 * Japan
+* Latin America
+* Middle East & Africa
+* Nordics
 * South Korea
+* Southeast Asia
 
 English, French, German, Spanish
+
+Location
 
 Atlanta, GA, USA
 

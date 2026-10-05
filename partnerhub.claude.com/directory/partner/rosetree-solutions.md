@@ -8,7 +8,14 @@ Resources
 
 [Rosetree's Claude Practice](https://www.rosetreesolutions.com/ai/anthropic)
 
+* Other
+
+* < $25K
+
+* Cybersecurity & Threat Detection
+
 * Micro SMB (<100 employees)
+* SMB (100–500 employees)
 
 * Jumpstart for SMB
 

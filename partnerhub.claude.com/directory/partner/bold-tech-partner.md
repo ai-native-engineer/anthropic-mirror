@@ -4,7 +4,10 @@
 
 [Contact](https://partnerhub.claude.com/directory/partner/bold-tech-partner/contact)[Visit Website](https://boldtech.dev/)
 
+* < $25K
+
 * Micro SMB (<100 employees)
+* SMB (100–500 employees)
 
 * Jumpstart for SMB
 

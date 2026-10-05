@@ -12,9 +12,13 @@ Resources
 
 [Exadel partner ecosystem](https://exadel.com/partners)[Exadel case studies](https://exadel.com/case-studies)[Agentic Readiness Assessment, open-source Claude plugin](https://github.com/exadel-inc/agentic-readiness-assessment)
 
+* Nordics
+
 * Preferred
 
 English, German, Polish, Ukranian
+
+Location
 
 101 E Kennedy Blvd 23rd floor, Tampa, FL 33602, USA
 

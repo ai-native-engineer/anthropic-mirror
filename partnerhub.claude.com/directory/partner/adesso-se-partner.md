@@ -8,11 +8,24 @@ Resources
 
 [adSCAILE](https://www.adesso.de/de/impulse/adscaile/index.jsp)[GenAI Impact Report 2026](https://www.adesso.de/de/impulse/generative-ai/genai-impact-report-2026/index.jsp)
 
+* Other
+
+* < $25K
+
+* Cybersecurity & Threat Detection
+
 * Public Sector
+* SMB (100–500 employees)
 
 * Public Sector / Government
 
+* India
+
+* Nordics
+
 Dutch, English, Finnish, German, Italian, Norwegian, Portuguese, Spanish, Swedish
+
+Location
 
 Adessopl. 1, 44269 Dortmund-Aplerbeck, Germany
 
