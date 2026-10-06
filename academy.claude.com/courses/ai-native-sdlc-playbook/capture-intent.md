@@ -72,13 +72,13 @@ The evidence is the committed `intent.md`, which lists the author, the timestamp
 * **Leading indicator**: Time from first conversation to a committed `intent.md`, read from Git history on the intent home, which records author and timestamp. The expectation is for this to fall from a multi-week elicitation and refinement cycle to hours.
 * **Lagging indicator**: The survival rate, or the share of `intent.md` files that the product owner accepts into **Stage 2: Design** rather than closes. The accept or reject decision is recorded as the merge of the artifact or the closed review. Additionally, count the changes to `intent.md` made after the first `spec.md` commit for the same change.
 
-[Previous lessonIntroduction](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)[Next lessonRequirements and design](https://academy.claude.com/courses/ai-native-sdlc-playbook/requirements-and-design)
+[Previous lessonWhat changes and where to start](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)[Next lessonRequirements and design](https://academy.claude.com/courses/ai-native-sdlc-playbook/requirements-and-design)
 
 Lesson 2 of 14 · The AI-native SDLC playbookCapture as intent.md
 
 Introduction
 
-* [Introduction](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
+* [What changes and where to start](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
 
 Stage 1: Plan
 

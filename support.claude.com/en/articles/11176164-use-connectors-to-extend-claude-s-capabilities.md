@@ -186,6 +186,6 @@ To resolve this, you can either allowlist Anthropic's IP ranges in your firewall
 
 * [Getting Started with Local MCP Servers on Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)
 * [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
+* [When to use desktop and web connectors](https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors)
+* [Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)
 * [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)
-* [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
-* [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)

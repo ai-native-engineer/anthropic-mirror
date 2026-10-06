@@ -35,7 +35,7 @@ Access is governed by your existing DualEntry role and permissions.
 * list\_depreciation\_books
 * patch\_fixed\_asset
 
-Show all 29 tools
+Show all 30 tools
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 

@@ -630,3 +630,5 @@ to your organization?
 * ![Banner Health](https://assets.claude.com/294bd076e0527e15d2f2328eb899cde75196952a.svg)
 * ![Stripe](https://assets.claude.com/8997c058bff47ff57fd097dc3a866a2347ca266c.svg)
 * ![Thomson Reuters](https://assets.claude.com/c7c6ef2f7dc2257c429a154f761197f0f02f5790.svg)
+
+Claude Enterprise Plan | Claude by Anthropic

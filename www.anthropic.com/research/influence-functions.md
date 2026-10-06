@@ -69,5 +69,3 @@ We built an index of how well today’s robots can perform US job tasks. Robots 
 We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
 
 [Read more](https://www.anthropic.com/research/your-thoughts-on-ai)
-
-Tracing model outputs to the training data \ Anthropic

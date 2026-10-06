@@ -125,7 +125,7 @@ Your request to Claude
 
 Draft a short status update on the budget project for my manager.
 
-Sonnet 4.6
+Sonnet
 
 One sentence—that's a complete request. Claude drafts it from your words alone.
 

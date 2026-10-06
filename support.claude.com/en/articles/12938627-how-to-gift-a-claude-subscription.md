@@ -2,6 +2,8 @@
 
 Give the gift of Claude to friends, family, or colleagues.
 
+**Important:** Gift subscriptions are currently unavailable to purchase. This applies to all accounts, so there’s nothing you need to fix on your end. We don’t have a date to share yet for when purchasing will be available again.
+
 ## What's included?
 
 Gift subscriptions include full access to all features of the selected plan. Refer to the below articles for full details for each plan:
@@ -11,9 +13,11 @@ Gift subscriptions include full access to all features of the selected plan. Ref
 
 ## Who can purchase gifts?
 
-Gift subscriptions are available for most Pro and Max plan users to purchase. Free users and members of Team and Enterprise organizations can't purchase gift subscriptions at this time.
+When gift purchasing is available, most Pro and Max plan users can purchase gift subscriptions. Free users and members of Team and Enterprise organizations can't purchase gift subscriptions at this time.
 
 ## How to purchase a gift
+
+These steps apply once purchasing is available again.
 
 1. Log in to your Claude account and click your initials in the lower left corner.
 2. Select “Gift Claude” from the menu, or visit claude.ai/gift.
@@ -43,8 +47,8 @@ After purchase, you'll receive a confirmation email with your order details.
 * Recipients with active mobile (iOS or Android) subscriptions will need to wait until their mobile subscription ends before redeeming.
 * No credit card is required for the recipient to redeem.
 
-* [Get started with the Team plan](https://support.claude.com/en/articles/9267247-get-started-with-the-team-plan)
-* [Claude 4 Invite Sweepstakes Official Rules](https://support.claude.com/en/articles/11140763-claude-4-invite-sweepstakes-official-rules)
+* [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+* [Request a refund for a paid Claude plan](https://support.claude.com/en/articles/12386328-request-a-refund-for-a-paid-claude-plan)
+* [Claude in Chrome troubleshooting](https://support.claude.com/en/articles/12902405-claude-in-chrome-troubleshooting)
 * [How to redeem a Claude gift subscription](https://support.claude.com/en/articles/12938695-how-to-redeem-a-claude-gift-subscription)
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
-* [Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account)

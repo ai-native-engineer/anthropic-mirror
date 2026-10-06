@@ -8,13 +8,13 @@ Learn how people and AI agents work together as one team, hear from companies al
 
 ## How human-agent teams work
 
-[## Building effective human-agent teams (beta)
+[### Building effective human-agent teams (beta)
 
 Explore the benefits of moving from single-player to multiplayer AI and learn how to prepare your team for the shift.
 
 Course·5 lessons · 1 quiz·45 min](https://academy.claude.com/courses/building-effective-human-agent-teams)[![](https://academy.claude.com/assets/v1/thumbnail.light-o8smw8bd.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-jl3ze518.png)
 
-## Building AI-fluent organizations
+### Building AI-fluent organizations
 
 Three levers drive organizational transformation with AI: the mindsets people hold, the AI-related skills they can use on complex tasks, and the access they have. For leaders building a culture of AI fluency, these levers work as one system.
 
@@ -34,7 +34,13 @@ A conversation with Jaime DeLanghe, Chief Product Officer at Slack.
 
 claude.com
 
- (opens in new tab)](https://claude.com/blog/turning-conversation-into-knowledge-how-slack-builds-human-agent-teams)
+ (opens in new tab)](https://claude.com/blog/turning-conversation-into-knowledge-how-slack-builds-human-agent-teams)[## Agents you can coach: how Asana builds human-agent teams with Claude
+
+Arnab Bose, Chief Product Officer at Asana, on how Asana runs Claude-powered AI agents as teammates with scoped roles, shared memory, and work that everyone can see.
+
+claude.com
+
+ (opens in new tab)](https://claude.com/blog/agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude)
 
 ## Build a human-agent team with Claude Tag
 

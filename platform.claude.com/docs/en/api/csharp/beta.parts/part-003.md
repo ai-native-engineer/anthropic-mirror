@@ -2,6 +2,46 @@
 <!-- part of: https://platform.claude.com/docs/en/api/csharp/beta -->
 
 <!-- chunk-start -->
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+### Update Credential
+
+`BetaManagedAgentsCredential Beta.Vaults.Credentials.Update(parameters, cancellationToken = default)`
+
+**POST** `/v1/vaults/{vault_id}/credentials/{credential_id}`
+
+Update Credential
+
+#### Parameters
+
+- `CredentialUpdateParams parameters`
+
+  - `required string vaultID`
+
+    Path param: Identifier of the vault containing the credential.
+
+  - `required string credentialID`
+
+    Path param: Unique identifier of the credential to update.
+
+  - `Auth auth`
+
+    Body param: Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
+
+    - `class BetaManagedAgentsMcpOAuthUpdateParams`
+
+      Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
+
+      - `required Type Type`
+
+      - `string? AccessToken`
+
+        Updated OAuth access token.
 
         minLength: 1, maxLength: 8192
 
@@ -1594,19 +1634,17 @@ await foreach (var item in page.Paginate())
 {
   "data": [
     {
-      "id": "id",
-      "archived_at": "2019-12-27T18:11:19.117Z",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "description": "description",
-      "metadata": {
-        "foo": "string"
-      },
-      "name": "name",
+      "id": "memstore_01Wf3kQ8tZxB2mVr7HcJ4aNd",
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "description": "Per-user preferences and project context.",
+      "metadata": {},
+      "name": "User Preferences",
       "type": "memory_store",
-      "updated_at": "2019-12-27T18:11:19.117Z"
+      "updated_at": "2026-03-15T10:00:00Z"
     }
   ],
-  "next_page": "next_page"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```
 
@@ -2836,19 +2874,19 @@ await foreach (var item in page.Paginate())
 {
   "data": [
     {
-      "id": "id",
-      "content_sha256": "content_sha256",
-      "content_size_bytes": 0,
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "memory_store_id": "memory_store_id",
-      "memory_version_id": "memory_version_id",
-      "path": "path",
+      "id": "mem_011CZkZ9X2dpNyB6YbtxvB6e",
+      "content_sha256": "ba7936d94c84d948a2232088f78228f175df6a8353b2d5bc9228eee5794a0024",
+      "content_size_bytes": 28,
+      "created_at": "2026-03-15T10:00:00Z",
+      "memory_store_id": "memstore_01Wf3kQ8tZxB2mVr7HcJ4aNd",
+      "memory_version_id": "memver_011CZkZBJq5dWxk9fVLNcPht",
+      "path": "/preferences/formatting.md",
       "type": "memory",
-      "updated_at": "2019-12-27T18:11:19.117Z",
-      "content": "content"
+      "updated_at": "2026-03-15T10:00:00Z",
+      "content": null
     }
   ],
-  "next_page": "next_page"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```
 
@@ -3786,28 +3824,28 @@ await foreach (var item in page.Paginate())
 {
   "data": [
     {
-      "id": "id",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "memory_id": "memory_id",
-      "memory_store_id": "memory_store_id",
+      "id": "memver_011CZkZBJq5dWxk9fVLNcPht",
+      "created_at": "2026-03-15T10:00:00Z",
+      "memory_id": "mem_011CZkZ9X2dpNyB6YbtxvB6e",
+      "memory_store_id": "memstore_01Wf3kQ8tZxB2mVr7HcJ4aNd",
       "operation": "created",
       "type": "memory_version",
-      "content": "content",
-      "content_sha256": "content_sha256",
-      "content_size_bytes": 0,
+      "content": null,
+      "content_sha256": "ba7936d94c84d948a2232088f78228f175df6a8353b2d5bc9228eee5794a0024",
+      "content_size_bytes": 28,
       "created_by": {
-        "session_id": "x",
+        "session_id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
         "type": "session_actor"
       },
-      "path": "path",
-      "redacted_at": "2019-12-27T18:11:19.117Z",
+      "path": "/preferences/formatting.md",
+      "redacted_at": null,
       "redacted_by": {
         "session_id": "x",
         "type": "session_actor"
       }
     }
   ],
-  "next_page": "next_page"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```
 
@@ -20765,6 +20803,10 @@ List Workspaces
 
     Whether to include Workspaces that have been archived in the response
 
+  - `bool includeDefault`
+
+    Whether to include the organization's default Workspace in the response
+
   - `long limit`
 
     Number of items to return per page.
@@ -29653,15 +29695,21 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
     format: date-time
 
-  - `required string Name`
+  - `required string DisplayName`
 
-    Name of the RBAC Role.
+    Name of the RBAC Role. For a role created by Anthropic, this name can differ from the label claude.ai shows, and Anthropic may change the name. To keep a lasting reference to a role, store its `id`.
 
   - `required DateTimeOffset UpdatedAt`
 
     RFC 3339 datetime string indicating when the RBAC Role was last updated.
 
     format: date-time
+
+  - `required string Name`
+
+    **Deprecated**: Use `display_name` instead; `name` always has the same value.
+
+    Deprecated: use `display_name` instead. Name of the RBAC Role; always the same value as `display_name`.
 
 #### Example
 
@@ -29683,6 +29731,7 @@ await foreach (var item in page.Paginate())
     {
       "id": "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s",
       "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_name": "Project Editor",
       "name": "Project Editor",
       "type": "rbac_role",
       "updated_at": "2024-10-30T23:58:27.427722Z"
@@ -29731,15 +29780,21 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
     format: date-time
 
-  - `required string Name`
+  - `required string DisplayName`
 
-    Name of the RBAC Role.
+    Name of the RBAC Role. For a role created by Anthropic, this name can differ from the label claude.ai shows, and Anthropic may change the name. To keep a lasting reference to a role, store its `id`.
 
   - `required DateTimeOffset UpdatedAt`
 
     RFC 3339 datetime string indicating when the RBAC Role was last updated.
 
     format: date-time
+
+  - `required string Name`
+
+    **Deprecated**: Use `display_name` instead; `name` always has the same value.
+
+    Deprecated: use `display_name` instead. Name of the RBAC Role; always the same value as `display_name`.
 
 #### Example
 
@@ -29757,6 +29812,7 @@ Console.WriteLine(betaRbacRole);
 {
   "id": "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s",
   "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "Project Editor",
   "name": "Project Editor",
   "type": "rbac_role",
   "updated_at": "2024-10-30T23:58:27.427722Z"
@@ -33251,99 +33307,3 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 - `class BetaPluginInstallationSetting`
 
   The installation setting an organization-owned Plugin holds for one
-  target. It has no ID of its own: it is addressed by the Plugin's ID and the
-  target.
-
-  - `JsonElement Type = "plugin_installation_setting"`
-
-    Always `plugin_installation_setting`.
-
-  - `required DateTimeOffset CreatedAt`
-
-    When the target was first given a setting for this Plugin.
-
-    format: date-time
-
-  - `required InstallationPreference InstallationPreference`
-
-    The setting the target holds for this Plugin. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
-
-    - `AutoInstall("auto_install")`
-
-    - `Available("available")`
-
-    - `NotAvailable("not_available")`
-
-    - `Required("required")`
-
-  - `required string PluginID`
-
-    The Plugin's ID.
-
-  - `required Target Target`
-
-    Whose setting this is: `organization` (the Plugin's own organization-wide setting) or `rbac_group` (one RBAC Group's own setting); `organization_member` does not occur here.
-
-    - `class BetaPluginTargetOrganization`
-
-      - `JsonElement Type = "organization"`
-
-        Every member of the organization.
-
-    - `class BetaPluginTargetRbacGroup`
-
-      - `JsonElement Type = "rbac_group"`
-
-        An RBAC Group.
-
-      - `required string RbacGroupID`
-
-        The RBAC Group's ID.
-
-    - `class BetaPluginTargetOrganizationMember`
-
-      - `JsonElement Type = "organization_member"`
-
-        One member of the organization.
-
-      - `required string UserID`
-
-        The member's User ID.
-
-  - `required DateTimeOffset UpdatedAt`
-
-    When its setting last changed.
-
-    format: date-time
-
-#### Example
-
-```csharp
-InstallationSettingSetParams parameters = new()
-{
-    PluginID = "plugin_id",
-    Target = "target",
-    InstallationPreference = InstallationPreference.Required,
-};
-
-var betaPluginInstallationSetting = await client.Beta.Organization.Plugins.InstallationSettings.Set(parameters);
-
-Console.WriteLine(betaPluginInstallationSetting);
-```
-
-##### Response (200)
-
-```json
-{
-  "created_at": "2026-03-14T09:26:53.589793Z",
-  "installation_preference": "required",
-  "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
-  "target": {
-    "type": "organization"
-  },
-  "type": "plugin_installation_setting",
-  "updated_at": "2026-03-14T09:26:53.589793Z"
-}
-```
-
-### Remove Plugin Installation Setting

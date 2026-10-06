@@ -278,7 +278,9 @@ If you run into problems installing on Windows, check these common issues:
 </Accordion>
 
 <Accordion title="'claude is not recognized'">
-  This error means the install directory isn't in your PATH. Run these commands in PowerShell to add it:
+  If the error started right after Claude Code updated, see [restore `claude.exe` from its backup](https://code.claude.com/docs/en/troubleshoot-install#claude-exe-missing-after-an-update-on-windows) first.
+
+  If the install directory isn't in your PATH, add it by running these commands in PowerShell:
 
   ```powershell theme={null}
   $currentPath = [Environment]::GetEnvironmentVariable('PATH', 'User')

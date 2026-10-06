@@ -612,6 +612,20 @@ The Models API response can be used to determine which models are available for 
 
     A human-readable name for the model.
 
+  - `Optional<BetaModelLine> line`
+
+    The model line this model belongs to, such as `opus` for both Claude Opus 4.5 and Claude Opus 4.6. More lines may be added. `null` when the model belongs to no line; do not infer a line from the `id`.
+
+    - `HAIKU("haiku")`
+
+    - `SONNET("sonnet")`
+
+    - `OPUS("opus")`
+
+    - `FABLE("fable")`
+
+    - `MYTHOS("mythos")`
+
   - `Optional<Long> maxInputTokens`
 
     Maximum input context window size in tokens for this model.
@@ -720,6 +734,7 @@ public final class Main {
       },
       "created_at": "2026-07-24T00:00:00Z",
       "display_name": "Claude Opus 5",
+      "line": "haiku",
       "max_input_tokens": 0,
       "max_tokens": 0,
       "type": "model"
@@ -999,6 +1014,20 @@ The Models API response can be used to determine information about a specific mo
 
     A human-readable name for the model.
 
+  - `Optional<BetaModelLine> line`
+
+    The model line this model belongs to, such as `opus` for both Claude Opus 4.5 and Claude Opus 4.6. More lines may be added. `null` when the model belongs to no line; do not infer a line from the `id`.
+
+    - `HAIKU("haiku")`
+
+    - `SONNET("sonnet")`
+
+    - `OPUS("opus")`
+
+    - `FABLE("fable")`
+
+    - `MYTHOS("mythos")`
+
   - `Optional<Long> maxInputTokens`
 
     Maximum input context window size in tokens for this model.
@@ -1105,6 +1134,7 @@ public final class Main {
   },
   "created_at": "2026-07-24T00:00:00Z",
   "display_name": "Claude Opus 5",
+  "line": "haiku",
   "max_input_tokens": 0,
   "max_tokens": 0,
   "type": "model"
@@ -22647,7 +22677,7 @@ Create Agent
 
   - `Optional<List<Tool>> tools`
 
-    Tool configurations available to the agent. Maximum of 128 tools across all toolsets allowed.
+    Tool configurations available to the agent. Maximum of 256 tools across all toolsets allowed.
 
     - `class BetaManagedAgentsAgentToolset20260401Params`
 
@@ -25781,7 +25811,7 @@ Update Agent
 
   - `Optional<List<Tool>> tools`
 
-    Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 128 tools across all toolsets allowed.
+    Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 256 tools across all toolsets allowed.
 
     - `class BetaManagedAgentsAgentToolset20260401Params`
 
@@ -29539,37 +29569,3 @@ Retrieve a specific environment by ID.
         Environment type
 
   - `String createdAt`
-
-    RFC 3339 timestamp when environment was created
-
-  - `Optional<String> description`
-
-    User-provided description for the environment; null when unset
-
-  - `Metadata metadata`
-
-    User-provided metadata key-value pairs
-
-  - `String name`
-
-    Human-readable name for the environment
-
-  - `String updatedAt`
-
-    RFC 3339 timestamp when environment was last updated
-
-  - `Optional<Scope> scope`
-
-    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
-
-    - `ORGANIZATION("organization")`
-
-    - `ACCOUNT("account")`
-
-#### Example
-
-```java
-package com.anthropic.example;
-
-import com.anthropic.client.AnthropicClient;
-import com.anthropic.client.okhttp.AnthropicOkHttpClient;

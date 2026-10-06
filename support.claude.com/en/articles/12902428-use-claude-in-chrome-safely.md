@@ -24,7 +24,7 @@ To see a page and decide what to do next, Claude takes screenshots of the tabs i
 
 ### Regulated data
 
-Claude in Chrome isn't available to organizations covered by HIPAA, and we recommend against using it on pages that contain regulated data.
+In organizations that have enabled HIPAA, Claude in Chrome is off by default. An Owner can turn it on in **Organization settings > Claude in Chrome**. Claude in Chrome then can't open any site until an Owner allows specific sites or changes the default site policy. Claude in Chrome is available but not covered under your Business Associate Agreement (BAA), including after an Owner turns it on. We recommend against using Claude in Chrome on pages with regulated data generally.
 
 ---
 
@@ -53,7 +53,7 @@ For your safety, Claude cannot access sensitive, high-risk sites such as:
 
 Claude asks for permission before accessing financial sites.
 
-It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#552026302726343330212c15343b213d273a253c367b363a38).
+It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#c5b0b6a0b7b6a4a3a0b1bc85a4abb1adb7aab5aca6eba6aaa8).
 
 ---
 
@@ -97,7 +97,7 @@ We strongly advise against using Claude in Chrome to manage or take actions on s
 * Accessing work accounts with sensitive company data
 * Interacting with sites containing personal information of others
 
-Claude in Chrome isn’t available for HIPAA orgs, and we recommend against using Claude in Chrome on pages with regulated data generally. As a best practice, don't open the extension while viewing sensitive info, and consider using a separate browser profile.
+We recommend against using Claude in Chrome on pages with regulated data. See **Regulated data** in this article. As a best practice, don't open the extension while viewing sensitive info, and consider using a separate browser profile.
 
 ---
 

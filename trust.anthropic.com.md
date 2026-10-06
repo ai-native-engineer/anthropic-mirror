@@ -1,4 +1,4 @@
-<!-- source: https://trust.anthropic.com/ -->
+<!-- source: https://trust.anthropic.com -->
 
 Skip to navigation
 Skip to main content
@@ -47,7 +47,7 @@ Opens in new tab
 	✅	✅	✅	✅	✅	✅	N/A	N/A	N/A
 Claude in Microsoft Foundry, hosted on Azure
 Opens in new tab
-	In-Process Q4 2026	In-Process Q4 2026	In-Process Q4 2026	In-Process Q4 2026	In-Process Q4 2026	N/A	N/A	N/A	N/A
+	In-Process Q4 2026	In-Process Q4 2026	In-Process Q4 2026	In-Process Q4 2026	✅	N/A	N/A	N/A	N/A
 Claude for Government
 Opens in new tab
 	N/A	N/A	N/A	N/A	N/A	N/A	✅	N/A	N/A
@@ -142,30 +142,22 @@ View 4 more
 
 Subprocessors
 View all
-Google Cloud Platform
-•
-Cloud infrastructure
+Google Cloud Platform • Cloud infrastructure
 Worldwide
 
 Products: All Products
 
-Amazon Web Services
-•
-Cloud Infrastructure
+Amazon Web Services • Cloud Infrastructure
 Worldwide
 
 Products: All Products
 
-Microsoft Azure
-•
-Cloud Infrastructure
+Microsoft Azure • Cloud Infrastructure
 Worldwide
 
 Products: All Products
 
-Cloudflare
-•
-Traffic Routing (CDN)
+Cloudflare • Traffic Routing (CDN)
 Worldwide (Local to Customer)
 
 Products: All Products

@@ -3,6 +3,68 @@
 
 <!-- chunk-start -->
 
+    The ID of the plugin marketplace the Plugin lives in.
+
+  - `String name`
+
+    Lowercase identifier, unique within its plugin marketplace. Fixed for an organization-owned Plugin's lifetime; a member-owned Plugin's changes when its owner renames it in claude.ai, while its `id` stays the same.
+
+  - `Optional<OrganizationInstallationPreference> organizationInstallationPreference`
+
+    Organization-owned Plugin: the organization-wide installation setting every member gets unless an RBAC Group they belong to holds its own — the Plugin's own setting, or its plugin marketplace's default. Null for a member-owned Plugin, which has shares instead. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `AUTO_INSTALL("auto_install")`
+
+    - `AVAILABLE("available")`
+
+    - `NOT_AVAILABLE("not_available")`
+
+    - `REQUIRED("required")`
+
+  - `Optional<Boolean> organizationInstallationPreferenceInherited`
+
+    Organization-owned Plugin: true while it has no organization-wide setting of its own and `organization_installation_preference` is its plugin marketplace's default. Null for a member-owned Plugin.
+
+  - `Owner owner`
+
+    Who owns the Plugin: the organization, or the member whose personal plugin marketplace it lives in.
+
+    - `class BetaPluginOwnerOrganization`
+
+      - `JsonValue type = "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+    - `class BetaPluginOwnerUser`
+
+      - `JsonValue type = "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+      - `String userId`
+
+        The member's User ID.
+
+  - `Optional<Reach> reach`
+
+    How far the served version reaches: `remote` when it declares an MCP server or a CLI, `privileged` when it declares a hook, monitor, language server or settings but nothing remote, `contained` otherwise; null when not classifiable.
+
+    - `CONTAINED("contained")`
+
+    - `PRIVILEGED("privileged")`
+
+    - `REMOTE("remote")`
+
+  - `String servedVersionId`
+
+    The version claude.ai serves to members.
+
+  - `boolean servedVersionPinned`
+
+    False while the served version follows each new version; true once it has been pinned to one.
+
+  - `LocalDateTime updatedAt`
+
     RFC 3339. Moves on a new version and on a served-version change; a change to the Plugin's installation settings or shares does not move it.
 
     format: date-time

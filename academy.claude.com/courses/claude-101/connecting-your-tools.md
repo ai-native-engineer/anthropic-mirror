@@ -29,21 +29,21 @@ In this lessonBy the end, you’ll be able to
 
 Below is a request Claude can already handle — everything it needs is in the words you typed. Nothing else is connected yet. **Turn on a source and watch the request grow:** each connection lets you ask for something that lives outside your message.
 
-Anthropic maintains a directory of recommended connectors at claude.ai/directory. The directory is organized into two tabs:
+Anthropic maintains a [directory of connectors(opens in new tab)](https://claude.ai/directory) that you can search and filter by category or type. It includes both kinds of connectors:
 
-* **Web:** Cloud services and applications (Gmail, Notion, Slack, Asana, Linear, Stripe, and many more)
+* **Web connectors:** Cloud services and applications (Gmail, Notion, Slack, Asana, Linear, Stripe, and many more)
 * **Desktop extensions:** Local tools that run on your computer through the Claude Desktop app
 
 The directory lists connectors rather than individual applications, so one entry can cover several related tools. The Atlassian Rovo connector, for example, reaches both Jira and Confluence, so look for Atlassian rather than either app by name. If a tool you need doesn't have its own entry, you can add it as a custom connector instead.
 
-To browse available connectors, you can also click the **+** button in the lower left of the chat window, then select **Connectors**.
+You can also browse connectors from inside Claude: open **Customize > Connectors** from the left sidebar, or click the **+** button in the lower left of the chat window, then select **Connectors**.
 
 ### Setting up a web connector[](#setting-up-a-web-connector)
 
 Here's how to connect a cloud service:
 
-1. **Find the connector:** Navigate to claude.ai/directory, or click **+** > **Connectors** in any chat
-2. **Click Connect:** Select the connector you want to add
+1. **Find the connector:** Open the [connector directory(opens in new tab)](https://claude.ai/directory), or click **+** > **Connectors** in any chat
+2. **Click Connect:** Select the connector you want to add. On Team and Enterprise plans, an organization Owner needs to add that connector for your organization first
 3. **Authenticate:** You'll be redirected to the service's login page. Sign in with your existing credentials
 4. **Grant permissions:** Review the specific permissions Claude is requesting, then authorize access
 5. **Test the connection:** Return to Claude and try a simple request, like "Can you access my [tool name]?"
@@ -101,7 +101,7 @@ When you connect Claude to external services, you're granting it access to read�
 
 * **Scoped access:** Permissions are specific to what the connector needs and you can toggle individual permissions on and off within each application's menu.
 * **Claude sees what you see:** Claude can only access data *you* have access to. Connecting your work email doesn't give Claude access to your CEO's inbox—only your own.
-* **Revocable at any time:** You can disconnect a service through Claude's settings or through the third-party service's security settings. Just as with Skills, you can also find or build custom connectors. Exercise the same caution — only install connectors from trusted sources.
+* **Revocable at any time:** You can disconnect a service in **Customize > Connectors** or through the third-party service's security settings. Just as with Skills, you can also find or build custom connectors. Exercise the same caution: only install connectors from trusted sources.
 
 ## Lesson reflection[](#lesson-reflection)
 
@@ -115,7 +115,7 @@ Before moving on, consider:
 
 In the next lesson, you'll learn about Enterprise Search—a specialized feature for Claude for Work users that connects Claude to your organization's knowledge sources with custom prompts optimized for your company's context.
 
-For more information on connectors and the Model Context Protocol, visit the [Anthropic Help Center(opens in new tab)](https://support.claude.com/en/articles/11176164-pre-built-web-connectors-using-remote-mcp) or explore the connector directory at claude.ai/directory.
+For more information on connectors and the Model Context Protocol, visit the [Anthropic Help Center(opens in new tab)](https://support.claude.com/en/articles/11176164-pre-built-web-connectors-using-remote-mcp) or explore the [connector directory(opens in new tab)](https://claude.ai/directory).
 
 [Previous lessonWorking with skills](https://academy.claude.com/courses/claude-101/working-with-skills)[Next lessonEnterprise search](https://academy.claude.com/courses/claude-101/enterprise-search)
 

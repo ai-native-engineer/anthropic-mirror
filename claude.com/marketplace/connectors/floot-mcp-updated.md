@@ -59,14 +59,6 @@ Generate diagrams and better code from Figma context
 
 [Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
-
-### [Adobe](https://claude.com/marketplace/connectors/adobe-creativity)
-
-Design, combine, and edit with Adobe pro tools
-
-[Add Adobe in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
 ### [monday.com](https://claude.com/marketplace/connectors/monday)
@@ -74,6 +66,14 @@ Design, combine, and edit with Adobe pro tools
 monday.com project management & CRM for projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms, dashboards, cross-project portfolio status, and critical paths.
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
+
+### [Adobe](https://claude.com/marketplace/connectors/adobe-creativity)
+
+Design, combine, and edit with Adobe pro tools
+
+[Add Adobe in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
 
 ![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 

@@ -103,7 +103,7 @@ For the full walkthrough of your options, deadlines, and what happens to your su
 
 You may have both a personal account and an organization account tied to the same email address. You can switch between them by clicking your initials or name in the lower left corner of the screen.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1791161100&signature=70f8e6b212fff2a7c69c9f1a892366061066e9465e46553f9482796622c23b50&req=diMmFMh3noJbXvMW1HO4zXhPnNE3zh5gufhmlOXMdYb4R9A5OYouc8cGe7Lu%0AXQ3DZK7qUyNKaPEOUN0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1791161100&signature=70f8e6b212fff2a7c69c9f1a892366061066e9465e46553f9482796622c23b50&req=diMmFMh3noJbXvMW1HO4zXhPnNE3zh5gufhmlOXMdYb4R9A5OYouc8cGe7Lu%0AXQ3DZK7qUyNKaPEOUN0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1791252000&signature=d891d81b83b65f0506655040d28ba99572d477e7d85b74ef766ff9d39b083b8b&req=diMmFMh3noJbXvMW1HO4zXhPnNE0zR1hufhmlOXMdYbsBDjMwLJwSwGjnCnc%0AqIsO9%2FXL8sjHqAYAhdU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1791252000&signature=d891d81b83b65f0506655040d28ba99572d477e7d85b74ef766ff9d39b083b8b&req=diMmFMh3noJbXvMW1HO4zXhPnNE0zR1hufhmlOXMdYbsBDjMwLJwSwGjnCnc%0AqIsO9%2FXL8sjHqAYAhdU%3D%0A)
 
 A blue checkmark shows which account you're currently using. Click the other account to switch to it and access its separate conversations and projects.
 
@@ -119,6 +119,6 @@ If you want to close your personal account without moving any of your work into 
 
 * [Get started with the Team plan](https://support.claude.com/en/articles/9267247-get-started-with-the-team-plan)
 * [Export your Claude data](https://support.claude.com/en/articles/9450526-export-your-claude-data)
-* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
+* [Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)
 * [Claim and migrate accounts on your domain](https://support.claude.com/en/articles/14625619-claim-and-migrate-accounts-on-your-domain)
 * [Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account)

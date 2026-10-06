@@ -50,7 +50,7 @@ The recording of this webinar is not available yet.
 
 ## Thank you for registering to watch
 
-[Watch webinar](#)Watch webinar
+[Watch webinar](https://anthropic.ondemand.goldcast.io/on-demand/97abff19-a77d-458a-a836-e8d3cf3cef2e)Watch webinar
 
 Watch webinar
 

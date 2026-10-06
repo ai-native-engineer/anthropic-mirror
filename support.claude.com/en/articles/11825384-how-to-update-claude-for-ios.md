@@ -7,8 +7,10 @@ If you aren’t seeing the latest features on Claude for iOS, you may need to up
 3. Scroll down to see pending updates.
 4. Tap "Update" next to Claude for iOS to update it to the newest version.
 
+**Note:** If you use Claude for Intune, the managed version of Claude for iOS for Enterprise plans, your IT team controls when it updates if your organization installed it through Intune. See **[Set up Claude for Intune](https://support.claude.com/en/articles/17203415)** for details.
+
 * [Install Claude for iOS](https://support.claude.com/en/articles/9266462-install-claude-for-ios)
-* [Use Claude app intents, shortcuts, and widgets on iOS](https://support.claude.com/en/articles/10263469-use-claude-app-intents-shortcuts-and-widgets-on-ios)
-* [Access Claude for iOS on your Lock Screen, Control Center, and Action button](https://support.claude.com/en/articles/10302511-access-claude-for-ios-on-your-lock-screen-control-center-and-action-button)
-* [How to update Claude for Android](https://support.claude.com/en/articles/11825394-how-to-update-claude-for-android)
 * [Use Claude with iOS apps](https://support.claude.com/en/articles/11869619-use-claude-with-ios-apps)
+* [Deploy Claude Desktop for macOS](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)
+* [Deploy Claude Desktop for Windows](https://support.claude.com/en/articles/12622703-deploy-claude-desktop-for-windows)
+* [Set up Claude for Intune](https://support.claude.com/en/articles/17203415-set-up-claude-for-intune)

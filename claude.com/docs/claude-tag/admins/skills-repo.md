@@ -29,15 +29,15 @@ For a github.com repository, the GitHub connector must be enabled for your organ
 
 Grant Claude write access to the repository
 
-Open an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections#your-first-access-bundle), go to its **Repositories** tab, and add the repository. The Claude GitHub App must already be linked to your GitHub organization; see [Configure GitHub access](https://claude.com/docs/claude-tag/admins/configure-github).
+At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), open a [bundle](https://claude.com/docs/claude-tag/admins/add-connections) on the **Bundles** tab under **Claude’s access**. In its **What’s in it** section, select **Add**, then **Repository**, and pick the repository. The Claude GitHub App must already be linked to your GitHub organization; see [Configure GitHub access](https://claude.com/docs/claude-tag/admins/configure-github).
 
 4
 
-Attach the plugins to a scope
+Add the plugins to the bundle
 
-In the same bundle’s **Plugins** tab, toggle on the plugins from your new marketplace; each is off until you enable it. See [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins).
+On the same bundle’s page, select **Add**, then **Plugin**, and pick each plugin from your new marketplace. A plugin isn’t in the bundle until you add it, and the bundle’s plugins apply wherever the bundle applies; see [Choose where a bundle applies](https://claude.com/docs/claude-tag/admins/attach-to-scope#attach-the-bundle) and [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins).
 
-**You’ll see:** the repository appears in the bundle’s Repositories list, and the marketplace’s plugins appear in the bundle’s Plugins tab, each labeled with the marketplace name.
+**You’ll see:** the repository and the plugins appear in the bundle’s **What’s in it** table, with **Repository** or **Plugin** as each row’s type.
 
 ##  How updates propagate
 
@@ -79,7 +79,7 @@ To upload instead, in [**Organization settings > Plugins & skills**](https://cla
 * The same layout inside a single top-level folder
 * For a single skill, a `SKILL.md` at the top level whose frontmatter declares the plugin’s components
 
-An archive with no manifest, with more than one `plugin.json`, or with the manifest anywhere else is rejected at upload. After upload, the plugin is in your organization’s catalog but not attached anywhere. To make it available in channels, toggle it on in a bundle’s **Plugins** tab or add it directly on a scope; see [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins).
+An archive with no manifest, with more than one `plugin.json`, or with the manifest anywhere else is rejected at upload. After upload, the plugin is in your organization’s catalog but not attached anywhere. To make it available in channels, add it to a bundle with **Add**, then **Plugin**, on the bundle’s page, or add it for all of Slack from the **Skills and plugins** tab under **Claude’s access**; see [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins).
 
 ##  Repository context files and MCP servers
 

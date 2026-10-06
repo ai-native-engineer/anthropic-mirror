@@ -65,6 +65,16 @@ Search, organize, and take action on your Dropbox content
 
 [Add Dropbox in Claude (opens in new tab)](https://claude.ai/directory/1e4280cc-037c-47f0-9873-56bea1871bdb "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=paperoffice.ai&sz=96)
+
+### [PaperOffice](https://claude.com/marketplace/connectors/paperoffice)
+
+Anthropic verifiedNew
+
+Built for companies. Ready for AI agents. The headless DMS for Claude: search, read, extract, approve, send for signing and archive documents in your own account, with your permissions.
+
+[Add PaperOffice in Claude (opens in new tab)](https://claude.ai/directory/7fc51aa2-cf7e-4429-9ed8-623b92395e60 "Add in Claude")
+
 ![](https://assets.claude.com/1a01745b4fbcfb8d75f0f2a761024720abbd6cb2.jpg?w=128&fit=max&auto=format)
 
 ### [Harvey](https://claude.com/marketplace/connectors/harvey)
@@ -80,11 +90,3 @@ Answer legal queries, search vaults, and research
 Plain language search for faster contract answers and manage your contractual obligations
 
 [Add Ironclad Contracts in Claude (opens in new tab)](https://claude.ai/directory/c5504c7c-d299-4637-a012-29ef1a2354a9 "Add in Claude")
-
-![](https://assets.claude.com/e3b115fce72d31547c0858af4af4ab83a156c168.svg?w=128&fit=max&auto=format)
-
-### [Datasite](https://claude.com/marketplace/connectors/datasite)
-
-Manage your M&A data room from Claude
-
-[Add Datasite in Claude (opens in new tab)](https://claude.ai/directory/3a148118-6b4a-443e-9a66-9e1ec243d119 "Add in Claude")

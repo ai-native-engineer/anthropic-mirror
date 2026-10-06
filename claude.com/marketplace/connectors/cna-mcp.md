@@ -21,6 +21,9 @@ Requires an active account.
 * cna-news-qsearch
 * cna-news-single
 * cna-photo-search
+* cna-video-news-search
+* cna-newscast-search
+* cna-video-footage-search
 * cna-translation-lookup
 * cna-word-map
 * fact-check-guide

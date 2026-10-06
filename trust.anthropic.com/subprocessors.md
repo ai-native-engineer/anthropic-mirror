@@ -24,44 +24,32 @@ Subprocessors
 FAQ
 Updates
 Subprocessors
-Google Cloud Platform
-•
-Cloud infrastructure
+Google Cloud Platform • Cloud infrastructure
 Worldwide
 
 Products: All Products
 
-Amazon Web Services
-•
-Cloud Infrastructure
+Amazon Web Services • Cloud Infrastructure
 Worldwide
 
 Products: All Products
 
-Microsoft Azure
-•
-Cloud Infrastructure
+Microsoft Azure • Cloud Infrastructure
 Worldwide
 
 Products: All Products
 
-Cloudflare
-•
-Traffic Routing (CDN)
+Cloudflare • Traffic Routing (CDN)
 Worldwide (Local to Customer)
 
 Products: All Products
 
-Stripe
-•
-Billing
+Stripe • Billing
 United States
 
 Products: Claude Pro/Max, Claude Developer Platform, Claude for Work
 
-WorkOS
-•
-Security, Single Sign-On
+WorkOS • Security, Single Sign-On
 United States
 
 Products: Claude for Work, Claude Developer Platform
@@ -69,16 +57,12 @@ Products: Claude for Work, Claude Developer Platform
 More Information
 Opens in new tab
 
-Intercom
-•
-User support
+Intercom • User support
 United States
 
 Products: All Products except Claude for Government
 
-Nutun
-•
-User support
+Nutun • User support
 South Africa
 
 Products: All Products except Claude for Government
@@ -86,9 +70,7 @@ Products: All Products except Claude for Government
 More Information
 Opens in new tab
 
-Boldr
-•
-User support
+Boldr • User support
 Canada
 
 Products: All Products except Claude for Government
@@ -96,9 +78,7 @@ Products: All Products except Claude for Government
 More Information
 Opens in new tab
 
-Twilio
-•
-Analytics, email/SMS communications
+Twilio • Analytics, email/SMS communications
 United States
 
 Products: All Products except Claude for Government

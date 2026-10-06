@@ -83,4 +83,4 @@ Subscribe
 
 ## More resources
 
-[How AI works10 resources](https://academy.claude.com/collections/how-ai-works)[Building effective human-agent teams9 resources](https://academy.claude.com/collections/human-agent-teams)[Claude for Education claude.com (opens in new tab)](https://claude.com/solutions/education)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)
+[How AI works10 resources](https://academy.claude.com/collections/how-ai-works)[Building effective human-agent teams10 resources](https://academy.claude.com/collections/human-agent-teams)[Claude for Education claude.com (opens in new tab)](https://claude.com/solutions/education)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

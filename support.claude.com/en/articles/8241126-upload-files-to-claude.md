@@ -84,5 +84,4 @@ Claude analyzes both text and visual elements (like images, charts, and graphics
 * [Can Claude produce images?](https://support.claude.com/en/articles/9002504-can-claude-produce-images)
 * [Create and edit files with Claude](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude)
 * [Set up your design system in Claude Design](https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design)
-* [Get started with Claude Design](https://support.claude.com/en/articles/14604416-get-started-with-claude-design)
 * [Use Claude in Google Docs, Sheets, and Slides](https://support.claude.com/en/articles/16951679-use-claude-in-google-docs-sheets-and-slides)

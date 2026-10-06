@@ -296,5 +296,5 @@ Anthropic has the following certifications:
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)
 * [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
-* [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
 * [Connect to Microsoft 365](https://support.claude.com/en/articles/15183774-connect-to-microsoft-365)
+* [Set up Claude for Intune](https://support.claude.com/en/articles/17203415-set-up-claude-for-intune)

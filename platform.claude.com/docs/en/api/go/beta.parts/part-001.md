@@ -722,6 +722,20 @@ The Models API response can be used to determine which models are available for 
 
     A human-readable name for the model.
 
+  - `Line BetaModelLine`
+
+    The model line this model belongs to, such as `opus` for both Claude Opus 4.5 and Claude Opus 4.6. More lines may be added. `null` when the model belongs to no line; do not infer a line from the `id`.
+
+    - `const BetaModelLineHaiku BetaModelLine = "haiku"`
+
+    - `const BetaModelLineSonnet BetaModelLine = "sonnet"`
+
+    - `const BetaModelLineOpus BetaModelLine = "opus"`
+
+    - `const BetaModelLineFable BetaModelLine = "fable"`
+
+    - `const BetaModelLineMythos BetaModelLine = "mythos"`
+
   - `MaxInputTokens int64`
 
     Maximum input context window size in tokens for this model.
@@ -834,6 +848,7 @@ func main() {
       },
       "created_at": "2026-07-24T00:00:00Z",
       "display_name": "Claude Opus 5",
+      "line": "haiku",
       "max_input_tokens": 0,
       "max_tokens": 0,
       "type": "model"
@@ -1115,6 +1130,20 @@ The Models API response can be used to determine information about a specific mo
 
     A human-readable name for the model.
 
+  - `Line BetaModelLine`
+
+    The model line this model belongs to, such as `opus` for both Claude Opus 4.5 and Claude Opus 4.6. More lines may be added. `null` when the model belongs to no line; do not infer a line from the `id`.
+
+    - `const BetaModelLineHaiku BetaModelLine = "haiku"`
+
+    - `const BetaModelLineSonnet BetaModelLine = "sonnet"`
+
+    - `const BetaModelLineOpus BetaModelLine = "opus"`
+
+    - `const BetaModelLineFable BetaModelLine = "fable"`
+
+    - `const BetaModelLineMythos BetaModelLine = "mythos"`
+
   - `MaxInputTokens int64`
 
     Maximum input context window size in tokens for this model.
@@ -1229,6 +1258,7 @@ func main() {
   },
   "created_at": "2026-07-24T00:00:00Z",
   "display_name": "Claude Opus 5",
+  "line": "haiku",
   "max_input_tokens": 0,
   "max_tokens": 0,
   "type": "model"
@@ -23099,7 +23129,7 @@ Create Agent
 
   - `Tools param.Field[[]BetaAgentNewParamsToolUnion] Optional`
 
-    Body param: Tool configurations available to the agent. Maximum of 128 tools across all toolsets allowed.
+    Body param: Tool configurations available to the agent. Maximum of 256 tools across all toolsets allowed.
 
     - `type BetaManagedAgentsAgentToolset20260401ParamsResp`
 
@@ -26241,7 +26271,7 @@ Update Agent
 
   - `Tools param.Field[[]BetaAgentUpdateParamsToolUnion] Optional`
 
-    Body param: Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 128 tools across all toolsets allowed.
+    Body param: Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 256 tools across all toolsets allowed.
 
     - `type BetaManagedAgentsAgentToolset20260401ParamsResp`
 
@@ -26386,27 +26416,3 @@ Update Agent
           - `Type BetaManagedAgentsGlobToolConfigParamsType Optional`
 
           - `Name Glob`
-
-            Must be "glob".
-
-          - `Enabled bool Optional`
-
-            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
-
-          - `PermissionPolicy BetaManagedAgentsGlobToolConfigParamsPermissionPolicyUnionResp Optional`
-
-            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
-
-            - `type BetaManagedAgentsAlwaysAllowPolicy`
-
-              Tool calls are automatically approved without user confirmation.
-
-            - `type BetaManagedAgentsAlwaysAskPolicy`
-
-              Tool calls require user confirmation before execution.
-
-            - `type BetaManagedAgentsAutoPolicy`
-
-              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-        - `type BetaManagedAgentsGrepToolConfigParamsResp`

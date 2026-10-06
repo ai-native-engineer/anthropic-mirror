@@ -2,7 +2,7 @@
 
 # I have a zero data retention agreement with Anthropic. What products does it apply to?
 
-June 9, 2026
+Updated today
 
 *This article is about certain commercial products, including the Anthropic Messages API and Claude Code on Enterprise plans. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see [here](https://privacy.anthropic.com/en/collections/10663362-consumers).*
 
@@ -14,12 +14,12 @@ Additionally, for Covered Models, we require limited data retention and review a
 
 If you’re a current or prospective Claude Platform or Claude Code on Enterprise plan customer with questions about zero data retention, please reach out to our [Sales Team](https://www.anthropic.com/contact-sales). Note that zero data retention requests are reviewed and applied on a per-organization basis, so if you have multiple organizations, please ensure this is conveyed to our Sales Team. Claude Platform users can confirm that ZDR is applied to their account under Settings > Privacy Controls > Data retention period on their account.
 
-If you have questions about Anthropic's Business Associate Agreement (BAA), which is only available to customers who use our HIPAA-eligible services, including those that qualify for zero data retention, please also read [this article.](https://privacy.anthropic.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers) As part of the BAA, customers of Anthropic’s HIPAA-eligible services are subject to certain configuration requirements and limitations on what features/integrations are available (e.g., the BAA would not apply to use of the web search functionality).
+Anthropic's Business Associate Agreement (BAA) is available for Anthropic's HIPAA-ready services, such as the Claude API with HIPAA configuration enabled and HIPAA-ready Enterprise plans. Those services don't need Zero Data Retention. For Claude Code with a Claude Console API key, the BAA applies only when that Claude Console organization has Zero Data Retention enabled. For Claude Code on a HIPAA-ready Enterprise plan, the BAA applies with the HIPAA configuration applied to Claude Code (local mode) and Cowork (local mode), or with zero data retention for Claude Code. Our Business Associate Agreements (BAA) for Commercial Customers lists which features the BAA covers and the configuration each one needs.
 
 ---
 
 * [Deleting commercial Anthropic accounts](https://privacy.claude.com/en/articles/7996865-deleting-commercial-anthropic-accounts)
 * [Business Associate Agreements (BAA) for Commercial Customers](https://privacy.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [Does Anthropic Act as a Data Processor or Controller?](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
-* [Can you delete data that I sent via Team and Enterprise plans?](https://privacy.claude.com/en/articles/9796617-can-you-delete-data-that-i-sent-via-team-and-enterprise-plans)
+* [What Certifications has Anthropic obtained?](https://privacy.claude.com/en/articles/10015870-what-certifications-has-anthropic-obtained)
 * [Data retention practices for Covered Models](https://privacy.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)

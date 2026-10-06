@@ -36,7 +36,7 @@ Compare paid plans, manage your subscription, and understand usage limits.
 
 Set up your workspace, add seats, and administer Claude across your organization.
 
-71 articles
+73 articles
 
 ![](https://downloads.intercomcdn.com/i/hc/icons/v3/lupk8zyo/938304/5ffb4feea1e2b255910fc58e99d4/141413.svg)
 
@@ -133,11 +133,3 @@ How Claude is built to be helpful, harmless, and honest.
 Run Claude models through Amazon Bedrock.
 
 6 articles
-
-![](https://downloads.intercomcdn.com/i/hc/icons/v3/lupk8zyo/938317/8a5deb1c9407189630bfc224d12f/141413.svg)
-
-[Claude for Government](https://support.claude.com/en/collections/19395194-claude-for-government)
-
-Deploy Claude in the public sector with the controls and compliance you need.
-
-9 articles

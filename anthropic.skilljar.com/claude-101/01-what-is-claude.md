@@ -67,7 +67,7 @@ People new to Claude often type into it the way they'd type into a search box. H
 
 “What's the exchange rate from US dollars to euros today?”
 
-Sonnet 4.6
+Sonnet
 
 Search box, or thinking partner?
 

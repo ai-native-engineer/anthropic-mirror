@@ -30,7 +30,7 @@ To enable this workflow, you'll need Claude connected to your research data mana
 
 ### Required context[](#required-context)
 
-To pull data directly from your Benchling workspace, use the [Benchling connector.(opens in new tab)](https://claude.ai/directory/benchling) This connector requires you to have [Claude for Desktop(opens in new tab)](https://www.claude.com/download).
+To pull data directly from your Benchling workspace, use the [Benchling connector.(opens in new tab)](https://claude.ai/directory/benchling) Benchling is a remote connector, so it works in Claude on the web. Connect it from **Customize → Connectors** and sign in with your Benchling account.
 
 After connecting, Claude will be able to access your electronic lab notebooks, experimental protocols, and study data.
 

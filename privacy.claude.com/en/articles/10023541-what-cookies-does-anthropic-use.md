@@ -2,7 +2,7 @@
 
 # What Cookies Does Anthropic Use?
 
-Updated over a week ago
+Updated over 2 weeks ago
 
 Table of contents
 
@@ -83,7 +83,7 @@ You can control how and when your personal data is shared or used in the followi
 1. Clicking on "Privacy Choices" in the footer of our main website ([anthropic.com](http://anthropic.com/))
 2. Clicking on "Your privacy choices" in the Learn More overflow menu on [claude.ai](http://claude.ai/):
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1791161100&signature=76a91b13142a79ee1dbed36d6a92cc6c376d907a0ec95e168d97098997aabf2e&req=dSgmEc13mYJdUPMW1HO4zXrC3SjwibF1okxDdhQCTHrnSadGZyI1OfZy0vAC%0ACCmP%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1791161100&signature=76a91b13142a79ee1dbed36d6a92cc6c376d907a0ec95e168d97098997aabf2e&req=dSgmEc13mYJdUPMW1HO4zXrC3SjwibF1okxDdhQCTHrnSadGZyI1OfZy0vAC%0ACCmP%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1791252000&signature=1622ea9286630704bf5e331db4d0d0ee331bbb4f42db5a0ce7d1f38af7eeb312&req=dSgmEc13mYJdUPMW1HO4zXrC3SjzirJ0okxDdhQCTHra073eagBEKiT85XmL%0AOQi8%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1791252000&signature=1622ea9286630704bf5e331db4d0d0ee331bbb4f42db5a0ce7d1f38af7eeb312&req=dSgmEc13mYJdUPMW1HO4zXrC3SjzirJ0okxDdhQCTHra073eagBEKiT85XmL%0AOQi8%0A)
 3. Enabling global privacy controls in your browser
 
 ​
@@ -93,6 +93,5 @@ You can control how and when your personal data is shared or used in the followi
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
 * [Does Anthropic crawl data from the web, and how can site owners block the crawler?](https://privacy.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler)
 * [What Cookies Does Anthropic Use?](https://privacy.claude.com/en/articles/9020432-what-cookies-does-anthropic-use)
-* [Is my data used for model training?](https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training)
 
 Table of contents

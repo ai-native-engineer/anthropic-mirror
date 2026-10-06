@@ -6,4 +6,4 @@ Get started with Claude in Amazon Bedrock by visiting the [Amazon Bedrock consol
 * [I use Claude in Amazon Bedrock. Who do I contact for customer support inquiries?](https://support.claude.com/en/articles/7996921-i-use-claude-in-amazon-bedrock-who-do-i-contact-for-customer-support-inquiries)
 * [Where do I find Claude in Amazon Bedrock documentation?](https://support.claude.com/en/articles/10280783-where-do-i-find-claude-in-amazon-bedrock-documentation)
 * [What AWS Regions are Claude models available in Amazon Bedrock?](https://support.claude.com/en/articles/10280791-what-aws-regions-are-claude-models-available-in-amazon-bedrock)
-* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)

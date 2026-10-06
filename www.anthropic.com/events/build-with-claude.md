@@ -126,18 +126,6 @@ Financial Services
 Healthcare & Life Sciences
 Clear filters
 
-Claude Code Workshop
-
-Virtual
-
-October 2 · 8:30am PT
-
-About this session
-
-Hands-on session for developers and technical builders. Bring a laptop and a project and write code with Claude Code.
-
-[Apply ↗](https://www.anthropic.com/webinars/recurring-virtual-claude-code-workshop)
-
 Claude Workshop
 
 Virtual

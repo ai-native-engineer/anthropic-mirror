@@ -92,3 +92,5 @@ We expect some level of AI fluency and Claude proficiency for this program, but 
 This is a full school year program that runs from September 2026 to June 2027.
 
 The program is closed for Fall 2026
+
+Claude Campus Program | Claude by Anthropic

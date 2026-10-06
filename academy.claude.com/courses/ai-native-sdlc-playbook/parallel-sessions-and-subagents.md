@@ -70,7 +70,7 @@ Lesson 7 of 14 · The AI-native SDLC playbookParallel sessions and subagents
 
 Introduction
 
-* [Introduction](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
+* [What changes and where to start](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
 
 Stage 1: Plan
 

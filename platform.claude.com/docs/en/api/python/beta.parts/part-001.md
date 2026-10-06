@@ -724,6 +724,20 @@ The Models API response can be used to determine which models are available for 
 
     A human-readable name for the model.
 
+  - `line: Optional[BetaModelLine]`
+
+    The model line this model belongs to, such as `opus` for both Claude Opus 4.5 and Claude Opus 4.6. More lines may be added. `null` when the model belongs to no line; do not infer a line from the `id`.
+
+    - `"haiku"`
+
+    - `"sonnet"`
+
+    - `"opus"`
+
+    - `"fable"`
+
+    - `"mythos"`
+
   - `max_input_tokens: Optional[int]`
 
     Maximum input context window size in tokens for this model.
@@ -827,6 +841,7 @@ print(page.id)
       },
       "created_at": "2026-07-24T00:00:00Z",
       "display_name": "Claude Opus 5",
+      "line": "haiku",
       "max_input_tokens": 0,
       "max_tokens": 0,
       "type": "model"
@@ -1108,6 +1123,20 @@ The Models API response can be used to determine information about a specific mo
 
     A human-readable name for the model.
 
+  - `line: Optional[BetaModelLine]`
+
+    The model line this model belongs to, such as `opus` for both Claude Opus 4.5 and Claude Opus 4.6. More lines may be added. `null` when the model belongs to no line; do not infer a line from the `id`.
+
+    - `"haiku"`
+
+    - `"sonnet"`
+
+    - `"opus"`
+
+    - `"fable"`
+
+    - `"mythos"`
+
   - `max_input_tokens: Optional[int]`
 
     Maximum input context window size in tokens for this model.
@@ -1210,6 +1239,7 @@ print(beta_model_info.id)
   },
   "created_at": "2026-07-24T00:00:00Z",
   "display_name": "Claude Opus 5",
+  "line": "haiku",
   "max_input_tokens": 0,
   "max_tokens": 0,
   "type": "model"
@@ -23606,7 +23636,7 @@ Create Agent
 
 - `tools: Optional[Iterable[Tool]]`
 
-  Tool configurations available to the agent. Maximum of 128 tools across all toolsets allowed.
+  Tool configurations available to the agent. Maximum of 256 tools across all toolsets allowed.
 
   - `class BetaManagedAgentsAgentToolset20260401Params`
 
@@ -26837,7 +26867,7 @@ Update Agent
 
 - `tools: Optional[Iterable[Tool]]`
 
-  Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 128 tools across all toolsets allowed.
+  Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 256 tools across all toolsets allowed.
 
   - `class BetaManagedAgentsAgentToolset20260401Params`
 
@@ -31953,38 +31983,3 @@ client = Anthropic(
         "ANTHROPIC_API_KEY"
     ),  # This is the default and can be omitted
 )
-beta_self_hosted_work = client.beta.environments.work.retrieve(
-    work_id="work_id",
-    environment_id="env_011CZkZ9X2dpNyB7HsEFoRfW",
-)
-print(beta_self_hosted_work.id)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "acknowledged_at": "acknowledged_at",
-  "created_at": "created_at",
-  "data": {
-    "id": "id",
-    "type": "session"
-  },
-  "environment_id": "environment_id",
-  "latest_heartbeat_at": "latest_heartbeat_at",
-  "metadata": {
-    "foo": "string"
-  },
-  "secret": "secret",
-  "started_at": "started_at",
-  "state": "queued",
-  "stop_requested_at": "stop_requested_at",
-  "stopped_at": "stopped_at",
-  "type": "work"
-}
-```
-
-### Poll for Work
-
-`beta.environments.work.poll(environment_id, **kwargs)  -> BetaSelfHostedWork`

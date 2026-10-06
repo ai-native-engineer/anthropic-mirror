@@ -14,7 +14,7 @@ SortRecommendedMost popularTrendingNewestA–Z
 
 ## Top connectors
 
-Show all 892
+Show all 899
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
@@ -142,7 +142,7 @@ Browser automation and end-to-end testing MCP server by Microsoft. Enables Claud
 
 ## Trending connectors
 
-Show all 7
+Show all 6
 
 ![](https://www.google.com/s2/favicons?domain=slicktrip.com&sz=96)
 
@@ -204,19 +204,19 @@ Live crypto, stock, gold & oil trading data from Hyperliquid: see what the best 
 
 [Add Coinversa Pulse in Claude (opens in new tab)](https://claude.ai/directory/4f5d3539-79ae-4f8b-8011-356259b4dff6 "Add in Claude")
 
-![](https://tineo.ai/favicon/favicon-96x96.png)
-
-### [Tineo](https://claude.com/marketplace/connectors/tineo)
-
-Anthropic verifiedTrending
-
-Connect Tineo to Claude to review trips, flights, hotels and activities, and add or update itinerary details. Organize and share plans with friends in Tineo.
-
-[Add Tineo in Claude (opens in new tab)](https://claude.ai/directory/47af3906-6905-49b7-bde9-363c6b6fa3b8 "Add in Claude")
-
 ## New connectors
 
-Show all 6
+Show all 7
+
+![](https://www.google.com/s2/favicons?domain=robinpowered.com&sz=96)
+
+### [Robin (Workplace)](https://claude.com/marketplace/connectors/robin-powered)
+
+Anthropic verifiedNew
+
+Robin is the workplace platform teams use to manage desks, rooms, and hybrid office schedules, and optimize how their workplace is planned and used.
+
+[Add Robin (Workplace) in Claude (opens in new tab)](https://claude.ai/directory/b955cf44-cd8f-4551-8730-cbc5a31d2003 "Add in Claude")
 
 ![](https://www.webmcp-eval.com/favicon.png)
 
@@ -280,7 +280,7 @@ Manage Chatbase agents, sources, conversations, tickets.
 
 ## All connectors
 
-892 connectors
+899 connectors
 
 ![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
 
@@ -330,14 +330,6 @@ Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claud
 
 [Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-![](https://assets.claude.com/517cb0a746dcf968ce8efda7613b69101b536a52.svg?w=128&fit=max&auto=format)
-
-### [Notion](https://claude.com/marketplace/connectors/notion)
-
-Connect your Notion workspace to search, update, and power workflows across tools
-
-[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
-
 ![](https://www.gemini.com/favicon.ico)
 
 ### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
@@ -347,6 +339,14 @@ Anthropic verifiedTrending
 Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
 
 [Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
+
+![](https://assets.claude.com/517cb0a746dcf968ce8efda7613b69101b536a52.svg?w=128&fit=max&auto=format)
+
+### [Notion](https://claude.com/marketplace/connectors/notion)
+
+Connect your Notion workspace to search, update, and power workflows across tools
+
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
 ![](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg?w=128&fit=max&auto=format)
 
@@ -388,14 +388,6 @@ Manage issues, projects & team workflows in Linear
 
 [Add Linear in Claude (opens in new tab)](https://claude.ai/directory/fa50c30c-9f62-4f94-b851-217868185db6 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
-
-### [Adobe](https://claude.com/marketplace/connectors/adobe-creativity)
-
-Design, combine, and edit with Adobe pro tools
-
-[Add Adobe in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
 ### [monday.com](https://claude.com/marketplace/connectors/monday)
@@ -403,6 +395,14 @@ Design, combine, and edit with Adobe pro tools
 monday.com project management & CRM for projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms, dashboards, cross-project portfolio status, and critical paths.
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
+
+### [Adobe](https://claude.com/marketplace/connectors/adobe-creativity)
+
+Design, combine, and edit with Adobe pro tools
+
+[Add Adobe in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
 
 ![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 
@@ -412,6 +412,14 @@ Manage databases, authentication, and storage
 
 [Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
+![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
+
+### [Shopify](https://claude.com/marketplace/connectors/shopify)
+
+Build, manage, and analyze your Shopify store
+
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
+
 ![](https://assets.claude.com/b334d34d91a0e4cbb5ea5a343e7a618f91bfb3a3.jpg?w=128&fit=max&auto=format)
 
 ### [Indeed](https://claude.com/marketplace/connectors/indeed)
@@ -419,14 +427,6 @@ Manage databases, authentication, and storage
 Search for jobs on Indeed
 
 [Add Indeed in Claude (opens in new tab)](https://claude.ai/directory/78cb9092-b837-4439-845d-fdccd5723e7f "Add in Claude")
-
-![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
-
-### [Box](https://claude.com/marketplace/connectors/box)
-
-Search, edit and get insights on your Box content
-
-[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
 ![](https://assets.claude.com/37ce5968b2e46e9c696132cd4970baeeff9a08f0.jpg?w=128&fit=max&auto=format)
 
@@ -436,6 +436,14 @@ Access to Intercom data for better customer insights
 
 [Add Intercom in Claude (opens in new tab)](https://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771 "Add in Claude")
 
+![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
+
+### [Box](https://claude.com/marketplace/connectors/box)
+
+Search, edit and get insights on your Box content
+
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
+
 ![](https://assets.claude.com/e64f9962a277a8943b084a17b6a9386a7eb95a61.svg?w=128&fit=max&auto=format)
 
 ### [Miro](https://claude.com/marketplace/connectors/miro)
@@ -444,21 +452,13 @@ Access and create new content on Miro boards
 
 [Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
 
-![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
+![](https://assets.claude.com/1f1b0d51c9561a9bd4de38331a65b5af8069e0a8.svg?w=128&fit=max&auto=format)
 
-### [Shopify](https://claude.com/marketplace/connectors/shopify)
+### [Spotify](https://claude.com/marketplace/connectors/spotify)
 
-Build, manage, and analyze your Shopify store
+Music and podcast recommendations, just for you.
 
-[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
-
-![](https://assets.claude.com/5d13b21d7329cefe058a60e9df0455a8594d3f6e.jpg?w=128&fit=max&auto=format)
-
-### [Zoom for Claude](https://claude.com/marketplace/connectors/zoom-for-claude)
-
-Search, recap, and act on your Zoom meetings
-
-[Add Zoom for Claude in Claude (opens in new tab)](https://claude.ai/directory/1ed68a66-c371-4d26-82dc-28e6c260ece8 "Add in Claude")
+[Add Spotify in Claude (opens in new tab)](https://claude.ai/directory/86925244-b3bb-415b-b7e8-6e3cd1392247 "Add in Claude")
 
 ![](https://assets.claude.com/f8c4f0634cd056e248c7ea396b1839b922470ac6.jpg?w=128&fit=max&auto=format)
 
@@ -468,12 +468,12 @@ Analyze, debug, and manage projects and deployments
 
 [Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")
 
-![](https://assets.claude.com/1f1b0d51c9561a9bd4de38331a65b5af8069e0a8.svg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/5d13b21d7329cefe058a60e9df0455a8594d3f6e.jpg?w=128&fit=max&auto=format)
 
-### [Spotify](https://claude.com/marketplace/connectors/spotify)
+### [Zoom for Claude](https://claude.com/marketplace/connectors/zoom-for-claude)
 
-Music and podcast recommendations, just for you.
+Search, recap, and act on your Zoom meetings
 
-[Add Spotify in Claude (opens in new tab)](https://claude.ai/directory/86925244-b3bb-415b-b7e8-6e3cd1392247 "Add in Claude")
+[Add Zoom for Claude in Claude (opens in new tab)](https://claude.ai/directory/1ed68a66-c371-4d26-82dc-28e6c260ece8 "Add in Claude")
 
 View more

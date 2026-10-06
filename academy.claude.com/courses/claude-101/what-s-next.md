@@ -57,7 +57,7 @@ Congratulations on completing Claude 101! You've built a solid foundation for wo
 
 * [Claude Code in Action(opens in new tab)](https://academy.claude.com/courses/claude-code-in-action) – Free course on using Claude for development workflows
 * [Introduction to Claude Cowork(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-cowork) – Free course on how to use Claude's desktop companion for multi-step work
-* [Connector Directory(opens in new tab)](https://claude.com/connectors) – Browse and connect your tools
+* [Connector Directory(opens in new tab)](https://claude.ai/directory) – Browse and connect your tools
 
 ## A word of encouragement[](#a-word-of-encouragement)
 

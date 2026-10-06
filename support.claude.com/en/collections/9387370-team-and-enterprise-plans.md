@@ -8,10 +8,10 @@
 
 [Billing7 articles](https://support.claude.com/en/collections/9811436-billing)
 
-[Admin management24 articles](https://support.claude.com/en/collections/9811449-admin-management)
+[Admin management25 articles](https://support.claude.com/en/collections/9811449-admin-management)
 
 [Analytics and usage5 articles](https://support.claude.com/en/collections/18901831-analytics-and-usage)
 
 [Capabilities7 articles](https://support.claude.com/en/collections/9811414-capabilities)
 
-[Security and compliance17 articles](https://support.claude.com/en/collections/10351014-security-and-compliance)
+[Security and compliance18 articles](https://support.claude.com/en/collections/10351014-security-and-compliance)

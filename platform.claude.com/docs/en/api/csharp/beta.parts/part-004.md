@@ -2,6 +2,102 @@
 <!-- part of: https://platform.claude.com/docs/en/api/csharp/beta -->
 
 <!-- chunk-start -->
+  target. It has no ID of its own: it is addressed by the Plugin's ID and the
+  target.
+
+  - `JsonElement Type = "plugin_installation_setting"`
+
+    Always `plugin_installation_setting`.
+
+  - `required DateTimeOffset CreatedAt`
+
+    When the target was first given a setting for this Plugin.
+
+    format: date-time
+
+  - `required InstallationPreference InstallationPreference`
+
+    The setting the target holds for this Plugin. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `AutoInstall("auto_install")`
+
+    - `Available("available")`
+
+    - `NotAvailable("not_available")`
+
+    - `Required("required")`
+
+  - `required string PluginID`
+
+    The Plugin's ID.
+
+  - `required Target Target`
+
+    Whose setting this is: `organization` (the Plugin's own organization-wide setting) or `rbac_group` (one RBAC Group's own setting); `organization_member` does not occur here.
+
+    - `class BetaPluginTargetOrganization`
+
+      - `JsonElement Type = "organization"`
+
+        Every member of the organization.
+
+    - `class BetaPluginTargetRbacGroup`
+
+      - `JsonElement Type = "rbac_group"`
+
+        An RBAC Group.
+
+      - `required string RbacGroupID`
+
+        The RBAC Group's ID.
+
+    - `class BetaPluginTargetOrganizationMember`
+
+      - `JsonElement Type = "organization_member"`
+
+        One member of the organization.
+
+      - `required string UserID`
+
+        The member's User ID.
+
+  - `required DateTimeOffset UpdatedAt`
+
+    When its setting last changed.
+
+    format: date-time
+
+#### Example
+
+```csharp
+InstallationSettingSetParams parameters = new()
+{
+    PluginID = "plugin_id",
+    Target = "target",
+    InstallationPreference = InstallationPreference.Required,
+};
+
+var betaPluginInstallationSetting = await client.Beta.Organization.Plugins.InstallationSettings.Set(parameters);
+
+Console.WriteLine(betaPluginInstallationSetting);
+```
+
+##### Response (200)
+
+```json
+{
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "installation_preference": "required",
+  "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "target": {
+    "type": "organization"
+  },
+  "type": "plugin_installation_setting",
+  "updated_at": "2026-03-14T09:26:53.589793Z"
+}
+```
+
+### Remove Plugin Installation Setting
 
 `BetaDeletedPluginInstallationSetting Beta.Organization.Plugins.InstallationSettings.Remove(parameters, cancellationToken = default)`
 

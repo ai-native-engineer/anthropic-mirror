@@ -158,6 +158,20 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2298840b2f6f9a40dc5_9a2bdeafe0f8f92dcc062ba47cc0a1014c4ecbc0-1000x1000.svg)
+
+Oct 5, 2026
+
+How Cresta turned CX expertise into an agent builder on the Claude Agent SDK
+
+How Cresta turned CX expertise into an agent builder on the Claude Agent SDK
+
+October 5, 2026
+
+[How Cresta turned CX expertise into an agent builder on the Claude Agent SDK](https://claude.com/blog/how-cresta-turned-cx-expertise-into-an-agent-builder-on-the-claude-agent-sdk)How Cresta turned CX expertise into an agent builder on the Claude Agent SDK
+
+[How Cresta turned CX expertise into an agent builder on the Claude Agent SDK](#)How Cresta turned CX expertise into an agent builder on the Claude Agent SDK
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
 
 Oct 1, 2026
@@ -382,22 +396,6 @@ September 16, 2026
 
 [Claude Cowork and chat are now one Claude](#)Claude Cowork and chat are now one Claude
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
-
-Sep 15, 2026
-
-Bringing Salesforce into Claude
-
-Enterprise AI
-
-Bringing Salesforce into Claude
-
-September 15, 2026
-
-[Bringing Salesforce into Claude](https://claude.com/blog/salesforce-in-claude)Bringing Salesforce into Claude
-
-[Bringing Salesforce into Claude](#)Bringing Salesforce into Claude
-
 [View more](https://claude.com/blog?b7eea976_page=2)
 
 1 / 17
@@ -407,6 +405,20 @@ Category
 Product
 
 Usecase
+
+### How Cresta turned CX expertise into an agent builder on the Claude Agent SDK
+
+Category
+
+Product
+
+Usecase
+
+October 5, 2026
+
+[How Cresta turned CX expertise into an agent builder on the Claude Agent SDK](https://claude.com/blog/how-cresta-turned-cx-expertise-into-an-agent-builder-on-the-claude-agent-sdk)How Cresta turned CX expertise into an agent builder on the Claude Agent SDK
+
+[How Cresta turned CX expertise into an agent builder on the Claude Agent SDK](#)How Cresta turned CX expertise into an agent builder on the Claude Agent SDK
 
 ### Customize Claude Code with mods
 
@@ -631,22 +643,6 @@ September 16, 2026
 [Claude Cowork and chat are now one Claude](https://claude.com/blog/cowork-is-now-claude)Claude Cowork and chat are now one Claude
 
 [Claude Cowork and chat are now one Claude](#)Claude Cowork and chat are now one Claude
-
-### Bringing Salesforce into Claude
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-September 15, 2026
-
-[Bringing Salesforce into Claude](https://claude.com/blog/salesforce-in-claude)Bringing Salesforce into Claude
-
-[Bringing Salesforce into Claude](#)Bringing Salesforce into Claude
 
 [View more](https://claude.com/blog?d7430fcd_page=2)
 

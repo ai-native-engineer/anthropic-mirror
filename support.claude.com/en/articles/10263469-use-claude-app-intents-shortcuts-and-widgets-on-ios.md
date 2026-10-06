@@ -106,8 +106,8 @@ More information on using and setting up controls via Control Center can be foun
 
 You can now quickly access the "Analyze Photo with Claude" control without needing to unlock your device or open the Claude app first.
 
+* [Install Claude for iOS](https://support.claude.com/en/articles/9266462-install-claude-for-ios)
 * [Access Claude for iOS on your Lock Screen, Control Center, and Action button](https://support.claude.com/en/articles/10302511-access-claude-for-ios-on-your-lock-screen-control-center-and-action-button)
 * [Use the Claude widget on Android](https://support.claude.com/en/articles/10534883-use-the-claude-widget-on-android)
 * [How to update Claude for iOS](https://support.claude.com/en/articles/11825384-how-to-update-claude-for-ios)
 * [Use Claude with iOS apps](https://support.claude.com/en/articles/11869619-use-claude-with-ios-apps)
-* [Use quick entry with Claude Desktop on Mac](https://support.claude.com/en/articles/12626668-use-quick-entry-with-claude-desktop-on-mac)

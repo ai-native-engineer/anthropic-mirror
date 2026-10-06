@@ -88,7 +88,6 @@ Request access
 [Anthropic] HIPAA-Ready Offering Implementation Guide
 Copy link
 for [Anthropic] HIPAA-Ready Offering Implementation Guide
-v07.16.2026
 Request access
 [Anthropic] HIPAA-Ready Offering Implementation Guide
 NIST

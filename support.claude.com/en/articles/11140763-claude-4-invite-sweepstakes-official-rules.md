@@ -14,5 +14,5 @@ By entering the Claude 4 Invite Sweepstakes, you accept and agree to these Offic
 * [Claude 4 Invite Contest](https://support.claude.com/en/articles/11408405-claude-4-invite-contest)
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
 * [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)
-* [Using Claude for Legal Work: Privilege, Confidentiality, and How to Think About Configuration](https://support.claude.com/en/articles/15707726-using-claude-for-legal-work-privilege-confidentiality-and-how-to-think-about-configuration)
-* [How Claude marks AI-generated content](https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content)
+* [Claude for Teachers: your data and our terms](https://support.claude.com/en/articles/15926041-claude-for-teachers-your-data-and-our-terms)
+* [Set up Claude for Intune](https://support.claude.com/en/articles/17203415-set-up-claude-for-intune)

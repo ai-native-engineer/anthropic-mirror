@@ -3,6 +3,27 @@
 
 <!-- chunk-start -->
 
+            Network policy type
+
+        - `class BetaLimitedNetworkParams`
+
+          Limited network request params.
+
+          Fields default to null; on update, omitted fields preserve the
+          existing value.
+
+          - `JsonElement Type = "limited"`
+
+            Network policy type
+
+          - `bool? AllowMcpServers`
+
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array. Defaults to `false`.
+
+          - `bool? AllowPackageManagers`
+
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array. Defaults to `false` on creation. Must be `true` when `packages` are specified.
+
           - `IReadOnlyList<string>? AllowedHosts`
 
             Specifies domains the container can reach.
@@ -23095,9 +23116,20 @@ await foreach (var item in page.Paginate())
       ],
       "type": "user.message",
       "processed_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
+      "content": [
+        {
+          "text": "Let me look up order #1234 for you.",
+          "type": "text"
+        }
+      ],
+      "processed_at": "2026-03-15T10:00:00Z",
+      "type": "agent.message"
     }
   ],
-  "next_page": "next_page"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```
 
@@ -35120,43 +35152,3 @@ Console.WriteLine(betaManagedAgentsCredential);
   "metadata": {
     "environment": "production"
   },
-  "type": "vault_credential",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "display_name": "Example credential"
-}
-```
-
-### Update Credential
-
-`BetaManagedAgentsCredential Beta.Vaults.Credentials.Update(parameters, cancellationToken = default)`
-
-**POST** `/v1/vaults/{vault_id}/credentials/{credential_id}`
-
-Update Credential
-
-#### Parameters
-
-- `CredentialUpdateParams parameters`
-
-  - `required string vaultID`
-
-    Path param: Identifier of the vault containing the credential.
-
-  - `required string credentialID`
-
-    Path param: Unique identifier of the credential to update.
-
-  - `Auth auth`
-
-    Body param: Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
-
-    - `class BetaManagedAgentsMcpOAuthUpdateParams`
-
-      Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
-
-      - `required Type Type`
-
-      - `string? AccessToken`
-
-        Updated OAuth access token.

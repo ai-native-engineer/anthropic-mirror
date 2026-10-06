@@ -51,8 +51,8 @@ Working with Claude, you have a great partner and a powerful intelligent collabo
 
 ## Key takeaways[](#key-takeaways)
 
-* Claude is a powerful, intelligent collaborator that amplifies your capabilities across all of your work. Claude brings AI intelligence, but you bring the context and expertise that makes the work meaningful.
-* The best approach when speaking to Claude is like you would a coworker—naturally, concisely, and conversationally.
+* Claude is a powerful, intelligent collaborator that amplifies your capabilities across all of your work. Claude brings intelligence, but you bring the context and expertise that make the work meaningful.
+* The best approach is to speak to Claude like you would speak to a coworker: naturally, concisely, and conversationally.
 * Before your next conversation with Claude, consider: **setting the stage** (your role, objectives, and context), **defining the task** (what action you want Claude to take), and **specifying rules** (style, tone, and examples).
 * When you upload relevant documents or background information into a chat, Claude considers that content in its response—think of it as a shortcut so Claude can understand what your needs are.
 * The real power of Claude comes with continued and frequent communication, not just one-off prompts.
@@ -65,7 +65,7 @@ Your prompts can range from simple questions (like brainstorming code names for 
 
 ## Writing effective prompts[](#writing-effective-prompts)
 
-All interactions with Claude begin with a prompt, and these prompts, combined with other context, impact Claude's response. The best approach when speaking to Claude is like you would a coworker—naturally, concisely, and conversationally.
+All interactions with Claude begin with a prompt, and these prompts, combined with other context, impact Claude's response. Write your prompt as if you were talking to a coworker.
 
 But you may ask, what is a good prompt? Before your next conversation with Claude, consider a few things:
 
@@ -86,7 +86,7 @@ In this prompt:
 Prompt
 
 **Setting the stage.** We tell Claude this is for an investor pitch deck
-for a new indie streaming app—that's the context and objective.
+for an indie streaming startup. That's the context and objective.
 
 Prompt
 
@@ -118,7 +118,7 @@ Some practical ways to use file uploads:
 
 Once uploaded, Claude will automatically attempt to parse the file's content. In the chat, the file appears as an attachment and you can then prompt Claude about it.
 
-Pro-tip
+Pro tip
 
 If you'd like Claude to consider specific preferences in every response, go
 to Settings > Account > 'Instructions for Claude' to set preferences that
@@ -146,7 +146,7 @@ than add a new message.
 
 There are two features that help Claude work better for you over time to increase the power of your prompts.
 
-**Memory** automatically saves key context from your conversations — your role, preferences, past decisions, and working style — so you don't have to repeat yourself every time you start a new chat. For example, if you tell Claude you work in marketing at a B2B company, it'll remember that context going forward. You can review, edit, or delete anything Claude remembers anytime in Settings, and memory syncs across all your devices.
+**Memory** automatically saves key context from your conversations (your role, preferences, past decisions, and working style) so you don't have to repeat yourself every time you start a new chat. For example, if you tell Claude you work in marketing at a B2B company, it'll remember that context going forward. You can turn memory on or off, and review, edit, or delete anything Claude remembers, anytime in **Settings > Memory**. Memory syncs across all your devices. It's on by default on Free, Pro, and Max plans. On Team and Enterprise plans, it's off by default, and you can turn it on in **Settings > Memory** once an organization Owner allows it.
 
 **Skills** are reusable sets of instructions that teach Claude how to approach specific tasks and workflows. They can encode your preferences for everything from how you write and the output formats you want to the specific processes you follow, the expertise you want applied, or how you like different types of work handled. Claude applies them automatically whenever they're relevant. Lesson 7, Working with skills, shows you how to enable and create them; for a quick overview, visit the [Anthropic Help Center(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills).
 

@@ -169,7 +169,7 @@ Permission requirements vary by feature:
 
 For features requiring permissions (like location or calendar access), Claude will request permission contextually with clear explanations of why the access is needed. You’ll be prompted to approve the action with three options: Allow once, Always allow, or Don't allow.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1791161100&signature=623a8f4a33baaff1ce29867a2c25a3db5abd349478a4fc5a2250dda768da91bc&req=dScnEcp7nIdeXfMW1HO4zQe5G16O3ST1S5x65TIld%2FA4tVEvW5Km%2B1lrLEbI%0ARwuMv37nvTIy7X43MFI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1791161100&signature=623a8f4a33baaff1ce29867a2c25a3db5abd349478a4fc5a2250dda768da91bc&req=dScnEcp7nIdeXfMW1HO4zQe5G16O3ST1S5x65TIld%2FA4tVEvW5Km%2B1lrLEbI%0ARwuMv37nvTIy7X43MFI%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1791252000&signature=a94aba5d4b203f052180faa38153cd6d6e6d766e0a6aeaa12294b0e77753cfbc&req=dScnEcp7nIdeXfMW1HO4zQe5G16N3if0S5x65TIld%2FAD6CTK%2FCI1pIzJxDDQ%0A9WMpBcxz%2BwdsndW7HUY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1791252000&signature=a94aba5d4b203f052180faa38153cd6d6e6d766e0a6aeaa12294b0e77753cfbc&req=dScnEcp7nIdeXfMW1HO4zQe5G16N3if0S5x65TIld%2FAD6CTK%2FCI1pIzJxDDQ%0A9WMpBcxz%2BwdsndW7HUY%3D%0A)
 
 These permissions can be managed at any time in your device settings by going to Settings > Apps > Claude > Permissions. Click into each permission listed under **Allowed** and **Not allowed** to make changes. You can toggle between “Allow only while using the app” or “Ask every time” to change Claude’s access, or remove permissions by choosing “Don’t allow.” Claude will only request permissions if needed for specific features, and you can always choose to decline while still using other capabilities.
 
@@ -233,4 +233,4 @@ Health Connect permissions are managed separately from other app permissions. Wh
 * [Use the Claude widget on Android](https://support.claude.com/en/articles/10534883-use-the-claude-widget-on-android)
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Use Claude with iOS apps](https://support.claude.com/en/articles/11869619-use-claude-with-ios-apps)
-* [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)
+* [Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork)

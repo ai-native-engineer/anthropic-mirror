@@ -30,11 +30,11 @@ Structured learning paths with video lessons and assessments to help you master 
 
 11 lessons · 1 quiz·1.5 hr·Completion badge](https://academy.claude.com/courses/model-context-protocol-advanced-topics)[### Introduction to subagents
 
-4 lessons·45 min](https://academy.claude.com/courses/introduction-to-subagents)[### The AI-native SDLC playbook
+4 lessons·45 min](https://academy.claude.com/courses/introduction-to-subagents)[### Introduction to agent skills
 
-14 lessons·1 hr](https://academy.claude.com/courses/ai-native-sdlc-playbook)[### Introduction to agent skills
+6 lessons·1 hr](https://academy.claude.com/courses/introduction-to-agent-skills)[### The AI-native SDLC playbook
 
-6 lessons·1 hr](https://academy.claude.com/courses/introduction-to-agent-skills)[### Deploying Claude Enterprise with confidence: The five decisions that shape your rollout
+14 lessons·1 hr](https://academy.claude.com/courses/ai-native-sdlc-playbook)[### Deploying Claude Enterprise with confidence: The five decisions that shape your rollout
 
 14 lessons · 1 quiz·2.5 hr·Completion badge](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 

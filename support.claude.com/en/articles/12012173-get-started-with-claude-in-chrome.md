@@ -33,7 +33,7 @@ Follow these steps to connect Claude in Chrome in your desktop app:
 3. Find **Claude in Chrome** in the list and click “Configure.”
 4. Toggle the connector on, then download and install the extension if you haven’t already.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2604933811/ae37c41fc808dbdf48d135338334/6cc9ba4b-9d31-43a2-ab80-8048b5f9d791?expires=1791161100&signature=50529fc1d1783dc952a480b932300c596b8f40dae5fc003bb8c9e13fe67c78f9&req=diYnEsB9noleWPMW1HO4zUOPbf3HkOOMnt%2F2nPMwUPhE3qd7ZwomBSZLlKFM%0AdfmnL2CnYqyiSfsbRv8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2604933811/ae37c41fc808dbdf48d135338334/6cc9ba4b-9d31-43a2-ab80-8048b5f9d791?expires=1791161100&signature=50529fc1d1783dc952a480b932300c596b8f40dae5fc003bb8c9e13fe67c78f9&req=diYnEsB9noleWPMW1HO4zUOPbf3HkOOMnt%2F2nPMwUPhE3qd7ZwomBSZLlKFM%0AdfmnL2CnYqyiSfsbRv8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2604933811/ae37c41fc808dbdf48d135338334/6cc9ba4b-9d31-43a2-ab80-8048b5f9d791?expires=1791252000&signature=8351d59f40660b618585109445e1b4c6171e47ad7438ec6596d6c95ae4488327&req=diYnEsB9noleWPMW1HO4zUOPbf3Ek%2BCNnt%2F2nPMwUPimb%2Bi7skCVr28K4FH6%0Ai5HqMHHxdMHAa6OlP3A%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2604933811/ae37c41fc808dbdf48d135338334/6cc9ba4b-9d31-43a2-ab80-8048b5f9d791?expires=1791252000&signature=8351d59f40660b618585109445e1b4c6171e47ad7438ec6596d6c95ae4488327&req=diYnEsB9noleWPMW1HO4zUOPbf3Ek%2BCNnt%2F2nPMwUPimb%2Bi7skCVr28K4FH6%0Ai5HqMHHxdMHAa6OlP3A%3D%0A)
 
 Completing these steps will add Claude in Chrome to the “Connectors” drop-down on your chats with Claude. This is disabled by default, so you’ll need to enable it manually for each conversation.
 
@@ -190,4 +190,4 @@ If you're unable to install or use the extension, contact your organization's ad
 * [Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely)
 * [Claude in Chrome permissions guide](https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide)
 * [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
-* [Use the built-in browser in Claude Cowork](https://support.claude.com/en/articles/16607400-use-the-built-in-browser-in-claude-cowork)
+* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)

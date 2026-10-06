@@ -67,10 +67,12 @@ Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claud
 
 [Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-![](https://assets.claude.com/517cb0a746dcf968ce8efda7613b69101b536a52.svg?w=128&fit=max&auto=format)
+![](https://www.gemini.com/favicon.ico)
 
-### [Notion](https://claude.com/marketplace/connectors/notion)
+### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
 
-Connect your Notion workspace to search, update, and power workflows across tools
+Anthropic verifiedTrending
 
-[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
+Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
+
+[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")

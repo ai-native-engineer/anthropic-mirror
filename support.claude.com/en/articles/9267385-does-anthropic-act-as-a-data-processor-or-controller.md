@@ -20,7 +20,7 @@ For more details on our data practices, please see the:
 * [Anthropic Privacy Policy](https://www.anthropic.com/legal/privacy)
 
 * [Who owns and manages the data of my team?](https://support.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)
+* [About the Development Partner Program](https://support.claude.com/en/articles/11174108-about-the-development-partner-program)
 * [Who owns and manages the data of my Claude for Education account?](https://support.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)
 * [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
-* [Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)

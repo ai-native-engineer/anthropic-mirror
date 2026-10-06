@@ -1,7 +1,8 @@
 # claude (YouTube)
 
-영상 216개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 218개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
+- [Mods in Claude Code: change how Claude Code works](claude/261005-mods-in-claude-code-change-how-claude-code-works.md) — 2026-10-05 (자막없음)
 - [Build an App With Claude Design](claude/261002-build-an-app-with-claude-design.md) — 2026-10-02 (자막없음)
 - [How an Anthropic designer uses Claude Slides](claude/261001-how-an-anthropic-designer-uses-claude-slides.md) — 2026-10-01 (자막없음)
 - [Getting started with Claude Tag](claude/260929-getting-started-with-claude-tag.md) — 2026-09-29
@@ -181,6 +182,7 @@
 - [A.A.Murakami's The Moon Underwater](claude/260202-a-a-murakami-s-the-moon-underwater.md) — 2026-02-02
 - [Getting started with Claude in Excel](claude/260130-getting-started-with-claude-in-excel.md) — 2026-01-30
 - [How Anthropic uses Claude in Marketing](claude/260127-how-anthropic-uses-claude-in-marketing.md) — 2026-01-27
+- [How to use Opus 5.5 and Sonnet 5.5](claude/261005-how-to-use-opus-5-5-and-sonnet-5-5.md) — 2026-10-05
 - [Build an App With Claude Design](claude/261002-build-an-app-with-claude-design-FByNau.md) — 2026-10-02
 - [Make presentations with Claude Slides](claude/261001-make-presentations-with-claude-slides.md) — 2026-10-01 (자막없음)
 - [Introducing Claude Sonnet 5.5](claude/260928-introducing-claude-sonnet-5-5-u-3cPW.md) — 2026-09-28 (자막없음)

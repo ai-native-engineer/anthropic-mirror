@@ -28,8 +28,8 @@ Research is optimal for comprehensive information gathering requiring five or mo
 
 Combining extended thinking with research allows Claude to both plan its approach thoughtfully and execute comprehensive information gathering, as when researching emerging technologies for a business proposal or analyzing multiple scientific papers for a research project. The research feature can synthesize information across multiple sources with proper citations and produces a longer final report.
 
+* [What is the External Researcher Access Program?](https://support.claude.com/en/articles/9125743-what-is-the-external-researcher-access-program)
 * [Enable and use web search](https://support.claude.com/en/articles/10684626-enable-and-use-web-search)
 * [Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)
 * [Use Claude for Education at your university](https://support.claude.com/en/articles/11139144-use-claude-for-education-at-your-university)
 * [Use enterprise search](https://support.claude.com/en/articles/12489464-use-enterprise-search)
-* [MCP: Web Search](https://support.claude.com/en/articles/14503775-mcp-web-search)

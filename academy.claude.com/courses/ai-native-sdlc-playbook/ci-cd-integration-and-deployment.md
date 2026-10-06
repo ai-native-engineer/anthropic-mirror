@@ -8,7 +8,7 @@ Lesson 12 of 14 · The AI-native SDLC playbookCI/CD integration and deployment
 
 # CI/CD integration and deployment
 
-Lesson 124 min
+Lesson 126 min
 
 Run Claude Code non-interactively inside the CI/CD pipeline, sandbox the execution so long-running agents run safely, expose deployment through MCP integrations, and rehearse the rollback paths before the agent ever needs them.
 
@@ -47,6 +47,72 @@ yaml
     three-line summary for the PR thread." >> triage.md
 ```
 
+The rest of this example is an insurer's customer portal, with deployment exposed as tools and one MCP server per environment. A rule that allows an MCP tool names the server and the tool, not the tool's arguments. So a separate server per environment is what lets an allowlist tell staging from production. The servers are set up in the project's `.mcp.json`:
+
+json
+
+```
+{
+  "mcpServers": {
+    "deploy-dev": {
+      "type": "http",
+      "url": "https://deploy.example.com/mcp/dev",
+      "headers": { "Authorization": "Bearer ${DEPLOY_DEV_TOKEN}" }
+    },
+    "deploy-staging": {
+      "type": "http",
+      "url": "https://deploy.example.com/mcp/staging",
+      "headers": { "Authorization": "Bearer ${DEPLOY_STAGING_TOKEN}" }
+    },
+    "deploy-prod": {
+      "type": "http",
+      "url": "https://deploy.example.com/mcp/prod",
+      "headers": { "Authorization": "Bearer ${DEPLOY_PROD_TOKEN}" }
+    }
+  }
+}
+```
+
+Every server offers the same three tools:
+
+| Tool | Input | Returns |
+| --- | --- | --- |
+| `release` | `version`, and in production a `ticket` | The release ID, once the rollout finishes |
+| `status` | None | Waits until five minutes after the last release, then returns each endpoint's 5xx rate over that time |
+| `rollback` | None | The version that is live again |
+
+The staging job runs on a push to `main` and pre-approves the staging server's three tools and no others. It holds the staging token only, so the other two servers get no valid token and refuse the job. This is the pipeline step for the staging job:
+
+yaml
+
+```
+- name: Release to staging and roll back if it is unhealthy
+  env:
+    ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    DEPLOY_STAGING_TOKEN: ${{ secrets.DEPLOY_STAGING_TOKEN }}   # no other environment's token
+  run: >
+    claude -p "Release version ${{ github.sha }} of the claims portal to staging,
+    then call status. If the 5xx rate on any endpoint is over 1%, roll back.
+    Finish with three lines for the release notes: what you released, what status
+    reported, and whether you rolled back."
+    --allowedTools "mcp__deploy-staging__release,mcp__deploy-staging__status,mcp__deploy-staging__rollback"
+    --permission-mode dontAsk >> release-notes.md
+```
+
+In `dontAsk` mode Claude Code denies any call that would otherwise prompt, so a deployment tool off the list is refused and the job never waits for an answer.
+
+One `PreToolUse` hook on the `release` tools decides per environment. It is written out in the hooks as approval gates play, and it gives three tiers:
+
+| Environment | Tools on the allowlist | What happens to `release` | Who approves |
+| --- | --- | --- | --- |
+| Dev | `release`, `status`, `rollback` | The hook allows it | Nobody |
+| Staging | `release`, `status`, `rollback` | The hook asks, or allows it from the pipeline on `main` | The engineer, or the approved merge |
+| Production | `status`, `rollback` | Denied unless the hook allows it | The release manager, through the change ticket |
+
+In production, `dontAsk` mode still runs a call that a `PreToolUse` hook approves, so with `release` off the allowlist the hook's `allow` is the only way through. Production therefore fails closed, because a release is denied if the hook fails to run. `rollback` stays on the allowlist because it is a runbook approved in advance.
+
+If the runner carries managed settings with `allowManagedHooksOnly`, the hook has to be defined in the managed settings, and with `allowManagedMcpServersOnly` the servers have to be on the managed allowlist.
+
 ## Governance considerations[](#governance-considerations)
 
 The governing principle is that the agent may act up to the production gate and cannot pass it. The controls below enforce this principle.
@@ -66,7 +132,7 @@ Lesson 12 of 14 · The AI-native SDLC playbookCI/CD integration and deployment
 
 Introduction
 
-* [Introduction](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
+* [What changes and where to start](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
 
 Stage 1: Plan
 

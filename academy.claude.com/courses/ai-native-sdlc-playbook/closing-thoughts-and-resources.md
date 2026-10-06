@@ -41,7 +41,7 @@ Lesson 14 of 14 · The AI-native SDLC playbookClosing thoughts and resources
 
 Introduction
 
-* [Introduction](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
+* [What changes and where to start](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
 
 Stage 1: Plan
 

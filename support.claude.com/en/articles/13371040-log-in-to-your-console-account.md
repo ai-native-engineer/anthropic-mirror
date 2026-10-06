@@ -2,7 +2,7 @@
 
 When you navigate to the **[Claude Console](https://platform.claude.com)**, you will see two different options for logging in to your Console account.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1791161100&signature=cd98cad3424b20d660ab8ec52632294e5bf44a9876c2cd7141fac72c4381d94f&req=dSkkE8l8m4dbX%2FMW1HO4zcrI5ojtpoEM8vUNcPt4%2B72d2W11USAW4KqBs6qN%0AWbhkIGnAG%2BQOJBUcQBQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1791161100&signature=cd98cad3424b20d660ab8ec52632294e5bf44a9876c2cd7141fac72c4381d94f&req=dSkkE8l8m4dbX%2FMW1HO4zcrI5ojtpoEM8vUNcPt4%2B72d2W11USAW4KqBs6qN%0AWbhkIGnAG%2BQOJBUcQBQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1791252000&signature=7791633b4775a0b3bbc11c8f22163c9e8aecbdf515fbd9fe5c13f3e3acb699bc&req=dSkkE8l8m4dbX%2FMW1HO4zcrI5ojupYIN8vUNcPt4%2B71ZSNQLpn0nOQOJyRgR%0Am8mfhe8Zh286JFWMwC8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1791252000&signature=7791633b4775a0b3bbc11c8f22163c9e8aecbdf515fbd9fe5c13f3e3acb699bc&req=dSkkE8l8m4dbX%2FMW1HO4zcrI5ojupYIN8vUNcPt4%2B71ZSNQLpn0nOQOJyRgR%0Am8mfhe8Zh286JFWMwC8%3D%0A)
 
 ## Continue with Google
 
@@ -72,4 +72,4 @@ Yes, you can have both a Claude account (for using Claude at claude.ai) and a Co
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
 * [Google Workspace SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917817-google-workspace-sso-scim-email-mismatch)
 * [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
-* [SSO login](https://support.claude.com/en/articles/14503613-sso-login)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)

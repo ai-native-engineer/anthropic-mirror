@@ -123,6 +123,27 @@ def tool(
    }
    ```
 
+3. **TypedDict class**: a typed schema whose `NotRequired` keys are left out of `required`.
+
+   * **Python 3.11 and later**: import `TypedDict` and `NotRequired` from `typing`.
+   * **Python 3.10**: `typing` has no `NotRequired`. Import `TypedDict` and `NotRequired` from `typing_extensions`, which the SDK installs on Python 3.10.
+
+   ```python theme={null}
+   from typing import Annotated, Any, NotRequired, TypedDict
+   from claude_agent_sdk import tool
+
+   class ForecastArgs(TypedDict):
+       latitude: Annotated[float, "Latitude coordinate"]
+       hours: NotRequired[Annotated[int, "How many hours of forecast to return"]]
+
+   @tool("get_forecast", "Get the hourly forecast for a location", ForecastArgs)
+   async def get_forecast(args: dict[str, Any]) -> dict[str, Any]:
+       hours = args.get("hours", 12)
+       return {"content": [{"type": "text", "text": f"{hours}-hour forecast for {args['latitude']}"}]}
+   ```
+
+In the simple mapping and TypedDict forms, wrap a type in `Annotated[type, "description"]` to set the field's description.
+
 #### Returns
 
 A decorator function that wraps the tool implementation and returns an `SdkMcpTool` instance.
@@ -1579,6 +1600,8 @@ class SystemMessage:
     data: dict[str, Any]
 ```
 
+Subtypes that have no dataclass of their own arrive as `SystemMessage`. To follow the session between turns, set [`CLAUDE_CODE_EMIT_SESSION_STATE_EVENTS=1`](https://code.claude.com/docs/en/env-vars#variables) and read `message.data["state"]` on each message whose `subtype` is `session_state_changed`. [`SDKSessionStateChangedMessage`](https://code.claude.com/docs/en/agent-sdk/typescript#sdksessionstatechangedmessage) lists the states it can carry. Iterate with `receive_messages()` to read them: `receive_response()` stops at the `ResultMessage`, and a `session_state_changed` message can follow that result.
+
 ### `ResultMessage`
 
 Final result message with cost and usage information.
@@ -2495,6 +2518,7 @@ Launches a new agent to handle complex, multi-step tasks autonomously.
         "speed": str | None,
         "iterations": Any | None,
         "output_tokens_details": {"thinking_tokens": int | None} | None,
+        "fallback_credit": Any | None,
     },
     "toolStats": {  # Aggregate tool activity for the run
         "readCount": int,
@@ -2545,7 +2569,7 @@ Returns the result from the subagent. The output is discriminated on the `status
 
 On the `completed` variant, `resolvedModel` names the model the subagent started on, which can differ from the requested `model` input when [`availableModels`](https://code.claude.com/docs/en/model-config#restrict-model-selection) or another override applies. This field requires Claude Code v2.1.174 or later. On the `async_launched` variant, `resolvedModel` names the model in use when the agent moved to the background, so a swap that happened before backgrounding is reflected there. The `modelsUsed` field on both variants lists the models used in order, with consecutive repeats collapsed; it's set only when the model was swapped mid-run. `modelsUsed` and the backgrounding-time `resolvedModel` behavior require Claude Code v2.1.212 or later.
 
-Claude Code fills `usage` and `totalTokens` from the subagent's final API request, not from the whole run. When present, `thinking_tokens` under `output_tokens_details` in `usage` is the number of that request's output tokens that were thinking tokens. The `output_tokens_details` key requires Python SDK v0.2.136 or later, which bundles Claude Code v2.1.228.
+Claude Code fills `usage` and `totalTokens` from the subagent's final API request, not from the whole run. When present, `thinking_tokens` under `output_tokens_details` in `usage` is the number of that request's output tokens that were thinking tokens. The `output_tokens_details` key requires Python SDK v0.2.136 or later, which bundles Claude Code v2.1.228. The `fallback_credit` key requires Python SDK v0.2.162 or later, which bundles Claude Code v2.1.285.
 
 ### AskUserQuestion
 

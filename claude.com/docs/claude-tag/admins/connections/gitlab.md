@@ -8,15 +8,13 @@
 
 [Skip to main content](#content-area)
 
-Connections are added inside an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections#your-first-access-bundle). At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), open **Access bundles** in the left navigation, click into a bundle (or **Create** one), and go to its **Credentials** tab.
-
-Connecting GitLab lets Claude read and search projects, manage issues, comment on merge requests, and check pipeline status, all through the GitLab REST API. The connection is a single access token added to a bundle.
+Connecting GitLab lets Claude read and search projects, manage issues, comment on merge requests, and check pipeline status, all through the GitLab REST API. The connector holds a single access token.
 
 This page is the credential field reference. The full setup walkthrough, including creating a dedicated GitLab service account for Claude and scoping its group access, is at [Configure GitLab access](https://claude.com/docs/claude-tag/admins/configure-gitlab).
 
-If your plugin marketplace includes a GitLab plugin, pair it with this connection so Claude knows how to call the API. See [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins). The connection works without it.
+If your plugin marketplace includes a GitLab plugin, pair it with this connector so Claude knows how to call the API. Add the plugin on the [**Skills and plugins**](https://claude.ai/admin-settings/claude-tag?access=plugins) tab. The connector works without it.
 
-##  Add the connection
+##  Add the connector
 
 1
 
@@ -26,16 +24,16 @@ A personal access token from a [dedicated service account](https://claude.com/do
 
 2
 
-Add the credential to a bundle
+Add the connector
 
-On the bundle’s **Credentials** tab, click **Connect** next to **GitLab** and paste the token. For self-managed GitLab, switch to the form’s **Advanced** tab and add your instance’s hostname under **Allowed websites**.
+Go to [**Organization settings > Claude Tag > Connectors**](https://claude.ai/admin-settings/claude-tag?access=connectors), click **Add**, select **GitLab**, and paste the token. For self-managed GitLab, switch to the form’s **Advanced** tab and add your instance’s hostname under **Allowed websites**. The first credential you add for a service from the **Connectors** tab is on in every workspace and channel as soon as you save it. To give it narrower reach, see [where a new connector applies](https://claude.com/docs/claude-tag/admins/add-connections#add-a-connection) before you save the connector. Click **Connect** to save the connector.
 
-**You’ll see:** GitLab listed in the bundle’s connections, and `@Claude what can you access from this channel?` returns it in a new thread under the bundle’s scope. New threads pick up the connection on their own; in an existing thread, ask Claude to use the service by name.
+**You’ll see:** GitLab on the **Connectors** tab, and `@Claude what can you access from this channel?` returns it in a new thread in any channel where the connector is on. New threads pick up the connector on their own; in an existing thread, ask Claude to use the service by name.
 
 | Field | Value |
 | --- | --- |
 | Claude’s personal access token | The token from GitLab, starting with `glpat-`. Project and group access tokens work here too. |
-| Allowed websites | `gitlab.com` (preset). For self-managed GitLab, open the **Advanced** tab and add your instance’s hostname here. |
+| Allowed websites | `gitlab.com` (preset) |
 
 GitLab’s own guide for creating tokens is at [docs.gitlab.com](https://docs.gitlab.com/api/rest/authentication/).
 
@@ -45,10 +43,10 @@ GitLab’s own guide for creating tokens is at [docs.gitlab.com](https://docs.gi
 | --- | --- | --- |
 | Auth | A service account’s personal access token | The Claude GitHub App, [installed separately](https://claude.com/docs/claude-tag/admins/configure-github) |
 | Referencing a project in a thread | Give Claude the full project URL; it reads it through the API | Typing `owner/repo` in the message auto-attaches it |
-| Self-managed | Your hostname under **Advanced → Allowed websites** | [GitHub Enterprise setup](https://claude.com/docs/claude-tag/admins/configure-github#github-enterprise) |
+| Self-managed | Your hostname under **Advanced > Allowed websites** | [GitHub Enterprise setup](https://claude.com/docs/claude-tag/admins/configure-github#github-enterprise) |
 | Handing back changes | Manages issues and comments on merge requests through the API | [Draft pull requests](https://claude.com/docs/claude-tag/users/use-cases/work-with-github) authored by the Claude GitHub App |
 
-The connection is API-only. The token authenticates GitLab API requests, not git, so Claude gets a 401 error when it tries to clone a private project or push to any project over HTTPS, even with the connection in place. To clone a repository into the session workspace, connect it through [GitHub](https://claude.com/docs/claude-tag/admins/configure-github) instead.
+The connector is API-only. The token authenticates GitLab API requests, not git, so Claude gets a 401 error when it tries to clone a private project or push to any project over HTTPS, even with the connector in place. To clone a repository into the session workspace, connect it through [GitHub](https://claude.com/docs/claude-tag/admins/configure-github) instead.
 The token is auto-injected on every API request to your GitLab host. The model and the sandbox are not given the key; see [how Agent Proxy works](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy).
 
 ##  Related resources

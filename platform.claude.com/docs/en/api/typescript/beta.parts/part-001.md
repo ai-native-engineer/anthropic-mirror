@@ -726,6 +726,20 @@ The Models API response can be used to determine which models are available for 
 
     A human-readable name for the model.
 
+  - `line: BetaModelLine | null`
+
+    The model line this model belongs to, such as `opus` for both Claude Opus 4.5 and Claude Opus 4.6. More lines may be added. `null` when the model belongs to no line; do not infer a line from the `id`.
+
+    - `"haiku"`
+
+    - `"sonnet"`
+
+    - `"opus"`
+
+    - `"fable"`
+
+    - `"mythos"`
+
   - `max_input_tokens: number | null`
 
     Maximum input context window size in tokens for this model.
@@ -828,6 +842,7 @@ for await (const betaModelInfo of client.beta.models.list()) {
       },
       "created_at": "2026-07-24T00:00:00Z",
       "display_name": "Claude Opus 5",
+      "line": "haiku",
       "max_input_tokens": 0,
       "max_tokens": 0,
       "type": "model"
@@ -1111,6 +1126,20 @@ The Models API response can be used to determine information about a specific mo
 
     A human-readable name for the model.
 
+  - `line: BetaModelLine | null`
+
+    The model line this model belongs to, such as `opus` for both Claude Opus 4.5 and Claude Opus 4.6. More lines may be added. `null` when the model belongs to no line; do not infer a line from the `id`.
+
+    - `"haiku"`
+
+    - `"sonnet"`
+
+    - `"opus"`
+
+    - `"fable"`
+
+    - `"mythos"`
+
   - `max_input_tokens: number | null`
 
     Maximum input context window size in tokens for this model.
@@ -1210,6 +1239,7 @@ console.log(betaModelInfo.id);
   },
   "created_at": "2026-07-24T00:00:00Z",
   "display_name": "Claude Opus 5",
+  "line": "haiku",
   "max_input_tokens": 0,
   "max_tokens": 0,
   "type": "model"
@@ -23625,7 +23655,7 @@ Create Agent
 
   - `tools?: Array<BetaManagedAgentsAgentToolset20260401Params | BetaManagedAgentsMCPToolsetParams | BetaManagedAgentsCustomToolParams>`
 
-    Body param: Tool configurations available to the agent. Maximum of 128 tools across all toolsets allowed.
+    Body param: Tool configurations available to the agent. Maximum of 256 tools across all toolsets allowed.
 
     - `interface BetaManagedAgentsAgentToolset20260401Params`
 
@@ -26793,7 +26823,7 @@ Update Agent
 
   - `tools?: Array<BetaManagedAgentsAgentToolset20260401Params | BetaManagedAgentsMCPToolsetParams | BetaManagedAgentsCustomToolParams> | null`
 
-    Body param: Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 128 tools across all toolsets allowed.
+    Body param: Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 256 tools across all toolsets allowed.
 
     - `interface BetaManagedAgentsAgentToolset20260401Params`
 
@@ -30556,27 +30586,3 @@ Retrieve a specific environment by ID.
   - `workspace_id?: string`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `interface BetaEnvironment`
-
-  Unified Environment resource for both cloud and self-hosted environments.
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
-
-    default: environment
-
-  - `id: string`
-
-    Environment identifier (e.g., 'env_...')
-
-  - `archived_at: string | null`
-
-    RFC 3339 timestamp when environment was archived, or null if not archived
-
-  - `config: BetaCloudConfig | BetaSelfHostedConfig`

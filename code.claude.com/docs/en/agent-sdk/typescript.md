@@ -3647,6 +3647,7 @@ type AgentOutput =
         output_tokens_details?: {
           thinking_tokens?: number | null;
         } | null;
+        fallback_credit?: unknown;
       };
       toolStats?: {
         readCount: number;
@@ -3691,7 +3692,7 @@ On the `completed` variant, `resolvedModel` names the model the subagent started
 
 If Claude Code [kept the subagent's isolated worktree](https://code.claude.com/docs/en/worktrees#isolate-subagents-with-worktrees), `worktreePath` on the `completed` result is where to find it. `worktreeBranch` is its branch, present when Claude Code created the worktree with git.
 
-Claude Code fills `usage` and `totalTokens` from the subagent's final API request, not from the whole run, so `usage.service_tier` is the service tier string the API reported on that request. When present, `usage.output_tokens_details.thinking_tokens` is the number of that request's output tokens that were thinking tokens. The `output_tokens_details` field requires TypeScript SDK v0.3.228 or later, which bundles Claude Code v2.1.228.
+Claude Code fills `usage` and `totalTokens` from the subagent's final API request, not from the whole run, so `usage.service_tier` is the service tier string the API reported on that request. When present, `usage.output_tokens_details.thinking_tokens` is the number of that request's output tokens that were thinking tokens. The `output_tokens_details` field requires TypeScript SDK v0.3.228 or later, which bundles Claude Code v2.1.228. The `fallback_credit` field requires TypeScript SDK v0.3.285 or later, which bundles Claude Code v2.1.285.
 
 `usage.output_tokens_details` matches [`Usage.output_tokens_details`](#usage) in meaning, scoped to that final request, but every level of it is optional here. Guard both the object and the field, for example `usage.output_tokens_details?.thinking_tokens ?? 0`, rather than reading it directly.
 
@@ -4869,11 +4870,13 @@ type ConfigScope = "local" | "user" | "project";
 
 ### `NonNullableUsage`
 
-A version of [`Usage`](#usage) with all nullable fields made non-nullable.
+A version of [`Usage`](#usage) with every nullable field made non-nullable except `fallback_credit`, which can still be `null`.
 
 ```typescript theme={null}
 type NonNullableUsage = {
-  [K in keyof Usage]: NonNullable<Usage[K]>;
+  [K in keyof Usage]: K extends "fallback_credit"
+    ? Usage[K]
+    : NonNullable<Usage[K]>;
 };
 ```
 
@@ -4897,10 +4900,11 @@ type Usage = {
   inference_geo: string | null;
   iterations: BetaIterationsUsage | null;
   output_tokens_details: BetaOutputTokensDetails | null;
+  fallback_credit: BetaFallbackCreditUsage | null;
 };
 ```
 
-`BetaServerToolUsage`, `BetaIterationsUsage`, and `BetaOutputTokensDetails` are defined in `@anthropic-ai/sdk`.
+`BetaServerToolUsage`, `BetaIterationsUsage`, `BetaOutputTokensDetails`, and `BetaFallbackCreditUsage` are defined in `@anthropic-ai/sdk`.
 
 `output_tokens_details` breaks the billed output down by category. It currently carries one field, `thinking_tokens: number`, counting the output tokens the model generated as internal reasoning, including the thinking-block delimiters. The `output_tokens_details` field requires TypeScript SDK v0.3.228 or later, which bundles Claude Code v2.1.228.
 
@@ -4908,6 +4912,8 @@ type Usage = {
 * **What the count covers**: the raw reasoning the model produced, which can be longer than the thinking text returned in the response body. The API computes it by re-tokenizing that raw text, so it can differ from the model's exact generation count by a few tokens.
 * **Streaming**: on streamed assistant messages this breakdown, like `output_tokens`, is a `message_start` placeholder and carries no real count, so read it from the result message's `usage` as [Read output tokens from the result message](https://code.claude.com/docs/en/agent-sdk/cost-tracking#read-output-tokens-from-the-result-message) describes. On the result message, `thinking_tokens` reads `0` when the model or provider reports no breakdown.
 * **`null` cases**: `output_tokens_details` itself is `null` on assistant messages Claude Code synthesizes, such as API-error messages.
+
+Whether `Usage` carries `fallback_credit` depends on your installed `@anthropic-ai/sdk`, which added it in 0.115.0.
 
 ### `CallToolResult`
 
@@ -5348,6 +5354,28 @@ type SDKThinkingTokensMessage = {
   estimated_tokens: number;
   estimated_tokens_delta: number;
   user_message_uuid?: string;
+  uuid: UUID;
+  session_id: string;
+};
+```
+
+### `SDKSessionStateChangedMessage`
+
+Emitted when Claude Code reports the session's state. To receive these messages, set [`CLAUDE_CODE_EMIT_SESSION_STATE_EVENTS=1`](https://code.claude.com/docs/en/env-vars#variables). Claude Code can report the same state more than once, so read a message as the session's current state rather than as a transition.
+
+The `state` field carries one of these values:
+
+* `running`: the session is working.
+* `idle`: Claude Code is waiting for your next prompt.
+* `requires_action`: the session is blocked on an answer to a request it sent your host, such as a permission prompt.
+
+A turn's `idle` message and its `result` message can arrive in either order. To change whether `idle` waits for background work such as a background subagent or a [workflow](https://code.claude.com/docs/en/workflows) run, see [`CLAUDE_CODE_BG_TASKS_REPORT_RUNNING`](https://code.claude.com/docs/en/env-vars#variables).
+
+```typescript theme={null}
+type SDKSessionStateChangedMessage = {
+  type: "system";
+  subtype: "session_state_changed";
+  state: "idle" | "running" | "requires_action";
   uuid: UUID;
   session_id: string;
 };

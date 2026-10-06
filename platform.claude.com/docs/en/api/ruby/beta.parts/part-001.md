@@ -612,6 +612,20 @@ The Models API response can be used to determine which models are available for 
 
     A human-readable name for the model.
 
+  - `line: BetaModelLine`
+
+    The model line this model belongs to, such as `opus` for both Claude Opus 4.5 and Claude Opus 4.6. More lines may be added. `null` when the model belongs to no line; do not infer a line from the `id`.
+
+    - `:haiku`
+
+    - `:sonnet`
+
+    - `:opus`
+
+    - `:fable`
+
+    - `:mythos`
+
   - `max_input_tokens: Integer`
 
     Maximum input context window size in tokens for this model.
@@ -711,6 +725,7 @@ puts(page)
       },
       "created_at": "2026-07-24T00:00:00Z",
       "display_name": "Claude Opus 5",
+      "line": "haiku",
       "max_input_tokens": 0,
       "max_tokens": 0,
       "type": "model"
@@ -990,6 +1005,20 @@ The Models API response can be used to determine information about a specific mo
 
     A human-readable name for the model.
 
+  - `line: BetaModelLine`
+
+    The model line this model belongs to, such as `opus` for both Claude Opus 4.5 and Claude Opus 4.6. More lines may be added. `null` when the model belongs to no line; do not infer a line from the `id`.
+
+    - `:haiku`
+
+    - `:sonnet`
+
+    - `:opus`
+
+    - `:fable`
+
+    - `:mythos`
+
   - `max_input_tokens: Integer`
 
     Maximum input context window size in tokens for this model.
@@ -1087,6 +1116,7 @@ puts(beta_model_info)
   },
   "created_at": "2026-07-24T00:00:00Z",
   "display_name": "Claude Opus 5",
+  "line": "haiku",
   "max_input_tokens": 0,
   "max_tokens": 0,
   "type": "model"
@@ -23045,7 +23075,7 @@ Create Agent
 
 - `tools: Array[BetaManagedAgentsAgentToolset20260401Params | BetaManagedAgentsMCPToolsetParams | BetaManagedAgentsCustomToolParams]`
 
-  Tool configurations available to the agent. Maximum of 128 tools across all toolsets allowed.
+  Tool configurations available to the agent. Maximum of 256 tools across all toolsets allowed.
 
   - `class BetaManagedAgentsAgentToolset20260401Params`
 
@@ -26202,7 +26232,7 @@ Update Agent
 
 - `tools: Array[BetaManagedAgentsAgentToolset20260401Params | BetaManagedAgentsMCPToolsetParams | BetaManagedAgentsCustomToolParams]`
 
-  Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 128 tools across all toolsets allowed.
+  Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 256 tools across all toolsets allowed.
 
   - `class BetaManagedAgentsAgentToolset20260401Params`
 
@@ -32488,41 +32518,3 @@ Update work item metadata with merge semantics.
   - `:"pdfs-2024-09-25"`
 
   - `:"token-counting-2024-11-01"`
-
-  - `:"token-efficient-tools-2025-02-19"`
-
-  - `:"output-128k-2025-02-19"`
-
-  - `:"files-api-2025-04-14"`
-
-  - `:"mcp-client-2025-04-04"`
-
-  - `:"mcp-client-2025-11-20"`
-
-  - `:"dev-full-thinking-2025-05-14"`
-
-  - `:"interleaved-thinking-2025-05-14"`
-
-  - `:"code-execution-2025-05-22"`
-
-  - `:"extended-cache-ttl-2025-04-11"`
-
-  - `:"context-1m-2025-08-07"`
-
-  - `:"context-management-2025-06-27"`
-
-  - `:"model-context-window-exceeded-2025-08-26"`
-
-  - `:"skills-2025-10-02"`
-
-  - `:"fast-mode-2026-02-01"`
-
-  - `:"output-300k-2026-03-24"`
-
-  - `:"user-profiles-2026-03-24"`
-
-  - `:"user-profiles-2026-08-18"`
-
-  - `:"user-profiles-2026-09-04"`
-
-  - `:"advisor-tool-2026-03-01"`

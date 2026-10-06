@@ -126,13 +126,13 @@ Global Premier
 
 Fujitsu is a global leader in technology and business solutions that transform organizations and the world around us. For over 90 years, we have brought innovation and expertise, continuously working to contribute to the growth of society and our customers.
 
-![Infosys logo](https://api.eulerapp.com/partner-directory/assets/1851e0d1945bdbc580f2ce2822bbc7b9)
+![Hitachi logo](https://api.eulerapp.com/partner-directory/assets/fa7d1f3ff4aacf6f423bf80f4db32cda)
 
-[Infosys](https://partnerhub.claude.com/directory/partner/1784259853001x655636911739725360)
+[Hitachi](https://partnerhub.claude.com/directory/partner/hitachi-ltd)
 
 Global Premier
 
-Infosys is a global leader in next-generation digital services and consulting. With over four decades of experience in managing the systems and workings of global enterprises, we expertly steer clients in 59 countries, as they navigate their digital transformation powered by cloud and AI.
+Global group in digital systems, energy and mobility that solves customer and social challenges with data and technology.
 
 View more
 

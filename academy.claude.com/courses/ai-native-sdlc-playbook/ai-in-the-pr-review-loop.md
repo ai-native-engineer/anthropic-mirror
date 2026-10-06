@@ -8,7 +8,7 @@ Lesson 10 of 14 · The AI-native SDLC playbookAI in the PR review loop
 
 # AI in the PR review loop
 
-Lesson 104 min
+Lesson 105 min
 
 Claude both gives and receives reviews. It reviews incoming PRs against the organization's policies and addresses review comments on its own PRs. This allows engineers to focus on behavior in their PR review, which boils down to judging intent and risk.
 
@@ -54,6 +54,16 @@ Report at most five nits per review; summarize the rest as a count.
 Generated files under src/gen/ and anything CI already enforces.
 ```
 
+This example is what the check run lists for a pull request that adds a claim status panel to an insurer's customer portal, where `claims-core` is the older internal system behind the portal's backend:
+
+| Severity | File:Line | Issue |
+| --- | --- | --- |
+| Important | `portal/src/claims/StatusPanel.tsx:22` | Compliance: the panel fetches on every render. `plan.md` says it must cache, because claims-core allows 50 requests a second |
+| Important | `claims-api/routes/status.py:31` | Security: the error path logs the whole claims-core response, which includes `policy_holder_name` |
+| Nit | `claims-api/tests/test_status.py:8` | Bugs: no test covers a `paid` claim with no expected date |
+
+The first finding exists only because the compliance pass reads the committed `plan.md`, which a reviewer looking at the diff alone would not have open.
+
 ## Governance considerations[](#governance-considerations)
 
 Separation of duties is preserved, because the agent that wrote the code has no way to approve it. The review policy in `REVIEW.md` is applied to all PRs, and findings, fixes, ratings, and approvals are logged in the PR history, so the PR is the audit record. Approval comes from a human through branch protection, informed by the findings.
@@ -69,7 +79,7 @@ Lesson 10 of 14 · The AI-native SDLC playbookAI in the PR review loop
 
 Introduction
 
-* [Introduction](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
+* [What changes and where to start](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
 
 Stage 1: Plan
 

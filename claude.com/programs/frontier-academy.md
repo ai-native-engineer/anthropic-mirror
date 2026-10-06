@@ -35,7 +35,7 @@ Organizations are putting AI to work to speed up how they operate and to create 
 
 ## The Academy’s first program trains 10,000 Frontier Deployed Engineers.
 
-The Frontier Deployed Engineer Residency follows the medical model for building expertise. Doctors learn from practicing physicians, train on real cases, and are assessed before they practice alone. Likewise, engineers in the Residency learn from practitioners, practice on realistic cases, and are assessed on their work before they earn the credential. The goal is agentic systems that change how a business runs, from faster, redesigned processes to new products and services. The program is for hands-on software engineers with strong fundamentals, a record of building with LLMs, and experience helping others adopt AI.
+The Frontier Deployed Engineer (FDE) Residency follows the medical model for building expertise. Doctors learn from practicing physicians, train on real cases, and are assessed before they practice alone. Likewise, engineers in the Residency learn from practitioners, practice on realistic cases, and are assessed on their work before they earn the credential. The goal is agentic systems that change how a business runs, from faster, redesigned processes to new products and services. The program is for hands-on software engineers with strong fundamentals, a record of building with LLMs, and experience helping others adopt AI.
 
 ### The intensive · 4 days
 

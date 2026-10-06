@@ -64,6 +64,8 @@ Or you can plan and manage a home renovation, like updating a kitchen space. Cen
 
 These examples demonstrate the flexibility of what can be done with projects in Claude. Whether you're working on professional tasks, personal goals, or collaborative efforts, projects can help you organize information, generate ideas, and streamline your work process. Remember, you can customize each project to fit your specific needs and workflow. For more information on getting started with projects, check out our Help Center article.
 
+*The "selected style" this video mentions came from the "Use style" menu, which has since been deprecated. Skills, covered later in this course, now do that job.*
+
 ## Key takeaways[](#key-takeaways)
 
 * **Projects are self-contained workspaces** with their own memory, chat histories, knowledge bases, and customized instructions. Think of them as dedicated environments for specific work streams.
@@ -90,7 +92,7 @@ Setting up a project takes just a few minutes. Here's how to get started:
 
 ### Step 1: Set up your project[](#step-1-set-up-your-project)
 
-1. Hover over the left sidebar and click "Projects," or navigate directly to claude.ai/projects
+1. Hover over the left sidebar and click "Projects," or go straight to your [projects page(opens in new tab)](https://claude.ai/projects)
 2. Click "+ New Project" in the upper right corner
 3. Give your project a descriptive name (e.g., "Q4 Marketing Campaign" or "Product Documentation")
 4. Add a brief description of what you're working on. While Claude doesn't see this description directly, it helps you and your teammates understand the project's purpose.
@@ -107,7 +109,7 @@ Good project instructions typically include:
 * **Tone and style preferences:** "Use a professional but conversational tone. Avoid jargon when possible."
 * **Specific requirements:** "Always include a call-to-action at the end of marketing copy."
 
-Once you've written your instructions, click "Save instructions." These will apply to every chat in this project and work alongside any user preferences and styles you've set.
+Once you've written your instructions, click "Save instructions." These will apply to every chat in this project and work alongside any user preferences you've set.
 
 You can also use project instructions to automate workflows — for example, "When I upload a meeting transcript, create a structured summary using this template." Think of instructions as programming Claude's behavior for this project.
 
@@ -182,7 +184,7 @@ To get the most out of projects:
 * **Start focused, then expand.** Begin with a specific use case rather than trying to create one project for everything. You can always add more content as you go.
 * **Keep your knowledge base current.** Outdated documents can lead to outdated responses. Review and update your project knowledge periodically.
 * **Write clear instructions.** Be specific about what you want. Vague instructions lead to inconsistent results.
-* **Name your documents descriptively.** (e.g., 'Q4-2025-Sales-Report.pdf' not 'report.pdf') and group related files together. Claude uses filenames and proximity to understand relationships between documents.
+* **Name your documents descriptively.** Choose "Q4-2025-Sales-Report.pdf" over "report.pdf" and keep related files in the same project, which helps Claude draw connections between them.
 * **Reference documents by name.** When asking questions, you can mention specific documents to help Claude focus its search: "Based on our Q3 report, what were the top customer concerns?"
 
 ## Lesson reflection[](#lesson-reflection)

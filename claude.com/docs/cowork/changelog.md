@@ -8,6 +8,28 @@
 
 [Skip to main content](#content-area)
 
+v2.19675.1
+
+2026-10-05
+
+Bundled Claude Code version: 2.1.288.**General**
+
+* No user-facing changes.
+
+**Code**
+
+* No user-facing changes.
+
+**Cowork**
+
+* No user-facing changes.
+
+**3P**
+
+* Added read-only access in Chat to folders you add to a project after this update; to use a folder added earlier, add it to the project again and start a new chat.
+* Fixed skills uploaded as a `.zip` or `.skill` file keeping only their `SKILL.md`; the archive’s other files are now saved, and renaming a skill keeps them.
+* Fixed skills with names in other scripts or with punctuation not being found by Cowork and Code sessions, and skill uploads being refused when the zip holds very compressible files or keeps `SKILL.md` deep inside a repository download.
+
 v2.19675.0
 
 2026-10-01

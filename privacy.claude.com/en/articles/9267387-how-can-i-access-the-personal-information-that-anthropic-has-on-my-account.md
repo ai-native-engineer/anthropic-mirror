@@ -7,7 +7,7 @@ Please refer to our [Privacy Center](https://privacy.anthropic.com/en/articles/9
 ---
 
 * [What Certifications has Anthropic obtained?](https://privacy.claude.com/en/articles/10015870-what-certifications-has-anthropic-obtained)
+* [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
 * [How does Anthropic protect the personal data of Claude users?](https://privacy.claude.com/en/articles/10458704-how-does-anthropic-protect-the-personal-data-of-claude-users)
-* [Supplemental Anthropic Interviewer Privacy Policy](https://privacy.claude.com/en/articles/14139821-supplemental-anthropic-interviewer-privacy-policy)
 * [Privacy rights requests relating to Anthropic’s training data](https://privacy.claude.com/en/articles/15865314-privacy-rights-requests-relating-to-anthropic-s-training-data)
 * [Anthropic Interviewer sessions completed after September 29, 2026](https://privacy.claude.com/en/articles/17232486-anthropic-interviewer-sessions-completed-after-september-29-2026)

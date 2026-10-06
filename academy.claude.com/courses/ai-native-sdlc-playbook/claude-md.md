@@ -27,27 +27,31 @@ Lesson 53 min
 
 ## What it looks like[](#what-it-looks-like)
 
+This `CLAUDE.md` belongs to the repo for an insurer's customer portal. The older internal system that holds the claims is `claims-core`, and `intent/` keeps the planning files for each change.
+
 `CLAUDE.md`:
 
 markdown
 
 ```
-# Payments service
+# Claims portal
 ## Commands
 - Build: make build
 - Test: make test (unit), make itest (integration, needs docker)
 - Lint: make lint (runs in CI; fix before pushing)
+- Run: make run (portal on :3000, claims-api on :8000)
 ## Conventions
-- Java 21, Spring Boot 3. No new Lombok.
-- Money is always BigDecimal, never double.
-- Every endpoint needs an integration test in src/itest.
+- claims-api is Python 3.12 and FastAPI. portal is TypeScript and React.
+- Every endpoint needs a test in claims-api/tests.
+- Dates cross the API as ISO 8601, never as formatted text.
 ## Architecture
-- api/ holds REST controllers, core/ holds domain logic,
-  adapters/ talks to external systems.
-- Kafka events are defined in schemas/; never edit generated classes.
+- portal/ is the customer site, claims-api/ is its backend, and
+  intent/ holds the intent.md, spec.md and plan.md for each change.
+- Only claims-api talks to claims-core. The portal never calls it.
+- claims-core allows 50 requests a second. Cache reads; never poll it.
 ## Things Claude gets wrong
+- Do not log request or response bodies in claims-api; they can hold PII.
 - Do not bump dependency versions; the platform team owns them.
-- The legacy v1/ package is frozen; changes go in v2/.
 ```
 
 ## Governance considerations[](#governance-considerations)
@@ -65,7 +69,7 @@ Lesson 5 of 14 · The AI-native SDLC playbookThe CLAUDE.md
 
 Introduction
 
-* [Introduction](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
+* [What changes and where to start](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
 
 Stage 1: Plan
 

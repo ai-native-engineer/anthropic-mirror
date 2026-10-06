@@ -222,6 +222,10 @@ Much remains uncertain about how robots and AI could reshape the economy. Growth
 
 Available [here](https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf).
 
+#### Data availability
+
+Data from this report are available [here](https://huggingface.co/datasets/Anthropic/EconomicIndex).
+
 ## **Authors**
 
 Russell Legate-Yang and Maxim Massenkoff.

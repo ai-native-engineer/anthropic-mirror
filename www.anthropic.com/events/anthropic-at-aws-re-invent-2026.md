@@ -20,10 +20,6 @@ Las Vegas, NV | Booth #822
 
 Join Anthropic at AWS re:Invent to experience Claude at the frontier.
 
-[Register now](#register)Register now
-
-Register now
-
 [Watch sessions](#event-sessions)Watch sessions
 
 Watch sessions
@@ -72,9 +68,9 @@ Join Anthropic at AWS re:Invent to experience Claude at the frontier.
 
 Register now
 
-[Request a meeting](#register)Request a meeting
+[Register](#register)Register
 
-Request a meeting
+Register
 
 [Learn more](#intro)Learn more
 
@@ -110,13 +106,9 @@ Anthropic is a frontier AI company whose mission is to steer the trajectory of A
 
 Stop by booth #822 in the Venetian Expo or join one of our three breakout sessions, November 30 through December 4. Live demos and a theater run all week.
 
-‍
-
 No items found.
 
-## Request a meeting
-
-Stay connected to get the latest from Anthropic’s presence at AWS re:Invent. Tell us what you're working on and we'll follow up with a time.
+## Register to attend
 
 Thank you for your interest in Anthropic at AWS re:Invent 2026
 
@@ -124,7 +116,7 @@ Applications for this event are now closed. We invite you to tune into the lives
 
 Not able to submit the form? Try loading it directly
 
-[here](https://anthropic.swoogo.com/anthropic-awsreinvent-2026)
+[here](#)
 
 .
 
@@ -147,8 +139,6 @@ No items found.
 No items found.
 
 ## Agenda
-
-Space is limited. Add all of our sessions to your agenda: breakout sessions, chalk talks and the Claude on AWS Innovation Lab, plus our booth sessions.
 
 * 30 Nov
 * 1 Dec

@@ -21,3 +21,5 @@ Anthropic has recently announced partnerships with [national laboratories](https
 **Get started**
 
 Organizations interested in transforming their operations with Claude can [contact our public sector team](mailto:pubsec@anthropic.com) to learn more and get started.
+
+U.S. federal departments and agencies can now more quickly and easily get access to Claude \ Anthropic

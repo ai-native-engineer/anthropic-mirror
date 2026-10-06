@@ -325,5 +325,3 @@ Case study](https://www.anthropic.com/news/how-anthropic-teams-use-claude-code)
 Why do programmers prefer dark mode?
 
 I don't know
-
-Coding | Claude by Anthropic

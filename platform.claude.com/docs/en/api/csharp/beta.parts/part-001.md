@@ -508,6 +508,20 @@ The Models API response can be used to determine which models are available for 
 
     A human-readable name for the model.
 
+  - `required BetaModelLine? Line`
+
+    The model line this model belongs to, such as `opus` for both Claude Opus 4.5 and Claude Opus 4.6. More lines may be added. `null` when the model belongs to no line; do not infer a line from the `id`.
+
+    - `Haiku("haiku")`
+
+    - `Sonnet("sonnet")`
+
+    - `Opus("opus")`
+
+    - `Fable("fable")`
+
+    - `Mythos("mythos")`
+
   - `required long? MaxInputTokens`
 
     Maximum input context window size in tokens for this model.
@@ -607,6 +621,7 @@ await foreach (var item in page.Paginate())
       },
       "created_at": "2026-07-24T00:00:00Z",
       "display_name": "Claude Opus 5",
+      "line": "haiku",
       "max_input_tokens": 0,
       "max_tokens": 0,
       "type": "model"
@@ -886,6 +901,20 @@ The Models API response can be used to determine information about a specific mo
 
     A human-readable name for the model.
 
+  - `required BetaModelLine? Line`
+
+    The model line this model belongs to, such as `opus` for both Claude Opus 4.5 and Claude Opus 4.6. More lines may be added. `null` when the model belongs to no line; do not infer a line from the `id`.
+
+    - `Haiku("haiku")`
+
+    - `Sonnet("sonnet")`
+
+    - `Opus("opus")`
+
+    - `Fable("fable")`
+
+    - `Mythos("mythos")`
+
   - `required long? MaxInputTokens`
 
     Maximum input context window size in tokens for this model.
@@ -981,6 +1010,7 @@ Console.WriteLine(betaModelInfo);
   },
   "created_at": "2026-07-24T00:00:00Z",
   "display_name": "Claude Opus 5",
+  "line": "haiku",
   "max_input_tokens": 0,
   "max_tokens": 0,
   "type": "model"
@@ -22586,7 +22616,7 @@ Create Agent
 
   - `IReadOnlyList<Tool> tools`
 
-    Body param: Tool configurations available to the agent. Maximum of 128 tools across all toolsets allowed.
+    Body param: Tool configurations available to the agent. Maximum of 256 tools across all toolsets allowed.
 
     - `class BetaManagedAgentsAgentToolset20260401Params`
 
@@ -25759,7 +25789,7 @@ Update Agent
 
   - `IReadOnlyList<Tool>? tools`
 
-    Body param: Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 128 tools across all toolsets allowed.
+    Body param: Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 256 tools across all toolsets allowed.
 
     - `class BetaManagedAgentsAgentToolset20260401Params`
 
@@ -29711,24 +29741,3 @@ Update an existing environment's configuration.
           Unrestricted network access.
 
           - `JsonElement Type = "unrestricted"`
-
-            Network policy type
-
-        - `class BetaLimitedNetworkParams`
-
-          Limited network request params.
-
-          Fields default to null; on update, omitted fields preserve the
-          existing value.
-
-          - `JsonElement Type = "limited"`
-
-            Network policy type
-
-          - `bool? AllowMcpServers`
-
-            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array. Defaults to `false`.
-
-          - `bool? AllowPackageManagers`
-
-            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array. Defaults to `false` on creation. Must be `true` when `packages` are specified.

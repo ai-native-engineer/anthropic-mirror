@@ -472,6 +472,20 @@ The Models API response can be used to determine which models are available for 
 
       A human-readable name for the model.
 
+    - `line: "haiku" or "sonnet" or "opus" or 2 more`
+
+      The model line this model belongs to, such as `opus` for both Claude Opus 4.5 and Claude Opus 4.6. More lines may be added. `null` when the model belongs to no line; do not infer a line from the `id`.
+
+      - `"haiku"`
+
+      - `"sonnet"`
+
+      - `"opus"`
+
+      - `"fable"`
+
+      - `"mythos"`
+
     - `max_input_tokens: number`
 
       Maximum input context window size in tokens for this model.
@@ -578,6 +592,7 @@ ant beta:models list \
       },
       "created_at": "2026-07-24T00:00:00Z",
       "display_name": "Claude Opus 5",
+      "line": "haiku",
       "max_input_tokens": 0,
       "max_tokens": 0,
       "type": "model"
@@ -819,6 +834,20 @@ The Models API response can be used to determine information about a specific mo
 
     A human-readable name for the model.
 
+  - `line: "haiku" or "sonnet" or "opus" or 2 more`
+
+    The model line this model belongs to, such as `opus` for both Claude Opus 4.5 and Claude Opus 4.6. More lines may be added. `null` when the model belongs to no line; do not infer a line from the `id`.
+
+    - `"haiku"`
+
+    - `"sonnet"`
+
+    - `"opus"`
+
+    - `"fable"`
+
+    - `"mythos"`
+
   - `max_input_tokens: number`
 
     Maximum input context window size in tokens for this model.
@@ -912,6 +941,7 @@ ant beta:models retrieve \
   },
   "created_at": "2026-07-24T00:00:00Z",
   "display_name": "Claude Opus 5",
+  "line": "haiku",
   "max_input_tokens": 0,
   "max_tokens": 0,
   "type": "model"
@@ -12529,7 +12559,7 @@ Create Agent
 
 - `--tool: optional array of BetaManagedAgentsAgentToolset20260401Params or BetaManagedAgentsMCPToolsetParams or BetaManagedAgentsCustomToolParams`
 
-  Body param: Tool configurations available to the agent. Maximum of 128 tools across all toolsets allowed.
+  Body param: Tool configurations available to the agent. Maximum of 256 tools across all toolsets allowed.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -14691,7 +14721,7 @@ Update Agent
 
 - `--tool: optional array of BetaManagedAgentsAgentToolset20260401Params or BetaManagedAgentsMCPToolsetParams or BetaManagedAgentsCustomToolParams`
 
-  Body param: Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 128 tools across all toolsets allowed.
+  Body param: Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 256 tools across all toolsets allowed.
 
 - `--version: optional number`
 
@@ -31852,17 +31882,3 @@ List Session Threads
                   Tool calls require user confirmation before execution.
 
                 - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-            - `default_config: object`
-
-              Resolved default configuration for all tools from an MCP server.
-
-              - `enabled: boolean`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`

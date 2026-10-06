@@ -8,9 +8,9 @@ Lesson 11 of 14 · The AI-native SDLC playbookHooks as approval gates
 
 # Hooks as approval gates
 
-Lesson 115 min
+Lesson 117 min
 
-The build phase used hooks as guardrails, allowing or blocking actions with no human involved (**Stage 3: Build**). A hook can also ask, pausing the action until a specific person approves, which is what release gating needs.
+The build phase used hooks as guardrails, allowing or blocking actions with no human involved (**Stage 3: Build**). A hook can also ask, pausing the action until the person running the session confirms it. When the approver is someone else, such as a release manager, the hook looks for their recorded approval and blocks until it exists.
 
 The play sits in **Stage 5: Deploy** because the release gate is the clearest case, but hooks are not deploy-specific: they run wherever Claude acts. For example, hooks can block edits to migrations and infra without a change ticket during **Stage 3: Build**, and stop the agent editing test files during a fix task in **Stage 4: Test**.
 
@@ -28,7 +28,9 @@ The play sits in **Stage 5: Deploy** because the release gate is the clearest ca
 
 ## What it looks like[](#what-it-looks-like)
 
-A standalone example in the project's `.claude/settings.json`:
+This example is an insurer's customer portal, released to dev, staging, and production. Deployment runs through MCP tools, one server per environment, and each server has a `release` tool.
+
+The entry below is a standalone example in the project's `.claude/settings.json`. Its matcher catches `release` on every server. The empty `args` list makes Claude Code run the script directly instead of through a shell:
 
 json
 
@@ -37,10 +39,11 @@ json
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash",
+        "matcher": "mcp__deploy-.*__release",
         "hooks": [
           { "type": "command",
-            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/production-gate.sh" }
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/release-gate.sh",
+            "args": [] }
         ]
       }
     ]
@@ -48,21 +51,77 @@ json
 }
 ```
 
-**And the gate itself (`.claude/hooks/production-gate.sh`):**
+The gate itself, `.claude/hooks/release-gate.sh`:
 
 bash
 
 ```
 #!/bin/bash
-# Production deploys require a named release authorization
-cmd=$(jq -r '.tool_input.command' < /dev/stdin)
-if [[ "$cmd" == *"deploy"* && "$cmd" == *"production"* ]]; then
-  if [ -z "$RELEASE_APPROVAL" ]; then
-    echo "Production deploys need a release authorization." >&2
-    exit 2   # exit 2 blocks the action; the message goes to Claude
-  fi
-fi
-exit 0
+# Release gate. dev: allow. staging: ask. production: an approved change ticket for this version, or block.
+input=$(cat)
+tool=$(jq -r '.tool_name' <<<"$input")
+version=$(jq -r '.tool_input.version' <<<"$input")
+ticket=$(jq -r '.tool_input.ticket // empty' <<<"$input")
+
+decide() {   # decide <allow|ask|deny> <reason>
+  jq -n --arg decision "$1" --arg reason "$2" '{hookSpecificOutput: {
+    hookEventName: "PreToolUse",
+    permissionDecision: $decision,
+    permissionDecisionReason: $reason}}'
+  exit 0
+}
+
+case "$tool" in
+  mcp__deploy-dev__release)
+    decide allow "dev needs no approval" ;;
+  mcp__deploy-staging__release)
+    [ "$GITHUB_REF" = "refs/heads/main" ] && decide allow "pipeline release from main"
+    decide ask "This ships $version to staging. Approve only if you own this release." ;;
+  mcp__deploy-prod__release)
+    route="Open a change ticket at https://change.example.com/new for version $version, \
+wait for the release manager to approve it, then call release again with that ticket number."
+    [[ "$ticket" =~ ^CHG-[0-9]+$ && "$version" =~ ^[0-9a-f]{7,40}$ ]] ||
+      decide deny "Production needs an approved change ticket. $route"
+    if approver=$(/usr/local/bin/change-ticket show --ticket "$ticket" --format json |
+        jq -er --arg v "$version" 'select(.state == "approved" and .version == $v) | .approver' 2>/dev/null); then
+      decide allow "$ticket approved by $approver"
+    fi
+    decide deny "$ticket is not approved for version $version. $route" ;;
+  *)
+    decide deny "No release rule for $tool. Add one to release-gate.sh first." ;;
+esac
+```
+
+In the script, `version` and `ticket` are the inputs Claude passes to the `release` tool. `change-ticket` stands for your change system's own command-line tool. The gate depends on the agent having no way to write to the records it reads.
+
+In a non-interactive run nobody can answer an `ask`, so Claude Code denies the call. That is why the gate allows staging from the pipeline on `main`, where the approved merge is the approval.
+
+The gate has a limit. An engineer could set `GITHUB_REF` by hand in their own session, although doing that skips only the prompt they would have answered themselves.
+
+The reason on an `ask` is shown to the person. The reason on a `deny` is shown to Claude, so the block message names the route to approval for Claude to pass on. The staging result comes first, then production with no ticket:
+
+json
+
+```
+{
+  "hookSpecificOutput": {
+    "hookEventName": "PreToolUse",
+    "permissionDecision": "ask",
+    "permissionDecisionReason": "This ships 4f2c9e1 to staging. Approve only if you own this release."
+  }
+}
+```
+
+json
+
+```
+{
+  "hookSpecificOutput": {
+    "hookEventName": "PreToolUse",
+    "permissionDecision": "deny",
+    "permissionDecisionReason": "Production needs an approved change ticket. Open a change ticket at https://change.example.com/new for version 4f2c9e1, wait for the release manager to approve it, then call release again with that ticket number."
+  }
+}
 ```
 
 ## Governance considerations[](#governance-considerations)
@@ -138,7 +197,7 @@ Lesson 11 of 14 · The AI-native SDLC playbookHooks as approval gates
 
 Introduction
 
-* [Introduction](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
+* [What changes and where to start](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
 
 Stage 1: Plan
 

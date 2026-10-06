@@ -8,7 +8,7 @@ Lesson 3 of 14 · The AI-native SDLC playbookRequirements and design
 
 # Requirements and design
 
-Lesson 34 min
+Lesson 35 min
 
 Once the product owner approves the `intent.md`, Claude takes it and produces a requirements and design spec. This is guided by the organization's [skills(opens in new tab)](https://claude.com/blog/complete-guide-to-building-skills-for-claude) for brand, security, compliance, and UX.
 
@@ -44,6 +44,47 @@ Read the attached intent.md and produce a requirements and design spec for integ
 
 Copy prompt
 
+The `intent.md` behind this example comes from an insurer that wants customers to see the status of a claim in its portal. In it, `claims-api` is the portal's backend and `claims-core` is the older internal system that holds the claims. The prompt above turns it into this `spec.md`:
+
+markdown
+
+```
+# Spec: claims status self-service
+From: intent.md (J. Ortiz, claims operations). Status: ready for product owner review.
+Skills applied: secure-api-review, brand-voice, portal-ux.
+
+## Requirements
+- R1. A signed-in customer sees status, next step and expected date for each open claim.
+- R2. Status is one of four states: received, in review, approved, paid.
+- R3. The response carries those three fields and nothing else.
+- R4. What the customer sees is at most 60 seconds old.
+
+## Design
+- New endpoint GET /claims/{id}/status in claims-api, behind the gateway JWT.
+- claims-api reads the claim from claims-core. The portal never calls claims-core.
+- New StatusPanel on the portal claims page. It caches each answer for 60 seconds.
+
+## How each constraint in the intent is met
+| Constraint | Met by |
+| :---- | :---- |
+| No new PII in the portal session | R3. None of the three fields is tagged pii in the schema. |
+| Existing authentication only | The gateway JWT. No new login, token or role. |
+
+## Open questions from the intent
+- Do third-party loss adjusters need access too? Not answered. Carried forward as concern 1.
+
+## Areas of concern
+1. Loss adjusters have no portal account. Giving them access breaks "existing
+   authentication only", so they are left out of this spec. Owner: security.
+2. The portal-ux skill says every status shows a date. The brand-voice skill says
+   never to state a payment date as a commitment. I cannot satisfy both as written.
+   Proposed label: "Estimated date". Owner: compliance.
+3. claims-core allows 50 requests a second. The 60-second cache should keep the
+   portal under that, but nobody has load tested it. Owner: claims-core team.
+```
+
+The requirements are numbered so the plan and the review can cite them. Concern 2 sets two skills against each other, the kind of clash the prompt tells Claude to flag.
+
 ## Governance considerations[](#governance-considerations)
 
 Instead of policy conflicts being discovered in a review weeks later, the live policy is read and applied while the spec is written. The organization's skills are applied as constraints on the spec. The spec, the prompt that produced it, and the skill versions in force are all logged in version control. The product owner signs off on the spec, and routes flagged concerns to the named policy owners.
@@ -59,7 +100,7 @@ Lesson 3 of 14 · The AI-native SDLC playbookRequirements and design
 
 Introduction
 
-* [Introduction](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
+* [What changes and where to start](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
 
 Stage 1: Plan
 

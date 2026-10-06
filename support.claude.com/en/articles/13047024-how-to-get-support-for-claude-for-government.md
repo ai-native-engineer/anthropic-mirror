@@ -10,8 +10,8 @@ Claude for Government Desktop Org Admins or Tenant Admins can click "Support" at
 
 **Note:** Only Claude for Government Desktop Org Admins and Tenant Admins can access this prioritized support path. If you have a different role and need to contact Support, please have an Org Admin or Tenant Admin submit the request on your behalf.
 
-* [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
-* [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
-* [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
-* [MCP: Web Search](https://support.claude.com/en/articles/14503775-mcp-web-search)
-* [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
+* [Enforce network-level access control with Tenant Restrictions](https://support.claude.com/en/articles/13198485-enforce-network-level-access-control-with-tenant-restrictions)
+* [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
+* [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
+* [Get started with Claude Compliance API integrations](https://support.claude.com/en/articles/15167101-get-started-with-claude-compliance-api-integrations)
+* [Set up Claude for Intune](https://support.claude.com/en/articles/17203415-set-up-claude-for-intune)

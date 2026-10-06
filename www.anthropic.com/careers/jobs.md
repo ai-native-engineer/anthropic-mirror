@@ -10,9 +10,9 @@ Location
 
 ## AI Research & Engineering
 
-70 Open Roles
+69 Open Roles
 
-70 Open Roles
+69 Open Roles
 
 [[Expression of Interest] Research Manager, Interpretability
 
@@ -22,11 +22,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/4980436008)[Research Engi
 
 New York City, NY; New York City, NY | Seattle, WA; San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/4951814008)[[DH] Engineering Manager, AI Observability
-
-San Francisco, CA
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5429202008)[[Expression of Interest] Research Engineer / Scientist, Alignment - London
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/4951814008)[[Expression of Interest] Research Engineer / Scientist, Alignment - London
 
 London, UK
 
@@ -384,7 +380,7 @@ Munich, Germany
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5426933008)[Applied AI Architect, Partnerships
 
-San Francisco, CA | New York City, NY
+San Francisco, CA | New York City, NY | Seattle, WA
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5300430008)[Applied AI Architect, Public Sector
 
@@ -494,11 +490,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5390865008)[Manager, Appl
 
 Seoul, South Korea
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5430869008)[Manager, Applied AI Engineering, Beneficial Deployments (Life Sciences)
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5430869008)[Manager, Applied AI Engineering (Megas)
 
-San Francisco, CA | New York City, NY
+San Francisco, CA | New York City, NY; San Francisco, CA | Seattle, WA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5277834008)[Manager, Forward Deployed Engineering
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5442934008)[Manager, Forward Deployed Engineering
 
 New York City, NY
 
@@ -578,7 +574,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5375371008)[Data Center E
 
 London, UK
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5405710008)[Data Center Global Repairs Program Support
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5405710008)[Data Center Engineer, Reliability & Infrastructure Management – Compute Supply
+
+San Francisco, CA | New York City, NY
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5440636008)[Data Center Global Repairs Program Support
 
 Remote-Friendly, United States
 
@@ -594,11 +594,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5215141008)[Data Center O
 
 Remote-Friendly (Travel Required) | San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5398280008)[Data Center Supply Planning Lead
-
-Remote-Friendly, United States
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5397445008)[Energy Scheduling & Portfolio Lead
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5398280008)[Energy Scheduling & Portfolio Lead
 
 Remote-Friendly, United States
 
@@ -886,9 +882,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5392007008)
 
 ## Finance
 
-55 Open Roles
+57 Open Roles
 
-55 Open Roles
+57 Open Roles
 
 [APAC Tax Lead
 
@@ -914,11 +910,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5437262008)[Data Science,
 
 San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5184585008)[Director of Payroll
-
-San Francisco, CA | Seattle, WA
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5166178008)[Director of Payroll, APAC
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5184585008)[Director of Payroll, APAC
 
 Singapore
 
@@ -926,7 +918,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5357955008)[Director, Fin
 
 San Francisco, CA | Seattle, WA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5409055008)[Director, Global Order-to-Cash Transformation
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5409055008)[Director, Financial Reporting - Special Projects
+
+San Francisco, CA | Seattle, WA
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5441936008)[Director, Global Order-to-Cash Transformation
 
 San Francisco, CA | New York City, NY | Seattle, WA
 
@@ -1058,7 +1054,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5435710008)[Senior Busine
 
 San Francisco, CA | Seattle, WA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5301883008)[Senior Manager, Finance Systems - Treasury
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5301883008)[Senior Manager, Compute Accounting
+
+San Francisco, CA | Seattle, WA
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5441893008)[Senior Manager, Finance Systems - Treasury
 
 San Francisco, CA
 
@@ -1074,7 +1074,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5357951008)[Senior Manage
 
 San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5430222008)[Senior Manager, Regulatory Accounting & Disclosures
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5430222008)[Senior Manager, M&A Finance Integration
+
+San Francisco, CA | Seattle, WA
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5422560008)[Senior Manager, Regulatory Accounting & Disclosures
 
 San Francisco, CA
 
@@ -1374,7 +1378,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5418743008)[Product Manag
 
 San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5139628008)[Product Management, Human Data Platform
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5139628008)[Commercial Operations Program Manager
+
+San Francisco, CA | New York City, NY
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5398328008)[Product Management, Human Data Platform
 
 San Francisco, CA | New York City, NY
 
@@ -1382,11 +1390,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5195866008)[Product Manag
 
 San Francisco, CA | New York City, NY
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5123082008)[Product Manager, Claude Tag
-
-San Francisco, CA | New York City, NY
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5251866008)[Product Manager, Cybersecurity
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5123082008)[Product Manager, Cybersecurity
 
 San Francisco, CA | New York City, NY
 
@@ -1530,9 +1534,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5436615008)
 
 ## Safeguards (Trust & Safety)
 
-43 Open Roles
+42 Open Roles
 
-43 Open Roles
+42 Open Roles
 
 [Cyber Evaluations Engineer
 
@@ -1622,11 +1626,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5311149008)[Safeguards En
 
 San Francisco, CA | New York City, NY | Washington, DC
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5137183008)[Safeguards Enforcement Analyst, User Well-being
-
-San Francisco, CA | New York City, NY | Washington, DC
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5374778008)[Safeguards Enforcement Lead, Cyber Harms
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5137183008)[Safeguards Enforcement Lead, Cyber Harms
 
 San Francisco, CA | New York City, NY | Washington, DC
 
@@ -1710,9 +1710,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5074937008)
 
 ## Sales
 
-123 Open Roles
+125 Open Roles
 
-123 Open Roles
+125 Open Roles
 
 [Enterprise Account Executive, Automotive
 
@@ -1854,7 +1854,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5225003008)[Enterprise Ac
 
 Seoul, South Korea
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5341664008)[Enterprise Account Executive - Industries Generalist
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5341664008)[Enterprise Account Executive - Healthcare & Life Science
+
+Seoul, South Korea
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5432590008)[Enterprise Account Executive - Industries Generalist
 
 Sydney, Australia
 
@@ -1862,7 +1866,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5391322008)[Enterprise Ac
 
 Singapore
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5391372008)[Enterprise Account Executive - Retail
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5391372008)[Enterprise Account Executive - Manufacturing
+
+Seoul, South Korea
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5443281008)[Enterprise Account Executive - Retail
 
 London, UK
 
@@ -1966,11 +1974,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5427938008)[GTM Strategy 
 
 San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5390952008)[Head of APAC GTM Enablement
-
-Singapore
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5426627008)[Head of Global Renewals
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5390952008)[Head of Global Renewals
 
 San Francisco, CA | New York City, NY
 
@@ -2062,7 +2066,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5391215008)[Partner Succe
 
 London, UK
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5427025008)[Partnership Manager, AI for Science
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5427025008)[Partner Success Lead
+
+Munich, Germany
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5440752008)[Partnership Manager, AI for Science
 
 San Francisco, CA | New York City, NY
 
@@ -2210,23 +2218,27 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5235692008)
 
 ## Security
 
-48 Open Roles
+52 Open Roles
 
-48 Open Roles
+52 Open Roles
 
 [Staff Security Engineer, Detection & Response
 
 Zürich, CH
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5432626008)[AV Engineer
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5432626008)[AV Engineer, Builds and Design
 
-San Francisco, CA | New York City, NY
+San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5385588008)[AV Engineer
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5385588008)[AV Engineer, Builds and Design
 
 London, UK
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5385590008)[AV Operations Specialist
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5385590008)[AV Engineer, Platform & Automation
+
+San Francisco, CA | New York City, NY
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5383714008)[AV Operations Specialist
 
 New York City, NY
 
@@ -2234,11 +2246,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5383710008)[AV Production
 
 San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5379593008)[Customer Trust Specialist
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5379593008)[Controls Specialist, Security GRC
 
 San Francisco, CA | New York City, NY | Seattle, WA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5418991008)[Engineering Manager, Business Technology
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5436826008)[Engineering Manager, Business Technology
 
 San Francisco, CA | New York City, NY
 
@@ -2318,15 +2330,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5290426008)[Research Engi
 
 Zürich, CH
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5412334008)[Security Audit & Controls, Security GRC
-
-San Francisco, CA | New York City, NY | Seattle, WA
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5436826008)[Security Audit & Controls, Security GRC
-
-San Francisco, CA | New York City, NY
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5439224008)[Security Engineer - Threat Intel
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5412334008)[Security Engineer - Threat Intel
 
 New York City, NY; Remote-Friendly (Travel-Required) | San Francisco, CA | Washington, DC; San Francisco, CA | New York City, NY
 
@@ -2342,11 +2346,19 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/4982193008)[Security Engi
 
 Remote-Friendly, United States; San Francisco, CA | Seattle, WA | New York City, NY | Washington, DC
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5418977008)[Security Risk & Compliance, Data Centers & Compute
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5418977008)[Security Risk & Compliance, Agent Security
+
+San Francisco, CA | New York City, NY
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5443871008)[Security Risk & Compliance, Data Centers & Compute
 
 San Francisco, CA | Seattle, WA | New York City, NY | Washington, DC
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5430205008)[Security Software Engineer, Detection & Response Platform
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5430205008)[Security Risk Analyst, Risk Engineering
+
+San Francisco, CA | New York City, NY
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5397704008)[Security Software Engineer, Detection & Response Platform
 
 New York City, NY | Seattle, WA; San Francisco, CA | New York City, NY | Seattle, WA; Washington, DC
 
@@ -2378,7 +2390,15 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5434691008)[Staff / Senio
 
 San Francisco, CA | New York City, NY | Seattle, WA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5434559008)[Staff Security Engineer, Risk Engineering
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5434559008)[Staff + Software Security Engineer, Labs
+
+San Francisco, CA | New York City, NY | Seattle, WA
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5440477008)[Staff + Software Security Engineer, Secure Frameworks
+
+San Francisco, CA | New York City, NY | Seattle, WA
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5440475008)[Staff Security Engineer, Risk Engineering
 
 San Francisco, CA | New York City, NY | Seattle, WA
 
@@ -2406,7 +2426,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5120512008)[Supplier Secu
 
 San Francisco, CA | Seattle, WA | New York City, NY | Washington, DC
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5427893008)
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5427893008)[US Public Sector Compliance, Security GRC
+
+San Francisco, CA | New York City, NY
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5443900008)
 
 ## Software Engineering - Infrastructure
 

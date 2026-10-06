@@ -49,5 +49,5 @@ Run `claude doctor` from your normal shell (not from inside a Claude session). I
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
 * [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
 * [Your first day in Claude Code](https://support.claude.com/en/articles/14552382-your-first-day-in-claude-code)
+* [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
 * [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
-* [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)

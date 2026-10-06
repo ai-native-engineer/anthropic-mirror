@@ -8,7 +8,7 @@ Lesson 4 of 14 · The AI-native SDLC playbookClaude Code plan mode as the defaul
 
 # Claude Code plan mode as the default starting point
 
-Lesson 45 min
+Lesson 46 min
 
 Engineers start Claude Code sessions in plan mode, give Claude the approved `spec.md` from **Stage 2: Design**, and let it interview them, iterating on the plan until they are happy with it.
 
@@ -35,12 +35,14 @@ Engineers start Claude Code sessions in plan mode, give Claude the approved `spe
 
 ## What it looks like[](#what-it-looks-like)
 
+The plan below is for a change at an insurer: a panel in the customer portal that shows the status of a claim. The panel calls the portal's backend, `claims-api`, which reads from `claims-core`, an older internal system.
+
 `plan.md`:
 
 markdown
 
 ```
-# Plan: claims status self-service (from intent.md 2026-06-02)
+# Plan: claims status self-service (from intent.md and spec.md)
 
 ## Files that change
 
@@ -48,18 +50,20 @@ portal/src/claims/StatusPanel.tsx (new), claims-api/routes/status.py, claims-api
 
 ## Order of work
 
-1. Add the status endpoint behind existing auth.
-2. Panel against the endpoint.
+1. Add the status endpoint behind existing auth (R1, R2, R3).
+2. Panel against the endpoint, with the 60-second cache (R1, R4).
 3. Wire into the portal nav.
 
 ## Risks
 
-The claims-core API rate-limits at 50 rps; the panel must cache.
+The claims-core API rate-limits at 50 rps; the panel must cache (spec concern 3).
 
 ## Proof
 
-test_status.py covers the four claim states; screenshot matches the approved mock.
+test_status.py covers the four claim states (R2) and fails on any extra field (R3); screenshot matches the approved mock.
 ```
+
+R1 to R4 are the numbered requirements in `spec.md`, and concern 3 is a risk that `spec.md` flagged. Because the plan cites them, a reviewer can check the plan against the spec line by line.
 
 ## Governance considerations[](#governance-considerations)
 
@@ -94,7 +98,7 @@ Lesson 4 of 14 · The AI-native SDLC playbookClaude Code plan mode as the defaul
 
 Introduction
 
-* [Introduction](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
+* [What changes and where to start](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)
 
 Stage 1: Plan
 

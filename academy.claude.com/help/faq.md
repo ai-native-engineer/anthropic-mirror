@@ -13,6 +13,7 @@ Answers to common questions about Claude Academy: signing in, moving from Skillj
 * [Emails and notifications](#emails)
 * [Privacy and data](#privacy)
 * [The “Claude in Academy” setting, for organization admins](#claude-in-academy)
+* [Org reports, for organization admins](#org-reports)
 * [Content and licensing](#licensing)
 * [Partners and third-party learners (still on Skilljar)](#partners)
 
@@ -158,6 +159,20 @@ Academy’s admin report shows which courses members enrolled in and whether the
 
 Questions and answers aren’t saved to chat history in Academy or Claude, aren’t added to memory, and aren’t used to train models. They’re retained under your organization’s existing data retention settings.
 
+## Org reports, for organization admins
+
+### Where do I find Org reports, and who can see the report?
+
+Sign in to Academy with the Claude account you use at work, click your avatar in the top right, and choose Org reports. If claude.ai asks you to approve access to reports, approve it. Everyone who is signed in sees the Org reports menu item, but the report opens for your Claude organization’s Primary owner, Owners and Admins, and for members whose custom role includes the Analytics permission. Members without access see a message that Org reports aren’t available for their account. If you’re an admin but can’t see your organization’s report, Academy may be connected to a personal account or another organization: see [how to switch accounts](#sso-personal-account).
+
+### Who is included in Org reports?
+
+Current members of your organization who enrolled in courses through it. Each course counts toward the organization the learner was signed in with when the course was first added to their Academy history, either by enrolling in it on Academy or by importing their Skilljar history, whichever happened first. A course first added on a personal Claude account or in another organization doesn’t appear, even if they finish it after joining yours. When someone leaves your organization, their rows disappear from the report, including past completions and badges, and reappear if they rejoin with the same Claude account. If a learner deletes their Academy data or their Claude account, their rows are deleted permanently.
+
+### What’s in the Org reports CSV download?
+
+One row per learner per course, with these columns: claude\_account\_id, learner\_email, course\_slug, course\_title, state (Enrolled, In progress, Completed, Badge earned or Withdrawn), enrolled\_at, completed\_at and badge\_issued\_at. Times are in UTC. Some rows have an empty learner\_email; claude\_account\_id still identifies them. If a learner’s badge is deleted, their row shows Completed with an empty badge\_issued\_at until they claim a new badge. The download includes every row that matches the Learners table’s search, course and status filters, not just the page on screen, so if any filters are set, click “Clear all” first to download every row. The 30 days, 90 days and All time buttons don’t change it. The report doesn’t include quiz scores, attempts or time spent.
+
 ## Content and licensing
 
 ### I want to partner with you to create content
@@ -181,5 +196,6 @@ If you’re learning through the partner program, Skilljar stays your learning h
 * [Emails and notifications](#emails)
 * [Privacy and data](#privacy)
 * [The “Claude in Academy” setting, for organization admins](#claude-in-academy)
+* [Org reports, for organization admins](#org-reports)
 * [Content and licensing](#licensing)
 * [Partners and third-party learners (still on Skilljar)](#partners)

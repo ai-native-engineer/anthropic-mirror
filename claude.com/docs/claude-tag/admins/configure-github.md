@@ -11,29 +11,29 @@
 Using GitLab instead of GitHub? See [Configure GitLab access](https://claude.com/docs/claude-tag/admins/configure-gitlab). GitLab uses a service-account token rather than an installed app.
 
 Claude Tag gives Claude its own GitHub identity, the Claude GitHub App, so pull requests it opens from a channel or a DM are authored by Claude rather than by a person. You only need GitHub access if a team will hand Claude code work: branches, pull requests, review, or CI follow-up.
-You link GitHub once for your Claude organization, then grant repositories per Access bundle.
+You link GitHub once for your Claude organization, then choose which repositories Claude can use in each workspace and channel.
 
 ##  Link your GitHub organization
 
-The person who completes the link must be both an **owner of the GitHub organization** and an **Owner in your Claude organization**. If you aren’t a GitHub organization owner, use **Copy message** under **Not a GitHub account owner?** on the GitHub settings page to send the link to someone who is.
+The person who completes the link must be both an **owner of the GitHub organization** and an **Owner in your Claude organization**. If you aren’t a GitHub organization owner, click the **Not the GitHub owner? Send instructions** link in the **GitHub** section of [**Organization settings > Git providers**](https://claude.ai/admin-settings/source-control). In the dialog that opens, click **Copy message** to copy a request you can send to someone who is.
 
 1
 
-Open the GitHub settings page
+Open the Git providers page
 
-Open [`claude.ai/admin-settings/github`](https://claude.ai/admin-settings/github). This page is shared with Claude Code; one connection serves both products.
+Go to **Organization settings > Git providers** at [`claude.ai/admin-settings/source-control`](https://claude.ai/admin-settings/source-control). This page is shared with Claude Code; one connection serves both products. Until the Claude GitHub App is installed, you can also reach this page from Claude Tag admin settings. On the **Connectors** tab under **Claude’s access**, click **Add** and select **GitHub**.
 
 2
 
-Connect Claude to GitHub
+Connect GitHub
 
-Click **Connect Claude to GitHub** (**Connect**, once any account is already linked) and complete the GitHub authorization. After authorizing, the **Connected GitHub accounts** table lists the GitHub accounts the Claude GitHub App is installed on. The **Type** column reads **Organization** or **Personal**. An account already linked to your Claude organization shows **Connected**, and one that still needs linking shows **Not linked**. Claude Tag uses **Organization** accounts only; a **Personal** row is someone’s own GitHub account and can’t be used for your repositories.
+Beside the **GitHub** heading, click **Connect** (the button reads **Add organization** once a GitHub account is connected) and complete the GitHub authorization. After authorizing, the table in the **GitHub** section lists the GitHub accounts the Claude GitHub App is installed on. The **Type** column reads **Organization** or **Personal**. In the **Status** column, an account already linked to your Claude organization shows **Connected**, and one that still needs linking shows **Not linked**.
 
 3
 
 Link or install
 
-If your organization’s row reads **Not linked**, select the **Link** button next to it. If it isn’t listed at all, click **Install on another organization** and complete the install on github.com; you’re returned to this page with the organization under **Connected GitHub accounts** as **Connected**.An organization can also be missing from the table because single sign-on (SSO) on GitHub hides it. A note under the table counts the organizations hidden that way. To make them appear, authorize the Claude app for those organizations on GitHub.
+If your organization’s row reads **Not linked**, select the **Link** button next to it. If it isn’t listed at all, click **Add organization** beside the **GitHub** heading and complete the install on github.com; you’re returned to this page with the organization’s row showing **Connected**.An organization can also be missing from the table because single sign-on (SSO) on GitHub hides it. A note under the table counts the organizations hidden that way. To make them appear, authorize the Claude app for those organizations on GitHub.
 
 * A disabled **Link** button means you can’t link that account yet; the button’s tooltip names the reason, such as not being an owner of that GitHub organization
 * A **Needs permissions** status means the installation has a pending request; **Review permissions** takes you to github.com to approve it
@@ -41,24 +41,63 @@ If your organization’s row reads **Not linked**, select the **Link** button ne
 
 ##  Grant repository access
 
-The remaining steps are in the Claude Tag admin page, not GitHub’s settings. Repository grants live on the Access bundle; editing a bundle’s Repositories tab requires the **Owner** role or the [**Claude Tag Admin** permission](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-claude-tag-administration) in your Claude organization. A [channel manager](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) can also add repositories to their own channel, limited to repositories their GitHub account is an admin of.
+The remaining steps are in Claude Tag admin settings, not GitHub’s settings. Granting repositories requires the **Owner** role or the [**Claude Tag Admin** permission](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-claude-tag-administration) in your Claude organization. A [channel manager](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) can also add repositories to their own channel, limited to repositories their GitHub account is an admin of.
+The GitHub page, a bundle’s page, and a workspace’s or channel’s own page each offer the repositories the Claude GitHub App’s installations reach, so you can grant a repository that no bundle holds yet. Pick repositories for each place on the GitHub page, or put them in a bundle to give a group of places the same set.
+
+###  Pick repositories for a workspace or channel
 
 1
 
-Open the bundle's Repositories tab
+Open the GitHub page
 
-Open an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections#your-first-access-bundle) and go to its **Repositories** tab. Before any GitHub organization is linked, this tab shows a **Get started with GitHub** button that opens [`claude.ai/admin-settings/github`](https://claude.ai/admin-settings/github).
+Go to [**Organization settings > Claude Tag**](https://claude.ai/admin-settings/claude-tag). Under **Claude’s access**, select the **Connectors** tab and open **GitHub**.
 
 2
 
-Select repositories
+Find the place
 
-Choose the repositories Claude can read from and open pull requests against. Access is per listed repository, or choose **Connect all** for the organization.
+Under **Assign access**, find the row for where Claude should use the repositories: **Slack** for every workspace and channel, or a workspace or channel. If the place isn’t listed, click **Add place**, choose it under **Where**, and click **Add**.
+
+3
+
+Pick the repositories
+
+In the place’s **Access** column, click **Select access**, or the repositories already picked there, and select each repository Claude should use. Selecting **Every repository in** an account also covers repositories created in it later, and asks you to confirm with **Connect all**. To attach a bundle that holds repositories instead, select it under **Bundles** in the same picker.
+
+4
+
+Save the changes
+
+Click **Save changes**.
+
+To add a repository from a workspace’s or channel’s own page instead, open the page from the **Channels** tab, and under **Claude’s access**, click **Add**, select **Repository**, pick the repository on the **Repositories** tab, and click **Add**.
+
+###  Grant repositories through a bundle
+
+A [bundle](https://claude.com/docs/claude-tag/admins/add-connections#create-a-bundle)’s places decide which channels can use the repositories in it.
+
+1
+
+Open a bundle
+
+Go to [**Organization settings > Claude Tag**](https://claude.ai/admin-settings/claude-tag). Under **Claude’s access**, select the **Bundles** tab and open the bundle, or click **Add** to create one.
+
+2
+
+Add repositories
+
+Under **What’s in it**, click **Add** and choose **Repository**. In the dialog that opens, pick the **GitHub account** when more than one is linked, then search for a repository and select it. To grant every repository in the account’s GitHub App installation, including ones added later, select the **Every repository in** option for that account. Click **Add**, and for the **Every repository in** option, confirm with **Connect all**. Before any GitHub account is linked, the dialog reads “Connect a GitHub account to your organization first.”
+
+3
+
+Choose where the bundle applies
+
+Under **Where it applies**, turn on the switch in the **Slack** row to apply the bundle in every workspace and channel, or in a workspace’s row to apply it in that workspace. For a channel, click **Add place**, choose the channel under **Where**, and click **Add**. Then click **Save changes**.
 
 ##  Verify GitHub access
 
-* The GitHub organization shows as **Connected** under **Connected GitHub accounts** at [`claude.ai/admin-settings/github`](https://claude.ai/admin-settings/github).
-* The granted repositories are listed in the bundle’s **Repositories** tab.
+* The GitHub organization shows as **Connected** in the **GitHub** section at [`claude.ai/admin-settings/source-control`](https://claude.ai/admin-settings/source-control).
+* On the **Connectors** tab under **Claude’s access**, select **GitHub**. Its page shows how many GitHub accounts the Claude GitHub App is installed on. Its **Access from** table lists each repository picked for a place and each repository a bundle holds. The **Set by** column reads **Here** for a repository picked for a place, or names the bundle that holds it, and **Used at** names where each one applies.
 * For the end-to-end check, open a draft PR from a test channel; see [Verify the bundle is live](https://claude.com/docs/claude-tag/admins/attach-to-scope#verify-the-bundle-is-live).
 
 ###  If Claude can’t reach a repository
@@ -67,15 +106,15 @@ When Claude replies “That environment or repo isn’t configured for Claude Co
 
 | Check | Where |
 | --- | --- |
-| The GitHub organization that owns the repository shows **Connected** under **Connected GitHub accounts** | [`claude.ai/admin-settings/github`](https://claude.ai/admin-settings/github). An installation still waiting on a GitHub organization owner shows **Needs permissions**; **Review permissions** opens the approval on github.com. |
-| The repository is listed on the bundle’s **Repositories** tab, and that bundle is attached to the channel’s scope | [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag) → **Access bundles** → the bundle → **Repositories**. A repository granted in one bundle isn’t reachable from a channel under a different bundle. |
+| The GitHub organization that owns the repository shows **Connected** in the **GitHub** section | [`claude.ai/admin-settings/source-control`](https://claude.ai/admin-settings/source-control). An installation still waiting on a GitHub organization owner shows **Needs permissions**; **Review permissions** opens the approval on github.com. |
+| The repository reaches the channel | In [**Organization settings > Claude Tag**](https://claude.ai/admin-settings/claude-tag), open the channel’s page from the **Channels** tab under **Claude’s access**, and look for the repository in its **Claude’s access** table. A repository granted in a bundle that doesn’t apply to the channel isn’t reachable there. |
 
-Repository grants apply to new threads. After changing the **Repositories** tab, start a fresh thread in the channel and name the repository in the first message.
+After granting a repository, start a fresh thread in the channel and name the repository in the first message.
 A `403` that names a GitHub Actions operation, such as “repository\_dispatch is not permitted for this session type.”, is a different error. It says nothing about repository access; see [What Claude can do with GitHub Actions](#what-claude-can-do-with-github-actions).
 
 ##  How granted repositories reach a session
 
-Granting a repository in a bundle makes it *available* to Claude in any channel under that bundle’s scope. It doesn’t clone the code into a session on its own. A session starts with no repositories checked out; Claude clones one when the request names it, or when someone in the thread tells it which repository to add. Tell your team to name the repository in the first message of a code task.
+Granting a repository in a bundle makes it *available* to Claude in any channel where that bundle applies. It doesn’t clone the code into a session on its own. A session starts with no repositories checked out; Claude clones one when the request names it, or when someone in the thread tells it which repository to add. Tell your team to name the repository in the first message of a code task.
 
 ###  What loads from a repository
 
@@ -84,7 +123,7 @@ When Claude clones a granted repository into a session, its Claude Code configur
 * `CLAUDE.md`, `.claude/CLAUDE.md`, and `.claude/rules/*.md` load as project context
 * Skills in `.claude/skills/` load, so Claude can use them in the session
 
-[Hooks](https://code.claude.com/docs/en/hooks) in a repository’s `.claude/settings.json` don’t run in the session. A repository’s `.mcp.json` is never loaded, and connections come only from the Access bundle.
+[Hooks](https://code.claude.com/docs/en/hooks) in a repository’s `.claude/settings.json` don’t run in the session. A repository’s `.mcp.json` is never loaded.
 Repository skills apply only in sessions that have the repository. To give a skill to every channel under a scope, add it through a [skills repository](https://claude.com/docs/claude-tag/admins/skills-repo).
 
 ###  Install project dependencies
@@ -95,11 +134,11 @@ Every session runs in an isolated sandbox with a standard set of preinstalled to
 * **For one repository**, add the install commands to the repository’s `CLAUDE.md`.
 
 Claude follows `CLAUDE.md` as guidance when it starts work that needs it, not as an unconditional setup step. Write each install as a precondition of the work it supports, for example “install the SDK before building or running tests”, so Claude runs it when a task touches that code. The sandbox is fresh for every session, so the installs repeat each time Claude works in the repository.
-Prefer the standard package manager and its default registry over a vendor install script or a third-party package source. Package managers such as `apt`, `pip`, `npm`, and `dotnet` reach their default registries from the sandbox; downloads from other hosts can be blocked at the sandbox’s [egress boundary](https://claude.com/docs/claude-tag/concepts/security-and-data#network-egress). An Owner or a [Claude Tag admin](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-claude-tag-administration) can allow an additional host on the bundle’s Domains tab; see [Allow a host without a credential](https://claude.com/docs/claude-tag/admins/add-connections#allow-a-host-without-a-credential).
+Prefer the standard package manager and its default registry over a vendor install script or a third-party package source. Package managers such as `apt`, `pip`, `npm`, and `dotnet` reach their default registries from the sandbox; downloads from other hosts can be blocked at the sandbox’s [egress boundary](https://claude.com/docs/claude-tag/concepts/security-and-data#network-egress). An Owner or a [Claude Tag admin](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-claude-tag-administration) can allow an additional host with a domain entry on a bundle; see [Allow a host without a credential](https://claude.com/docs/claude-tag/admins/add-connections#allow-a-host-without-a-credential).
 
 ##  What Claude can do with GitHub Actions
 
-In a channel, Claude acts on GitHub as the Claude GitHub App, and that identity carries a fixed set of GitHub Actions permissions. No admin setting changes it, and adding `api.github.com` as a [custom connection](https://claude.com/docs/claude-tag/admins/connections/custom) with your own token doesn’t change it either; Claude’s GitHub requests always act as the Claude GitHub App.
+In a channel, Claude acts on GitHub as the Claude GitHub App, and that identity carries a fixed set of GitHub Actions permissions. No admin setting changes it, and adding `api.github.com` as a [custom connector](https://claude.com/docs/claude-tag/admins/connections/custom) with your own token doesn’t change it either; Claude’s GitHub requests always act as the Claude GitHub App.
 Claude can:
 
 * Read workflow runs, jobs, logs, and artifacts, so it follows a pull request’s CI and reports the result
@@ -138,7 +177,7 @@ Organizations on `*.ghe.com` (Enterprise Cloud with Data Residency) are register
 ###  GitHub Enterprise Server
 
 GitHub Enterprise Server instances are supported when reachable from the public internet. A GHES host on a private network without a public address can’t be connected.
-On GHES, you create the GitHub App on your own instance instead of installing Anthropic’s. The setup is shared with Claude Code; follow the [Claude Code GitHub Enterprise Server guide](https://code.claude.com/docs/en/github-enterprise-server) to create and register the app. After registering the GHE host, a host picker appears on the bundle’s **Repositories** tab; select your host there to grant its repositories.
+On GHES, you create the GitHub App on your own instance instead of installing Anthropic’s. The setup is shared with Claude Code; follow the [Claude Code GitHub Enterprise Server guide](https://code.claude.com/docs/en/github-enterprise-server) to create and register the app. After you register the GHE host, the dialog for adding a repository to a bundle shows a **GitHub instance** picker; select your host there to grant its repositories.
 Registering a GHE host with your Claude organization isn’t fully self-serve. Raise it with your account team if the guide doesn’t get you all the way through.
 
 ####  GitHub Enterprise Server in direct messages
@@ -149,9 +188,9 @@ In a [one-to-one direct message](https://claude.com/docs/claude-tag/concepts/age
 * Your GitHub App’s installation on the instance includes the repository
 
 If the sender hasn’t connected their GitHub Enterprise account on claude.ai yet, Claude replies with a link to connect it. After connecting, the sender asks Claude to add the repository again.
-In channels, Claude uses the repositories granted on the bundle’s **Repositories** tab, as it does for github.com. A person’s own GitHub Enterprise connection doesn’t apply in channels.
+In channels, Claude uses the repositories granted through bundles, as it does for github.com. A person’s own GitHub Enterprise connection doesn’t apply in channels.
 
 ##  Related resources
 
-* [Configure per-channel access](https://claude.com/docs/claude-tag/admins/attach-to-scope): bind the bundle to the workspaces and channels that need it
+* [Configure per-channel access](https://claude.com/docs/claude-tag/admins/attach-to-scope): add the bundle to the workspaces and channels that need it
 * [Set up routines](https://claude.com/docs/claude-tag/users/proactivity): the scheduled jobs that use this connection

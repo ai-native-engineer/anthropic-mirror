@@ -3,6 +3,30 @@
 
 <!-- chunk-start -->
 
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `interface BetaEnvironment`
+
+  Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
+
+    default: environment
+
+  - `id: string`
+
+    Environment identifier (e.g., 'env_...')
+
+  - `archived_at: string | null`
+
+    RFC 3339 timestamp when environment was archived, or null if not archived
+
+  - `config: BetaCloudConfig | BetaSelfHostedConfig`
+
     Environment configuration (either Anthropic Cloud or self-hosted)
 
     - `interface BetaCloudConfig`
@@ -23861,9 +23885,20 @@ for await (const betaManagedAgentsSessionEvent of client.beta.sessions.threads.e
       ],
       "type": "user.message",
       "processed_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
+      "content": [
+        {
+          "text": "Let me look up order #1234 for you.",
+          "type": "text"
+        }
+      ],
+      "processed_at": "2026-03-15T10:00:00Z",
+      "type": "agent.message"
     }
   ],
-  "next_page": "next_page"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```
 
@@ -36432,44 +36467,3 @@ Update Credential
           - `type: "unrestricted"`
 
         - `interface BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-          The secret is substituted only on requests to the listed hosts.
-
-          - `type: "limited"`
-
-          - `allowed_hosts: Array<string>`
-
-            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-      - `secret_name: string`
-
-        Name of the environment variable.
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `metadata: Record<string, string>`
-
-    Arbitrary key-value metadata attached to the credential.
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `vault_id: string`
-
-    Identifier of the vault this credential belongs to.
-
-  - `display_name?: string | null`
-
-    Human-readable name for the credential.
-
-#### Example
-
-```typescript
-import Anthropic from "@anthropic-ai/sdk";

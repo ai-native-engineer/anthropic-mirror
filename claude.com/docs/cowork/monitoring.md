@@ -31,7 +31,20 @@ The OTel exporter runs inside the Cowork VM, so it is subject to the session’s
 
 ##  Events
 
-Cowork exports the following events to your OTel collector. By default, events include metadata only. User prompt content, model response text, and tool details are included only when you enable them with the [`otlpContentCapture`](https://claude.com/docs/third-party/claude-desktop/telemetry#content-capture) setting.
+Cowork exports the following events to your OTel collector. The collector settings in [Setup](#setup) apply to every Cowork session that runs on a user’s computer in Claude Desktop, including Cowork tasks that [Dispatch](https://claude.com/docs/cowork/guide/dispatch) starts. They don’t apply to Code tab sessions, including Code sessions that Dispatch starts. Whether events include user prompt text, model response text, and tool inputs depends on the [`otlpContentCapture`](https://claude.com/docs/third-party/claude-desktop/configuration#otlpcontentcapture) managed configuration key on each user’s device.
+
+###  Content capture
+
+Events can carry user prompt text, model response text, and tool inputs in addition to metadata. You set which of these the events carry with the `otlpContentCapture` managed configuration key on each user’s device.
+To set the key, deploy it with your device management tool to the [managed configuration location for each operating system](https://claude.com/docs/third-party/claude-desktop/configuration#how-keys-are-read). To export metadata only, set `otlpContentCapture` to an empty list, written as the two characters `[]`. Claude Desktop reads an empty string as if the key weren’t set. The key takes effect when Claude Desktop restarts.
+The table shows what events carry on Claude Desktop version 1.17377 or later, for a Cowork session that runs on the user’s computer.
+
+| `otlpContentCapture` on the device | Content that events carry |
+| --- | --- |
+| Not set, on a first-party deployment | User prompt text, model response text, and tool inputs |
+| Not set, on a [third-party deployment](https://claude.com/docs/third-party/claude-desktop/overview) | No content. Events carry metadata only |
+| Set to a list of [categories](https://claude.com/docs/third-party/claude-desktop/telemetry#content-capture) | The content in the listed categories. Listing `userPrompts` also includes model response text |
+| Set to an empty list, `[]` | No content. Events carry metadata only |
 
 ###  Event correlation
 
@@ -202,8 +215,8 @@ All events are exported with the following resource attributes:
 ##  Security and privacy
 
 * Events are only exported when an admin configures the OTLP endpoint
-* User prompt content is included only when you enable `userPrompts` in [`otlpContentCapture`](https://claude.com/docs/third-party/claude-desktop/telemetry#content-capture)
-* On Claude desktop app version 1.17377 or later, model response text is included when you enable `assistantResponses` in `otlpContentCapture`, and also whenever user prompt content is included
-* The `tool_input` attribute (file paths, URLs, search patterns, and other arguments) is included only when you enable `toolDetails` in `otlpContentCapture`
+* Which content events carry is set per device by the [`otlpContentCapture`](#content-capture) key: `userPrompts` for user prompt text, `assistantResponses` for model response text, and `toolDetails` for the `tool_input` attribute (file paths, URLs, search patterns, and other arguments)
+* On Claude Desktop version 1.17377 or later, events that carry user prompt text also carry model response text, even when the key doesn’t list `assistantResponses`
+* On Claude Desktop version 1.17377 or later, when `otlpContentCapture` isn’t set on a device in a first-party deployment, events carry user prompt text, model response text, and tool inputs. To export metadata only, set the key to an empty list, `[]`
 * On first-party deployments, `user.email` is always included in event attributes, so configure your telemetry backend to filter or redact it if this is a concern
 * On third-party deployments, `user.email` is absent; the export identifies users with the `enduser.id` resource attribute, controlled by the [`endUserAttribution`](https://claude.com/docs/third-party/claude-desktop/configuration#enduserattribution) setting

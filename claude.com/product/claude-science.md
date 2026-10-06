@@ -3224,3 +3224,5 @@ Yes. The Claude Science app is available on the Enterprise plan with SSO, SCIM p
 ### Where can I learn more?
 
 Start with the [documentation (opens in new tab)](https://claude.com/docs/claude-science/overview). It covers installation, connecting your tools and compute, and admin setup for Team and Enterprise.
+
+Claude Science (beta) | Claude by Anthropic

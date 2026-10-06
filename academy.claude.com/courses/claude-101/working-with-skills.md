@@ -14,7 +14,7 @@ In this lessonBy the end, you’ll be able to
 
 * Explain what Skills are and how Claude uses them
 * Identify Anthropic's built-in Skills for document creation
-* Enable and manage Skills in your settings
+* Enable and manage Skills
 
 ## What are Skills?[](#what-are-skills)
 
@@ -33,18 +33,18 @@ There are two categories of Skills you'll encounter:
 
 Skills are available on all plans. To use Skills, you'll need to have Code execution and file creation enabled, since Skills require Claude's secure sandboxed computing environment to function.
 
-Here's how to enable Skills:
+Here's how to enable Skills on the web or in the desktop app:
 
-1. Navigate to **Settings > Capabilities**
-2. Ensure that **Code execution and file creation** is toggled on
-3. Scroll to the **Skills** section
-4. Toggle individual skills on or off as needed
+1. Click your name in the lower left corner, then go to **Settings > Capabilities**.
+2. Ensure that **Code execution and file creation** is toggled on. (On Team and Enterprise plans, you won't see this toggle, because an organization Owner controls it in Organization settings. Skip to step 3.)
+3. Open **Customize > Skills** from the left sidebar.
+4. Click a skill to open it, then use the switch at the top of its page to turn it on or off.
 
-For **Enterprise plans**, organization Owners must first enable both Code execution and Skills in Admin settings before individual members can access them.
+For **Enterprise plans**, organization Owners need to make sure both Code execution and Skills are enabled in Organization settings before individual members can access them.
 
 For **Team plans**, this feature is enabled by default at the organization level.
 
-Once enabled, you'll see available Skills listed in your settings, including Anthropic's built-in Skills and any custom Skills you've uploaded.
+Once enabled, you'll see available Skills listed under **Customize > Skills**, including Anthropic's built-in Skills and any custom Skills you've uploaded.
 
 ## Using Skills in practice[](#using-skills-in-practice)
 
@@ -91,11 +91,13 @@ Here's how to create a Skill through conversation:
 1. **Start a new chat** and tell Claude what you want to create. For example: "I want to create a skill for writing quarterly business reviews" or "I need a skill that applies our brand guidelines to presentations."
 2. **Answer Claude's questions.** Claude will interview you about your workflow, asking things like: What should this skill do? What makes good output for this type of work? Can you give examples of when you'd use this skill?
 3. **Upload reference materials** if you have them. Templates, style guides, brand assets, or examples of work you're proud of all help Claude understand exactly what you're looking for.
-4. **Save your skill.** When finished, Claude generates a file containing your properly structured skill. All you have to do is save it and the skill will be ready for Claude to use.
+4. **Save your skill.** When finished, Claude generates a file containing your properly structured skill. Use **Save skill** on that file to add it to your Skills list, and it will be ready for Claude to use.
 
 **See your skills.** Find the Customize tab in the left sidebar. There you can see all of the skills that are available to you and even edit the skills you use manually or by chatting with Claude.
 
 Your custom Skill will appear in your Skills list alongside Anthropic's built-in Skills. From that point forward, Claude will automatically invoke it whenever you work on relevant tasks—no manual triggering needed. You can improve your skills with iteration — ask Claude to edit a skill and it will update the files for you.
+
+**Don't see your skill?** Download the file Claude created and add it yourself: in **Customize > Skills**, click **Add**, then **Upload skill**.
 
 ## Skills vs. Projects[](#skills-vs-projects)
 

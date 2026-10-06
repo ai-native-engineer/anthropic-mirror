@@ -294,5 +294,3 @@ Claude now works alongside your team, under its own account, in the places you a
 ## Ready for a new way of working?
 
 [Add to Slack (opens in new tab)](https://api.anthropic.com/integrations/v1/slack/install)[Join Teams waitlist (opens in new tab)](https://claude.com/form/claude-tag-teams-waitlist)
-
-Claude in Slack: Tag @Claude in any thread | Claude by Anthropic

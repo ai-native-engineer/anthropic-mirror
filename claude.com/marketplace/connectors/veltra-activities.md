@@ -62,8 +62,6 @@ Search and compare hotels with public and private wholesale rates.
 
 ### [Tineo](https://claude.com/marketplace/connectors/tineo)
 
-Anthropic verifiedTrending
-
 Connect Tineo to Claude to review trips, flights, hotels and activities, and add or update itinerary details. Organize and share plans with friends in Tineo.
 
 [Add Tineo in Claude (opens in new tab)](https://claude.ai/directory/47af3906-6905-49b7-bde9-363c6b6fa3b8 "Add in Claude")
@@ -76,10 +74,10 @@ Search and book Accor hotels
 
 [Add ALL Accor in Claude (opens in new tab)](https://claude.ai/directory/f6d1695c-f2b8-4641-829f-435ac17cfd02 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=accuweather.com&sz=96)
+![](https://assets.claude.com/8d547f19ecd0534343f8d8b3a7657e18e50ca23f.jpg?w=128&fit=max&auto=format)
 
-### [AccuWeather®](https://claude.com/marketplace/connectors/accuweather)
+### [Trivago](https://claude.com/marketplace/connectors/trivago)
 
-Hyper-local forecasts & alerts
+Use trivago's powerful metasearch to find your ideal hotel and compare prices from multiple providers.
 
-[Add AccuWeather® in Claude (opens in new tab)](https://claude.ai/directory/111502a6-f2e8-45ee-bcf7-a7d325367723 "Add in Claude")
+[Add Trivago in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8718 "Add in Claude")

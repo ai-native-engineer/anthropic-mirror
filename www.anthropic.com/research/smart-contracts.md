@@ -477,3 +477,5 @@ We’re launching a new study using Anthropic Interviewer to learn from your exp
 ## Subscribe to the Frontier Red Team newsletter
 
 Get updates on our latest red-teaming research and findings.
+
+AI agents find smart contract exploits \ Anthropic

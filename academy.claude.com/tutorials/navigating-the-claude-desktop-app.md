@@ -140,7 +140,7 @@ Good to know
 Working in your folders, the built-in browser, computer use, and Record a skill need a paid plan:
 
 * Folders come with every paid plan.
-* The built-in browser is on Pro, Max, and Team, and on Enterprise where your admin allows it.
+* The built-in browser is on Pro, Max, Team, and Enterprise. On Team and Enterprise plans, your organization's owner controls whether it's available.
 * Computer use is in beta on Mac and Windows, for Pro and Max.
 * Record a skill is on Pro, Max, and Team, on Mac.
 

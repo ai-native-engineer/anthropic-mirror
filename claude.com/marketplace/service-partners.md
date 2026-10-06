@@ -52,7 +52,7 @@ ANZCanadaDACH (Germany, Austria, Switzerland)France & BeneluxGreater ChinaIndiaJ
 
 ## Global Premier partners
 
-Show all 15
+Show all 16
 
 [Accenture (opens in new tab)
 
@@ -82,7 +82,7 @@ Deloitte provides industry-leading audit, consulting, tax and advisory services 
 
 ## Preferred partners
 
-Show all 31
+Show all 40
 
 [Aivar Innovations Private Limited (opens in new tab)
 
@@ -104,19 +104,19 @@ We combine business strategy, AI-native execution, and intellectual property (IP
 30+ years navigating change
 8,000+ CI&Ters worldwide
 25+ countries
-100+ major companies servedPreferred](https://partnerhub.claude.com/directory/partner/1784259996332x353627127933057600)[EPAM Systems, Inc. (opens in new tab)
+100+ major companies servedPreferred](https://partnerhub.claude.com/directory/partner/1784259996332x353627127933057600)[Classmethod (opens in new tab)
 
-![](https://api.eulerapp.com/partner-directory/assets/41607d90b6ae0588eedab18bb2e6054c)
+![](https://api.eulerapp.com/partner-directory/assets/1fb2f76ef145b8d5a3e3afb436b65303)
 
-EPAM Systems, Inc. (EPAM) is a global leader in AI transformation engineering and integrated consulting.Preferred](https://partnerhub.claude.com/directory/partner/1784259945260x356686794131264600)[Exadel (opens in new tab)
+Japanese cloud integrator with expertise in AWS, big data, mobile and AI, delivering consulting, design and development.Preferred](https://partnerhub.claude.com/directory/partner/classmethod-inc-partner)[Entelect (opens in new tab)
 
-![](https://api.eulerapp.com/partner-directory/assets/a1d1fcf2a690e903fc6fdd8165b2a0bf)
+![](https://api.eulerapp.com/partner-directory/assets/a103d1d01514878d5d193532bb3eede0)
 
-Exadel AI is a data and AI advisory and engineering company that helps enterprises design, build, and scale the systems at the heart of their business.Preferred](https://partnerhub.claude.com/directory/partner/exadel)
+Technology services company offering end-to-end software engineering, data and digital solutions, from strategy and design to rollout.Preferred](https://partnerhub.claude.com/directory/partner/entelect)
 
 ## Select partners
 
-Show all 152
+Show all 256
 
 [10Clouds Financial Institutions (opens in new tab)
 
@@ -138,15 +138,15 @@ Show all 152
 
 ![](https://api.eulerapp.com/partner-directory/assets/de57e665dd16b52c77e96489cef7945b)
 
-A.Team builds intelligence systems that embed into your existing workflows, learn from your decisions, and get smarter with every business cycle.Select](https://partnerhub.claude.com/directory/partner/1784259993008x356713100372617860)[Accelerize360 Inc (opens in new tab)
+A.Team builds intelligence systems that embed into your existing workflows, learn from your decisions, and get smarter with every business cycle.Select](https://partnerhub.claude.com/directory/partner/1784259993008x356713100372617860)[Accedia (opens in new tab)
 
-![](https://api.eulerapp.com/partner-directory/assets/cb17bbf1e7a1e623d17333ceeab3ebab)
+![](https://api.eulerapp.com/partner-directory/assets/128e545a050c9f1b9939c5aaff662c87)
 
-Accelerize360 is a Salesforce and Snowflake consultancy that helps businesses harness trusted data and strengthen customer relationships, from data innovation and customer segmentation to AI agents built on reliable data.Select](https://partnerhub.claude.com/directory/partner/accelerize360-inc-partner)
+AI and custom software development company delivering engineering, data and technology consulting to companies in the US, UK and Europe.Select](https://partnerhub.claude.com/directory/partner/accedia-partner)
 
 ## All partners
 
-218 partners
+313 partners
 
 [10Clouds Financial Institutions (opens in new tab)
 
@@ -168,7 +168,11 @@ Accelerize360 is a Salesforce and Snowflake consultancy that helps businesses ha
 
 ![](https://api.eulerapp.com/partner-directory/assets/de57e665dd16b52c77e96489cef7945b)
 
-A.Team builds intelligence systems that embed into your existing workflows, learn from your decisions, and get smarter with every business cycle.Select](https://partnerhub.claude.com/directory/partner/1784259993008x356713100372617860)[Accelerize360 Inc (opens in new tab)
+A.Team builds intelligence systems that embed into your existing workflows, learn from your decisions, and get smarter with every business cycle.Select](https://partnerhub.claude.com/directory/partner/1784259993008x356713100372617860)[Accedia (opens in new tab)
+
+![](https://api.eulerapp.com/partner-directory/assets/128e545a050c9f1b9939c5aaff662c87)
+
+AI and custom software development company delivering engineering, data and technology consulting to companies in the US, UK and Europe.Select](https://partnerhub.claude.com/directory/partner/accedia-partner)[Accelerize360 Inc (opens in new tab)
 
 ![](https://api.eulerapp.com/partner-directory/assets/cb17bbf1e7a1e623d17333ceeab3ebab)
 
@@ -188,14 +192,10 @@ adesso SE is one of Germany's largest IT service providers, with more than 11,30
 
 ![](https://api.eulerapp.com/partner-directory/assets/62bd1fe64c386a03a2029b4c9d005cd8)
 
-Aditi Consulting provides AI-powered digital engineering services, bringing strategic AI engineering expertise to leading enterprises at every stage of digital transformation, from AI readiness and data foundations to AI-powered operations.Select](https://partnerhub.claude.com/directory/partner/aditi-consulting-partner)[AgileOps (opens in new tab)
+Aditi Consulting provides AI-powered digital engineering services, bringing strategic AI engineering expertise to leading enterprises at every stage of digital transformation, from AI readiness and data foundations to AI-powered operations.Select](https://partnerhub.claude.com/directory/partner/aditi-consulting-partner)[AE (opens in new tab)
 
-![](https://api.eulerapp.com/partner-directory/assets/a65ed9de0acee689f8dbfe7e2872df9c)
+![](https://api.eulerapp.com/partner-directory/assets/ed640ba23dac0c0970028f59c5df4e04)
 
-Anthropic partner in Vietnam. We help businesses put Claude to work in real operations, from licensing and setup to integrations with SaaS platforms, plus tailored team training.](https://partnerhub.claude.com/directory/partner/agileops)[Agilisium (opens in new tab)
-
-![](https://api.eulerapp.com/partner-directory/assets/280c5bec5ac37c8d810fd360f6b2bf26)
-
-Agilisium is the World's First Life Sciences Context-Centric AI Consulting & Services Company, from Molecule to Market. The company delivers cutting-edge solutions that drive impactful change by combining strong domain expertise with Contextual Autonomous Agentic AI and Advanced Analytics.Select](https://partnerhub.claude.com/directory/partner/1784259987879x368991120948368500)
+Belgian business and IT company helping organisations grow through digital strategy, data and AI, and innovative IT solutions.Select](https://partnerhub.claude.com/directory/partner/ae-nv-partner)
 
 View more

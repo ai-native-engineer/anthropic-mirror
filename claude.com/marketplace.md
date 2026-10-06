@@ -60,7 +60,6 @@ Fast-growing connectors this week.
 1. 01![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)[Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)Amazon Selling Partner MCP
 2. 02![](https://www.gemini.com/favicon.ico)[Gemini](https://claude.com/marketplace/connectors/gemini-mcp)Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
 3. 03![](https://www.coinversa.ai/web-app-manifest-512x512.png)[Coinversa Pulse](https://claude.com/marketplace/connectors/coinversa-pulse)Live crypto, stock, gold & oil trading data from Hyperliquid: see what the best traders and whales are doing on Bitcoin, ETH, the S&P 500 and more
-4. 04![](https://tineo.ai/favicon/favicon-96x96.png)[Tineo](https://claude.com/marketplace/connectors/tineo)Connect Tineo to Claude to review trips, flights, hotels and activities, and add or update itinerary details. Organize and share plans with friends in Tineo.
 
 ### Connectors for Connector category: Productivity
 

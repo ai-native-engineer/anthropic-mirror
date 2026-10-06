@@ -3,6 +3,20 @@
 
 <!-- chunk-start -->
 
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+            - `default_config: object`
+
+              Resolved default configuration for all tools from an MCP server.
+
+              - `enabled: boolean`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                Permission policy for tool execution.
+
+                - `beta_managed_agents_always_allow_policy: object`
+
                   Tool calls are automatically approved without user confirmation.
 
                 - `beta_managed_agents_always_ask_policy: object`
@@ -4489,9 +4503,20 @@ ant beta:sessions:threads:events list \
       ],
       "type": "user.message",
       "processed_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
+      "content": [
+        {
+          "text": "Let me look up order #1234 for you.",
+          "type": "text"
+        }
+      ],
+      "processed_at": "2026-03-15T10:00:00Z",
+      "type": "agent.message"
     }
   ],
-  "next_page": "next_page"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```
 
@@ -14572,19 +14597,17 @@ ant beta:memory-stores list \
 {
   "data": [
     {
-      "id": "id",
-      "archived_at": "2019-12-27T18:11:19.117Z",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "description": "description",
-      "metadata": {
-        "foo": "string"
-      },
-      "name": "name",
+      "id": "memstore_01Wf3kQ8tZxB2mVr7HcJ4aNd",
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "description": "Per-user preferences and project context.",
+      "metadata": {},
+      "name": "User Preferences",
       "type": "memory_store",
-      "updated_at": "2019-12-27T18:11:19.117Z"
+      "updated_at": "2026-03-15T10:00:00Z"
     }
   ],
-  "next_page": "next_page"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```
 
@@ -15181,19 +15204,19 @@ ant beta:memory-stores:memories list \
 {
   "data": [
     {
-      "id": "id",
-      "content_sha256": "content_sha256",
-      "content_size_bytes": 0,
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "memory_store_id": "memory_store_id",
-      "memory_version_id": "memory_version_id",
-      "path": "path",
+      "id": "mem_011CZkZ9X2dpNyB6YbtxvB6e",
+      "content_sha256": "ba7936d94c84d948a2232088f78228f175df6a8353b2d5bc9228eee5794a0024",
+      "content_size_bytes": 28,
+      "created_at": "2026-03-15T10:00:00Z",
+      "memory_store_id": "memstore_01Wf3kQ8tZxB2mVr7HcJ4aNd",
+      "memory_version_id": "memver_011CZkZBJq5dWxk9fVLNcPht",
+      "path": "/preferences/formatting.md",
       "type": "memory",
-      "updated_at": "2019-12-27T18:11:19.117Z",
-      "content": "content"
+      "updated_at": "2026-03-15T10:00:00Z",
+      "content": null
     }
   ],
-  "next_page": "next_page"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```
 
@@ -15725,28 +15748,28 @@ ant beta:memory-stores:memory-versions list \
 {
   "data": [
     {
-      "id": "id",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "memory_id": "memory_id",
-      "memory_store_id": "memory_store_id",
+      "id": "memver_011CZkZBJq5dWxk9fVLNcPht",
+      "created_at": "2026-03-15T10:00:00Z",
+      "memory_id": "mem_011CZkZ9X2dpNyB6YbtxvB6e",
+      "memory_store_id": "memstore_01Wf3kQ8tZxB2mVr7HcJ4aNd",
       "operation": "created",
       "type": "memory_version",
-      "content": "content",
-      "content_sha256": "content_sha256",
-      "content_size_bytes": 0,
+      "content": null,
+      "content_sha256": "ba7936d94c84d948a2232088f78228f175df6a8353b2d5bc9228eee5794a0024",
+      "content_size_bytes": 28,
       "created_by": {
-        "session_id": "x",
+        "session_id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
         "type": "session_actor"
       },
-      "path": "path",
-      "redacted_at": "2019-12-27T18:11:19.117Z",
+      "path": "/preferences/formatting.md",
+      "redacted_at": null,
       "redacted_by": {
         "session_id": "x",
         "type": "session_actor"
       }
     }
   ],
-  "next_page": "next_page"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```
 
@@ -26298,6 +26321,10 @@ List Workspaces
 
   Whether to include Workspaces that have been archived in the response
 
+- `--include-default: optional boolean`
+
+  Whether to include the organization's default Workspace in the response
+
 - `--limit: optional number`
 
   Number of items to return per page.
@@ -33409,71 +33436,3 @@ ant beta:organization:spend-limits:increase-requests deny \
     "type": "user_actor",
     "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
   },
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "period": "daily",
-  "resolved_at": "2019-12-27T18:11:19.117Z",
-  "resolved_by": {
-    "deleted": true,
-    "email_address": "email_address",
-    "name": "name",
-    "type": "user_actor",
-    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-  },
-  "spend_summary": {
-    "actor": {
-      "deleted": true,
-      "email_address": "email_address",
-      "name": "name",
-      "type": "user_actor",
-      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-    },
-    "amount": "50000",
-    "currency": "USD",
-    "period": "daily",
-    "period_to_date_spend": "12050.5",
-    "scope": {
-      "type": "user",
-      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-    },
-    "source": {
-      "type": "user",
-      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-    },
-    "spend_limit_id": "spend_limit_id"
-  },
-  "status": "approved",
-  "type": "spend_limit_increase_request"
-}
-```
-
-## Beta › Organization › RBAC Groups
-
-### Create RBAC Group
-
-`$ ant beta:organization:rbac-groups create`
-
-**POST** `/v1/organizations/rbac_groups`
-
-Create an RBAC Group in the Claude Enterprise tenant. Groups created via the API have source type `"direct"`.
-
-The RBAC Groups API is available to Claude Enterprise organizations only.
-
-#### Parameters
-
-- `--name: string`
-
-  Name of the RBAC Group. Not uniqueness-enforced.
-
-  minLength: 1, maxLength: 255
-
-#### Returns
-
-- `beta_rbac_group: object`
-
-  - `type: "rbac_group"`
-
-    Object type.
-
-    For RBAC Groups, this is always `"rbac_group"`.
-
-  - `id: string`

@@ -84,4 +84,4 @@ Subscribe
 
 ## More resources
 
-[Collaborating with AI18 resources](https://academy.claude.com/collections/collaborating-with-ai)[Building effective human-agent teams9 resources](https://academy.claude.com/collections/human-agent-teams)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)
+[Collaborating with AI18 resources](https://academy.claude.com/collections/collaborating-with-ai)[Building effective human-agent teams10 resources](https://academy.claude.com/collections/human-agent-teams)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

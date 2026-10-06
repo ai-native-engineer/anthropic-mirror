@@ -30,7 +30,7 @@ To regain access to your account on any device, you'll need to authenticate agai
 
 If you used your Claude account to authenticate into Claude Code, you can manage your authorization tokens by navigating to **[Settings > Claude Code](https://claude.ai/settings/claude-code)**. To remove a token and log out of Claude Code, click the trash can icon.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1791161100&signature=d42d9ae2dd8d163838e54f88c9c13eb50075792a0019a991e169342de31bf06b&req=dSYnHst4nohdWvMW1HO4zVuHix380Ga6AQofdwM8qVeamviZy3IBc6RhCwO5%0ASRcIhXCtIjLjvuj6X1M%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1791161100&signature=d42d9ae2dd8d163838e54f88c9c13eb50075792a0019a991e169342de31bf06b&req=dSYnHst4nohdWvMW1HO4zVuHix380Ga6AQofdwM8qVeamviZy3IBc6RhCwO5%0ASRcIhXCtIjLjvuj6X1M%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1791252000&signature=ee6f78895c5f73ab3f2b70d861cd9cbd681e7c00cfee0ef579051f4b3cc7809f&req=dSYnHst4nohdWvMW1HO4zVuHix3%2F02W7AQofdwM8qVfy7u3QKScevn7zIShW%0AKh3rr%2FSdhynZH7wtMHs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1791252000&signature=ee6f78895c5f73ab3f2b70d861cd9cbd681e7c00cfee0ef579051f4b3cc7809f&req=dSYnHst4nohdWvMW1HO4zVuHix3%2F02W7AQofdwM8qVfy7u3QKScevn7zIShW%0AKh3rr%2FSdhynZH7wtMHs%3D%0A)
 
 ## Unable to access your account?
 

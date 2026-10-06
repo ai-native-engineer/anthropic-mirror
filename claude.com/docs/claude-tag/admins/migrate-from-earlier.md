@@ -10,7 +10,7 @@
 
 If your organization already used the earlier Claude in Slack, including [Claude Code in Slack](https://code.claude.com/docs/en/slack), Claude Tag replaces it. Your existing Slack app and `@Claude` handle stay, and no data migrates. What changes is who Claude acts as and who sets it up.
 
-On the Team plan, a single [**Enable Claude Tag** switch](https://claude.com/docs/claude-tag/admins/workspaces#turn-claude-tag-on-or-off-on-the-team-plan) replaces the **Claude Tag version** controls described on this page, and there is nothing to migrate; the switch appears only while no scope routes to the earlier app.
+If your Team plan organization has the single [**Respond in channels** switch](https://claude.com/docs/claude-tag/admins/workspaces#turn-claude-tag-on-or-off-on-the-team-plan), it has no **Claude Tag version** controls and there is nothing to migrate.
 
 ##  Switch your workspace to Claude Tag
 
@@ -24,13 +24,17 @@ Open [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/cl
 
 Check for channels still on Legacy
 
-Under **Claude Tag’s access** → **Slack**, open each scope’s **Advanced** section. Pairing defaults every scope’s **Claude Tag version** to **New**, so this is usually quick. Set any showing **Legacy** to **New**.
+Pairing defaults every workspace and channel to **New**, so this is usually quick.
+
+1. Go to [**Claude’s access > Channels**](https://claude.ai/admin-settings/claude-tag?access=channels). A workspace or channel set to Legacy shows **legacy Claude in Slack** in the **Changes from defaults** column.
+2. Open each one, and on its **Advanced** tab set **Claude Tag version** to **New**.
+3. The **Slack** row never shows that marker, so also go to [**Claude’s access > Channels > Slack**](https://claude.ai/admin-settings/claude-tag/channels/slack) and set **Claude Tag version** on its **Advanced** tab to **New** if it shows **Legacy**.
 
 3
 
 Give Claude its connections
 
-The New version starts with no access of its own. GitHub repositories and other connections do not carry over from individual users’ linked accounts, so code requests in a switched channel have nothing to clone until you configure them. Follow the [setup overview](https://claude.com/docs/claude-tag/admins/setup-overview) to add connections, and [GitHub access](https://claude.com/docs/claude-tag/admins/configure-github) for code work specifically.If your teams keep custom skills in a repository’s `.claude/skills/` folder, those skills apply only in threads that have the repository. Grant the repository in an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections#your-first-access-bundle) and have users name it in the first message. To give skills to every channel under a scope, add them through a [skills repository](https://claude.com/docs/claude-tag/admins/skills-repo).
+The New version starts with no access of its own. GitHub repositories and other connections do not carry over from individual users’ linked accounts, so code requests in a switched channel have nothing to clone until you configure them. Follow the [setup overview](https://claude.com/docs/claude-tag/admins/setup-overview) to add connections, and [GitHub access](https://claude.com/docs/claude-tag/admins/configure-github) for code work specifically.If your teams keep custom skills in a repository’s `.claude/skills/` folder, those skills apply only in threads that have the repository. Add the repository to a [bundle](https://claude.com/docs/claude-tag/concepts/glossary#access-bundle) that applies to the channel, and have users name it in the first message. To give skills to every channel in a workspace or in all of Slack, add them through a [skills repository](https://claude.com/docs/claude-tag/admins/skills-repo).
 
 4
 
@@ -38,13 +42,13 @@ Tell your users
 
 Send them [Get started](https://claude.com/docs/claude-tag/users/getting-started). The visible change is that work now belongs to the channel; see [What existing users notice after the switch](#what-existing-users-notice-after-the-switch) below.
 
-**You’ll see:** the workspace appears under **Where Claude Tag works**, and the **Claude Tag version** on each scope shows **New**.
+**You’ll see:** the workspace under **Connected workspaces** on the **Slack** page, **New** as the **Slack** page’s **Claude Tag version**, and no row on the **Channels** tab showing **legacy Claude in Slack**.
 
 ###  If `@Claude` doesn’t respond at all
 
 On Enterprise Grid, an earlier install can lose its connection and stop responding in every workspace. See [Claude is silent everywhere on Enterprise Grid](https://claude.com/docs/claude-tag/admins/troubleshooting#claude-is-silent-everywhere-on-enterprise-grid) for the reinstall that refreshes it without uninstalling, then send `@Claude connect` again in a channel of that workspace and [pair the workspace](https://claude.com/docs/claude-tag/admins/setup-overview#pair-your-slack-workspace) with the new code.
 
-The earlier Claude in Slack app, shown as **Legacy** in admin settings, is being deprecated; check with your account team for the cutover date. After that date, channels still set to Legacy stop responding until the scope’s Claude Tag version is set to New.
+The earlier Claude in Slack app, shown as **Legacy** in admin settings, is being deprecated; check with your account team for the cutover date. After that date, channels still set to Legacy stop responding until their **Claude Tag version** is set to **New**.
 
 ##  What stays the same
 
@@ -64,11 +68,11 @@ The earlier app linked each user’s own claude.ai account, so it answered as th
 | Standing work | None | Routines and channel watching |
 | Who sets it up | Each user, individually | An Owner, once |
 
-The **Claude Tag version** setting on each scope chooses whether the New or Legacy version answers there, and the scope’s **Enable Claude Tag** switch turns both off. Access bundles only apply where the New version answers. See [Turn Claude Tag on or off and set the version for a scope](https://claude.com/docs/claude-tag/admins/workspaces#turn-claude-tag-on-or-off-and-set-the-version-for-a-scope) for both controls and where to set them.
+The **Claude Tag version** setting on each workspace’s and channel’s page chooses whether the New or Legacy version answers there, and the page’s enable switch turns both off. Bundles only apply where the New version answers. See [Turn Claude Tag on or off and set the version for a scope](https://claude.com/docs/claude-tag/admins/workspaces#turn-claude-tag-on-or-off-and-set-the-version-for-a-scope) for both controls and where to set them.
 
 ##  Two versions of the same Slack app
 
-The earlier Claude in Slack and Claude Tag are two versions of the same `@Claude` Slack app, not two apps, so there is nothing to uninstall. You choose which version answers per scope with the **Claude Tag version** setting (**New**, **Legacy**, or **Inherit**), so one workspace can run both during a phased switch. Turning a scope’s **Enable Claude Tag** switch off silences both versions there; to keep the earlier behavior in a scope, set its **Claude Tag version** to **Legacy**.
+The earlier Claude in Slack and Claude Tag are two versions of the same `@Claude` Slack app, not two apps, so there is nothing to uninstall. You choose which version answers in each workspace and channel with the **Claude Tag version** setting (**New**, **Legacy**, or **Inherit**), so one workspace can run both during a phased switch. Turning off a workspace’s or channel’s enable switch silences both versions there. To keep the earlier behavior in a workspace or channel, set its **Claude Tag version** to **Legacy**.
 To tell which version answered in a channel, look at who authored the work. The New version authors code as the Claude GitHub App and keeps work in the channel’s thread; if `@Claude` still opens pull requests under the asker’s name, that channel is answering with the Legacy version.
 
 ##  What existing users notice after the switch
