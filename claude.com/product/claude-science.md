@@ -3171,7 +3171,7 @@ Thank you.
 
 [Claude Science AMA: How to accelerate scientific discovery
 
-Webinar](https://www.anthropic.com/webinars/claude-science-ama-how-to-accelerate-scientific-discovery)
+Webinar](https://claude.com/resources/webinars/claude-science-ama-how-to-accelerate-scientific-discovery)
 
 [Get started with Claude Science
 

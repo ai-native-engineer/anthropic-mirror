@@ -94,8 +94,6 @@ Add to calendar
 
 ## Anthropic at AWS re:Invent 2026
 
-Add to calendar
-
 ### Anthropic and AWS
 
 Join Anthropic at AWS re:Invent 2026 to learn how customers are making employees smarter, automating complex operations, and building the next generation of AI products with Claude on AWS.

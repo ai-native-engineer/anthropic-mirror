@@ -42,7 +42,7 @@ Introducing Agent Skills
 
 Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 
-[Read more](https://claude.com/blog/skills)
+[Read more](https://claude.com/resources/articles/skills)
 
 [Lyft](https://www.lyft.com/), a global mobility platform across six continents and thousands of cities, handles customer support interactions that range from simple fare questions to complex issues. The company's support team is one of the only teams at Lyft that directly interface with customers, a critically important task to the company's mission of serving and connecting riders and drivers.
 

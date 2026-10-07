@@ -3,24 +3,6 @@
 
 <!-- chunk-start -->
 
-      Next generation of intelligence for the hardest knowledge work and coding problems
-
-    - `"claude-mythos-5"`
-
-      Most capable model for cybersecurity and biology research
-
-    - `"claude-opus-5"`
-
-      Powerful intelligence for long-running agents and coding
-
-    - `"claude-opus-4-8"`
-
-      Powerful intelligence for long-running agents and coding
-
-    - `"claude-opus-4-7"`
-
-      Powerful intelligence for long-running agents and coding
-
     - `"claude-opus-4-6"`
 
       Powerful intelligence for long-running agents and coding
@@ -29823,3 +29805,29 @@
     - `start_char_index: number`
 
       minimum: 0
+
+  - `beta_citation_page_location: object`
+
+    - `type: "page_location"`
+
+    - `cited_text: string`
+
+    - `document_index: number`
+
+      minimum: 0
+
+    - `document_title: string`
+
+    - `end_page_number: number`
+
+    - `file_id: string`
+
+    - `start_page_number: number`
+
+      minimum: 1
+
+  - `beta_citation_content_block_location: object`
+
+    - `type: "content_block_location"`
+
+    - `cited_text: string`

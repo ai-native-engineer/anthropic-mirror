@@ -17,6 +17,6 @@ These strategies aren’t perfect and can only go so far toward preserving or re
 
 * [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
 * [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
-* [Set a default model for your organization](https://support.claude.com/en/articles/15330088-set-a-default-model-for-your-organization)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
+* [Claude for Teachers: your data and our terms](https://support.claude.com/en/articles/15926041-claude-for-teachers-your-data-and-our-terms)
 * [How Claude marks AI-generated content](https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content)

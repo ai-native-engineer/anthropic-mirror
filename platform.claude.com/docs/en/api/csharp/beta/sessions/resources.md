@@ -21,29 +21,25 @@ Add Session Resource
 
   - `required Type type`
 
-    Body param
-
     - `File("file")`
 
-  - `required string sessionID`
-
-    Path param
+  - `required string sessionID` (path parameter)
 
   - `required string fileID`
 
-    Body param: ID of a previously uploaded file.
+    ID of a previously uploaded file.
 
     minLength: 1, maxLength: 128
 
   - `string? mountPath`
 
-    Body param: Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+    Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
 
     minLength: 1, maxLength: 4096
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -145,9 +141,9 @@ Add Session Resource
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -215,23 +211,21 @@ List Session Resources
 
 - `ResourceListParams parameters`
 
-  - `required string sessionID`
+  - `required string sessionID` (path parameter)
 
-    Path param
+  - `int limit` (query parameter)
 
-  - `int limit`
-
-    Query param: Maximum number of resources to return per page (max 1000). If omitted, returns all resources.
+    Maximum number of resources to return per page (max 1000). If omitted, returns all resources.
 
     format: int32
 
-  - `string page`
+  - `string page` (query parameter)
 
-    Query param: Opaque cursor from a previous response's `next_page` field.
+    Opaque cursor from a previous response's `next_page` field.
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -333,9 +327,9 @@ List Session Resources
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -502,17 +496,13 @@ Get Session Resource
 
 - `ResourceRetrieveParams parameters`
 
-  - `required string sessionID`
+  - `required string sessionID` (path parameter)
 
-    Path param
+  - `required string resourceID` (path parameter)
 
-  - `required string resourceID`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Path param
-
-  - `IReadOnlyList<AnthropicBeta> betas`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -614,9 +604,9 @@ Get Session Resource
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -771,23 +761,19 @@ Update Session Resource
 
 - `ResourceUpdateParams parameters`
 
-  - `required string sessionID`
+  - `required string sessionID` (path parameter)
 
-    Path param
-
-  - `required string resourceID`
-
-    Path param
+  - `required string resourceID` (path parameter)
 
   - `required string authorizationToken`
 
-    Body param: New authorization token for the resource. Currently only `github_repository` resources support token rotation.
+    New authorization token for the resource. Currently only `github_repository` resources support token rotation.
 
     minLength: 1, maxLength: 4096
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -889,9 +875,9 @@ Update Session Resource
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -1047,17 +1033,13 @@ Delete Session Resource
 
 - `ResourceDeleteParams parameters`
 
-  - `required string sessionID`
+  - `required string sessionID` (path parameter)
 
-    Path param
+  - `required string resourceID` (path parameter)
 
-  - `required string resourceID`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Path param
-
-  - `IReadOnlyList<AnthropicBeta> betas`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -1159,9 +1141,9 @@ Delete Session Resource
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 

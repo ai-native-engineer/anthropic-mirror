@@ -136,16 +136,26 @@ Deploy AI agents, apps, and websites in seconds with security and governance.
 
 Code
 
-## Why buy through the Claude Marketplace
+## Frequently asked questions
 
-### Consolidated AI spend
+### What are agents and products on Claude Marketplace?
 
-Use your existing Anthropic commitment across multiple Claude-powered partner tools.
+Software from our Claude-powered partners listed above. Eligible customers can put a portion of their Anthropic commitment toward their software purchases from these vendors.
 
-### Enterprise-ready partners
+### Can I use my Anthropic commitment?
 
-Browse Claude-powered tools built for enterprise teams. Spend less time evaluating, more time building.
+Yes, if you're eligible. Eligible organizations with an Anthropic commitment can put a portion of it toward the agents and products on this page. The spend comes from budget you've already approved, so there's no new budget request.
 
-### Built to scale with you
+Using your commitment this way is in limited preview. Talk to your account team or request to buy to see if you're eligible.
 
-Add partners as your needs evolve. Your commitment flexes with your organization.
+### How do purchasing and billing work?
+
+Select “Request to buy” or contact your account team to check if you're eligible. Your purchases then count toward a portion of your Anthropic commitment.
+
+### Can I move my spend if I’m already a customer of an eligible product?
+
+Yes, if you're eligible. Eligible existing customers may be able to expand or upgrade through Claude Marketplace. Talk to your account team to see what qualifies.
+
+### How do I list my product?
+
+[Submit your product](https://claude.com/marketplace-partners) and our team will review for eligibility. We list Claude-powered products built for the needs of enterprise customers.

@@ -47,7 +47,7 @@ To opt out of the Development Partner Program:
 Please contact your Anthropic account executive to see if you are eligible for the Development Partner Program. These organizations will not see the option to join the Development Partner Program in their settings.
 
 * [Does Anthropic Act as a Data Processor or Controller?](https://support.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
-* [Real-time cyber safeguards on Claude Opus and Sonnet](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet)
+* [Cyber Verification Program](https://support.claude.com/en/articles/14604842-cyber-verification-program)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
 * [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
 * [Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)

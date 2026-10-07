@@ -15,7 +15,7 @@ Update Deployment
 
 ## Parameters
 
-- `deployment_id: str`
+- `deployment_id: str` (path parameter)
 
   Unique identifier of the deployment to update.
 
@@ -419,7 +419,7 @@ Update Deployment
 
   Vault IDs. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 50.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -525,7 +525,7 @@ Update Deployment
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 

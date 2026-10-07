@@ -48,6 +48,21 @@ The `[sandbox.network]` table adjusts the network allowlist the analysis sandbox
 | `allowed_domains` | array of strings | `[]` | Domains added to the built-in allowlist, as exact hostnames or wildcards such as `*.example.org`. While the organization manages the [network allowlist](https://claude.com/docs/claude-science/admin-controls#network-allowlist) under **Organization settings** > **Claude Science**, these domains are set aside and the organization’s list applies. |
 | `denied_domains` | array of strings | `[]` | Domains added to the built-in denylist. A denied domain is blocked even if it also appears on the allowlist, and the built-in denylist entries cannot be removed. |
 
+##  Web search and upload keys
+
+Put `enable_web_search`, `chunked_upload_threshold_bytes`, or both at the top of `config.toml`, above the first line in square brackets such as `[network]`, as in this example:
+
+```
+# Turn off Claude's web search tool.
+enable_web_search = false
+
+# Upload attached files larger than 4 MiB in 5 MiB chunks (an example value for a proxy that limits requests to 8 MiB).
+chunked_upload_threshold_bytes = 4194304
+```
+
+* **`enable_web_search`** (default `true`): `false` turns off Claude’s web search tool. Literature search, connectors, and the sites that code in the sandbox can reach are unaffected.
+* **`chunked_upload_threshold_bytes`** (default `47185920`, 45 MiB): Claude Science uploads an attached file larger than this value in 5 MiB chunks instead of one request. When a reverse proxy in front of Claude Science limits request size, set it below that limit, and keep that limit above 5 MiB. A value above the default prevents Claude Science from starting.
+
 ##  Related resources
 
 * [Use Claude Science on a corporate network](https://claude.com/docs/claude-science/corporate-networks): how to apply these keys for a proxy, TLS inspection, or an internal mirror

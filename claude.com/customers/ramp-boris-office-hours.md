@@ -112,7 +112,7 @@ How Anthropic teams use Claude Code
 
 From debugging production issues to navigating unfamiliar codebases to building custom automation—here's how teams across Anthropic use Claude Code.
 
-[Read more](https://claude.com/blog/how-anthropic-teams-use-claude-code)
+[Read more](https://claude.com/resources/articles/how-anthropic-teams-use-claude-code)
 
 > "We don't really like to impose a certain token budget or a tool budget, or tell people that they should use this thing or that thing."
 

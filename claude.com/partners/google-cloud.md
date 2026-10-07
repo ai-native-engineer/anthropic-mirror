@@ -82,7 +82,7 @@ See how to connect Claude to BigQuery through Cloud API Registry. Build an agent
 
 Explore our webinar library for on-demand sessions and upcoming events from Anthropic and Google Cloud experts.
 
-[Explore webinars (opens in new tab)](https://www.anthropic.com/webinar-series/claude-on-vertex-ai)
+[Explore webinars (opens in new tab)](https://claude.com/resources/webinar-series/claude-on-google-cloud)
 
 ### Proven results across industries
 

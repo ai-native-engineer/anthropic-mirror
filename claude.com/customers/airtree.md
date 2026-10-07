@@ -108,7 +108,7 @@ How to create Skills
 
 Follow our step-by-step guide to write custom skills that extend Claude's capabilities with real examples and practical patterns.
 
-[Read more](https://claude.com/blog/how-to-create-skills-key-steps-limitations-and-examples)
+[Read more](https://claude.com/resources/articles/how-to-create-skills-key-steps-limitations-and-examples)
 
 > "The value of AI in a workflow like ours isn't replacing judgment; it's in protecting the time and space for it."
 

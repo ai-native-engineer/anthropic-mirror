@@ -58,4 +58,4 @@ You can turn retention off again from the same switch. If the Workspace uses cus
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
 * [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
 * [Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)
-* [Assign a program to workspaces in Claude Console](https://support.claude.com/en/articles/16764810-assign-a-program-to-workspaces-in-claude-console)
+* [Use Claude Code (local mode) and Claude Cowork (local mode) on a HIPAA-ready Enterprise plan](https://support.claude.com/en/articles/17318731-use-claude-code-local-mode-and-claude-cowork-local-mode-on-a-hipaa-ready-enterprise-plan)

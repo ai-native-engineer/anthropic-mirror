@@ -1,6 +1,6 @@
 <!-- source: https://claude.com/marketplace/connectors/elevenlabs -->
 
-Connector URL`https://api.elevenlabs.io/v1/mcp`
+Connector URL`https://api.elevenlabs.io/v1/mcp-claude-marketplace`
 
 More[Documentation (opens in new tab)](https://elevenlabs.io/docs/eleven-agents/operate/hosted-mcp)[Support (opens in new tab)](https://help.elevenlabs.io)[Privacy policy (opens in new tab)](https://elevenlabs.io/privacy-policy)
 

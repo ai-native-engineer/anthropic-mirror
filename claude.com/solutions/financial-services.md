@@ -4,7 +4,7 @@ Latest news
 
 Introducing Claude for financial advisors
 
-[Learn more](https://claude.com/blog/claude-for-financial-advisors)
+[Learn more](https://claude.com/resources/articles/claude-for-financial-advisors)
 
 ![](https://assets.claude.com/650d7729c393e0a6c243ebe61f9b6401c93fd1c8.jpg)
 

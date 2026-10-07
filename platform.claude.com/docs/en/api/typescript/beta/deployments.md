@@ -21,7 +21,7 @@ Create Deployment
 
   - `agent: string | BetaManagedAgentsAgentParams`
 
-    Body param: Agent to deploy. Accepts the `agent` ID string, which pins the latest version, or an `agent` object with both id and version specified. The agent must exist and not be archived.
+    Agent to deploy. Accepts the `agent` ID string, which pins the latest version, or an `agent` object with both id and version specified. The agent must exist and not be archived.
 
     - `string`
 
@@ -45,13 +45,13 @@ Create Deployment
 
   - `environment_id: string`
 
-    Body param: ID of the `environment` defining the container configuration for sessions created from this deployment.
+    ID of the `environment` defining the container configuration for sessions created from this deployment.
 
     minLength: 1, maxLength: 128
 
   - `initial_events: Array<BetaManagedAgentsDeploymentInitialEventParams>`
 
-    Body param: Events to send to each session immediately after creation. At least 1, maximum 50.
+    Events to send to each session immediately after creation. At least 1, maximum 50.
 
     - `interface BetaManagedAgentsUserMessageEventParams`
 
@@ -271,13 +271,13 @@ Create Deployment
 
   - `name: string`
 
-    Body param: Human-readable name for the deployment.
+    Human-readable name for the deployment.
 
     minLength: 1, maxLength: 256
 
   - `budget?: BetaManagedAgentsBudgetLimit | null`
 
-    Body param: Enforced spend ceiling stamped onto each session created from this deployment, copied at session-creation time. Omit to leave sessions uncapped. The deployment agent's model must have a public list price, or the request is rejected; a multiagent roster is re-validated in full when each fire copies the cap, which fails closed the same way.
+    Enforced spend ceiling stamped onto each session created from this deployment, copied at session-creation time. Omit to leave sessions uncapped. The deployment agent's model must have a public list price, or the request is rejected; a multiagent roster is re-validated in full when each fire copies the cap, which fails closed the same way.
 
     - `type: "limit"`
 
@@ -295,17 +295,17 @@ Create Deployment
 
   - `description?: string | null`
 
-    Body param: Description of what the deployment does.
+    Description of what the deployment does.
 
     maxLength: 2048
 
   - `metadata?: Record<string, string>`
 
-    Body param: Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
 
   - `resources?: Array<BetaManagedAgentsGitHubRepositoryResourceParams | BetaManagedAgentsFileResourceParams | BetaManagedAgentsMemoryStoreResourceParam>`
 
-    Body param: Resources (e.g. repositories, files) to mount into each session's container. Maximum 500.
+    Resources (e.g. repositories, files) to mount into each session's container. Maximum 500.
 
     - `interface BetaManagedAgentsGitHubRepositoryResourceParams`
 
@@ -399,7 +399,7 @@ Create Deployment
 
   - `schedule?: BetaManagedAgentsScheduleParams | null`
 
-    Body param: Optional recurring cron schedule. When present, the deployment fires automatically. Both expression and timezone are required when schedule is set.
+    Optional recurring cron schedule. When present, the deployment fires automatically. Both expression and timezone are required when schedule is set.
 
     - `type: "cron"`
 
@@ -417,11 +417,11 @@ Create Deployment
 
   - `vault_ids?: Array<string>`
 
-    Body param: Vault IDs for stored credentials the agent can use during sessions created from this deployment. Maximum 50.
+    Vault IDs for stored credentials the agent can use during sessions created from this deployment. Maximum 50.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -525,9 +525,9 @@ Create Deployment
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -1151,39 +1151,39 @@ List Deployments
 
 - `params: DeploymentListParams`
 
-  - `agent_id?: string`
+  - `agent_id?: string` (query parameter)
 
-    Query param: Filter by agent ID.
+    Filter by agent ID.
 
-  - `"created_at[gte]"?: string`
+  - `"created_at[gte]"?: string` (query parameter)
 
-    Query param: Return deployments created at or after this time (inclusive).
-
-    format: date-time
-
-  - `"created_at[lte]"?: string`
-
-    Query param: Return deployments created at or before this time (inclusive).
+    Return deployments created at or after this time (inclusive).
 
     format: date-time
 
-  - `include_archived?: boolean`
+  - `"created_at[lte]"?: string` (query parameter)
 
-    Query param: When true, includes archived deployments. Default: false (exclude archived).
+    Return deployments created at or before this time (inclusive).
 
-  - `limit?: number`
+    format: date-time
 
-    Query param: Maximum results per page. Default 20, maximum 100.
+  - `include_archived?: boolean` (query parameter)
+
+    When true, includes archived deployments. Default: false (exclude archived).
+
+  - `limit?: number` (query parameter)
+
+    Maximum results per page. Default 20, maximum 100.
 
     format: int32
 
-  - `page?: string`
+  - `page?: string` (query parameter)
 
-    Query param: Opaque pagination cursor.
+    Opaque pagination cursor.
 
-  - `status?: BetaManagedAgentsDeploymentStatus`
+  - `status?: BetaManagedAgentsDeploymentStatus` (query parameter)
 
-    Query param: Filter by status: `active` or `paused`. Omit for both. To include archived deployments, use `include_archived` instead; the two cannot be combined.
+    Filter by status: `active` or `paused`. Omit for both. To include archived deployments, use `include_archived` instead; the two cannot be combined.
 
     - `"active"`
 
@@ -1193,9 +1193,9 @@ List Deployments
 
       The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -1299,9 +1299,9 @@ List Deployments
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -1922,13 +1922,13 @@ Get Deployment
 
 ### Parameters
 
-- `deploymentID: string`
+- `deploymentID: string` (path parameter)
 
   Unique identifier of the deployment.
 
 - `params: DeploymentRetrieveParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -2034,7 +2034,7 @@ Get Deployment
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -2653,7 +2653,7 @@ Update Deployment
 
 ### Parameters
 
-- `deploymentID: string`
+- `deploymentID: string` (path parameter)
 
   Unique identifier of the deployment to update.
 
@@ -2661,7 +2661,7 @@ Update Deployment
 
   - `agent?: string | BetaManagedAgentsAgentParams`
 
-    Body param: Agent to deploy. Accepts the `agent` ID string, which re-pins to the latest version, or an `agent` object with both id and version specified. Omit to preserve. Cannot be cleared.
+    Agent to deploy. Accepts the `agent` ID string, which re-pins to the latest version, or an `agent` object with both id and version specified. Omit to preserve. Cannot be cleared.
 
     - `string`
 
@@ -2685,7 +2685,7 @@ Update Deployment
 
   - `budget?: BetaManagedAgentsBudgetLimit | null`
 
-    Body param: Spend ceiling for future sessions. Full replacement. Omit to preserve; send null to clear (sessions created afterwards are uncapped). The deployment agent's model must have a public list price, or the request is rejected; a multiagent roster is re-validated in full when each fire copies the cap, which fails closed the same way.
+    Spend ceiling for future sessions. Full replacement. Omit to preserve; send null to clear (sessions created afterwards are uncapped). The deployment agent's model must have a public list price, or the request is rejected; a multiagent roster is re-validated in full when each fire copies the cap, which fails closed the same way.
 
     - `type: "limit"`
 
@@ -2703,19 +2703,19 @@ Update Deployment
 
   - `description?: string | null`
 
-    Body param: Description. Omit to preserve; send empty string or null to clear.
+    Description. Omit to preserve; send empty string or null to clear.
 
     maxLength: 2048
 
   - `environment_id?: string`
 
-    Body param: ID of the `environment` where sessions run. Omit to preserve. Cannot be cleared.
+    ID of the `environment` where sessions run. Omit to preserve. Cannot be cleared.
 
     maxLength: 128
 
   - `initial_events?: Array<BetaManagedAgentsDeploymentInitialEventParams>`
 
-    Body param: Initial events. Full replacement. Omit to preserve. Cannot be cleared. At least 1, maximum 50.
+    Initial events. Full replacement. Omit to preserve. Cannot be cleared. At least 1, maximum 50.
 
     - `interface BetaManagedAgentsUserMessageEventParams`
 
@@ -2935,17 +2935,17 @@ Update Deployment
 
   - `metadata?: Record<string, string | null> | null`
 
-    Body param: Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
+    Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
 
   - `name?: string`
 
-    Body param: Human-readable name. Must be non-empty. Omit to preserve. Cannot be cleared.
+    Human-readable name. Must be non-empty. Omit to preserve. Cannot be cleared.
 
     maxLength: 256
 
   - `resources?: Array<BetaManagedAgentsGitHubRepositoryResourceParams | BetaManagedAgentsFileResourceParams | BetaManagedAgentsMemoryStoreResourceParam> | null`
 
-    Body param: Session resources. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 500.
+    Session resources. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 500.
 
     - `interface BetaManagedAgentsGitHubRepositoryResourceParams`
 
@@ -3039,7 +3039,7 @@ Update Deployment
 
   - `schedule?: BetaManagedAgentsScheduleParams | null`
 
-    Body param: Cron schedule. Full replacement. Omit to preserve; send null to clear (revert to manual-only).
+    Cron schedule. Full replacement. Omit to preserve; send null to clear (revert to manual-only).
 
     - `type: "cron"`
 
@@ -3057,11 +3057,11 @@ Update Deployment
 
   - `vault_ids?: Array<string> | null`
 
-    Body param: Vault IDs. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 50.
+    Vault IDs. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 50.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -3165,9 +3165,9 @@ Update Deployment
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -3784,13 +3784,13 @@ Archive Deployment
 
 ### Parameters
 
-- `deploymentID: string`
+- `deploymentID: string` (path parameter)
 
   Unique identifier of the deployment to archive.
 
 - `params: DeploymentArchiveParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -3896,7 +3896,7 @@ Archive Deployment
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -4515,13 +4515,13 @@ Run Deployment Now
 
 ### Parameters
 
-- `deploymentID: string`
+- `deploymentID: string` (path parameter)
 
   Unique identifier of the deployment to run.
 
 - `params: DeploymentRunParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -4627,7 +4627,7 @@ Run Deployment Now
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -4908,13 +4908,13 @@ Pause Deployment
 
 ### Parameters
 
-- `deploymentID: string`
+- `deploymentID: string` (path parameter)
 
   Unique identifier of the deployment to pause.
 
 - `params: DeploymentPauseParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -5020,7 +5020,7 @@ Pause Deployment
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -5639,13 +5639,13 @@ Unpause Deployment
 
 ### Parameters
 
-- `deploymentID: string`
+- `deploymentID: string` (path parameter)
 
   Unique identifier of the deployment to unpause.
 
 - `params: DeploymentUnpauseParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -5751,7 +5751,7 @@ Unpause Deployment
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 

@@ -105,3 +105,5 @@ Official Slack MCP server for interactive and collaborative workflows. Surface i
 Semantic code analysis MCP server for intelligent code understanding, refactoring, and navigation via language server protocol.
 
 View more
+
+Plugins | Claude Marketplace | Claude by Anthropic

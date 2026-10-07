@@ -92,7 +92,6 @@ APAC
 
 Atlanta
 Austin
-Baton Rouge
 Bentonville
 Boston
 Chicago
@@ -125,18 +124,6 @@ Non-Technical
 Financial Services
 Healthcare & Life Sciences
 Clear filters
-
-Claude Workshop
-
-Virtual
-
-October 5 · 8:30am PT
-
-About this session
-
-A hands-on session for non-developers. Learn how to hand Claude real tasks from your actual job — research, drafts, decks, follow-ups — and get time back.
-
-[Apply ↗](https://www.anthropic.com/webinars/recurring-virtual-claude-workshop)
 
 Claude Code Workshop
 
@@ -329,22 +316,6 @@ About this session
 Hands-on session for developers and technical builders. Bring a laptop and a project and write code with Claude Code.
 
 [Apply ↗](https://www.zartis.com/events/claude-code-workshop-seattle/)
-
-Claude Code Workshop
-
-Baton Rouge
-
-October 16
-
-About this session
-
-Hands-on session for developers and technical builders. Bring a laptop and a project and write code with Claude Code.
-
-Focus
-
-Construction Day
-
-[Apply ↗](https://luma.com/tenex-construction-day-workshop-baton-rouge-oct)
 
 Claude Workshop
 

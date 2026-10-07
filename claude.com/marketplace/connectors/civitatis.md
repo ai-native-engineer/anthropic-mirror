@@ -56,14 +56,6 @@ Search and compare hotels with public and private wholesale rates.
 
 [Add Brek - Hotel Wholesale Booking in Claude (opens in new tab)](https://claude.ai/directory/5590ae2e-c452-4baf-afe8-697ec9f2ef70 "Add in Claude")
 
-![](https://tineo.ai/favicon/favicon-96x96.png)
-
-### [Tineo](https://claude.com/marketplace/connectors/tineo)
-
-Connect Tineo to Claude to review trips, flights, hotels and activities, and add or update itinerary details. Organize and share plans with friends in Tineo.
-
-[Add Tineo in Claude (opens in new tab)](https://claude.ai/directory/47af3906-6905-49b7-bde9-363c6b6fa3b8 "Add in Claude")
-
 ![](https://all.accor.com/a/content/dam/all/global-marketing/brand-identity/logos/all-accor/blue/vertical/Logo%20ALL%20ACCOR_BLUE_Vertical_RGB.svg)
 
 ### [ALL Accor](https://claude.com/marketplace/connectors/all-accor)
@@ -71,6 +63,14 @@ Connect Tineo to Claude to review trips, flights, hotels and activities, and add
 Search and book Accor hotels
 
 [Add ALL Accor in Claude (opens in new tab)](https://claude.ai/directory/f6d1695c-f2b8-4641-829f-435ac17cfd02 "Add in Claude")
+
+![](https://tineo.ai/favicon/favicon-96x96.png)
+
+### [Tineo](https://claude.com/marketplace/connectors/tineo)
+
+Connect Tineo to Claude to review trips, flights, hotels and activities, and add or update itinerary details. Organize and share plans with friends in Tineo.
+
+[Add Tineo in Claude (opens in new tab)](https://claude.ai/directory/47af3906-6905-49b7-bde9-363c6b6fa3b8 "Add in Claude")
 
 ![](https://assets.claude.com/8d547f19ecd0534343f8d8b3a7657e18e50ca23f.jpg?w=128&fit=max&auto=format)
 

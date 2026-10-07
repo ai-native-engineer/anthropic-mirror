@@ -3,6 +3,44 @@
 
 <!-- chunk-start -->
 
+      Static bearer token credential details for an MCP server.
+
+      - `type: "static_bearer"`
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+    - `interface BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `type: "environment_variable"`
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `interface BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+        - `interface BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
           The secret is substituted only on requests to the listed hosts.
 
           - `type: "limited"`
@@ -87,19 +125,19 @@ Delete Credential
 
 #### Parameters
 
-- `credentialID: string`
+- `credentialID: string` (path parameter)
 
   Unique identifier of the credential to delete.
 
 - `params: CredentialDeleteParams`
 
-  - `vault_id: string`
+  - `vault_id: string` (path parameter)
 
-    Path param: Identifier of the vault containing the credential.
+    Identifier of the vault containing the credential.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -203,9 +241,9 @@ Delete Credential
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -257,19 +295,19 @@ Archive Credential
 
 #### Parameters
 
-- `credentialID: string`
+- `credentialID: string` (path parameter)
 
   Unique identifier of the credential to archive.
 
 - `params: CredentialArchiveParams`
 
-  - `vault_id: string`
+  - `vault_id: string` (path parameter)
 
-    Path param: Identifier of the vault containing the credential.
+    Identifier of the vault containing the credential.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -373,9 +411,9 @@ Archive Credential
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -581,19 +619,19 @@ Validate Credential
 
 #### Parameters
 
-- `credentialID: string`
+- `credentialID: string` (path parameter)
 
   Unique identifier of the credential to validate.
 
 - `params: CredentialMCPOAuthValidateParams`
 
-  - `vault_id: string`
+  - `vault_id: string` (path parameter)
 
-    Path param: Identifier of the vault containing the credential.
+    Identifier of the vault containing the credential.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -697,9 +735,9 @@ Validate Credential
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -867,23 +905,23 @@ Create a memory store
 
   - `name: string`
 
-    Body param: Human-readable name for the store. Required; 1–255 characters; no control characters. The mount-path slug under `/mnt/memory/` is derived from this name (lowercased, non-alphanumeric runs collapsed to a hyphen). Names need not be unique within a workspace.
+    Human-readable name for the store. Required; 1–255 characters; no control characters. The mount-path slug under `/mnt/memory/` is derived from this name (lowercased, non-alphanumeric runs collapsed to a hyphen). Names need not be unique within a workspace.
 
     minLength: 1, maxLength: 255
 
   - `description?: string`
 
-    Body param: Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent.
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent.
 
     maxLength: 1024
 
   - `metadata?: Record<string, string>`
 
-    Body param: Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Not visible to the agent.
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Not visible to the agent.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -987,9 +1025,9 @@ Create a memory store
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -1078,35 +1116,35 @@ List memory stores
 
 - `params: MemoryStoreListParams`
 
-  - `"created_at[gte]"?: string`
+  - `"created_at[gte]"?: string` (query parameter)
 
-    Query param: Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
-
-    format: date-time
-
-  - `"created_at[lte]"?: string`
-
-    Query param: Return only stores whose `created_at` is at or before this time (inclusive). Sent on the wire as `created_at[lte]`.
+    Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
 
     format: date-time
 
-  - `include_archived?: boolean`
+  - `"created_at[lte]"?: string` (query parameter)
 
-    Query param: When `true`, archived stores are included in the results. Defaults to `false` (archived stores are excluded).
+    Return only stores whose `created_at` is at or before this time (inclusive). Sent on the wire as `created_at[lte]`.
 
-  - `limit?: number`
+    format: date-time
 
-    Query param: Maximum number of stores to return per page. Must be between 1 and 100. Defaults to 20 when omitted.
+  - `include_archived?: boolean` (query parameter)
+
+    When `true`, archived stores are included in the results. Defaults to `false` (archived stores are excluded).
+
+  - `limit?: number` (query parameter)
+
+    Maximum number of stores to return per page. Must be between 1 and 100. Defaults to 20 when omitted.
 
     format: int32
 
-  - `page?: string`
+  - `page?: string` (query parameter)
 
-    Query param: Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
+    Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -1210,9 +1248,9 @@ List memory stores
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -1303,13 +1341,13 @@ Retrieve a memory store
 
 #### Parameters
 
-- `memoryStoreID: string`
+- `memoryStoreID: string` (path parameter)
 
   ID of the memory store to retrieve (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`.
 
 - `params: MemoryStoreRetrieveParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -1415,7 +1453,7 @@ Retrieve a memory store
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1506,7 +1544,7 @@ Update a memory store
 
 #### Parameters
 
-- `memoryStoreID: string`
+- `memoryStoreID: string` (path parameter)
 
   ID of the memory store to update (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`. Updating an archived store returns 400.
 
@@ -1514,23 +1552,23 @@ Update a memory store
 
   - `description?: string | null`
 
-    Body param: New description for the store, up to 1024 characters. Pass an empty string to clear it.
+    New description for the store, up to 1024 characters. Pass an empty string to clear it.
 
     maxLength: 1024
 
   - `metadata?: Record<string, string | null> | null`
 
-    Body param: Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
+    Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
 
   - `name?: string | null`
 
-    Body param: New human-readable name for the store. 1–255 characters; no control characters. Renaming changes the slug used for the store's `mount_path` in sessions created after the update.
+    New human-readable name for the store. 1–255 characters; no control characters. Renaming changes the slug used for the store's `mount_path` in sessions created after the update.
 
     minLength: 1, maxLength: 255
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -1634,9 +1672,9 @@ Update a memory store
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -1723,13 +1761,13 @@ Delete a memory store
 
 #### Parameters
 
-- `memoryStoreID: string`
+- `memoryStoreID: string` (path parameter)
 
   ID of the memory store to permanently delete (a `memstore_...` identifier). Required. Deletion cascades to all memories and memory versions in the store and cannot be undone.
 
 - `params: MemoryStoreDeleteParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -1835,7 +1873,7 @@ Delete a memory store
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1888,13 +1926,13 @@ Archive a memory store
 
 #### Parameters
 
-- `memoryStoreID: string`
+- `memoryStoreID: string` (path parameter)
 
   ID of the memory store to archive (a `memstore_...` identifier). Required. Archiving is one-way and idempotent; archived stores cannot be unarchived. Enumerate IDs via `GET /v1/memory_stores`.
 
 - `params: MemoryStoreArchiveParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -2000,7 +2038,7 @@ Archive a memory store
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -2091,7 +2129,7 @@ Create a memory
 
 #### Parameters
 
-- `memoryStoreID: string`
+- `memoryStoreID: string` (path parameter)
 
   The ID of the memory store to create the memory in (`memstore_...`).
 
@@ -2099,17 +2137,17 @@ Create a memory
 
   - `content: string | null`
 
-    Body param: UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
+    UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
 
   - `path: string`
 
-    Body param: Hierarchical path for the new memory, e.g. `/projects/foo/notes.md`. Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, or the Unicode line and paragraph separators (U+2028, U+2029), and must be NFC-normalized. Paths are case-sensitive.
+    Hierarchical path for the new memory, e.g. `/projects/foo/notes.md`. Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, or the Unicode line and paragraph separators (U+2028, U+2029), and must be NFC-normalized. Paths are case-sensitive.
 
     minLength: 2, maxLength: 1024
 
-  - `view?: BetaManagedAgentsMemoryView`
+  - `view?: BetaManagedAgentsMemoryView` (query parameter)
 
-    Query param: Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
+    Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
     - `"basic"`
 
@@ -2119,9 +2157,9 @@ Create a memory
 
       Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -2225,9 +2263,9 @@ Create a memory
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -2325,35 +2363,35 @@ List memories
 
 #### Parameters
 
-- `memoryStoreID: string`
+- `memoryStoreID: string` (path parameter)
 
   The ID of the memory store to list memories from (`memstore_...`).
 
 - `params: MemoryListParams`
 
-  - `depth?: number`
+  - `depth?: number` (query parameter)
 
-    Query param: `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
-
-    format: int32
-
-  - `limit?: number`
-
-    Query param: Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
+    `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
 
     format: int32
 
-  - `page?: string`
+  - `limit?: number` (query parameter)
 
-    Query param: Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
+    Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
 
-  - `path_prefix?: string`
+    format: int32
 
-    Query param: Optional path prefix filter. Must end with `/` (segment-aligned), e.g., `/notes/`. This value appears in request URLs. Do not include secrets or personally identifiable information.
+  - `page?: string` (query parameter)
 
-  - `view?: BetaManagedAgentsMemoryView`
+    Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
 
-    Query param: Which projection of each `memory` to return. Defaults to `basic` (content omitted). `full` populates `content` on each item and caps `limit` at 20; use this as the bulk-read path for export and sync.
+  - `path_prefix?: string` (query parameter)
+
+    Optional path prefix filter. Must end with `/` (segment-aligned), e.g., `/notes/`. This value appears in request URLs. Do not include secrets or personally identifiable information.
+
+  - `view?: BetaManagedAgentsMemoryView` (query parameter)
+
+    Which projection of each `memory` to return. Defaults to `basic` (content omitted). `full` populates `content` on each item and caps `limit` at 20; use this as the bulk-read path for export and sync.
 
     - `"basic"`
 
@@ -2363,9 +2401,9 @@ List memories
 
       Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -2469,9 +2507,9 @@ List memories
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -2588,19 +2626,19 @@ Retrieve a memory
 
 #### Parameters
 
-- `memoryID: string`
+- `memoryID: string` (path parameter)
 
   The ID of the memory to retrieve (`mem_...`).
 
 - `params: MemoryRetrieveParams`
 
-  - `memory_store_id: string`
+  - `memory_store_id: string` (path parameter)
 
-    Path param: The ID of the memory store that holds the memory (`memstore_...`).
+    The ID of the memory store that holds the memory (`memstore_...`).
 
-  - `view?: BetaManagedAgentsMemoryView`
+  - `view?: BetaManagedAgentsMemoryView` (query parameter)
 
-    Query param: Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
+    Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
     - `"basic"`
 
@@ -2610,9 +2648,9 @@ Retrieve a memory
 
       Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -2716,9 +2754,9 @@ Retrieve a memory
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -2815,19 +2853,19 @@ Update a memory
 
 #### Parameters
 
-- `memoryID: string`
+- `memoryID: string` (path parameter)
 
   The ID of the memory to update (`mem_...`).
 
 - `params: MemoryUpdateParams`
 
-  - `memory_store_id: string`
+  - `memory_store_id: string` (path parameter)
 
-    Path param: The ID of the memory store that holds the memory (`memstore_...`).
+    The ID of the memory store that holds the memory (`memstore_...`).
 
-  - `view?: BetaManagedAgentsMemoryView`
+  - `view?: BetaManagedAgentsMemoryView` (query parameter)
 
-    Query param: Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
+    Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
     - `"basic"`
 
@@ -2839,17 +2877,17 @@ Update a memory
 
   - `content?: string | null`
 
-    Body param: New UTF-8 text content for the memory. Maximum 100 kB (102,400 bytes). Omit to leave the content unchanged (e.g., for a rename-only update).
+    New UTF-8 text content for the memory. Maximum 100 kB (102,400 bytes). Omit to leave the content unchanged (e.g., for a rename-only update).
 
   - `path?: string | null`
 
-    Body param: New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, or the Unicode line and paragraph separators (U+2028, U+2029), and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
+    New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, or the Unicode line and paragraph separators (U+2028, U+2029), and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
 
     minLength: 2, maxLength: 1024
 
   - `precondition?: BetaManagedAgentsPrecondition`
 
-    Body param: Optional optimistic-concurrency precondition. When supplied, the update applies only if the memory's current state matches; on mismatch the request returns `memory_precondition_failed_error` (HTTP 409). When omitted, the update is unconditional.
+    Optional optimistic-concurrency precondition. When supplied, the update applies only if the memory's current state matches; on mismatch the request returns `memory_precondition_failed_error` (HTTP 409). When omitted, the update is unconditional.
 
     - `type: "content_sha256"`
 
@@ -2857,9 +2895,9 @@ Update a memory
 
       Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -2963,9 +3001,9 @@ Update a memory
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -3062,25 +3100,25 @@ Delete a memory
 
 #### Parameters
 
-- `memoryID: string`
+- `memoryID: string` (path parameter)
 
   The ID of the memory to delete (`mem_...`).
 
 - `params: MemoryDeleteParams`
 
-  - `memory_store_id: string`
+  - `memory_store_id: string` (path parameter)
 
-    Path param: The ID of the memory store that holds the memory (`memstore_...`).
+    The ID of the memory store that holds the memory (`memstore_...`).
 
-  - `expected_content_sha256?: string`
+  - `expected_content_sha256?: string` (query parameter)
 
-    Query param: Delete the memory only if its current `content_sha256` equals this value, given as 64 lowercase hexadecimal characters. Omit it to delete unconditionally.
+    Delete the memory only if its current `content_sha256` equals this value, given as 64 lowercase hexadecimal characters. Omit it to delete unconditionally.
 
     If the hashes differ, the request fails with HTTP status 409 and nothing is deleted.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -3184,9 +3222,9 @@ Delete a memory
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -3240,43 +3278,43 @@ List memory versions
 
 #### Parameters
 
-- `memoryStoreID: string`
+- `memoryStoreID: string` (path parameter)
 
   The ID of the memory store whose version history to list (`memstore_...`).
 
 - `params: MemoryVersionListParams`
 
-  - `api_key_id?: string`
+  - `api_key_id?: string` (query parameter)
 
-    Query param: Return only versions written with the API key that has this ID.
+    Return only versions written with the API key that has this ID.
 
-  - `"created_at[gte]"?: string`
+  - `"created_at[gte]"?: string` (query parameter)
 
-    Query param: Return versions created at or after this time (inclusive).
-
-    format: date-time
-
-  - `"created_at[lte]"?: string`
-
-    Query param: Return versions created at or before this time (inclusive).
+    Return versions created at or after this time (inclusive).
 
     format: date-time
 
-  - `limit?: number`
+  - `"created_at[lte]"?: string` (query parameter)
 
-    Query param: The maximum number of versions to return per page. Defaults to 20.
+    Return versions created at or before this time (inclusive).
+
+    format: date-time
+
+  - `limit?: number` (query parameter)
+
+    The maximum number of versions to return per page. Defaults to 20.
 
     format: int32
 
-  - `memory_id?: string`
+  - `memory_id?: string` (query parameter)
 
-    Query param: Return only versions of the memory with this ID (`mem_...`).
+    Return only versions of the memory with this ID (`mem_...`).
 
     The filter still works after the memory is deleted. The results then include the version whose `operation` is `deleted`.
 
-  - `operation?: BetaManagedAgentsMemoryVersionOperation`
+  - `operation?: BetaManagedAgentsMemoryVersionOperation` (query parameter)
 
-    Query param: Return only versions that record this kind of change.
+    Return only versions that record this kind of change.
 
     - `"created"`
 
@@ -3290,21 +3328,21 @@ List memory versions
 
       The memory was deleted. The `content`, `content_size_bytes`, and `content_sha256` fields are `null` on this version. The preceding version, while it is retained, records the deleted content's size and hash.
 
-  - `page?: string`
+  - `page?: string` (query parameter)
 
-    Query param: The `next_page` value from a previous response, to get the next page. Omit it to get the first page.
+    The `next_page` value from a previous response, to get the next page. Omit it to get the first page.
 
-  - `service_account_id?: string`
+  - `service_account_id?: string` (query parameter)
 
-    Query param: Return only versions written by the service account with this ID (`svac_...`).
+    Return only versions written by the service account with this ID (`svac_...`).
 
-  - `session_id?: string`
+  - `session_id?: string` (query parameter)
 
-    Query param: Return only versions written by the session with this ID.
+    Return only versions written by the session with this ID.
 
-  - `view?: BetaManagedAgentsMemoryView`
+  - `view?: BetaManagedAgentsMemoryView` (query parameter)
 
-    Query param: Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
+    Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
     - `"basic"`
 
@@ -3314,9 +3352,9 @@ List memory versions
 
       Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -3420,9 +3458,9 @@ List memory versions
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -3606,19 +3644,19 @@ Retrieve a memory version
 
 #### Parameters
 
-- `memoryVersionID: string`
+- `memoryVersionID: string` (path parameter)
 
   The ID of the memory version to retrieve (`memver_...`).
 
 - `params: MemoryVersionRetrieveParams`
 
-  - `memory_store_id: string`
+  - `memory_store_id: string` (path parameter)
 
-    Path param: The ID of the memory store that holds the version (`memstore_...`).
+    The ID of the memory store that holds the version (`memstore_...`).
 
-  - `view?: BetaManagedAgentsMemoryView`
+  - `view?: BetaManagedAgentsMemoryView` (query parameter)
 
-    Query param: Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
+    Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
     - `"basic"`
 
@@ -3628,9 +3666,9 @@ Retrieve a memory version
 
       Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -3734,9 +3772,9 @@ Retrieve a memory version
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -3915,19 +3953,19 @@ Redact a memory version
 
 #### Parameters
 
-- `memoryVersionID: string`
+- `memoryVersionID: string` (path parameter)
 
   The ID of the memory version to redact (`memver_...`).
 
 - `params: MemoryVersionRedactParams`
 
-  - `memory_store_id: string`
+  - `memory_store_id: string` (path parameter)
 
-    Path param: The ID of the memory store that holds the version (`memstore_...`).
+    The ID of the memory store that holds the version (`memstore_...`).
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -4031,9 +4069,9 @@ Redact a memory version
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -4218,19 +4256,19 @@ Upload File
 
   - `file: Uploadable`
 
-    Body param: The file to upload. Only the final path component of the part's `filename` is kept; an absent or empty `filename` is replaced with `unnamed` plus the extension for the file's stored `mime_type`, when known.
+    The file to upload. Only the final path component of the part's `filename` is kept; an absent or empty `filename` is replaced with `unnamed` plus the extension for the file's stored `mime_type`, when known.
 
     format: binary
 
   - `expires_in_seconds?: number`
 
-    Body param: Seconds from upload until the file expires and its bytes become permanently unavailable. Must be between 3600 (one hour) and 7776000 (ninety days).
+    Seconds from upload until the file expires and its bytes become permanently unavailable. Must be between 3600 (one hour) and 7776000 (ninety days).
 
     minimum: 3600, maximum: 7776000
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -4334,9 +4372,9 @@ Upload File
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -4452,29 +4490,29 @@ List Files
 
 - `params: FileListParams`
 
-  - `ids?: Array<string> | null`
+  - `ids?: Array<string> | null` (query parameter)
 
-    Query param: Restrict the result set to Files whose `id` is in this list. At most 100 entries (after de-duplication). Mutually exclusive with `page` and `limit`. When supplied, the response is always a single page (`next_page` is null). IDs that do not resolve to a visible File — including deleted Files — are silently omitted.
+    Restrict the result set to Files whose `id` is in this list. At most 100 entries (after de-duplication). Mutually exclusive with `page` and `limit`. When supplied, the response is always a single page (`next_page` is null). IDs that do not resolve to a visible File — including deleted Files — are silently omitted.
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: Number of items to return per page.
+    Number of items to return per page.
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
     minimum: 1, maximum: 1000
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
-    Query param: Opaque page cursor returned in a prior list response's `next_page`. Prefixed `page_`.
+    Opaque page cursor returned in a prior list response's `next_page`. Prefixed `page_`.
 
-  - `scope_id?: string`
+  - `scope_id?: string` (query parameter)
 
-    Query param: Filter by scope ID. Only returns files associated with the specified scope (e.g., a session ID).
+    Filter by scope ID. Only returns files associated with the specified scope (e.g., a session ID).
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -4578,9 +4616,9 @@ List Files
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -4697,13 +4735,13 @@ Download File
 
 #### Parameters
 
-- `fileID: string`
+- `fileID: string` (path parameter)
 
   ID of the File.
 
 - `params: FileDownloadParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -4809,7 +4847,7 @@ Download File
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -4846,13 +4884,13 @@ Get File Metadata
 
 #### Parameters
 
-- `fileID: string`
+- `fileID: string` (path parameter)
 
   ID of the File.
 
 - `params: FileRetrieveMetadataParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -4958,7 +4996,7 @@ Get File Metadata
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -5071,13 +5109,13 @@ Delete File
 
 #### Parameters
 
-- `fileID: string`
+- `fileID: string` (path parameter)
 
   ID of the File.
 
 - `params: FileDeleteParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -5183,7 +5221,7 @@ Delete File
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -5244,19 +5282,19 @@ Create Skill
 
   - `files: Array<Uploadable>`
 
-    Body param: Files to upload for the skill.
+    Files to upload for the skill.
 
     All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
 
   - `display_name?: string | null`
 
-    Body param: Human-readable, single-line label for the Skill. Maximum 255 characters.
+    Human-readable, single-line label for the Skill. Maximum 255 characters.
     Always set: derived from the SKILL.md frontmatter `name` when omitted at
     creation. Not unique.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -5360,9 +5398,9 @@ Create Skill
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -5480,32 +5518,32 @@ List Skills
 
 - `params: SkillListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: Number of results to return per page.
+    Number of results to return per page.
 
     Ranges from `1` to `1000`. Defaults to `20`.
 
     minimum: 1, maximum: 1000
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
-    Query param: Pagination token for fetching a specific page of results.
+    Pagination token for fetching a specific page of results.
 
     Pass the value from a previous response's `next_page` field to get the next page of results.
 
-  - `source?: string | null`
+  - `source?: string | null` (query parameter)
 
-    Query param: Filter skills by source.
+    Filter skills by source.
 
     If provided, only skills from the specified source will be returned:
 
     * `"custom"`: only return user-created skills
     * `"anthropic"`: only return Anthropic-created skills
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -5609,9 +5647,9 @@ List Skills
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -5731,7 +5769,7 @@ Get Skill
 
 #### Parameters
 
-- `skillID: string`
+- `skillID: string` (path parameter)
 
   Unique identifier for the skill.
 
@@ -5739,7 +5777,7 @@ Get Skill
 
 - `params: SkillRetrieveParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -5845,7 +5883,7 @@ Get Skill
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -5961,7 +5999,7 @@ Delete Skill
 
 #### Parameters
 
-- `skillID: string`
+- `skillID: string` (path parameter)
 
   Unique identifier for the skill.
 
@@ -5969,7 +6007,7 @@ Delete Skill
 
 - `params: SkillDeleteParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -6075,7 +6113,7 @@ Delete Skill
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -6134,7 +6172,7 @@ Create Skill Version
 
 #### Parameters
 
-- `skillID: string`
+- `skillID: string` (path parameter)
 
   Unique identifier for the skill.
 
@@ -6144,13 +6182,13 @@ Create Skill Version
 
   - `files: Array<Uploadable>`
 
-    Body param: Files to upload for the skill.
+    Files to upload for the skill.
 
     All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -6254,9 +6292,9 @@ Create Skill Version
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -6341,7 +6379,7 @@ List Skill Versions
 
 #### Parameters
 
-- `skillID: string`
+- `skillID: string` (path parameter)
 
   Unique identifier for the skill.
 
@@ -6349,21 +6387,21 @@ List Skill Versions
 
 - `params: VersionListParams`
 
-  - `limit?: number | null`
+  - `limit?: number | null` (query parameter)
 
-    Query param: Number of results to return per page.
+    Number of results to return per page.
 
     Ranges from `1` to `1000`. Defaults to `20`.
 
     minimum: 1, maximum: 1000
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
-    Query param: Optionally set to the `next_page` token from the previous response.
+    Optionally set to the `next_page` token from the previous response.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -6467,9 +6505,9 @@ List Skill Versions
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -6558,7 +6596,7 @@ Download a skill version's content as a zip archive.
 
 #### Parameters
 
-- `version: string`
+- `version: string` (path parameter)
 
   Identifies the skill version by its version ID.
 
@@ -6566,15 +6604,15 @@ Download a skill version's content as a zip archive.
 
 - `params: VersionDownloadParams`
 
-  - `skill_id: string`
+  - `skill_id: string` (path parameter)
 
-    Path param: Unique identifier for the skill.
+    Unique identifier for the skill.
 
     The format and length of IDs may change over time.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -6678,9 +6716,9 @@ Download a skill version's content as a zip archive.
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -6717,7 +6755,7 @@ Get Skill Version
 
 #### Parameters
 
-- `version: string`
+- `version: string` (path parameter)
 
   Identifies the skill version: a version ID, or the literal `latest` for the skill's most recent version.
 
@@ -6725,15 +6763,15 @@ Get Skill Version
 
 - `params: VersionRetrieveParams`
 
-  - `skill_id: string`
+  - `skill_id: string` (path parameter)
 
-    Path param: Unique identifier for the skill.
+    Unique identifier for the skill.
 
     The format and length of IDs may change over time.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -6837,9 +6875,9 @@ Get Skill Version
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -6924,7 +6962,7 @@ Delete Skill Version
 
 #### Parameters
 
-- `version: string`
+- `version: string` (path parameter)
 
   Identifies the skill version by its version ID.
 
@@ -6932,15 +6970,15 @@ Delete Skill Version
 
 - `params: VersionDeleteParams`
 
-  - `skill_id: string`
+  - `skill_id: string` (path parameter)
 
-    Path param: Unique identifier for the skill.
+    Unique identifier for the skill.
 
     The format and length of IDs may change over time.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -7044,9 +7082,9 @@ Delete Skill Version
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -7108,7 +7146,7 @@ Create User Profile
 
   - `access_type?: "application" | "passthrough"`
 
-    Body param: How the platform uses the API for this entity. `application` (default): the profile represents an individual end-user of the platform's product. `passthrough`: the profile identifies a company the platform resells Claude access to.
+    How the platform uses the API for this entity. `application` (default): the profile represents an individual end-user of the platform's product. `passthrough`: the profile identifies a company the platform resells Claude access to.
 
     - `"application"`
 
@@ -7120,13 +7158,13 @@ Create User Profile
 
   - `external_id?: string | null`
 
-    Body param: Platform's own identifier for this user. Not enforced unique. Maximum 255 characters. Accepted under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` send `external_user_details.reference_id` instead.
+    Platform's own identifier for this user. Not enforced unique. Maximum 255 characters. Accepted under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` send `external_user_details.reference_id` instead.
 
     minLength: 1, maxLength: 255
 
   - `external_user_details?: BetaUserProfileExternalUserDetailsParams`
 
-    Body param: Details about the entity this profile represents, as the platform states them. Every field is optional. Accepted under the `user-profiles-2026-09-04` beta header only.
+    Details about the entity this profile represents, as the platform states them. Every field is optional. Accepted under the `user-profiles-2026-09-04` beta header only.
 
     - `account_status?: "active" | "suspended" | "blocked" | null`
 
@@ -7186,23 +7224,23 @@ Create User Profile
 
   - `external_user_onboarded_at?: string`
 
-    Body param: When the entity this profile represents opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future. Optional. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
+    When the entity this profile represents opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future. Optional. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
 
     format: date-time
 
   - `metadata?: Record<string, string>`
 
-    Body param: Free-form key-value data to attach to this user profile. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters. Values must be non-empty strings.
+    Free-form key-value data to attach to this user profile. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters. Values must be non-empty strings.
 
   - `name?: string | null`
 
-    Body param: Optional for all profiles. Real-world name of the entity this profile represents (company or individual); for a company the platform resells Claude access to (`access_type` `passthrough`), that company's name where known. Maximum 255 characters.
+    Optional for all profiles. Real-world name of the entity this profile represents (company or individual); for a company the platform resells Claude access to (`access_type` `passthrough`), that company's name where known. Maximum 255 characters.
 
     minLength: 1, maxLength: 255
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -7306,9 +7344,9 @@ Create User Profile
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -7494,15 +7532,15 @@ List User Profiles
 
 - `params: UserProfileListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: The maximum number of user profiles to return, from 1 to 100. Defaults to 20.
+    The maximum number of user profiles to return, from 1 to 100. Defaults to 20.
 
     format: int32
 
-  - `order?: "asc" | "desc"`
+  - `order?: "asc" | "desc"` (query parameter)
 
-    Query param: The sort direction, applied to the field that `order_by` selects. Defaults to `desc`.
+    The sort direction, applied to the field that `order_by` selects. Defaults to `desc`.
 
     - `"asc"`
 
@@ -7512,9 +7550,9 @@ List User Profiles
 
       Newest first when `order_by` is `created_at`, or names in descending order when `order_by` is `name`. This is the default.
 
-  - `order_by?: "created_at" | "name"`
+  - `order_by?: "created_at" | "name"` (query parameter)
 
-    Query param: The field to sort user profiles by, in the direction that `order` sets. Defaults to `created_at`.
+    The field to sort user profiles by, in the direction that `order` sets. Defaults to `created_at`.
 
     - `"created_at"`
 
@@ -7524,15 +7562,15 @@ List User Profiles
 
       Sort by `name`, ignoring the case of ASCII letters. Profiles without a name come last in either direction.
 
-  - `page?: string`
+  - `page?: string` (query parameter)
 
-    Query param: The cursor for the page to return, taken from `next_page` in a previous response.
+    The cursor for the page to return, taken from `next_page` in a previous response.
 
     Leave it out to get the first page.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -7636,9 +7674,9 @@ List User Profiles
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -7828,13 +7866,13 @@ Get User Profile
 
 #### Parameters
 
-- `userProfileID: string`
+- `userProfileID: string` (path parameter)
 
   The ID of the user profile to get (`uprof_...`).
 
 - `params: UserProfileRetrieveParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -7940,7 +7978,7 @@ Get User Profile
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -8128,7 +8166,7 @@ Update User Profile
 
 #### Parameters
 
-- `userProfileID: string`
+- `userProfileID: string` (path parameter)
 
   The ID of the user profile to update (`uprof_...`).
 
@@ -8136,7 +8174,7 @@ Update User Profile
 
   - `access_type?: "application" | "passthrough" | null`
 
-    Body param: If present, replaces the stored access type. Omit to leave unchanged.
+    If present, replaces the stored access type. Omit to leave unchanged.
 
     - `"application"`
 
@@ -8148,13 +8186,13 @@ Update User Profile
 
   - `external_id?: string | null`
 
-    Body param: If present, replaces the stored external_id. Omit to leave unchanged. Maximum 255 characters. Accepted under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` send `external_user_details.reference_id` instead.
+    If present, replaces the stored external_id. Omit to leave unchanged. Maximum 255 characters. Accepted under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` send `external_user_details.reference_id` instead.
 
     minLength: 1, maxLength: 255
 
   - `external_user_details?: BetaUserProfileExternalUserDetailsParams`
 
-    Body param: Details about the entity this profile represents, as the platform states them. Each field sent replaces the stored value; omit a field to leave it unchanged. Once set, a value cannot be cleared and `null` is rejected. Accepted under the `user-profiles-2026-09-04` beta header only.
+    Details about the entity this profile represents, as the platform states them. Each field sent replaces the stored value; omit a field to leave it unchanged. Once set, a value cannot be cleared and `null` is rejected. Accepted under the `user-profiles-2026-09-04` beta header only.
 
     - `account_status?: "active" | "suspended" | "blocked" | null`
 
@@ -8214,23 +8252,23 @@ Update User Profile
 
   - `external_user_onboarded_at?: string`
 
-    Body param: If present, replaces the stored account creation time. Omit to leave unchanged; once set, the value cannot be cleared and `null` is rejected. Must be a complete RFC 3339 timestamp no more than 1 minute in the future. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
+    If present, replaces the stored account creation time. Omit to leave unchanged; once set, the value cannot be cleared and `null` is rejected. Must be a complete RFC 3339 timestamp no more than 1 minute in the future. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
 
     format: date-time
 
   - `metadata?: Record<string, string>`
 
-    Body param: Key-value pairs to merge into the stored metadata. Keys provided overwrite existing values. To remove a key, set its value to an empty string. Keys not provided are left unchanged. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters.
+    Key-value pairs to merge into the stored metadata. Keys provided overwrite existing values. To remove a key, set its value to an empty string. Keys not provided are left unchanged. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters.
 
   - `name?: string | null`
 
-    Body param: If present, replaces the stored name. Omit to leave unchanged. Maximum 255 characters.
+    If present, replaces the stored name. Omit to leave unchanged. Maximum 255 characters.
 
     minLength: 1, maxLength: 255
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -8334,9 +8372,9 @@ Update User Profile
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -8522,13 +8560,13 @@ Create Enrollment URL
 
 #### Parameters
 
-- `userProfileID: string`
+- `userProfileID: string` (path parameter)
 
   The ID of the user profile to create an enrollment URL for (`uprof_...`).
 
 - `params: UserProfileCreateEnrollmentURLParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -8634,7 +8672,7 @@ Create Enrollment URL
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -8706,7 +8744,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `inputs: Array<BetaDreamInput>`
 
-    Body param: The memory store and sessions for the dream to read, as exactly one `memory_store` entry and exactly one `sessions` entry.
+    The memory store and sessions for the dream to read, as exactly one `memory_store` entry and exactly one `sessions` entry.
 
     - `interface BetaDreamMemoryStoreInput`
 
@@ -8740,7 +8778,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `model: string | BetaDreamModelConfigParam`
 
-    Body param: The model that runs a dream, given as a model ID or as an object with `id` and `speed`.
+    The model that runs a dream, given as a model ID or as an object with `id` and `speed`.
 
     In the object form, `speed` can only be `standard`.
 
@@ -8774,7 +8812,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `instructions?: string | null`
 
-    Body param: Guidance that steers how the dream reads the sessions and organizes the output memory store, from 1 to 4,096 characters.
+    Guidance that steers how the dream reads the sessions and organizes the output memory store, from 1 to 4,096 characters.
 
     See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#steer-with-instructions) for what kinds of instructions work well.
 
@@ -8782,7 +8820,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `output_behavior?: BetaOutputBehavior`
 
-    Body param: Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
+    Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
 
     - `interface BetaOutputBehaviorCreateNew`
 
@@ -8806,9 +8844,9 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
         minLength: 1
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -8912,9 +8950,9 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -9219,37 +9257,37 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
 - `params: DreamListParams`
 
-  - `"created_at[gt]"?: string`
+  - `"created_at[gt]"?: string` (query parameter)
 
-    Query param: Return only dreams created after this time (exclusive), in RFC 3339.
-
-    format: date-time
-
-  - `"created_at[lt]"?: string`
-
-    Query param: Return only dreams created before this time (exclusive), in RFC 3339.
+    Return only dreams created after this time (exclusive), in RFC 3339.
 
     format: date-time
 
-  - `include_archived?: boolean`
+  - `"created_at[lt]"?: string` (query parameter)
 
-    Query param: Whether to include archived dreams. Defaults to `false`.
+    Return only dreams created before this time (exclusive), in RFC 3339.
 
-  - `limit?: number`
+    format: date-time
 
-    Query param: The maximum number of dreams to return, from 1 to 100. Defaults to 20.
+  - `include_archived?: boolean` (query parameter)
+
+    Whether to include archived dreams. Defaults to `false`.
+
+  - `limit?: number` (query parameter)
+
+    The maximum number of dreams to return, from 1 to 100. Defaults to 20.
 
     format: int32
 
-  - `page?: string`
+  - `page?: string` (query parameter)
 
-    Query param: The cursor for the page to return, taken from `next_page` in a previous response.
+    The cursor for the page to return, taken from `next_page` in a previous response.
 
     Leave it out to get the first page.
 
-  - `statuses?: Array<BetaDreamStatus>`
+  - `statuses?: Array<BetaDreamStatus>` (query parameter)
 
-    Query param: Return only dreams that have one of these statuses.
+    Return only dreams that have one of these statuses.
 
     Repeat the parameter to give more than one status. Leave it out to return dreams of every status.
 
@@ -9281,9 +9319,9 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
       If `outputs` references a memory store, that memory store keeps what the dream wrote. `usage` can keep changing after the cancel.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -9387,9 +9425,9 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -9695,13 +9733,13 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
 #### Parameters
 
-- `dreamID: string`
+- `dreamID: string` (path parameter)
 
   The ID of the dream to get (`drm_...`).
 
 - `params: DreamRetrieveParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -9807,7 +9845,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -10109,13 +10147,13 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
 #### Parameters
 
-- `dreamID: string`
+- `dreamID: string` (path parameter)
 
   The ID of the dream to cancel (`drm_...`).
 
 - `params: DreamCancelParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -10221,7 +10259,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -10523,13 +10561,13 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
 #### Parameters
 
-- `dreamID: string`
+- `dreamID: string` (path parameter)
 
   The ID of the dream to archive (`drm_...`).
 
 - `params: DreamArchiveParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -10635,7 +10673,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -10941,200 +10979,11 @@ Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
 
   - `display_name?: string | null`
 
-    Body param: Optional human-readable name for the tunnel (1-255 characters).
+    Optional human-readable name for the tunnel (1-255 characters).
 
     minLength: 1, maxLength: 255
 
-  - `betas?: Array<AnthropicBeta>`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
-
-    - `(string & {})`
-
-    - `"message-batches-2024-09-24"`
-
-    - `"prompt-caching-2024-07-31"`
-
-    - `"computer-use-2024-10-22"`
-
-    - `"computer-use-2025-01-24"`
-
-    - `"pdfs-2024-09-25"`
-
-    - `"token-counting-2024-11-01"`
-
-    - `"token-efficient-tools-2025-02-19"`
-
-    - `"output-128k-2025-02-19"`
-
-    - `"files-api-2025-04-14"`
-
-    - `"mcp-client-2025-04-04"`
-
-    - `"mcp-client-2025-11-20"`
-
-    - `"dev-full-thinking-2025-05-14"`
-
-    - `"interleaved-thinking-2025-05-14"`
-
-    - `"code-execution-2025-05-22"`
-
-    - `"extended-cache-ttl-2025-04-11"`
-
-    - `"context-1m-2025-08-07"`
-
-    - `"context-management-2025-06-27"`
-
-    - `"model-context-window-exceeded-2025-08-26"`
-
-    - `"skills-2025-10-02"`
-
-    - `"fast-mode-2026-02-01"`
-
-    - `"output-300k-2026-03-24"`
-
-    - `"user-profiles-2026-03-24"`
-
-    - `"user-profiles-2026-08-18"`
-
-    - `"user-profiles-2026-09-04"`
-
-    - `"advisor-tool-2026-03-01"`
-
-    - `"managed-agents-2026-04-01"`
-
-    - `"cache-diagnosis-2026-04-07"`
-
-    - `"dreaming-2026-04-21"`
-
-    - `"thinking-token-count-2026-05-13"`
-
-    - `"server-side-fallback-2026-06-01"`
-
-    - `"server-side-fallback-2026-07-01"`
-
-    - `"fallback-credit-2026-06-01"`
-
-    - `"fallback-credit-2026-07-01"`
-
-    - `"agent-memory-2026-07-22"`
-
-    - `"mid-conversation-tool-changes-2026-07-01"`
-
-    - `"compact-2026-01-12"`
-
-    - `"computer-use-2025-11-24"`
-
-    - `"mcp-tunnels-2026-06-22"`
-
-    - `"structured-outputs-2025-11-13"`
-
-    - `"task-budgets-2026-03-13"`
-
-    - `"thinking-display-updates-2026-08-18"`
-
-    - `"ce-user-management-2026-07-13"`
-
-    - `"mid-conversation-output-config-2026-07-01"`
-
-    - `"thinking-binding-controls-2026-08-01"`
-
-    - `"mid-conversation-system-clear-at-2026-08-21"`
-
-    - `"compact-2026-09-04"`
-
-    - `"inline-tools-2026-09-15"`
-
-    - `"mcp-client-2026-09-15"`
-
-    - `"ce-plugins-2026-09-01"`
-
-    - `"spend-limit-reads-2026-09-26"`
-
-  - `workspace_id?: string`
-
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `interface BetaTunnel`
-
-  An MCP tunnel.
-
-  - `type: "tunnel"`
-
-  - `id: string`
-
-    Unique identifier for the tunnel, prefixed with `tnl_`.
-
-  - `archived_at: string | null`
-
-    RFC 3339 datetime string indicating when the tunnel was archived. Null if it is not archived.
-
-    format: date-time
-
-  - `created_at: string`
-
-    RFC 3339 datetime string indicating when the tunnel was created.
-
-    format: date-time
-
-  - `display_name: string | null`
-
-    Human-readable name for the tunnel (1-255 characters). Null if unset.
-
-  - `domain: string`
-
-    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
-
-#### Example
-
-```typescript
-import Anthropic from "@anthropic-ai/sdk";
-
-const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
-});
-
-const betaTunnel = await client.beta.tunnels.create();
-
-console.log(betaTunnel.id);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "display_name": "display_name",
-  "domain": "domain",
-  "type": "tunnel"
-}
-```
-
-### Get Tunnel
-
-`client.beta.tunnels.retrieve(tunnelID, params?, options?): BetaTunnel`
-
-**GET** `/v1/tunnels/{tunnel_id}`
-
-The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
-
-Fetches a tunnel by ID.
-
-#### Parameters
-
-- `tunnelID: string`
-
-  ID of the tunnel (`tnl_...`).
-
-- `params: TunnelRetrieveParams`
-
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -11240,7 +11089,7 @@ Fetches a tunnel by ID.
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -11287,7 +11136,7 @@ const client = new Anthropic({
   apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
 });
 
-const betaTunnel = await client.beta.tunnels.retrieve("tunnel_id");
+const betaTunnel = await client.beta.tunnels.create();
 
 console.log(betaTunnel.id);
 ```
@@ -11305,37 +11154,27 @@ console.log(betaTunnel.id);
 }
 ```
 
-### List Tunnels
+### Get Tunnel
 
-`client.beta.tunnels.list(params?, options?): PageCursor<BetaTunnel>`
+`client.beta.tunnels.retrieve(tunnelID, params?, options?): BetaTunnel`
 
-**GET** `/v1/tunnels`
+**GET** `/v1/tunnels/{tunnel_id}`
 
 The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
 
-Lists tunnels. Results are ordered by creation time, newest first; archived tunnels are excluded unless include_archived is set.
+Fetches a tunnel by ID.
 
 #### Parameters
 
-- `params: TunnelListParams`
+- `tunnelID: string` (path parameter)
 
-  - `include_archived?: boolean`
+  ID of the tunnel (`tnl_...`).
 
-    Query param: Whether to include archived tunnels in the results. Defaults to false.
+- `params: TunnelRetrieveParams`
 
-  - `limit?: number`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Query param: Maximum number of tunnels to return per page. Defaults to 20, maximum 1000.
-
-    format: int32
-
-  - `page?: string`
-
-    Query param: Opaque pagination cursor from a previous `list_tunnels` response.
-
-  - `betas?: Array<AnthropicBeta>`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -11439,9 +11278,208 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `interface BetaTunnel`
+
+  An MCP tunnel.
+
+  - `type: "tunnel"`
+
+  - `id: string`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: string | null`
+
+    RFC 3339 datetime string indicating when the tunnel was archived. Null if it is not archived.
+
+    format: date-time
+
+  - `created_at: string`
+
+    RFC 3339 datetime string indicating when the tunnel was created.
+
+    format: date-time
+
+  - `display_name: string | null`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: string`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+#### Example
+
+```typescript
+import Anthropic from "@anthropic-ai/sdk";
+
+const client = new Anthropic({
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
+});
+
+const betaTunnel = await client.beta.tunnels.retrieve("tunnel_id");
+
+console.log(betaTunnel.id);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+### List Tunnels
+
+`client.beta.tunnels.list(params?, options?): PageCursor<BetaTunnel>`
+
+**GET** `/v1/tunnels`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Lists tunnels. Results are ordered by creation time, newest first; archived tunnels are excluded unless include_archived is set.
+
+#### Parameters
+
+- `params: TunnelListParams`
+
+  - `include_archived?: boolean` (query parameter)
+
+    Whether to include archived tunnels in the results. Defaults to false.
+
+  - `limit?: number` (query parameter)
+
+    Maximum number of tunnels to return per page. Defaults to 20, maximum 1000.
+
+    format: int32
+
+  - `page?: string` (query parameter)
+
+    Opaque pagination cursor from a previous `list_tunnels` response.
+
+  - `betas?: Array<AnthropicBeta>` (header parameter)
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24"`
+
+    - `"prompt-caching-2024-07-31"`
+
+    - `"computer-use-2024-10-22"`
+
+    - `"computer-use-2025-01-24"`
+
+    - `"pdfs-2024-09-25"`
+
+    - `"token-counting-2024-11-01"`
+
+    - `"token-efficient-tools-2025-02-19"`
+
+    - `"output-128k-2025-02-19"`
+
+    - `"files-api-2025-04-14"`
+
+    - `"mcp-client-2025-04-04"`
+
+    - `"mcp-client-2025-11-20"`
+
+    - `"dev-full-thinking-2025-05-14"`
+
+    - `"interleaved-thinking-2025-05-14"`
+
+    - `"code-execution-2025-05-22"`
+
+    - `"extended-cache-ttl-2025-04-11"`
+
+    - `"context-1m-2025-08-07"`
+
+    - `"context-management-2025-06-27"`
+
+    - `"model-context-window-exceeded-2025-08-26"`
+
+    - `"skills-2025-10-02"`
+
+    - `"fast-mode-2026-02-01"`
+
+    - `"output-300k-2026-03-24"`
+
+    - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
+
+    - `"user-profiles-2026-09-04"`
+
+    - `"advisor-tool-2026-03-01"`
+
+    - `"managed-agents-2026-04-01"`
+
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"dreaming-2026-04-21"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"server-side-fallback-2026-07-01"`
+
+    - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
+
+    - `"compact-2026-01-12"`
+
+    - `"computer-use-2025-11-24"`
+
+    - `"mcp-tunnels-2026-06-22"`
+
+    - `"structured-outputs-2025-11-13"`
+
+    - `"task-budgets-2026-03-13"`
+
+    - `"thinking-display-updates-2026-08-18"`
+
+    - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
+    - `"compact-2026-09-04"`
+
+    - `"inline-tools-2026-09-15"`
+
+    - `"mcp-client-2026-09-15"`
+
+    - `"ce-plugins-2026-09-01"`
+
+    - `"spend-limit-reads-2026-09-26"`
+
+  - `workspace_id?: string` (header parameter)
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -11522,13 +11560,13 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
 
 #### Parameters
 
-- `tunnelID: string`
+- `tunnelID: string` (path parameter)
 
   ID of the tunnel (`tnl_...`).
 
 - `params: TunnelArchiveParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -11634,7 +11672,7 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -11711,13 +11749,13 @@ Reveals a tunnel's connector token. The value is fetched live on each call; Anth
 
 #### Parameters
 
-- `tunnelID: string`
+- `tunnelID: string` (path parameter)
 
   ID of the tunnel (`tnl_...`).
 
 - `params: TunnelRevealTokenParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -11823,7 +11861,7 @@ Reveals a tunnel's connector token. The value is fetched live on each call; Anth
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -11881,7 +11919,7 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
 #### Parameters
 
-- `tunnelID: string`
+- `tunnelID: string` (path parameter)
 
   ID of the tunnel (`tnl_...`).
 
@@ -11889,13 +11927,13 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
   - `reason?: string | null`
 
-    Body param: Optional free-text reason for the rotation, recorded for audit.
+    Optional free-text reason for the rotation, recorded for audit.
 
     maxLength: 1024
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -11999,9 +12037,9 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -12059,7 +12097,7 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
 #### Parameters
 
-- `tunnelID: string`
+- `tunnelID: string` (path parameter)
 
   ID of the tunnel (`tnl_...`).
 
@@ -12067,13 +12105,13 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
   - `ca_certificate_pem: string`
 
-    Body param: PEM-encoded X.509 CA certificate. Must contain exactly one certificate and no private-key material. Maximum 8KB.
+    PEM-encoded X.509 CA certificate. Must contain exactly one certificate and no private-key material. Maximum 8KB.
 
     maxLength: 8192
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -12177,9 +12215,9 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -12263,19 +12301,19 @@ Fetches a tunnel certificate by ID.
 
 #### Parameters
 
-- `certificateID: string`
+- `certificateID: string` (path parameter)
 
   ID of the certificate (`tcrt_...`).
 
 - `params: CertificateRetrieveParams`
 
-  - `tunnel_id: string`
+  - `tunnel_id: string` (path parameter)
 
-    Path param: ID of the tunnel (`tnl_...`).
+    ID of the tunnel (`tnl_...`).
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -12379,9 +12417,9 @@ Fetches a tunnel certificate by ID.
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -12466,29 +12504,29 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
 #### Parameters
 
-- `tunnelID: string`
+- `tunnelID: string` (path parameter)
 
   ID of the tunnel (`tnl_...`).
 
 - `params: CertificateListParams`
 
-  - `include_archived?: boolean`
+  - `include_archived?: boolean` (query parameter)
 
-    Query param: Whether to include archived certificates in the results. Defaults to false.
+    Whether to include archived certificates in the results. Defaults to false.
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: Maximum number of certificates to return per page. Defaults to 20, maximum 1000.
+    Maximum number of certificates to return per page. Defaults to 20, maximum 1000.
 
     format: int32
 
-  - `page?: string`
+  - `page?: string` (query parameter)
 
-    Query param: Opaque pagination cursor from a previous `list_tunnel_certificates` response.
+    Opaque pagination cursor from a previous `list_tunnel_certificates` response.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -12592,9 +12630,9 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -12682,19 +12720,19 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 
 #### Parameters
 
-- `certificateID: string`
+- `certificateID: string` (path parameter)
 
   ID of the certificate to archive (`tcrt_...`).
 
 - `params: CertificateArchiveParams`
 
-  - `tunnel_id: string`
+  - `tunnel_id: string` (path parameter)
 
-    Path param: ID of the tunnel (`tnl_...`).
+    ID of the tunnel (`tnl_...`).
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -12798,9 +12836,9 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -12943,19 +12981,19 @@ List API Keys
 
 - `query: APIKeyListParams`
 
-  - `after_id?: string`
+  - `after_id?: string` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `before_id?: string`
+  - `before_id?: string` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `created_by_user_id?: string | null`
+  - `created_by_user_id?: string | null` (query parameter)
 
     Filter by the ID of the User who created the object.
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
     Number of items to return per page.
 
@@ -12963,7 +13001,7 @@ List API Keys
 
     minimum: 1, maximum: 1000
 
-  - `status?: "active" | "archived" | "expired" | "inactive" | null`
+  - `status?: "active" | "archived" | "expired" | "inactive" | null` (query parameter)
 
     Filter by API key status.
 
@@ -12975,7 +13013,7 @@ List API Keys
 
     - `"inactive"`
 
-  - `workspace_id?: string | null`
+  - `workspace_id?: string | null` (query parameter)
 
     Filter by Workspace ID.
 
@@ -13162,7 +13200,7 @@ Retrieve information about a single API key in your organization, looked up by i
 
 #### Parameters
 
-- `apiKeyID: string`
+- `apiKeyID: string` (path parameter)
 
   ID of the API key.
 
@@ -13341,7 +13379,7 @@ Update API Key
 
 #### Parameters
 
-- `apiKeyID: string`
+- `apiKeyID: string` (path parameter)
 
   ID of the API key.
 
@@ -13764,13 +13802,13 @@ Results are ordered by creation time (newest first). Use the
 
 - `query: ExternalKeyListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
     Number of results per page.
 
     minimum: 1, maximum: 100
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page`.
 
@@ -13928,7 +13966,7 @@ Retrieve a single external key config in the caller's organization by ID.
 
 #### Parameters
 
-- `externalKeyID: string`
+- `externalKeyID: string` (path parameter)
 
   ID of the External Key.
 
@@ -14088,7 +14126,7 @@ encrypted data requires the original key identity to decrypt.
 
 #### Parameters
 
-- `externalKeyID: string`
+- `externalKeyID: string` (path parameter)
 
   ID of the External Key.
 
@@ -14310,7 +14348,7 @@ The request is rejected if any workspace still references this config.
 
 #### Parameters
 
-- `externalKeyID: string`
+- `externalKeyID: string` (path parameter)
 
   ID of the External Key.
 
@@ -14366,7 +14404,7 @@ message if it failed or timed out.
 
 #### Parameters
 
-- `externalKeyID: string`
+- `externalKeyID: string` (path parameter)
 
   ID of the External Key.
 
@@ -14449,23 +14487,23 @@ matched as the JWT's `iss` claim and is not fetched.
 
   - `issuer_url: string`
 
-    Body param: The `iss` claim value to match against.
+    The `iss` claim value to match against.
 
     minLength: 1
 
   - `name: string`
 
-    Body param: Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+    Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
     minLength: 1, maxLength: 255
 
   - `check_jti?: boolean | null`
 
-    Body param: Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Defaults to true. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Defaults to true. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
 
   - `jwks?: BetaJWKSDiscovery | BetaJWKSExplicitURL | BetaJWKSInline`
 
-    Body param: How signing keys are obtained. Defaults to OIDC discovery.
+    How signing keys are obtained. Defaults to OIDC discovery.
 
     - `interface BetaJWKSDiscovery`
 
@@ -14515,13 +14553,13 @@ matched as the JWT's `iss` claim and is not fetched.
 
   - `max_jwt_lifetime_seconds?: number | null`
 
-    Body param: Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Defaults to 3600 (1h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Defaults to 3600 (1h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
 
     minimum: 1, maximum: 176400
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -14827,23 +14865,23 @@ Archived issuers are excluded unless `include_archived=true`.
 
 - `params: IssuerListParams`
 
-  - `include_archived?: boolean`
+  - `include_archived?: boolean` (query parameter)
 
-    Query param: Include archived resources. Defaults to false.
+    Include archived resources. Defaults to false.
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: Number of results per page.
+    Number of results per page.
 
     minimum: 1, maximum: 100
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
-    Query param: Opaque cursor from a previous response's `next_page`.
+    Opaque cursor from a previous response's `next_page`.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -15148,13 +15186,13 @@ Retrieve a federation issuer by its ID (`fdis_...`).
 
 #### Parameters
 
-- `federationIssuerID: string`
+- `federationIssuerID: string` (path parameter)
 
   ID of the federation issuer.
 
 - `params: IssuerRetrieveParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -15464,7 +15502,7 @@ session.
 
 #### Parameters
 
-- `federationIssuerID: string`
+- `federationIssuerID: string` (path parameter)
 
   ID of the federation issuer to update.
 
@@ -15472,17 +15510,17 @@ session.
 
   - `check_jti?: boolean | null`
 
-    Body param: Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
 
   - `issuer_url?: string | null`
 
-    Body param: Replaces the `iss` claim value to match against. For discovery-mode issuers without a `discovery_base`, this is also the URL Anthropic fetches the OIDC discovery document and signing keys from, so changing it repoints the JWKS source. Changing the issuer URL to a well-known shared platform is rejected while any live rule under this issuer would not constrain tenant identity.
+    Replaces the `iss` claim value to match against. For discovery-mode issuers without a `discovery_base`, this is also the URL Anthropic fetches the OIDC discovery document and signing keys from, so changing it repoints the JWKS source. Changing the issuer URL to a well-known shared platform is rejected while any live rule under this issuer would not constrain tenant identity.
 
     minLength: 1
 
   - `jwks?: BetaJWKSDiscovery | BetaJWKSExplicitURL | BetaJWKSInline | null`
 
-    Body param: Replaces the entire JWKS configuration.
+    Replaces the entire JWKS configuration.
 
     - `interface BetaJWKSDiscovery`
 
@@ -15532,23 +15570,23 @@ session.
 
   - `jwks_polling_disabled?: boolean | null`
 
-    Body param: Only `false` is accepted, to re-enable polling after the system pauses it. Polling is paused automatically; sending `true` is rejected.
+    Only `false` is accepted, to re-enable polling after the system pauses it. Polling is paused automatically; sending `true` is rejected.
 
   - `max_jwt_lifetime_seconds?: number | null`
 
-    Body param: Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
 
     minimum: 1, maximum: 176400
 
   - `name?: string | null`
 
-    Body param: Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+    Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
     minLength: 1, maxLength: 255
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -15854,13 +15892,13 @@ issuer cannot be changed), or recreate them against another issuer.
 
 #### Parameters
 
-- `federationIssuerID: string`
+- `federationIssuerID: string` (path parameter)
 
   ID of the federation issuer to archive.
 
 - `params: IssuerArchiveParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -16183,11 +16221,11 @@ manage rules whose `oauth_scope` is `workspace:developer` or
 
   - `issuer_id: string`
 
-    Body param: Tagged ID of the federation issuer.
+    Tagged ID of the federation issuer.
 
   - `match: BetaFederationRuleMatch`
 
-    Body param: Conditions the verified JWT must satisfy for this rule to apply. At least one of `subject_prefix` (other than a wildcard-only value like `*`), `claims`, or `condition` is required; `audience` alone is not sufficient.
+    Conditions the verified JWT must satisfy for this rule to apply. At least one of `subject_prefix` (other than a wildcard-only value like `*`), `claims`, or `condition` is required; `audience` alone is not sufficient.
 
     - `audience?: string | null`
 
@@ -16213,19 +16251,19 @@ manage rules whose `oauth_scope` is `workspace:developer` or
 
   - `name: string`
 
-    Body param: Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+    Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
     minLength: 1, maxLength: 255
 
   - `oauth_scope: string`
 
-    Body param: Space-separated OAuth scopes. OAuth callers may only set `workspace:developer` or `workspace:inference`; other scopes (such as `org:admin`) require a Console session.
+    Space-separated OAuth scopes. OAuth callers may only set `workspace:developer` or `workspace:inference`; other scopes (such as `org:admin`) require a Console session.
 
     minLength: 1
 
   - `target: BetaServiceAccountTarget`
 
-    Body param: Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
 
     - `type: "service_account"`
 
@@ -16239,31 +16277,31 @@ manage rules whose `oauth_scope` is `workspace:developer` or
 
   - `applies_to_all_workspaces?: boolean`
 
-    Body param: When true, enable this rule for every workspace in the org (including workspaces created later).
+    When true, enable this rule for every workspace in the org (including workspaces created later).
 
   - `attributes?: Record<string, string> | null`
 
-    Body param: CEL expressions `{name: expr}` extracting named values from claims. Not yet supported; any non-empty value is rejected with 400.
+    CEL expressions `{name: expr}` extracting named values from claims. Not yet supported; any non-empty value is rejected with 400.
 
   - `description?: string | null`
 
-    Body param: Optional free-text description.
+    Optional free-text description.
 
     maxLength: 2000
 
   - `token_lifetime_seconds?: number`
 
-    Body param: Lifetime in seconds for access tokens minted via this rule (60-86400). Defaults to 3600 (1h). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+    Lifetime in seconds for access tokens minted via this rule (60-86400). Defaults to 3600 (1h). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
 
     minimum: 60, maximum: 86400
 
   - `workspace_id?: string | null`
 
-    Body param: Tagged ID of the workspace to enable this rule for. Required unless `applies_to_all_workspaces` is true. Additional workspaces can be added via the `/federation_rules/{federation_rule_id}/workspaces` sub-resource.
+    Tagged ID of the workspace to enable this rule for. Required unless `applies_to_all_workspaces` is true. Additional workspaces can be added via the `/federation_rules/{federation_rule_id}/workspaces` sub-resource.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -16579,27 +16617,27 @@ unless `include_archived=true`.
 
 - `params: RuleListParams`
 
-  - `include_archived?: boolean`
+  - `include_archived?: boolean` (query parameter)
 
-    Query param: Include archived resources. Defaults to false.
+    Include archived resources. Defaults to false.
 
-  - `issuer_id?: string | null`
+  - `issuer_id?: string | null` (query parameter)
 
-    Query param: Filter to rules referencing this federation issuer.
+    Filter to rules referencing this federation issuer.
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: Number of results per page.
+    Number of results per page.
 
     minimum: 1, maximum: 100
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
-    Query param: Opaque cursor from a previous response's `next_page`.
+    Opaque cursor from a previous response's `next_page`.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -16910,13 +16948,13 @@ Retrieve a federation rule by its ID (`fdrl_...`).
 
 #### Parameters
 
-- `federationRuleID: string`
+- `federationRuleID: string` (path parameter)
 
   ID of the federation rule.
 
 - `params: RuleRetrieveParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -17241,7 +17279,7 @@ Console session.
 
 #### Parameters
 
-- `federationRuleID: string`
+- `federationRuleID: string` (path parameter)
 
   ID of the federation rule to update.
 
@@ -17249,21 +17287,21 @@ Console session.
 
   - `applies_to_all_workspaces?: boolean | null`
 
-    Body param: When true, enables this rule for every workspace in the org (including workspaces created later). Setting `false` is rejected with 400 if no workspace would remain enabled; a rule with only a legacy `workspace_id` binding continues to mint.
+    When true, enables this rule for every workspace in the org (including workspaces created later). Setting `false` is rejected with 400 if no workspace would remain enabled; a rule with only a legacy `workspace_id` binding continues to mint.
 
   - `attributes?: Record<string, string> | null`
 
-    Body param: Replaces the CEL expressions `{name: expr}` extracting named values from claims. Send null to clear them. Not yet supported; any non-empty value is rejected with 400.
+    Replaces the CEL expressions `{name: expr}` extracting named values from claims. Send null to clear them. Not yet supported; any non-empty value is rejected with 400.
 
   - `description?: string | null`
 
-    Body param: Replaces the description. Omit to leave unchanged; send `null` to clear (the field is stored as an empty string).
+    Replaces the description. Omit to leave unchanged; send `null` to clear (the field is stored as an empty string).
 
     maxLength: 2000
 
   - `match?: BetaFederationRuleMatch | null`
 
-    Body param: Replaces the entire match object. All populated matcher fields must pass.
+    Replaces the entire match object. All populated matcher fields must pass.
 
     - `audience?: string | null`
 
@@ -17289,19 +17327,19 @@ Console session.
 
   - `name?: string | null`
 
-    Body param: Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+    Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
     minLength: 1, maxLength: 255
 
   - `oauth_scope?: string | null`
 
-    Body param: Replaces the space-separated OAuth scopes granted on minted tokens. OAuth callers may only set `workspace:developer` or `workspace:inference`; other scopes (such as `org:admin`) require a Console session.
+    Replaces the space-separated OAuth scopes granted on minted tokens. OAuth callers may only set `workspace:developer` or `workspace:inference`; other scopes (such as `org:admin`) require a Console session.
 
     minLength: 1
 
   - `target?: BetaServiceAccountTarget | null`
 
-    Body param: Replaces the entire target object. Currently always a `service_account` target.
+    Replaces the entire target object. Currently always a `service_account` target.
 
     - `type: "service_account"`
 
@@ -17315,17 +17353,17 @@ Console session.
 
   - `token_lifetime_seconds?: number | null`
 
-    Body param: Replaces the lifetime in seconds for access tokens minted via this rule (60-86400). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+    Replaces the lifetime in seconds for access tokens minted via this rule (60-86400). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
 
     minimum: 60, maximum: 86400
 
   - `workspace_id?: string | null`
 
-    Body param: Replaces the existing single workspace enablement (the previous one is removed). Rejected with 400 if the rule is enabled for more than one workspace; use the `/federation_rules/{federation_rule_id}/workspaces` sub-resource instead.
+    Replaces the existing single workspace enablement (the previous one is removed). Rejected with 400 if the rule is enabled for more than one workspace; use the `/federation_rules/{federation_rule_id}/workspaces` sub-resource instead.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -17640,13 +17678,13 @@ other scopes require a Console session.
 
 #### Parameters
 
-- `federationRuleID: string`
+- `federationRuleID: string` (path parameter)
 
   ID of the federation rule to archive.
 
 - `params: RuleArchiveParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -17966,7 +18004,7 @@ other scopes require a Console session.
 
 #### Parameters
 
-- `federationRuleID: string`
+- `federationRuleID: string` (path parameter)
 
   ID of the federation rule.
 
@@ -17974,11 +18012,11 @@ other scopes require a Console session.
 
   - `workspace_id: string`
 
-    Body param: Tagged ID of the workspace to enable this rule for.
+    Tagged ID of the workspace to enable this rule for.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -18160,25 +18198,25 @@ rules with `applies_to_all_workspaces` or a legacy single
 
 #### Parameters
 
-- `federationRuleID: string`
+- `federationRuleID: string` (path parameter)
 
   ID of the federation rule.
 
 - `params: WorkspaceListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: Number of results per page.
+    Number of results per page.
 
     minimum: 1, maximum: 100
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
-    Query param: Opaque cursor from a previous response's `next_page`.
+    Opaque cursor from a previous response's `next_page`.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -18364,19 +18402,19 @@ Console session.
 
 #### Parameters
 
-- `workspaceID: string`
+- `workspaceID: string` (path parameter)
 
   ID of the workspace to disable for.
 
 - `params: WorkspaceRemoveParams`
 
-  - `federation_rule_id: string`
+  - `federation_rule_id: string` (path parameter)
 
-    Path param: ID of the federation rule.
+    ID of the federation rule.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -18690,21 +18728,21 @@ List the organization's invites.
 
 - `query: InviteListParams`
 
-  - `after_id?: string`
+  - `after_id?: string` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `before_id?: string`
+  - `before_id?: string` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `email?: string`
+  - `email?: string` (query parameter)
 
     Filter by the email address the Invite was sent to. Matches the same way as the Users list's `email` filter (normalized, case-insensitive).
 
     format: email
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
     Number of items to return per page.
 
@@ -18712,13 +18750,13 @@ List the organization's invites.
 
     minimum: 1, maximum: 1000
 
-  - `roles?: Array<string>`
+  - `roles?: Array<string>` (query parameter)
 
     Filter to items whose `role` equals one of the supplied values. Repeatable; values are OR'ed together.
 
     Accepted values depend on the organization type: Console and API organizations accept `user`, `developer`, `billing`, `admin`, and `claude_code_user`; Claude Enterprise organizations accept `user`, `owner`, `primary_owner`, `membership_admin`, and `managed`.
 
-  - `statuses?: Array<"accepted" | "expired" | "pending">`
+  - `statuses?: Array<"accepted" | "expired" | "pending">` (query parameter)
 
     Filter by Invite status. Repeatable; values are OR'ed together. Omit to return `pending`, `accepted`, and `expired` Invites alike.
 
@@ -18854,7 +18892,7 @@ Retrieve an invite by ID.
 
 #### Parameters
 
-- `inviteID: string`
+- `inviteID: string` (path parameter)
 
   ID of the Invite.
 
@@ -18976,7 +19014,7 @@ Delete a pending invite.
 
 #### Parameters
 
-- `inviteID: string`
+- `inviteID: string` (path parameter)
 
   ID of the Invite.
 
@@ -19045,27 +19083,27 @@ accounts.
 
   - `name: string`
 
-    Body param: Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+    Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
     minLength: 1, maxLength: 255
 
   - `description?: string | null`
 
-    Body param: Optional free-text description.
+    Optional free-text description.
 
     maxLength: 2000
 
   - `organization_role?: "admin" | "developer"`
 
-    Body param: Org-level role. Defaults to `developer`.
+    Org-level role. Defaults to `developer`.
 
     - `"admin"`
 
     - `"developer"`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -19284,23 +19322,23 @@ archived service accounts.
 
 - `params: ServiceAccountListParams`
 
-  - `include_archived?: boolean`
+  - `include_archived?: boolean` (query parameter)
 
-    Query param: Include archived resources. Defaults to false.
+    Include archived resources. Defaults to false.
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: Number of results per page.
+    Number of results per page.
 
     minimum: 1, maximum: 100
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
-    Query param: Opaque cursor from a previous response's `next_page`.
+    Opaque cursor from a previous response's `next_page`.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -19517,13 +19555,13 @@ Retrieve a service account by its ID (`svac_...`).
 
 #### Parameters
 
-- `serviceAccountID: string`
+- `serviceAccountID: string` (path parameter)
 
   ID of the service account.
 
 - `params: ServiceAccountRetrieveParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -19743,7 +19781,7 @@ interactive credential (a user OAuth token or a Console session).
 
 #### Parameters
 
-- `serviceAccountID: string`
+- `serviceAccountID: string` (path parameter)
 
   ID of the service account to update.
 
@@ -19751,21 +19789,21 @@ interactive credential (a user OAuth token or a Console session).
 
   - `description?: string | null`
 
-    Body param: Replaces the description. Omit to leave unchanged; send `null` to clear (the field is stored as an empty string).
+    Replaces the description. Omit to leave unchanged; send `null` to clear (the field is stored as an empty string).
 
     maxLength: 2000
 
   - `organization_role?: "admin" | "developer" | null`
 
-    Body param: Replaces the org-level role. Omit or send `null` to leave unchanged.
+    Replaces the org-level role. Omit or send `null` to leave unchanged.
 
     - `"admin"`
 
     - `"developer"`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -19983,13 +20021,13 @@ those rules first or change their target to another service account.
 
 #### Parameters
 
-- `serviceAccountID: string`
+- `serviceAccountID: string` (path parameter)
 
   ID of the service account to archive.
 
 - `params: ServiceAccountArchiveParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -20213,7 +20251,7 @@ rejected.
 
 #### Parameters
 
-- `serviceAccountID: string`
+- `serviceAccountID: string` (path parameter)
 
   ID of the service account.
 
@@ -20221,11 +20259,11 @@ rejected.
 
   - `workspace_id: string`
 
-    Body param: Tagged workspace ID to add the service account to.
+    Tagged workspace ID to add the service account to.
 
   - `workspace_role: BetaNoBillingWorkspaceRole`
 
-    Body param: Role to assign to the service account in this workspace.
+    Role to assign to the service account in this workspace.
 
     - `"workspace_admin"`
 
@@ -20235,9 +20273,9 @@ rejected.
 
     - `"workspace_user"`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -20436,25 +20474,25 @@ page to recover.
 
 #### Parameters
 
-- `serviceAccountID: string`
+- `serviceAccountID: string` (path parameter)
 
   ID of the service account.
 
 - `params: WorkspaceListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: Number of results per page.
+    Number of results per page.
 
     minimum: 1, maximum: 100
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
-    Query param: Opaque cursor from a previous response's `next_page`.
+    Opaque cursor from a previous response's `next_page`.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -20651,19 +20689,19 @@ to the implicit `workspace_user` membership. Archived workspaces return
 
 #### Parameters
 
-- `workspaceID: string`
+- `workspaceID: string` (path parameter)
 
   ID of the workspace.
 
 - `params: WorkspaceRemoveParams`
 
-  - `service_account_id: string`
+  - `service_account_id: string` (path parameter)
 
-    Path param: ID of the service account.
+    ID of the service account.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -20824,21 +20862,21 @@ List the organization's members.
 
 - `query: UserListParams`
 
-  - `after_id?: string`
+  - `after_id?: string` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `before_id?: string`
+  - `before_id?: string` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `email?: string`
+  - `email?: string` (query parameter)
 
     Filter by user email.
 
     format: email
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
     Number of items to return per page.
 
@@ -20846,7 +20884,7 @@ List the organization's members.
 
     minimum: 1, maximum: 1000
 
-  - `roles?: Array<string>`
+  - `roles?: Array<string>` (query parameter)
 
     Filter to items whose `role` equals one of the supplied values. Repeatable; values are OR'ed together.
 
@@ -20949,7 +20987,7 @@ Retrieve a member of the organization by user ID.
 
 #### Parameters
 
-- `userID: string`
+- `userID: string` (path parameter)
 
   ID of the User.
 
@@ -21042,7 +21080,7 @@ Update a member's organization role.
 
 #### Parameters
 
-- `userID: string`
+- `userID: string` (path parameter)
 
   ID of the User.
 
@@ -21155,7 +21193,7 @@ Remove a member from the organization.
 
 #### Parameters
 
-- `userID: string`
+- `userID: string` (path parameter)
 
   ID of the User.
 
@@ -21212,23 +21250,23 @@ List Workspaces
 
 - `query: WorkspaceListParams`
 
-  - `after_id?: string`
+  - `after_id?: string` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `before_id?: string`
+  - `before_id?: string` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `include_archived?: boolean`
+  - `include_archived?: boolean` (query parameter)
 
     Whether to include Workspaces that have been archived in the response
 
-  - `include_default?: boolean`
+  - `include_default?: boolean` (query parameter)
 
     Whether to include the organization's default Workspace in the response
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
     Number of items to return per page.
 
@@ -21392,13 +21430,13 @@ Create Workspace
 
   - `name: string`
 
-    Body param: Name of the Workspace.
+    Name of the Workspace.
 
     minLength: 1, maxLength: 40
 
   - `data_residency?: BetaDataResidencyCreateConfig | null`
 
-    Body param: Data residency configuration for the workspace. If omitted, defaults to `workspace_geo: "us"`, `allowed_inference_geos: "unrestricted"`, and `default_inference_geo: "global"`.
+    Data residency configuration for the workspace. If omitted, defaults to `workspace_geo: "us"`, `allowed_inference_geos: "unrestricted"`, and `default_inference_geo: "global"`.
 
     - `allowed_inference_geos?: Array<BetaAllowedInferenceGeo> | "unrestricted" | null`
 
@@ -21426,13 +21464,13 @@ Create Workspace
 
   - `display_color?: string | null`
 
-    Body param: Hex color code representing the Workspace in the Anthropic Console.
+    Hex color code representing the Workspace in the Anthropic Console.
 
     maxLength: 7, pattern: ^#[0-9A-Fa-f]{6}$
 
   - `external_key_id?: string | null`
 
-    Body param: ID of the customer-managed encryption key (CMEK) configuration to use for this
+    ID of the customer-managed encryption key (CMEK) configuration to use for this
     Workspace. Setting this field requires CMEK to be enabled for your
     organization. When set, data stored for this Workspace is encrypted with the
     referenced key. Create key configurations with the External Keys API. On
@@ -21446,11 +21484,11 @@ Create Workspace
 
   - `tags?: Record<string, string> | null`
 
-    Body param: User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -21698,7 +21736,7 @@ Get Workspace
 
 #### Parameters
 
-- `workspaceID: string`
+- `workspaceID: string` (path parameter)
 
   ID of the Workspace.
 
@@ -21846,7 +21884,7 @@ Update Workspace
 
 #### Parameters
 
-- `workspaceID: string`
+- `workspaceID: string` (path parameter)
 
 - `body: WorkspaceUpdateParams`
 
@@ -22048,7 +22086,7 @@ Archive Workspace
 
 #### Parameters
 
-- `workspaceID: string`
+- `workspaceID: string` (path parameter)
 
 #### Returns
 
@@ -22206,13 +22244,13 @@ the remaining entries.
 
 #### Parameters
 
-- `workspaceID: string`
+- `workspaceID: string` (path parameter)
 
   The ID of the workspace.
 
 - `query: RateLimitListParams`
 
-  - `group_type?: "batch" | "files" | "model_group" | 3 more | null`
+  - `group_type?: "batch" | "files" | "model_group" | 3 more | null` (query parameter)
 
     Filter by group type.
 
@@ -22228,11 +22266,11 @@ the remaining entries.
 
     - `"web_search"`
 
-  - `include_inherited?: boolean`
+  - `include_inherited?: boolean` (query parameter)
 
     Also list the limiter values the workspace inherits from the organization, including groups with no workspace-level override.
 
-  - `limit?: number | null`
+  - `limit?: number | null` (query parameter)
 
     Maximum number of items to return per page. Ranges from `1` to `1000`.
 
@@ -22240,7 +22278,7 @@ the remaining entries.
 
     minimum: 1, maximum: 1000
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page`.
 
@@ -22463,21 +22501,21 @@ List Workspace Members
 
 #### Parameters
 
-- `workspaceID: string`
+- `workspaceID: string` (path parameter)
 
   ID of the Workspace.
 
 - `query: MemberListParams`
 
-  - `after_id?: string`
+  - `after_id?: string` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `before_id?: string`
+  - `before_id?: string` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
     Number of items to return per page.
 
@@ -22564,7 +22602,7 @@ Create Workspace Member
 
 #### Parameters
 
-- `workspaceID: string`
+- `workspaceID: string` (path parameter)
 
   ID of the Workspace.
 
@@ -22658,13 +22696,13 @@ Get Workspace Member
 
 #### Parameters
 
-- `userID: string`
+- `userID: string` (path parameter)
 
   ID of the User.
 
 - `params: MemberRetrieveParams`
 
-  - `workspace_id: string`
+  - `workspace_id: string` (path parameter)
 
     ID of the Workspace.
 
@@ -22740,19 +22778,19 @@ Update Workspace Member
 
 #### Parameters
 
-- `userID: string`
+- `userID: string` (path parameter)
 
   ID of the User.
 
 - `params: MemberUpdateParams`
 
-  - `workspace_id: string`
+  - `workspace_id: string` (path parameter)
 
-    Path param: ID of the Workspace.
+    ID of the Workspace.
 
   - `workspace_role: BetaWorkspaceRole`
 
-    Body param: New workspace role for the User.
+    New workspace role for the User.
 
     - `"workspace_admin"`
 
@@ -22836,13 +22874,13 @@ Delete Workspace Member
 
 #### Parameters
 
-- `userID: string`
+- `userID: string` (path parameter)
 
   ID of the User.
 
 - `params: MemberRemoveParams`
 
-  - `workspace_id: string`
+  - `workspace_id: string` (path parameter)
 
     ID of the Workspace.
 
@@ -22913,25 +22951,25 @@ omitted from the results.
 
 #### Parameters
 
-- `workspaceID: string`
+- `workspaceID: string` (path parameter)
 
   ID of the workspace.
 
 - `params: ServiceAccountListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: Number of results per page.
+    Number of results per page.
 
     minimum: 1, maximum: 100
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
-    Query param: Opaque cursor from a previous response's `next_page`.
+    Opaque cursor from a previous response's `next_page`.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -23129,7 +23167,7 @@ accounts cannot be added and are rejected.
 
 #### Parameters
 
-- `workspaceID: string`
+- `workspaceID: string` (path parameter)
 
   ID of the workspace.
 
@@ -23137,11 +23175,11 @@ accounts cannot be added and are rejected.
 
   - `service_account_id: string`
 
-    Body param: Tagged service account ID to add.
+    Tagged service account ID to add.
 
   - `workspace_role: BetaNoBillingWorkspaceRole`
 
-    Body param: Role to assign to the service account in this workspace.
+    Role to assign to the service account in this workspace.
 
     - `"workspace_admin"`
 
@@ -23151,9 +23189,9 @@ accounts cannot be added and are rejected.
 
     - `"workspace_user"`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -23345,19 +23383,19 @@ account returns 404.
 
 #### Parameters
 
-- `serviceAccountID: string`
+- `serviceAccountID: string` (path parameter)
 
   ID of the service account.
 
 - `params: ServiceAccountRetrieveParams`
 
-  - `workspace_id: string`
+  - `workspace_id: string` (path parameter)
 
-    Path param: ID of the workspace.
+    ID of the workspace.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -23548,19 +23586,19 @@ rejected.
 
 #### Parameters
 
-- `serviceAccountID: string`
+- `serviceAccountID: string` (path parameter)
 
   ID of the service account.
 
 - `params: ServiceAccountUpdateParams`
 
-  - `workspace_id: string`
+  - `workspace_id: string` (path parameter)
 
-    Path param: ID of the workspace.
+    ID of the workspace.
 
   - `workspace_role: BetaNoBillingWorkspaceRole`
 
-    Body param: New role for the service account in this workspace.
+    New role for the service account in this workspace.
 
     - `"workspace_admin"`
 
@@ -23570,9 +23608,9 @@ rejected.
 
     - `"workspace_user"`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -23763,19 +23801,19 @@ membership. Archived workspaces return 400.
 
 #### Parameters
 
-- `serviceAccountID: string`
+- `serviceAccountID: string` (path parameter)
 
   ID of the service account.
 
 - `params: ServiceAccountRemoveParams`
 
-  - `workspace_id: string`
+  - `workspace_id: string` (path parameter)
 
-    Path param: ID of the workspace.
+    ID of the workspace.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -23944,7 +23982,7 @@ the remaining entries.
 
 - `query: RateLimitListParams`
 
-  - `group_type?: "batch" | "files" | "model_group" | 3 more | null`
+  - `group_type?: "batch" | "files" | "model_group" | 3 more | null` (query parameter)
 
     Filter by group type.
 
@@ -23960,7 +23998,7 @@ the remaining entries.
 
     - `"web_search"`
 
-  - `limit?: number | null`
+  - `limit?: number | null` (query parameter)
 
     Maximum number of items to return per page. Ranges from `1` to `1000`.
 
@@ -23968,11 +24006,11 @@ the remaining entries.
 
     minimum: 1, maximum: 1000
 
-  - `model?: string | null`
+  - `model?: string | null` (query parameter)
 
     Filter to the single entry containing this model. Accepts full model names and aliases. Returns 404 if the model is not found or has no rate limits for this organization.
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page`.
 
@@ -24325,31 +24363,31 @@ Enterprise plan. Requires an API key with the `read:analytics` scope.
 
 - `query: SummaryListParams`
 
-  - `starting_date: string`
+  - `starting_date: string` (query parameter)
 
     UTC date in YYYY-MM-DD format. Start of the date range (inclusive). Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
     format: date
 
-  - `ending_date?: string | null`
+  - `ending_date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. End of the date range (exclusive). Data is typically available with a 1-day lag, so this can be at most today — which is also the default when omitted, making the last entry cover the most recent available day. Data may be revised by a few percent over the following days. The range may span at most 366 days.
 
     format: date
 
-  - `filter?: Array<string> | null`
+  - `filter?: Array<string> | null` (query parameter)
 
     Filters as `dimension:value`. Only `rbac_group_id` is supported (e.g. `filter[]=rbac_group_id:{id}`); repeat the param to OR across groups. Scopes the whole day series to members of the matching group(s), re-aggregated from member-level activity — org-wide seat/invite fields and the adoption rates derived from them are null on scoped rows. `rbac_group_id` accepts the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each UTC day (time-of-usage attribution). At most 100 entries.
 
     maxItems: 100
 
-  - `limit?: number | null`
+  - `limit?: number | null` (query parameter)
 
     Number of results per page (1-1000, default 100). The day series (at most 366 entries) is currently returned in full in a single page, so `limit` does not yet shorten it.
 
     minimum: 1, maximum: 1000
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field. `next_page` is currently always null, so there is never a cursor to send.
 
@@ -24590,37 +24628,37 @@ the `read:analytics` scope.
 
 - `query: UserListParams`
 
-  - `date?: string | null`
+  - `date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. The day to get user activity for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
     format: date
 
-  - `ending_date?: string | null`
+  - `ending_date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with `starting_date`. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after `starting_date`.
 
     format: date
 
-  - `filter?: Array<string> | null`
+  - `filter?: Array<string> | null` (query parameter)
 
     Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `project_id`, `rbac_group_id`, `user_id`. Value forms: `project_id` takes a tagged project id (`claude_proj_...`) and scopes each member's row to their claude.ai chat activity within that project (it cannot be combined with `group_by[]` or an `rbac_group_id` filter); `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
     maxItems: 100
 
-  - `group_by?: Array<"rbac_group_id"> | null`
+  - `group_by?: Array<"rbac_group_id"> | null` (query parameter)
 
     Dimensions to break results out by (e.g. `group_by[]=rbac_group_id`). Supported on this endpoint: `rbac_group_id`. Rows are already per-member, so the one supported grouping aggregates them per RBAC group instead. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via `next_page`; an unsupported dimension returns 400. `rbac_group_id` attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
     maxItems: 100
 
-  - `limit?: number | null`
+  - `limit?: number | null` (query parameter)
 
     Number of results per page (1-1000, default 100).
 
     minimum: 1, maximum: 1000
 
-  - `order?: "asc" | "desc" | null`
+  - `order?: "asc" | "desc" | null` (query parameter)
 
     Sort direction: `asc` or `desc`. Defaults to `asc` for the endpoint's sort column and to `desc` when `order_by` names a metric (a top-N ranking). Applies to `order_by`, or to the endpoint's default sort field when `order_by` is omitted.
 
@@ -24628,15 +24666,15 @@ the `read:analytics` scope.
 
     - `"desc"`
 
-  - `order_by?: string | null`
+  - `order_by?: string | null` (query parameter)
 
     Sort field. Restricted to the endpoint's sort column plus its rankable metrics (metrics default to descending; a few metrics rank in date-range mode only, per the endpoint's documented orderable set).
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `starting_date?: string | null`
+  - `starting_date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either `date` or `starting_date`, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
@@ -25131,25 +25169,25 @@ plan. Requires an API key with the `read:analytics` scope.
 
 - `query: ProjectListParams`
 
-  - `date?: string | null`
+  - `date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. The day to get project activity for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
     format: date
 
-  - `ending_date?: string | null`
+  - `ending_date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with `starting_date`. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after `starting_date`.
 
     format: date
 
-  - `filter?: Array<string> | null`
+  - `filter?: Array<string> | null` (query parameter)
 
     Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `project_id`, `rbac_group_id`, `user_id`. Value forms: `project_id` takes a tagged project id (`claude_proj_...`); `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
     maxItems: 100
 
-  - `group_by?: Array<"rbac_group_id" | "user_id"> | null`
+  - `group_by?: Array<"rbac_group_id" | "user_id"> | null` (query parameter)
 
     Dimensions to break results out by (e.g. `group_by[]=user_id`). Supported on this endpoint: `rbac_group_id`, `user_id`. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via `next_page`; an unsupported dimension returns 400. `rbac_group_id` attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
@@ -25159,13 +25197,13 @@ plan. Requires an API key with the `read:analytics` scope.
 
     - `"user_id"`
 
-  - `limit?: number | null`
+  - `limit?: number | null` (query parameter)
 
     Number of results per page (1-1000, default 100).
 
     minimum: 1, maximum: 1000
 
-  - `order?: "asc" | "desc" | null`
+  - `order?: "asc" | "desc" | null` (query parameter)
 
     Sort direction: `asc` or `desc`. Defaults to `asc` for the endpoint's sort column and to `desc` when `order_by` names a metric (a top-N ranking). Applies to `order_by`, or to the endpoint's default sort field when `order_by` is omitted.
 
@@ -25173,15 +25211,15 @@ plan. Requires an API key with the `read:analytics` scope.
 
     - `"desc"`
 
-  - `order_by?: string | null`
+  - `order_by?: string | null` (query parameter)
 
     Sort field. Restricted to the endpoint's sort column plus its rankable metrics (metrics default to descending; a few metrics rank in date-range mode only, per the endpoint's documented orderable set).
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `starting_date?: string | null`
+  - `starting_date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either `date` or `starting_date`, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
@@ -25318,25 +25356,25 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
 - `query: ConnectorListParams`
 
-  - `date?: string | null`
+  - `date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. The day to get connector usage for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
     format: date
 
-  - `ending_date?: string | null`
+  - `ending_date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with `starting_date`. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after `starting_date`.
 
     format: date
 
-  - `filter?: Array<string> | null`
+  - `filter?: Array<string> | null` (query parameter)
 
     Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `connector_name`, `product`, `rbac_group_id`, `user_id`. Value forms: `connector_name` matches case-insensitively, a display name such as 'GitHub MCP' also matches its normalized stored form ('github'), and for rows whose `connector_name` is an opaque connector id the connector's display name (`connector_display_name`) also matches; `product` is one of `chat`, `claude_code`, `cowork`, or `office_agent`; `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
     maxItems: 100
 
-  - `group_by?: Array<"product" | "rbac_group_id" | "user_id"> | null`
+  - `group_by?: Array<"product" | "rbac_group_id" | "user_id"> | null` (query parameter)
 
     Dimensions to break results out by (e.g. `group_by[]=user_id`). Supported on this endpoint: `product`, `rbac_group_id`, `user_id`. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via `next_page`; an unsupported dimension returns 400. `rbac_group_id` attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
@@ -25348,13 +25386,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"user_id"`
 
-  - `limit?: number | null`
+  - `limit?: number | null` (query parameter)
 
     Number of results per page (1-1000, default 100).
 
     minimum: 1, maximum: 1000
 
-  - `order?: "asc" | "desc" | null`
+  - `order?: "asc" | "desc" | null` (query parameter)
 
     Sort direction: `asc` or `desc`. Defaults to `asc` for the endpoint's sort column and to `desc` when `order_by` names a metric (a top-N ranking). Applies to `order_by`, or to the endpoint's default sort field when `order_by` is omitted.
 
@@ -25362,15 +25400,15 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"desc"`
 
-  - `order_by?: string | null`
+  - `order_by?: string | null` (query parameter)
 
     Sort field. Restricted to the endpoint's sort column plus its rankable metrics (metrics default to descending; a few metrics rank in date-range mode only, per the endpoint's documented orderable set).
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `starting_date?: string | null`
+  - `starting_date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either `date` or `starting_date`, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
@@ -25566,25 +25604,25 @@ range-rollup mode like `/skills`.
 
 - `query: PluginListParams`
 
-  - `date?: string | null`
+  - `date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. The day to get plugin usage for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
     format: date
 
-  - `ending_date?: string | null`
+  - `ending_date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with `starting_date`. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after `starting_date`.
 
     format: date
 
-  - `filter?: Array<string> | null`
+  - `filter?: Array<string> | null` (query parameter)
 
     Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `plugin_name`, `product`, `rbac_group_id`, `user_id`. Value forms: `plugin_name` matches case-insensitively; `product` is `claude_code` or `cowork` (the only surfaces with plugin attribution); `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
     maxItems: 100
 
-  - `group_by?: Array<"product" | "rbac_group_id" | "user_id"> | null`
+  - `group_by?: Array<"product" | "rbac_group_id" | "user_id"> | null` (query parameter)
 
     Dimensions to break results out by (e.g. `group_by[]=user_id`). Supported on this endpoint: `product`, `rbac_group_id`, `user_id`. On this endpoint `product` takes the values `claude_code` or `cowork` only (the surfaces with plugin attribution). Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via `next_page`; an unsupported dimension returns 400. `rbac_group_id` attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
@@ -25596,13 +25634,13 @@ range-rollup mode like `/skills`.
 
     - `"user_id"`
 
-  - `limit?: number | null`
+  - `limit?: number | null` (query parameter)
 
     Number of results per page (1-1000, default 100).
 
     minimum: 1, maximum: 1000
 
-  - `order?: "asc" | "desc" | null`
+  - `order?: "asc" | "desc" | null` (query parameter)
 
     Sort direction: `asc` or `desc`. Defaults to `asc` for the endpoint's sort column and to `desc` when `order_by` names a metric (a top-N ranking). Applies to `order_by`, or to the endpoint's default sort field when `order_by` is omitted.
 
@@ -25610,15 +25648,15 @@ range-rollup mode like `/skills`.
 
     - `"desc"`
 
-  - `order_by?: string | null`
+  - `order_by?: string | null` (query parameter)
 
     Sort field. Restricted to the endpoint's sort column plus its rankable metrics (metrics default to descending; a few metrics rank in date-range mode only, per the endpoint's documented orderable set).
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `starting_date?: string | null`
+  - `starting_date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either `date` or `starting_date`, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
@@ -25751,25 +25789,25 @@ on a Claude Enterprise plan. Requires an API key with the
 
 - `query: SkillListParams`
 
-  - `date?: string | null`
+  - `date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. The day to get skill usage for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
     format: date
 
-  - `ending_date?: string | null`
+  - `ending_date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with `starting_date`. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after `starting_date`.
 
     format: date
 
-  - `filter?: Array<string> | null`
+  - `filter?: Array<string> | null` (query parameter)
 
     Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `product`, `rbac_group_id`, `share_status`, `skill_name`, `user_id`. Value forms: `product` is one of `chat`, `claude_code`, `cowork`, or `office_agent`; `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `share_status` is one of `organization`, `private`, or `public`; `skill_name` matches case-insensitively; `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
     maxItems: 100
 
-  - `group_by?: Array<"product" | "rbac_group_id" | "user_id"> | null`
+  - `group_by?: Array<"product" | "rbac_group_id" | "user_id"> | null` (query parameter)
 
     Dimensions to break results out by (e.g. `group_by[]=user_id`). Supported on this endpoint: `product`, `rbac_group_id`, `user_id`. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via `next_page`; an unsupported dimension returns 400. `rbac_group_id` attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
@@ -25781,13 +25819,13 @@ on a Claude Enterprise plan. Requires an API key with the
 
     - `"user_id"`
 
-  - `limit?: number | null`
+  - `limit?: number | null` (query parameter)
 
     Number of results per page (1-1000, default 100).
 
     minimum: 1, maximum: 1000
 
-  - `order?: "asc" | "desc" | null`
+  - `order?: "asc" | "desc" | null` (query parameter)
 
     Sort direction: `asc` or `desc`. Defaults to `asc` for the endpoint's sort column and to `desc` when `order_by` names a metric (a top-N ranking). Applies to `order_by`, or to the endpoint's default sort field when `order_by` is omitted.
 
@@ -25795,15 +25833,15 @@ on a Claude Enterprise plan. Requires an API key with the
 
     - `"desc"`
 
-  - `order_by?: string | null`
+  - `order_by?: string | null` (query parameter)
 
     Sort field. Restricted to the endpoint's sort column plus its rankable metrics (metrics default to descending; a few metrics rank in date-range mode only, per the endpoint's documented orderable set).
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `starting_date?: string | null`
+  - `starting_date?: string | null` (query parameter)
 
     UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either `date` or `starting_date`, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
@@ -26004,19 +26042,19 @@ can be broken out per product, per member, or per RBAC group via
 
 - `query: ArtifactListParams`
 
-  - `date: string`
+  - `date: string` (query parameter)
 
     UTC date in YYYY-MM-DD format. The day to get artifact activity for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
     format: date
 
-  - `filter?: Array<string> | null`
+  - `filter?: Array<string> | null` (query parameter)
 
     Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `artifact_type`, `is_shared`, `product`, `rbac_group_id`, `user_id`. Value forms: `artifact_type` is a canonical artifact MIME type (e.g. `text/markdown`) or `other`; `is_shared` is `true` or `false`; `product` is `chat`, `claude_code`, or `cowork` (the surfaces that create artifacts); `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
     maxItems: 100
 
-  - `group_by?: Array<"product" | "rbac_group_id" | "user_id"> | null`
+  - `group_by?: Array<"product" | "rbac_group_id" | "user_id"> | null` (query parameter)
 
     Dimensions to break results out by: `product`, `user_id` and/or `rbac_group_id`. The ungrouped artifact-type cube is finite and returned in full; grouped queries multiply the cube and paginate via `next_page`. `product` takes the values `chat`, `claude_code`, or `cowork` (the surfaces that create artifacts). `rbac_group_id` attributes a user to every group they held at any point during the requested UTC day, so grouped rows are not an exclusive partition. At most 100 entries.
 
@@ -26028,13 +26066,13 @@ can be broken out per product, per member, or per RBAC group via
 
     - `"user_id"`
 
-  - `limit?: number | null`
+  - `limit?: number | null` (query parameter)
 
     Maximum rows to return (1-1000, default 100). The ungrouped artifact-type cube is finite and returned in full; `limit` is the page size only when `group_by[]` multiplies the cube.
 
     minimum: 1, maximum: 1000
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field. Only valid with `group_by[]` — the ungrouped cube is never paginated.
 
@@ -26146,13 +26184,13 @@ key with the `read:analytics` scope.
 
 - `query: UsageReportListParams`
 
-  - `starting_at: string`
+  - `starting_at: string` (query parameter)
 
     Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
 
     format: date-time
 
-  - `bucket_width?: "1d" | "1h" | "1m"`
+  - `bucket_width?: "1d" | "1h" | "1m"` (query parameter)
 
     Time bucket granularity.
 
@@ -26162,7 +26200,7 @@ key with the `read:analytics` scope.
 
     - `"1m"`
 
-  - `claude_tag_categories?: Array<BetaAnalyticsClaudeTagCategory> | null`
+  - `claude_tag_categories?: Array<BetaAnalyticsClaudeTagCategory> | null` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
 
@@ -26178,13 +26216,13 @@ key with the `read:analytics` scope.
 
     - `"scheduled"`
 
-  - `claude_tag_user_ids?: Array<string> | null`
+  - `claude_tag_user_ids?: Array<string> | null` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
 
     maxItems: 100
 
-  - `context_windows?: Array<BetaAnalyticsContextWindow> | null`
+  - `context_windows?: Array<BetaAnalyticsContextWindow> | null` (query parameter)
 
     Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
@@ -26194,13 +26232,13 @@ key with the `read:analytics` scope.
 
     - `"200k-1M"`
 
-  - `ending_at?: string | null`
+  - `ending_at?: string | null` (query parameter)
 
     End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
     format: date-time
 
-  - `group_by?: Array<"claude_tag_category" | "claude_tag_user_id" | "context_window" | 6 more> | null`
+  - `group_by?: Array<"claude_tag_category" | "claude_tag_user_id" | "context_window" | 6 more> | null` (query parameter)
 
     Dimensions to break each time bucket out by. Defaults to no grouping (one total per bucket). Each bucket reports at most its top 100 groups; a group beyond that cap has no row in that bucket (there is no remainder row), so grouped buckets are not exhaustive when a dimension has more than 100 distinct values.
 
@@ -26224,7 +26262,7 @@ key with the `read:analytics` scope.
 
     - `"speed"`
 
-  - `inference_geos?: Array<BetaAnalyticsInferenceGeoFilter> | null`
+  - `inference_geos?: Array<BetaAnalyticsInferenceGeoFilter> | null` (query parameter)
 
     Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
@@ -26236,23 +26274,23 @@ key with the `read:analytics` scope.
 
     - `"us"`
 
-  - `limit?: number | null`
+  - `limit?: number | null` (query parameter)
 
     Maximum number of time buckets per page. Defaults and caps vary by `bucket_width` (`1d`: default 7, max 31; `1h`: default 24, max 168; `1m`: default 60, max 256).
 
     minimum: 1
 
-  - `models?: Array<string> | null`
+  - `models?: Array<string> | null` (query parameter)
 
     Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
 
     maxItems: 100
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `products?: Array<BetaAnalyticsProductFilter> | null`
+  - `products?: Array<BetaAnalyticsProductFilter> | null` (query parameter)
 
     Product surfaces to include. Defaults to all products. Use `group_by[]=product` to break out per-product values.
 
@@ -26272,19 +26310,19 @@ key with the `read:analytics` scope.
 
     - `"office_agent"`
 
-  - `rbac_group_ids?: Array<string> | null`
+  - `rbac_group_ids?: Array<string> | null` (query parameter)
 
     Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
 
     maxItems: 100
 
-  - `slack_channel_ids?: Array<string> | null`
+  - `slack_channel_ids?: Array<string> | null` (query parameter)
 
     Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
     maxItems: 100
 
-  - `speeds?: Array<"fast" | "standard"> | null`
+  - `speeds?: Array<"fast" | "standard"> | null` (query parameter)
 
     Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
 
@@ -26294,7 +26332,7 @@ key with the `read:analytics` scope.
 
     - `"standard"`
 
-  - `user_ids?: Array<string> | null`
+  - `user_ids?: Array<string> | null` (query parameter)
 
     Filter to specific users by tagged user ID.
 
@@ -26498,13 +26536,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
 - `query: UserUsageReportListParams`
 
-  - `starting_at: string`
+  - `starting_at: string` (query parameter)
 
     Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
 
     format: date-time
 
-  - `bucket_width?: "1d" | "1h" | "1m" | null`
+  - `bucket_width?: "1d" | "1h" | "1m" | null` (query parameter)
 
     Time-bucket granularity. When set, each row's `starting_at` and `ending_at` are populated and one actor may span several rows (one per time bucket with usage). The time bucket counts toward `limit`, so one page can return multiple rows for the same actor. `ending_at` is required when `bucket_width` is set, and with `bucket_width="1m"` the range may span at most 24 hours. When omitted, each row aggregates the full `[starting_at, ending_at)` range.
 
@@ -26514,7 +26552,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"1m"`
 
-  - `claude_tag_categories?: Array<BetaAnalyticsClaudeTagCategory> | null`
+  - `claude_tag_categories?: Array<BetaAnalyticsClaudeTagCategory> | null` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
 
@@ -26530,13 +26568,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"scheduled"`
 
-  - `claude_tag_user_ids?: Array<string> | null`
+  - `claude_tag_user_ids?: Array<string> | null` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
 
     maxItems: 100
 
-  - `context_windows?: Array<BetaAnalyticsContextWindow> | null`
+  - `context_windows?: Array<BetaAnalyticsContextWindow> | null` (query parameter)
 
     Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
@@ -26546,17 +26584,17 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"200k-1M"`
 
-  - `ending_at?: string | null`
+  - `ending_at?: string | null` (query parameter)
 
     End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
     format: date-time
 
-  - `exclude_deleted_users?: boolean`
+  - `exclude_deleted_users?: boolean` (query parameter)
 
     If true, omit rows for users who are deleted (`deleted: true`). A page may contain fewer than `limit` rows; use `has_more` and `next_page` to paginate as usual.
 
-  - `group_by?: Array<"claude_tag_category" | "claude_tag_user_id" | "context_window" | 6 more> | null`
+  - `group_by?: Array<"claude_tag_category" | "claude_tag_user_id" | "context_window" | 6 more> | null` (query parameter)
 
     Break each actor's row out by the given dimensions. Accepts the same values as the bucketed `/usage_report` endpoint. `limit` bounds (actor × time bucket × dimension) rows — with dimensions or `bucket_width` present, one actor may span several rows.
 
@@ -26580,7 +26618,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"speed"`
 
-  - `inference_geos?: Array<BetaAnalyticsInferenceGeoFilter> | null`
+  - `inference_geos?: Array<BetaAnalyticsInferenceGeoFilter> | null` (query parameter)
 
     Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
@@ -26592,19 +26630,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"us"`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
     Number of rows per page (1-1000, default 20). One row per actor unless `group_by[]` or `bucket_width` splits an actor across rows; `cost_type`/`token_type` fan-out rows (cost endpoint only) are the exception — they do not count toward this limit, so `data` can exceed it.
 
     minimum: 1, maximum: 1000
 
-  - `models?: Array<string> | null`
+  - `models?: Array<string> | null` (query parameter)
 
     Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
 
     maxItems: 100
 
-  - `order?: "asc" | "desc"`
+  - `order?: "asc" | "desc"` (query parameter)
 
     Sort direction. Defaults to `desc`.
 
@@ -26612,7 +26650,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"desc"`
 
-  - `order_by?: "output_tokens" | "requests" | "total_tokens" | "uncached_input_tokens"`
+  - `order_by?: "output_tokens" | "requests" | "total_tokens" | "uncached_input_tokens"` (query parameter)
 
     Metric to rank actors by. Defaults to `total_tokens`.
 
@@ -26624,11 +26662,11 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"uncached_input_tokens"`
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `products?: Array<BetaAnalyticsProductFilter> | null`
+  - `products?: Array<BetaAnalyticsProductFilter> | null` (query parameter)
 
     Product surfaces to include. Defaults to all products.
 
@@ -26648,19 +26686,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"office_agent"`
 
-  - `rbac_group_ids?: Array<string> | null`
+  - `rbac_group_ids?: Array<string> | null` (query parameter)
 
     Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
 
     maxItems: 100
 
-  - `slack_channel_ids?: Array<string> | null`
+  - `slack_channel_ids?: Array<string> | null` (query parameter)
 
     Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
     maxItems: 100
 
-  - `speeds?: Array<"fast" | "standard"> | null`
+  - `speeds?: Array<"fast" | "standard"> | null` (query parameter)
 
     Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
 
@@ -26670,7 +26708,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"standard"`
 
-  - `user_ids?: Array<string> | null`
+  - `user_ids?: Array<string> | null` (query parameter)
 
     Filter to specific users by tagged user ID.
 
@@ -26900,13 +26938,13 @@ Requires an API key with the `read:analytics` scope.
 
 - `query: CostReportListParams`
 
-  - `starting_at: string`
+  - `starting_at: string` (query parameter)
 
     Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
 
     format: date-time
 
-  - `bucket_width?: "1d" | "1h" | "1m"`
+  - `bucket_width?: "1d" | "1h" | "1m"` (query parameter)
 
     Time bucket granularity.
 
@@ -26916,7 +26954,7 @@ Requires an API key with the `read:analytics` scope.
 
     - `"1m"`
 
-  - `claude_tag_categories?: Array<BetaAnalyticsClaudeTagCategory> | null`
+  - `claude_tag_categories?: Array<BetaAnalyticsClaudeTagCategory> | null` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
 
@@ -26932,13 +26970,13 @@ Requires an API key with the `read:analytics` scope.
 
     - `"scheduled"`
 
-  - `claude_tag_user_ids?: Array<string> | null`
+  - `claude_tag_user_ids?: Array<string> | null` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
 
     maxItems: 100
 
-  - `context_windows?: Array<BetaAnalyticsContextWindow> | null`
+  - `context_windows?: Array<BetaAnalyticsContextWindow> | null` (query parameter)
 
     Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
@@ -26948,13 +26986,13 @@ Requires an API key with the `read:analytics` scope.
 
     - `"200k-1M"`
 
-  - `ending_at?: string | null`
+  - `ending_at?: string | null` (query parameter)
 
     End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
     format: date-time
 
-  - `group_by?: Array<"claude_tag_category" | "claude_tag_user_id" | "context_window" | 8 more> | null`
+  - `group_by?: Array<"claude_tag_category" | "claude_tag_user_id" | "context_window" | 8 more> | null` (query parameter)
 
     Dimensions to break each time bucket out by. Defaults to no grouping (one total per bucket). Each bucket reports at most its top 100 groups; a group beyond that cap has no row in that bucket (there is no remainder row), so grouped buckets are not exhaustive when a dimension has more than 100 distinct values.
 
@@ -26982,7 +27020,7 @@ Requires an API key with the `read:analytics` scope.
 
     - `"token_type"`
 
-  - `inference_geos?: Array<BetaAnalyticsInferenceGeoFilter> | null`
+  - `inference_geos?: Array<BetaAnalyticsInferenceGeoFilter> | null` (query parameter)
 
     Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
@@ -26994,23 +27032,23 @@ Requires an API key with the `read:analytics` scope.
 
     - `"us"`
 
-  - `limit?: number | null`
+  - `limit?: number | null` (query parameter)
 
     Maximum number of time buckets per page. Defaults and caps vary by `bucket_width` (`1d`: default 7, max 31; `1h`: default 24, max 168; `1m`: default 60, max 256).
 
     minimum: 1
 
-  - `models?: Array<string> | null`
+  - `models?: Array<string> | null` (query parameter)
 
     Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
 
     maxItems: 100
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `products?: Array<BetaAnalyticsProductFilter> | null`
+  - `products?: Array<BetaAnalyticsProductFilter> | null` (query parameter)
 
     Product surfaces to include. Defaults to all products. Use `group_by[]=product` to break out per-product values.
 
@@ -27030,19 +27068,19 @@ Requires an API key with the `read:analytics` scope.
 
     - `"office_agent"`
 
-  - `rbac_group_ids?: Array<string> | null`
+  - `rbac_group_ids?: Array<string> | null` (query parameter)
 
     Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
 
     maxItems: 100
 
-  - `slack_channel_ids?: Array<string> | null`
+  - `slack_channel_ids?: Array<string> | null` (query parameter)
 
     Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
     maxItems: 100
 
-  - `speeds?: Array<"fast" | "standard"> | null`
+  - `speeds?: Array<"fast" | "standard"> | null` (query parameter)
 
     Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
 
@@ -27052,7 +27090,7 @@ Requires an API key with the `read:analytics` scope.
 
     - `"standard"`
 
-  - `user_ids?: Array<string> | null`
+  - `user_ids?: Array<string> | null` (query parameter)
 
     Filter to specific users by tagged user ID.
 
@@ -27253,13 +27291,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
 - `query: UserCostReportListParams`
 
-  - `starting_at: string`
+  - `starting_at: string` (query parameter)
 
     Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
 
     format: date-time
 
-  - `bucket_width?: "1d" | "1h" | "1m" | null`
+  - `bucket_width?: "1d" | "1h" | "1m" | null` (query parameter)
 
     Time-bucket granularity. When set, each row's `starting_at` and `ending_at` are populated and one actor may span several rows (one per time bucket with usage). The time bucket counts toward `limit`, so one page can return multiple rows for the same actor. `ending_at` is required when `bucket_width` is set, and with `bucket_width="1m"` the range may span at most 24 hours. When omitted, each row aggregates the full `[starting_at, ending_at)` range.
 
@@ -27269,7 +27307,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"1m"`
 
-  - `claude_tag_categories?: Array<BetaAnalyticsClaudeTagCategory> | null`
+  - `claude_tag_categories?: Array<BetaAnalyticsClaudeTagCategory> | null` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
 
@@ -27285,13 +27323,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"scheduled"`
 
-  - `claude_tag_user_ids?: Array<string> | null`
+  - `claude_tag_user_ids?: Array<string> | null` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
 
     maxItems: 100
 
-  - `context_windows?: Array<BetaAnalyticsContextWindow> | null`
+  - `context_windows?: Array<BetaAnalyticsContextWindow> | null` (query parameter)
 
     Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
@@ -27301,17 +27339,17 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"200k-1M"`
 
-  - `ending_at?: string | null`
+  - `ending_at?: string | null` (query parameter)
 
     End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
     format: date-time
 
-  - `exclude_deleted_users?: boolean`
+  - `exclude_deleted_users?: boolean` (query parameter)
 
     If true, omit rows for users who are deleted (`deleted: true`). A page may contain fewer than `limit` rows; use `has_more` and `next_page` to paginate as usual.
 
-  - `group_by?: Array<"claude_tag_category" | "claude_tag_user_id" | "context_window" | 8 more> | null`
+  - `group_by?: Array<"claude_tag_category" | "claude_tag_user_id" | "context_window" | 8 more> | null` (query parameter)
 
     Break each actor's row out by the given dimensions. Accepts the same values as the bucketed `/cost_report` endpoint. The `product`, `model`, `context_window`, `inference_geo`, and `speed` dimensions — and the time bucket, when `bucket_width` is set — count toward `limit`. `cost_type` and `token_type` do not: `cost_type` returns one row per cost component (tokens, web search, code execution); `token_type` returns one row per token type, each with `cost_type: "tokens"`; combining both returns the per-token-type rows plus the web-search and code-execution rows. A page can therefore contain more rows than `limit` when `cost_type` or `token_type` is requested.
 
@@ -27339,7 +27377,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"token_type"`
 
-  - `inference_geos?: Array<BetaAnalyticsInferenceGeoFilter> | null`
+  - `inference_geos?: Array<BetaAnalyticsInferenceGeoFilter> | null` (query parameter)
 
     Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
@@ -27351,19 +27389,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"us"`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
     Number of rows per page (1-1000, default 20). One row per actor unless `group_by[]` or `bucket_width` splits an actor across rows; `cost_type`/`token_type` fan-out rows (cost endpoint only) are the exception — they do not count toward this limit, so `data` can exceed it.
 
     minimum: 1, maximum: 1000
 
-  - `models?: Array<string> | null`
+  - `models?: Array<string> | null` (query parameter)
 
     Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
 
     maxItems: 100
 
-  - `order?: "asc" | "desc"`
+  - `order?: "asc" | "desc"` (query parameter)
 
     Sort direction. Defaults to `desc`.
 
@@ -27371,7 +27409,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"desc"`
 
-  - `order_by?: "amount" | "list_amount"`
+  - `order_by?: "amount" | "list_amount"` (query parameter)
 
     Metric to rank actors by. Defaults to `amount`.
 
@@ -27379,11 +27417,11 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"list_amount"`
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `products?: Array<BetaAnalyticsProductFilter> | null`
+  - `products?: Array<BetaAnalyticsProductFilter> | null` (query parameter)
 
     Product surfaces to include. Defaults to all products.
 
@@ -27403,19 +27441,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"office_agent"`
 
-  - `rbac_group_ids?: Array<string> | null`
+  - `rbac_group_ids?: Array<string> | null` (query parameter)
 
     Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
 
     maxItems: 100
 
-  - `slack_channel_ids?: Array<string> | null`
+  - `slack_channel_ids?: Array<string> | null` (query parameter)
 
     Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
     maxItems: 100
 
-  - `speeds?: Array<"fast" | "standard"> | null`
+  - `speeds?: Array<"fast" | "standard"> | null` (query parameter)
 
     Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
 
@@ -27425,7 +27463,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `"standard"`
 
-  - `user_ids?: Array<string> | null`
+  - `user_ids?: Array<string> | null` (query parameter)
 
     Filter to specific users by tagged user ID.
 
@@ -27858,7 +27896,7 @@ Retrieve a spend limit by ID.
 
 #### Parameters
 
-- `spendLimitID: string`
+- `spendLimitID: string` (path parameter)
 
   ID of the Spend Limit.
 
@@ -28023,7 +28061,7 @@ workspace limits. Deleting them through the API is in an early access preview.
 
 #### Parameters
 
-- `spendLimitID: string`
+- `spendLimitID: string` (path parameter)
 
   ID of the Spend Limit.
 
@@ -28078,19 +28116,19 @@ is not creation order.
 
 - `params: SpendLimitListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: Maximum number of limits per page. Defaults to `20`.
+    Maximum number of limits per page. Defaults to `20`.
 
     minimum: 1, maximum: 1000
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
-    Query param: Opaque cursor from a previous response's `next_page` field.
+    Opaque cursor from a previous response's `next_page` field.
 
-  - `scope_type?: Array<"organization" | "organization_service" | "rbac_group" | 3 more> | null`
+  - `scope_type?: Array<"organization" | "organization_service" | "rbac_group" | 3 more> | null` (query parameter)
 
-    Query param: Return only limits with these scope types. A Claude Console organization has `organization` and `workspace` limits; a Claude Enterprise organization has `organization`, `seat_tier`, `rbac_group`, `organization_service` and `user` limits. Omit for all.
+    Return only limits with these scope types. A Claude Console organization has `organization` and `workspace` limits; a Claude Enterprise organization has `organization`, `seat_tier`, `rbac_group`, `organization_service` and `user` limits. Omit for all.
 
     maxItems: 6
 
@@ -28106,9 +28144,9 @@ is not creation order.
 
     - `"workspace"`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `spend-limit-reads-2026-09-26` in this header.
+    This endpoint is in beta: requests must send `spend-limit-reads-2026-09-26` in this header.
 
     - `(string & {})`
 
@@ -28381,17 +28419,17 @@ Paginates by member, so a member's periods never split across pages.
 
 - `query: EffectiveListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
     Maximum number of members per page. A member's period rows never split across pages, so a page may carry more rows than this. Defaults to `20`.
 
     minimum: 1, maximum: 1000
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `period?: Array<"daily" | "monthly" | "weekly"> | null`
+  - `period?: Array<"daily" | "monthly" | "weekly"> | null` (query parameter)
 
     Restrict the report to these limit periods. Omit to return one row per period each member resolves a spend limit for.
 
@@ -28403,7 +28441,7 @@ Paginates by member, so a member's periods never split across pages.
 
     - `"weekly"`
 
-  - `user_ids?: Array<string> | null`
+  - `user_ids?: Array<string> | null` (query parameter)
 
     Restrict the report to these members, by tagged user ID (`user_...`). At most 100 entries.
 
@@ -28623,19 +28661,19 @@ Requests whose requester is no longer a member are excluded.
 
 - `query: IncreaseRequestListParams`
 
-  - `actor_ids?: Array<string> | null`
+  - `actor_ids?: Array<string> | null` (query parameter)
 
     Filter by requester, as `user_...` tagged IDs.
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
     minimum: 1, maximum: 1000
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Opaque cursor from a previous response's `next_page`.
 
-  - `status?: Array<BetaSpendLimitIncreaseRequestStatus> | null`
+  - `status?: Array<BetaSpendLimitIncreaseRequestStatus> | null` (query parameter)
 
     Filter by status. Omit to return all.
 
@@ -28927,7 +28965,7 @@ requester at the request's period.
 
 #### Parameters
 
-- `spendLimitIncreaseRequestID: string`
+- `spendLimitIncreaseRequestID: string` (path parameter)
 
   ID of the spend limit increase request.
 
@@ -29212,7 +29250,7 @@ the member was blocked on. Anthropic emails the requester unless
 
 #### Parameters
 
-- `spendLimitIncreaseRequestID: string`
+- `spendLimitIncreaseRequestID: string` (path parameter)
 
   ID of the spend limit increase request.
 
@@ -29587,7 +29625,7 @@ Idempotent on `denied`; denying an already-`approved` request returns
 
 #### Parameters
 
-- `spendLimitIncreaseRequestID: string`
+- `spendLimitIncreaseRequestID: string` (path parameter)
 
   ID of the spend limit increase request.
 
@@ -29976,7 +30014,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 - `query: RBACGroupListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
     Number of items to return per page.
 
@@ -29984,7 +30022,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     minimum: 1, maximum: 1000
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Optionally set to the `next_page` token from the previous response.
 
@@ -30084,7 +30122,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `rbacGroupID: string`
+- `rbacGroupID: string` (path parameter)
 
   ID of the RBAC Group.
 
@@ -30177,7 +30215,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `rbacGroupID: string`
+- `rbacGroupID: string` (path parameter)
 
   ID of the RBAC Group.
 
@@ -30278,7 +30316,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `rbacGroupID: string`
+- `rbacGroupID: string` (path parameter)
 
   ID of the RBAC Group.
 
@@ -30335,13 +30373,13 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `rbacGroupID: string`
+- `rbacGroupID: string` (path parameter)
 
   ID of the RBAC Group.
 
 - `query: MemberListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
     Number of items to return per page.
 
@@ -30349,7 +30387,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     minimum: 1, maximum: 1000
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Optionally set to the `next_page` token from the previous response.
 
@@ -30431,7 +30469,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `rbacGroupID: string`
+- `rbacGroupID: string` (path parameter)
 
   ID of the RBAC Group.
 
@@ -30513,13 +30551,13 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `userID: string`
+- `userID: string` (path parameter)
 
   ID of the User.
 
 - `params: MemberRemoveParams`
 
-  - `rbac_group_id: string`
+  - `rbac_group_id: string` (path parameter)
 
     ID of the RBAC Group.
 
@@ -30584,7 +30622,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
 - `query: RBACRoleListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
     Number of items to return per page.
 
@@ -30592,7 +30630,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
     minimum: 1, maximum: 1000
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Optionally set to the `next_page` token from the previous response.
 
@@ -30680,7 +30718,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `rbacRoleID: string`
+- `rbacRoleID: string` (path parameter)
 
   ID of the RBAC Role.
 
@@ -30763,13 +30801,13 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `rbacRoleID: string`
+- `rbacRoleID: string` (path parameter)
 
   ID of the RBAC Role.
 
 - `query: PermissionListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
     Number of items to return per page.
 
@@ -30777,7 +30815,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
     minimum: 1, maximum: 1000
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
     Optionally set to the `next_page` token from the previous response.
 
@@ -30976,21 +31014,21 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   - `files: Array<Uploadable>`
 
-    Body param: The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
+    The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
 
   - `marketplace_id?: string`
 
-    Body param: ID of the organization-owned plugin marketplace to create the Plugin in (prefixed `marketplace_`). It must be a `manual` marketplace, one whose Plugins are uploaded rather than synchronized from a repository. When omitted, the Plugin is created in the organization's library marketplace, an organization-owned `manual` marketplace created on first use.
+    ID of the organization-owned plugin marketplace to create the Plugin in (prefixed `marketplace_`). It must be a `manual` marketplace, one whose Plugins are uploaded rather than synchronized from a repository. When omitted, the Plugin is created in the organization's library marketplace, an organization-owned `manual` marketplace created on first use.
 
   - `release_notes?: string`
 
-    Body param: Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
+    Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
 
     maxLength: 5000
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -31364,19 +31402,19 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `pluginID: string`
+- `pluginID: string` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
 - `params: PluginRetrieveParams`
 
-  - `organization_id?: string | null`
+  - `organization_id?: string | null` (query parameter)
 
-    Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -31768,7 +31806,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `pluginID: string`
+- `pluginID: string` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
@@ -31776,11 +31814,11 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   - `served_version_id: string`
 
-    Body param: Serve this version of the Plugin (prefixed `pluginver_`) and pin the served version to it; `latest` is not accepted.
+    Serve this version of the Plugin (prefixed `pluginver_`) and pin the served version to it; `latest` is not accepted.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -32162,67 +32200,67 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params: PluginListParams`
 
-  - `"created_at[gt]"?: string | null`
+  - `"created_at[gt]"?: string | null` (query parameter)
 
-    Query param: RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
-
-    format: date-time
-
-  - `"created_at[gte]"?: string | null`
-
-    Query param: RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+    RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
 
     format: date-time
 
-  - `"created_at[lt]"?: string | null`
+  - `"created_at[gte]"?: string | null` (query parameter)
 
-    Query param: RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
-
-    format: date-time
-
-  - `"created_at[lte]"?: string | null`
-
-    Query param: RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+    RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
 
     format: date-time
 
-  - `limit?: number`
+  - `"created_at[lt]"?: string | null` (query parameter)
 
-    Query param: Number of items to return per page.
+    RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+    format: date-time
+
+  - `"created_at[lte]"?: string | null` (query parameter)
+
+    RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+    format: date-time
+
+  - `limit?: number` (query parameter)
+
+    Number of items to return per page.
 
     Defaults to `20`. Ranges from `1` to `100`.
 
     minimum: 1, maximum: 100
 
-  - `marketplace_id?: string | null`
+  - `marketplace_id?: string | null` (query parameter)
 
-    Query param: Only Plugins in this plugin marketplace (prefixed `marketplace_`).
+    Only Plugins in this plugin marketplace (prefixed `marketplace_`).
 
-  - `organization_id?: string | null`
+  - `organization_id?: string | null` (query parameter)
 
-    Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `owner_type?: "organization" | "user" | null`
+  - `owner_type?: "organization" | "user" | null` (query parameter)
 
-    Query param: `organization` for Plugins in the organization's plugin marketplaces, `user` for Plugins in members' personal plugin marketplaces.
+    `organization` for Plugins in the organization's plugin marketplaces, `user` for Plugins in members' personal plugin marketplaces.
 
     - `"organization"`
 
     - `"user"`
 
-  - `owner_user_id?: string | null`
+  - `owner_user_id?: string | null` (query parameter)
 
-    Query param: Only Plugins in this member's personal plugin marketplaces (prefixed `user_`); a removed member's ID is accepted.
+    Only Plugins in this member's personal plugin marketplaces (prefixed `user_`); a removed member's ID is accepted.
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
-    Query param: Optionally set to the `next_page` token from the previous response.
+    Optionally set to the `next_page` token from the previous response.
 
     maxLength: 2048
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -32611,13 +32649,13 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `pluginID: string`
+- `pluginID: string` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
 - `params: PluginDeleteParams`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -32795,7 +32833,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `pluginID: string`
+- `pluginID: string` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
@@ -32803,17 +32841,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   - `files: Array<Uploadable>`
 
-    Body param: The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
+    The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
 
   - `release_notes?: string`
 
-    Body param: Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
+    Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
 
     maxLength: 5000
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -33123,33 +33161,33 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `pluginID: string`
+- `pluginID: string` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
 - `params: VersionListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: Number of items to return per page.
+    Number of items to return per page.
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
     minimum: 1, maximum: 1000
 
-  - `organization_id?: string | null`
+  - `organization_id?: string | null` (query parameter)
 
-    Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
-    Query param: Optionally set to the `next_page` token from the previous response.
+    Optionally set to the `next_page` token from the previous response.
 
     maxLength: 2048
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -33462,23 +33500,23 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `version: string`
+- `version: string` (path parameter)
 
   ID of the Plugin Version (prefixed `pluginver_`), or `latest` for the newest one.
 
 - `params: VersionRetrieveParams`
 
-  - `plugin_id: string`
+  - `plugin_id: string` (path parameter)
 
-    Path param: ID of the Plugin (prefixed `plugin_`).
+    ID of the Plugin (prefixed `plugin_`).
 
-  - `organization_id?: string | null`
+  - `organization_id?: string | null` (query parameter)
 
-    Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -33801,23 +33839,23 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `version: string`
+- `version: string` (path parameter)
 
   ID of the Plugin Version (prefixed `pluginver_`). `latest` is not accepted here.
 
 - `params: VersionDownloadParams`
 
-  - `plugin_id: string`
+  - `plugin_id: string` (path parameter)
 
-    Path param: ID of the Plugin (prefixed `plugin_`).
+    ID of the Plugin (prefixed `plugin_`).
 
-  - `organization_id?: string | null`
+  - `organization_id?: string | null` (query parameter)
 
-    Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -33965,41 +34003,41 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `pluginID: string`
+- `pluginID: string` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
 - `params: InstallationSettingListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: Number of items to return per page.
+    Number of items to return per page.
 
     Defaults to `20`. Ranges from `1` to `100`.
 
     minimum: 1, maximum: 100
 
-  - `organization_id?: string | null`
+  - `organization_id?: string | null` (query parameter)
 
-    Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
-    Query param: Optionally set to the `next_page` token from the previous response.
+    Optionally set to the `next_page` token from the previous response.
 
     maxLength: 2048
 
-  - `target_type?: "organization" | "rbac_group" | null`
+  - `target_type?: "organization" | "rbac_group" | null` (query parameter)
 
-    Query param: Only settings for this kind of target: `organization` (the organization-wide setting) or `rbac_group` (an RBAC Group's).
+    Only settings for this kind of target: `organization` (the organization-wide setting) or `rbac_group` (an RBAC Group's).
 
     - `"organization"`
 
     - `"rbac_group"`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -34244,19 +34282,19 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `target: string`
+- `target: string` (path parameter)
 
   The target whose setting is written: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Writing the `organization` target stops the Plugin from inheriting its marketplace's default, even when the value written equals that default.
 
 - `params: InstallationSettingSetParams`
 
-  - `plugin_id: string`
+  - `plugin_id: string` (path parameter)
 
-    Path param: ID of the Plugin (prefixed `plugin_`).
+    ID of the Plugin (prefixed `plugin_`).
 
   - `installation_preference: "auto_install" | "available" | "not_available" | "required"`
 
-    Body param: The installation setting the target is to hold for this Plugin: one of `required`, `auto_install`, `available`, `not_available`.
+    The installation setting the target is to hold for this Plugin: one of `required`, `auto_install`, `available`, `not_available`.
 
     - `"auto_install"`
 
@@ -34266,9 +34304,9 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     - `"required"`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -34513,19 +34551,19 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `target: string`
+- `target: string` (path parameter)
 
   The target whose own setting is removed: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Removing the `organization` setting returns the Plugin to its marketplace's default.
 
 - `params: InstallationSettingRemoveParams`
 
-  - `plugin_id: string`
+  - `plugin_id: string` (path parameter)
 
-    Path param: ID of the Plugin (prefixed `plugin_`).
+    ID of the Plugin (prefixed `plugin_`).
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -34734,33 +34772,33 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `pluginID: string`
+- `pluginID: string` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
 - `params: ShareListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: Number of items to return per page.
+    Number of items to return per page.
 
     Defaults to `20`. Ranges from `1` to `100`.
 
     minimum: 1, maximum: 100
 
-  - `organization_id?: string | null`
+  - `organization_id?: string | null` (query parameter)
 
-    Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
-    Query param: Optionally set to the `next_page` token from the previous response.
+    Optionally set to the `next_page` token from the previous response.
 
     maxLength: 2048
 
-  - `target_type?: "organization" | "organization_member" | "rbac_group" | null`
+  - `target_type?: "organization" | "organization_member" | "rbac_group" | null` (query parameter)
 
-    Query param: Only shares with this kind of target: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
+    Only shares with this kind of target: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
 
     - `"organization"`
 
@@ -34768,9 +34806,9 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     - `"rbac_group"`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -34993,35 +35031,35 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params: PluginMarketplaceListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: Number of items to return per page.
+    Number of items to return per page.
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
     minimum: 1, maximum: 1000
 
-  - `organization_id?: string | null`
+  - `organization_id?: string | null` (query parameter)
 
-    Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `owner_type?: "organization" | "user" | null`
+  - `owner_type?: "organization" | "user" | null` (query parameter)
 
-    Query param: `organization` for the organization's plugin marketplaces, `user` for members' personal plugin marketplaces.
+    `organization` for the organization's plugin marketplaces, `user` for members' personal plugin marketplaces.
 
     - `"organization"`
 
     - `"user"`
 
-  - `page?: string | null`
+  - `page?: string | null` (query parameter)
 
-    Query param: Optionally set to the `next_page` token from the previous response.
+    Optionally set to the `next_page` token from the previous response.
 
     maxLength: 2048
 
-  - `source?: "directory" | "github" | "gitlab" | 2 more | null`
+  - `source?: "directory" | "github" | "gitlab" | 2 more | null` (query parameter)
 
-    Query param: Only plugin marketplaces with this `source`: `manual` for those whose Plugins are uploaded; `github`, `gitlab` or `public_git` for those synchronized from a Git repository. `directory` (Anthropic's catalog) is never listed here.
+    Only plugin marketplaces with this `source`: `manual` for those whose Plugins are uploaded; `github`, `gitlab` or `public_git` for those synchronized from a Git repository. `directory` (Anthropic's catalog) is never listed here.
 
     - `"directory"`
 
@@ -35033,9 +35071,9 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     - `"public_git"`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -35292,19 +35330,19 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `marketplaceID: string`
+- `marketplaceID: string` (path parameter)
 
   ID of the plugin marketplace (prefixed `marketplace_`).
 
 - `params: PluginMarketplaceRetrieveParams`
 
-  - `organization_id?: string | null`
+  - `organization_id?: string | null` (query parameter)
 
-    Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -35562,7 +35600,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `marketplaceID: string`
+- `marketplaceID: string` (path parameter)
 
   ID of the plugin marketplace (prefixed `marketplace_`).
 
@@ -35570,7 +35608,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   - `default_installation_preference: "auto_install" | "available" | "not_available" | "required"`
 
-    Body param: The organization-wide installation setting every Plugin in the marketplace without one of its own gets: one of `required`, `auto_install`, `available`, `not_available`. Once set it can be changed but not removed.
+    The organization-wide installation setting every Plugin in the marketplace without one of its own gets: one of `required`, `auto_install`, `available`, `not_available`. Once set it can be changed but not removed.
 
     - `"auto_install"`
 
@@ -35580,9 +35618,9 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     - `"required"`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -35855,19 +35893,19 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   - `repository_url: string`
 
-    Body param: The `https://` URL of a public repository on github.com that holds the marketplace. Any other host, a URL with credentials in it, or one that does not name a repository is a 400.
+    The `https://` URL of a public repository on github.com that holds the marketplace. Any other host, a URL with credentials in it, or one that does not name a repository is a 400.
 
     minLength: 1
 
   - `ref?: string | null`
 
-    Body param: The branch to validate the tip of, or the full 40-character SHA of the commit to validate. When omitted, the branch a synchronization would read (usually the repository's default branch); if that is not the default branch, the report's `ref` says which branch was read. An empty string, or a value that is neither a branch name nor a 40-character SHA, is a 400.
+    The branch to validate the tip of, or the full 40-character SHA of the commit to validate. When omitted, the branch a synchronization would read (usually the repository's default branch); if that is not the default branch, the report's `ref` says which branch was read. An empty string, or a value that is neither a branch name nor a 40-character SHA, is a 400.
 
     minLength: 1
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 
@@ -36126,13 +36164,13 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   - `archive: Uploadable`
 
-    Body param: A .zip of the marketplace directory (its contents at the root, or wrapped in one folder as a Git host's download produces), sent as a file part with a filename; DEFLATE- or STORE-compressed, at most 32 MB. A part sent without a filename, a second archive part, or any other form field is a 400; a larger archive is a 413.
+    A .zip of the marketplace directory (its contents at the root, or wrapped in one folder as a Git host's download produces), sent as a file part with a filename; DEFLATE- or STORE-compressed, at most 32 MB. A part sent without a filename, a second archive part, or any other form field is a 400; a larger archive is a 413.
 
     format: binary
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `(string & {})`
 

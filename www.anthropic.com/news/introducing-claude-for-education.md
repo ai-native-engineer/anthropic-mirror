@@ -69,3 +69,5 @@ We are also building partnerships with leading organizations to safely and relia
 ## Get started
 
 To get started with Claude for Education and Learning mode, share your interest online [here](https://www.anthropic.com/education).
+
+Introducing Claude for education \ Anthropic

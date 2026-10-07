@@ -41,10 +41,12 @@ The table shows what events carry on Claude Desktop version 1.17377 or later, fo
 
 | `otlpContentCapture` on the device | Content that events carry |
 | --- | --- |
-| Not set, on a first-party deployment | User prompt text, model response text, and tool inputs |
+| Not set, on a first-party deployment | User prompt text, model response text, and the [`toolDetails` content](#security-and-privacy) |
 | Not set, on a [third-party deployment](https://claude.com/docs/third-party/claude-desktop/overview) | No content. Events carry metadata only |
 | Set to a list of [categories](https://claude.com/docs/third-party/claude-desktop/telemetry#content-capture) | The content in the listed categories. Listing `userPrompts` also includes model response text |
 | Set to an empty list, `[]` | No content. Events carry metadata only |
+
+Metadata includes `workspace.host_paths` and, on first-party deployments, `user.email`. The key doesn’t control either one. See [Security and privacy](#security-and-privacy).
 
 ###  Event correlation
 
@@ -69,7 +71,7 @@ All events include these attributes:
 | `user.account_id` | Account ID in tagged format matching Anthropic admin APIs (for example, `user_01BWBeN28...`) |
 | `user.id` | Anonymous device/installation identifier |
 | `user.email` | User email |
-| `workspace.host_paths` | Host workspace directories selected in the desktop app (string array) |
+| `workspace.host_paths` | Paths of the folders the user connected to the task (string array) |
 | `terminal.type` | Terminal type (`non-interactive` for Cowork) |
 
 The account attributes — `organization.id`, `user.account_uuid`, `user.account_id`, and `user.email` — are populated from the user’s Anthropic account, so they appear on first-party deployments only. On [third-party deployments](https://claude.com/docs/third-party/claude-desktop/overview) there is no Anthropic account and these attributes are absent; instead, the export carries the signed-in user’s identity as the `enduser.id` resource attribute, described under [User attribution](https://claude.com/docs/third-party/claude-desktop/telemetry#user-attribution). The `process.owner` resource attribute (the operating-system login name) is standard OpenTelemetry process metadata and is present on all deployments.
@@ -215,8 +217,12 @@ All events are exported with the following resource attributes:
 ##  Security and privacy
 
 * Events are only exported when an admin configures the OTLP endpoint
-* Which content events carry is set per device by the [`otlpContentCapture`](#content-capture) key: `userPrompts` for user prompt text, `assistantResponses` for model response text, and `toolDetails` for the `tool_input` attribute (file paths, URLs, search patterns, and other arguments)
+* The [`otlpContentCapture`](#content-capture) key on each device sets which content events carry. Each category you list in the key adds its content. The [full category list](https://claude.com/docs/third-party/claude-desktop/telemetry#content-capture) has two more than these three:
+  + `userPrompts`: user prompt text
+  + `assistantResponses`: model response text
+  + `toolDetails`: the arguments a tool was called with, in `tool_input` and `tool_parameters`, such as shell commands, file paths, URLs, and search patterns. It also covers the text of a failed tool’s error message, in `error` on the [tool result event](#tool-result-event)
 * On Claude Desktop version 1.17377 or later, events that carry user prompt text also carry model response text, even when the key doesn’t list `assistantResponses`
-* On Claude Desktop version 1.17377 or later, when `otlpContentCapture` isn’t set on a device in a first-party deployment, events carry user prompt text, model response text, and tool inputs. To export metadata only, set the key to an empty list, `[]`
+* On Claude Desktop version 1.17377 or later, when `otlpContentCapture` isn’t set on a device in a first-party deployment, events carry user prompt text, model response text, and the `toolDetails` content. To export metadata only, set the key to an empty list, `[]`
+* Metadata includes `workspace.host_paths`, the paths of the folders a user connects to a task. `otlpContentCapture` doesn’t control this attribute, so events carry the paths even when the key is `[]`. If folder names can be sensitive, configure your telemetry backend to filter or redact it
 * On first-party deployments, `user.email` is always included in event attributes, so configure your telemetry backend to filter or redact it if this is a concern
 * On third-party deployments, `user.email` is absent; the export identifies users with the `enduser.id` resource attribute, controlled by the [`endUserAttribution`](https://claude.com/docs/third-party/claude-desktop/configuration#enduserattribution) setting

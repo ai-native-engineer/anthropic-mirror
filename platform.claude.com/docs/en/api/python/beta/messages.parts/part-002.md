@@ -3,6 +3,14 @@
 
 <!-- chunk-start -->
 
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: Optional[bool]`
+
     If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
   - `input_examples: Optional[List[Dict[str, object]]]`
@@ -30026,7 +30034,3 @@
           `double_click`'s config overrides.
 
           - `defer_loading: Optional[bool]`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `enabled: Optional[bool]`

@@ -2,6 +2,203 @@
 <!-- part of: https://platform.claude.com/docs/en/api/cli/beta -->
 
 <!-- chunk-start -->
+
+    - `beta_spend_limit_user_actor: object`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+      - `type: "user_actor"`
+
+        Actor type. Always `user_actor`.
+
+      - `deleted: boolean`
+
+        True only when the underlying account has been deleted.
+
+      - `email_address: string`
+
+        The user's email address. Null when the account is unavailable or has been deleted.
+
+      - `name: string`
+
+        The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+
+      - `user_id: string`
+
+        Tagged ID of the user.
+
+    - `beta_spend_limit_scoped_api_key_actor: object`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+      - `type: "scoped_api_key_actor"`
+
+      - `scoped_api_key_id: string`
+
+  - `created_at: string`
+
+    format: date-time
+
+  - `period: "daily" or "monthly" or "weekly"`
+
+    - `"daily"`
+
+    - `"monthly"`
+
+    - `"weekly"`
+
+  - `resolved_at: string`
+
+    format: date-time
+
+  - `resolved_by: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
+
+    - `beta_spend_limit_user_actor: object`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+    - `beta_spend_limit_scoped_api_key_actor: object`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+  - `spend_summary: object`
+
+    Per-member effective-limit report row (`GET /spend_limits/effective`).
+
+    - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
+
+      - `beta_spend_limit_user_actor: object`
+
+        A user within the organization. `name` and `email_address` are
+        null when the underlying account is unavailable or has been deleted;
+        `deleted` is true only for deleted accounts.
+
+      - `beta_spend_limit_scoped_api_key_actor: object`
+
+        A scoped Admin API key acting on behalf of the organization.
+
+    - `amount: string`
+
+      Effective limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD). `null` means no limit applies for this row's `period` — each period resolves independently, so another period may still cap this member.
+
+    - `currency: string`
+
+      ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
+
+    - `period: "daily" or "monthly" or "weekly"`
+
+      Period this row's effective limit and spend are reported for.
+
+      - `"daily"`
+
+      - `"monthly"`
+
+      - `"weekly"`
+
+    - `period_to_date_spend: string`
+
+      The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
+
+    - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
+
+      - `beta_spend_limit_user_scope: object`
+
+        Scope selecting a single member of the organization.
+
+        - `type: "user"`
+
+          Scope type. Always `user` for this scope.
+
+        - `user_id: string`
+
+          Tagged ID of the member the spend limit applies to.
+
+      - `beta_spend_limit_seat_tier_scope: object`
+
+        - `type: "seat_tier"`
+
+        - `seat_tier: string`
+
+      - `beta_spend_limit_rbac_group_scope: object`
+
+        - `type: "rbac_group"`
+
+        - `rbac_group_id: string`
+
+      - `beta_spend_limit_organization_service_scope: object`
+
+        - `type: "organization_service"`
+
+        - `service: string`
+
+      - `beta_spend_limit_organization_scope: object`
+
+        - `type: "organization"`
+
+      - `beta_spend_limit_workspace_scope: object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+        - `type: "workspace"`
+
+          Scope type. Always `workspace` for this scope.
+
+        - `workspace_id: string`
+
+          Tagged ID of the workspace the spend limit applies to.
+
+    - `source: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
+
+      - `beta_spend_limit_user_scope: object`
+
+        Scope selecting a single member of the organization.
+
+      - `beta_spend_limit_seat_tier_scope: object`
+
+      - `beta_spend_limit_rbac_group_scope: object`
+
+      - `beta_spend_limit_organization_service_scope: object`
+
+      - `beta_spend_limit_organization_scope: object`
+
+      - `beta_spend_limit_workspace_scope: object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+    - `spend_limit_id: string`
+
+  - `status: "approved" or "denied" or "pending"`
+
+    - `"approved"`
+
+    - `"denied"`
+
+    - `"pending"`
+
+#### Example
+
+```bash
+ant beta:organization:spend-limits:increase-requests deny \
+  --api-key my-anthropic-api-key \
+  --spend-limit-increase-request-id spend_limit_increase_request_id
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "actor": {
+    "deleted": true,
+    "email_address": "email_address",
+    "name": "name",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
   "created_at": "2019-12-27T18:11:19.117Z",
   "period": "daily",
   "resolved_at": "2019-12-27T18:11:19.117Z",
@@ -140,7 +337,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `--limit: optional number`
+- `--limit: optional number` (query parameter)
 
   Number of items to return per page.
 
@@ -148,7 +345,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
   minimum: 1, maximum: 1000
 
-- `--page: optional string`
+- `--page: optional string` (query parameter)
 
   Optionally set to the `next_page` token from the previous response.
 
@@ -248,7 +445,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `--rbac-group-id: string`
+- `--rbac-group-id: string` (path parameter)
 
   ID of the RBAC Group.
 
@@ -333,7 +530,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `--rbac-group-id: string`
+- `--rbac-group-id: string` (path parameter)
 
   ID of the RBAC Group.
 
@@ -424,7 +621,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `--rbac-group-id: string`
+- `--rbac-group-id: string` (path parameter)
 
   ID of the RBAC Group.
 
@@ -473,11 +670,11 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `--rbac-group-id: string`
+- `--rbac-group-id: string` (path parameter)
 
   ID of the RBAC Group.
 
-- `--limit: optional number`
+- `--limit: optional number` (query parameter)
 
   Number of items to return per page.
 
@@ -485,7 +682,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
   minimum: 1, maximum: 1000
 
-- `--page: optional string`
+- `--page: optional string` (query parameter)
 
   Optionally set to the `next_page` token from the previous response.
 
@@ -566,7 +763,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `--rbac-group-id: string`
+- `--rbac-group-id: string` (path parameter)
 
   ID of the RBAC Group.
 
@@ -636,11 +833,11 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `--rbac-group-id: string`
+- `--rbac-group-id: string` (path parameter)
 
   ID of the RBAC Group.
 
-- `--user-id: string`
+- `--user-id: string` (path parameter)
 
   ID of the User.
 
@@ -694,7 +891,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `--limit: optional number`
+- `--limit: optional number` (query parameter)
 
   Number of items to return per page.
 
@@ -702,7 +899,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
   minimum: 1, maximum: 1000
 
-- `--page: optional string`
+- `--page: optional string` (query parameter)
 
   Optionally set to the `next_page` token from the previous response.
 
@@ -791,7 +988,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `--rbac-role-id: string`
+- `--rbac-role-id: string` (path parameter)
 
   ID of the RBAC Role.
 
@@ -866,11 +1063,11 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `--rbac-role-id: string`
+- `--rbac-role-id: string` (path parameter)
 
   ID of the RBAC Role.
 
-- `--limit: optional number`
+- `--limit: optional number` (query parameter)
 
   Number of items to return per page.
 
@@ -878,7 +1075,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
   minimum: 1, maximum: 1000
 
-- `--page: optional string`
+- `--page: optional string` (query parameter)
 
   Optionally set to the `next_page` token from the previous response.
 
@@ -1065,21 +1262,21 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `--file: array of string`
 
-  Body param: The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
+  The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
 
 - `--marketplace-id: optional string`
 
-  Body param: ID of the organization-owned plugin marketplace to create the Plugin in (prefixed `marketplace_`). It must be a `manual` marketplace, one whose Plugins are uploaded rather than synchronized from a repository. When omitted, the Plugin is created in the organization's library marketplace, an organization-owned `manual` marketplace created on first use.
+  ID of the organization-owned plugin marketplace to create the Plugin in (prefixed `marketplace_`). It must be a `manual` marketplace, one whose Plugins are uploaded rather than synchronized from a repository. When omitted, the Plugin is created in the organization's library marketplace, an organization-owned `manual` marketplace created on first use.
 
 - `--release-notes: optional string`
 
-  Body param: Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
+  Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
 
   maxLength: 5000
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -1333,17 +1530,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `--plugin-id: string`
+- `--plugin-id: string` (path parameter)
 
-  Path param: ID of the Plugin (prefixed `plugin_`).
+  ID of the Plugin (prefixed `plugin_`).
 
-- `--organization-id: optional string`
+- `--organization-id: optional string` (query parameter)
 
-  Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -1617,17 +1814,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `--plugin-id: string`
+- `--plugin-id: string` (path parameter)
 
-  Path param: ID of the Plugin (prefixed `plugin_`).
+  ID of the Plugin (prefixed `plugin_`).
 
 - `--served-version-id: string`
 
-  Body param: Serve this version of the Plugin (prefixed `pluginver_`) and pin the served version to it; `latest` is not accepted.
+  Serve this version of the Plugin (prefixed `pluginver_`) and pin the served version to it; `latest` is not accepted.
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -1888,63 +2085,63 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `--created-at-gt: optional string`
+- `--created-at-gt: optional string` (query parameter)
 
-  Query param: RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
-
-  format: date-time
-
-- `--created-at-gte: optional string`
-
-  Query param: RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+  RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
 
   format: date-time
 
-- `--created-at-lt: optional string`
+- `--created-at-gte: optional string` (query parameter)
 
-  Query param: RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
-
-  format: date-time
-
-- `--created-at-lte: optional string`
-
-  Query param: RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+  RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
 
   format: date-time
 
-- `--limit: optional number`
+- `--created-at-lt: optional string` (query parameter)
 
-  Query param: Number of items to return per page.
+  RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+  format: date-time
+
+- `--created-at-lte: optional string` (query parameter)
+
+  RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
+
+  format: date-time
+
+- `--limit: optional number` (query parameter)
+
+  Number of items to return per page.
 
   Defaults to `20`. Ranges from `1` to `100`.
 
   minimum: 1, maximum: 100
 
-- `--marketplace-id: optional string`
+- `--marketplace-id: optional string` (query parameter)
 
-  Query param: Only Plugins in this plugin marketplace (prefixed `marketplace_`).
+  Only Plugins in this plugin marketplace (prefixed `marketplace_`).
 
-- `--organization-id: optional string`
+- `--organization-id: optional string` (query parameter)
 
-  Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `--owner-type: optional "organization" or "user"`
+- `--owner-type: optional "organization" or "user"` (query parameter)
 
-  Query param: `organization` for Plugins in the organization's plugin marketplaces, `user` for Plugins in members' personal plugin marketplaces.
+  `organization` for Plugins in the organization's plugin marketplaces, `user` for Plugins in members' personal plugin marketplaces.
 
-- `--owner-user-id: optional string`
+- `--owner-user-id: optional string` (query parameter)
 
-  Query param: Only Plugins in this member's personal plugin marketplaces (prefixed `user_`); a removed member's ID is accepted.
+  Only Plugins in this member's personal plugin marketplaces (prefixed `user_`); a removed member's ID is accepted.
 
-- `--page: optional string`
+- `--page: optional string` (query parameter)
 
-  Query param: Optionally set to the `next_page` token from the previous response.
+  Optionally set to the `next_page` token from the previous response.
 
   maxLength: 2048
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -2219,11 +2416,11 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `--plugin-id: string`
+- `--plugin-id: string` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -2291,23 +2488,23 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `--plugin-id: string`
+- `--plugin-id: string` (path parameter)
 
-  Path param: ID of the Plugin (prefixed `plugin_`).
+  ID of the Plugin (prefixed `plugin_`).
 
 - `--file: array of string`
 
-  Body param: The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
+  The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
 
 - `--release-notes: optional string`
 
-  Body param: Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
+  Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
 
   maxLength: 5000
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -2502,31 +2699,31 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `--plugin-id: string`
+- `--plugin-id: string` (path parameter)
 
-  Path param: ID of the Plugin (prefixed `plugin_`).
+  ID of the Plugin (prefixed `plugin_`).
 
-- `--limit: optional number`
+- `--limit: optional number` (query parameter)
 
-  Query param: Number of items to return per page.
+  Number of items to return per page.
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
   minimum: 1, maximum: 1000
 
-- `--organization-id: optional string`
+- `--organization-id: optional string` (query parameter)
 
-  Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `--page: optional string`
+- `--page: optional string` (query parameter)
 
-  Query param: Optionally set to the `next_page` token from the previous response.
+  Optionally set to the `next_page` token from the previous response.
 
   maxLength: 2048
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -2728,21 +2925,21 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `--plugin-id: string`
+- `--plugin-id: string` (path parameter)
 
-  Path param: ID of the Plugin (prefixed `plugin_`).
+  ID of the Plugin (prefixed `plugin_`).
 
-- `--version: string`
+- `--version: string` (path parameter)
 
-  Path param: ID of the Plugin Version (prefixed `pluginver_`), or `latest` for the newest one.
+  ID of the Plugin Version (prefixed `pluginver_`), or `latest` for the newest one.
 
-- `--organization-id: optional string`
+- `--organization-id: optional string` (query parameter)
 
-  Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -2950,21 +3147,21 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `--plugin-id: string`
+- `--plugin-id: string` (path parameter)
 
-  Path param: ID of the Plugin (prefixed `plugin_`).
+  ID of the Plugin (prefixed `plugin_`).
 
-- `--version: string`
+- `--version: string` (path parameter)
 
-  Path param: ID of the Plugin Version (prefixed `pluginver_`). `latest` is not accepted here.
+  ID of the Plugin Version (prefixed `pluginver_`). `latest` is not accepted here.
 
-- `--organization-id: optional string`
+- `--organization-id: optional string` (query parameter)
 
-  Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -3000,35 +3197,35 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `--plugin-id: string`
+- `--plugin-id: string` (path parameter)
 
-  Path param: ID of the Plugin (prefixed `plugin_`).
+  ID of the Plugin (prefixed `plugin_`).
 
-- `--limit: optional number`
+- `--limit: optional number` (query parameter)
 
-  Query param: Number of items to return per page.
+  Number of items to return per page.
 
   Defaults to `20`. Ranges from `1` to `100`.
 
   minimum: 1, maximum: 100
 
-- `--organization-id: optional string`
+- `--organization-id: optional string` (query parameter)
 
-  Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `--page: optional string`
+- `--page: optional string` (query parameter)
 
-  Query param: Optionally set to the `next_page` token from the previous response.
+  Optionally set to the `next_page` token from the previous response.
 
   maxLength: 2048
 
-- `--target-type: optional "organization" or "rbac_group"`
+- `--target-type: optional "organization" or "rbac_group"` (query parameter)
 
-  Query param: Only settings for this kind of target: `organization` (the organization-wide setting) or `rbac_group` (an RBAC Group's).
+  Only settings for this kind of target: `organization` (the organization-wide setting) or `rbac_group` (an RBAC Group's).
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -3156,21 +3353,21 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `--plugin-id: string`
+- `--plugin-id: string` (path parameter)
 
-  Path param: ID of the Plugin (prefixed `plugin_`).
+  ID of the Plugin (prefixed `plugin_`).
 
-- `--target: string`
+- `--target: string` (path parameter)
 
-  Path param: The target whose setting is written: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Writing the `organization` target stops the Plugin from inheriting its marketplace's default, even when the value written equals that default.
+  The target whose setting is written: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Writing the `organization` target stops the Plugin from inheriting its marketplace's default, even when the value written equals that default.
 
 - `--installation-preference: "auto_install" or "available" or "not_available" or "required"`
 
-  Body param: The installation setting the target is to hold for this Plugin: one of `required`, `auto_install`, `available`, `not_available`.
+  The installation setting the target is to hold for this Plugin: one of `required`, `auto_install`, `available`, `not_available`.
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -3297,17 +3494,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `--plugin-id: string`
+- `--plugin-id: string` (path parameter)
 
-  Path param: ID of the Plugin (prefixed `plugin_`).
+  ID of the Plugin (prefixed `plugin_`).
 
-- `--target: string`
+- `--target: string` (path parameter)
 
-  Path param: The target whose own setting is removed: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Removing the `organization` setting returns the Plugin to its marketplace's default.
+  The target whose own setting is removed: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Removing the `organization` setting returns the Plugin to its marketplace's default.
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -3398,35 +3595,35 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `--plugin-id: string`
+- `--plugin-id: string` (path parameter)
 
-  Path param: ID of the Plugin (prefixed `plugin_`).
+  ID of the Plugin (prefixed `plugin_`).
 
-- `--limit: optional number`
+- `--limit: optional number` (query parameter)
 
-  Query param: Number of items to return per page.
+  Number of items to return per page.
 
   Defaults to `20`. Ranges from `1` to `100`.
 
   minimum: 1, maximum: 100
 
-- `--organization-id: optional string`
+- `--organization-id: optional string` (query parameter)
 
-  Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `--page: optional string`
+- `--page: optional string` (query parameter)
 
-  Query param: Optionally set to the `next_page` token from the previous response.
+  Optionally set to the `next_page` token from the previous response.
 
   maxLength: 2048
 
-- `--target-type: optional "organization" or "organization_member" or "rbac_group"`
+- `--target-type: optional "organization" or "organization_member" or "rbac_group"` (query parameter)
 
-  Query param: Only shares with this kind of target: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
+  Only shares with this kind of target: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -3530,35 +3727,35 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `--limit: optional number`
+- `--limit: optional number` (query parameter)
 
-  Query param: Number of items to return per page.
+  Number of items to return per page.
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
   minimum: 1, maximum: 1000
 
-- `--organization-id: optional string`
+- `--organization-id: optional string` (query parameter)
 
-  Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `--owner-type: optional "organization" or "user"`
+- `--owner-type: optional "organization" or "user"` (query parameter)
 
-  Query param: `organization` for the organization's plugin marketplaces, `user` for members' personal plugin marketplaces.
+  `organization` for the organization's plugin marketplaces, `user` for members' personal plugin marketplaces.
 
-- `--page: optional string`
+- `--page: optional string` (query parameter)
 
-  Query param: Optionally set to the `next_page` token from the previous response.
+  Optionally set to the `next_page` token from the previous response.
 
   maxLength: 2048
 
-- `--source: optional "directory" or "github" or "gitlab" or 2 more`
+- `--source: optional "directory" or "github" or "gitlab" or 2 more` (query parameter)
 
-  Query param: Only plugin marketplaces with this `source`: `manual` for those whose Plugins are uploaded; `github`, `gitlab` or `public_git` for those synchronized from a Git repository. `directory` (Anthropic's catalog) is never listed here.
+  Only plugin marketplaces with this `source`: `manual` for those whose Plugins are uploaded; `github`, `gitlab` or `public_git` for those synchronized from a Git repository. `directory` (Anthropic's catalog) is never listed here.
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -3705,17 +3902,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `--marketplace-id: string`
+- `--marketplace-id: string` (path parameter)
 
-  Path param: ID of the plugin marketplace (prefixed `marketplace_`).
+  ID of the plugin marketplace (prefixed `marketplace_`).
 
-- `--organization-id: optional string`
+- `--organization-id: optional string` (query parameter)
 
-  Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -3857,17 +4054,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `--marketplace-id: string`
+- `--marketplace-id: string` (path parameter)
 
-  Path param: ID of the plugin marketplace (prefixed `marketplace_`).
+  ID of the plugin marketplace (prefixed `marketplace_`).
 
 - `--default-installation-preference: "auto_install" or "available" or "not_available" or "required"`
 
-  Body param: The organization-wide installation setting every Plugin in the marketplace without one of its own gets: one of `required`, `auto_install`, `available`, `not_available`. Once set it can be changed but not removed.
+  The organization-wide installation setting every Plugin in the marketplace without one of its own gets: one of `required`, `auto_install`, `available`, `not_available`. Once set it can be changed but not removed.
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -4022,19 +4219,19 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `--repository-url: string`
 
-  Body param: The `https://` URL of a public repository on github.com that holds the marketplace. Any other host, a URL with credentials in it, or one that does not name a repository is a 400.
+  The `https://` URL of a public repository on github.com that holds the marketplace. Any other host, a URL with credentials in it, or one that does not name a repository is a 400.
 
   minLength: 1
 
 - `--ref: optional string`
 
-  Body param: The branch to validate the tip of, or the full 40-character SHA of the commit to validate. When omitted, the branch a synchronization would read (usually the repository's default branch); if that is not the default branch, the report's `ref` says which branch was read. An empty string, or a value that is neither a branch name nor a 40-character SHA, is a 400.
+  The branch to validate the tip of, or the full 40-character SHA of the commit to validate. When omitted, the branch a synchronization would read (usually the repository's default branch); if that is not the default branch, the report's `ref` says which branch was read. An empty string, or a value that is neither a branch name nor a 40-character SHA, is a 400.
 
   minLength: 1
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 
@@ -4178,13 +4375,13 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `--archive: string`
 
-  Body param: A .zip of the marketplace directory (its contents at the root, or wrapped in one folder as a Git host's download produces), sent as a file part with a filename; DEFLATE- or STORE-compressed, at most 32 MB. A part sent without a filename, a second archive part, or any other form field is a 400; a larger archive is a 413.
+  A .zip of the marketplace directory (its contents at the root, or wrapped in one folder as a Git host's download produces), sent as a file part with a filename; DEFLATE- or STORE-compressed, at most 32 MB. A part sent without a filename, a second archive part, or any other form field is a 400; a larger archive is a 413.
 
   format: binary
 
-- `--beta: optional array of AnthropicBeta`
+- `--beta: optional array of AnthropicBeta` (header parameter)
 
-  Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
 #### Returns
 

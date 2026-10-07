@@ -32,7 +32,7 @@ Announcing Salesforce in Claude (beta)
 
 Claude works from a seller's book of business with 37 pre-built skills, covering everything from renewal prep to meeting follow-up. Every action lands back in Salesforce under the seller's existing permissions.
 
-[Learn more](https://claude.com/blog/salesforce-in-claude)Watch video
+[Learn more](https://claude.com/resources/articles/salesforce-in-claude)Watch video
 
 ## What sales teams hand off to Claude
 
@@ -194,7 +194,7 @@ Customer story](https://claude.com/customers/chronograph)
 
 [Building an AI-native revenue organization
 
-Guide](https://claude.com/blog/building-an-ai-native-revenue-organization)
+Guide](https://claude.com/resources/articles/building-an-ai-native-revenue-organization)
 
 ## FAQ
 

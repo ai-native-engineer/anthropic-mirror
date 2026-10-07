@@ -34,7 +34,7 @@ Claude Managed Agents: Get to production 10x faster
 
 We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
 
-[Read more](https://claude.com/blog/claude-managed-agents)
+[Read more](https://claude.com/resources/articles/claude-managed-agents)
 
 [Pendo](https://www.pendo.io/) provides product analytics and AI tools that help companies understand user behavior and act on it to drive product adoption. Over the past few months, the company has been building Novus, a product that detects and fixes usability issues in customer applications. The system runs on Claude Managed Agents. We spoke with Zain Lakhani, Pendo's Chief AI Officer, about how Managed Agents powers their AI-native product.
 

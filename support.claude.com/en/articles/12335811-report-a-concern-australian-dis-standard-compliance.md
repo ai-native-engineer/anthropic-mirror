@@ -23,7 +23,7 @@ We are committed to our users’ safety across our products. We provide users wi
 If you wish to refer a matter to the eSafety Commissioner, please follow the instructions provided here: **[Report online harm](https://www.esafety.gov.au/report)**.
 
 * [How to get support](https://support.claude.com/en/articles/9015913-how-to-get-support)
-* [Can I use my Outputs to train an AI model?](https://support.claude.com/en/articles/12326764-can-i-use-my-outputs-to-train-an-ai-model)
+* [Updates to our Acceptable Use Policy (now “Usage Policy”), Consumer Terms of Service, and Privacy Policy](https://support.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy)
 * [Crisis Helpline Support in Claude](https://support.claude.com/en/articles/13171706-crisis-helpline-support-in-claude)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
 * [Child safety guidance for developers](https://support.claude.com/en/articles/15591275-child-safety-guidance-for-developers)

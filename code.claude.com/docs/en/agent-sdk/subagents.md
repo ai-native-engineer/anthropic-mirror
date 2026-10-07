@@ -708,6 +708,6 @@ For the file format, see [how to write subagent files](https://code.claude.com/d
 
 ## Related documentation
 
-* [Claude Code subagents](https://code.claude.com/docs/en/sub-agents): comprehensive subagent documentation including filesystem-based definitions
+* [Claude Code subagents](https://code.claude.com/docs/en/sub-agents): subagent documentation including filesystem-based definitions
 * [Dynamic workflows](https://code.claude.com/docs/en/workflows): orchestrate many subagents from a script for jobs too large for one conversation
 * [SDK overview](https://code.claude.com/docs/en/agent-sdk/overview): getting started with the Claude Agent SDK

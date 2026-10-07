@@ -3,6 +3,224 @@
 
 <!-- chunk-start -->
 
+  The ID of the memory store whose version history to list (`memstore_...`).
+
+- `api_key_id: String` (query parameter)
+
+  Return only versions written with the API key that has this ID.
+
+- `created_at_gte: Time` (query parameter)
+
+  Return versions created at or after this time (inclusive).
+
+  format: date-time
+
+- `created_at_lte: Time` (query parameter)
+
+  Return versions created at or before this time (inclusive).
+
+  format: date-time
+
+- `limit: Integer` (query parameter)
+
+  The maximum number of versions to return per page. Defaults to 20.
+
+  format: int32
+
+- `memory_id: String` (query parameter)
+
+  Return only versions of the memory with this ID (`mem_...`).
+
+  The filter still works after the memory is deleted. The results then include the version whose `operation` is `deleted`.
+
+- `operation: BetaManagedAgentsMemoryVersionOperation` (query parameter)
+
+  Return only versions that record this kind of change.
+
+  - `:created`
+
+    The memory was created. The first version in any memory's lineage.
+
+  - `:modified`
+
+    The memory's `content`, `path`, or both were changed via update. Writes the agent makes through the filesystem mount also appear as `modified`.
+
+  - `:deleted`
+
+    The memory was deleted. The `content`, `content_size_bytes`, and `content_sha256` fields are `null` on this version. The preceding version, while it is retained, records the deleted content's size and hash.
+
+- `page: String` (query parameter)
+
+  The `next_page` value from a previous response, to get the next page. Omit it to get the first page.
+
+- `service_account_id: String` (query parameter)
+
+  Return only versions written by the service account with this ID (`svac_...`).
+
+- `session_id: String` (query parameter)
+
+  Return only versions written by the session with this ID.
+
+- `view: BetaManagedAgentsMemoryView` (query parameter)
+
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
+
+  - `:basic`
+
+    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
+
+  - `:full`
+
+    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
+
+- `betas: Array[AnthropicBeta]` (header parameter)
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `:"message-batches-2024-09-24"`
+
+  - `:"prompt-caching-2024-07-31"`
+
+  - `:"computer-use-2024-10-22"`
+
+  - `:"computer-use-2025-01-24"`
+
+  - `:"pdfs-2024-09-25"`
+
+  - `:"token-counting-2024-11-01"`
+
+  - `:"token-efficient-tools-2025-02-19"`
+
+  - `:"output-128k-2025-02-19"`
+
+  - `:"files-api-2025-04-14"`
+
+  - `:"mcp-client-2025-04-04"`
+
+  - `:"mcp-client-2025-11-20"`
+
+  - `:"dev-full-thinking-2025-05-14"`
+
+  - `:"interleaved-thinking-2025-05-14"`
+
+  - `:"code-execution-2025-05-22"`
+
+  - `:"extended-cache-ttl-2025-04-11"`
+
+  - `:"context-1m-2025-08-07"`
+
+  - `:"context-management-2025-06-27"`
+
+  - `:"model-context-window-exceeded-2025-08-26"`
+
+  - `:"skills-2025-10-02"`
+
+  - `:"fast-mode-2026-02-01"`
+
+  - `:"output-300k-2026-03-24"`
+
+  - `:"user-profiles-2026-03-24"`
+
+  - `:"user-profiles-2026-08-18"`
+
+  - `:"user-profiles-2026-09-04"`
+
+  - `:"advisor-tool-2026-03-01"`
+
+  - `:"managed-agents-2026-04-01"`
+
+  - `:"cache-diagnosis-2026-04-07"`
+
+  - `:"dreaming-2026-04-21"`
+
+  - `:"thinking-token-count-2026-05-13"`
+
+  - `:"server-side-fallback-2026-06-01"`
+
+  - `:"server-side-fallback-2026-07-01"`
+
+  - `:"fallback-credit-2026-06-01"`
+
+  - `:"fallback-credit-2026-07-01"`
+
+  - `:"agent-memory-2026-07-22"`
+
+  - `:"mid-conversation-tool-changes-2026-07-01"`
+
+  - `:"compact-2026-01-12"`
+
+  - `:"computer-use-2025-11-24"`
+
+  - `:"mcp-tunnels-2026-06-22"`
+
+  - `:"structured-outputs-2025-11-13"`
+
+  - `:"task-budgets-2026-03-13"`
+
+  - `:"thinking-display-updates-2026-08-18"`
+
+  - `:"ce-user-management-2026-07-13"`
+
+  - `:"mid-conversation-output-config-2026-07-01"`
+
+  - `:"thinking-binding-controls-2026-08-01"`
+
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
+
+  - `:"spend-limit-reads-2026-09-26"`
+
+- `workspace_id: String` (header parameter)
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaManagedAgentsMemoryVersion`
+
+  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and are not deleted with the memory; each version is retained for at least the version retention period after it was written, unless the store itself is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
+  - `type: :memory_version`
+
+  - `id: String`
+
+    Unique identifier for this version (a `memver_...` value).
+
+  - `created_at: Time`
+
+    When this version was written, in RFC 3339 format.
+
+    format: date-time
+
+  - `memory_id: String`
+
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
+
+  - `memory_store_id: String`
+
+    ID of the memory store this version belongs to (a `memstore_...` value).
+
+  - `operation: BetaManagedAgentsMemoryVersionOperation`
+
+    The kind of mutation this version records: `created`, `modified`, or `deleted`.
+
+    - `:created`
+
+      The memory was created. The first version in any memory's lineage.
+
+    - `:modified`
+
       The memory's `content`, `path`, or both were changed via update. Writes the agent makes through the filesystem mount also appear as `modified`.
 
     - `:deleted`
@@ -142,15 +360,15 @@ Retrieve a memory version
 
 #### Parameters
 
-- `memory_store_id: String`
+- `memory_store_id: String` (path parameter)
 
   The ID of the memory store that holds the version (`memstore_...`).
 
-- `memory_version_id: String`
+- `memory_version_id: String` (path parameter)
 
   The ID of the memory version to retrieve (`memver_...`).
 
-- `view: BetaManagedAgentsMemoryView`
+- `view: BetaManagedAgentsMemoryView` (query parameter)
 
   Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
@@ -162,7 +380,7 @@ Retrieve a memory version
 
     Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -268,7 +486,7 @@ Retrieve a memory version
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -447,15 +665,15 @@ Redact a memory version
 
 #### Parameters
 
-- `memory_store_id: String`
+- `memory_store_id: String` (path parameter)
 
   The ID of the memory store that holds the version (`memstore_...`).
 
-- `memory_version_id: String`
+- `memory_version_id: String` (path parameter)
 
   The ID of the memory version to redact (`memver_...`).
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -561,7 +779,7 @@ Redact a memory version
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -754,7 +972,7 @@ Upload File
 
   minimum: 3600, maximum: 7776000
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -860,7 +1078,7 @@ Upload File
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -969,11 +1187,11 @@ List Files
 
 #### Parameters
 
-- `ids: Array[String]`
+- `ids: Array[String]` (query parameter)
 
   Restrict the result set to Files whose `id` is in this list. At most 100 entries (after de-duplication). Mutually exclusive with `page` and `limit`. When supplied, the response is always a single page (`next_page` is null). IDs that do not resolve to a visible File — including deleted Files — are silently omitted.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -981,15 +1199,15 @@ List Files
 
   minimum: 1, maximum: 1000
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque page cursor returned in a prior list response's `next_page`. Prefixed `page_`.
 
-- `scope_id: String`
+- `scope_id: String` (query parameter)
 
   Filter by scope ID. Only returns files associated with the specified scope (e.g., a session ID).
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1095,7 +1313,7 @@ List Files
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1209,11 +1427,11 @@ Download File
 
 #### Parameters
 
-- `file_id: String`
+- `file_id: String` (path parameter)
 
   ID of the File.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1319,7 +1537,7 @@ Download File
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1351,11 +1569,11 @@ Get File Metadata
 
 #### Parameters
 
-- `file_id: String`
+- `file_id: String` (path parameter)
 
   ID of the File.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1461,7 +1679,7 @@ Get File Metadata
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1570,11 +1788,11 @@ Delete File
 
 #### Parameters
 
-- `file_id: String`
+- `file_id: String` (path parameter)
 
   ID of the File.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1680,7 +1898,7 @@ Delete File
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1745,7 +1963,7 @@ Create Skill
   Always set: derived from the SKILL.md frontmatter `name` when omitted at
   creation. Not unique.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1851,7 +2069,7 @@ Create Skill
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1963,7 +2181,7 @@ List Skills
 
 #### Parameters
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results to return per page.
 
@@ -1971,13 +2189,13 @@ List Skills
 
   minimum: 1, maximum: 1000
 
-- `page: String`
+- `page: String` (query parameter)
 
   Pagination token for fetching a specific page of results.
 
   Pass the value from a previous response's `next_page` field to get the next page of results.
 
-- `source: String`
+- `source: String` (query parameter)
 
   Filter skills by source.
 
@@ -1986,7 +2204,7 @@ List Skills
   * `"custom"`: only return user-created skills
   * `"anthropic"`: only return Anthropic-created skills
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -2092,7 +2310,7 @@ List Skills
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -2209,13 +2427,13 @@ Get Skill
 
 #### Parameters
 
-- `skill_id: String`
+- `skill_id: String` (path parameter)
 
   Unique identifier for the skill.
 
   The format and length of IDs may change over time.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -2321,7 +2539,7 @@ Get Skill
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -2433,13 +2651,13 @@ Delete Skill
 
 #### Parameters
 
-- `skill_id: String`
+- `skill_id: String` (path parameter)
 
   Unique identifier for the skill.
 
   The format and length of IDs may change over time.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -2545,7 +2763,7 @@ Delete Skill
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -2600,7 +2818,7 @@ Create Skill Version
 
 #### Parameters
 
-- `skill_id: String`
+- `skill_id: String` (path parameter)
 
   Unique identifier for the skill.
 
@@ -2612,7 +2830,7 @@ Create Skill Version
 
   All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -2718,7 +2936,7 @@ Create Skill Version
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -2799,13 +3017,13 @@ List Skill Versions
 
 #### Parameters
 
-- `skill_id: String`
+- `skill_id: String` (path parameter)
 
   Unique identifier for the skill.
 
   The format and length of IDs may change over time.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results to return per page.
 
@@ -2813,11 +3031,11 @@ List Skill Versions
 
   minimum: 1, maximum: 1000
 
-- `page: String`
+- `page: String` (query parameter)
 
   Optionally set to the `next_page` token from the previous response.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -2923,7 +3141,7 @@ List Skill Versions
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -3009,19 +3227,19 @@ Download a skill version's content as a zip archive.
 
 #### Parameters
 
-- `skill_id: String`
+- `skill_id: String` (path parameter)
 
   Unique identifier for the skill.
 
   The format and length of IDs may change over time.
 
-- `version: String`
+- `version: String` (path parameter)
 
   Identifies the skill version by its version ID.
 
   Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -3127,7 +3345,7 @@ Download a skill version's content as a zip archive.
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -3159,19 +3377,19 @@ Get Skill Version
 
 #### Parameters
 
-- `skill_id: String`
+- `skill_id: String` (path parameter)
 
   Unique identifier for the skill.
 
   The format and length of IDs may change over time.
 
-- `version: String`
+- `version: String` (path parameter)
 
   Identifies the skill version: a version ID, or the literal `latest` for the skill's most recent version.
 
   Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -3277,7 +3495,7 @@ Get Skill Version
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -3358,19 +3576,19 @@ Delete Skill Version
 
 #### Parameters
 
-- `skill_id: String`
+- `skill_id: String` (path parameter)
 
   Unique identifier for the skill.
 
   The format and length of IDs may change over time.
 
-- `version: String`
+- `version: String` (path parameter)
 
   Identifies the skill version by its version ID.
 
   Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -3476,7 +3694,7 @@ Delete Skill Version
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -3624,7 +3842,7 @@ Create User Profile
 
   minLength: 1, maxLength: 255
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -3730,7 +3948,7 @@ Create User Profile
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -3914,13 +4132,13 @@ List User Profiles
 
 #### Parameters
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   The maximum number of user profiles to return, from 1 to 100. Defaults to 20.
 
   format: int32
 
-- `order: :asc | :desc`
+- `order: :asc | :desc` (query parameter)
 
   The sort direction, applied to the field that `order_by` selects. Defaults to `desc`.
 
@@ -3932,7 +4150,7 @@ List User Profiles
 
     Newest first when `order_by` is `created_at`, or names in descending order when `order_by` is `name`. This is the default.
 
-- `order_by: :created_at | :name`
+- `order_by: :created_at | :name` (query parameter)
 
   The field to sort user profiles by, in the direction that `order` sets. Defaults to `created_at`.
 
@@ -3944,13 +4162,13 @@ List User Profiles
 
     Sort by `name`, ignoring the case of ASCII letters. Profiles without a name come last in either direction.
 
-- `page: String`
+- `page: String` (query parameter)
 
   The cursor for the page to return, taken from `next_page` in a previous response.
 
   Leave it out to get the first page.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -4056,7 +4274,7 @@ List User Profiles
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -4245,11 +4463,11 @@ Get User Profile
 
 #### Parameters
 
-- `user_profile_id: String`
+- `user_profile_id: String` (path parameter)
 
   The ID of the user profile to get (`uprof_...`).
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -4355,7 +4573,7 @@ Get User Profile
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -4539,7 +4757,7 @@ Update User Profile
 
 #### Parameters
 
-- `user_profile_id: String`
+- `user_profile_id: String` (path parameter)
 
   The ID of the user profile to update (`uprof_...`).
 
@@ -4637,7 +4855,7 @@ Update User Profile
 
   minLength: 1, maxLength: 255
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -4743,7 +4961,7 @@ Update User Profile
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -4927,11 +5145,11 @@ Create Enrollment URL
 
 #### Parameters
 
-- `user_profile_id: String`
+- `user_profile_id: String` (path parameter)
 
   The ID of the user profile to create an enrollment URL for (`uprof_...`).
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -5037,7 +5255,7 @@ Create Enrollment URL
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -5203,7 +5421,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
       minLength: 1
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -5309,7 +5527,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -5609,35 +5827,35 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
 #### Parameters
 
-- `created_at_gt: Time`
+- `created_at_gt: Time` (query parameter)
 
   Return only dreams created after this time (exclusive), in RFC 3339.
 
   format: date-time
 
-- `created_at_lt: Time`
+- `created_at_lt: Time` (query parameter)
 
   Return only dreams created before this time (exclusive), in RFC 3339.
 
   format: date-time
 
-- `include_archived: bool`
+- `include_archived: bool` (query parameter)
 
   Whether to include archived dreams. Defaults to `false`.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   The maximum number of dreams to return, from 1 to 100. Defaults to 20.
 
   format: int32
 
-- `page: String`
+- `page: String` (query parameter)
 
   The cursor for the page to return, taken from `next_page` in a previous response.
 
   Leave it out to get the first page.
 
-- `statuses: Array[BetaDreamStatus]`
+- `statuses: Array[BetaDreamStatus]` (query parameter)
 
   Return only dreams that have one of these statuses.
 
@@ -5671,7 +5889,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     If `outputs` references a memory store, that memory store keeps what the dream wrote. `usage` can keep changing after the cancel.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -5777,7 +5995,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -6082,11 +6300,11 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
 #### Parameters
 
-- `dream_id: String`
+- `dream_id: String` (path parameter)
 
   The ID of the dream to get (`drm_...`).
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -6192,7 +6410,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -6492,11 +6710,11 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
 #### Parameters
 
-- `dream_id: String`
+- `dream_id: String` (path parameter)
 
   The ID of the dream to cancel (`drm_...`).
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -6602,7 +6820,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -6902,11 +7120,11 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
 #### Parameters
 
-- `dream_id: String`
+- `dream_id: String` (path parameter)
 
   The ID of the dream to archive (`drm_...`).
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -7012,7 +7230,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -7318,7 +7536,7 @@ Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
 
   minLength: 1, maxLength: 255
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -7424,7 +7642,7 @@ Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -7499,11 +7717,11 @@ Fetches a tunnel by ID.
 
 #### Parameters
 
-- `tunnel_id: String`
+- `tunnel_id: String` (path parameter)
 
   ID of the tunnel (`tnl_...`).
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -7609,7 +7827,7 @@ Fetches a tunnel by ID.
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -7684,21 +7902,21 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
 
 #### Parameters
 
-- `include_archived: bool`
+- `include_archived: bool` (query parameter)
 
   Whether to include archived tunnels in the results. Defaults to false.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Maximum number of tunnels to return per page. Defaults to 20, maximum 1000.
 
   format: int32
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque pagination cursor from a previous `list_tunnels` response.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -7804,7 +8022,7 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -7884,11 +8102,11 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
 
 #### Parameters
 
-- `tunnel_id: String`
+- `tunnel_id: String` (path parameter)
 
   ID of the tunnel (`tnl_...`).
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -7994,7 +8212,7 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -8069,11 +8287,11 @@ Reveals a tunnel's connector token. The value is fetched live on each call; Anth
 
 #### Parameters
 
-- `tunnel_id: String`
+- `tunnel_id: String` (path parameter)
 
   ID of the tunnel (`tnl_...`).
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -8179,7 +8397,7 @@ Reveals a tunnel's connector token. The value is fetched live on each call; Anth
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -8235,7 +8453,7 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
 #### Parameters
 
-- `tunnel_id: String`
+- `tunnel_id: String` (path parameter)
 
   ID of the tunnel (`tnl_...`).
 
@@ -8245,7 +8463,7 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
   maxLength: 1024
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -8351,7 +8569,7 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -8409,7 +8627,7 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
 #### Parameters
 
-- `tunnel_id: String`
+- `tunnel_id: String` (path parameter)
 
   ID of the tunnel (`tnl_...`).
 
@@ -8419,7 +8637,7 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
   maxLength: 8192
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -8525,7 +8743,7 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -8607,15 +8825,15 @@ Fetches a tunnel certificate by ID.
 
 #### Parameters
 
-- `tunnel_id: String`
+- `tunnel_id: String` (path parameter)
 
   ID of the tunnel (`tnl_...`).
 
-- `certificate_id: String`
+- `certificate_id: String` (path parameter)
 
   ID of the certificate (`tcrt_...`).
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -8721,7 +8939,7 @@ Fetches a tunnel certificate by ID.
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -8803,25 +9021,25 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
 #### Parameters
 
-- `tunnel_id: String`
+- `tunnel_id: String` (path parameter)
 
   ID of the tunnel (`tnl_...`).
 
-- `include_archived: bool`
+- `include_archived: bool` (query parameter)
 
   Whether to include archived certificates in the results. Defaults to false.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Maximum number of certificates to return per page. Defaults to 20, maximum 1000.
 
   format: int32
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque pagination cursor from a previous `list_tunnel_certificates` response.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -8927,7 +9145,7 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -9014,15 +9232,15 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 
 #### Parameters
 
-- `tunnel_id: String`
+- `tunnel_id: String` (path parameter)
 
   ID of the tunnel (`tnl_...`).
 
-- `certificate_id: String`
+- `certificate_id: String` (path parameter)
 
   ID of the certificate to archive (`tcrt_...`).
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -9128,7 +9346,7 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -9262,19 +9480,19 @@ List API Keys
 
 #### Parameters
 
-- `after_id: String`
+- `after_id: String` (query parameter)
 
   ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-- `before_id: String`
+- `before_id: String` (query parameter)
 
   ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-- `created_by_user_id: String`
+- `created_by_user_id: String` (query parameter)
 
   Filter by the ID of the User who created the object.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -9282,7 +9500,7 @@ List API Keys
 
   minimum: 1, maximum: 1000
 
-- `status: :active | :archived | :expired | :inactive`
+- `status: :active | :archived | :expired | :inactive` (query parameter)
 
   Filter by API key status.
 
@@ -9294,7 +9512,7 @@ List API Keys
 
   - `:inactive`
 
-- `workspace_id: String`
+- `workspace_id: String` (query parameter)
 
   Filter by Workspace ID.
 
@@ -9468,7 +9686,7 @@ Retrieve information about a single API key in your organization, looked up by i
 
 #### Parameters
 
-- `api_key_id: String`
+- `api_key_id: String` (path parameter)
 
   ID of the API key.
 
@@ -9635,7 +9853,7 @@ Update API Key
 
 #### Parameters
 
-- `api_key_id: String`
+- `api_key_id: String` (path parameter)
 
   ID of the API key.
 
@@ -10029,13 +10247,13 @@ Results are ordered by creation time (newest first). Use the
 
 #### Parameters
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results per page.
 
   minimum: 1, maximum: 100
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page`.
 
@@ -10184,7 +10402,7 @@ Retrieve a single external key config in the caller's organization by ID.
 
 #### Parameters
 
-- `external_key_id: String`
+- `external_key_id: String` (path parameter)
 
   ID of the External Key.
 
@@ -10334,7 +10552,7 @@ encrypted data requires the original key identity to decrypt.
 
 #### Parameters
 
-- `external_key_id: String`
+- `external_key_id: String` (path parameter)
 
   ID of the External Key.
 
@@ -10546,7 +10764,7 @@ The request is rejected if any workspace still references this config.
 
 #### Parameters
 
-- `external_key_id: String`
+- `external_key_id: String` (path parameter)
 
   ID of the External Key.
 
@@ -10598,7 +10816,7 @@ message if it failed or timed out.
 
 #### Parameters
 
-- `external_key_id: String`
+- `external_key_id: String` (path parameter)
 
   ID of the External Key.
 
@@ -10745,7 +10963,7 @@ matched as the JWT's `iss` claim and is not fetched.
 
   minimum: 1, maximum: 176400
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -11044,21 +11262,21 @@ Archived issuers are excluded unless `include_archived=true`.
 
 #### Parameters
 
-- `include_archived: bool`
+- `include_archived: bool` (query parameter)
 
   Include archived resources. Defaults to false.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results per page.
 
   minimum: 1, maximum: 100
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page`.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -11360,11 +11578,11 @@ Retrieve a federation issuer by its ID (`fdis_...`).
 
 #### Parameters
 
-- `federation_issuer_id: String`
+- `federation_issuer_id: String` (path parameter)
 
   ID of the federation issuer.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -11668,7 +11886,7 @@ session.
 
 #### Parameters
 
-- `federation_issuer_id: String`
+- `federation_issuer_id: String` (path parameter)
 
   ID of the federation issuer to update.
 
@@ -11748,7 +11966,7 @@ session.
 
   minLength: 1, maxLength: 255
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -12050,11 +12268,11 @@ issuer cannot be changed), or recreate them against another issuer.
 
 #### Parameters
 
-- `federation_issuer_id: String`
+- `federation_issuer_id: String` (path parameter)
 
   ID of the federation issuer to archive.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -12447,7 +12665,7 @@ manage rules whose `oauth_scope` is `workspace:developer` or
 
   Tagged ID of the workspace to enable this rule for. Required unless `applies_to_all_workspaces` is true. Additional workspaces can be added via the `/federation_rules/{federation_rule_id}/workspaces` sub-resource.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -12759,25 +12977,25 @@ unless `include_archived=true`.
 
 #### Parameters
 
-- `include_archived: bool`
+- `include_archived: bool` (query parameter)
 
   Include archived resources. Defaults to false.
 
-- `issuer_id: String`
+- `issuer_id: String` (query parameter)
 
   Filter to rules referencing this federation issuer.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results per page.
 
   minimum: 1, maximum: 100
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page`.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -13085,11 +13303,11 @@ Retrieve a federation rule by its ID (`fdrl_...`).
 
 #### Parameters
 
-- `federation_rule_id: String`
+- `federation_rule_id: String` (path parameter)
 
   ID of the federation rule.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -13408,7 +13626,7 @@ Console session.
 
 #### Parameters
 
-- `federation_rule_id: String`
+- `federation_rule_id: String` (path parameter)
 
   ID of the federation rule to update.
 
@@ -13488,7 +13706,7 @@ Console session.
 
   Replaces the existing single workspace enablement (the previous one is removed). Rejected with 400 if the rule is enabled for more than one workspace; use the `/federation_rules/{federation_rule_id}/workspaces` sub-resource instead.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -13799,11 +14017,11 @@ other scopes require a Console session.
 
 #### Parameters
 
-- `federation_rule_id: String`
+- `federation_rule_id: String` (path parameter)
 
   ID of the federation rule to archive.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -14117,7 +14335,7 @@ other scopes require a Console session.
 
 #### Parameters
 
-- `federation_rule_id: String`
+- `federation_rule_id: String` (path parameter)
 
   ID of the federation rule.
 
@@ -14125,7 +14343,7 @@ other scopes require a Console session.
 
   Tagged ID of the workspace to enable this rule for.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -14305,21 +14523,21 @@ rules with `applies_to_all_workspaces` or a legacy single
 
 #### Parameters
 
-- `federation_rule_id: String`
+- `federation_rule_id: String` (path parameter)
 
   ID of the federation rule.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results per page.
 
   minimum: 1, maximum: 100
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page`.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -14500,15 +14718,15 @@ Console session.
 
 #### Parameters
 
-- `federation_rule_id: String`
+- `federation_rule_id: String` (path parameter)
 
   ID of the federation rule.
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
   ID of the workspace to disable for.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -14809,21 +15027,21 @@ List the organization's invites.
 
 #### Parameters
 
-- `after_id: String`
+- `after_id: String` (query parameter)
 
   ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-- `before_id: String`
+- `before_id: String` (query parameter)
 
   ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-- `email: String`
+- `email: String` (query parameter)
 
   Filter by the email address the Invite was sent to. Matches the same way as the Users list's `email` filter (normalized, case-insensitive).
 
   format: email
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -14831,13 +15049,13 @@ List the organization's invites.
 
   minimum: 1, maximum: 1000
 
-- `roles: Array[String]`
+- `roles: Array[String]` (query parameter)
 
   Filter to items whose `role` equals one of the supplied values. Repeatable; values are OR'ed together.
 
   Accepted values depend on the organization type: Console and API organizations accept `user`, `developer`, `billing`, `admin`, and `claude_code_user`; Claude Enterprise organizations accept `user`, `owner`, `primary_owner`, `membership_admin`, and `managed`.
 
-- `statuses: Array[:accepted | :expired | :pending]`
+- `statuses: Array[:accepted | :expired | :pending]` (query parameter)
 
   Filter by Invite status. Repeatable; values are OR'ed together. Omit to return `pending`, `accepted`, and `expired` Invites alike.
 
@@ -14968,7 +15186,7 @@ Retrieve an invite by ID.
 
 #### Parameters
 
-- `invite_id: String`
+- `invite_id: String` (path parameter)
 
   ID of the Invite.
 
@@ -15086,7 +15304,7 @@ Delete a pending invite.
 
 #### Parameters
 
-- `invite_id: String`
+- `invite_id: String` (path parameter)
 
   ID of the Invite.
 
@@ -15167,7 +15385,7 @@ accounts.
 
   - `:developer`
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -15380,21 +15598,21 @@ archived service accounts.
 
 #### Parameters
 
-- `include_archived: bool`
+- `include_archived: bool` (query parameter)
 
   Include archived resources. Defaults to false.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results per page.
 
   minimum: 1, maximum: 100
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page`.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -15608,11 +15826,11 @@ Retrieve a service account by its ID (`svac_...`).
 
 #### Parameters
 
-- `service_account_id: String`
+- `service_account_id: String` (path parameter)
 
   ID of the service account.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -15826,7 +16044,7 @@ interactive credential (a user OAuth token or a Console session).
 
 #### Parameters
 
-- `service_account_id: String`
+- `service_account_id: String` (path parameter)
 
   ID of the service account to update.
 
@@ -15844,7 +16062,7 @@ interactive credential (a user OAuth token or a Console session).
 
   - `:developer`
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -16058,11 +16276,11 @@ those rules first or change their target to another service account.
 
 #### Parameters
 
-- `service_account_id: String`
+- `service_account_id: String` (path parameter)
 
   ID of the service account to archive.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -16280,7 +16498,7 @@ rejected.
 
 #### Parameters
 
-- `service_account_id: String`
+- `service_account_id: String` (path parameter)
 
   ID of the service account.
 
@@ -16300,7 +16518,7 @@ rejected.
 
   - `:workspace_user`
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -16497,21 +16715,21 @@ page to recover.
 
 #### Parameters
 
-- `service_account_id: String`
+- `service_account_id: String` (path parameter)
 
   ID of the service account.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results per page.
 
   minimum: 1, maximum: 100
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page`.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -16703,15 +16921,15 @@ to the implicit `workspace_user` membership. Archived workspaces return
 
 #### Parameters
 
-- `service_account_id: String`
+- `service_account_id: String` (path parameter)
 
   ID of the service account.
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
   ID of the workspace.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -16868,21 +17086,21 @@ List the organization's members.
 
 #### Parameters
 
-- `after_id: String`
+- `after_id: String` (query parameter)
 
   ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-- `before_id: String`
+- `before_id: String` (query parameter)
 
   ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-- `email: String`
+- `email: String` (query parameter)
 
   Filter by user email.
 
   format: email
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -16890,7 +17108,7 @@ List the organization's members.
 
   minimum: 1, maximum: 1000
 
-- `roles: Array[String]`
+- `roles: Array[String]` (query parameter)
 
   Filter to items whose `role` equals one of the supplied values. Repeatable; values are OR'ed together.
 
@@ -16988,7 +17206,7 @@ Retrieve a member of the organization by user ID.
 
 #### Parameters
 
-- `user_id: String`
+- `user_id: String` (path parameter)
 
   ID of the User.
 
@@ -17077,7 +17295,7 @@ Update a member's organization role.
 
 #### Parameters
 
-- `user_id: String`
+- `user_id: String` (path parameter)
 
   ID of the User.
 
@@ -17182,7 +17400,7 @@ Remove a member from the organization.
 
 #### Parameters
 
-- `user_id: String`
+- `user_id: String` (path parameter)
 
   ID of the User.
 
@@ -17233,23 +17451,23 @@ List Workspaces
 
 #### Parameters
 
-- `after_id: String`
+- `after_id: String` (query parameter)
 
   ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-- `before_id: String`
+- `before_id: String` (query parameter)
 
   ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-- `include_archived: bool`
+- `include_archived: bool` (query parameter)
 
   Whether to include Workspaces that have been archived in the response
 
-- `include_default: bool`
+- `include_default: bool` (query parameter)
 
   Whether to include the organization's default Workspace in the response
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -17462,7 +17680,7 @@ Create Workspace
 
   User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -17708,7 +17926,7 @@ Get Workspace
 
 #### Parameters
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
   ID of the Workspace.
 
@@ -17852,7 +18070,7 @@ Update Workspace
 
 #### Parameters
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
 - `data_residency: BetaDataResidencyUpdateConfig`
 
@@ -18048,7 +18266,7 @@ Archive Workspace
 
 #### Parameters
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
 #### Returns
 
@@ -18202,11 +18420,11 @@ the remaining entries.
 
 #### Parameters
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
   The ID of the workspace.
 
-- `group_type: :batch | :files | :model_group | 3 more`
+- `group_type: :batch | :files | :model_group | 3 more` (query parameter)
 
   Filter by group type.
 
@@ -18222,11 +18440,11 @@ the remaining entries.
 
   - `:web_search`
 
-- `include_inherited: bool`
+- `include_inherited: bool` (query parameter)
 
   Also list the limiter values the workspace inherits from the organization, including groups with no workspace-level override.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Maximum number of items to return per page. Ranges from `1` to `1000`.
 
@@ -18234,7 +18452,7 @@ the remaining entries.
 
   minimum: 1, maximum: 1000
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page`.
 
@@ -18434,19 +18652,19 @@ List Workspace Members
 
 #### Parameters
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
   ID of the Workspace.
 
-- `after_id: String`
+- `after_id: String` (query parameter)
 
   ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-- `before_id: String`
+- `before_id: String` (query parameter)
 
   ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -18526,7 +18744,7 @@ Create Workspace Member
 
 #### Parameters
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
   ID of the Workspace.
 
@@ -18615,11 +18833,11 @@ Get Workspace Member
 
 #### Parameters
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
   ID of the Workspace.
 
-- `user_id: String`
+- `user_id: String` (path parameter)
 
   ID of the User.
 
@@ -18688,11 +18906,11 @@ Update Workspace Member
 
 #### Parameters
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
   ID of the Workspace.
 
-- `user_id: String`
+- `user_id: String` (path parameter)
 
   ID of the User.
 
@@ -18779,11 +18997,11 @@ Delete Workspace Member
 
 #### Parameters
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
   ID of the Workspace.
 
-- `user_id: String`
+- `user_id: String` (path parameter)
 
   ID of the User.
 
@@ -18848,21 +19066,21 @@ omitted from the results.
 
 #### Parameters
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
   ID of the workspace.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results per page.
 
   minimum: 1, maximum: 100
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page`.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -19055,7 +19273,7 @@ accounts cannot be added and are rejected.
 
 #### Parameters
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
   ID of the workspace.
 
@@ -19075,7 +19293,7 @@ accounts cannot be added and are rejected.
 
   - `:workspace_user`
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -19265,15 +19483,15 @@ account returns 404.
 
 #### Parameters
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
   ID of the workspace.
 
-- `service_account_id: String`
+- `service_account_id: String` (path parameter)
 
   ID of the service account.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -19462,11 +19680,11 @@ rejected.
 
 #### Parameters
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
   ID of the workspace.
 
-- `service_account_id: String`
+- `service_account_id: String` (path parameter)
 
   ID of the service account.
 
@@ -19482,7 +19700,7 @@ rejected.
 
   - `:workspace_user`
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -19671,15 +19889,15 @@ membership. Archived workspaces return 400.
 
 #### Parameters
 
-- `workspace_id: String`
+- `workspace_id: String` (path parameter)
 
   ID of the workspace.
 
-- `service_account_id: String`
+- `service_account_id: String` (path parameter)
 
   ID of the service account.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -19844,7 +20062,7 @@ the remaining entries.
 
 #### Parameters
 
-- `group_type: :batch | :files | :model_group | 3 more`
+- `group_type: :batch | :files | :model_group | 3 more` (query parameter)
 
   Filter by group type.
 
@@ -19860,7 +20078,7 @@ the remaining entries.
 
   - `:web_search`
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Maximum number of items to return per page. Ranges from `1` to `1000`.
 
@@ -19868,11 +20086,11 @@ the remaining entries.
 
   minimum: 1, maximum: 1000
 
-- `model: String`
+- `model: String` (query parameter)
 
   Filter to the single entry containing this model. Accepts full model names and aliases. Returns 404 if the model is not found or has no rate limits for this organization.
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page`.
 
@@ -20186,31 +20404,31 @@ Enterprise plan. Requires an API key with the `read:analytics` scope.
 
 #### Parameters
 
-- `starting_date: Date`
+- `starting_date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. Start of the date range (inclusive). Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
   format: date
 
-- `ending_date: Date`
+- `ending_date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. End of the date range (exclusive). Data is typically available with a 1-day lag, so this can be at most today — which is also the default when omitted, making the last entry cover the most recent available day. Data may be revised by a few percent over the following days. The range may span at most 366 days.
 
   format: date
 
-- `filter: Array[String]`
+- `filter: Array[String]` (query parameter)
 
   Filters as `dimension:value`. Only `rbac_group_id` is supported (e.g. `filter[]=rbac_group_id:{id}`); repeat the param to OR across groups. Scopes the whole day series to members of the matching group(s), re-aggregated from member-level activity — org-wide seat/invite fields and the adoption rates derived from them are null on scoped rows. `rbac_group_id` accepts the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each UTC day (time-of-usage attribution). At most 100 entries.
 
   maxItems: 100
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results per page (1-1000, default 100). The day series (at most 366 entries) is currently returned in full in a single page, so `limit` does not yet shorten it.
 
   minimum: 1, maximum: 1000
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page` field. `next_page` is currently always null, so there is never a cursor to send.
 
@@ -20444,37 +20662,37 @@ the `read:analytics` scope.
 
 #### Parameters
 
-- `date: Date`
+- `date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. The day to get user activity for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
   format: date
 
-- `ending_date: Date`
+- `ending_date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with `starting_date`. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after `starting_date`.
 
   format: date
 
-- `filter: Array[String]`
+- `filter: Array[String]` (query parameter)
 
   Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `project_id`, `rbac_group_id`, `user_id`. Value forms: `project_id` takes a tagged project id (`claude_proj_...`) and scopes each member's row to their claude.ai chat activity within that project (it cannot be combined with `group_by[]` or an `rbac_group_id` filter); `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
   maxItems: 100
 
-- `group_by: Array[:rbac_group_id]`
+- `group_by: Array[:rbac_group_id]` (query parameter)
 
   Dimensions to break results out by (e.g. `group_by[]=rbac_group_id`). Supported on this endpoint: `rbac_group_id`. Rows are already per-member, so the one supported grouping aggregates them per RBAC group instead. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via `next_page`; an unsupported dimension returns 400. `rbac_group_id` attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
   maxItems: 100
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results per page (1-1000, default 100).
 
   minimum: 1, maximum: 1000
 
-- `order: :asc | :desc`
+- `order: :asc | :desc` (query parameter)
 
   Sort direction: `asc` or `desc`. Defaults to `asc` for the endpoint's sort column and to `desc` when `order_by` names a metric (a top-N ranking). Applies to `order_by`, or to the endpoint's default sort field when `order_by` is omitted.
 
@@ -20482,15 +20700,15 @@ the `read:analytics` scope.
 
   - `:desc`
 
-- `order_by: String`
+- `order_by: String` (query parameter)
 
   Sort field. Restricted to the endpoint's sort column plus its rankable metrics (metrics default to descending; a few metrics rank in date-range mode only, per the endpoint's documented orderable set).
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page` field.
 
-- `starting_date: Date`
+- `starting_date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either `date` or `starting_date`, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
@@ -20978,25 +21196,25 @@ plan. Requires an API key with the `read:analytics` scope.
 
 #### Parameters
 
-- `date: Date`
+- `date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. The day to get project activity for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
   format: date
 
-- `ending_date: Date`
+- `ending_date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with `starting_date`. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after `starting_date`.
 
   format: date
 
-- `filter: Array[String]`
+- `filter: Array[String]` (query parameter)
 
   Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `project_id`, `rbac_group_id`, `user_id`. Value forms: `project_id` takes a tagged project id (`claude_proj_...`); `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
   maxItems: 100
 
-- `group_by: Array[:rbac_group_id | :user_id]`
+- `group_by: Array[:rbac_group_id | :user_id]` (query parameter)
 
   Dimensions to break results out by (e.g. `group_by[]=user_id`). Supported on this endpoint: `rbac_group_id`, `user_id`. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via `next_page`; an unsupported dimension returns 400. `rbac_group_id` attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
@@ -21006,13 +21224,13 @@ plan. Requires an API key with the `read:analytics` scope.
 
   - `:user_id`
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results per page (1-1000, default 100).
 
   minimum: 1, maximum: 1000
 
-- `order: :asc | :desc`
+- `order: :asc | :desc` (query parameter)
 
   Sort direction: `asc` or `desc`. Defaults to `asc` for the endpoint's sort column and to `desc` when `order_by` names a metric (a top-N ranking). Applies to `order_by`, or to the endpoint's default sort field when `order_by` is omitted.
 
@@ -21020,15 +21238,15 @@ plan. Requires an API key with the `read:analytics` scope.
 
   - `:desc`
 
-- `order_by: String`
+- `order_by: String` (query parameter)
 
   Sort field. Restricted to the endpoint's sort column plus its rankable metrics (metrics default to descending; a few metrics rank in date-range mode only, per the endpoint's documented orderable set).
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page` field.
 
-- `starting_date: Date`
+- `starting_date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either `date` or `starting_date`, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
@@ -21158,25 +21376,25 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
 #### Parameters
 
-- `date: Date`
+- `date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. The day to get connector usage for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
   format: date
 
-- `ending_date: Date`
+- `ending_date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with `starting_date`. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after `starting_date`.
 
   format: date
 
-- `filter: Array[String]`
+- `filter: Array[String]` (query parameter)
 
   Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `connector_name`, `product`, `rbac_group_id`, `user_id`. Value forms: `connector_name` matches case-insensitively, a display name such as 'GitHub MCP' also matches its normalized stored form ('github'), and for rows whose `connector_name` is an opaque connector id the connector's display name (`connector_display_name`) also matches; `product` is one of `chat`, `claude_code`, `cowork`, or `office_agent`; `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
   maxItems: 100
 
-- `group_by: Array[:product | :rbac_group_id | :user_id]`
+- `group_by: Array[:product | :rbac_group_id | :user_id]` (query parameter)
 
   Dimensions to break results out by (e.g. `group_by[]=user_id`). Supported on this endpoint: `product`, `rbac_group_id`, `user_id`. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via `next_page`; an unsupported dimension returns 400. `rbac_group_id` attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
@@ -21188,13 +21406,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:user_id`
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results per page (1-1000, default 100).
 
   minimum: 1, maximum: 1000
 
-- `order: :asc | :desc`
+- `order: :asc | :desc` (query parameter)
 
   Sort direction: `asc` or `desc`. Defaults to `asc` for the endpoint's sort column and to `desc` when `order_by` names a metric (a top-N ranking). Applies to `order_by`, or to the endpoint's default sort field when `order_by` is omitted.
 
@@ -21202,15 +21420,15 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:desc`
 
-- `order_by: String`
+- `order_by: String` (query parameter)
 
   Sort field. Restricted to the endpoint's sort column plus its rankable metrics (metrics default to descending; a few metrics rank in date-range mode only, per the endpoint's documented orderable set).
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page` field.
 
-- `starting_date: Date`
+- `starting_date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either `date` or `starting_date`, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
@@ -21401,25 +21619,25 @@ range-rollup mode like `/skills`.
 
 #### Parameters
 
-- `date: Date`
+- `date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. The day to get plugin usage for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
   format: date
 
-- `ending_date: Date`
+- `ending_date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with `starting_date`. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after `starting_date`.
 
   format: date
 
-- `filter: Array[String]`
+- `filter: Array[String]` (query parameter)
 
   Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `plugin_name`, `product`, `rbac_group_id`, `user_id`. Value forms: `plugin_name` matches case-insensitively; `product` is `claude_code` or `cowork` (the only surfaces with plugin attribution); `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
   maxItems: 100
 
-- `group_by: Array[:product | :rbac_group_id | :user_id]`
+- `group_by: Array[:product | :rbac_group_id | :user_id]` (query parameter)
 
   Dimensions to break results out by (e.g. `group_by[]=user_id`). Supported on this endpoint: `product`, `rbac_group_id`, `user_id`. On this endpoint `product` takes the values `claude_code` or `cowork` only (the surfaces with plugin attribution). Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via `next_page`; an unsupported dimension returns 400. `rbac_group_id` attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
@@ -21431,13 +21649,13 @@ range-rollup mode like `/skills`.
 
   - `:user_id`
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results per page (1-1000, default 100).
 
   minimum: 1, maximum: 1000
 
-- `order: :asc | :desc`
+- `order: :asc | :desc` (query parameter)
 
   Sort direction: `asc` or `desc`. Defaults to `asc` for the endpoint's sort column and to `desc` when `order_by` names a metric (a top-N ranking). Applies to `order_by`, or to the endpoint's default sort field when `order_by` is omitted.
 
@@ -21445,15 +21663,15 @@ range-rollup mode like `/skills`.
 
   - `:desc`
 
-- `order_by: String`
+- `order_by: String` (query parameter)
 
   Sort field. Restricted to the endpoint's sort column plus its rankable metrics (metrics default to descending; a few metrics rank in date-range mode only, per the endpoint's documented orderable set).
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page` field.
 
-- `starting_date: Date`
+- `starting_date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either `date` or `starting_date`, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
@@ -21581,25 +21799,25 @@ on a Claude Enterprise plan. Requires an API key with the
 
 #### Parameters
 
-- `date: Date`
+- `date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. The day to get skill usage for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
   format: date
 
-- `ending_date: Date`
+- `ending_date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with `starting_date`. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after `starting_date`.
 
   format: date
 
-- `filter: Array[String]`
+- `filter: Array[String]` (query parameter)
 
   Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `product`, `rbac_group_id`, `share_status`, `skill_name`, `user_id`. Value forms: `product` is one of `chat`, `claude_code`, `cowork`, or `office_agent`; `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `share_status` is one of `organization`, `private`, or `public`; `skill_name` matches case-insensitively; `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
   maxItems: 100
 
-- `group_by: Array[:product | :rbac_group_id | :user_id]`
+- `group_by: Array[:product | :rbac_group_id | :user_id]` (query parameter)
 
   Dimensions to break results out by (e.g. `group_by[]=user_id`). Supported on this endpoint: `product`, `rbac_group_id`, `user_id`. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via `next_page`; an unsupported dimension returns 400. `rbac_group_id` attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
@@ -21611,13 +21829,13 @@ on a Claude Enterprise plan. Requires an API key with the
 
   - `:user_id`
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results per page (1-1000, default 100).
 
   minimum: 1, maximum: 1000
 
-- `order: :asc | :desc`
+- `order: :asc | :desc` (query parameter)
 
   Sort direction: `asc` or `desc`. Defaults to `asc` for the endpoint's sort column and to `desc` when `order_by` names a metric (a top-N ranking). Applies to `order_by`, or to the endpoint's default sort field when `order_by` is omitted.
 
@@ -21625,15 +21843,15 @@ on a Claude Enterprise plan. Requires an API key with the
 
   - `:desc`
 
-- `order_by: String`
+- `order_by: String` (query parameter)
 
   Sort field. Restricted to the endpoint's sort column plus its rankable metrics (metrics default to descending; a few metrics rank in date-range mode only, per the endpoint's documented orderable set).
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page` field.
 
-- `starting_date: Date`
+- `starting_date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either `date` or `starting_date`, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
@@ -21829,19 +22047,19 @@ can be broken out per product, per member, or per RBAC group via
 
 #### Parameters
 
-- `date: Date`
+- `date: Date` (query parameter)
 
   UTC date in YYYY-MM-DD format. The day to get artifact activity for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
   format: date
 
-- `filter: Array[String]`
+- `filter: Array[String]` (query parameter)
 
   Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `artifact_type`, `is_shared`, `product`, `rbac_group_id`, `user_id`. Value forms: `artifact_type` is a canonical artifact MIME type (e.g. `text/markdown`) or `other`; `is_shared` is `true` or `false`; `product` is `chat`, `claude_code`, or `cowork` (the surfaces that create artifacts); `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
   maxItems: 100
 
-- `group_by: Array[:product | :rbac_group_id | :user_id]`
+- `group_by: Array[:product | :rbac_group_id | :user_id]` (query parameter)
 
   Dimensions to break results out by: `product`, `user_id` and/or `rbac_group_id`. The ungrouped artifact-type cube is finite and returned in full; grouped queries multiply the cube and paginate via `next_page`. `product` takes the values `chat`, `claude_code`, or `cowork` (the surfaces that create artifacts). `rbac_group_id` attributes a user to every group they held at any point during the requested UTC day, so grouped rows are not an exclusive partition. At most 100 entries.
 
@@ -21853,13 +22071,13 @@ can be broken out per product, per member, or per RBAC group via
 
   - `:user_id`
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Maximum rows to return (1-1000, default 100). The ungrouped artifact-type cube is finite and returned in full; `limit` is the page size only when `group_by[]` multiplies the cube.
 
   minimum: 1, maximum: 1000
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page` field. Only valid with `group_by[]` — the ungrouped cube is never paginated.
 
@@ -21964,13 +22182,13 @@ key with the `read:analytics` scope.
 
 #### Parameters
 
-- `starting_at: Time`
+- `starting_at: Time` (query parameter)
 
   Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
 
   format: date-time
 
-- `bucket_width: :"1d" | :"1h" | :"1m"`
+- `bucket_width: :"1d" | :"1h" | :"1m"` (query parameter)
 
   Time bucket granularity.
 
@@ -21980,7 +22198,7 @@ key with the `read:analytics` scope.
 
   - `:"1m"`
 
-- `claude_tag_categories: Array[BetaAnalyticsClaudeTagCategory]`
+- `claude_tag_categories: Array[BetaAnalyticsClaudeTagCategory]` (query parameter)
 
   Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
 
@@ -21996,13 +22214,13 @@ key with the `read:analytics` scope.
 
   - `:scheduled`
 
-- `claude_tag_user_ids: Array[String]`
+- `claude_tag_user_ids: Array[String]` (query parameter)
 
   Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
 
   maxItems: 100
 
-- `context_windows: Array[BetaAnalyticsContextWindow]`
+- `context_windows: Array[BetaAnalyticsContextWindow]` (query parameter)
 
   Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
@@ -22012,13 +22230,13 @@ key with the `read:analytics` scope.
 
   - `:"200k-1M"`
 
-- `ending_at: Time`
+- `ending_at: Time` (query parameter)
 
   End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
   format: date-time
 
-- `group_by: Array[:claude_tag_category | :claude_tag_user_id | :context_window | 6 more]`
+- `group_by: Array[:claude_tag_category | :claude_tag_user_id | :context_window | 6 more]` (query parameter)
 
   Dimensions to break each time bucket out by. Defaults to no grouping (one total per bucket). Each bucket reports at most its top 100 groups; a group beyond that cap has no row in that bucket (there is no remainder row), so grouped buckets are not exhaustive when a dimension has more than 100 distinct values.
 
@@ -22042,7 +22260,7 @@ key with the `read:analytics` scope.
 
   - `:speed`
 
-- `inference_geos: Array[BetaAnalyticsInferenceGeoFilter]`
+- `inference_geos: Array[BetaAnalyticsInferenceGeoFilter]` (query parameter)
 
   Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
@@ -22054,23 +22272,23 @@ key with the `read:analytics` scope.
 
   - `:us`
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Maximum number of time buckets per page. Defaults and caps vary by `bucket_width` (`1d`: default 7, max 31; `1h`: default 24, max 168; `1m`: default 60, max 256).
 
   minimum: 1
 
-- `models: Array[String]`
+- `models: Array[String]` (query parameter)
 
   Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
 
   maxItems: 100
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page` field.
 
-- `products: Array[BetaAnalyticsProductFilter]`
+- `products: Array[BetaAnalyticsProductFilter]` (query parameter)
 
   Product surfaces to include. Defaults to all products. Use `group_by[]=product` to break out per-product values.
 
@@ -22090,19 +22308,19 @@ key with the `read:analytics` scope.
 
   - `:office_agent`
 
-- `rbac_group_ids: Array[String]`
+- `rbac_group_ids: Array[String]` (query parameter)
 
   Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
 
   maxItems: 100
 
-- `slack_channel_ids: Array[String]`
+- `slack_channel_ids: Array[String]` (query parameter)
 
   Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
   maxItems: 100
 
-- `speeds: Array[:fast | :standard]`
+- `speeds: Array[:fast | :standard]` (query parameter)
 
   Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
 
@@ -22112,7 +22330,7 @@ key with the `read:analytics` scope.
 
   - `:standard`
 
-- `user_ids: Array[String]`
+- `user_ids: Array[String]` (query parameter)
 
   Filter to specific users by tagged user ID.
 
@@ -22309,13 +22527,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
 #### Parameters
 
-- `starting_at: Time`
+- `starting_at: Time` (query parameter)
 
   Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
 
   format: date-time
 
-- `bucket_width: :"1d" | :"1h" | :"1m"`
+- `bucket_width: :"1d" | :"1h" | :"1m"` (query parameter)
 
   Time-bucket granularity. When set, each row's `starting_at` and `ending_at` are populated and one actor may span several rows (one per time bucket with usage). The time bucket counts toward `limit`, so one page can return multiple rows for the same actor. `ending_at` is required when `bucket_width` is set, and with `bucket_width="1m"` the range may span at most 24 hours. When omitted, each row aggregates the full `[starting_at, ending_at)` range.
 
@@ -22325,7 +22543,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:"1m"`
 
-- `claude_tag_categories: Array[BetaAnalyticsClaudeTagCategory]`
+- `claude_tag_categories: Array[BetaAnalyticsClaudeTagCategory]` (query parameter)
 
   Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
 
@@ -22341,13 +22559,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:scheduled`
 
-- `claude_tag_user_ids: Array[String]`
+- `claude_tag_user_ids: Array[String]` (query parameter)
 
   Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
 
   maxItems: 100
 
-- `context_windows: Array[BetaAnalyticsContextWindow]`
+- `context_windows: Array[BetaAnalyticsContextWindow]` (query parameter)
 
   Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
@@ -22357,17 +22575,17 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:"200k-1M"`
 
-- `ending_at: Time`
+- `ending_at: Time` (query parameter)
 
   End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
   format: date-time
 
-- `exclude_deleted_users: bool`
+- `exclude_deleted_users: bool` (query parameter)
 
   If true, omit rows for users who are deleted (`deleted: true`). A page may contain fewer than `limit` rows; use `has_more` and `next_page` to paginate as usual.
 
-- `group_by: Array[:claude_tag_category | :claude_tag_user_id | :context_window | 6 more]`
+- `group_by: Array[:claude_tag_category | :claude_tag_user_id | :context_window | 6 more]` (query parameter)
 
   Break each actor's row out by the given dimensions. Accepts the same values as the bucketed `/usage_report` endpoint. `limit` bounds (actor × time bucket × dimension) rows — with dimensions or `bucket_width` present, one actor may span several rows.
 
@@ -22391,7 +22609,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:speed`
 
-- `inference_geos: Array[BetaAnalyticsInferenceGeoFilter]`
+- `inference_geos: Array[BetaAnalyticsInferenceGeoFilter]` (query parameter)
 
   Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
@@ -22403,19 +22621,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:us`
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of rows per page (1-1000, default 20). One row per actor unless `group_by[]` or `bucket_width` splits an actor across rows; `cost_type`/`token_type` fan-out rows (cost endpoint only) are the exception — they do not count toward this limit, so `data` can exceed it.
 
   minimum: 1, maximum: 1000
 
-- `models: Array[String]`
+- `models: Array[String]` (query parameter)
 
   Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
 
   maxItems: 100
 
-- `order: :asc | :desc`
+- `order: :asc | :desc` (query parameter)
 
   Sort direction. Defaults to `desc`.
 
@@ -22423,7 +22641,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:desc`
 
-- `order_by: :output_tokens | :requests | :total_tokens | :uncached_input_tokens`
+- `order_by: :output_tokens | :requests | :total_tokens | :uncached_input_tokens` (query parameter)
 
   Metric to rank actors by. Defaults to `total_tokens`.
 
@@ -22435,11 +22653,11 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:uncached_input_tokens`
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page` field.
 
-- `products: Array[BetaAnalyticsProductFilter]`
+- `products: Array[BetaAnalyticsProductFilter]` (query parameter)
 
   Product surfaces to include. Defaults to all products.
 
@@ -22459,19 +22677,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:office_agent`
 
-- `rbac_group_ids: Array[String]`
+- `rbac_group_ids: Array[String]` (query parameter)
 
   Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
 
   maxItems: 100
 
-- `slack_channel_ids: Array[String]`
+- `slack_channel_ids: Array[String]` (query parameter)
 
   Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
   maxItems: 100
 
-- `speeds: Array[:fast | :standard]`
+- `speeds: Array[:fast | :standard]` (query parameter)
 
   Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
 
@@ -22481,7 +22699,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:standard`
 
-- `user_ids: Array[String]`
+- `user_ids: Array[String]` (query parameter)
 
   Filter to specific users by tagged user ID.
 
@@ -22704,13 +22922,13 @@ Requires an API key with the `read:analytics` scope.
 
 #### Parameters
 
-- `starting_at: Time`
+- `starting_at: Time` (query parameter)
 
   Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
 
   format: date-time
 
-- `bucket_width: :"1d" | :"1h" | :"1m"`
+- `bucket_width: :"1d" | :"1h" | :"1m"` (query parameter)
 
   Time bucket granularity.
 
@@ -22720,7 +22938,7 @@ Requires an API key with the `read:analytics` scope.
 
   - `:"1m"`
 
-- `claude_tag_categories: Array[BetaAnalyticsClaudeTagCategory]`
+- `claude_tag_categories: Array[BetaAnalyticsClaudeTagCategory]` (query parameter)
 
   Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
 
@@ -22736,13 +22954,13 @@ Requires an API key with the `read:analytics` scope.
 
   - `:scheduled`
 
-- `claude_tag_user_ids: Array[String]`
+- `claude_tag_user_ids: Array[String]` (query parameter)
 
   Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
 
   maxItems: 100
 
-- `context_windows: Array[BetaAnalyticsContextWindow]`
+- `context_windows: Array[BetaAnalyticsContextWindow]` (query parameter)
 
   Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
@@ -22752,13 +22970,13 @@ Requires an API key with the `read:analytics` scope.
 
   - `:"200k-1M"`
 
-- `ending_at: Time`
+- `ending_at: Time` (query parameter)
 
   End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
   format: date-time
 
-- `group_by: Array[:claude_tag_category | :claude_tag_user_id | :context_window | 8 more]`
+- `group_by: Array[:claude_tag_category | :claude_tag_user_id | :context_window | 8 more]` (query parameter)
 
   Dimensions to break each time bucket out by. Defaults to no grouping (one total per bucket). Each bucket reports at most its top 100 groups; a group beyond that cap has no row in that bucket (there is no remainder row), so grouped buckets are not exhaustive when a dimension has more than 100 distinct values.
 
@@ -22786,7 +23004,7 @@ Requires an API key with the `read:analytics` scope.
 
   - `:token_type`
 
-- `inference_geos: Array[BetaAnalyticsInferenceGeoFilter]`
+- `inference_geos: Array[BetaAnalyticsInferenceGeoFilter]` (query parameter)
 
   Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
@@ -22798,23 +23016,23 @@ Requires an API key with the `read:analytics` scope.
 
   - `:us`
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Maximum number of time buckets per page. Defaults and caps vary by `bucket_width` (`1d`: default 7, max 31; `1h`: default 24, max 168; `1m`: default 60, max 256).
 
   minimum: 1
 
-- `models: Array[String]`
+- `models: Array[String]` (query parameter)
 
   Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
 
   maxItems: 100
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page` field.
 
-- `products: Array[BetaAnalyticsProductFilter]`
+- `products: Array[BetaAnalyticsProductFilter]` (query parameter)
 
   Product surfaces to include. Defaults to all products. Use `group_by[]=product` to break out per-product values.
 
@@ -22834,19 +23052,19 @@ Requires an API key with the `read:analytics` scope.
 
   - `:office_agent`
 
-- `rbac_group_ids: Array[String]`
+- `rbac_group_ids: Array[String]` (query parameter)
 
   Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
 
   maxItems: 100
 
-- `slack_channel_ids: Array[String]`
+- `slack_channel_ids: Array[String]` (query parameter)
 
   Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
   maxItems: 100
 
-- `speeds: Array[:fast | :standard]`
+- `speeds: Array[:fast | :standard]` (query parameter)
 
   Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
 
@@ -22856,7 +23074,7 @@ Requires an API key with the `read:analytics` scope.
 
   - `:standard`
 
-- `user_ids: Array[String]`
+- `user_ids: Array[String]` (query parameter)
 
   Filter to specific users by tagged user ID.
 
@@ -23048,13 +23266,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
 #### Parameters
 
-- `starting_at: Time`
+- `starting_at: Time` (query parameter)
 
   Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
 
   format: date-time
 
-- `bucket_width: :"1d" | :"1h" | :"1m"`
+- `bucket_width: :"1d" | :"1h" | :"1m"` (query parameter)
 
   Time-bucket granularity. When set, each row's `starting_at` and `ending_at` are populated and one actor may span several rows (one per time bucket with usage). The time bucket counts toward `limit`, so one page can return multiple rows for the same actor. `ending_at` is required when `bucket_width` is set, and with `bucket_width="1m"` the range may span at most 24 hours. When omitted, each row aggregates the full `[starting_at, ending_at)` range.
 
@@ -23064,7 +23282,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:"1m"`
 
-- `claude_tag_categories: Array[BetaAnalyticsClaudeTagCategory]`
+- `claude_tag_categories: Array[BetaAnalyticsClaudeTagCategory]` (query parameter)
 
   Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
 
@@ -23080,13 +23298,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:scheduled`
 
-- `claude_tag_user_ids: Array[String]`
+- `claude_tag_user_ids: Array[String]` (query parameter)
 
   Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
 
   maxItems: 100
 
-- `context_windows: Array[BetaAnalyticsContextWindow]`
+- `context_windows: Array[BetaAnalyticsContextWindow]` (query parameter)
 
   Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
@@ -23096,17 +23314,17 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:"200k-1M"`
 
-- `ending_at: Time`
+- `ending_at: Time` (query parameter)
 
   End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
   format: date-time
 
-- `exclude_deleted_users: bool`
+- `exclude_deleted_users: bool` (query parameter)
 
   If true, omit rows for users who are deleted (`deleted: true`). A page may contain fewer than `limit` rows; use `has_more` and `next_page` to paginate as usual.
 
-- `group_by: Array[:claude_tag_category | :claude_tag_user_id | :context_window | 8 more]`
+- `group_by: Array[:claude_tag_category | :claude_tag_user_id | :context_window | 8 more]` (query parameter)
 
   Break each actor's row out by the given dimensions. Accepts the same values as the bucketed `/cost_report` endpoint. The `product`, `model`, `context_window`, `inference_geo`, and `speed` dimensions — and the time bucket, when `bucket_width` is set — count toward `limit`. `cost_type` and `token_type` do not: `cost_type` returns one row per cost component (tokens, web search, code execution); `token_type` returns one row per token type, each with `cost_type: "tokens"`; combining both returns the per-token-type rows plus the web-search and code-execution rows. A page can therefore contain more rows than `limit` when `cost_type` or `token_type` is requested.
 
@@ -23134,7 +23352,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:token_type`
 
-- `inference_geos: Array[BetaAnalyticsInferenceGeoFilter]`
+- `inference_geos: Array[BetaAnalyticsInferenceGeoFilter]` (query parameter)
 
   Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
@@ -23146,19 +23364,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:us`
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of rows per page (1-1000, default 20). One row per actor unless `group_by[]` or `bucket_width` splits an actor across rows; `cost_type`/`token_type` fan-out rows (cost endpoint only) are the exception — they do not count toward this limit, so `data` can exceed it.
 
   minimum: 1, maximum: 1000
 
-- `models: Array[String]`
+- `models: Array[String]` (query parameter)
 
   Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
 
   maxItems: 100
 
-- `order: :asc | :desc`
+- `order: :asc | :desc` (query parameter)
 
   Sort direction. Defaults to `desc`.
 
@@ -23166,7 +23384,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:desc`
 
-- `order_by: :amount | :list_amount`
+- `order_by: :amount | :list_amount` (query parameter)
 
   Metric to rank actors by. Defaults to `amount`.
 
@@ -23174,11 +23392,11 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:list_amount`
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page` field.
 
-- `products: Array[BetaAnalyticsProductFilter]`
+- `products: Array[BetaAnalyticsProductFilter]` (query parameter)
 
   Product surfaces to include. Defaults to all products.
 
@@ -23198,19 +23416,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:office_agent`
 
-- `rbac_group_ids: Array[String]`
+- `rbac_group_ids: Array[String]` (query parameter)
 
   Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
 
   maxItems: 100
 
-- `slack_channel_ids: Array[String]`
+- `slack_channel_ids: Array[String]` (query parameter)
 
   Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
   maxItems: 100
 
-- `speeds: Array[:fast | :standard]`
+- `speeds: Array[:fast | :standard]` (query parameter)
 
   Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
 
@@ -23220,7 +23438,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `:standard`
 
-- `user_ids: Array[String]`
+- `user_ids: Array[String]` (query parameter)
 
   Filter to specific users by tagged user ID.
 
@@ -23622,7 +23840,7 @@ Retrieve a spend limit by ID.
 
 #### Parameters
 
-- `spend_limit_id: String`
+- `spend_limit_id: String` (path parameter)
 
   ID of the Spend Limit.
 
@@ -23771,7 +23989,7 @@ workspace limits. Deleting them through the API is in an early access preview.
 
 #### Parameters
 
-- `spend_limit_id: String`
+- `spend_limit_id: String` (path parameter)
 
   ID of the Spend Limit.
 
@@ -23820,17 +24038,17 @@ is not creation order.
 
 #### Parameters
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Maximum number of limits per page. Defaults to `20`.
 
   minimum: 1, maximum: 1000
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page` field.
 
-- `scope_type: Array[:organization | :organization_service | :rbac_group | 3 more]`
+- `scope_type: Array[:organization | :organization_service | :rbac_group | 3 more]` (query parameter)
 
   Return only limits with these scope types. A Claude Console organization has `organization` and `workspace` limits; a Claude Enterprise organization has `organization`, `seat_tier`, `rbac_group`, `organization_service` and `user` limits. Omit for all.
 
@@ -23848,7 +24066,7 @@ is not creation order.
 
   - `:workspace`
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `spend-limit-reads-2026-09-26` in this header.
 
@@ -24104,17 +24322,17 @@ Paginates by member, so a member's periods never split across pages.
 
 #### Parameters
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Maximum number of members per page. A member's period rows never split across pages, so a page may carry more rows than this. Defaults to `20`.
 
   minimum: 1, maximum: 1000
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page` field.
 
-- `period: Array[:daily | :monthly | :weekly]`
+- `period: Array[:daily | :monthly | :weekly]` (query parameter)
 
   Restrict the report to these limit periods. Omit to return one row per period each member resolves a spend limit for.
 
@@ -24126,7 +24344,7 @@ Paginates by member, so a member's periods never split across pages.
 
   - `:weekly`
 
-- `user_ids: Array[String]`
+- `user_ids: Array[String]` (query parameter)
 
   Restrict the report to these members, by tagged user ID (`user_...`). At most 100 entries.
 
@@ -24323,19 +24541,19 @@ Requests whose requester is no longer a member are excluded.
 
 #### Parameters
 
-- `actor_ids: Array[String]`
+- `actor_ids: Array[String]` (query parameter)
 
   Filter by requester, as `user_...` tagged IDs.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   minimum: 1, maximum: 1000
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque cursor from a previous response's `next_page`.
 
-- `status: Array[BetaSpendLimitIncreaseRequestStatus]`
+- `status: Array[BetaSpendLimitIncreaseRequestStatus]` (query parameter)
 
   Filter by status. Omit to return all.
 
@@ -24604,7 +24822,7 @@ requester at the request's period.
 
 #### Parameters
 
-- `spend_limit_increase_request_id: String`
+- `spend_limit_increase_request_id: String` (path parameter)
 
   ID of the spend limit increase request.
 
@@ -24864,7 +25082,7 @@ the member was blocked on. Anthropic emails the requester unless
 
 #### Parameters
 
-- `spend_limit_increase_request_id: String`
+- `spend_limit_increase_request_id: String` (path parameter)
 
   ID of the spend limit increase request.
 
@@ -25213,7 +25431,7 @@ Idempotent on `denied`; denying an already-`approved` request returns
 
 #### Parameters
 
-- `spend_limit_increase_request_id: String`
+- `spend_limit_increase_request_id: String` (path parameter)
 
   ID of the spend limit increase request.
 
@@ -25565,7 +25783,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -25573,7 +25791,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
   minimum: 1, maximum: 1000
 
-- `page: String`
+- `page: String` (query parameter)
 
   Optionally set to the `next_page` token from the previous response.
 
@@ -25668,7 +25886,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `rbac_group_id: String`
+- `rbac_group_id: String` (path parameter)
 
   ID of the RBAC Group.
 
@@ -25757,7 +25975,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `rbac_group_id: String`
+- `rbac_group_id: String` (path parameter)
 
   ID of the RBAC Group.
 
@@ -25852,7 +26070,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `rbac_group_id: String`
+- `rbac_group_id: String` (path parameter)
 
   ID of the RBAC Group.
 
@@ -25905,11 +26123,11 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `rbac_group_id: String`
+- `rbac_group_id: String` (path parameter)
 
   ID of the RBAC Group.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -25917,7 +26135,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
   minimum: 1, maximum: 1000
 
-- `page: String`
+- `page: String` (query parameter)
 
   Optionally set to the `next_page` token from the previous response.
 
@@ -25992,7 +26210,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `rbac_group_id: String`
+- `rbac_group_id: String` (path parameter)
 
   ID of the RBAC Group.
 
@@ -26068,11 +26286,11 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `rbac_group_id: String`
+- `rbac_group_id: String` (path parameter)
 
   ID of the RBAC Group.
 
-- `user_id: String`
+- `user_id: String` (path parameter)
 
   ID of the User.
 
@@ -26129,7 +26347,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -26137,7 +26355,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
   minimum: 1, maximum: 1000
 
-- `page: String`
+- `page: String` (query parameter)
 
   Optionally set to the `next_page` token from the previous response.
 
@@ -26220,7 +26438,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `rbac_role_id: String`
+- `rbac_role_id: String` (path parameter)
 
   ID of the RBAC Role.
 
@@ -26299,11 +26517,11 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
 #### Parameters
 
-- `rbac_role_id: String`
+- `rbac_role_id: String` (path parameter)
 
   ID of the RBAC Role.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -26311,7 +26529,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
   minimum: 1, maximum: 1000
 
-- `page: String`
+- `page: String` (query parameter)
 
   Optionally set to the `next_page` token from the previous response.
 
@@ -26503,7 +26721,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   maxLength: 5000
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -26865,15 +27083,15 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `plugin_id: String`
+- `plugin_id: String` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
-- `organization_id: String`
+- `organization_id: String` (query parameter)
 
   For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -27255,7 +27473,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `plugin_id: String`
+- `plugin_id: String` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
@@ -27263,7 +27481,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   Serve this version of the Plugin (prefixed `pluginver_`) and pin the served version to it; `latest` is not accepted.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -27634,31 +27852,31 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `created_at_gt: Time`
+- `created_at_gt: Time` (query parameter)
 
   RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
 
   format: date-time
 
-- `created_at_gte: Time`
+- `created_at_gte: Time` (query parameter)
 
   RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
 
   format: date-time
 
-- `created_at_lt: Time`
+- `created_at_lt: Time` (query parameter)
 
   RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
 
   format: date-time
 
-- `created_at_lte: Time`
+- `created_at_lte: Time` (query parameter)
 
   RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
 
   format: date-time
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -27666,15 +27884,15 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   minimum: 1, maximum: 100
 
-- `marketplace_id: String`
+- `marketplace_id: String` (query parameter)
 
   Only Plugins in this plugin marketplace (prefixed `marketplace_`).
 
-- `organization_id: String`
+- `organization_id: String` (query parameter)
 
   For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `owner_type: :organization | :user`
+- `owner_type: :organization | :user` (query parameter)
 
   `organization` for Plugins in the organization's plugin marketplaces, `user` for Plugins in members' personal plugin marketplaces.
 
@@ -27682,17 +27900,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   - `:user`
 
-- `owner_user_id: String`
+- `owner_user_id: String` (query parameter)
 
   Only Plugins in this member's personal plugin marketplaces (prefixed `user_`); a removed member's ID is accepted.
 
-- `page: String`
+- `page: String` (query parameter)
 
   Optionally set to the `next_page` token from the previous response.
 
   maxLength: 2048
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -28070,11 +28288,11 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `plugin_id: String`
+- `plugin_id: String` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -28248,7 +28466,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `plugin_id: String`
+- `plugin_id: String` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
@@ -28262,7 +28480,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   maxLength: 5000
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -28564,11 +28782,11 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `plugin_id: String`
+- `plugin_id: String` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -28576,17 +28794,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   minimum: 1, maximum: 1000
 
-- `organization_id: String`
+- `organization_id: String` (query parameter)
 
   For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `page: String`
+- `page: String` (query parameter)
 
   Optionally set to the `next_page` token from the previous response.
 
   maxLength: 2048
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -28890,19 +29108,19 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `plugin_id: String`
+- `plugin_id: String` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
-- `version: String`
+- `version: String` (path parameter)
 
   ID of the Plugin Version (prefixed `pluginver_`), or `latest` for the newest one.
 
-- `organization_id: String`
+- `organization_id: String` (query parameter)
 
   For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -29217,19 +29435,19 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `plugin_id: String`
+- `plugin_id: String` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
-- `version: String`
+- `version: String` (path parameter)
 
   ID of the Plugin Version (prefixed `pluginver_`). `latest` is not accepted here.
 
-- `organization_id: String`
+- `organization_id: String` (query parameter)
 
   For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -29372,11 +29590,11 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `plugin_id: String`
+- `plugin_id: String` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -29384,17 +29602,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   minimum: 1, maximum: 100
 
-- `organization_id: String`
+- `organization_id: String` (query parameter)
 
   For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `page: String`
+- `page: String` (query parameter)
 
   Optionally set to the `next_page` token from the previous response.
 
   maxLength: 2048
 
-- `target_type: :organization | :rbac_group`
+- `target_type: :organization | :rbac_group` (query parameter)
 
   Only settings for this kind of target: `organization` (the organization-wide setting) or `rbac_group` (an RBAC Group's).
 
@@ -29402,7 +29620,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   - `:rbac_group`
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -29636,11 +29854,11 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `plugin_id: String`
+- `plugin_id: String` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
-- `target: String`
+- `target: String` (path parameter)
 
   The target whose setting is written: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Writing the `organization` target stops the Plugin from inheriting its marketplace's default, even when the value written equals that default.
 
@@ -29656,7 +29874,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   - `:required`
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -29893,15 +30111,15 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `plugin_id: String`
+- `plugin_id: String` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
-- `target: String`
+- `target: String` (path parameter)
 
   The target whose own setting is removed: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Removing the `organization` setting returns the Plugin to its marketplace's default.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -30099,11 +30317,11 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `plugin_id: String`
+- `plugin_id: String` (path parameter)
 
   ID of the Plugin (prefixed `plugin_`).
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -30111,17 +30329,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   minimum: 1, maximum: 100
 
-- `organization_id: String`
+- `organization_id: String` (query parameter)
 
   For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `page: String`
+- `page: String` (query parameter)
 
   Optionally set to the `next_page` token from the previous response.
 
   maxLength: 2048
 
-- `target_type: :organization | :organization_member | :rbac_group`
+- `target_type: :organization | :organization_member | :rbac_group` (query parameter)
 
   Only shares with this kind of target: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
 
@@ -30131,7 +30349,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   - `:rbac_group`
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -30341,7 +30559,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -30349,11 +30567,11 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   minimum: 1, maximum: 1000
 
-- `organization_id: String`
+- `organization_id: String` (query parameter)
 
   For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `owner_type: :organization | :user`
+- `owner_type: :organization | :user` (query parameter)
 
   `organization` for the organization's plugin marketplaces, `user` for members' personal plugin marketplaces.
 
@@ -30361,13 +30579,13 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   - `:user`
 
-- `page: String`
+- `page: String` (query parameter)
 
   Optionally set to the `next_page` token from the previous response.
 
   maxLength: 2048
 
-- `source: :directory | :github | :gitlab | 2 more`
+- `source: :directory | :github | :gitlab | 2 more` (query parameter)
 
   Only plugin marketplaces with this `source`: `manual` for those whose Plugins are uploaded; `github`, `gitlab` or `public_git` for those synchronized from a Git repository. `directory` (Anthropic's catalog) is never listed here.
 
@@ -30381,7 +30599,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   - `:public_git`
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -30631,15 +30849,15 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `marketplace_id: String`
+- `marketplace_id: String` (path parameter)
 
   ID of the plugin marketplace (prefixed `marketplace_`).
 
-- `organization_id: String`
+- `organization_id: String` (query parameter)
 
   For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -30889,7 +31107,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 #### Parameters
 
-- `marketplace_id: String`
+- `marketplace_id: String` (path parameter)
 
   ID of the plugin marketplace (prefixed `marketplace_`).
 
@@ -30905,7 +31123,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   - `:required`
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -31180,7 +31398,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   minLength: 1
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -31438,7 +31656,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   format: binary
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 

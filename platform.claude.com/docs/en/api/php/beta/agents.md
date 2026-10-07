@@ -53,11 +53,11 @@ Create Agent
 
   Tool configurations available to the agent. Maximum of 256 tools across all toolsets allowed.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -246,31 +246,31 @@ List Agents
 
 ### Parameters
 
-- `createdAtGte?:optional \Datetime`
+- `createdAtGte?:optional \Datetime` (query parameter)
 
   Return agents created at or after this time (inclusive).
 
-- `createdAtLte?:optional \Datetime`
+- `createdAtLte?:optional \Datetime` (query parameter)
 
   Return agents created at or before this time (inclusive).
 
-- `includeArchived?:optional bool`
+- `includeArchived?:optional bool` (query parameter)
 
   Include archived agents in results. Defaults to false.
 
-- `limit?:optional int`
+- `limit?:optional int` (query parameter)
 
   Maximum results per page. Default 20, maximum 100.
 
-- `page?:optional string`
+- `page?:optional string` (query parameter)
 
   Opaque pagination cursor from a previous response.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -436,19 +436,19 @@ Get Agent
 
 ### Parameters
 
-- `agentID: string`
+- `agentID: string` (path parameter)
 
   Unique identifier of the agent to retrieve.
 
-- `version?:optional int`
+- `version?:optional int` (query parameter)
 
   Agent version. Omit for the most recent version. Must be at least 1 if specified.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -606,7 +606,7 @@ Update Agent
 
 ### Parameters
 
-- `agentID: string`
+- `agentID: string` (path parameter)
 
   Unique identifier of the agent to update.
 
@@ -650,11 +650,11 @@ Update Agent
 
   The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -850,15 +850,15 @@ Archive Agent
 
 ### Parameters
 
-- `agentID: string`
+- `agentID: string` (path parameter)
 
   Unique identifier of the agent to archive.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -2257,23 +2257,23 @@ List Agent Versions
 
 #### Parameters
 
-- `agentID: string`
+- `agentID: string` (path parameter)
 
   Agent ID to list versions for.
 
-- `limit?:optional int`
+- `limit?:optional int` (query parameter)
 
   Maximum results per page. Default 20, maximum 100.
 
-- `page?:optional string`
+- `page?:optional string` (query parameter)
 
   Opaque pagination cursor.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 

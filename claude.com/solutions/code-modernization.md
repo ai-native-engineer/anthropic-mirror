@@ -76,7 +76,7 @@ Create modern documentation from undocumented legacy code, capturing institution
 
 [Claude Code for Financial Services
 
-Webinar](https://www.anthropic.com/webinars/claude-code-financial-services)
+Webinar](https://claude.com/resources/webinars/claude-code-financial-services)
 
 [The Code Modernization Playbook
 
@@ -84,6 +84,6 @@ eBook](https://resources.anthropic.com/code-modernization-playbook)
 
 [How AI helps break the cost barrier to COBOL modernization
 
-Blog](https://claude.com/blog/how-ai-helps-break-cost-barrier-cobol-modernization)
+Blog](https://claude.com/resources/articles/how-ai-helps-break-cost-barrier-cobol-modernization)
 
 Code modernization | Claude by Anthropic

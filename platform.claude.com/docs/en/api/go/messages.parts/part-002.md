@@ -3,10 +3,6 @@
 
 <!-- chunk-start -->
 
-              Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
-              - `const ContainerSkillTypeAnthropic ContainerSkillType = "anthropic"`
-
               - `const ContainerSkillTypeCustom ContainerSkillType = "custom"`
 
             - `SkillID string`

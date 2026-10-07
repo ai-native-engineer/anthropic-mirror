@@ -6,7 +6,7 @@ Claude Security
 
 Putting Claude to work for defenders.
 
-[Watch on-demand](https://www.anthropic.com/webinars/claude-security-putting-claude-to-work-for-defenders)
+[Watch on-demand](https://claude.com/resources/webinars/claude-security-putting-claude-to-work-for-defenders)
 
 ![](https://assets.claude.com/28485d6f8deb57841d721be1a2a2a28977d627da.jpg)
 
@@ -74,7 +74,7 @@ Docs](https://code.claude.com/docs/en/claude-security)
 
 [Claude Security is now in public beta
 
-Blog](https://claude.com/blog/claude-security-public-beta)
+Blog](https://claude.com/resources/articles/claude-security-public-beta)
 
 [Evaluating and mitigating the growing risk of LLM-discovered 0-days
 

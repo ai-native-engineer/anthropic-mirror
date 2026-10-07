@@ -167,7 +167,7 @@ We're working with Free Law Project and the Justice Technology Association to ma
 
 Claude for the legal industry
 
-[Learn more (opens in new tab)](https://claude.com/blog/claude-for-the-legal-industry)
+[Learn more (opens in new tab)](https://claude.com/resources/articles/claude-for-the-legal-industry)
 
 ## How legal teams use Claude
 
@@ -347,15 +347,15 @@ Matter management, research platforms, contract tools, and data rooms: finally a
 
 [How Anthropic's legal team cut review times from days to hours with Claude
 
-Blog](https://claude.com/blog/how-anthropic-uses-claude-legal)
+Blog](https://claude.com/resources/articles/how-anthropic-uses-claude-legal)
 
 [How Claude helps legal teams handle the work that needs your judgment
 
-Blog](https://claude.com/blog/claude-for-the-legal-industry)
+Blog](https://claude.com/resources/articles/claude-for-the-legal-industry)
 
 [Watch the Claude for Legal teams webinar
 
-Webinar](https://www.anthropic.com/webinars/claude-for-legal-teams)
+Webinar](https://claude.com/resources/webinars/claude-for-legal-teams)
 
 [Prep scattered documents for a compliance audit
 

@@ -19,3 +19,5 @@ Hastings has seen first-hand how quickly transformative technologies can reshape
 "Reed understands that technology companies have a responsibility beyond just building products," said Daniela Amodei, President of Anthropic. "His focus on the human impact of technology—whether at Netflix or through his global health and education initiatives—makes him an ideal addition to our board as we continue building AI that helps rather than harms."
 
 With Hastings' appointment, the Trust continues to build a board with the diverse expertise needed to guide Anthropic's mission of developing reliable, interpretable, and steerable AI systems.
+
+Reed Hastings appointed to Anthropic’s board of directors \ Anthropic

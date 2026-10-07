@@ -383,4 +383,9 @@ for [Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Enterpris
 Updated May 2026
 View
 [Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Enterprise Android app
+[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Code CLI
+Copy link
+for [Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Code CLI
+View
+[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Code CLI
 Opens in new tab

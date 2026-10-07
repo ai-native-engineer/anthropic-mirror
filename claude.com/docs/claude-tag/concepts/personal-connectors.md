@@ -87,6 +87,7 @@ To manage personal connectors for the whole organization, an admin goes to [`cla
 * **Sensitive information requiring review.** Shows examples of what the check looks for. An Owner can add topics of their own under **Additional topics**, for example “Board meeting notes are confidential”, and Claude holds results that touch them.
 
 There is no setting that turns personal connectors in channels off for an organization. To keep a service out of channels entirely, manage the connector itself in your organization’s [connector settings](https://claude.com/docs/connectors/getting-started).
+On the Enterprise plan, keep Claude Opus 5 turned on under **Model access** on your organization’s [**Models**](https://claude.ai/admin-settings/models) page, which an Owner or Admin can edit. With Claude Opus 5 turned off for the organization, Claude declines tasks that need a member’s personal connectors, whichever model the thread runs on. Claude runs the checks on those tasks on Claude Opus 5, and other channel work continues. For the member’s side of this, see [Claude says it needs Claude Opus 5 to use my personal connectors](https://claude.com/docs/claude-tag/users/troubleshooting#claude-says-it-needs-claude-opus-5-to-use-my-personal-connectors).
 
 ###  Stop connector use
 

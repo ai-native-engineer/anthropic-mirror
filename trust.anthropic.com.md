@@ -138,7 +138,7 @@ Opens in new tab
 [Anthropic] Statement on Modern Slavery Act 2015
 [Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude.ai Enterprise (web)
 
-View 4 more
+View 5 more
 
 Subprocessors
 View all
@@ -169,6 +169,23 @@ Is Anthropic willing to sign a BAA?
 I found a security bug. How can I let you know?
 Updates
 View all
+
+General
+
+Updated Accessibility Conformance Report (ACR) for Claude Code CLI
+
+Published October 6, 2026
+
+We've published a new Accessibility Conformance Report (ACR) for Claude Code CLI, dated October 2026. It covers WCAG 2.2 Levels A and AA. Highlights:
+
+Screen reader mode: Claude Code CLI's screen reader mode presents its interface as plain, linear text. Most menus and prompts are written as numbered lists that give each option's name and state. We tested it with VoiceOver on macOS and NVDA on Windows.
+Status messages: Screen reader mode writes short announcements, for example when text is deleted. The terminal bell rings when Claude finishes or needs an answer.
+
+The ACR is available in the Trust Center document library. We're committed to continuing to improve accessibility across Claude, and we welcome feedback from customers and end users.
+
+Read more
+Read more
+about Updated Accessibility Conformance Report (ACR) for Claude Code CLI
 
 Compliance
 
@@ -213,22 +230,4 @@ The updated ACR is available in the Trust Center document library. We're committ
 Read more
 Read more
 about Updated Accessibility Conformance Report (ACR) for Claude Enterprise iOS App
-
-General
-
-Anthropic Subprocessors Update
-
-Published May 7, 2026
-
-We've updated our subprocessor list with one additions:
-
-TurboPuffer, which provides web search for all Anthropic products except Claude for Government.
-
-The complete and updated list of subprocessors is available in your Anthropic Trust Center
-Opens in new tab
- dashboard under the "Subprocessors" tab. Should you have any questions regarding these changes or require additional information, please contact your account representative.
-
-Read more
-Read more
-about Anthropic Subprocessors Update
 Opens in new tab

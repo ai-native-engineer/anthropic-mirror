@@ -2,6 +2,78 @@
 <!-- part of: https://platform.claude.com/docs/en/api/python/beta -->
 
 <!-- chunk-start -->
+
+    RFC 3339 timestamp when the work item was acknowledged and assigned to a self-hosted sandbox
+
+  - `created_at: str`
+
+    RFC 3339 timestamp when work was created
+
+  - `data: BetaSessionWorkData`
+
+    The actual work to be performed
+
+    - `type: Literal["session"]`
+
+      Type of work data
+
+    - `id: str`
+
+      Session identifier (e.g., 'session_...')
+
+  - `environment_id: str`
+
+    Environment identifier this work belongs to (e.g., `env_...`)
+
+  - `latest_heartbeat_at: Optional[str]`
+
+    RFC 3339 timestamp of the most recent heartbeat
+
+  - `metadata: Dict[str, str]`
+
+    User-provided metadata key-value pairs associated with this work item
+
+  - `secret: Optional[str]`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
+  - `started_at: Optional[str]`
+
+    RFC 3339 timestamp when work execution started
+
+  - `state: Literal["queued", "starting", "active", 2 more]`
+
+    Current state of the work item
+
+    - `"queued"`
+
+    - `"starting"`
+
+    - `"active"`
+
+    - `"stopping"`
+
+    - `"stopped"`
+
+  - `stop_requested_at: Optional[str]`
+
+    RFC 3339 timestamp when stop was requested
+
+  - `stopped_at: Optional[str]`
+
+    RFC 3339 timestamp when work execution stopped
+
+#### Example
+
+```python
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
+)
 beta_self_hosted_work = client.beta.environments.work.retrieve(
     work_id="work_id",
     environment_id="env_011CZkZ9X2dpNyB7HsEFoRfW",
@@ -46,21 +118,21 @@ Long poll for work items in the queue.
 
 #### Parameters
 
-- `environment_id: str`
+- `environment_id: str` (path parameter)
 
-- `block_ms: Optional[int]`
+- `block_ms: Optional[int]` (query parameter)
 
   How long to wait for work to arrive before returning. Must be 1-999 in milliseconds. Defaults to non-blocking (returns immediately if no work is available).
 
   minimum: 1
 
-- `reclaim_older_than_ms: Optional[int]`
+- `reclaim_older_than_ms: Optional[int]` (query parameter)
 
   Reclaim unacknowledged work items older than this many milliseconds. If omitted, uses the default (5000ms).
 
   minimum: 1
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -166,7 +238,7 @@ Long poll for work items in the queue.
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `anthropic_worker_id: Optional[str]`
+- `anthropic_worker_id: Optional[str]` (header parameter)
 
   Unique identifier for the specific worker polling, used to track aggregated environment-level work metrics in Console
 
@@ -306,11 +378,11 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
 #### Parameters
 
-- `environment_id: str`
+- `environment_id: str` (path parameter)
 
-- `work_id: str`
+- `work_id: str` (path parameter)
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -553,19 +625,19 @@ Record a heartbeat for a work item to maintain the lease.
 
 #### Parameters
 
-- `environment_id: str`
+- `environment_id: str` (path parameter)
 
-- `work_id: str`
+- `work_id: str` (path parameter)
 
-- `desired_ttl_seconds: Optional[int]`
+- `desired_ttl_seconds: Optional[int]` (query parameter)
 
   Desired TTL in seconds
 
-- `expected_last_heartbeat: Optional[str]`
+- `expected_last_heartbeat: Optional[str]` (query parameter)
 
   Expected last_heartbeat for conditional update (optimistic concurrency). Use literal 'NO_HEARTBEAT' to claim an unclaimed lease (first heartbeat). For subsequent heartbeats, echo the server's previous last_heartbeat value exactly. Returns 412 Precondition Failed if the actual value doesn't match.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -751,9 +823,9 @@ Stop a work item, initiating graceful or forced shutdown.
 
 #### Parameters
 
-- `environment_id: str`
+- `environment_id: str` (path parameter)
 
-- `work_id: str`
+- `work_id: str` (path parameter)
 
 - `force: Optional[bool]`
 
@@ -761,7 +833,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
   default: false
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -867,7 +939,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1010,19 +1082,19 @@ List work items in an environment.
 
 #### Parameters
 
-- `environment_id: str`
+- `environment_id: str` (path parameter)
 
-- `limit: Optional[int]`
+- `limit: Optional[int]` (query parameter)
 
   Maximum number of work items to return
 
   default: 20, minimum: 1, maximum: 1000
 
-- `page: Optional[str]`
+- `page: Optional[str]` (query parameter)
 
   Opaque cursor from previous response for pagination
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1270,15 +1342,15 @@ Update work item metadata with merge semantics.
 
 #### Parameters
 
-- `environment_id: str`
+- `environment_id: str` (path parameter)
 
-- `work_id: str`
+- `work_id: str` (path parameter)
 
 - `metadata: Dict[str, Optional[str]]`
 
   Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1384,7 +1456,7 @@ Update work item metadata with merge semantics.
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1526,9 +1598,9 @@ Get statistics about the work queue for an environment.
 
 #### Parameters
 
-- `environment_id: str`
+- `environment_id: str` (path parameter)
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1634,7 +1706,7 @@ Get statistics about the work queue for an environment.
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -2805,7 +2877,7 @@ Create Session
 
   Vault IDs for stored credentials the agent can use during the session.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -2911,7 +2983,7 @@ Create Session
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -4035,59 +4107,59 @@ List Sessions
 
 #### Parameters
 
-- `agent_id: Optional[str]`
+- `agent_id: Optional[str]` (query parameter)
 
   Filter sessions created with this agent ID.
 
-- `agent_version: Optional[int]`
+- `agent_version: Optional[int]` (query parameter)
 
   Filter by agent version. Only applies when `agent_id` is also set.
 
   format: int32
 
-- `created_at_gt: Optional[Union[str, datetime]]`
+- `created_at_gt: Optional[Union[str, datetime]]` (query parameter)
 
   Return sessions created after this time (exclusive).
 
   format: date-time
 
-- `created_at_gte: Optional[Union[str, datetime]]`
+- `created_at_gte: Optional[Union[str, datetime]]` (query parameter)
 
   Return sessions created at or after this time (inclusive).
 
   format: date-time
 
-- `created_at_lt: Optional[Union[str, datetime]]`
+- `created_at_lt: Optional[Union[str, datetime]]` (query parameter)
 
   Return sessions created before this time (exclusive).
 
   format: date-time
 
-- `created_at_lte: Optional[Union[str, datetime]]`
+- `created_at_lte: Optional[Union[str, datetime]]` (query parameter)
 
   Return sessions created at or before this time (inclusive).
 
   format: date-time
 
-- `deployment_id: Optional[str]`
+- `deployment_id: Optional[str]` (query parameter)
 
   Filter sessions created by this deployment ID.
 
-- `include_archived: Optional[bool]`
+- `include_archived: Optional[bool]` (query parameter)
 
   When true, includes archived sessions. Default: false (exclude archived).
 
-- `limit: Optional[int]`
+- `limit: Optional[int]` (query parameter)
 
   Maximum number of results to return.
 
   format: int32
 
-- `memory_store_id: Optional[str]`
+- `memory_store_id: Optional[str]` (query parameter)
 
   Filter sessions whose resources contain a `memory_store` with this memory store ID.
 
-- `order: Optional[Literal["asc", "desc"]]`
+- `order: Optional[Literal["asc", "desc"]]` (query parameter)
 
   Sort direction for results, ordered by `created_at`. Defaults to `desc` (newest first).
 
@@ -4095,11 +4167,11 @@ List Sessions
 
   - `"desc"`
 
-- `page: Optional[str]`
+- `page: Optional[str]` (query parameter)
 
   Opaque pagination cursor from a previous response.
 
-- `statuses: Optional[List[Literal["rescheduling", "running", "idle", "terminated"]]]`
+- `statuses: Optional[List[Literal["rescheduling", "running", "idle", "terminated"]]]` (query parameter)
 
   Filter by session status. Repeat the parameter to match any of multiple statuses.
 
@@ -4119,7 +4191,7 @@ List Sessions
 
     Session has ended, either due to an error or completion.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -4225,7 +4297,7 @@ List Sessions
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -5353,9 +5425,9 @@ Get Session
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -5461,7 +5533,7 @@ Get Session
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -6584,7 +6656,7 @@ Update Session
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
 - `agent: Optional[BetaManagedAgentsSessionAgentUpdateParam]`
 
@@ -7070,7 +7142,7 @@ Update Session
 
   Vault IDs (`vlt_*`) to attach to the session. Not yet supported; requests setting this field are rejected. Reserved for future use.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -7176,7 +7248,7 @@ Update Session
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -8299,9 +8371,9 @@ Delete Session
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -8407,7 +8479,7 @@ Delete Session
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -8459,9 +8531,9 @@ Archive Session
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -8567,7 +8639,7 @@ Archive Session
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -9692,37 +9764,37 @@ List Events
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
-- `created_at_gt: Optional[Union[str, datetime]]`
+- `created_at_gt: Optional[Union[str, datetime]]` (query parameter)
 
   Return events created after this time (exclusive). Compared against the event's `processed_at` value.
 
   format: date-time
 
-- `created_at_gte: Optional[Union[str, datetime]]`
+- `created_at_gte: Optional[Union[str, datetime]]` (query parameter)
 
   Return events created at or after this time (inclusive). Compared against the event's `processed_at` value.
 
   format: date-time
 
-- `created_at_lt: Optional[Union[str, datetime]]`
+- `created_at_lt: Optional[Union[str, datetime]]` (query parameter)
 
   Return events created before this time (exclusive). Compared against the event's `processed_at` value.
 
   format: date-time
 
-- `created_at_lte: Optional[Union[str, datetime]]`
+- `created_at_lte: Optional[Union[str, datetime]]` (query parameter)
 
   Return events created at or before this time (inclusive). Compared against the event's `processed_at` value.
 
   format: date-time
 
-- `limit: Optional[int]`
+- `limit: Optional[int]` (query parameter)
 
   format: int32
 
-- `order: Optional[Literal["asc", "desc"]]`
+- `order: Optional[Literal["asc", "desc"]]` (query parameter)
 
   Sort direction for results, ordered by the event's `processed_at`. Defaults to `asc` (chronological).
 
@@ -9730,11 +9802,11 @@ List Events
 
   - `"desc"`
 
-- `page: Optional[str]`
+- `page: Optional[str]` (query parameter)
 
   Opaque pagination cursor from a previous response's `next_page`.
 
-- `types: Optional[List[BetaManagedAgentsSessionEventType]]`
+- `types: Optional[List[BetaManagedAgentsSessionEventType]]` (query parameter)
 
   Filter by event type. Values match the `type` field on returned events (for example, `user.message` or `agent.tool_use`). Omit to return all event types.
 
@@ -9806,7 +9878,7 @@ List Events
 
   - `"session.usage"`
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -9912,7 +9984,7 @@ List Events
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -12398,7 +12470,7 @@ Send Events
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
 - `events: Iterable[BetaManagedAgentsEventParams]`
 
@@ -12762,7 +12834,7 @@ Send Events
 
         minLength: 1
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -12868,7 +12940,7 @@ Send Events
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -13378,9 +13450,9 @@ Stream Events
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
-- `event_deltas: Optional[List[BetaManagedAgentsDeltaType]]`
+- `event_deltas: Optional[List[BetaManagedAgentsDeltaType]]` (query parameter)
 
   When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
 
@@ -13388,7 +13460,7 @@ Stream Events
 
   - `"agent.thinking"`
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -13494,7 +13566,7 @@ Stream Events
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -16015,7 +16087,7 @@ Add Session Resource
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
 - `file_id: str`
 
@@ -16031,7 +16103,7 @@ Add Session Resource
 
   minLength: 1, maxLength: 4096
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -16137,7 +16209,7 @@ Add Session Resource
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -16209,19 +16281,19 @@ List Session Resources
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
-- `limit: Optional[int]`
+- `limit: Optional[int]` (query parameter)
 
   Maximum number of resources to return per page (max 1000). If omitted, returns all resources.
 
   format: int32
 
-- `page: Optional[str]`
+- `page: Optional[str]` (query parameter)
 
   Opaque cursor from a previous response's `next_page` field.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -16327,7 +16399,7 @@ List Session Resources
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -16497,11 +16569,11 @@ Get Session Resource
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
-- `resource_id: str`
+- `resource_id: str` (path parameter)
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -16607,7 +16679,7 @@ Get Session Resource
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -16766,9 +16838,9 @@ Update Session Resource
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
-- `resource_id: str`
+- `resource_id: str` (path parameter)
 
 - `authorization_token: str`
 
@@ -16776,7 +16848,7 @@ Update Session Resource
 
   minLength: 1, maxLength: 4096
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -16882,7 +16954,7 @@ Update Session Resource
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -17042,11 +17114,11 @@ Delete Session Resource
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
-- `resource_id: str`
+- `resource_id: str` (path parameter)
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -17152,7 +17224,7 @@ Delete Session Resource
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -17207,19 +17279,19 @@ List Session Threads
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
-- `limit: Optional[int]`
+- `limit: Optional[int]` (query parameter)
 
   Maximum results per page. Defaults to 1000.
 
   format: int32
 
-- `page: Optional[str]`
+- `page: Optional[str]` (query parameter)
 
   Opaque pagination cursor from a previous response's `next_page`. Forward-only.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -17325,7 +17397,7 @@ List Session Threads
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -18141,11 +18213,11 @@ Get Session Thread
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
-- `thread_id: str`
+- `thread_id: str` (path parameter)
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -18251,7 +18323,7 @@ Get Session Thread
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -19062,11 +19134,11 @@ Archive Session Thread
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
-- `thread_id: str`
+- `thread_id: str` (path parameter)
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -19172,7 +19244,7 @@ Archive Session Thread
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -19985,17 +20057,17 @@ List Session Thread Events
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
-- `thread_id: str`
+- `thread_id: str` (path parameter)
 
-- `limit: Optional[int]`
+- `limit: Optional[int]` (query parameter)
 
   format: int32
 
-- `page: Optional[str]`
+- `page: Optional[str]` (query parameter)
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -20101,7 +20173,7 @@ List Session Thread Events
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -22588,11 +22660,11 @@ Stream Session Thread Events
 
 #### Parameters
 
-- `session_id: str`
+- `session_id: str` (path parameter)
 
-- `thread_id: str`
+- `thread_id: str` (path parameter)
 
-- `event_deltas: Optional[List[BetaManagedAgentsDeltaType]]`
+- `event_deltas: Optional[List[BetaManagedAgentsDeltaType]]` (query parameter)
 
   When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
 
@@ -22600,7 +22672,7 @@ Stream Session Thread Events
 
   - `"agent.thinking"`
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -22706,7 +22778,7 @@ Stream Session Thread Events
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -25628,7 +25700,7 @@ Create Deployment
 
   Vault IDs for stored credentials the agent can use during sessions created from this deployment. Maximum 50.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -25734,7 +25806,7 @@ Create Deployment
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -26367,37 +26439,37 @@ List Deployments
 
 #### Parameters
 
-- `agent_id: Optional[str]`
+- `agent_id: Optional[str]` (query parameter)
 
   Filter by agent ID.
 
-- `created_at_gte: Optional[Union[str, datetime]]`
+- `created_at_gte: Optional[Union[str, datetime]]` (query parameter)
 
   Return deployments created at or after this time (inclusive).
 
   format: date-time
 
-- `created_at_lte: Optional[Union[str, datetime]]`
+- `created_at_lte: Optional[Union[str, datetime]]` (query parameter)
 
   Return deployments created at or before this time (inclusive).
 
   format: date-time
 
-- `include_archived: Optional[bool]`
+- `include_archived: Optional[bool]` (query parameter)
 
   When true, includes archived deployments. Default: false (exclude archived).
 
-- `limit: Optional[int]`
+- `limit: Optional[int]` (query parameter)
 
   Maximum results per page. Default 20, maximum 100.
 
   format: int32
 
-- `page: Optional[str]`
+- `page: Optional[str]` (query parameter)
 
   Opaque pagination cursor.
 
-- `status: Optional[BetaManagedAgentsDeploymentStatus]`
+- `status: Optional[BetaManagedAgentsDeploymentStatus]` (query parameter)
 
   Filter by status: `active` or `paused`. Omit for both. To include archived deployments, use `include_archived` instead; the two cannot be combined.
 
@@ -26409,7 +26481,7 @@ List Deployments
 
     The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -26515,7 +26587,7 @@ List Deployments
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -27139,11 +27211,11 @@ Get Deployment
 
 #### Parameters
 
-- `deployment_id: str`
+- `deployment_id: str` (path parameter)
 
   Unique identifier of the deployment.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -27249,7 +27321,7 @@ Get Deployment
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -27869,7 +27941,7 @@ Update Deployment
 
 #### Parameters
 
-- `deployment_id: str`
+- `deployment_id: str` (path parameter)
 
   Unique identifier of the deployment to update.
 
@@ -28273,7 +28345,7 @@ Update Deployment
 
   Vault IDs. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 50.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -28379,7 +28451,7 @@ Update Deployment
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -28999,11 +29071,11 @@ Archive Deployment
 
 #### Parameters
 
-- `deployment_id: str`
+- `deployment_id: str` (path parameter)
 
   Unique identifier of the deployment to archive.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -29109,7 +29181,7 @@ Archive Deployment
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -29729,11 +29801,11 @@ Run Deployment Now
 
 #### Parameters
 
-- `deployment_id: str`
+- `deployment_id: str` (path parameter)
 
   Unique identifier of the deployment to run.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -29839,7 +29911,7 @@ Run Deployment Now
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -30121,11 +30193,11 @@ Pause Deployment
 
 #### Parameters
 
-- `deployment_id: str`
+- `deployment_id: str` (path parameter)
 
   Unique identifier of the deployment to pause.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -30231,7 +30303,7 @@ Pause Deployment
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -30851,11 +30923,11 @@ Unpause Deployment
 
 #### Parameters
 
-- `deployment_id: str`
+- `deployment_id: str` (path parameter)
 
   Unique identifier of the deployment to unpause.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -30961,7 +31033,7 @@ Unpause Deployment
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -31583,49 +31655,49 @@ List Deployment Runs
 
 #### Parameters
 
-- `created_at_gt: Optional[Union[str, datetime]]`
+- `created_at_gt: Optional[Union[str, datetime]]` (query parameter)
 
   Return runs created strictly after this time (exclusive).
 
   format: date-time
 
-- `created_at_gte: Optional[Union[str, datetime]]`
+- `created_at_gte: Optional[Union[str, datetime]]` (query parameter)
 
   Return runs created at or after this time (inclusive).
 
   format: date-time
 
-- `created_at_lt: Optional[Union[str, datetime]]`
+- `created_at_lt: Optional[Union[str, datetime]]` (query parameter)
 
   Return runs created strictly before this time (exclusive).
 
   format: date-time
 
-- `created_at_lte: Optional[Union[str, datetime]]`
+- `created_at_lte: Optional[Union[str, datetime]]` (query parameter)
 
   Return runs created at or before this time (inclusive).
 
   format: date-time
 
-- `deployment_id: Optional[str]`
+- `deployment_id: Optional[str]` (query parameter)
 
   Filter to a specific deployment. Omit to list across all deployments in the workspace. Filtering by a non-existent `deployment_id` returns 200 with empty data.
 
-- `has_error: Optional[bool]`
+- `has_error: Optional[bool]` (query parameter)
 
   Filter: true for runs with non-null `error`, false for runs with non-null `session_id`. Omit for all.
 
-- `limit: Optional[int]`
+- `limit: Optional[int]` (query parameter)
 
   Maximum results per page. Default 20, maximum 1000.
 
   format: int32
 
-- `page: Optional[str]`
+- `page: Optional[str]` (query parameter)
 
   Opaque pagination cursor. Pass `next_page` from the previous response. Invalid or expired cursors return 400.
 
-- `trigger_type: Optional[BetaManagedAgentsTriggerType]`
+- `trigger_type: Optional[BetaManagedAgentsTriggerType]` (query parameter)
 
   Filter runs by what triggered them. Omit to return all runs.
 
@@ -31637,7 +31709,7 @@ List Deployment Runs
 
     The run was started manually by creating a session directly against the deployment.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -31743,7 +31815,7 @@ List Deployment Runs
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -32029,11 +32101,11 @@ Get Deployment Run
 
 #### Parameters
 
-- `deployment_run_id: str`
+- `deployment_run_id: str` (path parameter)
 
   Unique identifier of the deployment run.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -32139,7 +32211,7 @@ Get Deployment Run
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -32433,7 +32505,7 @@ Create Vault
 
   Arbitrary key-value metadata to attach to the vault. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -32539,7 +32611,7 @@ Create Vault
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -32626,21 +32698,21 @@ List Vaults
 
 #### Parameters
 
-- `include_archived: Optional[bool]`
+- `include_archived: Optional[bool]` (query parameter)
 
   Whether to include archived vaults in the results.
 
-- `limit: Optional[int]`
+- `limit: Optional[int]` (query parameter)
 
   Maximum number of vaults to return per page. Defaults to 20, maximum 100.
 
   format: int32
 
-- `page: Optional[str]`
+- `page: Optional[str]` (query parameter)
 
   Opaque pagination token from a previous `list_vaults` response.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -32746,7 +32818,7 @@ List Vaults
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -32837,11 +32909,11 @@ Get Vault
 
 #### Parameters
 
-- `vault_id: str`
+- `vault_id: str` (path parameter)
 
   Unique identifier of the vault to retrieve.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -32947,7 +33019,7 @@ Get Vault
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -33034,7 +33106,7 @@ Update Vault
 
 #### Parameters
 
-- `vault_id: str`
+- `vault_id: str` (path parameter)
 
   Unique identifier of the vault to update.
 
@@ -33048,7 +33120,7 @@ Update Vault
 
   Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -33154,7 +33226,7 @@ Update Vault
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -33241,11 +33313,11 @@ Delete Vault
 
 #### Parameters
 
-- `vault_id: str`
+- `vault_id: str` (path parameter)
 
   Unique identifier of the vault to delete.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -33351,7 +33423,7 @@ Delete Vault
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -33405,11 +33477,11 @@ Archive Vault
 
 #### Parameters
 
-- `vault_id: str`
+- `vault_id: str` (path parameter)
 
   Unique identifier of the vault to archive.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -33515,7 +33587,7 @@ Archive Vault
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -33604,7 +33676,7 @@ Create Credential
 
 #### Parameters
 
-- `vault_id: str`
+- `vault_id: str` (path parameter)
 
   Identifier of the vault to create the credential in.
 
@@ -33780,7 +33852,7 @@ Create Credential
 
   Arbitrary key-value metadata to attach to the credential. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -33886,7 +33958,7 @@ Create Credential
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -34099,25 +34171,25 @@ List Credentials
 
 #### Parameters
 
-- `vault_id: str`
+- `vault_id: str` (path parameter)
 
   Identifier of the vault to list credentials for.
 
-- `include_archived: Optional[bool]`
+- `include_archived: Optional[bool]` (query parameter)
 
   Whether to include archived credentials in the results.
 
-- `limit: Optional[int]`
+- `limit: Optional[int]` (query parameter)
 
   Maximum number of credentials to return per page. Defaults to 20, maximum 100.
 
   format: int32
 
-- `page: Optional[str]`
+- `page: Optional[str]` (query parameter)
 
   Opaque pagination token from a previous `list_credentials` response.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -34223,7 +34295,7 @@ List Credentials
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -34437,15 +34509,15 @@ Get Credential
 
 #### Parameters
 
-- `vault_id: str`
+- `vault_id: str` (path parameter)
 
   Identifier of the vault containing the credential.
 
-- `credential_id: str`
+- `credential_id: str` (path parameter)
 
   Unique identifier of the credential to retrieve.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -34551,7 +34623,7 @@ Get Credential
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -34760,11 +34832,11 @@ Update Credential
 
 #### Parameters
 
-- `vault_id: str`
+- `vault_id: str` (path parameter)
 
   Identifier of the vault containing the credential.
 
-- `credential_id: str`
+- `credential_id: str` (path parameter)
 
   Unique identifier of the credential to update.
 
@@ -34898,7 +34970,7 @@ Update Credential
 
   Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -35004,7 +35076,7 @@ Update Credential
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -35213,15 +35285,15 @@ Delete Credential
 
 #### Parameters
 
-- `vault_id: str`
+- `vault_id: str` (path parameter)
 
   Identifier of the vault containing the credential.
 
-- `credential_id: str`
+- `credential_id: str` (path parameter)
 
   Unique identifier of the credential to delete.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -35327,7 +35399,7 @@ Delete Credential
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -35382,15 +35454,15 @@ Archive Credential
 
 #### Parameters
 
-- `vault_id: str`
+- `vault_id: str` (path parameter)
 
   Identifier of the vault containing the credential.
 
-- `credential_id: str`
+- `credential_id: str` (path parameter)
 
   Unique identifier of the credential to archive.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -35496,7 +35568,7 @@ Archive Credential
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -35705,15 +35777,15 @@ Validate Credential
 
 #### Parameters
 
-- `vault_id: str`
+- `vault_id: str` (path parameter)
 
   Identifier of the vault containing the credential.
 
-- `credential_id: str`
+- `credential_id: str` (path parameter)
 
   Unique identifier of the credential to validate.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -35819,7 +35891,7 @@ Validate Credential
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -36004,7 +36076,7 @@ Create a memory store
 
   Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Not visible to the agent.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -36110,7 +36182,7 @@ Create a memory store
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -36202,33 +36274,33 @@ List memory stores
 
 #### Parameters
 
-- `created_at_gte: Optional[Union[str, datetime]]`
+- `created_at_gte: Optional[Union[str, datetime]]` (query parameter)
 
   Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
 
   format: date-time
 
-- `created_at_lte: Optional[Union[str, datetime]]`
+- `created_at_lte: Optional[Union[str, datetime]]` (query parameter)
 
   Return only stores whose `created_at` is at or before this time (inclusive). Sent on the wire as `created_at[lte]`.
 
   format: date-time
 
-- `include_archived: Optional[bool]`
+- `include_archived: Optional[bool]` (query parameter)
 
   When `true`, archived stores are included in the results. Defaults to `false` (archived stores are excluded).
 
-- `limit: Optional[int]`
+- `limit: Optional[int]` (query parameter)
 
   Maximum number of stores to return per page. Must be between 1 and 100. Defaults to 20 when omitted.
 
   format: int32
 
-- `page: Optional[str]`
+- `page: Optional[str]` (query parameter)
 
   Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -36334,7 +36406,7 @@ List memory stores
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -36428,11 +36500,11 @@ Retrieve a memory store
 
 #### Parameters
 
-- `memory_store_id: str`
+- `memory_store_id: str` (path parameter)
 
   ID of the memory store to retrieve (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -36538,7 +36610,7 @@ Retrieve a memory store
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -36630,7 +36702,7 @@ Update a memory store
 
 #### Parameters
 
-- `memory_store_id: str`
+- `memory_store_id: str` (path parameter)
 
   ID of the memory store to update (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`. Updating an archived store returns 400.
 
@@ -36650,7 +36722,7 @@ Update a memory store
 
   minLength: 1, maxLength: 255
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -36756,7 +36828,7 @@ Update a memory store
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -36848,11 +36920,11 @@ Delete a memory store
 
 #### Parameters
 
-- `memory_store_id: str`
+- `memory_store_id: str` (path parameter)
 
   ID of the memory store to permanently delete (a `memstore_...` identifier). Required. Deletion cascades to all memories and memory versions in the store and cannot be undone.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -36958,7 +37030,7 @@ Delete a memory store
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -37012,11 +37084,11 @@ Archive a memory store
 
 #### Parameters
 
-- `memory_store_id: str`
+- `memory_store_id: str` (path parameter)
 
   ID of the memory store to archive (a `memstore_...` identifier). Required. Archiving is one-way and idempotent; archived stores cannot be unarchived. Enumerate IDs via `GET /v1/memory_stores`.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -37122,7 +37194,7 @@ Archive a memory store
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -37216,7 +37288,7 @@ Create a memory
 
 #### Parameters
 
-- `memory_store_id: str`
+- `memory_store_id: str` (path parameter)
 
   The ID of the memory store to create the memory in (`memstore_...`).
 
@@ -37230,7 +37302,7 @@ Create a memory
 
   minLength: 2, maxLength: 1024
 
-- `view: Optional[BetaManagedAgentsMemoryView]`
+- `view: Optional[BetaManagedAgentsMemoryView]` (query parameter)
 
   Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
@@ -37242,7 +37314,7 @@ Create a memory
 
     Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -37348,7 +37420,7 @@ Create a memory
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -37450,31 +37522,31 @@ List memories
 
 #### Parameters
 
-- `memory_store_id: str`
+- `memory_store_id: str` (path parameter)
 
   The ID of the memory store to list memories from (`memstore_...`).
 
-- `depth: Optional[int]`
+- `depth: Optional[int]` (query parameter)
 
   `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
 
   format: int32
 
-- `limit: Optional[int]`
+- `limit: Optional[int]` (query parameter)
 
   Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
 
   format: int32
 
-- `page: Optional[str]`
+- `page: Optional[str]` (query parameter)
 
   Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
 
-- `path_prefix: Optional[str]`
+- `path_prefix: Optional[str]` (query parameter)
 
   Optional path prefix filter. Must end with `/` (segment-aligned), e.g., `/notes/`. This value appears in request URLs. Do not include secrets or personally identifiable information.
 
-- `view: Optional[BetaManagedAgentsMemoryView]`
+- `view: Optional[BetaManagedAgentsMemoryView]` (query parameter)
 
   Which projection of each `memory` to return. Defaults to `basic` (content omitted). `full` populates `content` on each item and caps `limit` at 20; use this as the bulk-read path for export and sync.
 
@@ -37486,7 +37558,7 @@ List memories
 
     Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -37592,7 +37664,7 @@ List memories
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -37712,15 +37784,15 @@ Retrieve a memory
 
 #### Parameters
 
-- `memory_store_id: str`
+- `memory_store_id: str` (path parameter)
 
   The ID of the memory store that holds the memory (`memstore_...`).
 
-- `memory_id: str`
+- `memory_id: str` (path parameter)
 
   The ID of the memory to retrieve (`mem_...`).
 
-- `view: Optional[BetaManagedAgentsMemoryView]`
+- `view: Optional[BetaManagedAgentsMemoryView]` (query parameter)
 
   Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
@@ -37732,7 +37804,7 @@ Retrieve a memory
 
     Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -37838,7 +37910,7 @@ Retrieve a memory
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -37898,207 +37970,3 @@ Retrieve a memory
 
 ```python
 import os
-from anthropic import Anthropic
-
-client = Anthropic(
-    api_key=os.environ.get(
-        "ANTHROPIC_API_KEY"
-    ),  # This is the default and can be omitted
-)
-beta_managed_agents_memory = client.beta.memory_stores.memories.retrieve(
-    memory_id="memory_id",
-    memory_store_id="memory_store_id",
-)
-print(beta_managed_agents_memory.id)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "content_sha256": "content_sha256",
-  "content_size_bytes": 0,
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "memory_store_id": "memory_store_id",
-  "memory_version_id": "memory_version_id",
-  "path": "path",
-  "type": "memory",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "content": "content"
-}
-```
-
-### Update a memory
-
-`beta.memory_stores.memories.update(memory_id, **kwargs)  -> BetaManagedAgentsMemory`
-
-**POST** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
-
-Update a memory
-
-#### Parameters
-
-- `memory_store_id: str`
-
-  The ID of the memory store that holds the memory (`memstore_...`).
-
-- `memory_id: str`
-
-  The ID of the memory to update (`mem_...`).
-
-- `view: Optional[BetaManagedAgentsMemoryView]`
-
-  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
-
-  - `"basic"`
-
-    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
-
-  - `"full"`
-
-    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
-
-- `content: Optional[str]`
-
-  New UTF-8 text content for the memory. Maximum 100 kB (102,400 bytes). Omit to leave the content unchanged (e.g., for a rename-only update).
-
-- `path: Optional[str]`
-
-  New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, or the Unicode line and paragraph separators (U+2028, U+2029), and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
-
-  minLength: 2, maxLength: 1024
-
-- `precondition: Optional[BetaManagedAgentsPreconditionParam]`
-
-  Optional optimistic-concurrency precondition. When supplied, the update applies only if the memory's current state matches; on mismatch the request returns `memory_precondition_failed_error` (HTTP 409). When omitted, the update is unconditional.
-
-  - `type: Literal["content_sha256"]`
-
-  - `content_sha256: Optional[str]`
-
-    Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.
-
-- `betas: Optional[List[AnthropicBetaParam]]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `str`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-  - `"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: Optional[str]`
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsMemory`
-
-  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-  - `type: Literal["memory"]`
-
-  - `id: str`
-
-    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.

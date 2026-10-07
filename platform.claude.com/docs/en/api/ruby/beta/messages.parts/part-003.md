@@ -10796,7 +10796,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       minimum: 0, maximum: 1
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -10902,11 +10902,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `user_profile_id: String`
+- `user_profile_id: String` (header parameter)
 
   The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -11064,11 +11064,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 #### Parameters
 
-- `message_batch_id: String`
+- `message_batch_id: String` (path parameter)
 
   ID of the Message Batch.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -11174,7 +11174,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -11325,15 +11325,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 #### Parameters
 
-- `after_id: String`
+- `after_id: String` (query parameter)
 
   ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-- `before_id: String`
+- `before_id: String` (query parameter)
 
   ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of items to return per page.
 
@@ -11341,7 +11341,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   minimum: 1, maximum: 1000
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -11447,7 +11447,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -11607,11 +11607,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 #### Parameters
 
-- `message_batch_id: String`
+- `message_batch_id: String` (path parameter)
 
   ID of the Message Batch.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -11717,7 +11717,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -11870,11 +11870,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 #### Parameters
 
-- `message_batch_id: String`
+- `message_batch_id: String` (path parameter)
 
   ID of the Message Batch.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -11980,7 +11980,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -12035,11 +12035,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 #### Parameters
 
-- `message_batch_id: String`
+- `message_batch_id: String` (path parameter)
 
   ID of the Message Batch.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -12145,7 +12145,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 

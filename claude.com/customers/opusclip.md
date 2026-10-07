@@ -86,7 +86,7 @@ Introducing Agent Skills
 
 Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 
-[Read more](https://claude.com/blog/skills)
+[Read more](https://claude.com/resources/articles/skills)
 
 > "Claude Code behaved like a teammate who'd read the repo, not a stranger pasting snippets."
 

@@ -242,25 +242,25 @@ The Models API response can be used to determine which models are available for 
 
 - `ModelListParams parameters`
 
-  - `string afterID`
+  - `string afterID` (query parameter)
 
-    Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `string beforeID`
+  - `string beforeID` (query parameter)
 
-    Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `long limit`
+  - `long limit` (query parameter)
 
-    Query param: Number of items to return per page.
+    Number of items to return per page.
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
     minimum: 1, maximum: 1000
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -362,9 +362,9 @@ The Models API response can be used to determine which models are available for 
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -647,11 +647,11 @@ The Models API response can be used to determine information about a specific mo
 
 - `ModelRetrieveParams parameters`
 
-  - `required string modelID`
+  - `required string modelID` (path parameter)
 
     Model identifier or alias.
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -755,7 +755,7 @@ The Models API response can be used to determine information about a specific mo
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1037,7 +1037,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `required long maxTokens`
 
-    Body param: The maximum number of tokens to generate before stopping.
+    The maximum number of tokens to generate before stopping.
 
     Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate.
 
@@ -1049,7 +1049,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `required IReadOnlyList<BetaMessageParam> messages`
 
-    Body param: Input messages.
+    Input messages.
 
     Our models are trained to operate on alternating `user` and `assistant` conversational turns. When creating a new `Message`, you specify the prior conversational turns with the `messages` parameter, and the model then generates the next `Message` in the conversation. Consecutive `user` or `assistant` turns in your request will be combined into a single turn.
 
@@ -4425,23 +4425,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `required Model model`
 
-    Body param: The model that will complete your prompt.
+    The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
   - `BetaCacheControlEphemeral? cacheControl`
 
-    Body param: Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
+    Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
   - `BetaCompactionConfig? compaction`
 
-    Body param: Compaction configuration.
+    Compaction configuration.
 
     When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
 
   - `Container? container`
 
-    Body param: Container identifier for reuse across requests.
+    Container identifier for reuse across requests.
 
     - `class BetaContainerParams`
 
@@ -4481,17 +4481,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `BetaContextManagementConfig? contextManagement`
 
-    Body param: Context management configuration.
+    Context management configuration.
 
     This allows you to control how Claude manages context across multiple requests, such as whether to clear function results or not.
 
   - `BetaDiagnosticsParam? diagnostics`
 
-    Body param: Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
+    Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
 
   - `FallbackCreditToken? fallbackCreditToken`
 
-    Body param: The `fallback_credit_token` from a prior refusal's `stop_details`.
+    The `fallback_credit_token` from a prior refusal's `stop_details`.
 
     When a preceding request was refused and returned a `fallback_credit_token`,
     pass that code here on the retry to have the retry's cache-creation tokens
@@ -4540,15 +4540,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `BetaFallbacksParam? fallbacks`
 
-    Body param: Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on. The string "default" requests the requested model's server-defined default fallback configuration.
+    Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on. The string "default" requests the requested model's server-defined default fallback configuration.
 
   - `string? inferenceGeo`
 
-    Body param: Specifies the geographic region for inference processing. If not specified, the workspace's `default_inference_geo` is used.
+    Specifies the geographic region for inference processing. If not specified, the workspace's `default_inference_geo` is used.
 
   - `IReadOnlyList<BetaRequestMcpServerUrlDefinition> mcpServers`
 
-    Body param: MCP servers to be utilized in this request
+    MCP servers to be utilized in this request
 
     maxItems: 20
 
@@ -4568,15 +4568,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `BetaMetadata metadata`
 
-    Body param: An object describing metadata about the request.
+    An object describing metadata about the request.
 
   - `BetaOutputConfig outputConfig`
 
-    Body param: Configuration options for the model's output, such as the output format.
+    Configuration options for the model's output, such as the output format.
 
   - `ServiceTier serviceTier`
 
-    Body param: Determines whether to use priority capacity (if available) or standard capacity for this request.
+    Determines whether to use priority capacity (if available) or standard capacity for this request.
 
     Anthropic offers different levels of service for your API requests. See [service-tiers](https://platform.claude.com/docs/en/api/service-tiers) for details.
 
@@ -4586,7 +4586,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `Speed? speed`
 
-    Body param: The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+    The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
     - `Standard("standard")`
 
@@ -4594,7 +4594,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `IReadOnlyList<string> stopSequences`
 
-    Body param: Custom text sequences that will cause the model to stop generating.
+    Custom text sequences that will cause the model to stop generating.
 
     Our models will normally stop when they have naturally completed their turn, which will result in a response `stop_reason` of `"end_turn"`.
 
@@ -4602,7 +4602,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `System system`
 
-    Body param: System prompt.
+    System prompt.
 
     A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
 
@@ -4624,7 +4624,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `BetaThinkingConfigParam thinking`
 
-    Body param: Configuration for enabling Claude's extended thinking.
+    Configuration for enabling Claude's extended thinking.
 
     When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
@@ -4632,11 +4632,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `BetaToolChoice toolChoice`
 
-    Body param: How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
+    How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
   - `IReadOnlyList<BetaToolUnion> tools`
 
-    Body param: Definitions of tools that the model may use.
+    Definitions of tools that the model may use.
 
     If you include `tools` in your API request, the model may return `tool_use` content blocks that represent the model's use of those tools. You can then run those tools using the tool input generated by the model and then optionally return results back to the model using `tool_result` content blocks.
 
@@ -4779,9 +4779,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -4883,13 +4883,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string userProfileID`
+  - `string userProfileID` (header parameter)
 
-    Header param: The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
+    The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -4897,7 +4897,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     **Deprecated**
 
-    Body param: Deprecated: Use `output_config.format` instead. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+    Deprecated: Use `output_config.format` instead. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
     A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
 
@@ -4905,7 +4905,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
-    Body param: Amount of randomness injected into the response.
+    Amount of randomness injected into the response.
 
     Defaults to `1.0`. Ranges from `0.0` to `1.0`. Use `temperature` closer to `0.0` for analytical / multiple choice, and closer to `1.0` for creative and generative tasks.
 
@@ -4917,7 +4917,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not accept top_k; any value will be rejected with a 400 error.
 
-    Body param: Only sample from the top K options for each subsequent token.
+    Only sample from the top K options for each subsequent token.
 
     Used to remove "long tail" low probability responses. [Learn more technical details here](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277).
 
@@ -4929,7 +4929,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting top_p. A value >= 0.99 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
-    Body param: Use nucleus sampling.
+    Use nucleus sampling.
 
     In nucleus sampling, we compute the cumulative distribution over all the options for each subsequent token in decreasing probability order and cut it off once it reaches a particular probability specified by `top_p`.
 
@@ -9064,7 +9064,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `required IReadOnlyList<BetaMessageParam> messages`
 
-    Body param: Input messages.
+    Input messages.
 
     Our models are trained to operate on alternating `user` and `assistant` conversational turns. When creating a new `Message`, you specify the prior conversational turns with the `messages` parameter, and the model then generates the next `Message` in the conversation. Consecutive `user` or `assistant` turns in your request will be combined into a single turn.
 
@@ -12440,29 +12440,29 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `required Model model`
 
-    Body param: The model that will complete your prompt.
+    The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
   - `BetaCacheControlEphemeral? cacheControl`
 
-    Body param: Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
+    Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
   - `BetaCompactionConfig? compaction`
 
-    Body param: Compaction configuration.
+    Compaction configuration.
 
     When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
 
   - `BetaContextManagementConfig? contextManagement`
 
-    Body param: Context management configuration.
+    Context management configuration.
 
     This allows you to control how Claude manages context across multiple requests, such as whether to clear function results or not.
 
   - `IReadOnlyList<BetaRequestMcpServerUrlDefinition> mcpServers`
 
-    Body param: MCP servers to be utilized in this request
+    MCP servers to be utilized in this request
 
     maxItems: 20
 
@@ -12482,11 +12482,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `BetaOutputConfig outputConfig`
 
-    Body param: Configuration options for the model's output, such as the output format.
+    Configuration options for the model's output, such as the output format.
 
   - `Speed? speed`
 
-    Body param: The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+    The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
     - `Standard("standard")`
 
@@ -12494,7 +12494,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `System system`
 
-    Body param: System prompt.
+    System prompt.
 
     A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
 
@@ -12516,7 +12516,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `BetaThinkingConfigParam thinking`
 
-    Body param: Configuration for enabling Claude's extended thinking.
+    Configuration for enabling Claude's extended thinking.
 
     When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
@@ -12524,11 +12524,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `BetaToolChoice toolChoice`
 
-    Body param: How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
+    How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
   - `IReadOnlyList<Tool> tools`
 
-    Body param: Definitions of tools that the model may use.
+    Definitions of tools that the model may use.
 
     If you include `tools` in your API request, the model may return `tool_use` content blocks that represent the model's use of those tools. You can then run those tools using the tool input generated by the model and then optionally return results back to the model using `tool_result` content blocks.
 
@@ -12671,9 +12671,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -12775,13 +12775,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string userProfileID`
+  - `string userProfileID` (header parameter)
 
-    Header param: The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
+    The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -12789,7 +12789,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     **Deprecated**
 
-    Body param: Deprecated: Use `output_config.format` instead. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+    Deprecated: Use `output_config.format` instead. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
     A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
 
@@ -12863,7 +12863,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `required IReadOnlyList<Request> requests`
 
-    Body param: List of requests for prompt completion. Each is an individual request to create a Message.
+    List of requests for prompt completion. Each is an individual request to create a Message.
 
     minItems: 1, maxItems: 100000
 
@@ -16983,9 +16983,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         minimum: 0, maximum: 1
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -17087,13 +17087,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string userProfileID`
+  - `string userProfileID` (header parameter)
 
-    Header param: The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
+    The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -17428,11 +17428,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `BatchRetrieveParams parameters`
 
-  - `required string messageBatchID`
+  - `required string messageBatchID` (path parameter)
 
     ID of the Message Batch.
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -17536,7 +17536,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -17687,25 +17687,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `BatchListParams parameters`
 
-  - `string afterID`
+  - `string afterID` (query parameter)
 
-    Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `string beforeID`
+  - `string beforeID` (query parameter)
 
-    Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `long limit`
+  - `long limit` (query parameter)
 
-    Query param: Number of items to return per page.
+    Number of items to return per page.
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
     minimum: 1, maximum: 1000
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -17807,9 +17807,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -17969,11 +17969,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `BatchCancelParams parameters`
 
-  - `required string messageBatchID`
+  - `required string messageBatchID` (path parameter)
 
     ID of the Message Batch.
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -18077,7 +18077,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -18230,11 +18230,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `BatchDeleteParams parameters`
 
-  - `required string messageBatchID`
+  - `required string messageBatchID` (path parameter)
 
     ID of the Message Batch.
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -18338,7 +18338,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -18393,11 +18393,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `BatchResultsParams parameters`
 
-  - `required string messageBatchID`
+  - `required string messageBatchID` (path parameter)
 
     ID of the Message Batch.
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -18501,7 +18501,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -22306,7 +22306,7 @@ Create Agent
 
   - `required Model model`
 
-    Body param: Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control
+    Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control
 
     - `enum BetaManagedAgentsModel`
 
@@ -22532,19 +22532,19 @@ Create Agent
 
   - `required string name`
 
-    Body param: Human-readable name for the agent.
+    Human-readable name for the agent.
 
     minLength: 1, maxLength: 256
 
   - `string? description`
 
-    Body param: Description of what the agent does.
+    Description of what the agent does.
 
     maxLength: 2048
 
   - `IReadOnlyList<BetaManagedAgentsUrlMcpServerParams> mcpServers`
 
-    Body param: MCP servers this agent connects to. Maximum 20. Names must be unique within the array. Every server must be referenced by an `mcp_toolset` in `tools`; unreferenced servers are rejected. See the [MCP connector guide](https://platform.claude.com/docs/en/managed-agents/mcp-connector).
+    MCP servers this agent connects to. Maximum 20. Names must be unique within the array. Every server must be referenced by an `mcp_toolset` in `tools`; unreferenced servers are rejected. See the [MCP connector guide](https://platform.claude.com/docs/en/managed-agents/mcp-connector).
 
     - `required Type Type`
 
@@ -22562,15 +22562,15 @@ Create Agent
 
   - `IReadOnlyDictionary<string, string> metadata`
 
-    Body param: Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
 
   - `BetaManagedAgentsMultiagentParams? multiagent`
 
-    Body param: Multiagent orchestration configuration. Currently supports the `coordinator` topology with a roster of 1-20 agents.
+    Multiagent orchestration configuration. Currently supports the `coordinator` topology with a roster of 1-20 agents.
 
   - `IReadOnlyList<BetaManagedAgentsSkillParams> skills`
 
-    Body param: Skills available to the agent.
+    Skills available to the agent.
 
     - `class BetaManagedAgentsAnthropicSkillParams`
 
@@ -22610,13 +22610,13 @@ Create Agent
 
   - `string? system`
 
-    Body param: System prompt for the agent.
+    System prompt for the agent.
 
     maxLength: 100000
 
   - `IReadOnlyList<Tool> tools`
 
-    Body param: Tool configurations available to the agent. Maximum of 256 tools across all toolsets allowed.
+    Tool configurations available to the agent. Maximum of 256 tools across all toolsets allowed.
 
     - `class BetaManagedAgentsAgentToolset20260401Params`
 
@@ -23044,9 +23044,9 @@ Create Agent
 
         minLength: 1, maxLength: 128
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -23148,9 +23148,9 @@ Create Agent
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -23841,35 +23841,35 @@ List Agents
 
 - `AgentListParams parameters`
 
-  - `DateTimeOffset createdAtGte`
+  - `DateTimeOffset createdAtGte` (query parameter)
 
-    Query param: Return agents created at or after this time (inclusive).
-
-    format: date-time
-
-  - `DateTimeOffset createdAtLte`
-
-    Query param: Return agents created at or before this time (inclusive).
+    Return agents created at or after this time (inclusive).
 
     format: date-time
 
-  - `bool includeArchived`
+  - `DateTimeOffset createdAtLte` (query parameter)
 
-    Query param: Include archived agents in results. Defaults to false.
+    Return agents created at or before this time (inclusive).
 
-  - `int limit`
+    format: date-time
 
-    Query param: Maximum results per page. Default 20, maximum 100.
+  - `bool includeArchived` (query parameter)
+
+    Include archived agents in results. Defaults to false.
+
+  - `int limit` (query parameter)
+
+    Maximum results per page. Default 20, maximum 100.
 
     format: int32
 
-  - `string page`
+  - `string page` (query parameter)
 
-    Query param: Opaque pagination cursor from a previous response.
+    Opaque pagination cursor from a previous response.
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -23971,9 +23971,9 @@ List Agents
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -24667,19 +24667,19 @@ Get Agent
 
 - `AgentRetrieveParams parameters`
 
-  - `required string agentID`
+  - `required string agentID` (path parameter)
 
-    Path param: Unique identifier of the agent to retrieve.
+    Unique identifier of the agent to retrieve.
 
-  - `int version`
+  - `int version` (query parameter)
 
-    Query param: Agent version. Omit for the most recent version. Must be at least 1 if specified.
+    Agent version. Omit for the most recent version. Must be at least 1 if specified.
 
     format: int32
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -24781,9 +24781,9 @@ Get Agent
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -25473,19 +25473,19 @@ Update Agent
 
 - `AgentUpdateParams parameters`
 
-  - `required string agentID`
+  - `required string agentID` (path parameter)
 
-    Path param: Unique identifier of the agent to update.
+    Unique identifier of the agent to update.
 
   - `string? description`
 
-    Body param: Description. Omit to preserve; send empty string or null to clear.
+    Description. Omit to preserve; send empty string or null to clear.
 
     maxLength: 2048
 
   - `IReadOnlyList<BetaManagedAgentsUrlMcpServerParams>? mcpServers`
 
-    Body param: MCP servers. Full replacement. Omit to preserve; send empty array or `null` to clear. Names must be unique. Maximum 20. Every server must be referenced by an `mcp_toolset` in the agent's resulting `tools`; unreferenced servers are rejected. See the [MCP connector guide](https://platform.claude.com/docs/en/managed-agents/mcp-connector).
+    MCP servers. Full replacement. Omit to preserve; send empty array or `null` to clear. Names must be unique. Maximum 20. Every server must be referenced by an `mcp_toolset` in the agent's resulting `tools`; unreferenced servers are rejected. See the [MCP connector guide](https://platform.claude.com/docs/en/managed-agents/mcp-connector).
 
     - `required Type Type`
 
@@ -25503,11 +25503,11 @@ Update Agent
 
   - `IReadOnlyDictionary<string, string>? metadata`
 
-    Body param: Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
+    Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
 
   - `Model model`
 
-    Body param: Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
+    Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
 
     - `enum BetaManagedAgentsModel`
 
@@ -25733,17 +25733,17 @@ Update Agent
 
   - `BetaManagedAgentsMultiagentParams? multiagent`
 
-    Body param: Multiagent orchestration configuration. Full replacement. Omit to preserve; send null to clear.
+    Multiagent orchestration configuration. Full replacement. Omit to preserve; send null to clear.
 
   - `string name`
 
-    Body param: Human-readable name. Must be non-empty. Omit to preserve. Cannot be cleared.
+    Human-readable name. Must be non-empty. Omit to preserve. Cannot be cleared.
 
     maxLength: 256
 
   - `IReadOnlyList<BetaManagedAgentsSkillParams>? skills`
 
-    Body param: Skills. Full replacement. Omit to preserve; send empty array or null to clear.
+    Skills. Full replacement. Omit to preserve; send empty array or null to clear.
 
     - `class BetaManagedAgentsAnthropicSkillParams`
 
@@ -25783,13 +25783,13 @@ Update Agent
 
   - `string? system`
 
-    Body param: System prompt. Omit to preserve; send empty string or null to clear.
+    System prompt. Omit to preserve; send empty string or null to clear.
 
     maxLength: 100000
 
   - `IReadOnlyList<Tool>? tools`
 
-    Body param: Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 256 tools across all toolsets allowed.
+    Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 256 tools across all toolsets allowed.
 
     - `class BetaManagedAgentsAgentToolset20260401Params`
 
@@ -26219,13 +26219,13 @@ Update Agent
 
   - `int version`
 
-    Body param: The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
+    The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
 
     format: int32
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -26327,9 +26327,9 @@ Update Agent
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -27019,11 +27019,11 @@ Archive Agent
 
 - `AgentArchiveParams parameters`
 
-  - `required string agentID`
+  - `required string agentID` (path parameter)
 
     Unique identifier of the agent to archive.
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -27127,7 +27127,7 @@ Archive Agent
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -27821,23 +27821,23 @@ List Agent Versions
 
 - `VersionListParams parameters`
 
-  - `required string agentID`
+  - `required string agentID` (path parameter)
 
-    Path param: Agent ID to list versions for.
+    Agent ID to list versions for.
 
-  - `int limit`
+  - `int limit` (query parameter)
 
-    Query param: Maximum results per page. Default 20, maximum 100.
+    Maximum results per page. Default 20, maximum 100.
 
     format: int32
 
-  - `string page`
+  - `string page` (query parameter)
 
-    Query param: Opaque pagination cursor.
+    Opaque pagination cursor.
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -27939,9 +27939,9 @@ List Agent Versions
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -28642,13 +28642,13 @@ Create a new environment with the specified configuration.
 
   - `required string name`
 
-    Body param: Human-readable name for the environment
+    Human-readable name for the environment
 
     minLength: 1, maxLength: 256
 
   - `Config? config`
 
-    Body param: Environment configuration
+    Environment configuration
 
     - `class BetaCloudConfigParams`
 
@@ -28738,25 +28738,25 @@ Create a new environment with the specified configuration.
 
   - `string? description`
 
-    Body param: Optional description of the environment
+    Optional description of the environment
 
     maxLength: 1024
 
   - `IReadOnlyDictionary<string, string> metadata`
 
-    Body param: User-provided metadata key-value pairs
+    User-provided metadata key-value pairs
 
   - `Scope? scope`
 
-    Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. API organizations support only 'organization'; 'account' is rejected. If not specified, defaults based on organization type.
+    The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. API organizations support only 'organization'; 'account' is rejected. If not specified, defaults based on organization type.
 
     - `Organization("organization")`
 
     - `Account("account")`
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -28858,9 +28858,9 @@ Create a new environment with the specified configuration.
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -29065,23 +29065,23 @@ List environments with pagination support.
 
 - `EnvironmentListParams parameters`
 
-  - `bool includeArchived`
+  - `bool includeArchived` (query parameter)
 
-    Query param: Include archived environments in the response
+    Include archived environments in the response
 
-  - `long limit`
+  - `long limit` (query parameter)
 
-    Query param: Maximum number of environments to return
+    Maximum number of environments to return
 
     minimum: 1, maximum: 1000
 
-  - `string? page`
+  - `string? page` (query parameter)
 
-    Query param: Opaque cursor from previous response for pagination. Pass the `next_page` value from the previous response.
+    Opaque cursor from previous response for pagination. Pass the `next_page` value from the previous response.
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -29183,9 +29183,9 @@ List environments with pagination support.
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -29397,9 +29397,9 @@ Retrieve a specific environment by ID.
 
 - `EnvironmentRetrieveParams parameters`
 
-  - `required string environmentID`
+  - `required string environmentID` (path parameter)
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -29503,7 +29503,7 @@ Retrieve a specific environment by ID.
 
     - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `string workspaceID`
+  - `string workspaceID` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -29713,13 +29713,11 @@ Update an existing environment's configuration.
 
 - `EnvironmentUpdateParams parameters`
 
-  - `required string environmentID`
-
-    Path param
+  - `required string environmentID` (path parameter)
 
   - `Config? config`
 
-    Body param: Updated environment configuration
+    Updated environment configuration
 
     - `class BetaCloudConfigParams`
 
@@ -29741,3 +29739,9 @@ Update an existing environment's configuration.
           Unrestricted network access.
 
           - `JsonElement Type = "unrestricted"`
+
+            Network policy type
+
+        - `class BetaLimitedNetworkParams`
+
+          Limited network request params.

@@ -2,7 +2,7 @@
 
 # Business Associate Agreements (BAA) for Commercial Customers
 
-Updated today
+Updated yesterday
 
 Table of contents
 

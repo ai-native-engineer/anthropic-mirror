@@ -60,10 +60,6 @@ You can find more detail in our technical report ([here](https://www-cdn.anthrop
 
 We hope this work demonstrates the value of AI-driven hypothesis generation to the wider scientific community, and we would like to work with other scientists to extend this approach to a broad range of problems, in genomics and in other fields. If you have a proposal for a research question, we would like to hear from you.
 
-### Partnering with Accenture on embedded evaluation
-
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)
-
 ## Subscribe to Anthropic Science
 
 Features on AI-assisted discoveries, practical workflows, and field notes across the sciences.

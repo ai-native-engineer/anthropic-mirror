@@ -10,6 +10,7 @@ Note. This feature is currently in beta.
 
 ## Tools
 
+* myob\_get\_business\_info
 * myob\_get\_financial\_year\_dates
 * myob\_get\_outstanding\_customer\_balances
 * myob\_get\_outstanding\_payables

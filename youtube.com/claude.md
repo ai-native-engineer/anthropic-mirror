@@ -1,7 +1,9 @@
 # claude (YouTube)
 
-영상 218개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 220개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
+- [Building secure agents for knowledge work](claude/261006-building-secure-agents-for-knowledge-work.md) — 2026-10-06
+- [Claude for Google Workspace™](claude/261006-claude-for-google-workspace.md) — 2026-10-06 (자막없음)
 - [Mods in Claude Code: change how Claude Code works](claude/261005-mods-in-claude-code-change-how-claude-code-works.md) — 2026-10-05 (자막없음)
 - [Build an App With Claude Design](claude/261002-build-an-app-with-claude-design.md) — 2026-10-02 (자막없음)
 - [How an Anthropic designer uses Claude Slides](claude/261001-how-an-anthropic-designer-uses-claude-slides.md) — 2026-10-01 (자막없음)

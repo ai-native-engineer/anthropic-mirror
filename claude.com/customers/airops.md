@@ -53,7 +53,7 @@ Building agents with the Claude Agent SDK
 
 The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
 
-[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)
+[Read more](https://claude.com/resources/articles/building-agents-with-the-claude-agent-sdk)
 
 ## The solution
 
@@ -93,7 +93,7 @@ Introducing Agent Skills
 
 Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 
-[Read more](https://claude.com/blog/skills)
+[Read more](https://claude.com/resources/articles/skills)
 
 > "Opus consistently outperformed on what matters for marketing: natural writing, instruction following, and voice consistency."
 

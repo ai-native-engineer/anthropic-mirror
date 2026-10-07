@@ -8,6 +8,23 @@
 
 [Skip to main content](#content-area)
 
+0.1.56
+
+October 2, 2026
+
+* Excel (.xlsx) previews now show cell colors, bold text, and color-scale heat maps
+* Reviewer findings now open in place, with a button to the reviewer’s full transcript
+* A stalled file upload now stops by itself, and a failed upload says why under the file
+* Skills: “Check for updates…” now lists only the imported skills whose files changed
+* Claude now asks before it uses a tool from a connector that your organization’s plugins add
+* Fixed a case where the app could delete a skill from your computer when it started
+* Windows: zoom the app window with Ctrl+Plus and Ctrl+Minus, and reset it with Ctrl+0
+* Windows: IT teams can now deploy package mirror credentials as a `.netrc` file, as on Mac and Linux
+* Mac: the app now applies only a fixed list of variables from the `env` file in the data folder; move a GitHub token to **Settings > Credentials**
+* Admins can now turn off Claude’s web search tool with `enable_web_search = false` in `config.toml`
+* Security hardening of the analysis sandbox on Mac, Windows, and Linux
+* Various bug fixes and security improvements
+
 0.1.55
 
 September 29, 2026

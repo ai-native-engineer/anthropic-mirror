@@ -137,4 +137,4 @@ Get started with regional deployment
 
 [Visit Trust Center (opens in new tab)](https://trust.anthropic.com/)[Contact sales](https://claude.com/contact-sales)
 
-Regional Compliance | Claude by Anthropic
+Regional compliance | Claude by Anthropic

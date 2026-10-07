@@ -19,13 +19,13 @@ Create Skill Version
 
 - `VersionCreateParams params`
 
-  - `Optional<String> skillId`
+  - `Optional<String> skillId` (path parameter)
 
     Unique identifier for the skill.
 
     The format and length of IDs may change over time.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -129,7 +129,7 @@ Create Skill Version
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -232,13 +232,13 @@ List Skill Versions
 
 - `VersionListParams params`
 
-  - `Optional<String> skillId`
+  - `Optional<String> skillId` (path parameter)
 
     Unique identifier for the skill.
 
     The format and length of IDs may change over time.
 
-  - `Optional<Long> limit`
+  - `Optional<Long> limit` (query parameter)
 
     Number of results to return per page.
 
@@ -246,11 +246,11 @@ List Skill Versions
 
     minimum: 1, maximum: 1000
 
-  - `Optional<String> page`
+  - `Optional<String> page` (query parameter)
 
     Optionally set to the `next_page` token from the previous response.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -354,7 +354,7 @@ List Skill Versions
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -451,19 +451,19 @@ Download a skill version's content as a zip archive.
 
 - `VersionDownloadParams params`
 
-  - `String skillId`
+  - `String skillId` (path parameter)
 
     Unique identifier for the skill.
 
     The format and length of IDs may change over time.
 
-  - `Optional<String> version`
+  - `Optional<String> version` (path parameter)
 
     Identifies the skill version by its version ID.
 
     Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -567,7 +567,7 @@ Download a skill version's content as a zip archive.
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -610,19 +610,19 @@ Get Skill Version
 
 - `VersionRetrieveParams params`
 
-  - `String skillId`
+  - `String skillId` (path parameter)
 
     Unique identifier for the skill.
 
     The format and length of IDs may change over time.
 
-  - `Optional<String> version`
+  - `Optional<String> version` (path parameter)
 
     Identifies the skill version: a version ID, or the literal `latest` for the skill's most recent version.
 
     Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -726,7 +726,7 @@ Get Skill Version
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -822,19 +822,19 @@ Delete Skill Version
 
 - `VersionDeleteParams params`
 
-  - `String skillId`
+  - `String skillId` (path parameter)
 
     Unique identifier for the skill.
 
     The format and length of IDs may change over time.
 
-  - `Optional<String> version`
+  - `Optional<String> version` (path parameter)
 
     Identifies the skill version by its version ID.
 
     Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -938,7 +938,7 @@ Delete Skill Version
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 

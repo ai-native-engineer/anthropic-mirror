@@ -60,4 +60,4 @@ Is there a cost to attend?
 
 No, both in-person attendance and the livestream access are free.
 
-Code with Claude — Anthropic's Developer Conference
+Code with Claude — Anthropic's developer conference

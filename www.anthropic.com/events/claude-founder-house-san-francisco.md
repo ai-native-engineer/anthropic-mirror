@@ -242,7 +242,7 @@ Co-founder, Genspark
 
 ### Tim Glaser
 
-Co-founder and Co-CEO, PostHog
+CEO, PostHog
 
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ab1c29279f3ef7e9d92c689_joon-park.jpg)
 
@@ -441,6 +441,30 @@ CEO & Founder, Medra
 ### Andrew Beam
 
 CTO, Lila Sciences
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac50f98d94e4bdae9ed79ae_kevin-tang.jpg)
+
+### Kevin Tang
+
+Member of Technical Staff, Anthropic
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac510d54dd5d567d5639757_jared-kaplan.jpg)
+
+### Jared Kaplan
+
+Chief Science Officer, Anthropic
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac512293586c3d1c559a7ee_shivani-poddar.jpg)
+
+### Shivani Poddar
+
+Founder, Wajo AI
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac51b5784d8982491cb831e_catherine-olsson.jpg)
+
+### Catherine Olsson
+
+Program Management, Anthropic
 
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6abc0f7b9d3d7ff469364f19_CleanShot%202026-09-29%20at%201.20.19%20PM%402x.png)
 
@@ -494,7 +518,7 @@ Co-founder, Genspark
 
 ### Tim Glaser
 
-Co-founder and Co-CEO, PostHog
+CEO, PostHog
 
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ab1c29279f3ef7e9d92c689_joon-park.jpg)
 
@@ -694,6 +718,30 @@ CEO & Founder, Medra
 
 CTO, Lila Sciences
 
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac50f98d94e4bdae9ed79ae_kevin-tang.jpg)
+
+### Kevin Tang
+
+Member of Technical Staff, Anthropic
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac510d54dd5d567d5639757_jared-kaplan.jpg)
+
+### Jared Kaplan
+
+Chief Science Officer, Anthropic
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac512293586c3d1c559a7ee_shivani-poddar.jpg)
+
+### Shivani Poddar
+
+Founder, Wajo AI
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac51b5784d8982491cb831e_catherine-olsson.jpg)
+
+### Catherine Olsson
+
+Program Management, Anthropic
+
 ## Agenda
 
 Doors open at 11:00 am PDT each day. All times are PDT.
@@ -724,7 +772,7 @@ A seated brunch for women founders and startup leaders, hosted by Anthropic.
 
 [Register on Luma](https://luma.com/claude-women-founders-brunch)
 
-Beth Robertson, Head of Startups, Anthropic (host)
+Beth Robertson, Head of Startups, Anthropic (host) · Catherine Olsson, Program Management, Anthropic (host)
 
 Tuesday
 
@@ -748,7 +796,7 @@ Workshop
 
 A workshop from Anthropic on building agents that own outcomes for production workloads, run by Ina Chun (Member of Technical Staff, Anthropic).
 
-Ina Chun, Member of Technical Staff, Anthropic
+Ina Chun, Member of Technical Staff, Anthropic · Kevin Tang, Member of Technical Staff, Anthropic
 
 Tuesday
 
@@ -932,7 +980,7 @@ A seated brunch for women founders and startup leaders, hosted by Anthropic.
 
 [Register on Luma](https://luma.com/claude-women-founders-brunch)
 
-Beth Robertson, Head of Startups, Anthropic (host)
+Beth Robertson, Head of Startups, Anthropic (host) · Catherine Olsson, Program Management, Anthropic (host)
 
 12:30 pm
 
@@ -948,7 +996,7 @@ Workshop
 
 A workshop from Anthropic on building agents that own outcomes for production workloads, run by Ina Chun (Member of Technical Staff, Anthropic).
 
-Ina Chun, Member of Technical Staff, Anthropic
+Ina Chun, Member of Technical Staff, Anthropic · Kevin Tang, Member of Technical Staff, Anthropic
 
 1:00 pm
 
@@ -1128,7 +1176,7 @@ Panel
 
 PostHog, Simile and Socket discuss how they run frontier models in their products, including how they pick the right model for each job and the frameworks for making decisions on cost, speed and quality.
 
-Carly Ryan, Applied AI, Anthropic (moderator) · Tim Glaser, Co-founder and Co-CEO, PostHog · Joon Sung Park, CEO, Simile · Feross Aboukhadijeh, CEO, Socket
+Carly Ryan, Applied AI, Anthropic (moderator) · Tim Glaser, CEO, PostHog · Joon Sung Park, CEO, Simile · Feross Aboukhadijeh, CEO, Socket
 
 Wednesday
 
@@ -1358,7 +1406,7 @@ Panel
 
 PostHog, Simile and Socket discuss how they run frontier models in their products, including how they pick the right model for each job and the frameworks for making decisions on cost, speed and quality.
 
-Carly Ryan, Applied AI, Anthropic (moderator) · Tim Glaser, Co-founder and Co-CEO, PostHog · Joon Sung Park, CEO, Simile · Feross Aboukhadijeh, CEO, Socket
+Carly Ryan, Applied AI, Anthropic (moderator) · Tim Glaser, CEO, PostHog · Joon Sung Park, CEO, Simile · Feross Aboukhadijeh, CEO, Socket
 
 1:30 pm
 
@@ -1604,7 +1652,7 @@ Fireside
 
 A research fireside on Claude's model family and how to build for the next jump in capabilities.
 
-Anu Bharadwaj, Partner, ICONIQ (moderator) · Jared Kaplan, Co-founder, Anthropic · Dianne Penn, Anthropic
+Anu Bharadwaj, Partner, ICONIQ (moderator) · Jared Kaplan, Chief Science Officer, Anthropic · Dianne Penn, Anthropic
 
 Thursday
 
@@ -1816,7 +1864,7 @@ Fireside
 
 A research fireside on Claude's model family and how to build for the next jump in capabilities.
 
-Anu Bharadwaj, Partner, ICONIQ (moderator) · Jared Kaplan, Co-founder, Anthropic · Dianne Penn, Anthropic
+Anu Bharadwaj, Partner, ICONIQ (moderator) · Jared Kaplan, Chief Science Officer, Anthropic · Dianne Penn, Anthropic
 
 4:00 pm
 

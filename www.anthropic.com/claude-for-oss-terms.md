@@ -173,3 +173,5 @@ The Program is open to eligible individuals worldwide, subject to the restrictio
 * Assignment. Anthropic may assign its rights and obligations under these Terms without your consent. You may not assign your rights or obligations under these Terms.
 
 No Third-Party Beneficiaries. These Terms do not create any rights in, or obligations to, any third party.
+
+Claude for Open Source Terms \ Anthropic \ Anthropic

@@ -42,7 +42,7 @@ How enterprises are building AI agents in 2026
 
 New research from 500+ technical leaders reveals how enterprises are deploying AI agents—and why 80% already report measurable ROI.
 
-[Read more](https://claude.com/blog/how-enterprises-are-building-ai-agents-in-2026)
+[Read more](https://claude.com/resources/articles/how-enterprises-are-building-ai-agents-in-2026)
 
 [**Stripe**](https://stripe.com) builds financial infrastructure for the internet, powering payments for millions of businesses worldwide. The company's developer infrastructure team ensures that Stripe engineers have the most productive experience of their careers through tooling and platform capabilities.
 

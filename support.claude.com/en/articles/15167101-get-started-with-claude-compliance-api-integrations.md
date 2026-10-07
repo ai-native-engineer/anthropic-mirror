@@ -148,6 +148,6 @@ For Claude Platform, contact your Anthropic sales team. Review **[Compliance API
 
 * [Getting Started with Local MCP Servers on Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)
 * [Access the Compliance API](https://support.claude.com/en/articles/13015708-access-the-compliance-api)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
-* [Get started with 1Password for Claude](https://support.claude.com/en/articles/15936181-get-started-with-1password-for-claude)
 * [Get started with Claude Docs](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs)

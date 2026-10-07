@@ -111,7 +111,7 @@ Create User Profile
 
   minLength: 1, maxLength: 255
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -217,7 +217,7 @@ Create User Profile
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -401,13 +401,13 @@ List User Profiles
 
 ### Parameters
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   The maximum number of user profiles to return, from 1 to 100. Defaults to 20.
 
   format: int32
 
-- `order: :asc | :desc`
+- `order: :asc | :desc` (query parameter)
 
   The sort direction, applied to the field that `order_by` selects. Defaults to `desc`.
 
@@ -419,7 +419,7 @@ List User Profiles
 
     Newest first when `order_by` is `created_at`, or names in descending order when `order_by` is `name`. This is the default.
 
-- `order_by: :created_at | :name`
+- `order_by: :created_at | :name` (query parameter)
 
   The field to sort user profiles by, in the direction that `order` sets. Defaults to `created_at`.
 
@@ -431,13 +431,13 @@ List User Profiles
 
     Sort by `name`, ignoring the case of ASCII letters. Profiles without a name come last in either direction.
 
-- `page: String`
+- `page: String` (query parameter)
 
   The cursor for the page to return, taken from `next_page` in a previous response.
 
   Leave it out to get the first page.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -543,7 +543,7 @@ List User Profiles
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -732,11 +732,11 @@ Get User Profile
 
 ### Parameters
 
-- `user_profile_id: String`
+- `user_profile_id: String` (path parameter)
 
   The ID of the user profile to get (`uprof_...`).
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -842,7 +842,7 @@ Get User Profile
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1026,7 +1026,7 @@ Update User Profile
 
 ### Parameters
 
-- `user_profile_id: String`
+- `user_profile_id: String` (path parameter)
 
   The ID of the user profile to update (`uprof_...`).
 
@@ -1124,7 +1124,7 @@ Update User Profile
 
   minLength: 1, maxLength: 255
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1230,7 +1230,7 @@ Update User Profile
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1414,11 +1414,11 @@ Create Enrollment URL
 
 ### Parameters
 
-- `user_profile_id: String`
+- `user_profile_id: String` (path parameter)
 
   The ID of the user profile to create an enrollment URL for (`uprof_...`).
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1524,7 +1524,7 @@ Create Enrollment URL
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 

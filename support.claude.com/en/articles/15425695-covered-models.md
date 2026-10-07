@@ -59,8 +59,8 @@ Certain products built on Claude may extend the option to use ZDR with these mod
 
 This arrangement affects only the retention and review of stored data. The Usage Policy, real-time safety classifiers, and Anthropic's enforcement systems continue to apply to all traffic, and Anthropic may modify or withdraw the arrangement, including in response to misuse.
 
+* [Cyber Verification Program](https://support.claude.com/en/articles/14604842-cyber-verification-program)
 * [Why Claude switched models in your conversation with Fable 5 or Fable 5.1](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1)
 * [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
 * [Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)
-* [How Claude marks AI-generated content](https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content)
 * [Turn on data retention for a Workspace in a zero data retention organization](https://support.claude.com/en/articles/16824617-turn-on-data-retention-for-a-workspace-in-a-zero-data-retention-organization)

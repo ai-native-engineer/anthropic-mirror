@@ -22,7 +22,7 @@ If your company has more than one Claude organization (a subsidiary with its own
 
 Open the pairing dialog
 
-Go to [**Claude’s access > Channels > Slack**](https://claude.ai/admin-settings/claude-tag/channels/slack). On the **General** tab, under **Connected workspaces**, click **Connect a workspace**.
+Go to [**Claude’s access > Channels > Slack**](https://claude.ai/admin-settings/claude-tag/channels/slack). On the **General** tab, under **Connected workspaces**, click **Connect new**.
 
 2
 
@@ -70,8 +70,11 @@ To get the Grid’s pairing codes, a Slack Org Owner or Org Admin sends `@Claude
 Paste the `enterprise_` code in one of these places:
 
 * **During setup:** paste the code into the **Paste the pairing code** field on the [setup page](https://claude.com/docs/claude-tag/admins/setup-overview#pair-your-slack-workspace)
-* **After setup:** click **Connect a workspace** under **Connected workspaces** on the **Slack** page, as in [Pair another workspace](#pair-another-workspace), and paste the code into the dialog. The Grid’s row in the list shows **Enterprise Grid**.
+* **After setup:** click **Connect new** under **Connected workspaces** on the **Slack** page, as in [Pair another workspace](#pair-another-workspace), and paste the code into the dialog. If a workspace you’ve already paired belongs to a Grid you haven’t paired, the list also has an **Enterprise Grid** row with the status **Not connected**, and **Connect** on that row opens the same dialog.
 
+Leave the workspaces you’ve already paired connected while you pair the Grid. They stay paired and keep their Claude data.
+
+**You’ll see:** the Grid in the **Connected workspaces** list with **Enterprise Grid** and **Active** in the **Status** column.
 Claude answers a one-to-one direct message according to the pairing of the sender’s home workspace, so only the Grid-wide pairing covers DMs from every workspace in the Grid.
 To move the Grid-wide pairing to a different Claude organization, an Owner in the Claude organization that holds it disconnects the Grid first. Disconnecting deletes the Claude-side data listed under [Revoke a pairing](#revoke-a-pairing) for every workspace the Grid-wide pairing covered. Messages Claude already posted stay in Slack.
 

@@ -123,7 +123,7 @@ Introducing Agent Skills
 
 Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 
-[Read more](https://claude.com/blog/skills)
+[Read more](https://claude.com/resources/articles/skills)
 
 [**Slack**](https://slack.com/), the agentic work operating system, has teamed up with Anthropic as a key AI collaborator to fundamentally change how teams communicate and access knowledge. By leveraging the advanced capabilities of the Claude models, Slack is delivering a powerful suite of AI features that unlock organizational knowledge, accelerate workflows, and provide measurable impact for enterprise customers.
 

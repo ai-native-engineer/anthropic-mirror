@@ -43,3 +43,5 @@ As Claude usage has expanded across enterprise use cases, we’re clarifying tha
 ## Looking ahead
 
 We view our Usage Policy as a living document, evolving as AI risks themselves evolve. We will continue to work within Anthropic and with external policymakers, subject matter experts, and civil society to evaluate our policies on an ongoing basis.
+
+Usage Policy update \ Anthropic

@@ -1,134 +1,30 @@
 <!-- source: https://partnerhub.claude.com/directory/partner/agileops -->
 
-![AgileOps logo](https://api.eulerapp.com/partner-directory/assets/a65ed9de0acee689f8dbfe7e2872df9c)
-
-Select
-
 # AgileOps
 
 [Contact](https://partnerhub.claude.com/directory/partner/agileops/contact)[Visit Website](https://agileops.vn/)
 
-Anthropic Products
-
-* API
-* Claude Code
-* Claude Cowork
-* Claude for Teams / Enterprise
 * Other
 
-Budget
-
-* $100K – $500K
-* $25K – $100K
-* $2M+
-* $500K – $2M
 * < $25K
 
-Claude Use Cases
-
-* Business Process & Operations
-* Compliance & Regulatory
-* Content Creation & Copywriting
-* Conversation & Meeting Intelligence
-* Customer Support & Service Operations
 * Cybersecurity & Threat Detection
-* Data Analysis & Business Intelligence
-* DevOps & Infrastructure Operations
-* Document Processing & Extraction
-* Education & Learning
-* Knowledge Retrieval & Enterprise Search
-* Research & Intelligence
-* Sales & Revenue Operations
-* Software Development
-* Trust & Safety / Platform Integrity
-
-Customer Size Served
 
 * Micro SMB (<100 employees)
-* Mid-Market (500–2,500 employees)
 * SMB (100–500 employees)
 
-Deployment Surface
-
-* Claude API (direct)
-
-Engagement Type
-
-* Assessment / Discovery
-* Managed / Recurring
-* Pilot / POC
-* Project / Program
-* Staff Augmentation
-* Training Package
-
-Industry Expertise
-
-* Education
-* Energy & Utilities
-* Financial Services & Insurance
-* Healthcare & Life Sciences
-* Horizontal / Cross-industry
-* Manufacturing & Industrial
-* Professional & Legal Services
 * Public Sector / Government
-* Retail & Consumer Goods
-* Technology & Software
-* Telecom & Media
-* Travel & Hospitality
-
-Office Locations (On-Site Services)
 
 * Southeast Asia
 
-Partner Tier
-
-* Select
-
-Remote Service Coverage
-
 * ANZ
-* Canada
-* DACH (Germany, Austria, Switzerland)
-* France & Benelux
-* Global (any region)
 * Japan
 * Latin America
 * Middle East & Africa
 * Nordics
 * Southeast Asia
-* Southern Europe
-* United Kingdom & Ireland
-* United States
 
-Service Delivery Location
-
-* Hybrid (on-site + remote)
-* On-site
-* Remote — nearshore
-* Remote — same timezone
-
-Services Offered
-
-* AI Readiness & Governance Assessment / Design
-* AI Strategy & Roadmap
-* Build Prototype / POC
-* Claude Training Sessions
-* Connectors, plugins and API integrations
-* Customer-Facing AI Product Build
-* Internal Agentic Platform Build
 * Jumpstart for SMB
-* Managed AI Operations
-* Ongoing Cowork / Claude Code Scaled User Support
-* Platform Migration to Claude
-* Process Redesign
-* Rollout & Activation
-* Use-Case Portfolio & Business Case
-
-Languages
-
-English
-
-Profile updated
 
 5 October 2026
 

@@ -15,7 +15,7 @@ Update Session
 
 ## Parameters
 
-- `session_id: String`
+- `session_id: String` (path parameter)
 
 - `agent: BetaManagedAgentsSessionAgentUpdate`
 
@@ -501,7 +501,7 @@ Update Session
 
   Vault IDs (`vlt_*`) to attach to the session. Not yet supported; requests setting this field are rejected. Reserved for future use.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -607,7 +607,7 @@ Update Session
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 

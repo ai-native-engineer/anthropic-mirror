@@ -28,8 +28,10 @@
 
 [Identity verification on Claude](https://support.claude.com/en/articles/14328960-identity-verification-on-claude)
 
-[Real-time cyber safeguards on Claude Opus and Sonnet](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet)
+[Cyber Verification Program](https://support.claude.com/en/articles/14604842-cyber-verification-program)
 
 [Age assurance on Claude](https://support.claude.com/en/articles/15171100-age-assurance-on-claude)
 
 [Child safety guidance for developers](https://support.claude.com/en/articles/15591275-child-safety-guidance-for-developers)
+
+[Cyber Verification Program Security Requirements](https://support.claude.com/en/articles/17202708-cyber-verification-program-security-requirements)

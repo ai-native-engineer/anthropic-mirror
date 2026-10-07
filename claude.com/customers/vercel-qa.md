@@ -34,7 +34,7 @@ How to create Skills
 
 Follow our step-by-step guide to write custom skills that extend Claude's capabilities with real examples and practical patterns.
 
-[Read more](https://claude.com/blog/how-to-create-skills-key-steps-limitations-and-examples)
+[Read more](https://claude.com/resources/articles/how-to-create-skills-key-steps-limitations-and-examples)
 
 [Vercel](https://vercel.com/) is a platform developers use to build and deploy web applications and agents. Its Chief of Software, Andrew Qu, built [skills.sh](http://skills.sh), a registry on top of Anthropic's open Skills spec, where developers discover and install agent skills.
 
@@ -88,7 +88,7 @@ Improving frontend design through Skills
 
 Build richer, more customized frontend interfaces with Claude. Learn how Skills unlock better typography, animations, and design quality.
 
-[Read more](https://claude.com/blog/improving-frontend-design-through-skills)
+[Read more](https://claude.com/resources/articles/improving-frontend-design-through-skills)
 
 > "Skills have opened up the door for non-technical people with a background in a specific field to contribute to the AI ecosystem."
 

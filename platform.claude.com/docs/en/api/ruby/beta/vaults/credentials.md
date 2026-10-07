@@ -17,7 +17,7 @@ Create Credential
 
 ### Parameters
 
-- `vault_id: String`
+- `vault_id: String` (path parameter)
 
   Identifier of the vault to create the credential in.
 
@@ -193,7 +193,7 @@ Create Credential
 
   Arbitrary key-value metadata to attach to the credential. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -299,7 +299,7 @@ Create Credential
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -509,25 +509,25 @@ List Credentials
 
 ### Parameters
 
-- `vault_id: String`
+- `vault_id: String` (path parameter)
 
   Identifier of the vault to list credentials for.
 
-- `include_archived: bool`
+- `include_archived: bool` (query parameter)
 
   Whether to include archived credentials in the results.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Maximum number of credentials to return per page. Defaults to 20, maximum 100.
 
   format: int32
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque pagination token from a previous `list_credentials` response.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -633,7 +633,7 @@ List Credentials
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -841,15 +841,15 @@ Get Credential
 
 ### Parameters
 
-- `vault_id: String`
+- `vault_id: String` (path parameter)
 
   Identifier of the vault containing the credential.
 
-- `credential_id: String`
+- `credential_id: String` (path parameter)
 
   Unique identifier of the credential to retrieve.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -955,7 +955,7 @@ Get Credential
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1161,11 +1161,11 @@ Update Credential
 
 ### Parameters
 
-- `vault_id: String`
+- `vault_id: String` (path parameter)
 
   Identifier of the vault containing the credential.
 
-- `credential_id: String`
+- `credential_id: String` (path parameter)
 
   Unique identifier of the credential to update.
 
@@ -1299,7 +1299,7 @@ Update Credential
 
   Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1405,7 +1405,7 @@ Update Credential
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1611,15 +1611,15 @@ Delete Credential
 
 ### Parameters
 
-- `vault_id: String`
+- `vault_id: String` (path parameter)
 
   Identifier of the vault containing the credential.
 
-- `credential_id: String`
+- `credential_id: String` (path parameter)
 
   Unique identifier of the credential to delete.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1725,7 +1725,7 @@ Delete Credential
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1777,15 +1777,15 @@ Archive Credential
 
 ### Parameters
 
-- `vault_id: String`
+- `vault_id: String` (path parameter)
 
   Identifier of the vault containing the credential.
 
-- `credential_id: String`
+- `credential_id: String` (path parameter)
 
   Unique identifier of the credential to archive.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1891,7 +1891,7 @@ Archive Credential
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -2097,15 +2097,15 @@ Validate Credential
 
 ### Parameters
 
-- `vault_id: String`
+- `vault_id: String` (path parameter)
 
   Identifier of the vault containing the credential.
 
-- `credential_id: String`
+- `credential_id: String` (path parameter)
 
   Unique identifier of the credential to validate.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -2211,7 +2211,7 @@ Validate Credential
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 

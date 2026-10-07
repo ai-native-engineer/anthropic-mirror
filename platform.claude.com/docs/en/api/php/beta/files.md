@@ -25,11 +25,11 @@ Upload File
 
   Seconds from upload until the file expires and its bytes become permanently unavailable. Must be between 3600 (one hour) and 7776000 (ninety days).
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -127,11 +127,11 @@ List Files
 
 ### Parameters
 
-- `ids?:optional list<string>`
+- `ids?:optional list<string>` (query parameter)
 
   Restrict the result set to Files whose `id` is in this list. At most 100 entries (after de-duplication). Mutually exclusive with `page` and `limit`. When supplied, the response is always a single page (`next_page` is null). IDs that do not resolve to a visible File — including deleted Files — are silently omitted.
 
-- `limit?:optional int`
+- `limit?:optional int` (query parameter)
 
   Number of items to return per page.
 
@@ -139,19 +139,19 @@ List Files
 
   default: 20
 
-- `page?:optional string`
+- `page?:optional string` (query parameter)
 
   Opaque page cursor returned in a prior list response's `next_page`. Prefixed `page_`.
 
-- `scopeID?:optional string`
+- `scopeID?:optional string` (query parameter)
 
   Filter by scope ID. Only returns files associated with the specified scope (e.g., a session ID).
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -256,15 +256,15 @@ Download File
 
 ### Parameters
 
-- `fileID: string`
+- `fileID: string` (path parameter)
 
   ID of the File.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -302,15 +302,15 @@ Get File Metadata
 
 ### Parameters
 
-- `fileID: string`
+- `fileID: string` (path parameter)
 
   ID of the File.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -407,15 +407,15 @@ Delete File
 
 ### Parameters
 
-- `fileID: string`
+- `fileID: string` (path parameter)
 
   ID of the File.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 

@@ -86,7 +86,7 @@ Blog post
 
 Claude for Excel, PowerPoint, and Word are now generally available on all paid plans, with Claude for Outlook joining in beta.
 
-[Read blog](https://claude.com/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook)
+[Read blog](https://claude.com/resources/articles/collaborate-with-claude-across-excel-powerpoint-word-and-outlook)
 
 ### What customers are saying
 

@@ -109,4 +109,4 @@ This Code of Conduct forms part of the Code with Claude Terms & Conditions. Capi
 * Inflatable items such as balloons or beach balls
 * Clothing or items displaying offensive language or images.
 
-Code of Conduct — Code w/ Claude 2026
+Code of conduct — Code w/ Claude 2026

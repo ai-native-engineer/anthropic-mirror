@@ -6,7 +6,7 @@ Claude Cowork is now just Claude.
 
 Rolling out to Pro and Max, with more plans to follow.
 
-[Read what changed (opens in new tab)](https://claude.com/blog/cowork-is-now-claude/)
+[Read what changed (opens in new tab)](https://claude.com/resources/articles/cowork-is-now-claude)
 
 ![](https://assets.claude.com/82c296c6728990b32f78abb702912d16db00119b.jpg)
 

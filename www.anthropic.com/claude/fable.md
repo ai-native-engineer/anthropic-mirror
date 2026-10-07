@@ -82,7 +82,7 @@ Claude Fable 5.1 understands diagrams, charts, and tables nested in files and PD
 
 ## Safeguards
 
-Claude Fable 5.1 includes robust safeguards for cybersecurity and biology. Many queries in these domains are automatically routed to less capable models if flagged by these safeguards. You won’t be charged Fable prices for rerouted requests. [Learn more](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5) about how the fallback experience works.
+Claude Fable 5.1 includes robust safeguards for cybersecurity and biology. Many queries in these domains are automatically routed to less capable models if flagged by these safeguards. You won’t be charged Fable prices for rerouted requests. [Learn more](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5) about how the fallback experience works. Security teams whose legitimate work is affected can apply to the [Cyber Verification Program](https://www.anthropic.com/news/cyber-verification-program) for adjusted safeguards.
 
 We extensively test and evaluate our models to ensure they meet Anthropic’s standards for safety, security, and reliability. The accompanying [system card](https://www.anthropic.com/claude-fable-5-1-mythos-5-1-system-card) covers safety results in depth.
 
@@ -148,9 +148,9 @@ We offer Claude models across the spectrum of speed, price, and performance. Cla
 
 Making a model as capable as Fable 5.1 generally available comes with risks. The model’s capabilities in specific areas like cybersecurity, biology, and chemistry are advanced enough that they could be misused to create wide-reaching cyberattacks or build dangerous bioweapons. For that reason, Fable 5.1 comes with safeguards that block or limit its performance in these areas. Many queries on topics including biology and cybersecurity will instead receive a response from Opus models.
 
-### When can I get access to Mythos 5.1 for cybersecurity and biology research?
+### How can I get access to Mythos 5.1 for cybersecurity and biology research?
 
-Claude Mythos 5.1 is available to vetted organizations through our trusted access programs. Cyberdefenders can apply to the Cyber Verification Program [here](http://portal.anthropic.com/programs/cvp), which will include Mythos access in the near future.
+Security teams can apply for advanced cyber capabilities on Claude Opus 5.5, Claude Sonnet 5.5, Claude Mythos 5.1, and future models through the [Cyber Verification Program](https://www.anthropic.com/news/cyber-verification-program). Life sciences researchers can apply for advanced capabilities through the [Life Sciences Verification Program](https://www.anthropic.com/news/life-sciences-verification-program).
 
 ### How does the fallback work?
 

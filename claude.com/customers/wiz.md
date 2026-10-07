@@ -93,7 +93,7 @@ Claude Code on the web
 
 Delegate coding tasks directly from your browser. Kick off multiple sessions in parallel across repositories, with real-time progress tracking.
 
-[Read more](https://claude.com/blog/claude-code-on-the-web)
+[Read more](https://claude.com/resources/articles/claude-code-on-the-web)
 
 > "This project would never have happened without Claude Code. The amount of effort and time that we would have needed to invest—we just wouldn’t do it.”
 

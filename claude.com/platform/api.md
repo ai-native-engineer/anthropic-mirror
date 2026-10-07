@@ -352,7 +352,7 @@ Batch processing
 
 For Quora, batch processing provides cost savings while also reducing the complexity of running a large number of queries that don't need to be processed in real time.
 
-[Read more](https://claude.com/blog/message-batches-api)
+[Read more](https://claude.com/resources/articles/message-batches-api)
 
 ## Observe and manage your agents with the Claude Console
 
@@ -567,7 +567,7 @@ Aleksandar Mitic, Senior Engineer
 
 [Reducing cost and improving performance with Claude Platform
 
-Blog](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)
+Blog](https://claude.com/resources/articles/reducing-cost-and-improving-performance-with-claude-platform)
 
 [Demystifying evals for AI agents
 
@@ -587,7 +587,7 @@ Docs](https://platform.claude.com/docs/en/cli-sdks-libraries/overview)
 
 [Building agents that reach production systems with MCP
 
-Blog](https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp)
+Blog](https://claude.com/resources/articles/building-agents-that-reach-production-systems-with-mcp)
 
 [Scaling Managed Agents: Decoupling the brain from the hands
 

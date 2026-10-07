@@ -34,7 +34,7 @@ Building agents with the Claude Agent SDK
 
 The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
 
-[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)
+[Read more](https://claude.com/resources/articles/building-agents-with-the-claude-agent-sdk)
 
 [Duvo](https://www.duvo.ai/) builds AI agents that run procurement, supply chain, and category management processes for multi-billion-euro retail and CPG companies. The agents work across every system involved: ERPs, supplier portals, spreadsheets, email, even phone calls. Duvo is built entirely on Claude, using the Agent SDK to orchestrate across workflows, with every API call running under Anthropic's Zero Data Retention mode.
 

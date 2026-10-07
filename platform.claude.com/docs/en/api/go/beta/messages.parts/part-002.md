@@ -3,14 +3,6 @@
 
 <!-- chunk-start -->
 
-                  - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
-
-                  - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
-
-                - `Name ToolSearchToolBm25`
-
-                  Name of the tool.
-
                   This is how the tool will be called by the model and in `tool_use` blocks.
 
                 - `AllowedCallers []string Optional`
@@ -27018,3 +27010,15 @@
             - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20260521 BetaToolComputerUse20250124AllowedCaller = "code_execution_20260521"`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
+
+            Create a cache control breakpoint at this content block.
+
+          - `DeferLoading bool Optional`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `DisplayNumber int64 Optional`
+
+            The X11 display number (e.g. 0, 1) for the display.
+
+            minimum: 0

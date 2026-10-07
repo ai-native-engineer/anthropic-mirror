@@ -3,26 +3,6 @@
 
 <!-- chunk-start -->
 
-    - `cache_read_input_tokens: number`
-
-      The number of input tokens read from the cache.
-
-      default: 0, minimum: 0
-
-    - `input_tokens: number`
-
-      The number of input tokens which were used.
-
-      minimum: 0
-
-    - `model: Model`
-
-      The model that will complete your prompt.
-
-      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-    - `output_tokens: number`
-
       The number of output tokens which were used.
 
       minimum: 0
@@ -30189,6 +30169,18 @@
         - `switch_tab?: BetaBrowserSwitchTabConfig | null`
 
           `switch_tab`'s config overrides.
+
+          - `defer_loading?: boolean | null`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `enabled?: boolean | null`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `triple_click?: BetaBrowserTripleClickConfig | null`
+
+          `triple_click`'s config overrides.
 
           - `defer_loading?: boolean | null`
 

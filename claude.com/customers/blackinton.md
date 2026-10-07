@@ -1,6 +1,6 @@
 <!-- source: https://claude.com/customers/blackinton -->
 
-Case Study
+How Anthropic is helping small businesses
 
 # How does a badge-maker shorten lead times but keep an old-world process alive?
 

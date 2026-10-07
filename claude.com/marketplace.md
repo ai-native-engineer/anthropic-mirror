@@ -6,7 +6,7 @@ Claude Marketplace is now one place to find plugins, agents, and more
 
 Get what you need to do more with Claude, or list what you've built.
 
-[Read what's new (opens in new tab)](https://claude.com/blog/claude-marketplace)
+[Read what's new (opens in new tab)](https://claude.com/resources/articles/claude-marketplace)
 
 # Claude Marketplace
 

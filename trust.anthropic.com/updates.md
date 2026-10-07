@@ -25,6 +25,23 @@ FAQ
 Updates
 Updates
 
+General
+
+Updated Accessibility Conformance Report (ACR) for Claude Code CLI
+
+Published October 6, 2026
+
+We've published a new Accessibility Conformance Report (ACR) for Claude Code CLI, dated October 2026. It covers WCAG 2.2 Levels A and AA. Highlights:
+
+Screen reader mode: Claude Code CLI's screen reader mode presents its interface as plain, linear text. Most menus and prompts are written as numbered lists that give each option's name and state. We tested it with VoiceOver on macOS and NVDA on Windows.
+Status messages: Screen reader mode writes short announcements, for example when text is deleted. The terminal bell rings when Claude finishes or needs an answer.
+
+The ACR is available in the Trust Center document library. We're committed to continuing to improve accessibility across Claude, and we welcome feedback from customers and end users.
+
+Read more
+Read more
+about Updated Accessibility Conformance Report (ACR) for Claude Code CLI
+
 Compliance
 
 HIPAA-Configuration Implementation Guide Updated
@@ -164,47 +181,8 @@ Claude’s web search functionality is now available in Claude for Government (C
 Read more
 Read more
 about Claude for Government: Web Search Functionality Now Available
-
-General
-
-Trust Center Update — February 2026
-
-Published February 7, 2026
-
-Anthropic Affiliates Added to FAQ
-
-We've added a new entry to our Trust Center FAQ addressing which Anthropic affiliates and entities may have access to customer data. You can review the full details here: Which Anthropic affiliates/entities may have access to customer data?
-Opens in new tab
-
-Claude.ai, Claude Enterprise, and Claude API NIST 800-171 Attestation
-
-We are pleased to announce that Claude.ai, Claude Enterprise, and the Claude API have completed a successful independent third-party assessment against NIST 800-171.
-
-NIST 800-171 establishes security requirements for nonfederal systems that process, store, or transmit Controlled Unclassified Information (CUI), as well as for components that provide protection for such systems.
-
-This attestation reinforces our commitment to meeting the security expectations of customers operating in regulated environments and handling sensitive data, so you can use Claude with confidence for your most important work.
-
-A copy of our NIST 800-171 attestation letter is available at trust.anthropic.com/resources
-Opens in new tab
-.
-
-Claude Code: FISMA Best Practices
-
-Claude Code brings an agentic coding assistant to your terminal, helping you bring ideas to life faster than ever. While Claude Code excels at coding, it can also help with writing documents, searching files, and more. However, deploying AI in on-premise environments isn't always straightforward, especially in regulated settings.
-
-To help customers securely deploy Claude Code within their authorization boundary, we've developed a FISMA best practices guide.
-
-FISMA (Federal Information Security Modernization Act) establishes the requirements federal agencies must follow to implement and enforce information security policies that protect agency information, IT systems, operations, and assets. While FISMA compliance is a federal agency responsibility, it serves as a strong benchmark for any regulated on-premise environment. Service providers share a responsibility to help customers use their products securely, and this guide reflects that commitment.
-
-Our FISMA best practices guide outlines recommendations for deploying and using Claude Code in alignment with FISMA requirements. Visit our Trust Center to learn more: trust.anthropic.com/resources
-Opens in new tab
-.
-
-Read more
-Read more
-about Trust Center Update — February 2026
-1-10 of 21 results
-1-10 of 21 results
+1-10 of 22 results
+1-10 of 22 results
 Show
 10
 results per page

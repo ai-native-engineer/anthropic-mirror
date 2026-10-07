@@ -8,7 +8,7 @@ Claude Code charges by API token consumption. For subscription plan pricing (Pro
 
 Across enterprise deployments, the average cost is around \$13 per developer per active day and \$150-250 per developer per month, with costs remaining below \$30 per active day for 90% of users. To estimate spend for your own team, start with a small pilot group and use the tracking tools below to establish a baseline before wider rollout.
 
-This page covers how to [track your costs](#track-your-costs), [manage costs for your organization](#manage-costs-for-your-organization), and [reduce token usage](#reduce-token-usage).
+This page covers Claude Code usage only: how to [track your costs](#track-your-costs), [manage costs for your organization](#manage-costs-for-your-organization), and [reduce token usage](#reduce-token-usage). For usage limits in other Claude products, see the [Claude Help Center](https://support.claude.com).
 
 ## Track your costs
 
@@ -224,7 +224,7 @@ The following strategies help you keep context small and reduce per-message cost
 
 Use `/usage` to check your current token usage, or [configure your status line](https://code.claude.com/docs/en/statusline#context-window-usage) to display it continuously.
 
-* **Clear between tasks**: Use `/clear` to start fresh when switching to unrelated work. Stale context wastes tokens on every subsequent message. Use `/rename` before clearing so you can easily find the session later, then `/resume` to return to it.
+* **Clear between tasks**: Use `/clear` to start fresh when switching to unrelated work. Stale context wastes tokens on every subsequent message. Use `/rename` before clearing so you can find the session later, then `/resume` to return to it.
 * **Add custom compaction instructions**: `/compact Focus on code samples and API usage` tells Claude what to preserve during summarization.
 
 You can also customize compaction behavior in your CLAUDE.md file at the root of your project:

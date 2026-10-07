@@ -1,12 +1,14 @@
 <!-- source: https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview -->
 
-**Note:** Claude Cowork and chat are now one Claude, rolling out gradually to Pro and Max plans. Ask for what you need, and Claude decides whether that's a quick answer or a task. Team and Enterprise organizations keep chat and Claude Cowork as they are today, so everything in this article still applies. Learn more in our **[blog post](https://claude.com/blog/cowork-is-now-claude)**.
-
 This article explains where Claude Cowork runs, how each execution mode is isolated, and the admin controls available for restricting its scope.
 
 This article is for Enterprise admins. The architecture described here is the same across all plans. The device-level admin controls at the end apply to Team and Enterprise plans.
 
-Claude Cowork is in beta on web and mobile for Pro, Max, and Team plans, and Enterprise plans when enabled by an owner.
+Claude Cowork runs in the cloud on Pro and Max plans. It’s in beta on web and mobile for Team plans, and Enterprise plans when enabled by an owner.
+
+**Note:** Claude Cowork and chat are now one Claude, rolling out gradually to Pro and Max plans. Ask for what you need, and Claude decides whether that's a quick answer or a task. Team and Enterprise organizations keep chat and Claude Cowork as they are today, so everything in this article still applies. Learn more in our **[blog post](https://claude.com/blog/cowork-is-now-claude)**.
+
+---
 
 ## Where Claude Cowork runs
 
@@ -32,7 +34,7 @@ Because a session in the cloud runs on Anthropic's servers, the agent's work, in
 
 ### Local session architecture
 
-Local sessions apply to existing desktop deployments and use two execution environments on the member's device:
+Local sessions apply to existing desktop deployments (on Pro and Max plans, only **[tasks and scheduled tasks started on the device before October 6, 2026](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile#h_f951c27c48)**) and use two execution environments on the member's device:
 
 * **The agent loop runs natively on the device.** This includes Claude's conversation handling, file reads and writes in connected folders, web fetches, and local plugin MCP servers. Access is gated by an application-layer permission system that enforces the member's connected-folder rules and your organization's network egress settings.
 * **Code execution runs in an isolated virtual machine (VM).** Shell commands and any code Claude writes execute inside a dedicated Linux VM, isolated from the host operating system by the platform's hypervisor (Apple Virtualization.framework on macOS, Hyper-V on Windows). The VM enforces its own network egress filtering, syscall restrictions, and per-session user isolation.

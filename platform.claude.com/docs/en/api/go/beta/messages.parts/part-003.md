@@ -3,18 +3,6 @@
 
 <!-- chunk-start -->
 
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `DisplayNumber int64 Optional`
-
-            The X11 display number (e.g. 0, 1) for the display.
-
-            minimum: 0
-
           - `InputExamples []map[string, any] Optional`
 
           - `Strict bool Optional`
@@ -15661,7 +15649,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `Requests param.Field[[]BetaMessageBatchNewParamsRequest]`
 
-    Body param: List of requests for prompt completion. Each is an individual request to create a Message.
+    List of requests for prompt completion. Each is an individual request to create a Message.
 
     minItems: 1, maxItems: 100000
 
@@ -19775,9 +19763,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         minimum: 0, maximum: 1
 
-  - `Betas param.Field[[]AnthropicBeta] Optional`
+  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
@@ -19879,13 +19867,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `UserProfileID param.Field[string] Optional`
+  - `UserProfileID param.Field[string] Optional` (header parameter)
 
-    Header param: The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
+    The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
-  - `WorkspaceID param.Field[string] Optional`
+  - `WorkspaceID param.Field[string] Optional` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -20075,13 +20063,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 #### Parameters
 
-- `messageBatchID string`
+- `messageBatchID string` (path parameter)
 
   ID of the Message Batch.
 
 - `query BetaMessageBatchGetParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional`
+  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -20185,7 +20173,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional`
+  - `WorkspaceID param.Field[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -20367,25 +20355,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `params BetaMessageBatchListParams`
 
-  - `AfterID param.Field[string] Optional`
+  - `AfterID param.Field[string] Optional` (query parameter)
 
-    Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `BeforeID param.Field[string] Optional`
+  - `BeforeID param.Field[string] Optional` (query parameter)
 
-    Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `Limit param.Field[int64] Optional`
+  - `Limit param.Field[int64] Optional` (query parameter)
 
-    Query param: Number of items to return per page.
+    Number of items to return per page.
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
     minimum: 1, maximum: 1000
 
-  - `Betas param.Field[[]AnthropicBeta] Optional`
+  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
@@ -20487,9 +20475,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional`
+  - `WorkspaceID param.Field[string] Optional` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -20672,13 +20660,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 #### Parameters
 
-- `messageBatchID string`
+- `messageBatchID string` (path parameter)
 
   ID of the Message Batch.
 
 - `body BetaMessageBatchCancelParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional`
+  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -20782,7 +20770,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional`
+  - `WorkspaceID param.Field[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -20964,13 +20952,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 #### Parameters
 
-- `messageBatchID string`
+- `messageBatchID string` (path parameter)
 
   ID of the Message Batch.
 
 - `body BetaMessageBatchDeleteParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional`
+  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -21074,7 +21062,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional`
+  - `WorkspaceID param.Field[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -21148,13 +21136,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 #### Parameters
 
-- `messageBatchID string`
+- `messageBatchID string` (path parameter)
 
   ID of the Message Batch.
 
 - `query BetaMessageBatchResultsParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional`
+  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -21258,7 +21246,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional`
+  - `WorkspaceID param.Field[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 

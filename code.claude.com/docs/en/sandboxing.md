@@ -982,6 +982,8 @@ The sandbox isolates shell commands and their child processes. [What runs outsid
 
 * **Computer use**: when Claude opens apps and controls your screen, it runs on your actual desktop rather than in an isolated environment. Per-app permission prompts gate each application. See [computer use in the CLI](https://code.claude.com/docs/en/computer-use) or [computer use in Desktop](https://code.claude.com/docs/en/desktop#let-claude-use-your-computer).
 * **Subagents**: [subagents](https://code.claude.com/docs/en/sub-agents) run in the same process as the parent session and use the same sandbox configuration. Bash commands inside a subagent are sandboxed when sandboxing is enabled in the parent session.
+* **Background sessions**: a [background session](https://code.claude.com/docs/en/agent-view) runs in its own process, and its Bash commands are sandboxed when [its settings](https://code.claude.com/docs/en/agent-view#settings-and-provider) enable sandboxing.
+* **A boundary around the whole process**: to put the processes in [What runs outside the sandbox](#what-runs-outside-the-sandbox) behind a boundary too, run Claude Code (local mode) inside the [sandbox runtime](https://code.claude.com/docs/en/sandbox-environments#sandbox-runtime) with a network allowlist limited to the hosts you approve, or in the [dev container](https://code.claude.com/docs/en/devcontainer) with its firewall script. For the background service and the sessions it hosts, see [Run Claude Code behind a corporate launcher](https://code.claude.com/docs/en/corporate-launcher).
 * **Mods**: a [mod](https://code.claude.com/docs/en/plugins/mods/overview) is a plugin that runs its own code inside Claude Code, and a process that a mod starts runs outside the sandbox. See [What a mod can reach](https://code.claude.com/docs/en/plugins/mods/overview#what-a-mod-can-reach).
 
 <Warning>
@@ -991,7 +993,7 @@ The sandbox isolates shell commands and their child processes. [What runs outsid
 ## See also
 
 * [Sandbox environments](https://code.claude.com/docs/en/sandbox-environments): compare the built-in sandbox with dev containers, containers, and VMs
-* [Security](https://code.claude.com/docs/en/security): comprehensive security features and best practices
+* [Security](https://code.claude.com/docs/en/security): security features and best practices
 * [Permissions](https://code.claude.com/docs/en/permissions): permission configuration and access control
 * [All settings](https://code.claude.com/docs/en/settings-reference): every settings key
 * [CLI reference](https://code.claude.com/docs/en/cli-reference): command-line options

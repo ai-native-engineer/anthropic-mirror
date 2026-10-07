@@ -49,7 +49,7 @@ IFS Nexus Black brings together AI specialists and the industrial knowledge of I
 
 Claude's capabilities opened up approaches that weren't possible before. Resolve uses Claude's multimodal capabilities to analyze thousands of equipment images, correlate sensor readings, and connect patterns across visual inspections and operational data to catch problems before they become failures.
 
-The Model Context Protocol (MCP), built and open-sourced by Anthropic, facilitates easier connections between systems—including legacy infrastructure that has traditionally been challenging to integrate. This enables Claude to bridge data silos that have long complicated industrial operations. And [Skills by Claude](https://www.claude.com/blog/skills) helps IFS manage the complex context that comes with decades of industrial data—ensuring engineers get relevant, accurate information without drowning in documentation.
+The Model Context Protocol (MCP), built and open-sourced by Anthropic, facilitates easier connections between systems—including legacy infrastructure that has traditionally been challenging to integrate. This enables Claude to bridge data silos that have long complicated industrial operations. And [Skills by Claude](https://claude.com/resources/articles/skills) helps IFS manage the complex context that comes with decades of industrial data—ensuring engineers get relevant, accurate information without drowning in documentation.
 
 "We're working in environments where safety and compliance aren't optional," said Kriti Sharma, CEO of IFS Nexus Black. "If you don't build AI safety-first in our world, lives are put at risk."
 

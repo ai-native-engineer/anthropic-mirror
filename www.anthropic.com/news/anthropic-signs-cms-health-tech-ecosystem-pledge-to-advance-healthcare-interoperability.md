@@ -19,3 +19,5 @@ Healthcare's interoperability challenge mirrors a problem we've already solved i
 At Anthropic, we are focused on creating a healthcare ecosystem of partners who can connect easily and securely so that users can leverage their clinical and non-clinical data to better understand their health. We will work with payers, providers, data platforms and consumer technology companies to aggregate patient data and make it usable and actionable in a responsible way with Claude.
 
 We look forward to continuing to work with policymakers across the U.S. government to ensure the opportunities AI unlocks support the American people. Sectors including healthcare, science, energy infrastructure, and citizen services can use this technology to keep the United States on the frontier of innovation—advancing our economy and communities in unprecedented ways.
+
+Anthropic signs CMS health tech pledge \ Anthropic

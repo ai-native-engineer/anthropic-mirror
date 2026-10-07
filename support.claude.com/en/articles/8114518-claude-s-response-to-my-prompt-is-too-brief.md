@@ -4,6 +4,6 @@ Claude’s context window applies to the prompts you provide but not the output 
 
 * [Get started with Claude](https://support.claude.com/en/articles/8114491-get-started-with-claude)
 * [Claude is providing incorrect or misleading responses. What’s going on?](https://support.claude.com/en/articles/8525154-claude-is-providing-incorrect-or-misleading-responses-what-s-going-on)
-* [Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)
+* [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
 * [Give Claude context: CLAUDE.md and better prompts](https://support.claude.com/en/articles/14553240-give-claude-context-claude-md-and-better-prompts)
 * [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)

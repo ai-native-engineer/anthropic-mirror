@@ -96,7 +96,7 @@ Claude Managed Agents: Get to production 10x faster
 
 We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
 
-[Read more](https://claude.com/blog/claude-managed-agents)
+[Read more](https://claude.com/resources/articles/claude-managed-agents)
 
 > "The benefit of bringing in Claude is people trust the intelligence of the model and the experience."
 

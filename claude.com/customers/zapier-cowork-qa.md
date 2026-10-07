@@ -114,7 +114,7 @@ Claude Enterprise, now available self-serve
 
 Any organization can now purchase Claude Enterprise directly—no sales conversation required. Set up SSO, invite team members, and start working in minutes.
 
-[Read more](https://claude.com/blog/self-serve-enterprise)
+[Read more](https://claude.com/resources/articles/self-serve-enterprise)
 
 > “The biggest mistake people make is treating Cowork as a conversation that ends. Claude captures it so everything compounds. Each session makes the next one smarter.”
 

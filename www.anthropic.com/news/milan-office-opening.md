@@ -19,3 +19,5 @@ Anthropic is also putting Claude in the hands of Italy’s leading designers. Du
 Chris Ciauri, MD International at Anthropic, commented: “We are here to support Italian enterprise, Italian research, and Italian culture through a safe AI transition. Italy is a country that has always embraced profound transformation and we are optimistic about what frontier AI can do for this country, from its largest industrial groups to its founders, its universities, and its cultural institutions.”
 
 The question of how AI reshapes work, design, knowledge, and human agency is not one the technology sector can or should answer alone. Anthropic was founded because we believe questions like these are among the most important of our time. Getting the AI transition right requires more voices, not fewer: from industry, civil society, and institutions that have thought carefully about human dignity for far longer than AI has existed. Our team in Milan will support the Italian companies, researchers, and builders shaping how this technology is used, and contribute, where we can, to that larger conversation about how it should be developed.
+
+Anthropic opens Milan office \ Anthropic

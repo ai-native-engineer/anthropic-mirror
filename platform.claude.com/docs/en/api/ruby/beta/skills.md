@@ -29,7 +29,7 @@ Create Skill
   Always set: derived from the SKILL.md frontmatter `name` when omitted at
   creation. Not unique.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -135,7 +135,7 @@ Create Skill
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -247,7 +247,7 @@ List Skills
 
 ### Parameters
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results to return per page.
 
@@ -255,13 +255,13 @@ List Skills
 
   minimum: 1, maximum: 1000
 
-- `page: String`
+- `page: String` (query parameter)
 
   Pagination token for fetching a specific page of results.
 
   Pass the value from a previous response's `next_page` field to get the next page of results.
 
-- `source: String`
+- `source: String` (query parameter)
 
   Filter skills by source.
 
@@ -270,7 +270,7 @@ List Skills
   * `"custom"`: only return user-created skills
   * `"anthropic"`: only return Anthropic-created skills
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -376,7 +376,7 @@ List Skills
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -493,13 +493,13 @@ Get Skill
 
 ### Parameters
 
-- `skill_id: String`
+- `skill_id: String` (path parameter)
 
   Unique identifier for the skill.
 
   The format and length of IDs may change over time.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -605,7 +605,7 @@ Get Skill
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -717,13 +717,13 @@ Delete Skill
 
 ### Parameters
 
-- `skill_id: String`
+- `skill_id: String` (path parameter)
 
   Unique identifier for the skill.
 
   The format and length of IDs may change over time.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -829,7 +829,7 @@ Delete Skill
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -993,7 +993,7 @@ Create Skill Version
 
 #### Parameters
 
-- `skill_id: String`
+- `skill_id: String` (path parameter)
 
   Unique identifier for the skill.
 
@@ -1005,7 +1005,7 @@ Create Skill Version
 
   All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1111,7 +1111,7 @@ Create Skill Version
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1192,13 +1192,13 @@ List Skill Versions
 
 #### Parameters
 
-- `skill_id: String`
+- `skill_id: String` (path parameter)
 
   Unique identifier for the skill.
 
   The format and length of IDs may change over time.
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Number of results to return per page.
 
@@ -1206,11 +1206,11 @@ List Skill Versions
 
   minimum: 1, maximum: 1000
 
-- `page: String`
+- `page: String` (query parameter)
 
   Optionally set to the `next_page` token from the previous response.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1316,7 +1316,7 @@ List Skill Versions
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1402,19 +1402,19 @@ Download a skill version's content as a zip archive.
 
 #### Parameters
 
-- `skill_id: String`
+- `skill_id: String` (path parameter)
 
   Unique identifier for the skill.
 
   The format and length of IDs may change over time.
 
-- `version: String`
+- `version: String` (path parameter)
 
   Identifies the skill version by its version ID.
 
   Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1520,7 +1520,7 @@ Download a skill version's content as a zip archive.
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1552,19 +1552,19 @@ Get Skill Version
 
 #### Parameters
 
-- `skill_id: String`
+- `skill_id: String` (path parameter)
 
   Unique identifier for the skill.
 
   The format and length of IDs may change over time.
 
-- `version: String`
+- `version: String` (path parameter)
 
   Identifies the skill version: a version ID, or the literal `latest` for the skill's most recent version.
 
   Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1670,7 +1670,7 @@ Get Skill Version
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1751,19 +1751,19 @@ Delete Skill Version
 
 #### Parameters
 
-- `skill_id: String`
+- `skill_id: String` (path parameter)
 
   Unique identifier for the skill.
 
   The format and length of IDs may change over time.
 
-- `version: String`
+- `version: String` (path parameter)
 
   Identifies the skill version by its version ID.
 
   Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1869,7 +1869,7 @@ Delete Skill Version
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 

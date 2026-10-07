@@ -3,22 +3,6 @@
 
 <!-- chunk-start -->
 
-      - `required string ToolUseID`
-
-        pattern: ^[a-zA-Z0-9_-]+$
-
-    - `class BetaContainerUploadBlock`
-
-      Response model for a file uploaded to the container.
-
-      - `JsonElement Type = "container_upload"`
-
-      - `required string FileID`
-
-    - `class BetaCompactionBlock`
-
-      A compaction block returned when autocompact is triggered.
-
       When content is None, it indicates the compaction failed to produce a valid
       summary (e.g., malformed output from the model). Clients may round-trip
       compaction blocks with null content; the server treats them as no-ops.
@@ -29639,3 +29623,13 @@
           `type`'s config overrides.
 
           - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaBrowserCloseTabConfig? CloseTab`
+
+          `close_tab`'s config overrides.

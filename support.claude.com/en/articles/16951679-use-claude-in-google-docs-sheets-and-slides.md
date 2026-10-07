@@ -22,10 +22,10 @@ If your organization already allows Marketplace apps, this takes about two minut
 1. Install Claude from the **[Google Workspace Marketplace listing](https://workspace.google.com/marketplace/app/claude/12459801340)** and click "Install.” If an admin has already installed it for you, skip this step.
 2. Open any file in Google Docs, Sheets, or Slides and go to Extensions > Claude > “Open Claude":
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2707281468/abc0497defca04936c9a4b97d147/8b17d05f-3fb1-4e49-8d1f-65364ac3f496?expires=1791252000&signature=5bc591ed92d547d58685268e09f67ce76f9ca7b85107af952f2ad36344c92648&req=dicnEct2nIVZUfMW1HO4zRwmJT1uUeZPaAKM49NdBLOrvEvadK1aLLGGzExb%0AsJp6%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2707281468/abc0497defca04936c9a4b97d147/8b17d05f-3fb1-4e49-8d1f-65364ac3f496?expires=1791252000&signature=5bc591ed92d547d58685268e09f67ce76f9ca7b85107af952f2ad36344c92648&req=dicnEct2nIVZUfMW1HO4zRwmJT1uUeZPaAKM49NdBLOrvEvadK1aLLGGzExb%0AsJp6%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2707281468/abc0497defca04936c9a4b97d147/8b17d05f-3fb1-4e49-8d1f-65364ac3f496?expires=1791460800&signature=273f55c01964051ef4d9ab3b7b1b84c679caa01573684f4d64b595dabee539df&req=dicnEct2nIVZUfMW3nq%2Bga5262q7l3%2F50whwNypvUDjX%2FJvntg6UpKU3Av9h%0AZiAqvwThIWQkjLG1t4h5DTLGjbg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2707281468/abc0497defca04936c9a4b97d147/8b17d05f-3fb1-4e49-8d1f-65364ac3f496?expires=1791460800&signature=273f55c01964051ef4d9ab3b7b1b84c679caa01573684f4d64b595dabee539df&req=dicnEct2nIVZUfMW3nq%2Bga5262q7l3%2F50whwNypvUDjX%2FJvntg6UpKU3Av9h%0AZiAqvwThIWQkjLG1t4h5DTLGjbg%3D%0A)
 3. The first time, Google asks you to allow two permissions. Review them and click "Allow":
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2707282342/f583a396098ff16e3cbd156d4a2a/112c6459-79c6-4fbb-9bc0-748fda6f592f?expires=1791252000&signature=1bf69ba860af2b87c26b065bebc87d24a5bdedf44ea4fddf266914417b62b82b&req=dicnEct2n4JbW%2FMW1HO4zeKY3p0EhQzweBfHlrCfDWexS30mh2rEgzaj9OV4%0AHbai%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2707282342/f583a396098ff16e3cbd156d4a2a/112c6459-79c6-4fbb-9bc0-748fda6f592f?expires=1791252000&signature=1bf69ba860af2b87c26b065bebc87d24a5bdedf44ea4fddf266914417b62b82b&req=dicnEct2n4JbW%2FMW1HO4zeKY3p0EhQzweBfHlrCfDWexS30mh2rEgzaj9OV4%0AHbai%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2707282342/f583a396098ff16e3cbd156d4a2a/112c6459-79c6-4fbb-9bc0-748fda6f592f?expires=1791460800&signature=97b607ca925e322099a0263016e1b43ab3fb437814672742e285a020765fdf6f&req=dicnEct2n4JbW%2FMW3nq%2BgYbtpr3GZYEWsweCm1f0FABALEb0Sx782Dmj5oTi%0AJz3xc463IcNVgh2xbP6%2Bc3gvuTA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2707282342/f583a396098ff16e3cbd156d4a2a/112c6459-79c6-4fbb-9bc0-748fda6f592f?expires=1791460800&signature=97b607ca925e322099a0263016e1b43ab3fb437814672742e285a020765fdf6f&req=dicnEct2n4JbW%2FMW3nq%2BgYbtpr3GZYEWsweCm1f0FABALEb0Sx782Dmj5oTi%0AJz3xc463IcNVgh2xbP6%2Bc3gvuTA%3D%0A)
 4. Sign in with your Claude account in the sidebar, and optionally enable your connectors.
 5. Then ask Claude something about the file. Try "Summarize this document in five bullets" or "What does column F calculate?"
 
@@ -185,11 +185,15 @@ Claude requests two Google permissions, the minimum needed to show a sidebar and
 * Anthropic does not use this content to train its models. Use of data received from Google Workspace APIs adheres to the **[Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy)**, including the Limited Use requirements.
 * Inputs and outputs are deleted from Anthropic's systems within 30 days, except as described in **[How long do you store my organization's data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data) The extension does not inherit custom data retention settings your organization may have set.**
 * Chat history is stored locally in your browser, per file and is not synced across devices. Clear it from Settings in the sidebar.
+* On Enterprise plans, sessions from the Google extension are available through the Compliance API, including prompts, responses, tool calls, and the edits Claude made.
 
 ### Enterprise security controls
 
 How the standard Claude Enterprise controls apply to the Google Workspace extension today:
 
+* **Compliance API:** Supported on Enterprise plans. Sessions are captured and returned through the same endpoints and Compliance Access Keys as Claude for Microsoft 365, with prompts, responses, tool calls, and edits.
+* **Customer-managed encryption keys (CMEK):** Supported for Enterprise. Conversation data that Anthropic stores is encrypted under the customer’s key with no extra configuration.
+* **OpenTelemetry audit export:** Supported. If a Claude admin has configured a custom OpenTelemetry collector for Office agents in Organization settings, sessions from Docs, Sheets, and Slides send the full audit trail to it, including prompts and tool inputs and outputs.
 * **Third-party inference (Amazon Bedrock, Google Cloud Vertex AI, Azure AI Foundry, or an LLM gateway):** Not supported in this beta. The extension requires a Claude account sign-in. Claude for Microsoft 365 supports these platforms; the Google Workspace extension does not yet.
 * **Zero Data Retention (ZDR):** Not available. Standard retention applies as described above. Because third-party inference is not supported, there is no zero-retention deployment path for the extension today.
 * **HIPAA-ready organizations:** Not covered. Do not use the extension with protected health information.
@@ -276,8 +280,8 @@ No. Claude in Chrome works across web pages in your browser; the Google Workspac
 
 Yes. See **[Claude for Microsoft 365](https://claude.com/claude-for-microsoft-365)**.
 
+* [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
 * [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
-* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Get started with Claude in Chrome](https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome)
-* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
 * [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
+* [Get started with Claude Docs](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs)

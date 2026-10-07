@@ -17,23 +17,23 @@ List Session Threads
 
 ### Parameters
 
-- `sessionID: string`
+- `sessionID: string` (path parameter)
 
 - `params: ThreadListParams`
 
-  - `limit?: number`
+  - `limit?: number` (query parameter)
 
-    Query param: Maximum results per page. Defaults to 1000.
+    Maximum results per page. Defaults to 1000.
 
     format: int32
 
-  - `page?: string`
+  - `page?: string` (query parameter)
 
-    Query param: Opaque pagination cursor from a previous response's `next_page`. Forward-only.
+    Opaque pagination cursor from a previous response's `next_page`. Forward-only.
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -137,9 +137,9 @@ List Session Threads
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -952,17 +952,15 @@ Get Session Thread
 
 ### Parameters
 
-- `threadID: string`
+- `threadID: string` (path parameter)
 
 - `params: ThreadRetrieveParams`
 
-  - `session_id: string`
+  - `session_id: string` (path parameter)
 
-    Path param
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-  - `betas?: Array<AnthropicBeta>`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -1066,9 +1064,9 @@ Get Session Thread
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -1876,17 +1874,15 @@ Archive Session Thread
 
 ### Parameters
 
-- `threadID: string`
+- `threadID: string` (path parameter)
 
 - `params: ThreadArchiveParams`
 
-  - `session_id: string`
+  - `session_id: string` (path parameter)
 
-    Path param
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-  - `betas?: Array<AnthropicBeta>`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -1990,9 +1986,9 @@ Archive Session Thread
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -6072,27 +6068,21 @@ List Session Thread Events
 
 #### Parameters
 
-- `threadID: string`
+- `threadID: string` (path parameter)
 
 - `params: EventListParams`
 
-  - `session_id: string`
+  - `session_id: string` (path parameter)
 
-    Path param
-
-  - `limit?: number`
-
-    Query param
+  - `limit?: number` (query parameter)
 
     format: int32
 
-  - `page?: string`
+  - `page?: string` (query parameter)
 
-    Query param
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-  - `betas?: Array<AnthropicBeta>`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -6196,9 +6186,9 @@ List Session Thread Events
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
@@ -8682,25 +8672,23 @@ Stream Session Thread Events
 
 #### Parameters
 
-- `threadID: string`
+- `threadID: string` (path parameter)
 
 - `params: EventStreamParams`
 
-  - `session_id: string`
+  - `session_id: string` (path parameter)
 
-    Path param
+  - `event_deltas?: Array<BetaManagedAgentsDeltaType>` (query parameter)
 
-  - `event_deltas?: Array<BetaManagedAgentsDeltaType>`
-
-    Query param: When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
+    When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
 
     - `"agent.message"`
 
     - `"agent.thinking"`
 
-  - `betas?: Array<AnthropicBeta>`
+  - `betas?: Array<AnthropicBeta>` (header parameter)
 
-    Header param: Optional header to specify the beta version(s) you want to use.
+    Optional header to specify the beta version(s) you want to use.
 
     - `(string & {})`
 
@@ -8804,9 +8792,9 @@ Stream Session Thread Events
 
     - `"spend-limit-reads-2026-09-26"`
 
-  - `workspace_id?: string`
+  - `workspace_id?: string` (header parameter)
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 

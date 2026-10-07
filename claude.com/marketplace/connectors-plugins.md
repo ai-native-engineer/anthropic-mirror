@@ -14,7 +14,7 @@ SortRecommendedMost popularTrendingNewestA–Z
 
 ## Top connectors
 
-Show all 899
+Show all 911
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
@@ -208,6 +208,16 @@ Live crypto, stock, gold & oil trading data from Hyperliquid: see what the best 
 
 Show all 7
 
+![](https://www.google.com/s2/favicons?domain=edreams.com&sz=96)
+
+### [eDreams](https://claude.com/marketplace/connectors/edreams)
+
+Anthropic verifiedNew
+
+Find flights and hotels
+
+[Add eDreams in Claude (opens in new tab)](https://claude.ai/directory/e74a6448-768f-49a0-be47-6235b4fe5f64 "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=robinpowered.com&sz=96)
 
 ### [Robin (Workplace)](https://claude.com/marketplace/connectors/robin-powered)
@@ -238,16 +248,6 @@ Inspect autonomous payments before execution and independently verify evidence a
 
 [Add OnChainDiligence in Claude (opens in new tab)](https://claude.ai/directory/98a20d38-07b8-47ae-8502-bdb282f84352 "Add in Claude")
 
-![](https://usekeel.io/brand/keel-app-icon-1024.png)
-
-### [Keel](https://claude.com/marketplace/connectors/keel)
-
-Anthropic verifiedNew
-
-Build & backtest Hyperliquid strategies
-
-[Add Keel in Claude (opens in new tab)](https://claude.ai/directory/5d401eef-9944-4811-8204-96e40dc752dd "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=paperoffice.ai&sz=96)
 
 ### [PaperOffice](https://claude.com/marketplace/connectors/paperoffice)
@@ -257,6 +257,16 @@ Anthropic verifiedNew
 Built for companies. Ready for AI agents. The headless DMS for Claude: search, read, extract, approve, send for signing and archive documents in your own account, with your permissions.
 
 [Add PaperOffice in Claude (opens in new tab)](https://claude.ai/directory/7fc51aa2-cf7e-4429-9ed8-623b92395e60 "Add in Claude")
+
+![](https://usekeel.io/brand/keel-app-icon-1024.png)
+
+### [Keel](https://claude.com/marketplace/connectors/keel)
+
+Anthropic verifiedNew
+
+Build & backtest Hyperliquid strategies
+
+[Add Keel in Claude (opens in new tab)](https://claude.ai/directory/5d401eef-9944-4811-8204-96e40dc752dd "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
@@ -268,19 +278,9 @@ Amazon Selling Partner MCP
 
 [Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=chatbase.co&sz=96)
-
-### [Chatbase](https://claude.com/marketplace/connectors/chatbase)
-
-Anthropic verifiedNew
-
-Manage Chatbase agents, sources, conversations, tickets.
-
-[Add Chatbase in Claude (opens in new tab)](https://claude.ai/directory/48ba489e-160f-4965-913b-667cce063da2 "Add in Claude")
-
 ## All connectors
 
-899 connectors
+911 connectors
 
 ![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
 
@@ -380,6 +380,14 @@ Connect to Asana to coordinate tasks, projects, and goals
 
 [Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
+![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
+
+### [Shopify](https://claude.com/marketplace/connectors/shopify)
+
+Build, manage, and analyze your Shopify store
+
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
+
 ![](https://assets.claude.com/ed172e953866fead6b10ab99ba870471a1ad4053.svg?w=128&fit=max&auto=format)
 
 ### [Linear](https://claude.com/marketplace/connectors/linear)
@@ -412,21 +420,13 @@ Manage databases, authentication, and storage
 
 [Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
+![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
 
-### [Shopify](https://claude.com/marketplace/connectors/shopify)
+### [Box](https://claude.com/marketplace/connectors/box)
 
-Build, manage, and analyze your Shopify store
+Search, edit and get insights on your Box content
 
-[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
-
-![](https://assets.claude.com/b334d34d91a0e4cbb5ea5a343e7a618f91bfb3a3.jpg?w=128&fit=max&auto=format)
-
-### [Indeed](https://claude.com/marketplace/connectors/indeed)
-
-Search for jobs on Indeed
-
-[Add Indeed in Claude (opens in new tab)](https://claude.ai/directory/78cb9092-b837-4439-845d-fdccd5723e7f "Add in Claude")
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
 ![](https://assets.claude.com/37ce5968b2e46e9c696132cd4970baeeff9a08f0.jpg?w=128&fit=max&auto=format)
 
@@ -436,14 +436,6 @@ Access to Intercom data for better customer insights
 
 [Add Intercom in Claude (opens in new tab)](https://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771 "Add in Claude")
 
-![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
-
-### [Box](https://claude.com/marketplace/connectors/box)
-
-Search, edit and get insights on your Box content
-
-[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
-
 ![](https://assets.claude.com/e64f9962a277a8943b084a17b6a9386a7eb95a61.svg?w=128&fit=max&auto=format)
 
 ### [Miro](https://claude.com/marketplace/connectors/miro)
@@ -451,6 +443,22 @@ Search, edit and get insights on your Box content
 Access and create new content on Miro boards
 
 [Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
+
+![](https://assets.claude.com/b334d34d91a0e4cbb5ea5a343e7a618f91bfb3a3.jpg?w=128&fit=max&auto=format)
+
+### [Indeed](https://claude.com/marketplace/connectors/indeed)
+
+Search for jobs on Indeed
+
+[Add Indeed in Claude (opens in new tab)](https://claude.ai/directory/78cb9092-b837-4439-845d-fdccd5723e7f "Add in Claude")
+
+![](https://assets.claude.com/5d13b21d7329cefe058a60e9df0455a8594d3f6e.jpg?w=128&fit=max&auto=format)
+
+### [Zoom for Claude](https://claude.com/marketplace/connectors/zoom-for-claude)
+
+Search, recap, and act on your Zoom meetings
+
+[Add Zoom for Claude in Claude (opens in new tab)](https://claude.ai/directory/1ed68a66-c371-4d26-82dc-28e6c260ece8 "Add in Claude")
 
 ![](https://assets.claude.com/1f1b0d51c9561a9bd4de38331a65b5af8069e0a8.svg?w=128&fit=max&auto=format)
 
@@ -467,13 +475,5 @@ Music and podcast recommendations, just for you.
 Analyze, debug, and manage projects and deployments
 
 [Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")
-
-![](https://assets.claude.com/5d13b21d7329cefe058a60e9df0455a8594d3f6e.jpg?w=128&fit=max&auto=format)
-
-### [Zoom for Claude](https://claude.com/marketplace/connectors/zoom-for-claude)
-
-Search, recap, and act on your Zoom meetings
-
-[Add Zoom for Claude in Claude (opens in new tab)](https://claude.ai/directory/1ed68a66-c371-4d26-82dc-28e6c260ece8 "Add in Claude")
 
 View more

@@ -2,66 +2,36 @@
 
 More[Documentation (opens in new tab)](https://github.com/grafana/mcp-grafana/blob/main/README.md)[Support (opens in new tab)](https://github.com/grafana/mcp-grafana)[Privacy policy (opens in new tab)](https://grafana.com/legal/privacy-policy/)
 
-A comprehensive Model Context Protocol (MCP) server for Grafana that provides:
-
-- \*\*Dashboards\*\*: Search, get, update, patch, and create dashboards with context window optimization
-
-- \*\*Datasources\*\*: List and query Prometheus, Loki, and ClickHouse datasources
-
-- \*\*Prometheus\*\*: Execute PromQL queries, histogram percentile analysis, and retrieve metric metadata
-
-- \*\*Loki\*\*: Query logs and metrics using LogQL, detect log patterns
-
-- \*\*ClickHouse\*\*: Execute SQL queries, discover tables and schemas
-
-- \*\*Alerting\*\*: List, create, update, and delete alert rules and contact points
-
-- \*\*Incidents\*\*: Manage incidents in Grafana Incident
-
-- \*\*Sift\*\*: Investigate errors and performance issues
-
-- \*\*OnCall\*\*: Manage on-call schedules, shifts, and alert groups
-
-- \*\*Pyroscope\*\*: Continuous profiling with profile types, labels, and flame graphs
-
-- \*\*Navigation\*\*: Generate accurate deeplinks to Grafana resources
-
-- \*\*Annotations\*\*: Query, create, update, and patch annotations
-
-- \*\*Admin\*\*: Manage teams, users, roles, and permissions
-
-- \*\*Rendering\*\*: Generate PNG snapshots of dashboard panels
-
-Requires Grafana version 9.0 or later for full functionality.
+An MCP server giving access to Grafana dashboards, datasources, alerting, and more
 
 ## Tools
 
-* search\_dashboards
-* search\_folders
-* list\_datasources
-* get\_datasource\_by\_uid
-* get\_datasource\_by\_name
+* add\_activity\_to\_incident
+* alerting\_manage\_routing
+* alerting\_manage\_rules
+* alerting\_manage\_silences
+* analyze\_loki\_labels
+* check\_datasources\_health
+* create\_annotation
+* create\_datasource
+* create\_folder
+* create\_incident
+* create\_snapshot
+* delete\_annotation
+* delete\_snapshot
+* diff\_tempo\_traces
+* find\_error\_pattern\_logs
+* find\_slow\_requests
+* generate\_deeplink
+* get\_alert\_group
+* get\_annotation\_tags
+* get\_annotations
+* get\_assertions
+* get\_current\_oncall\_users
 * get\_dashboard\_by\_uid
-* get\_dashboard\_summary
-* get\_dashboard\_property
-* update\_dashboard
 * get\_dashboard\_panel\_queries
-* query\_prometheus
-* query\_prometheus\_histogram
-* list\_prometheus\_metric\_metadata
-* list\_prometheus\_metric\_names
-* list\_prometheus\_label\_names
-* list\_prometheus\_label\_values
-* query\_loki\_logs
-* list\_loki\_label\_names
-* list\_loki\_label\_values
-* query\_loki\_stats
-* query\_loki\_patterns
-* list\_alert\_rules
-* get\_alert\_rule\_by\_uid
-* create\_alert\_rule
 
-Show all 71 tools
+Show all 81 tools
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 

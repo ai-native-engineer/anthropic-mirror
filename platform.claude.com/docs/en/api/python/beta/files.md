@@ -29,7 +29,7 @@ Upload File
 
   minimum: 3600, maximum: 7776000
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -135,7 +135,7 @@ Upload File
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -251,11 +251,11 @@ List Files
 
 ### Parameters
 
-- `ids: Optional[Sequence[str]]`
+- `ids: Optional[Sequence[str]]` (query parameter)
 
   Restrict the result set to Files whose `id` is in this list. At most 100 entries (after de-duplication). Mutually exclusive with `page` and `limit`. When supplied, the response is always a single page (`next_page` is null). IDs that do not resolve to a visible File — including deleted Files — are silently omitted.
 
-- `limit: Optional[int]`
+- `limit: Optional[int]` (query parameter)
 
   Number of items to return per page.
 
@@ -263,15 +263,15 @@ List Files
 
   default: 20, minimum: 1, maximum: 1000
 
-- `page: Optional[str]`
+- `page: Optional[str]` (query parameter)
 
   Opaque page cursor returned in a prior list response's `next_page`. Prefixed `page_`.
 
-- `scope_id: Optional[str]`
+- `scope_id: Optional[str]` (query parameter)
 
   Filter by scope ID. Only returns files associated with the specified scope (e.g., a session ID).
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -377,7 +377,7 @@ List Files
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -497,11 +497,11 @@ Download File
 
 ### Parameters
 
-- `file_id: str`
+- `file_id: str` (path parameter)
 
   ID of the File.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -607,7 +607,7 @@ Download File
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -646,11 +646,11 @@ Get File Metadata
 
 ### Parameters
 
-- `file_id: str`
+- `file_id: str` (path parameter)
 
   ID of the File.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -756,7 +756,7 @@ Get File Metadata
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -872,11 +872,11 @@ Delete File
 
 ### Parameters
 
-- `file_id: str`
+- `file_id: str` (path parameter)
 
   ID of the File.
 
-- `betas: Optional[List[AnthropicBetaParam]]`
+- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -982,7 +982,7 @@ Delete File
 
   - `"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: Optional[str]`
+- `workspace_id: Optional[str]` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 

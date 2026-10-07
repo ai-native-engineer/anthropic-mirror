@@ -3570,4 +3570,4 @@ Customer story](https://claude.com/customers/garvan-institute-qa)
 
 [Try Claude Science](https://claude.com/product/claude-science)[Contact sales](https://claude.com/contact-sales/life-sciences)
 
-Claude for Life Science Teams | Claude by Anthropic
+Claude for life science teams | Claude by Anthropic

@@ -178,7 +178,7 @@ Claude consistently leads coding benchmarks. As our models improve, your team ge
 
 How is AI changing the way software gets built—and what should engineering leaders expect in 2026? We analyzed the patterns emerging across the industry.
 
-[Read more](https://claude.com/blog/eight-trends-defining-how-software-gets-built-in-2026)
+[Read more](https://claude.com/resources/articles/eight-trends-defining-how-software-gets-built-in-2026)
 
 Code modernization
 
@@ -367,3 +367,5 @@ Website](https://claude.com/product/claude-code)
 ## Transform how your organization operates with Claude
 
 [Get Enterprise plan](https://claude.ai/create/enterprise)[Contact sales](https://claude.com/contact-sales)
+
+Claude Code for Enterprise | Claude by Anthropic

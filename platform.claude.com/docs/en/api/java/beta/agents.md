@@ -19,7 +19,7 @@ Create Agent
 
 - `AgentCreateParams params`
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -123,7 +123,7 @@ Create Agent
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1500,33 +1500,33 @@ List Agents
 
 - `AgentListParams params`
 
-  - `Optional<LocalDateTime> createdAtGte`
+  - `Optional<LocalDateTime> createdAtGte` (query parameter)
 
     Return agents created at or after this time (inclusive).
 
     format: date-time
 
-  - `Optional<LocalDateTime> createdAtLte`
+  - `Optional<LocalDateTime> createdAtLte` (query parameter)
 
     Return agents created at or before this time (inclusive).
 
     format: date-time
 
-  - `Optional<Boolean> includeArchived`
+  - `Optional<Boolean> includeArchived` (query parameter)
 
     Include archived agents in results. Defaults to false.
 
-  - `Optional<Long> limit`
+  - `Optional<Long> limit` (query parameter)
 
     Maximum results per page. Default 20, maximum 100.
 
     format: int32
 
-  - `Optional<String> page`
+  - `Optional<String> page` (query parameter)
 
     Opaque pagination cursor from a previous response.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -1630,7 +1630,7 @@ List Agents
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -2335,17 +2335,17 @@ Get Agent
 
 - `AgentRetrieveParams params`
 
-  - `Optional<String> agentId`
+  - `Optional<String> agentId` (path parameter)
 
     Unique identifier of the agent to retrieve.
 
-  - `Optional<Long> version`
+  - `Optional<Long> version` (query parameter)
 
     Agent version. Omit for the most recent version. Must be at least 1 if specified.
 
     format: int32
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -2449,7 +2449,7 @@ Get Agent
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -3149,11 +3149,11 @@ Update Agent
 
 - `AgentUpdateParams params`
 
-  - `Optional<String> agentId`
+  - `Optional<String> agentId` (path parameter)
 
     Unique identifier of the agent to update.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -3257,7 +3257,7 @@ Update Agent
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -4635,11 +4635,11 @@ Archive Agent
 
 - `AgentArchiveParams params`
 
-  - `Optional<String> agentId`
+  - `Optional<String> agentId` (path parameter)
 
     Unique identifier of the agent to archive.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -4743,7 +4743,7 @@ Archive Agent
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -9631,21 +9631,21 @@ List Agent Versions
 
 - `VersionListParams params`
 
-  - `Optional<String> agentId`
+  - `Optional<String> agentId` (path parameter)
 
     Agent ID to list versions for.
 
-  - `Optional<Long> limit`
+  - `Optional<Long> limit` (query parameter)
 
     Maximum results per page. Default 20, maximum 100.
 
     format: int32
 
-  - `Optional<String> page`
+  - `Optional<String> page` (query parameter)
 
     Opaque pagination cursor.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -9749,7 +9749,7 @@ List Agent Versions
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 

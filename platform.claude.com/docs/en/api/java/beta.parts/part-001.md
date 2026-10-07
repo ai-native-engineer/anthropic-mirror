@@ -346,15 +346,15 @@ The Models API response can be used to determine which models are available for 
 
 - `ModelListParams params`
 
-  - `Optional<String> afterId`
+  - `Optional<String> afterId` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `Optional<String> beforeId`
+  - `Optional<String> beforeId` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `Optional<Long> limit`
+  - `Optional<Long> limit` (query parameter)
 
     Number of items to return per page.
 
@@ -362,7 +362,7 @@ The Models API response can be used to determine which models are available for 
 
     minimum: 1, maximum: 1000
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -466,7 +466,7 @@ The Models API response can be used to determine which models are available for 
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -760,11 +760,11 @@ The Models API response can be used to determine information about a specific mo
 
 - `ModelRetrieveParams params`
 
-  - `Optional<String> modelId`
+  - `Optional<String> modelId` (path parameter)
 
     Model identifier or alias.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -868,7 +868,7 @@ The Models API response can be used to determine information about a specific mo
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1159,7 +1159,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `MessageCreateParams params`
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -1263,11 +1263,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> userProfileId`
+  - `Optional<String> userProfileId` (header parameter)
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -9189,7 +9189,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 - `MessageCountTokensParams params`
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -9293,11 +9293,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> userProfileId`
+  - `Optional<String> userProfileId` (header parameter)
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -12991,7 +12991,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `BatchCreateParams params`
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -13095,11 +13095,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> userProfileId`
+  - `Optional<String> userProfileId` (header parameter)
 
     The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -17394,11 +17394,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `BatchRetrieveParams params`
 
-  - `Optional<String> messageBatchId`
+  - `Optional<String> messageBatchId` (path parameter)
 
     ID of the Message Batch.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -17502,7 +17502,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -17664,15 +17664,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `BatchListParams params`
 
-  - `Optional<String> afterId`
+  - `Optional<String> afterId` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `Optional<String> beforeId`
+  - `Optional<String> beforeId` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `Optional<Long> limit`
+  - `Optional<Long> limit` (query parameter)
 
     Number of items to return per page.
 
@@ -17680,7 +17680,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     minimum: 1, maximum: 1000
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -17784,7 +17784,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -17955,11 +17955,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `BatchCancelParams params`
 
-  - `Optional<String> messageBatchId`
+  - `Optional<String> messageBatchId` (path parameter)
 
     ID of the Message Batch.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -18063,7 +18063,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -18227,11 +18227,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `BatchDeleteParams params`
 
-  - `Optional<String> messageBatchId`
+  - `Optional<String> messageBatchId` (path parameter)
 
     ID of the Message Batch.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -18335,7 +18335,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -18401,11 +18401,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `BatchResultsParams params`
 
-  - `Optional<String> messageBatchId`
+  - `Optional<String> messageBatchId` (path parameter)
 
     ID of the Message Batch.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -18509,7 +18509,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -22323,7 +22323,7 @@ Create Agent
 
 - `AgentCreateParams params`
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -22427,7 +22427,7 @@ Create Agent
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -23804,33 +23804,33 @@ List Agents
 
 - `AgentListParams params`
 
-  - `Optional<LocalDateTime> createdAtGte`
+  - `Optional<LocalDateTime> createdAtGte` (query parameter)
 
     Return agents created at or after this time (inclusive).
 
     format: date-time
 
-  - `Optional<LocalDateTime> createdAtLte`
+  - `Optional<LocalDateTime> createdAtLte` (query parameter)
 
     Return agents created at or before this time (inclusive).
 
     format: date-time
 
-  - `Optional<Boolean> includeArchived`
+  - `Optional<Boolean> includeArchived` (query parameter)
 
     Include archived agents in results. Defaults to false.
 
-  - `Optional<Long> limit`
+  - `Optional<Long> limit` (query parameter)
 
     Maximum results per page. Default 20, maximum 100.
 
     format: int32
 
-  - `Optional<String> page`
+  - `Optional<String> page` (query parameter)
 
     Opaque pagination cursor from a previous response.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -23934,7 +23934,7 @@ List Agents
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -24639,17 +24639,17 @@ Get Agent
 
 - `AgentRetrieveParams params`
 
-  - `Optional<String> agentId`
+  - `Optional<String> agentId` (path parameter)
 
     Unique identifier of the agent to retrieve.
 
-  - `Optional<Long> version`
+  - `Optional<Long> version` (query parameter)
 
     Agent version. Omit for the most recent version. Must be at least 1 if specified.
 
     format: int32
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -24753,7 +24753,7 @@ Get Agent
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -25453,11 +25453,11 @@ Update Agent
 
 - `AgentUpdateParams params`
 
-  - `Optional<String> agentId`
+  - `Optional<String> agentId` (path parameter)
 
     Unique identifier of the agent to update.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -25561,7 +25561,7 @@ Update Agent
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -26939,11 +26939,11 @@ Archive Agent
 
 - `AgentArchiveParams params`
 
-  - `Optional<String> agentId`
+  - `Optional<String> agentId` (path parameter)
 
     Unique identifier of the agent to archive.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -27047,7 +27047,7 @@ Archive Agent
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -27749,21 +27749,21 @@ List Agent Versions
 
 - `VersionListParams params`
 
-  - `Optional<String> agentId`
+  - `Optional<String> agentId` (path parameter)
 
     Agent ID to list versions for.
 
-  - `Optional<Long> limit`
+  - `Optional<Long> limit` (query parameter)
 
     Maximum results per page. Default 20, maximum 100.
 
     format: int32
 
-  - `Optional<String> page`
+  - `Optional<String> page` (query parameter)
 
     Opaque pagination cursor.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -27867,7 +27867,7 @@ List Agent Versions
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -28574,7 +28574,7 @@ Create a new environment with the specified configuration.
 
 - `EnvironmentCreateParams params`
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -28678,7 +28678,7 @@ Create a new environment with the specified configuration.
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -29013,21 +29013,21 @@ List environments with pagination support.
 
 - `EnvironmentListParams params`
 
-  - `Optional<Boolean> includeArchived`
+  - `Optional<Boolean> includeArchived` (query parameter)
 
     Include archived environments in the response
 
-  - `Optional<Long> limit`
+  - `Optional<Long> limit` (query parameter)
 
     Maximum number of environments to return
 
     minimum: 1, maximum: 1000
 
-  - `Optional<String> page`
+  - `Optional<String> page` (query parameter)
 
     Opaque cursor from previous response for pagination. Pass the `next_page` value from the previous response.
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -29131,7 +29131,7 @@ List environments with pagination support.
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -29354,9 +29354,9 @@ Retrieve a specific environment by ID.
 
 - `EnvironmentRetrieveParams params`
 
-  - `Optional<String> environmentId`
+  - `Optional<String> environmentId` (path parameter)
 
-  - `Optional<List<AnthropicBeta>> betas`
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -29460,7 +29460,7 @@ Retrieve a specific environment by ID.
 
     - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
 
-  - `Optional<String> workspaceId`
+  - `Optional<String> workspaceId` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -29513,59 +29513,3 @@ Retrieve a specific environment by ID.
           Limited network access.
 
           - `JsonValue type = "limited"`
-
-            Network policy type
-
-          - `boolean allowMcpServers`
-
-            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
-
-          - `boolean allowPackageManagers`
-
-            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
-
-          - `List<String> allowedHosts`
-
-            Specifies domains the container can reach.
-
-      - `BetaPackages packages`
-
-        Package manager configuration.
-
-        - `Optional<Type> type`
-
-          Package configuration type
-
-        - `List<String> apt`
-
-          Ubuntu/Debian packages to install
-
-        - `List<String> cargo`
-
-          Rust packages to install
-
-        - `List<String> gem`
-
-          Ruby packages to install
-
-        - `List<String> go`
-
-          Go packages to install
-
-        - `List<String> npm`
-
-          Node.js packages to install
-
-        - `List<String> pip`
-
-          Python packages to install
-
-    - `class BetaSelfHostedConfig`
-
-      Configuration for self-hosted environments.
-
-      - `JsonValue type = "self_hosted"`
-
-        Environment type
-
-  - `String createdAt`

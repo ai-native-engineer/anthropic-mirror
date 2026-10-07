@@ -43,7 +43,8 @@ These have provider-specific differences:
 
 These require signing in with a claude.ai account and are not reachable with an Anthropic Console API key or from a third-party provider:
 
-* [Cloud sessions](https://code.claude.com/docs/en/claude-code-on-the-web), Claude Code on mobile, and [Claude Code in Slack](https://code.claude.com/docs/en/slack)
+* [Cloud sessions](https://code.claude.com/docs/en/claude-code-on-the-web) and Claude Code on mobile
+* [Claude Code in Slack](https://code.claude.com/docs/en/slack): Pro and Max plans
 * [Claude Code Desktop](https://code.claude.com/docs/en/desktop)
 * [Routines](https://code.claude.com/docs/en/routines) (`/schedule`)
 * [Ultrareview](https://code.claude.com/docs/en/ultrareview)

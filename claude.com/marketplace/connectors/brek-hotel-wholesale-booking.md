@@ -52,14 +52,6 @@ Search flights, hotels and seats, then get alerted the moment a price drops.
 
 [Add SlickTrip in Claude (opens in new tab)](https://claude.ai/directory/c1cba93e-98f4-4146-8afa-e9551a789823 "Add in Claude")
 
-![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
-
-### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
-
-Faites vos courses rapidement
-
-[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
-
 ![](https://mcp.govola.com/icon.png)
 
 ### [GoVola](https://claude.com/marketplace/connectors/govola)
@@ -69,3 +61,11 @@ Anthropic verifiedTrending
 Search flight offers
 
 [Add GoVola in Claude (opens in new tab)](https://claude.ai/directory/cb899a5b-01b8-41a3-8c39-c204acb1bd78 "Add in Claude")
+
+![](https://all.accor.com/a/content/dam/all/global-marketing/brand-identity/logos/all-accor/blue/vertical/Logo%20ALL%20ACCOR_BLUE_Vertical_RGB.svg)
+
+### [ALL Accor](https://claude.com/marketplace/connectors/all-accor)
+
+Search and book Accor hotels
+
+[Add ALL Accor in Claude (opens in new tab)](https://claude.ai/directory/f6d1695c-f2b8-4641-829f-435ac17cfd02 "Add in Claude")

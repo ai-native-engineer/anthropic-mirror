@@ -6,7 +6,7 @@ Claude in Chrome is now generally available
 
 Claude can work through tasks without approving each step,
 
-[Read more (opens in new tab)](https://claude.com/blog/claude-in-chrome-generally-available)
+[Read more (opens in new tab)](https://claude.com/resources/articles/claude-in-chrome-generally-available)
 
 ![](https://assets.claude.com/9a77622858092aff7373c2ab331e38ac9559ddc0.svg)
 

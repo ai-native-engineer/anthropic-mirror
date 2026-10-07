@@ -44,6 +44,14 @@ CRM context for every answer, insight, and action
 
 [Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
+![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
+
+### [Shopify](https://claude.com/marketplace/connectors/shopify)
+
+Build, manage, and analyze your Shopify store
+
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
 ### [monday.com](https://claude.com/marketplace/connectors/monday)
@@ -59,11 +67,3 @@ monday.com project management & CRM for projects, tasks, portfolios, boards, wor
 Manage databases, authentication, and storage
 
 [Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
-
-![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
-
-### [Shopify](https://claude.com/marketplace/connectors/shopify)
-
-Build, manage, and analyze your Shopify store
-
-[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")

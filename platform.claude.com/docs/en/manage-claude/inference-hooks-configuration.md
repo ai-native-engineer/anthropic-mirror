@@ -91,7 +91,7 @@ There are three enforcement states: **off** (**Enforce verdicts** is off: your A
 
     Turn on **Enforce verdicts** to gate Claude on your AI security server's verdict for every governed prompt, then confirm in the dialog, which restates your failure handling choice. Allow about a minute for the change to reach every Anthropic server; requests already in flight finish under the old setting. Turning it off stops prompts from being sent to your AI security server, again within about a minute; your configuration is kept.
 
-    Turn on **Validate tool calls**, below **Enforce verdicts**, and confirm in the dialog, to also send the tool calls in each of Claude's responses to your AI security server and wait for its verdict before they run; see [The tool call frame](https://platform.claude.com/docs/en/manage-claude/inference-hooks-endpoint#the-tool-call-frame). It is off by default. It has no effect while **Enforce verdicts** is off, and a change to it takes about a minute to reach every Anthropic server, as with **Enforce verdicts**. Confirm that your AI security server handles tool call frames before you turn it on.
+    **Validate tool calls**, below **Enforce verdicts**, also sends the tool calls in each of Claude's responses to your AI security server and waits for its verdict before they run; see [The tool call frame](https://platform.claude.com/docs/en/manage-claude/inference-hooks-endpoint#the-tool-call-frame). It is on by default in a new configuration. It has no effect while **Enforce verdicts** is off, and a change to it takes about a minute to reach every Anthropic server, as with **Enforce verdicts**.
   </Step>
 </Steps>
 

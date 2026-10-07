@@ -43,7 +43,7 @@ Building agents with the Claude Agent SDK
 
 The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
 
-[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)
+[Read more](https://claude.com/resources/articles/building-agents-with-the-claude-agent-sdk)
 
 eSentire is a managed detection and response (MDR) provider that protects millions of endpoints across thousands of customers worldwide. Its Atlas platform uses Claude to run autonomous threat investigations, analyzing signals across endpoint, identity, network, and cloud telemetry to catch and contain attacks in minutes.
 

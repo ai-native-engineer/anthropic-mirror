@@ -38,6 +38,9 @@ Search
 
 DateCategoryTitle
 
+* [Oct 6, 2026Announcements
+
+  Expanding the Cyber Verification Program](https://www.anthropic.com/news/cyber-verification-program)
 * [Oct 2, 2026Announcements
 
   Anthropic invests $100 million to train 10,000 engineers and tackle the enterprise AI talent gap](https://www.anthropic.com/news/claude-frontier-academy)
@@ -65,10 +68,7 @@ DateCategoryTitle
 * [Aug 27, 2026Announcements
 
    Expanding our support for scientists](https://www.anthropic.com/news/expanding-support-for-scientists)
-* [Aug 25, 2026Announcements
-
-  Funding better evaluations of AI’s impact on wellbeing](https://www.anthropic.com/news/wellbeing-research-grants)
 
 [See more](#)
 
-![Anthropic invests $100 million to train 10,000 engineers and tackle the enterprise AI talent gap](https://www-cdn.anthropic.com/images/4zrzovbb/website/cd4fd51deacd067d4e30aee4f4b149f6cba1b97b-1000x1000.svg)
+![Expanding the Cyber Verification Program](https://www-cdn.anthropic.com/images/4zrzovbb/website/d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)

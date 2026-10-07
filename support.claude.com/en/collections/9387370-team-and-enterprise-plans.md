@@ -8,7 +8,7 @@
 
 [Billing7 articles](https://support.claude.com/en/collections/9811436-billing)
 
-[Admin management25 articles](https://support.claude.com/en/collections/9811449-admin-management)
+[Admin management26 articles](https://support.claude.com/en/collections/9811449-admin-management)
 
 [Analytics and usage5 articles](https://support.claude.com/en/collections/18901831-analytics-and-usage)
 

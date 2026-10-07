@@ -103,7 +103,7 @@ For the full walkthrough of your options, deadlines, and what happens to your su
 
 You may have both a personal account and an organization account tied to the same email address. You can switch between them by clicking your initials or name in the lower left corner of the screen.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1791252000&signature=d891d81b83b65f0506655040d28ba99572d477e7d85b74ef766ff9d39b083b8b&req=diMmFMh3noJbXvMW1HO4zXhPnNE0zR1hufhmlOXMdYbsBDjMwLJwSwGjnCnc%0AqIsO9%2FXL8sjHqAYAhdU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1791252000&signature=d891d81b83b65f0506655040d28ba99572d477e7d85b74ef766ff9d39b083b8b&req=diMmFMh3noJbXvMW1HO4zXhPnNE0zR1hufhmlOXMdYbsBDjMwLJwSwGjnCnc%0AqIsO9%2FXL8sjHqAYAhdU%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1791333900&signature=0fdd435e0fca0a3dc8ba69e9ee4f332f4a9b02b467d9c29b9cc7dabba13b5134&req=diMmFMh3noJbXvMW1HO4zXhPnNE1yxxoufhmlOXMdYYrOJajtiJA8Gwwv7pB%0Am%2FEJkuXyQ4B%2FC%2F98kOo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1791333900&signature=0fdd435e0fca0a3dc8ba69e9ee4f332f4a9b02b467d9c29b9cc7dabba13b5134&req=diMmFMh3noJbXvMW1HO4zXhPnNE1yxxoufhmlOXMdYYrOJajtiJA8Gwwv7pB%0Am%2FEJkuXyQ4B%2FC%2F98kOo%3D%0A)
 
 A blue checkmark shows which account you're currently using. Click the other account to switch to it and access its separate conversations and projects.
 

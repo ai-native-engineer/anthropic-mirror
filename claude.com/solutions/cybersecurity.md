@@ -68,23 +68,25 @@ Inside Mozilla's review process
 
 The model expands what gets reviewed, and humans decide what gets patched.
 
-Project Glasswing
+Safeguards
 
-### Our approach to dual-use with Claude Mythos models
+### Our approach to dual-use frontier capabilities
 
-Claude Mythos Preview, and now Claude Mythos 5, are models with significantly stronger cybersecurity capabilities, especially in exploit reasoning. As this capability carries the greatest potential for misuse in security, we are limiting initial access to a small number of partners through Project Glasswing. Claude Fable 5 is our Mythos-class model safe for general use through additional safeguards. [Read the latest](https://www.anthropic.com/news/claude-fable-5-mythos-5)
+Claude Opus and Mythos-class models have significantly stronger cybersecurity capabilities than previous generations, especially in exploit reasoning. As capabilities across all model classes continue to advance, we make our frontier models available under responsible safeguards that give defenders an advantage while limiting the potential for misuse.
 
 * ### Securing critical software
 
-  Glasswing partners maintain critical infrastructure or software the world depends on, where a successful attack would be catastrophic.
-* ### Expanding through trusted access
+  We’re partnering with organizations that maintain critical infrastructure and widely used software, so the systems the world depends on are hardened first.
+* ### Verification program
 
-  We are working toward steadily expanding access to Claude Mythos 5 through a trusted access program, and will share more soon.
-* ### Providing tools for defenders today
+  Cybersecurity practitioners whose legitimate work overlaps with dual use categories can apply for the Cyber Verification Program for adjusted safeguards.
 
-  Claude Security, the open-source reference tools, and the practices emerging from Project Glasswing are available to all security teams.
+  [Apply now](https://portal.anthropic.com/programs)
+* ### Mythos-powered defense
 
-[Read our full approach](#glasswing)
+  Security teams can put frontier reasoning to work on their defense today through Claude Security alongside products and services delivered through trusted partners.
+
+  [Learn more](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders)
 
 Project Glasswing
 
@@ -204,7 +206,7 @@ Review code for security at every stage of development. Claude checks its own ed
 
 As offensive capability accelerates, the find-and-fix loop has to close faster. Claude runs threat modeling, discovery, verification, triage, and patching as one continuous loop on your codebase, carrying context across every stage so each finding arrives at the fix with its full history.
 
-* [Using LLMs to secure source code (opens in new tab)](https://claude.com/blog/using-llms-to-secure-source-code)
+* [Using LLMs to secure source code (opens in new tab)](https://claude.com/resources/articles/using-llms-to-secure-source-code)
 
 Customer story
 
@@ -238,7 +240,7 @@ Frontier capabilities
 
 ### Leverage powerful models for defense
 
-Claude reads code carefully, understands real risks, and sustains the long workflows that continuous defense requires. Verified practitioners can request [adjusted safeguards (opens in new tab)](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet) for dual-use work.
+Claude reads code carefully, understands real risks, and sustains the long workflows that continuous defense requires. Verified practitioners can request [adjusted safeguards](https://support.claude.com/en/articles/14604842) for dual-use work.
 
 [Learn more (opens in new tab)](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude)
 
@@ -289,19 +291,19 @@ TitleDate
 
 Titlecontent typeDate
 
-* [Using LLMs to secure source codecontent typeBlogDateMay 27, 2026](https://claude.com/blog/using-llms-to-secure-source-code)
-* [Zero Trust for AI Agentscontent typeeBookDateMay 27, 2026](https://claude.com/blog/zero-trust-for-ai-agents)
-* [Secure the Advantage: A CISO's Guide to Agentic AIcontent typeBlogDateMay 12, 2026](https://www.anthropic.com/webinars/secure-the-advantage-a-cisos-guide-to-agentic-ai)
+* [Using LLMs to secure source codecontent typeBlogDateMay 27, 2026](https://claude.com/resources/articles/using-llms-to-secure-source-code)
+* [Zero Trust for AI Agentscontent typeeBookDateMay 27, 2026](https://claude.com/resources/articles/zero-trust-for-ai-agents)
+* [Secure the Advantage: A CISO's Guide to Agentic AIcontent typeBlogDateMay 12, 2026](https://claude.com/resources/webinars/secure-the-advantage-a-cisos-guide-to-agentic-ai)
 * [Vulnerability Detection Agentcontent typeCookbookDateApril 22, 2026](https://platform.claude.com/cookbook/claude-agent-sdk-06-the-vulnerability-detection-agent)
-* [Preparing Your Security Program for AI-Accelerated Offensecontent typeBlogDateApril 10, 2026](https://claude.com/blog/preparing-your-security-program-for-ai-accelerated-offense)
+* [Preparing Your Security Program for AI-Accelerated Offensecontent typeBlogDateApril 10, 2026](https://claude.com/resources/articles/preparing-your-security-program-for-ai-accelerated-offense)
 * [Threat Intelligence Enrichment Agentcontent typeCookbookDateApril 7, 2026](https://platform.claude.com/cookbook/tool-use-threat-intel-enrichment-agent)
 
 Titlecontent typeDate
 
-* [Claude Security: Putting Claude to Work for Defenderscontent typeWebinarDateMay 28, 2026](https://www.anthropic.com/webinars/claude-security-putting-claude-to-work-for-defenders)
-* [How our partners are putting Opus to work for cybersecuritycontent typeBlogDateMay 21, 2026](https://claude.com/blog/how-our-partners-are-putting-opus-to-work-for-cybersecurity)
-* [How Anthropic's cybersecurity team built a threat detection platform with Claude Codecontent typeBlogDateMay 12, 2026](https://claude.com/blog/how-anthropic-uses-claude-cybersecurity)
-* [Long Running Agents: How Outtake built a Cyber investigator on Claudecontent typeWebinarDateApril 28, 2026](https://www.anthropic.com/webinars/outtake-built-cyber-investigator-claude)
+* [Claude Security: Putting Claude to Work for Defenderscontent typeWebinarDateMay 28, 2026](https://claude.com/resources/webinars/claude-security-putting-claude-to-work-for-defenders)
+* [How our partners are putting Opus to work for cybersecuritycontent typeBlogDateMay 21, 2026](https://claude.com/resources/articles/how-our-partners-are-putting-opus-to-work-for-cybersecurity)
+* [How Anthropic's cybersecurity team built a threat detection platform with Claude Codecontent typeBlogDateMay 12, 2026](https://claude.com/resources/articles/how-anthropic-uses-claude-cybersecurity)
+* [Long Running Agents: How Outtake built a Cyber investigator on Claudecontent typeWebinarDateApril 28, 2026](https://claude.com/resources/webinars/outtake-built-cyber-investigator-claude)
 * [Partnering with Mozilla to improve Firefox's securitycontent typeBlogDateMarch 6, 2026](https://red.anthropic.com/2026/firefox/)
 
 ## Give defenders an edge with Claude

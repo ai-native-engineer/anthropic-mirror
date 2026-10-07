@@ -112,7 +112,7 @@ Skills explained
 
 Where do Skills fit in the Claude stack alongside prompts, Projects, MCP, and subagents? Learn what tool to use when—and how they work together.
 
-[Read more](https://claude.com/blog/skills-explained)
+[Read more](https://claude.com/resources/articles/skills-explained)
 
 [![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 

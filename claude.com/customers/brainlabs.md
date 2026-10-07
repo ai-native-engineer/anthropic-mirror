@@ -53,7 +53,7 @@ How to create Skills
 
 Follow our step-by-step guide to write custom skills that extend Claude's capabilities with real examples and practical patterns.
 
-[Read more](https://claude.com/blog/how-to-create-skills-key-steps-limitations-and-examples)
+[Read more](https://claude.com/resources/articles/how-to-create-skills-key-steps-limitations-and-examples)
 
 ## The solution
 
@@ -81,7 +81,7 @@ Skills explained
 
 Where do Skills fit in the Claude stack alongside prompts, Projects, MCP, and subagents? Learn what tool to use when—and how they work together.
 
-[Read more](https://claude.com/blog/skills-explained)
+[Read more](https://claude.com/resources/articles/skills-explained)
 
 > "If you're doing something more than three times, you should try to automate it."
 

@@ -92,4 +92,4 @@ See what's new](https://www.anthropic.com/news/advancing-claude-for-financial-se
 
 Explore solutions](https://claude.com/solutions/financial-services)
 
-Banking AI Financial Modeling | Claude by Anthropic
+Banking AI financial modeling | Claude by Anthropic

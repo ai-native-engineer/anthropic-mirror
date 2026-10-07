@@ -1,54 +1,35 @@
 <!-- source: https://support.claude.com/en/articles/12938627-how-to-gift-a-claude-subscription -->
 
-Give the gift of Claude to friends, family, or colleagues.
-
 **Important:** Gift subscriptions are currently unavailable to purchase. This applies to all accounts, so there’s nothing you need to fix on your end. We don’t have a date to share yet for when purchasing will be available again.
 
 ## What's included?
 
-Gift subscriptions include full access to all features of the selected plan. Refer to the below articles for full details for each plan:
+Gift subscriptions purchased when they were available include full access to all features of the selected plan. Refer to the below articles for full details for each plan:
 
 * **[What is the Pro plan?](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)**
 * **[What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)**
 
-## Who can purchase gifts?
-
-When gift purchasing is available, most Pro and Max plan users can purchase gift subscriptions. Free users and members of Team and Enterprise organizations can't purchase gift subscriptions at this time.
-
 ## How to purchase a gift
 
-These steps apply once purchasing is available again.
+It's not possible to purchase a gift at this time.
 
-1. Log in to your Claude account and click your initials in the lower left corner.
-2. Select “Gift Claude” from the menu, or visit claude.ai/gift.
-3. Choose a plan (Pro, Max 5x, or Max 20x) and duration (1, 3, 6, or 12 months).
-4. Personalize your gift:
-
-   * Pick a card color
-   * Add an optional message
-   * Choose to send via email or generate a shareable link
-5. If sending by email, enter the recipient's name and email address.
-6. Complete checkout with your payment information.
-
-After purchase, you'll receive a confirmation email with your order details.
-
-**Important:** The gift will expire 365 days after the purchase date. Recipients cannot redeem multiple gifts at one time or stack redemptions.
+**Important:** Previously purchased gifts will expire 365 days after the purchase date. Recipients cannot redeem multiple gifts at one time or stack redemptions.
 
 ## Delivery options
 
-**Email delivery:** The recipient receives the gift directly in their inbox. The email includes your personalized message and a redemption button.
+These apply to gift subscriptions purchased while they were still available:
 
-**Shareable link:** You receive a link that you can share however you'd like—in a card, text message, or in person.
+* **Email delivery:** The recipient received the gift directly in their inbox. The email include your personalized message and a redemption button.
+* **Shareable link:** You received a link that you could share however you liked—in a card, text message, or in person.
 
 ## Good to know
 
-* Gift subscriptions are available globally.
 * Recipients redeem gifts on the web at **[claude.ai/gift/redeem](https://claude.ai/gift/redeem)**. For more information, see **[How to redeem a Claude gift subscription](https://support.claude.com/en/articles/12938695-how-to-redeem-a-claude-gift-subscription)**.
 * Recipients with active mobile (iOS or Android) subscriptions will need to wait until their mobile subscription ends before redeeming.
 * No credit card is required for the recipient to redeem.
 
-* [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
-* [Request a refund for a paid Claude plan](https://support.claude.com/en/articles/12386328-request-a-refund-for-a-paid-claude-plan)
-* [Claude in Chrome troubleshooting](https://support.claude.com/en/articles/12902405-claude-in-chrome-troubleshooting)
+* [Delete your Claude account](https://support.claude.com/en/articles/9028421-delete-your-claude-account)
+* [Claude 4 Invite Sweepstakes Official Rules](https://support.claude.com/en/articles/11140763-claude-4-invite-sweepstakes-official-rules)
+* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
 * [How to redeem a Claude gift subscription](https://support.claude.com/en/articles/12938695-how-to-redeem-a-claude-gift-subscription)
-* [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
+* [Open the Claude mobile app with a link](https://support.claude.com/en/articles/14898120-open-the-claude-mobile-app-with-a-link)

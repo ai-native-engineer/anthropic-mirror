@@ -34,7 +34,7 @@ How enterprises are building AI agents in 2026
 
 New research from 500+ technical leaders reveals how enterprises are deploying AI agents—and why 80% already report measurable ROI.
 
-[Read more](https://claude.com/blog/how-enterprises-are-building-ai-agents-in-2026)
+[Read more](https://claude.com/resources/articles/how-enterprises-are-building-ai-agents-in-2026)
 
 Introducing Claude Opus 4.6
 

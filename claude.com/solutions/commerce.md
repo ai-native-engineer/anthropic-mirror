@@ -159,7 +159,7 @@ Building Claude Commerce Agents
 
 AI is rapidly changing commerce, and consumer brands and platforms are on the move to respond.
 
-[Watch webinar (opens in new tab)](https://www.anthropic.com/webinars/building-claude-commerce-agents)
+[Watch webinar (opens in new tab)](https://claude.com/resources/webinars/building-claude-commerce-agents)
 
 Building commerce agents with Claude
 
@@ -167,13 +167,13 @@ Building commerce agents with Claude
 
 Retailers running shopping agents on Claude have seen carts up to 35% larger and shoppers 60% more likely to complete a purchase.
 
-[Read blog (opens in new tab)](https://claude.com/blog/claude-for-commerce-agents)
+[Read blog (opens in new tab)](https://claude.com/resources/articles/claude-for-commerce-agents)
 
 An open blueprint for commerce agents on Claude
 
 Our best practices from commerce teams in one forkable repo: two agents, four vertical implementations, and a Claude Code plugin to wire it to your own catalog.
 
-[Read blog](https://claude.com/blog/the-anatomy-of-effective-commerce-agents)
+[Read blog](https://claude.com/resources/articles/the-anatomy-of-effective-commerce-agents)
 
 ## What businesses are saying
 
@@ -351,7 +351,7 @@ Commerce resources
 
 [Announcing Claude Commerce agents
 
-Blog](https://claude.com/blog/claude-for-commerce-agents)
+Blog](https://claude.com/resources/articles/claude-for-commerce-agents)
 
 [Fork the repository to get started
 
@@ -359,15 +359,15 @@ Repo](https://github.com/anthropics/commerce-agents)
 
 [Building Claude Commerce Agents
 
-Webinar](https://www.anthropic.com/webinars/building-claude-commerce-agents)
+Webinar](https://claude.com/resources/webinars/building-claude-commerce-agents)
 
 [The anatomy of effective commerce agents
 
-Blog](https://claude.com/blog/the-anatomy-of-effective-commerce-agents)
+Blog](https://claude.com/resources/articles/the-anatomy-of-effective-commerce-agents)
 
 [Explore Claude Managed Agents
 
-Blog](https://claude.com/blog/claude-managed-agents)
+Blog](https://claude.com/resources/articles/claude-managed-agents)
 
 [The Enterprise AI Transformation Guide for Retail
 

@@ -50,6 +50,8 @@ Cohorts are running in San Francisco, New York and London. The program will grow
 
 Claude Frontier Academy builds on the [Claude Partner Network](https://claude.com/blog/four-role-based-claude-certifications), where professionals across 46,000 firms have earned more than 175,000 Claude certifications and nearly 4,000 people have completed Basecamp, an immersive program that teaches the same curriculum our Applied AI teams receive when they onboard. Claude Frontier Academy is for the people who will lead the work, and training 10,000 Frontier Deployed Engineers is the first step of many.
 
-### Partnering with Accenture on embedded evaluation
+### Claude discovers a novel enzyme system with CRISPR-like repeats
 
-[Read more](https://www.anthropic.com/news/accenture-embedded-evaluation)
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.
+
+[Read more](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)

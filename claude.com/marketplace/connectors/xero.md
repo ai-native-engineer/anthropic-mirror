@@ -27,6 +27,7 @@ Check your P&L, cash position, outstanding invoices, top customers and more — 
 * get\_chart\_of\_accounts
 * get\_bank\_account\_transactions
 * get\_1099\_report\_summary
+* get\_connected\_organisations
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 

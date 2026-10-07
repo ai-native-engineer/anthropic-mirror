@@ -216,7 +216,7 @@ Claude on call: How Claude Tag serves as Anthropic’s first responder for CI/CD
 
 An engineer on our Continuous Integration team walks through the agent he built that powers CI incident response at Anthropic.
 
-[Read more](https://claude.com/blog/ai-ci-cd-on-call)
+[Read more](https://claude.com/resources/articles/ai-ci-cd-on-call)
 
 How Anthropic deploys Claude Tag for ad-hoc questions
 
@@ -224,7 +224,7 @@ How Anthropic deploys Claude Tag for ad-hoc questions
 
 Two data scientists at Anthropic walk through how Claude Tag turns Slack threads into self-service analytics, with the same governed definitions analysts use.
 
-[Read more](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)
+[Read more](https://claude.com/resources/articles/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)
 
 Learn more about how Anthropic employees are using Claude Tag
 
@@ -232,7 +232,7 @@ Learn more about how Anthropic employees are using Claude Tag
 
 Producing customer-ready collateral, compiling weekly issue reports, and running legal review, all where the work already happens.
 
-[Read more](https://claude.com/blog/how-anthropic-employees-use-claude-tag)
+[Read more](https://claude.com/resources/articles/how-anthropic-employees-use-claude-tag)
 
 1 of 3
 
@@ -255,7 +255,7 @@ Producing customer-ready collateral, compiling weekly issue reports, and running
 
 Configure any tool with an API using Agent Identity. Claude can query, act, and report back in the thread where the work is happening.
 
-[Read more](https://claude.com/blog/agent-identity-access-model)
+[Read more](https://claude.com/resources/articles/agent-identity-access-model)
 
 ## Admins stay in control
 
@@ -281,7 +281,7 @@ Agent identity: a new security model for autonomous, team-wide AI
 
 Explore our new security model built for agents, not retrofitted from chatbots.
 
-[Read more](https://claude.com/blog/agent-identity-access-model)
+[Read more](https://claude.com/resources/articles/agent-identity-access-model)
 
 Tutorial: Working with @Claude in your workspace
 
@@ -294,3 +294,5 @@ Claude now works alongside your team, under its own account, in the places you a
 ## Ready for a new way of working?
 
 [Add to Slack (opens in new tab)](https://api.anthropic.com/integrations/v1/slack/install)[Join Teams waitlist (opens in new tab)](https://claude.com/form/claude-tag-teams-waitlist)
+
+Claude in Slack: Tag @Claude in any thread | Claude by Anthropic

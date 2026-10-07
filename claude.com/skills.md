@@ -68,7 +68,7 @@ Improving frontend design through Skills
 
 Best practices for building richer, more customized frontend design with Claude and Skills.
 
-[Read more](https://claude.com/blog/improving-frontend-design-through-skills)
+[Read more](https://claude.com/resources/articles/improving-frontend-design-through-skills)
 
 ## Create your own
 
@@ -187,14 +187,14 @@ MJ Felix, Product Manager
 
 [A complete guide to building skills for Claude
 
-Blog](https://claude.com/blog/complete-guide-to-building-skills-for-claude)
+Blog](https://claude.com/resources/articles/complete-guide-to-building-skills-for-claude)
 
 [Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
 
-Blog](https://claude.com/blog/skills-explained)
+Blog](https://claude.com/resources/articles/skills-explained)
 
 [How to create Skills: Key steps, limitations, and examples
 
-Blog](https://claude.com/blog/how-to-create-skills-key-steps-limitations-and-examples)
+Blog](https://claude.com/resources/articles/how-to-create-skills-key-steps-limitations-and-examples)
 
 Skills | Claude by Anthropic

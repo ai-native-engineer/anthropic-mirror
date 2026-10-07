@@ -26,7 +26,7 @@ In "Manually approve," Claude checks with you before it acts. What that looks li
 
 Claude creates a plan from your prompt, which you can approve before Claude starts. The plan specifies which websites you're allowing Claude to access, as well as the approach it will follow:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1791252000&signature=8c5b8eb3a360856d0aaa77c21c8031464b46ddfcec7fa3a50ceaf2ca1fb6cf5e&req=dSgjFcp8nYZdXvMW1HO4zYqyZMNP%2BYC3gN0ADj5oqFDfY9CN7YQ0gP2OnyF3%0AET7CkDoUbFH7utW16Ts%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1791252000&signature=8c5b8eb3a360856d0aaa77c21c8031464b46ddfcec7fa3a50ceaf2ca1fb6cf5e&req=dSgjFcp8nYZdXvMW1HO4zYqyZMNP%2BYC3gN0ADj5oqFDfY9CN7YQ0gP2OnyF3%0AET7CkDoUbFH7utW16Ts%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1791333900&signature=cd0405e705d99b7d021c39b025c8c354974a3fe019950446597ad42c1087551c&req=dSgjFcp8nYZdXvMW1HO4zYqyZMNO%2F4G%2BgN0ADj5oqFD%2BzTPc8SzCjckyiank%0AfpaSe7TuqVINnyZ%2FN9w%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1791333900&signature=cd0405e705d99b7d021c39b025c8c354974a3fe019950446597ad42c1087551c&req=dSgjFcp8nYZdXvMW1HO4zYqyZMNO%2F4G%2BgN0ADj5oqFD%2BzTPc8SzCjckyiank%0AfpaSe7TuqVINnyZ%2FN9w%3D%0A)
 
 Note that Claude will only use the websites listed in the plan, so you’ll need to manually approve any additional access requests.
 
@@ -60,7 +60,7 @@ When you choose "Skip all approvals," Claude doesn't pause to ask, and nothing c
 
 There are some websites on which Claude requires approval for every action. If you navigate to one of these sites, a **New permissions required** prompt will appear in the extension side panel, Claude Cowork, or Claude Code where Claude will ask for permission before accessing the page or taking any action.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2604970825/d7b961271be69e7541b406df1efd/d845324e-6b4a-4f54-83b9-0bea86ec09c6?expires=1791252000&signature=b8614be35dca0303d50a6c38a2cdcce567411973682706ed71d04c822e6540e7&req=diYnEsB5nYldXPMW1HO4zZ3Nq2dyjS7s7A4lHPBihAXuyyR1BANqtDCqWCHB%0ANSuFA1g8R29MQd%2BuKr8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2604970825/d7b961271be69e7541b406df1efd/d845324e-6b4a-4f54-83b9-0bea86ec09c6?expires=1791252000&signature=b8614be35dca0303d50a6c38a2cdcce567411973682706ed71d04c822e6540e7&req=diYnEsB5nYldXPMW1HO4zZ3Nq2dyjS7s7A4lHPBihAXuyyR1BANqtDCqWCHB%0ANSuFA1g8R29MQd%2BuKr8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2604970825/d7b961271be69e7541b406df1efd/d845324e-6b4a-4f54-83b9-0bea86ec09c6?expires=1791333900&signature=81a263181b0c2a88defa4b59b0bdb3f68c4750607959e5b0b047f8e9245cb7f1&req=diYnEsB5nYldXPMW1HO4zZ3Nq2dziy%2Fl7A4lHPBihAU7abpkBLoYkrAhRSH6%0A0oaAEHFS1c69f04QPmo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2604970825/d7b961271be69e7541b406df1efd/d845324e-6b4a-4f54-83b9-0bea86ec09c6?expires=1791333900&signature=81a263181b0c2a88defa4b59b0bdb3f68c4750607959e5b0b047f8e9245cb7f1&req=diYnEsB5nYldXPMW1HO4zZ3Nq2dziy%2Fl7A4lHPBihAU7abpkBLoYkrAhRSH6%0A0oaAEHFS1c69f04QPmo%3D%0A)
 
 ### Permission options
 

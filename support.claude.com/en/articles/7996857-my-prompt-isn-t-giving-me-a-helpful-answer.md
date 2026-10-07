@@ -9,6 +9,6 @@ Claude works best when you give it clear and specific instructions. When craftin
 
 * [Introduction to prompt design](https://support.claude.com/en/articles/7996853-introduction-to-prompt-design)
 * [Claude’s response to my prompt is too brief.](https://support.claude.com/en/articles/8114518-claude-s-response-to-my-prompt-is-too-brief)
-* [Adapt to new model personas after deprecations](https://support.claude.com/en/articles/12738598-adapt-to-new-model-personas-after-deprecations)
+* [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
 * [Set organization instructions](https://support.claude.com/en/articles/14546867-set-organization-instructions)
 * [Give Claude context: CLAUDE.md and better prompts](https://support.claude.com/en/articles/14553240-give-claude-context-claude-md-and-better-prompts)

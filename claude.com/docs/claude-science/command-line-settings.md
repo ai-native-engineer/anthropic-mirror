@@ -81,7 +81,12 @@ If your organization [manages the network allowlist](https://claude.com/docs/cla
 ##  Environment variables
 
 `DO_NOT_TRACK`, set to any value other than `0` or `false`, turns usage analytics and error reports off. It is the same switch as `disable_telemetry = true` in the configuration file. `GITHUB_TOKEN` (or `GH_TOKEN`) is optional and is used only against `api.github.com`, to lift the rate limit when you install a skill from a GitHub repository. Claude Science also reads the standard proxy variables (`HTTPS_PROXY`, `HTTP_PROXY`, `NO_PROXY`, and `ALL_PROXY`); see [Use Claude Science on a corporate network](https://claude.com/docs/claude-science/corporate-networks#connect-through-an-outbound-proxy). The proxy address variables are the one case where the environment overrides the configuration file, and `NO_PROXY` is merged with the `no_proxy` key rather than replacing it. Every other setting belongs in the configuration file.
-An app started from the macOS Dock or Finder, or from the Windows Start menu, does not see variables exported in a terminal. The macOS app reads the `env` file in the data directory (by default `~/.claude-science/env`) when it starts, so put the variable there as a `KEY=VALUE` line, then quit and reopen the app. On Windows, set it as a user environment variable, then quit and reopen the app. See [How the environment variables reach the app](https://claude.com/docs/claude-science/corporate-networks#how-the-environment-variables-reach-the-app).
+An app started from the macOS Dock or Finder, or from the Windows Start menu, does not see variables exported in a terminal.
+
+* **macOS**: the app reads the `env` file in the data directory (by default `~/.claude-science/env`) when it starts. It applies only a fixed list of variables from the file, which includes `DO_NOT_TRACK` and the proxy variables but not `GITHUB_TOKEN` or `GH_TOKEN`. Put `DO_NOT_TRACK` or a proxy variable there as a `KEY=VALUE` line, then quit and reopen the app. Add a GitHub token under **Settings > Credentials** instead, and delete its line from the file. Before version 0.1.56, the file could set any variable.
+* **Windows**: set the variable as a user environment variable, then quit and reopen the app.
+
+See [How the environment variables reach the app](https://claude.com/docs/claude-science/corporate-networks#how-the-environment-variables-reach-the-app).
 
 ##  See also
 

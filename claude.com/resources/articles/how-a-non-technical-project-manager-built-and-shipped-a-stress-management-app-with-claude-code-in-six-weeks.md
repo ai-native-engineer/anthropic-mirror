@@ -1,0 +1,102 @@
+<!-- source: https://claude.com/resources/articles/how-a-non-technical-project-manager-built-and-shipped-a-stress-management-app-with-claude-code-in-six-weeks -->
+
+*In our series, **Day zero: founder stories**, we profile the builders behind some of the world’s most interesting and inspiring startups. In this article, we highlight Kostiantyn Vlasenko, a winner of the [Claude Opus 4.6 Hackathon](https://claude.com/resources/articles/meet-the-winners-of-our-built-with-opus-4-6-claude-code-hackathon) and creator of Respiro.*
+
+|  |  |
+| --- | --- |
+| Founder | Kostiantyn Vlasenko |
+| Country | Ukraine |
+| Startup | Respiro |
+
+Fifteen minutes before joining the video call for this interview, Kostiantyn Vlasenko was feeling nervous. He was so preoccupied with thinking through what he wanted to say, though, that he actually didn't notice his own anxiety—but his phone did.
+
+"The app detected this and alerted me, *'Mate, you can just go and do a short box breathing session. Box breathing has previously helped you de-stress,'*" he says.
+
+That app, [Respiro](https://apps.apple.com/us/app/respiro-stress-relief/id6758023997), is Vlasenko's creation. Although a project manager with a decade of experience, he’d never shipped a line of code until February 2026 when he decided to build a project for the [Built With Opus 4.6 Claude Code Hackathon](https://cerebralvalley.ai/e/claude-code-hackathon?tab=guest-list). A month later, Respiro (an iOS app for science-backed stress management) is live on the Apple App Store, has hundreds of users, and runs on an architecture involving 15+ specialized subagents that Vlasenko built and orchestrates himself.
+
+He did it all with Claude Code, in 72 hours, with no team and no programming experience.
+
+## The problem no app could solve
+
+As a project manager at [Mythical Games](https://mythicalgames.com/), Kyiv-based Vlasenko has spent ten years managing stakeholder pressure, team dynamics, and the relentless pace of product releases. He found that breathing techniques and mindfulness helped keep his stress level under control; what he couldn’t find was a stress management tool that kicked in during moments of actual stress.
+
+"The existing apps could notify me to do some deep breathing at 10:00 PM or whatever. But they didn’t understand that I'm stressed *right now*," he explains. He was on vacation in the mountains of western Ukraine when the idea crystallized: build an app that detects stress signals from your personal device(s) in real time, and then intervenes with a guided mindful breathing exercise at the moments when you need it most. The only problem was that he didn't know how to build apps.
+
+## Managing agents like people
+
+At the time, Vlasenko was using Claude for automating work tasks like Jira updates and posting meeting notes in Slack and had only recently started using the Claude Code CLI. “And then I thought, okay, I'm familiar with how my team members write code using Claude. Why can’t I do it too?” he says.
+
+He quickly realized that his project management background was more important than his coding skills. "I have a lot of experience managing real people," he said. "I realized this was the same thing, only managing agents inside my IDE, and I was really surprised how easy it was."
+
+Vlasenko jokes that his first prompt was essentially *Hey Claude, just give me an application that will make me less stressed* but, even so, he says, the initial result amazed him. "Wow, this is impressive. It's not just in my head, it's inside my phone *right now*, and it works!"
+
+But Vlasenko didn't stop there. He used Claude to research how agent systems work and which Apple APIs could feed his stress-detection logic, and then had Claude help build out a multi-agent architecture: a TCA architect agent, a Swift developer agent, a Metal specialist, a code reviewer, and more, all running in parallel across different modules.
+
+Claude also made pivoting painless: when the initial React Native-based MVP of Respiro became problematic because Vlasenko lacked an Android phone to test on, he used Claude Code to rewrite the app in Swift, from scratch, in a few hours.
+
+All told, he says, going from initial idea to a full-featured App Store-ready version of Respiro took just under six weeks.
+
+## From Claude Code code to App Store
+
+Building the app was one thing. Shipping it was another, and Vlasenko had never navigated the Apple Developer Program before. He used Claude to guide him through the sometimes confusing process, step by step.
+
+"When I got stuck, I could just take a screenshot and ask Claude, 'Hey, what should I press here?'" he says. He used the same approach to set up other third-party services, like Sentry for logging and Amplitude for analytics. “I'd tell Claude, *I completed the sign-in, here's the API key* and 99 percent of the time Claude got it on the first try,” Vlasenko said. The other one percent of the time, he continued, “I just needed to refine and give more clarity to what I was asking for in the first prompt, and within a few more tries Claude gives me the results I want.”
+
+In fact, Vlasenko considers [Claude’s vision capabilities](https://platform.claude.com/docs/en/build-with-claude/vision) to be its most under-appreciated feature. “You send Claude a screenshot to analyze and it tells you what it sees. Then you use this to have Claude guide you through even the most complex UX, ” he explained. “Like, I had to create an API token on Meta and I was just getting lost in their interface, but Claude really understands and guides you everywhere you need to go.”
+
+Marketing Respiro is also a Claude-assisted endeavor. When Vlasenko needed analytics, Claude went beyond integrating Amplitude’s basic SDK to set up full user funnels, retention metrics, and active tracking for daily and monthly users. When he needed content, Claude started writing his blog posts and helping him create TikToks. Claude also suggested a growth strategy Vlasenko says he never would have thought of: reaching out to psychologists and mindfulness practitioners who could recommend Respiro to their clients. He tried it. It worked. Practitioners started recommending the app.
+
+## Founder mode at work
+
+The skills Vlasenko developed building Respiro weren’t only applied to his side project. He's now committing code releases and directly shipping features as part of his day job at Mythical Games. Moreover, he's become an internal advocate for the development process he developed while building Respiro, sharing his Claude folder and workflows with the engineering team.
+
+"Most of them came back saying, *Hey, this workflow is much better than what I have right now!* " he noted. As a result, Mythical now has a small internal team delivering work entirely through Claude. It was not, however, a completely frictionless transition for all involved, Vlasenko observed. "It's hard for some engineers to switch the mindset of not completely controlling every line of code,” he said. “For me, it was easy because I don't have a deep programming background and it just felt like a natural way of working.”
+
+For Vlasenko, the experience of building Respiro has erased any boundaries between what's possible and what isn't. He's building voice-guided practices and motion exercises into the app’s next release, working from a roadmap Claude helped him write and logging seven or eight hours of coding sessions after finishing his regular workday.
+
+"I would say that Claude Code is my new addiction," he said.
+
+| The Claude Code Day Zero Questionnaire™ |
+| --- |
+| In which we ask founders the same silly questions to learn more about the person behind the keyboard. |
+| Who or what inspires you? | LeBron James. His discipline, consistency, and long-term mindset are incredibly inspiring. He didn't just rely on talent; he built one of the all-time greatest careers through relentless focus and execution. Also, Warren Buffett — very different field, but the same core traits: patience, consistency, and clarity of thinking over decades. I really admire people who achieve greatness not by luck, but by staying consistent for a very long time. |
+| If you could go back in time, what would you have done differently and why? | I wish I had realized earlier that building a product is actually the easy part. Communicating its value is much harder! Today, it's surprisingly easy to build something high-quality, especially with tools like Claude. But getting people to understand why it matters, why they should care — that's the real challenge. |
+| If someone wrote a book about your startup journey, what would it be titled? | "Autonomous by Design" |
+| What does your workspace look like? | About 70% of the time, I work on my MacBook connected to an external monitor, keyboard, and mouse. Around 20% just on my laptop when I'm not at home. And about 10% — from my phone, usually when I get an idea and don't want to wait. Also, my cat is often on the desk keeping me company (and making sure I don't work non-stop for too many hours). |
+| How many browser tabs do you have open right now? | Right now — around 5. I try to keep it minimal. Usually, I have a YouTube video playing in the background — I like listening to true crime or founder podcasts. I also actively run a Threads account where I share what I'm building, experiments, Claude workflows, and help others set up their own systems. |
+
+[ArticleSep 24, 2026
+
+### Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
+
+Our latest Opus model is priced and trained to optimize costs for how developers code now.
+
+Claude CodeClaude Enterprise](https://claude.com/resources/articles/claude-opus-5-5-built-for-coding-sessions-that-use-more-context)[ArticleSep 14, 2026
+
+### Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
+
+Our CI job volume increased 25x over 6 months. We patched our test selection service three times before finding a sustainable solution.
+
+Claude CodeClaude Enterprise1 more: Claude TagClaude Tag](https://claude.com/resources/articles/agentic-coding-is-straining-ci-heres-how-we-scaled-test-impact-analysis-at-anthropic)[ArticleAug 24, 2026
+
+### How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+
+Adam Ward, on Anthropic’s marketing team, shares how he uses Claude to turn one weekly sales report into a personalized Monday briefing for every account executive he supports.
+
+Claude Code](https://claude.com/resources/articles/how-an-anthropic-field-marketer-uses-claude-code-to-send-weekly-personalized-updates-to-every-sales-rep)[ArticleAug 20, 2026
+
+### The Claude Code guide for startups
+
+How fast-growing startups use Claude Code to ship—five operating principles drawn from interviews with more than a dozen companies.
+
+Claude Code](https://claude.com/resources/articles/claude-code-guide-for-startups)
+
+## Transform how your organization operates with Claude
+
+[See pricing](https://claude.com/pricing#api)[Contact sales](https://claude.com/contact-sales)
+
+### Get the developer newsletter
+
+Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
+
+Please provide your email address if you'd like to receive our monthly developer newsletter. You can unsubscribe at any time.

@@ -43,7 +43,7 @@ Key results with Claude Code:
 * Achieved 7 hours of sustained autonomous coding on a complex open-source refactoring project
 * Reduced time to market for new features by 79% (from 24 days to 5 days)
 * Delivered 99.9% accuracy on complex code modifications
-* Deployed [Claude Managed Agents](https://claude.com/blog/claude-managed-agents) across product, sales, marketing, finance within one week
+* Deployed [Claude Managed Agents](https://claude.com/resources/articles/claude-managed-agents) across product, sales, marketing, finance within one week
 
 ## Empowering every team to innovate at speed
 

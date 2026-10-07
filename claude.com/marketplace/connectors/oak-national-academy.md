@@ -105,10 +105,10 @@ Create kahoots instantly
 
 [Add Kahoot! in Claude (opens in new tab)](https://claude.ai/directory/c3c0c4f4-3c14-4105-93c9-031384607814 "Add in Claude")
 
-![](https://assets.claude.com/62162a8aba6991bc7a9493e28b8870257536ae6a.jpg?w=128&fit=max&auto=format)
+![](https://www.google.com/s2/favicons?domain=mentimeter.com&sz=96)
 
-### [Learning Commons](https://claude.com/marketplace/connectors/learning-commons-knowledge-graph)
+### [Menti](https://claude.com/marketplace/connectors/menti)
 
-K-12 standards, skills, and learning progressions
+Make Mentimeter presentations
 
-[Add Learning Commons in Claude (opens in new tab)](https://claude.ai/directory/6e94f5fc-5dc8-4f0a-9fcf-741bcab4e034 "Add in Claude")
+[Add Menti in Claude (opens in new tab)](https://claude.ai/directory/3d710b29-535c-42c1-882a-56d4c1d6a849 "Add in Claude")

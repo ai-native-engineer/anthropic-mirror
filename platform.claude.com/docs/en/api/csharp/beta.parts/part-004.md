@@ -2,6 +2,173 @@
 <!-- part of: https://platform.claude.com/docs/en/api/csharp/beta -->
 
 <!-- chunk-start -->
+        "type": "organization"
+      },
+      "type": "plugin_installation_setting",
+      "updated_at": "2026-03-14T09:26:53.589793Z"
+    }
+  ],
+  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
+}
+```
+
+### Set Plugin Installation Setting
+
+`BetaPluginInstallationSetting Beta.Organization.Plugins.InstallationSettings.Set(parameters, cancellationToken = default)`
+
+**POST** `/v1/organizations/plugins/{plugin_id}/installation_settings/{target}`
+
+Set or change an organization-owned Plugin's installation setting for the whole
+organization or for one RBAC Group.
+
+Writing the value a target already holds of its own changes nothing.
+
+A member-owned Plugin has shares instead of installation settings, so this path
+returns 404 for one.
+
+Send a Plugin's installation-setting writes one at a time. If several writes for the
+same Plugin arrive at the same time, the server handles them one after another and
+can answer some of them with `503` instead of applying them. That `503` carries
+`x-should-retry: true`, and the write is safe to repeat: wait a second or two, then
+send it again.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `InstallationSettingSetParams parameters`
+
+  - `required string pluginID` (path parameter)
+
+    ID of the Plugin (prefixed `plugin_`).
+
+  - `required string target` (path parameter)
+
+    The target whose setting is written: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Writing the `organization` target stops the Plugin from inheriting its marketplace's default, even when the value written equals that default.
+
+  - `required InstallationPreference installationPreference`
+
+    The installation setting the target is to hold for this Plugin: one of `required`, `auto_install`, `available`, `not_available`.
+
+    - `AutoInstall("auto_install")`
+
+    - `Available("available")`
+
+    - `NotAvailable("not_available")`
+
+    - `Required("required")`
+
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
+#### Returns
+
+- `class BetaPluginInstallationSetting`
+
+  The installation setting an organization-owned Plugin holds for one
   target. It has no ID of its own: it is addressed by the Plugin's ID and the
   target.
 
@@ -129,17 +296,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `InstallationSettingRemoveParams parameters`
 
-  - `required string pluginID`
+  - `required string pluginID` (path parameter)
 
-    Path param: ID of the Plugin (prefixed `plugin_`).
+    ID of the Plugin (prefixed `plugin_`).
 
-  - `required string target`
+  - `required string target` (path parameter)
 
-    Path param: The target whose own setting is removed: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Removing the `organization` setting returns the Plugin to its marketplace's default.
+    The target whose own setting is removed: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Removing the `organization` setting returns the Plugin to its marketplace's default.
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -337,31 +504,31 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `ShareListParams parameters`
 
-  - `required string pluginID`
+  - `required string pluginID` (path parameter)
 
-    Path param: ID of the Plugin (prefixed `plugin_`).
+    ID of the Plugin (prefixed `plugin_`).
 
-  - `long limit`
+  - `long limit` (query parameter)
 
-    Query param: Number of items to return per page.
+    Number of items to return per page.
 
     Defaults to `20`. Ranges from `1` to `100`.
 
     minimum: 1, maximum: 100
 
-  - `string? organizationID`
+  - `string? organizationID` (query parameter)
 
-    Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `string? page`
+  - `string? page` (query parameter)
 
-    Query param: Optionally set to the `next_page` token from the previous response.
+    Optionally set to the `next_page` token from the previous response.
 
     maxLength: 2048
 
-  - `TargetType? targetType`
+  - `TargetType? targetType` (query parameter)
 
-    Query param: Only shares with this kind of target: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
+    Only shares with this kind of target: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
 
     - `Organization("organization")`
 
@@ -369,9 +536,9 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     - `RbacGroup("rbac_group")`
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -579,35 +746,35 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `PluginMarketplaceListParams parameters`
 
-  - `long limit`
+  - `long limit` (query parameter)
 
-    Query param: Number of items to return per page.
+    Number of items to return per page.
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
     minimum: 1, maximum: 1000
 
-  - `string? organizationID`
+  - `string? organizationID` (query parameter)
 
-    Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `OwnerType? ownerType`
+  - `OwnerType? ownerType` (query parameter)
 
-    Query param: `organization` for the organization's plugin marketplaces, `user` for members' personal plugin marketplaces.
+    `organization` for the organization's plugin marketplaces, `user` for members' personal plugin marketplaces.
 
     - `Organization("organization")`
 
     - `User("user")`
 
-  - `string? page`
+  - `string? page` (query parameter)
 
-    Query param: Optionally set to the `next_page` token from the previous response.
+    Optionally set to the `next_page` token from the previous response.
 
     maxLength: 2048
 
-  - `Source? source`
+  - `Source? source` (query parameter)
 
-    Query param: Only plugin marketplaces with this `source`: `manual` for those whose Plugins are uploaded; `github`, `gitlab` or `public_git` for those synchronized from a Git repository. `directory` (Anthropic's catalog) is never listed here.
+    Only plugin marketplaces with this `source`: `manual` for those whose Plugins are uploaded; `github`, `gitlab` or `public_git` for those synchronized from a Git repository. `directory` (Anthropic's catalog) is never listed here.
 
     - `Directory("directory")`
 
@@ -619,9 +786,9 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     - `PublicGit("public_git")`
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -869,17 +1036,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `PluginMarketplaceRetrieveParams parameters`
 
-  - `required string marketplaceID`
+  - `required string marketplaceID` (path parameter)
 
-    Path param: ID of the plugin marketplace (prefixed `marketplace_`).
+    ID of the plugin marketplace (prefixed `marketplace_`).
 
-  - `string? organizationID`
+  - `string? organizationID` (query parameter)
 
-    Query param: For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -1128,13 +1295,13 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `PluginMarketplaceUpdateParams parameters`
 
-  - `required string marketplaceID`
+  - `required string marketplaceID` (path parameter)
 
-    Path param: ID of the plugin marketplace (prefixed `marketplace_`).
+    ID of the plugin marketplace (prefixed `marketplace_`).
 
   - `required DefaultInstallationPreference defaultInstallationPreference`
 
-    Body param: The organization-wide installation setting every Plugin in the marketplace without one of its own gets: one of `required`, `auto_install`, `available`, `not_available`. Once set it can be changed but not removed.
+    The organization-wide installation setting every Plugin in the marketplace without one of its own gets: one of `required`, `auto_install`, `available`, `not_available`. Once set it can be changed but not removed.
 
     - `AutoInstall("auto_install")`
 
@@ -1144,9 +1311,9 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     - `Required("required")`
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -1408,19 +1575,19 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   - `required string repositoryUrl`
 
-    Body param: The `https://` URL of a public repository on github.com that holds the marketplace. Any other host, a URL with credentials in it, or one that does not name a repository is a 400.
+    The `https://` URL of a public repository on github.com that holds the marketplace. Any other host, a URL with credentials in it, or one that does not name a repository is a 400.
 
     minLength: 1
 
   - `string? ref`
 
-    Body param: The branch to validate the tip of, or the full 40-character SHA of the commit to validate. When omitted, the branch a synchronization would read (usually the repository's default branch); if that is not the default branch, the report's `ref` says which branch was read. An empty string, or a value that is neither a branch name nor a 40-character SHA, is a 400.
+    The branch to validate the tip of, or the full 40-character SHA of the commit to validate. When omitted, the branch a synchronization would read (usually the repository's default branch); if that is not the default branch, the report's `ref` says which branch was read. An empty string, or a value that is neither a branch name nor a 40-character SHA, is a 400.
 
     minLength: 1
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
@@ -1671,13 +1838,13 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
   - `required string archive`
 
-    Body param: A .zip of the marketplace directory (its contents at the root, or wrapped in one folder as a Git host's download produces), sent as a file part with a filename; DEFLATE- or STORE-compressed, at most 32 MB. A part sent without a filename, a second archive part, or any other form field is a 400; a larger archive is a 413.
+    A .zip of the marketplace directory (its contents at the root, or wrapped in one folder as a Git host's download produces), sent as a file part with a filename; DEFLATE- or STORE-compressed, at most 32 MB. A part sent without a filename, a second archive part, or any other form field is a 400; a larger archive is a 413.
 
     format: binary
 
-  - `IReadOnlyList<AnthropicBeta> betas`
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
 
-    Header param: This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
     - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 

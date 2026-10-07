@@ -417,7 +417,7 @@ Create Deployment
 
   Vault IDs for stored credentials the agent can use during sessions created from this deployment. Maximum 50.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -523,7 +523,7 @@ Create Deployment
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1143,37 +1143,37 @@ List Deployments
 
 ### Parameters
 
-- `agent_id: String`
+- `agent_id: String` (query parameter)
 
   Filter by agent ID.
 
-- `created_at_gte: Time`
+- `created_at_gte: Time` (query parameter)
 
   Return deployments created at or after this time (inclusive).
 
   format: date-time
 
-- `created_at_lte: Time`
+- `created_at_lte: Time` (query parameter)
 
   Return deployments created at or before this time (inclusive).
 
   format: date-time
 
-- `include_archived: bool`
+- `include_archived: bool` (query parameter)
 
   When true, includes archived deployments. Default: false (exclude archived).
 
-- `limit: Integer`
+- `limit: Integer` (query parameter)
 
   Maximum results per page. Default 20, maximum 100.
 
   format: int32
 
-- `page: String`
+- `page: String` (query parameter)
 
   Opaque pagination cursor.
 
-- `status: BetaManagedAgentsDeploymentStatus`
+- `status: BetaManagedAgentsDeploymentStatus` (query parameter)
 
   Filter by status: `active` or `paused`. Omit for both. To include archived deployments, use `include_archived` instead; the two cannot be combined.
 
@@ -1185,7 +1185,7 @@ List Deployments
 
     The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -1291,7 +1291,7 @@ List Deployments
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1911,11 +1911,11 @@ Get Deployment
 
 ### Parameters
 
-- `deployment_id: String`
+- `deployment_id: String` (path parameter)
 
   Unique identifier of the deployment.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -2021,7 +2021,7 @@ Get Deployment
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -2636,7 +2636,7 @@ Update Deployment
 
 ### Parameters
 
-- `deployment_id: String`
+- `deployment_id: String` (path parameter)
 
   Unique identifier of the deployment to update.
 
@@ -3040,7 +3040,7 @@ Update Deployment
 
   Vault IDs. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 50.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -3146,7 +3146,7 @@ Update Deployment
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -3761,11 +3761,11 @@ Archive Deployment
 
 ### Parameters
 
-- `deployment_id: String`
+- `deployment_id: String` (path parameter)
 
   Unique identifier of the deployment to archive.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -3871,7 +3871,7 @@ Archive Deployment
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -4486,11 +4486,11 @@ Run Deployment Now
 
 ### Parameters
 
-- `deployment_id: String`
+- `deployment_id: String` (path parameter)
 
   Unique identifier of the deployment to run.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -4596,7 +4596,7 @@ Run Deployment Now
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -4873,11 +4873,11 @@ Pause Deployment
 
 ### Parameters
 
-- `deployment_id: String`
+- `deployment_id: String` (path parameter)
 
   Unique identifier of the deployment to pause.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -4983,7 +4983,7 @@ Pause Deployment
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -5598,11 +5598,11 @@ Unpause Deployment
 
 ### Parameters
 
-- `deployment_id: String`
+- `deployment_id: String` (path parameter)
 
   Unique identifier of the deployment to unpause.
 
-- `betas: Array[AnthropicBeta]`
+- `betas: Array[AnthropicBeta]` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
@@ -5708,7 +5708,7 @@ Unpause Deployment
 
   - `:"spend-limit-reads-2026-09-26"`
 
-- `workspace_id: String`
+- `workspace_id: String` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 

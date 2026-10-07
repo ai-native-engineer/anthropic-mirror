@@ -75,6 +75,10 @@ On the Team plan, Claude Tag doesn’t apply the [`availableModels` allowlist](h
 
 In either case, Claude Tag offers only the models it supports, so a model your allowlist includes can be absent in Slack.
 On the Enterprise plan, turning a model off for the whole organization on your **Models** page removes it from the lists in Slack, and Claude declines requests to switch to it. If you turn off the model a scope’s **Model** setting names, Claude still starts sessions there on a fallback model that’s still on, and declines only when every fallback is off too. The footer of the first reply names the model that served it.
+Claude also relies on these models in Slack even when no scope’s **Model** setting names them. On the Enterprise plan, keep them turned on under **Model access** on your [**Models**](https://claude.ai/admin-settings/models) page:
+
+* **Claude Sonnet 5**: in channel sessions and routines, a permission checker reviews each action Claude is about to take, and that checker runs on Claude Sonnet 5. While the model is off, the checker blocks actions it would otherwise allow, such as API calls, unless an [auto mode allow rule](#auto-mode-allow-rules) names them.
+* **Claude Opus 5**: tasks that use a member’s [personal connectors](https://claude.com/docs/claude-tag/concepts/personal-connectors#admin-controls-for-personal-connectors) go through checks that run on Claude Opus 5, whichever model the member’s thread runs on. While the model is off, Claude declines those tasks.
 
 ###  Allow fast mode
 

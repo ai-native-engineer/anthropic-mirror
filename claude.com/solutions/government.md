@@ -32,7 +32,7 @@ Local governments, national agencies, and international institutions rely on Cla
 
 Government teams have more work than headcount allows. Claude handles document review, research, drafting, case processing, and coding with reasoning your teams can review before they decide. That frees staff for the people and policies they serve.
 
-[Learn more (opens in new tab)](https://www.anthropic.com/webinars/claude-code-and-public-service-modernizing-how-state-and-local-governments-build-software)
+[Learn more (opens in new tab)](https://claude.com/resources/webinars/claude-code-and-public-service-modernizing-how-state-and-local-governments-build-software)
 
 ### Retire technical debt and legacy O&M
 
@@ -52,7 +52,7 @@ COBOL Modernization with AI: Breaking the Cost Barrier
 
 Legacy code modernization stalled for years because understanding legacy code cost more than rewriting it. AI flips that equation.
 
-[Read more](https://claude.com/blog/how-ai-helps-break-cost-barrier-cobol-modernization)
+[Read more](https://claude.com/resources/articles/how-ai-helps-break-cost-barrier-cobol-modernization)
 
 Case study
 
@@ -67,7 +67,7 @@ Claude for Government Desktop, now generally available
 
 Claude and Claude Code are live, built on the same application our commercial customers use and delivered through a FedRAMP High authorized environment.
 
-[Learn more](https://claude.com/blog/claude-for-government-is-now-generally-available)
+[Learn more](https://claude.com/resources/articles/claude-for-government-is-now-generally-available)
 
 ## Change what’s possible for your mission
 
@@ -211,7 +211,7 @@ Claude Code is now included in the Claude for Government Desktop app, and its si
 
 Claude Cowork is now just Claude, so you don’t have to choose where to get work done. The update is available in Claude for Government. We hope you enjoy the simpler experience.
 
-Read more about [Claude Code](https://claude.com/blog/bringing-claude-code-and-claude-cowork-to-government) and [how Claude Cowork changed](http://claude.com/blog/cowork-is-now-claude/).
+Read more about [Claude Code](https://claude.com/resources/articles/bringing-claude-code-and-claude-cowork-to-government) and [how Claude Cowork changed](https://claude.com/resources/articles/cowork-is-now-claude).
 
 ### Can I use Claude API in government environments?
 

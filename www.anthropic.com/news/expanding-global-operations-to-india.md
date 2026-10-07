@@ -21,3 +21,5 @@ According to our recent [Economic Index Report](https://www.anthropic.com/econom
 Our expansion into India also dovetails with our continuing investment in advancing Claude’s Indic language capabilities. Building robust support for the languages and contexts that matter most to users in India will be a cornerstone of our work in the region. Claude already provides support across major Indic languages, and will launch enhanced performance in Hindi and nearly a dozen additional languages, including Bengali, Marathi, Telugu, Tamil, Punjabi, Gujarati, Kannada, Malayalam, and Urdu. These extended capabilities will strengthen public sector adoption and enable broader access to AI across all of India.
 
 For information about career opportunities at our new Bengaluru office, visit anthropic.com/careers.
+
+Anthropic expands to India with Bengaluru office \ Anthropic

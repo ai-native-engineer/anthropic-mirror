@@ -261,15 +261,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `userProfileID?:optional string`
+- `userProfileID?:optional string` (header parameter)
 
   The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -938,15 +938,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `userProfileID?:optional string`
+- `userProfileID?:optional string` (header parameter)
 
   The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -9488,15 +9488,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   List of requests for prompt completion. Each is an individual request to create a Message.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `userProfileID?:optional string`
+- `userProfileID?:optional string` (header parameter)
 
   The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -9724,15 +9724,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 #### Parameters
 
-- `messageBatchID: string`
+- `messageBatchID: string` (path parameter)
 
   ID of the Message Batch.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -9845,15 +9845,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 #### Parameters
 
-- `afterID?:optional string`
+- `afterID?:optional string` (query parameter)
 
   ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-- `beforeID?:optional string`
+- `beforeID?:optional string` (query parameter)
 
   ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-- `limit?:optional int`
+- `limit?:optional int` (query parameter)
 
   Number of items to return per page.
 
@@ -9861,11 +9861,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   default: 20
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -9989,15 +9989,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 #### Parameters
 
-- `messageBatchID: string`
+- `messageBatchID: string` (path parameter)
 
   ID of the Message Batch.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -10112,15 +10112,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 #### Parameters
 
-- `messageBatchID: string`
+- `messageBatchID: string` (path parameter)
 
   ID of the Message Batch.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -10181,15 +10181,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 #### Parameters
 
-- `messageBatchID: string`
+- `messageBatchID: string` (path parameter)
 
   ID of the Message Batch.
 
-- `betas?:optional list<AnthropicBeta>`
+- `betas?:optional list<AnthropicBeta>` (header parameter)
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
+- `workspaceID?:optional string` (header parameter)
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 

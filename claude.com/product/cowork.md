@@ -6,7 +6,7 @@ Claude Cowork is now just Claude.
 
 Rolling out to Pro and Max, with more plans to follow.
 
-[Read what changed](https://claude.com/blog/cowork-is-now-claude/)
+[Read what changed](https://claude.com/resources/articles/cowork-is-now-claude)
 
 ![](https://assets.claude.com/c4cccb47d2ee2cf151f52b084554003b801e6a75.jpg)
 
@@ -123,7 +123,7 @@ Customize Cowork with plugins
 
 Bundle any skills, connectors, and sub-agents together to turn Claude into a specialist for your role, team, and company.
 
-[Read more](https://claude.com/blog/cowork-plugins)
+[Read more](https://claude.com/resources/articles/cowork-plugins)
 
 Plugins
 
@@ -155,15 +155,15 @@ Streamline finance workflows: journal entries, reconciliation, financial stateme
 
 [**Built-in browser:** Claude can now open sites, fill forms, and finish web tasks in a browser built into Cowork
 
-Blog · Aug 26, 2026](https://claude.com/blog/cowork-built-in-browser)
+Blog · Aug 26, 2026](https://claude.com/resources/articles/cowork-built-in-browser)
 
 [**Enterprise deployment:** Manage feature access, control spend, and track Claude Cowork usage across the org
 
-Blog · Apr 9, 2026](https://claude.com/blog/cowork-for-enterprise)
+Blog · Apr 9, 2026](https://claude.com/resources/articles/cowork-for-enterprise)
 
 [**Plugin marketplace:** Admins can now create private plugin marketplaces
 
-Blog · Feb 24, 2026](https://claude.com/blog/cowork-plugins-across-enterprise)
+Blog · Feb 24, 2026](https://claude.com/resources/articles/cowork-plugins-across-enterprise)
 
 ## Claude Cowork doesn’t just answer, it takes action
 

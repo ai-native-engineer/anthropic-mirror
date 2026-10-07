@@ -8,9 +8,13 @@ Sharing tips, tricks, and POVs from Anthropic’s developers.
 
 [Featured
 
-Getting started with Claude Code mods
+Claude Code in the cloud: a field guide to cloud sessions
 
-Addy OsmaniTutorials11 min
+Addy OsmaniPlaybooks18 min
+
+18 minutesmin](https://claude.dev/blog/claude-code-in-the-cloud/)[Oct 01, 2026
+
+Getting started with Claude Code mods
 
 11 minutesmin](https://claude.dev/blog/getting-started-with-claude-code-mods/)[Sep 28, 2026
 
@@ -44,11 +48,7 @@ The new rules of context engineering for Claude 5 generation models
 
 Lessons from building Claude Code: How we use skills
 
-11 minutesmin](https://claude.dev/blog/lessons-from-building-claude-code-how-we-use-skills/)[Jun 02, 2026
-
-A harness for every task: dynamic workflows in Claude Code
-
-11 minutesmin](https://claude.dev/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code/)
+11 minutesmin](https://claude.dev/blog/lessons-from-building-claude-code-how-we-use-skills/)
 
 LOAD MOREPress R to load more
 
