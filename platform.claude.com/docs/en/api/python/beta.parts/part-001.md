@@ -620,7 +620,7 @@ The Models API response can be used to determine which models are available for 
 
     - `code_execution: BetaCapabilitySupport`
 
-      Whether the model supports code execution tools.
+      Whether code that the model runs in the code execution tool can call the request's other tools, as in programmatic tool calling and dynamic filtering for web search and web fetch. Support for the code execution tool itself is in `server_tools.code_execution`.
 
     - `compaction: Optional[BetaCompactionCapability]`
 
@@ -690,6 +690,22 @@ The Models API response can be used to determine which models are available for 
 
       Whether the model accepts PDF content blocks.
 
+    - `server_tools: BetaServerToolsCapability`
+
+      Whether this model supports the web search and code execution server tools. `supported` is true when the model supports at least one of the tools. A supported tool can still be rejected for your organization, for example when an admin has turned web search off.
+
+      - `code_execution: BetaCapabilitySupport`
+
+        Whether the model supports the code execution tool: true when the model supports at least one version of the tool, not necessarily every version.
+
+      - `supported: bool`
+
+        Whether this capability is supported by the model.
+
+      - `web_search: BetaCapabilitySupport`
+
+        Whether the model supports the web search tool: true when the model supports at least one version of the tool, not necessarily every version.
+
     - `structured_outputs: BetaCapabilitySupport`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
@@ -708,11 +724,15 @@ The Models API response can be used to determine which models are available for 
 
         - `adaptive: BetaCapabilitySupport`
 
-          Whether the model supports thinking with type 'adaptive' (auto).
+          Whether the model accepts thinking with type 'adaptive' (the model decides whether and how much to think).
+
+        - `disabled: BetaCapabilitySupport`
+
+          Whether the model accepts thinking with type 'disabled' (thinking turned off). False exactly when a request that sends it gets a 400 from this model. True on a model that does not support thinking.
 
         - `enabled: BetaCapabilitySupport`
 
-          Whether the model supports thinking with type 'enabled'.
+          Whether the model accepts thinking with type 'enabled' (extended thinking with a caller-set `budget_tokens`).
 
   - `created_at: datetime`
 
@@ -824,6 +844,15 @@ print(page.id)
         "pdf_input": {
           "supported": true
         },
+        "server_tools": {
+          "code_execution": {
+            "supported": true
+          },
+          "supported": true,
+          "web_search": {
+            "supported": true
+          }
+        },
         "structured_outputs": {
           "supported": true
         },
@@ -831,6 +860,9 @@ print(page.id)
           "supported": true,
           "types": {
             "adaptive": {
+              "supported": true
+            },
+            "disabled": {
               "supported": true
             },
             "enabled": {
@@ -1019,7 +1051,7 @@ The Models API response can be used to determine information about a specific mo
 
     - `code_execution: BetaCapabilitySupport`
 
-      Whether the model supports code execution tools.
+      Whether code that the model runs in the code execution tool can call the request's other tools, as in programmatic tool calling and dynamic filtering for web search and web fetch. Support for the code execution tool itself is in `server_tools.code_execution`.
 
     - `compaction: Optional[BetaCompactionCapability]`
 
@@ -1089,6 +1121,22 @@ The Models API response can be used to determine information about a specific mo
 
       Whether the model accepts PDF content blocks.
 
+    - `server_tools: BetaServerToolsCapability`
+
+      Whether this model supports the web search and code execution server tools. `supported` is true when the model supports at least one of the tools. A supported tool can still be rejected for your organization, for example when an admin has turned web search off.
+
+      - `code_execution: BetaCapabilitySupport`
+
+        Whether the model supports the code execution tool: true when the model supports at least one version of the tool, not necessarily every version.
+
+      - `supported: bool`
+
+        Whether this capability is supported by the model.
+
+      - `web_search: BetaCapabilitySupport`
+
+        Whether the model supports the web search tool: true when the model supports at least one version of the tool, not necessarily every version.
+
     - `structured_outputs: BetaCapabilitySupport`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
@@ -1107,11 +1155,15 @@ The Models API response can be used to determine information about a specific mo
 
         - `adaptive: BetaCapabilitySupport`
 
-          Whether the model supports thinking with type 'adaptive' (auto).
+          Whether the model accepts thinking with type 'adaptive' (the model decides whether and how much to think).
+
+        - `disabled: BetaCapabilitySupport`
+
+          Whether the model accepts thinking with type 'disabled' (thinking turned off). False exactly when a request that sends it gets a 400 from this model. True on a model that does not support thinking.
 
         - `enabled: BetaCapabilitySupport`
 
-          Whether the model supports thinking with type 'enabled'.
+          Whether the model accepts thinking with type 'enabled' (extended thinking with a caller-set `budget_tokens`).
 
   - `created_at: datetime`
 
@@ -1222,6 +1274,15 @@ print(beta_model_info.id)
     "pdf_input": {
       "supported": true
     },
+    "server_tools": {
+      "code_execution": {
+        "supported": true
+      },
+      "supported": true,
+      "web_search": {
+        "supported": true
+      }
+    },
     "structured_outputs": {
       "supported": true
     },
@@ -1229,6 +1290,9 @@ print(beta_model_info.id)
       "supported": true,
       "types": {
         "adaptive": {
+          "supported": true
+        },
+        "disabled": {
           "supported": true
         },
         "enabled": {
@@ -4232,6 +4296,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                       The model that will complete your prompt.
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                      - `"claude-haiku-5-5"`
+
+                        Fastest model for high-volume, real-time tasks
 
                       - `"claude-sonnet-5-5"`
 
@@ -8171,6 +8239,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                    - `"claude-haiku-5-5"`
+
+                      Fastest model for high-volume, real-time tasks
+
                     - `"claude-sonnet-5-5"`
 
                       Efficient model for coding and agents
@@ -9674,7 +9746,7 @@ print(beta_message.id)
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-sonnet-5-5",
+        "model": "claude-haiku-5-5",
         "output_tokens": 0,
         "type": "message"
       }
@@ -12672,6 +12744,10 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                       The model that will complete your prompt.
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                      - `"claude-haiku-5-5"`
+
+                        Fastest model for high-volume, real-time tasks
 
                       - `"claude-sonnet-5-5"`
 
@@ -16759,6 +16835,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                           The model that will complete your prompt.
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                          - `"claude-haiku-5-5"`
+
+                            Fastest model for high-volume, real-time tasks
 
                           - `"claude-sonnet-5-5"`
 
@@ -22040,6 +22120,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                          - `"claude-haiku-5-5"`
+
+                            Fastest model for high-volume, real-time tasks
+
                           - `"claude-sonnet-5-5"`
 
                             Efficient model for coding and agents
@@ -23288,7 +23372,11 @@ Create Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control
 
-  - `Union[Literal["claude-sonnet-5-5", "claude-opus-5-5", "claude-fable-5-1", 13 more], str]`
+  - `Union[Literal["claude-haiku-5-5", "claude-sonnet-5-5", "claude-opus-5-5", 14 more], str]`
+
+    - `"claude-haiku-5-5"`
+
+      Fastest model for high-volume, real-time tasks
 
     - `"claude-sonnet-5-5"`
 
@@ -23369,6 +23457,10 @@ Create Agent
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
 
       - `"claude-sonnet-5-5"`
 
@@ -23542,7 +23634,7 @@ Create Agent
 
 - `multiagent: Optional[BetaManagedAgentsMultiagentParams]`
 
-  Multiagent orchestration configuration. Currently supports the `coordinator` topology with a roster of 1-20 agents.
+  Multiagent orchestration configuration.
 
   - `type: Literal["coordinator"]`
 
@@ -23584,7 +23676,7 @@ Create Agent
 
       - `model: str`
 
-        A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
+        A Claude model id. The model must be permitted as an advisor for this agent's model.
 
         minLength: 1, maxLength: 256
 
@@ -23877,6 +23969,102 @@ Create Agent
           - `class BetaManagedAgentsAutoPolicy`
 
             The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+        - `url_sources: Optional[BetaManagedAgentsWebFetchURLSourcesParams]`
+
+          Which sources contribute URLs the tool may fetch. Omit to allow every source.
+
+          - `client_tool_results: Optional[Union[BetaManagedAgentsWebFetchURLSourceShorthand, BetaManagedAgentsWebFetchURLSourceToolFilter, null]]`
+
+            Which custom tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be a custom tool in the same tools array.
+
+            - `Literal["all", "none"]`
+
+              - `"all"`
+
+              - `"none"`
+
+            - `type BetaManagedAgentsWebFetchURLSourceToolFilter = ...`
+
+              Which tools' results contribute URLs that may be fetched.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `type: Literal["all"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `type: Literal["none"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `type: Literal["only"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `type: Literal["except"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+          - `server_tool_results: Optional[Union[BetaManagedAgentsWebFetchURLSourceShorthand, BetaManagedAgentsWebFetchURLSourceToolFilter, null]]`
+
+            Which of the web_search and web_fetch tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be "web_search" or "web_fetch".
+
+          - `user_input: Optional[Union[BetaManagedAgentsWebFetchURLSourceShorthand, BetaManagedAgentsWebFetchURLSourceUserInput, null]]`
+
+            Whether URLs in the text of user messages may be fetched: "all" (the default) or "none".
+
+            - `Literal["all", "none"]`
+
+              - `"all"`
+
+              - `"none"`
+
+            - `type BetaManagedAgentsWebFetchURLSourceUserInput = ...`
+
+              Whether URLs in the text of user messages may be fetched.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
 
       - `class BetaManagedAgentsWebSearchToolConfigParams`
 
@@ -24220,6 +24408,10 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
+
       - `"claude-sonnet-5-5"`
 
         Efficient model for coding and agents
@@ -24589,6 +24781,82 @@ Create Agent
             - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `url_sources: Optional[BetaManagedAgentsWebFetchURLSources]`
+
+            Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+            - `client_tool_results: Optional[BetaManagedAgentsWebFetchURLSourceToolFilter]`
+
+              Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `type: Literal["all"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `type: Literal["none"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `type: Literal["only"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `type: Literal["except"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+            - `server_tool_results: Optional[BetaManagedAgentsWebFetchURLSourceToolFilter]`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+            - `user_input: Optional[BetaManagedAgentsWebFetchURLSourceUserInput]`
+
+              Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
 
           - `allowed_domains: Optional[List[str]]`
 
@@ -24824,7 +25092,7 @@ print(beta_managed_agents_agent.id)
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -25048,6 +25316,10 @@ List Agents
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
 
       - `"claude-sonnet-5-5"`
 
@@ -25418,6 +25690,82 @@ List Agents
             - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `url_sources: Optional[BetaManagedAgentsWebFetchURLSources]`
+
+            Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+            - `client_tool_results: Optional[BetaManagedAgentsWebFetchURLSourceToolFilter]`
+
+              Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `type: Literal["all"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `type: Literal["none"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `type: Literal["only"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `type: Literal["except"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+            - `server_tool_results: Optional[BetaManagedAgentsWebFetchURLSourceToolFilter]`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+            - `user_input: Optional[BetaManagedAgentsWebFetchURLSourceUserInput]`
+
+              Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
 
           - `allowed_domains: Optional[List[str]]`
 
@@ -25653,7 +26001,7 @@ print(page.id)
           "version": "1"
         },
         {
-          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
           "type": "custom",
           "version": "2"
         }
@@ -25864,6 +26212,10 @@ Get Agent
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
 
       - `"claude-sonnet-5-5"`
 
@@ -26235,6 +26587,82 @@ Get Agent
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
+          - `url_sources: Optional[BetaManagedAgentsWebFetchURLSources]`
+
+            Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+            - `client_tool_results: Optional[BetaManagedAgentsWebFetchURLSourceToolFilter]`
+
+              Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `type: Literal["all"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `type: Literal["none"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `type: Literal["only"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `type: Literal["except"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+            - `server_tool_results: Optional[BetaManagedAgentsWebFetchURLSourceToolFilter]`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+            - `user_input: Optional[BetaManagedAgentsWebFetchURLSourceUserInput]`
+
+              Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
           - `allowed_domains: Optional[List[str]]`
 
           - `blocked_domains: Optional[List[str]]`
@@ -26468,7 +26896,7 @@ print(beta_managed_agents_agent.id)
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -26547,7 +26975,11 @@ Update Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
 
-  - `Union[Literal["claude-sonnet-5-5", "claude-opus-5-5", "claude-fable-5-1", 13 more], str]`
+  - `Union[Literal["claude-haiku-5-5", "claude-sonnet-5-5", "claude-opus-5-5", 14 more], str]`
+
+    - `"claude-haiku-5-5"`
+
+      Fastest model for high-volume, real-time tasks
 
     - `"claude-sonnet-5-5"`
 
@@ -26628,6 +27060,10 @@ Update Agent
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
 
       - `"claude-sonnet-5-5"`
 
@@ -26809,7 +27245,7 @@ Update Agent
 
       - `model: str`
 
-        A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
+        A Claude model id. The model must be permitted as an advisor for this agent's model.
 
         minLength: 1, maxLength: 256
 
@@ -27108,6 +27544,102 @@ Update Agent
           - `class BetaManagedAgentsAutoPolicy`
 
             The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+        - `url_sources: Optional[BetaManagedAgentsWebFetchURLSourcesParams]`
+
+          Which sources contribute URLs the tool may fetch. Omit to allow every source.
+
+          - `client_tool_results: Optional[Union[BetaManagedAgentsWebFetchURLSourceShorthand, BetaManagedAgentsWebFetchURLSourceToolFilter, null]]`
+
+            Which custom tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be a custom tool in the same tools array.
+
+            - `Literal["all", "none"]`
+
+              - `"all"`
+
+              - `"none"`
+
+            - `type BetaManagedAgentsWebFetchURLSourceToolFilter = ...`
+
+              Which tools' results contribute URLs that may be fetched.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `type: Literal["all"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `type: Literal["none"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `type: Literal["only"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `type: Literal["except"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+          - `server_tool_results: Optional[Union[BetaManagedAgentsWebFetchURLSourceShorthand, BetaManagedAgentsWebFetchURLSourceToolFilter, null]]`
+
+            Which of the web_search and web_fetch tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be "web_search" or "web_fetch".
+
+          - `user_input: Optional[Union[BetaManagedAgentsWebFetchURLSourceShorthand, BetaManagedAgentsWebFetchURLSourceUserInput, null]]`
+
+            Whether URLs in the text of user messages may be fetched: "all" (the default) or "none".
+
+            - `Literal["all", "none"]`
+
+              - `"all"`
+
+              - `"none"`
+
+            - `type BetaManagedAgentsWebFetchURLSourceUserInput = ...`
+
+              Whether URLs in the text of user messages may be fetched.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
 
       - `class BetaManagedAgentsWebSearchToolConfigParams`
 
@@ -27457,6 +27989,10 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
+
       - `"claude-sonnet-5-5"`
 
         Efficient model for coding and agents
@@ -27826,6 +28362,82 @@ Update Agent
             - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `url_sources: Optional[BetaManagedAgentsWebFetchURLSources]`
+
+            Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+            - `client_tool_results: Optional[BetaManagedAgentsWebFetchURLSourceToolFilter]`
+
+              Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `type: Literal["all"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `type: Literal["none"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `type: Literal["only"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `type: Literal["except"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+            - `server_tool_results: Optional[BetaManagedAgentsWebFetchURLSourceToolFilter]`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+            - `user_input: Optional[BetaManagedAgentsWebFetchURLSourceUserInput]`
+
+              Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
 
           - `allowed_domains: Optional[List[str]]`
 
@@ -28061,7 +28673,7 @@ print(beta_managed_agents_agent.id)
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -28263,6 +28875,10 @@ Archive Agent
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
 
       - `"claude-sonnet-5-5"`
 
@@ -28633,6 +29249,82 @@ Archive Agent
             - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `url_sources: Optional[BetaManagedAgentsWebFetchURLSources]`
+
+            Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+            - `client_tool_results: Optional[BetaManagedAgentsWebFetchURLSourceToolFilter]`
+
+              Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `type: Literal["all"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `type: Literal["none"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `type: Literal["only"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `type: Literal["except"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+            - `server_tool_results: Optional[BetaManagedAgentsWebFetchURLSourceToolFilter]`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+            - `user_input: Optional[BetaManagedAgentsWebFetchURLSourceUserInput]`
+
+              Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
 
           - `allowed_domains: Optional[List[str]]`
 
@@ -28867,7 +29559,7 @@ print(beta_managed_agents_agent.id)
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -29081,6 +29773,10 @@ List Agent Versions
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
 
       - `"claude-sonnet-5-5"`
 
@@ -29451,6 +30147,82 @@ List Agent Versions
             - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `url_sources: Optional[BetaManagedAgentsWebFetchURLSources]`
+
+            Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+            - `client_tool_results: Optional[BetaManagedAgentsWebFetchURLSourceToolFilter]`
+
+              Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `type: Literal["all"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `type: Literal["none"]`
+
+              - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `type: Literal["only"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `type: Literal["except"]`
+
+                - `tools: List[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `type: Literal["tool_reference"]`
+
+                    Must be "tool_reference".
+
+                  - `name: str`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+            - `server_tool_results: Optional[BetaManagedAgentsWebFetchURLSourceToolFilter]`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+            - `user_input: Optional[BetaManagedAgentsWebFetchURLSourceUserInput]`
+
+              Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+              - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
 
           - `allowed_domains: Optional[List[str]]`
 
@@ -29688,7 +30460,7 @@ print(page.id)
           "version": "1"
         },
         {
-          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
           "type": "custom",
           "version": "2"
         }
@@ -30482,1432 +31254,3 @@ print(page.id)
           "go": [
             "string"
           ],
-          "npm": [
-            "string"
-          ],
-          "pip": [
-            "pandas",
-            "numpy"
-          ],
-          "type": "packages"
-        },
-        "type": "cloud"
-      },
-      "created_at": "2026-03-15T10:00:00Z",
-      "description": "Python environment with data-analysis packages.",
-      "metadata": {},
-      "name": "python-data-analysis",
-      "type": "environment",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "scope": "organization"
-    }
-  ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-### Get Environment
-
-`beta.environments.retrieve(environment_id, **kwargs)  -> BetaEnvironment`
-
-**GET** `/v1/environments/{environment_id}`
-
-Retrieve a specific environment by ID.
-
-#### Parameters
-
-- `environment_id: str` (path parameter)
-
-- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `str`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-  - `"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: Optional[str]` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaEnvironment`
-
-  Unified Environment resource for both cloud and self-hosted environments.
-
-  - `type: Literal["environment"]`
-
-    The type of object (always 'environment')
-
-    default: environment
-
-  - `id: str`
-
-    Environment identifier (e.g., 'env_...')
-
-  - `archived_at: Optional[str]`
-
-    RFC 3339 timestamp when environment was archived, or null if not archived
-
-  - `config: Config`
-
-    Environment configuration (either Anthropic Cloud or self-hosted)
-
-    - `class BetaCloudConfig`
-
-      `cloud` environment configuration.
-
-      - `type: Literal["cloud"]`
-
-        Environment type
-
-      - `networking: Networking`
-
-        Network configuration policy.
-
-        - `class BetaUnrestrictedNetwork`
-
-          Unrestricted network access.
-
-          - `type: Literal["unrestricted"]`
-
-            Network policy type
-
-        - `class BetaLimitedNetwork`
-
-          Limited network access.
-
-          - `type: Literal["limited"]`
-
-            Network policy type
-
-          - `allow_mcp_servers: bool`
-
-            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
-
-          - `allow_package_managers: bool`
-
-            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
-
-          - `allowed_hosts: List[str]`
-
-            Specifies domains the container can reach.
-
-      - `packages: BetaPackages`
-
-        Package manager configuration.
-
-        - `type: Optional[Literal["packages"]]`
-
-          Package configuration type
-
-          default: packages
-
-        - `apt: List[str]`
-
-          Ubuntu/Debian packages to install
-
-        - `cargo: List[str]`
-
-          Rust packages to install
-
-        - `gem: List[str]`
-
-          Ruby packages to install
-
-        - `go: List[str]`
-
-          Go packages to install
-
-        - `npm: List[str]`
-
-          Node.js packages to install
-
-        - `pip: List[str]`
-
-          Python packages to install
-
-    - `class BetaSelfHostedConfig`
-
-      Configuration for self-hosted environments.
-
-      - `type: Literal["self_hosted"]`
-
-        Environment type
-
-  - `created_at: str`
-
-    RFC 3339 timestamp when environment was created
-
-  - `description: Optional[str]`
-
-    User-provided description for the environment; null when unset
-
-  - `metadata: Dict[str, str]`
-
-    User-provided metadata key-value pairs
-
-  - `name: str`
-
-    Human-readable name for the environment
-
-  - `updated_at: str`
-
-    RFC 3339 timestamp when environment was last updated
-
-  - `scope: Optional[Literal["organization", "account"]]`
-
-    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
-
-    - `"organization"`
-
-    - `"account"`
-
-#### Example
-
-```python
-import os
-from anthropic import Anthropic
-
-client = Anthropic(
-    api_key=os.environ.get(
-        "ANTHROPIC_API_KEY"
-    ),  # This is the default and can be omitted
-)
-beta_environment = client.beta.environments.retrieve(
-    environment_id="env_011CZkZ9X2dpNyB7HsEFoRfW",
-)
-print(beta_environment.id)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "archived_at": null,
-  "config": {
-    "networking": {
-      "allow_mcp_servers": false,
-      "allow_package_managers": true,
-      "allowed_hosts": [
-        "api.example.com"
-      ],
-      "type": "limited"
-    },
-    "packages": {
-      "apt": [
-        "string"
-      ],
-      "cargo": [
-        "string"
-      ],
-      "gem": [
-        "string"
-      ],
-      "go": [
-        "string"
-      ],
-      "npm": [
-        "string"
-      ],
-      "pip": [
-        "pandas",
-        "numpy"
-      ],
-      "type": "packages"
-    },
-    "type": "cloud"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "description": "Python environment with data-analysis packages.",
-  "metadata": {},
-  "name": "python-data-analysis",
-  "type": "environment",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "scope": "organization"
-}
-```
-
-### Update Environment
-
-`beta.environments.update(environment_id, **kwargs)  -> BetaEnvironment`
-
-**POST** `/v1/environments/{environment_id}`
-
-Update an existing environment's configuration.
-
-#### Parameters
-
-- `environment_id: str` (path parameter)
-
-- `config: Optional[Config]`
-
-  Updated environment configuration
-
-  - `class BetaCloudConfigParams`
-
-    Request params for `cloud` environment configuration.
-
-    Fields default to null; on update, omitted fields preserve the
-    existing value.
-
-    - `type: Literal["cloud"]`
-
-      Environment type
-
-    - `networking: Optional[Networking]`
-
-      Network configuration policy. Omit on update to preserve the existing value.
-
-      - `class BetaUnrestrictedNetwork`
-
-        Unrestricted network access.
-
-        - `type: Literal["unrestricted"]`
-
-          Network policy type
-
-      - `class BetaLimitedNetworkParams`
-
-        Limited network request params.
-
-        Fields default to null; on update, omitted fields preserve the
-        existing value.
-
-        - `type: Literal["limited"]`
-
-          Network policy type
-
-        - `allow_mcp_servers: Optional[bool]`
-
-          Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array. Defaults to `false`.
-
-        - `allow_package_managers: Optional[bool]`
-
-          Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array. Defaults to `false` on creation. Must be `true` when `packages` are specified.
-
-        - `allowed_hosts: Optional[List[str]]`
-
-          Specifies domains the container can reach.
-
-    - `packages: Optional[BetaPackagesParams]`
-
-      Package manager configuration. Under `limited` networking, requires `networking.allow_package_managers` to be `true`. Omit on update to preserve the existing value.
-
-      - `type: Optional[Literal["packages"]]`
-
-        Package configuration type
-
-        default: packages
-
-      - `apt: Optional[List[str]]`
-
-        Ubuntu/Debian packages to install
-
-      - `cargo: Optional[List[str]]`
-
-        Rust packages to install
-
-      - `gem: Optional[List[str]]`
-
-        Ruby packages to install
-
-      - `go: Optional[List[str]]`
-
-        Go packages to install
-
-      - `npm: Optional[List[str]]`
-
-        Node.js packages to install
-
-      - `pip: Optional[List[str]]`
-
-        Python packages to install
-
-  - `class BetaSelfHostedConfigParams`
-
-    Request params for `self_hosted` environment configuration.
-
-    - `type: Literal["self_hosted"]`
-
-      Environment type
-
-- `description: Optional[str]`
-
-  Updated description of the environment. Omit to preserve; null clears to null; an empty string is stored as an empty string.
-
-  maxLength: 1024
-
-- `metadata: Optional[Dict[str, Optional[str]]]`
-
-  User-provided metadata key-value pairs. Set a value to null or empty string to delete the key.
-
-- `name: Optional[str]`
-
-  Updated name for the environment
-
-  minLength: 1, maxLength: 256
-
-- `scope: Optional[Literal["organization", "account"]]`
-
-  The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only.
-
-  - `"organization"`
-
-  - `"account"`
-
-- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `str`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-  - `"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: Optional[str]` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaEnvironment`
-
-  Unified Environment resource for both cloud and self-hosted environments.
-
-  - `type: Literal["environment"]`
-
-    The type of object (always 'environment')
-
-    default: environment
-
-  - `id: str`
-
-    Environment identifier (e.g., 'env_...')
-
-  - `archived_at: Optional[str]`
-
-    RFC 3339 timestamp when environment was archived, or null if not archived
-
-  - `config: Config`
-
-    Environment configuration (either Anthropic Cloud or self-hosted)
-
-    - `class BetaCloudConfig`
-
-      `cloud` environment configuration.
-
-      - `type: Literal["cloud"]`
-
-        Environment type
-
-      - `networking: Networking`
-
-        Network configuration policy.
-
-        - `class BetaUnrestrictedNetwork`
-
-          Unrestricted network access.
-
-          - `type: Literal["unrestricted"]`
-
-            Network policy type
-
-        - `class BetaLimitedNetwork`
-
-          Limited network access.
-
-          - `type: Literal["limited"]`
-
-            Network policy type
-
-          - `allow_mcp_servers: bool`
-
-            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
-
-          - `allow_package_managers: bool`
-
-            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
-
-          - `allowed_hosts: List[str]`
-
-            Specifies domains the container can reach.
-
-      - `packages: BetaPackages`
-
-        Package manager configuration.
-
-        - `type: Optional[Literal["packages"]]`
-
-          Package configuration type
-
-          default: packages
-
-        - `apt: List[str]`
-
-          Ubuntu/Debian packages to install
-
-        - `cargo: List[str]`
-
-          Rust packages to install
-
-        - `gem: List[str]`
-
-          Ruby packages to install
-
-        - `go: List[str]`
-
-          Go packages to install
-
-        - `npm: List[str]`
-
-          Node.js packages to install
-
-        - `pip: List[str]`
-
-          Python packages to install
-
-    - `class BetaSelfHostedConfig`
-
-      Configuration for self-hosted environments.
-
-      - `type: Literal["self_hosted"]`
-
-        Environment type
-
-  - `created_at: str`
-
-    RFC 3339 timestamp when environment was created
-
-  - `description: Optional[str]`
-
-    User-provided description for the environment; null when unset
-
-  - `metadata: Dict[str, str]`
-
-    User-provided metadata key-value pairs
-
-  - `name: str`
-
-    Human-readable name for the environment
-
-  - `updated_at: str`
-
-    RFC 3339 timestamp when environment was last updated
-
-  - `scope: Optional[Literal["organization", "account"]]`
-
-    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
-
-    - `"organization"`
-
-    - `"account"`
-
-#### Example
-
-```python
-import os
-from anthropic import Anthropic
-
-client = Anthropic(
-    api_key=os.environ.get(
-        "ANTHROPIC_API_KEY"
-    ),  # This is the default and can be omitted
-)
-beta_environment = client.beta.environments.update(
-    environment_id="env_011CZkZ9X2dpNyB7HsEFoRfW",
-)
-print(beta_environment.id)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "archived_at": null,
-  "config": {
-    "networking": {
-      "allow_mcp_servers": false,
-      "allow_package_managers": true,
-      "allowed_hosts": [
-        "api.example.com"
-      ],
-      "type": "limited"
-    },
-    "packages": {
-      "apt": [
-        "string"
-      ],
-      "cargo": [
-        "string"
-      ],
-      "gem": [
-        "string"
-      ],
-      "go": [
-        "string"
-      ],
-      "npm": [
-        "string"
-      ],
-      "pip": [
-        "pandas",
-        "numpy"
-      ],
-      "type": "packages"
-    },
-    "type": "cloud"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "description": "Python environment with data-analysis packages.",
-  "metadata": {},
-  "name": "python-data-analysis",
-  "type": "environment",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "scope": "organization"
-}
-```
-
-### Delete Environment
-
-`beta.environments.delete(environment_id, **kwargs)  -> BetaEnvironmentDeleteResponse`
-
-**DELETE** `/v1/environments/{environment_id}`
-
-Delete an environment by ID. Returns a confirmation of the deletion.
-
-#### Parameters
-
-- `environment_id: str` (path parameter)
-
-- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `str`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-  - `"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: Optional[str]` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaEnvironmentDeleteResponse`
-
-  Response after deleting an environment.
-
-  - `type: Literal["environment_deleted"]`
-
-    The type of response
-
-    default: environment_deleted
-
-  - `id: str`
-
-    Environment identifier
-
-#### Example
-
-```python
-import os
-from anthropic import Anthropic
-
-client = Anthropic(
-    api_key=os.environ.get(
-        "ANTHROPIC_API_KEY"
-    ),  # This is the default and can be omitted
-)
-beta_environment_delete_response = client.beta.environments.delete(
-    environment_id="env_011CZkZ9X2dpNyB7HsEFoRfW",
-)
-print(beta_environment_delete_response.id)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "type": "environment_deleted"
-}
-```
-
-### Archive Environment
-
-`beta.environments.archive(environment_id, **kwargs)  -> BetaEnvironment`
-
-**POST** `/v1/environments/{environment_id}/archive`
-
-Archive an environment by ID. Archived environments cannot be used to create new sessions.
-
-#### Parameters
-
-- `environment_id: str` (path parameter)
-
-- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `str`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-  - `"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: Optional[str]` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaEnvironment`
-
-  Unified Environment resource for both cloud and self-hosted environments.
-
-  - `type: Literal["environment"]`
-
-    The type of object (always 'environment')
-
-    default: environment
-
-  - `id: str`
-
-    Environment identifier (e.g., 'env_...')
-
-  - `archived_at: Optional[str]`
-
-    RFC 3339 timestamp when environment was archived, or null if not archived
-
-  - `config: Config`
-
-    Environment configuration (either Anthropic Cloud or self-hosted)
-
-    - `class BetaCloudConfig`
-
-      `cloud` environment configuration.
-
-      - `type: Literal["cloud"]`
-
-        Environment type
-
-      - `networking: Networking`
-
-        Network configuration policy.
-
-        - `class BetaUnrestrictedNetwork`
-
-          Unrestricted network access.
-
-          - `type: Literal["unrestricted"]`
-
-            Network policy type
-
-        - `class BetaLimitedNetwork`
-
-          Limited network access.
-
-          - `type: Literal["limited"]`
-
-            Network policy type
-
-          - `allow_mcp_servers: bool`
-
-            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
-
-          - `allow_package_managers: bool`
-
-            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
-
-          - `allowed_hosts: List[str]`
-
-            Specifies domains the container can reach.
-
-      - `packages: BetaPackages`
-
-        Package manager configuration.
-
-        - `type: Optional[Literal["packages"]]`
-
-          Package configuration type
-
-          default: packages
-
-        - `apt: List[str]`
-
-          Ubuntu/Debian packages to install
-
-        - `cargo: List[str]`
-
-          Rust packages to install
-
-        - `gem: List[str]`
-
-          Ruby packages to install
-
-        - `go: List[str]`
-
-          Go packages to install
-
-        - `npm: List[str]`
-
-          Node.js packages to install
-
-        - `pip: List[str]`
-
-          Python packages to install
-
-    - `class BetaSelfHostedConfig`
-
-      Configuration for self-hosted environments.
-
-      - `type: Literal["self_hosted"]`
-
-        Environment type
-
-  - `created_at: str`
-
-    RFC 3339 timestamp when environment was created
-
-  - `description: Optional[str]`
-
-    User-provided description for the environment; null when unset
-
-  - `metadata: Dict[str, str]`
-
-    User-provided metadata key-value pairs
-
-  - `name: str`
-
-    Human-readable name for the environment
-
-  - `updated_at: str`
-
-    RFC 3339 timestamp when environment was last updated
-
-  - `scope: Optional[Literal["organization", "account"]]`
-
-    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
-
-    - `"organization"`
-
-    - `"account"`
-
-#### Example
-
-```python
-import os
-from anthropic import Anthropic
-
-client = Anthropic(
-    api_key=os.environ.get(
-        "ANTHROPIC_API_KEY"
-    ),  # This is the default and can be omitted
-)
-beta_environment = client.beta.environments.archive(
-    environment_id="env_011CZkZ9X2dpNyB7HsEFoRfW",
-)
-print(beta_environment.id)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "archived_at": null,
-  "config": {
-    "networking": {
-      "allow_mcp_servers": false,
-      "allow_package_managers": true,
-      "allowed_hosts": [
-        "api.example.com"
-      ],
-      "type": "limited"
-    },
-    "packages": {
-      "apt": [
-        "string"
-      ],
-      "cargo": [
-        "string"
-      ],
-      "gem": [
-        "string"
-      ],
-      "go": [
-        "string"
-      ],
-      "npm": [
-        "string"
-      ],
-      "pip": [
-        "pandas",
-        "numpy"
-      ],
-      "type": "packages"
-    },
-    "type": "cloud"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "description": "Python environment with data-analysis packages.",
-  "metadata": {},
-  "name": "python-data-analysis",
-  "type": "environment",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "scope": "organization"
-}
-```
-
-## Beta › Environments › Work
-
-### Get Work Item
-
-`beta.environments.work.retrieve(work_id, **kwargs)  -> BetaSelfHostedWork`
-
-**GET** `/v1/environments/{environment_id}/work/{work_id}`
-
-Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
-
-Retrieve detailed information about a specific work item.
-
-#### Parameters
-
-- `environment_id: str` (path parameter)
-
-- `work_id: str` (path parameter)
-
-- `betas: Optional[List[AnthropicBetaParam]]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `str`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-  - `"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: Optional[str]` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaSelfHostedWork`
-
-  Work resource representing a unit of work in a self-hosted environment.
-
-  Work items are queued when sessions are created or when long-dormant sessions
-  receive new messages. The environment worker polls for work to execute in a
-  self-hosted sandbox.
-
-  - `type: Literal["work"]`
-
-    The type of object (always 'work')
-
-    default: work
-
-  - `id: str`
-
-    Work identifier (e.g., 'work_...')
-
-  - `acknowledged_at: Optional[str]`

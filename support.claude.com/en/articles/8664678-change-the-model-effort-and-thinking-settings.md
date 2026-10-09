@@ -21,7 +21,7 @@ If you're on an Enterprise plan and a model or effort level you expect is missin
 
 The effort level controls how much thinking Claude applies to a response. Higher effort means more thorough responses, but they take longer and use more tokens, so you'll reach your usage limits faster.
 
-The effort selector is available for Claude Sonnet 5.5, Opus 5.5, Fable 5.1, Opus 5, Sonnet 5, Fable 5, Opus 4.7, Opus 4.6, and Sonnet 4.6.
+The effort selector is available for Claude Haiku 5.5, Sonnet 5.5, Opus 5.5, Fable 5.1, Opus 5, Sonnet 5, Fable 5, Opus 4.7, Opus 4.6, and Sonnet 4.6.
 
 To change the effort level:
 
@@ -46,9 +46,9 @@ Thinking lets Claude spend more time breaking down problems, planning solutions,
 
 Thinking and effort are separate settings, and you can use any combination of the two. The effort level controls how thorough Claude is with every response. The thinking toggle controls whether Claude works through its reasoning in an expandable section before responding.
 
-Thinking cannot be turned off in Claude when using Claude Sonnet 5.5, Claude Opus 5.5, Claude Fable 5.1, or Claude Opus 5. On Opus 5.5 and Fable 5.1, thinking is always on at every effort level, including on the Claude API.
+Thinking cannot be turned off in Claude when using Claude Haiku 5.5, Claude Sonnet 5.5, Claude Opus 5.5, Claude Fable 5.1, or Claude Opus 5. On Opus 5.5 and Fable 5.1, thinking is always on at every effort level, including on the Claude API.
 
-For Opus 5 on the Claude API, thinking can be turned off at effort levels high and below, but attempting to disable thinking at xhigh or max effort returns an error. If you run Sonnet 5.5 on the Claude API with thinking turned off, use the new `between_tools` setting to turn upfront thinking off. With `between_tools`, thinking only happens between tool calls, and total response time is the same or faster. Sonnet 5.5 returns an error for requests that set thinking to disabled, so make this change before you switch models.
+For Haiku 5.5 and Opus 5 on the Claude API, thinking can be turned off at effort levels high and below, but attempting to disable thinking at xhigh or max effort returns an error. If you run Sonnet 5.5 on the Claude API with thinking turned off, use the new `between_tools` setting to turn upfront thinking off. With `between_tools`, thinking only happens between tool calls, and total response time is the same or faster. Sonnet 5.5 returns an error for requests that set thinking to disabled, so make this change before you switch models.
 
 ### Turn thinking on or off
 
@@ -96,8 +96,8 @@ For complex coding and agentic tasks on Opus 4.7 or newer, try Extra high (xhigh
 
 Whichever settings you choose, be specific about your problem or question. Clear prompts help Claude use its effort and thinking time effectively.
 
+* [How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
-* [Why Claude switched models in your conversation with Opus 5 or Opus 5.5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5-or-opus-5-5)
 * [Preserved thinking: changing how the Messages API handles thinking blocks to protect against distillation](https://support.claude.com/en/articles/16761192-preserved-thinking-changing-how-the-messages-api-handles-thinking-blocks-to-protect-against-distillation)
 * [Why Claude switched models in your conversation with Sonnet 5.5](https://support.claude.com/en/articles/17161993-why-claude-switched-models-in-your-conversation-with-sonnet-5-5)

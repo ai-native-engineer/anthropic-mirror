@@ -731,7 +731,7 @@ var_dump($betaMessage);
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-sonnet-5-5",
+        "model": "claude-haiku-5-5",
         "output_tokens": 0,
         "type": "message"
       }
@@ -1361,6 +1361,30 @@ var_dump($betaMessageTokensCount);
 
   - `ErrorCode errorCode`
 
+### Beta Browser Click Target
+
+- `class BetaBrowserClickTarget`
+
+  - `class BetaBrowserCoordinateTarget`
+
+    - `"coordinate" type`
+
+    - `int x`
+
+      Pixels from the left edge of the viewport.
+
+    - `int y`
+
+      Pixels from the top edge of the viewport.
+
+  - `class BetaBrowserRefTarget`
+
+    - `"ref" type`
+
+    - `string ref`
+
+      An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
 ### Beta Browser Close Tab Config
 
 - `class BetaBrowserCloseTabConfig`
@@ -1372,6 +1396,48 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Close Tab Input
+
+- `class BetaBrowserCloseTabInput`
+
+  - `string tabID`
+
+    The tab to close.
+
+### Beta Browser Close Tab Tool Use Block
+
+- `class BetaBrowserCloseTabToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserCloseTabInput input`
+
+    Close the tab with the given tab_id.
+
+  - `"close_tab" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+### Beta Browser Coordinate Target
+
+- `class BetaBrowserCoordinateTarget`
+
+  - `"coordinate" type`
+
+  - `int x`
+
+    Pixels from the left edge of the viewport.
+
+  - `int y`
+
+    Pixels from the top edge of the viewport.
 
 ### Beta Browser Double Click Config
 
@@ -1385,6 +1451,42 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Double Click Input
+
+- `class BetaBrowserDoubleClickInput`
+
+  - `BetaBrowserClickTarget target`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+  - `?string modifiers`
+
+    Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Double Click Tool Use Block
+
+- `class BetaBrowserDoubleClickToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserDoubleClickInput input`
+
+    Double left-click at a viewport coordinate or on an element by reference.
+
+  - `"double_click" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Browser File Upload Config
 
 - `class BetaBrowserFileUploadConfig`
@@ -1396,6 +1498,49 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser File Upload Input
+
+- `class BetaBrowserFileUploadInput`
+
+  - `BetaBrowserRefTarget target`
+
+    An element on the page, identified by a reference from a prior `read_page` or
+    `find` result. References are scoped to the tab that produced them and become
+    stale after navigation or a major re-render.
+
+  - `?list<string> documentIDs`
+
+    References to files the harness has staged, for deployments where the browser executor cannot read the caller's filesystem.
+
+  - `?list<string> paths`
+
+    File paths on the browser executor's filesystem.
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser File Upload Tool Use Block
+
+- `class BetaBrowserFileUploadToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserFileUploadInput input`
+
+    Set the value of a file-input element to one or more files. The target must be an
+    element reference; at least one of paths or document_ids is required.
+
+  - `"file_upload" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Browser Find Config
 
@@ -1409,6 +1554,39 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Find Input
+
+- `class BetaBrowserFindInput`
+
+  - `string query`
+
+    Natural-language description of the element(s) to find.
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Find Tool Use Block
+
+- `class BetaBrowserFindToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserFindInput input`
+
+    Find elements matching a natural-language description (e.g. "search bar", "add to
+    cart button") and return up to 20 matches with element references.
+
+  - `"find" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Browser Form Input Config
 
 - `class BetaBrowserFormInputConfig`
@@ -1420,6 +1598,55 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Form Input Input
+
+- `class BetaBrowserFormInputInput`
+
+  - `BetaBrowserRefTarget target`
+
+    An element on the page, identified by a reference from a prior `read_page` or
+    `find` result. References are scoped to the tab that produced them and become
+    stale after navigation or a major re-render.
+
+  - `BetaBrowserFormInputValue value`
+
+    The value to set.
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Form Input Tool Use Block
+
+- `class BetaBrowserFormInputToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserFormInputInput input`
+
+    Set the value of a form element (input, textarea, select, checkbox). Use a
+    boolean for checkboxes, an option value or text for selects.
+
+  - `"form_input" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+### Beta Browser Form Input Value
+
+- `class BetaBrowserFormInputValue`
+
+  - `string`
+
+  - `float`
+
+  - `bool`
 
 ### Beta Browser Get Page Text Config
 
@@ -1433,6 +1660,35 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Get Page Text Input
+
+- `class BetaBrowserGetPageTextInput`
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Get Page Text Tool Use Block
+
+- `class BetaBrowserGetPageTextToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserGetPageTextInput input`
+
+    Return the page's visible text content as plain text, prioritizing article
+    content. Suited to articles, documentation, and other text-heavy pages.
+
+  - `"get_page_text" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Browser Hold Key Config
 
 - `class BetaBrowserHoldKeyConfig`
@@ -1444,6 +1700,43 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Hold Key Input
+
+- `class BetaBrowserHoldKeyInput`
+
+  - `float duration`
+
+    Seconds to hold the key down (maximum 30).
+
+  - `string text`
+
+    The key or chord to hold.
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Hold Key Tool Use Block
+
+- `class BetaBrowserHoldKeyToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserHoldKeyInput input`
+
+    Hold a key or key chord down for a duration, then release it. Uses the same key
+    names and "+" chord syntax as the key action.
+
+  - `"hold_key" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Browser Hover Config
 
@@ -1457,6 +1750,38 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Hover Input
+
+- `class BetaBrowserHoverInput`
+
+  - `BetaBrowserClickTarget target`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Hover Tool Use Block
+
+- `class BetaBrowserHoverToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserHoverInput input`
+
+    Move the cursor to a coordinate or element without clicking.
+
+  - `"hover" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Browser Javascript Exec Config
 
 - `class BetaBrowserJavascriptExecConfig`
@@ -1469,6 +1794,40 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Javascript Exec Input
+
+- `class BetaBrowserJavascriptExecInput`
+
+  - `string text`
+
+    JavaScript to execute in the page context.
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Javascript Exec Tool Use Block
+
+- `class BetaBrowserJavascriptExecToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserJavascriptExecInput input`
+
+    Execute JavaScript in the page context and return the value of the last
+    expression. The code runs with access to the DOM, `window`, and page variables.
+    Write the expression you want evaluated — do NOT use `return`.
+
+  - `"javascript_exec" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Browser Key Config
 
 - `class BetaBrowserKeyConfig`
@@ -1480,6 +1839,44 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Key Input
+
+- `class BetaBrowserKeyInput`
+
+  - `string text`
+
+    The key, chord, or space-separated sequence to press.
+
+  - `?int repeat`
+
+    Number of times to repeat. Default 1.
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Key Tool Use Block
+
+- `class BetaBrowserKeyToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserKeyInput input`
+
+    Press a key or key chord. Use "+" to combine modifiers with a key (e.g. "ctrl+a",
+    "cmd+shift+p") and space to sequence presses (e.g. "Backspace Backspace Delete").
+    Common names like "Return", "Tab", "Escape", "BackSpace" are supported.
+
+  - `"key" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Browser Left Click Config
 
@@ -1505,6 +1902,80 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Left Click Drag Input
+
+- `class BetaBrowserLeftClickDragInput`
+
+  - `BetaBrowserCoordinateTarget from`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+  - `BetaBrowserCoordinateTarget target`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Left Click Drag Tool Use Block
+
+- `class BetaBrowserLeftClickDragToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserLeftClickDragInput input`
+
+    Press at `from`, drag to `target`, release. Both must be coordinate targets.
+
+  - `"left_click_drag" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+### Beta Browser Left Click Input
+
+- `class BetaBrowserLeftClickInput`
+
+  - `BetaBrowserClickTarget target`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+  - `?string modifiers`
+
+    Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Left Click Tool Use Block
+
+- `class BetaBrowserLeftClickToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserLeftClickInput input`
+
+    Left-click at a viewport coordinate or on an element by reference.
+
+  - `"left_click" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Browser Left Mouse Down Config
 
 - `class BetaBrowserLeftMouseDownConfig`
@@ -1516,6 +1987,40 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Left Mouse Down Input
+
+- `class BetaBrowserLeftMouseDownInput`
+
+  - `BetaBrowserCoordinateTarget target`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Left Mouse Down Tool Use Block
+
+- `class BetaBrowserLeftMouseDownToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserLeftMouseDownInput input`
+
+    Press and hold the left mouse button at a viewport coordinate. Pair with
+    left_mouse_up to perform a custom drag.
+
+  - `"left_mouse_down" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Browser Left Mouse Up Config
 
@@ -1529,6 +2034,39 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Left Mouse Up Input
+
+- `class BetaBrowserLeftMouseUpInput`
+
+  - `BetaBrowserCoordinateTarget target`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Left Mouse Up Tool Use Block
+
+- `class BetaBrowserLeftMouseUpToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserLeftMouseUpInput input`
+
+    Release the left mouse button at a viewport coordinate.
+
+  - `"left_mouse_up" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Browser List Tabs Config
 
 - `class BetaBrowserListTabsConfig`
@@ -1540,6 +2078,30 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser List Tabs Input
+
+- `BetaBrowserListTabsInput`
+
+### Beta Browser List Tabs Tool Use Block
+
+- `class BetaBrowserListTabsToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserListTabsInput input`
+
+    List all open tabs with each tab's tab_id, title, and URL.
+
+  - `"list_tabs" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Browser Middle Click Config
 
@@ -1553,6 +2115,42 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Middle Click Input
+
+- `class BetaBrowserMiddleClickInput`
+
+  - `BetaBrowserClickTarget target`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+  - `?string modifiers`
+
+    Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Middle Click Tool Use Block
+
+- `class BetaBrowserMiddleClickToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserMiddleClickInput input`
+
+    Middle-click at a viewport coordinate or on an element by reference.
+
+  - `"middle_click" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Browser Mouse Move Config
 
 - `class BetaBrowserMouseMoveConfig`
@@ -1564,6 +2162,39 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Mouse Move Input
+
+- `class BetaBrowserMouseMoveInput`
+
+  - `BetaBrowserCoordinateTarget target`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Mouse Move Tool Use Block
+
+- `class BetaBrowserMouseMoveToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserMouseMoveInput input`
+
+    Move the pointer to a viewport coordinate without clicking.
+
+  - `"mouse_move" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Browser Navigate Config
 
@@ -1577,6 +2208,39 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Navigate Input
+
+- `class BetaBrowserNavigateInput`
+
+  - `string url`
+
+    The URL to navigate to, or "back" / "forward" / "reload" for history navigation.
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Navigate Tool Use Block
+
+- `class BetaBrowserNavigateToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserNavigateInput input`
+
+    Navigate to a URL, or go back/forward/reload in history. The protocol may be
+    omitted (defaults to https://).
+
+  - `"navigate" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Browser New Tab Config
 
 - `class BetaBrowserNewTabConfig`
@@ -1588,6 +2252,30 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser New Tab Input
+
+- `BetaBrowserNewTabInput`
+
+### Beta Browser New Tab Tool Use Block
+
+- `class BetaBrowserNewTabToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserNewTabInput input`
+
+    Open a new empty tab and return its tab_id.
+
+  - `"new_tab" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Browser Read Console Config
 
@@ -1601,6 +2289,36 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Read Console Input
+
+- `class BetaBrowserReadConsoleInput`
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Read Console Tool Use Block
+
+- `class BetaBrowserReadConsoleToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserReadConsoleInput input`
+
+    Return console output (log entries, errors, warnings) accumulated since the
+    driver attached to the tab and since the last read, one line per entry. An empty
+    result does not mean no traffic for a tab that predates attach.
+
+  - `"read_console" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Browser Read Network Config
 
 - `class BetaBrowserReadNetworkConfig`
@@ -1612,6 +2330,36 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Read Network Input
+
+- `class BetaBrowserReadNetworkInput`
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Read Network Tool Use Block
+
+- `class BetaBrowserReadNetworkToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserReadNetworkInput input`
+
+    Return the network requests (method, URL, status, MIME type, timing) recorded
+    since the driver attached to the tab and since the last read, one line per entry.
+    An empty result does not mean no traffic for a tab that predates attach.
+
+  - `"read_network" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Browser Read Page Config
 
@@ -1625,6 +2373,67 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Read Page Filter
+
+- `enum BetaBrowserReadPageFilter`
+
+  - `"all"`
+
+  - `"interactive"`
+
+### Beta Browser Read Page Input
+
+- `class BetaBrowserReadPageInput`
+
+  - `?int depth`
+
+    Maximum tree depth. Default 15.
+
+  - `?BetaBrowserReadPageFilter filter`
+
+    Which elements to include. Omitted: every visible element. "interactive": interactive elements only. "all": additionally includes off-viewport elements.
+
+  - `?string ref`
+
+    Element reference to read a subtree from. Omit to read from the page root.
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Read Page Tool Use Block
+
+- `class BetaBrowserReadPageToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserReadPageInput input`
+
+    Return a structured accessibility tree of the page (or the subtree rooted at
+    `ref`), with element references like [ref_7] that can be used as targets on later
+    actions. Output is capped at 50,000 characters — narrow with `ref` or a smaller
+    `depth` when exceeded.
+
+  - `"read_page" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+### Beta Browser Ref Target
+
+- `class BetaBrowserRefTarget`
+
+  - `"ref" type`
+
+  - `string ref`
+
+    An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
 ### Beta Browser Right Click Config
 
 - `class BetaBrowserRightClickConfig`
@@ -1636,6 +2445,42 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Right Click Input
+
+- `class BetaBrowserRightClickInput`
+
+  - `BetaBrowserClickTarget target`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+  - `?string modifiers`
+
+    Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Right Click Tool Use Block
+
+- `class BetaBrowserRightClickToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserRightClickInput input`
+
+    Right-click at a viewport coordinate or on an element by reference.
+
+  - `"right_click" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Browser Screenshot Config
 
@@ -1649,6 +2494,34 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Screenshot Input
+
+- `class BetaBrowserScreenshotInput`
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Screenshot Tool Use Block
+
+- `class BetaBrowserScreenshotToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserScreenshotInput input`
+
+    Capture the current browser viewport.
+
+  - `"screenshot" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Browser Scroll Config
 
 - `class BetaBrowserScrollConfig`
@@ -1661,6 +2534,37 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Scroll Direction
+
+- `enum BetaBrowserScrollDirection`
+
+  - `"up"`
+
+  - `"down"`
+
+  - `"left"`
+
+  - `"right"`
+
+### Beta Browser Scroll Input
+
+- `class BetaBrowserScrollInput`
+
+  - `BetaBrowserScrollDirection scrollDirection`
+
+  - `BetaBrowserCoordinateTarget target`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+  - `?int scrollAmount`
+
+    Scroll-wheel notches (1–10). Default 3.
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
 ### Beta Browser Scroll To Config
 
 - `class BetaBrowserScrollToConfig`
@@ -1672,6 +2576,60 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Scroll To Input
+
+- `class BetaBrowserScrollToInput`
+
+  - `BetaBrowserRefTarget target`
+
+    An element on the page, identified by a reference from a prior `read_page` or
+    `find` result. References are scoped to the tab that produced them and become
+    stale after navigation or a major re-render.
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Scroll To Tool Use Block
+
+- `class BetaBrowserScrollToToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserScrollToInput input`
+
+    Scroll an element into view.
+
+  - `"scroll_to" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+### Beta Browser Scroll Tool Use Block
+
+- `class BetaBrowserScrollToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserScrollInput input`
+
+    Scroll at a viewport position. `target` must be a coordinate target.
+
+  - `"scroll" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Browser State Block Param
 
@@ -1847,6 +2805,619 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Switch Tab Input
+
+- `class BetaBrowserSwitchTabInput`
+
+  - `string tabID`
+
+    The tab to switch to.
+
+### Beta Browser Switch Tab Tool Use Block
+
+- `class BetaBrowserSwitchTabToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserSwitchTabInput input`
+
+    Make the tab with the given tab_id the active tab — the tab that actions without
+    a tab_id apply to.
+
+  - `"switch_tab" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+### Beta Browser Tool Use Block
+
+- `class BetaBrowserToolUseBlock`
+
+  - `class BetaBrowserNavigateToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserNavigateInput input`
+
+      Navigate to a URL, or go back/forward/reload in history. The protocol may be
+      omitted (defaults to https://).
+
+    - `"navigate" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserListTabsToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserListTabsInput input`
+
+      List all open tabs with each tab's tab_id, title, and URL.
+
+    - `"list_tabs" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserNewTabToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserNewTabInput input`
+
+      Open a new empty tab and return its tab_id.
+
+    - `"new_tab" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserSwitchTabToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserSwitchTabInput input`
+
+      Make the tab with the given tab_id the active tab — the tab that actions without
+      a tab_id apply to.
+
+    - `"switch_tab" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserCloseTabToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserCloseTabInput input`
+
+      Close the tab with the given tab_id.
+
+    - `"close_tab" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserReadPageToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserReadPageInput input`
+
+      Return a structured accessibility tree of the page (or the subtree rooted at
+      `ref`), with element references like [ref_7] that can be used as targets on later
+      actions. Output is capped at 50,000 characters — narrow with `ref` or a smaller
+      `depth` when exceeded.
+
+    - `"read_page" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserGetPageTextToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserGetPageTextInput input`
+
+      Return the page's visible text content as plain text, prioritizing article
+      content. Suited to articles, documentation, and other text-heavy pages.
+
+    - `"get_page_text" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserReadConsoleToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserReadConsoleInput input`
+
+      Return console output (log entries, errors, warnings) accumulated since the
+      driver attached to the tab and since the last read, one line per entry. An empty
+      result does not mean no traffic for a tab that predates attach.
+
+    - `"read_console" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserReadNetworkToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserReadNetworkInput input`
+
+      Return the network requests (method, URL, status, MIME type, timing) recorded
+      since the driver attached to the tab and since the last read, one line per entry.
+      An empty result does not mean no traffic for a tab that predates attach.
+
+    - `"read_network" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserFindToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserFindInput input`
+
+      Find elements matching a natural-language description (e.g. "search bar", "add to
+      cart button") and return up to 20 matches with element references.
+
+    - `"find" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserFormInputToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserFormInputInput input`
+
+      Set the value of a form element (input, textarea, select, checkbox). Use a
+      boolean for checkboxes, an option value or text for selects.
+
+    - `"form_input" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserFileUploadToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserFileUploadInput input`
+
+      Set the value of a file-input element to one or more files. The target must be an
+      element reference; at least one of paths or document_ids is required.
+
+    - `"file_upload" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserScrollToToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserScrollToInput input`
+
+      Scroll an element into view.
+
+    - `"scroll_to" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserScreenshotToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserScreenshotInput input`
+
+      Capture the current browser viewport.
+
+    - `"screenshot" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserZoomToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserZoomInput input`
+
+      Return a cropped screenshot of the given viewport region, scaled up for closer
+      inspection — useful for small icons, buttons, or text. Coordinates are in the
+      same viewport-pixel space as a full screenshot.
+
+    - `"zoom" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserLeftClickToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserLeftClickInput input`
+
+      Left-click at a viewport coordinate or on an element by reference.
+
+    - `"left_click" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserRightClickToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserRightClickInput input`
+
+      Right-click at a viewport coordinate or on an element by reference.
+
+    - `"right_click" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserMiddleClickToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserMiddleClickInput input`
+
+      Middle-click at a viewport coordinate or on an element by reference.
+
+    - `"middle_click" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserDoubleClickToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserDoubleClickInput input`
+
+      Double left-click at a viewport coordinate or on an element by reference.
+
+    - `"double_click" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserTripleClickToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserTripleClickInput input`
+
+      Triple left-click at a viewport coordinate or on an element by reference
+      (typically selects a line or paragraph).
+
+    - `"triple_click" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserHoverToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserHoverInput input`
+
+      Move the cursor to a coordinate or element without clicking.
+
+    - `"hover" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserLeftClickDragToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserLeftClickDragInput input`
+
+      Press at `from`, drag to `target`, release. Both must be coordinate targets.
+
+    - `"left_click_drag" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserLeftMouseDownToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserLeftMouseDownInput input`
+
+      Press and hold the left mouse button at a viewport coordinate. Pair with
+      left_mouse_up to perform a custom drag.
+
+    - `"left_mouse_down" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserLeftMouseUpToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserLeftMouseUpInput input`
+
+      Release the left mouse button at a viewport coordinate.
+
+    - `"left_mouse_up" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserMouseMoveToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserMouseMoveInput input`
+
+      Move the pointer to a viewport coordinate without clicking.
+
+    - `"mouse_move" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserScrollToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserScrollInput input`
+
+      Scroll at a viewport position. `target` must be a coordinate target.
+
+    - `"scroll" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserTypeToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserTypeInput input`
+
+      Type a literal string at the current focus.
+
+    - `"type" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserKeyToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserKeyInput input`
+
+      Press a key or key chord. Use "+" to combine modifiers with a key (e.g. "ctrl+a",
+      "cmd+shift+p") and space to sequence presses (e.g. "Backspace Backspace Delete").
+      Common names like "Return", "Tab", "Escape", "BackSpace" are supported.
+
+    - `"key" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserHoldKeyToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserHoldKeyInput input`
+
+      Hold a key or key chord down for a duration, then release it. Uses the same key
+      names and "+" chord syntax as the key action.
+
+    - `"hold_key" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserWaitToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserWaitInput input`
+
+      Pause for the given duration.
+
+    - `"wait" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaBrowserJavascriptExecToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaBrowserJavascriptExecInput input`
+
+      Execute JavaScript in the page context and return the value of the last
+      expression. The code runs with access to the DOM, `window`, and page variables.
+      Write the expression you want evaluated — do NOT use `return`.
+
+    - `"javascript_exec" name`
+
+    - `"browser" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Browser Toolset 20260801
 
 - `class BetaBrowserToolset20260801`
@@ -2001,6 +3572,43 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Triple Click Input
+
+- `class BetaBrowserTripleClickInput`
+
+  - `BetaBrowserClickTarget target`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+  - `?string modifiers`
+
+    Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Triple Click Tool Use Block
+
+- `class BetaBrowserTripleClickToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserTripleClickInput input`
+
+    Triple left-click at a viewport coordinate or on an element by reference
+    (typically selects a line or paragraph).
+
+  - `"triple_click" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Browser Type Config
 
 - `class BetaBrowserTypeConfig`
@@ -2012,6 +3620,38 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Type Input
+
+- `class BetaBrowserTypeInput`
+
+  - `string text`
+
+    The text to type.
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Type Tool Use Block
+
+- `class BetaBrowserTypeToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserTypeInput input`
+
+    Type a literal string at the current focus.
+
+  - `"type" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Browser Wait Config
 
@@ -2025,6 +3665,38 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Wait Input
+
+- `class BetaBrowserWaitInput`
+
+  - `float duration`
+
+    Seconds to wait (maximum 30).
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Wait Tool Use Block
+
+- `class BetaBrowserWaitToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserWaitInput input`
+
+    Pause for the given duration.
+
+  - `"wait" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Browser Zoom Config
 
 - `class BetaBrowserZoomConfig`
@@ -2036,6 +3708,40 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Zoom Input
+
+- `class BetaBrowserZoomInput`
+
+  - `list<int> region`
+
+    [x0, y0, x1, y1] in viewport pixels.
+
+  - `?string tabID`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Zoom Tool Use Block
+
+- `class BetaBrowserZoomToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaBrowserZoomInput input`
+
+    Return a cropped screenshot of the given viewport region, scaled up for closer
+    inspection — useful for small icons, buttons, or text. Coordinates are in the
+    same viewport-pixel space as a full screenshot.
+
+  - `"zoom" name`
+
+  - `"browser" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Cache Control Ephemeral
 
@@ -2860,6 +4566,30 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Cursor Position Input
+
+- `BetaComputerCursorPositionInput`
+
+### Beta Computer Cursor Position Tool Use Block
+
+- `class BetaComputerCursorPositionToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerCursorPositionInput input`
+
+    Get the current (x, y) pixel coordinate of the cursor.
+
+  - `"cursor_position" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Computer Double Click Config
 
 - `class BetaComputerDoubleClickConfig`
@@ -2871,6 +4601,39 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Double Click Input
+
+- `class BetaComputerDoubleClickInput`
+
+  - `?list<int> coordinate`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+  - `?string text`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Beta Computer Double Click Tool Use Block
+
+- `class BetaComputerDoubleClickToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerDoubleClickInput input`
+
+    Double-click the left mouse button at the specified (x, y) pixel coordinate, or
+    the current cursor position if `coordinate` is omitted.
+
+  - `"double_click" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Computer Hold Key Config
 
@@ -2884,6 +4647,39 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Hold Key Input
+
+- `class BetaComputerHoldKeyInput`
+
+  - `int duration`
+
+    Duration to hold the key, in seconds.
+
+  - `string text`
+
+    The key or key-combination to hold.
+
+### Beta Computer Hold Key Tool Use Block
+
+- `class BetaComputerHoldKeyToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerHoldKeyInput input`
+
+    Hold down a key or key-combination for a specified duration. Uses the same key
+    syntax as `key`.
+
+  - `"hold_key" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Computer Key Config
 
 - `class BetaComputerKeyConfig`
@@ -2895,6 +4691,42 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Key Input
+
+- `class BetaComputerKeyInput`
+
+  - `string text`
+
+    The key or key-combination to press.
+
+  - `?int repeat`
+
+    Number of times to repeat the key press. Default is 1.
+
+### Beta Computer Key Tool Use Block
+
+- `class BetaComputerKeyToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerKeyInput input`
+
+    Press a key or key-combination on the keyboard. Use "+" to combine modifiers with
+    a key (e.g. "ctrl+s", "alt+Tab", "ctrl+shift+Escape"). Key names are
+    case-insensitive; common names like "Return", "Tab", "Escape", "Up", "Down",
+    "Left", "Right", "Home", "End", "Page_Up", "Page_Down", "Delete", "BackSpace" are
+    supported.
+
+  - `"key" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Computer Left Click Config
 
@@ -2920,6 +4752,75 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Left Click Drag Input
+
+- `class BetaComputerLeftClickDragInput`
+
+  - `list<int> coordinate`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+  - `list<int> startCoordinate`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+  - `?string text`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Beta Computer Left Click Drag Tool Use Block
+
+- `class BetaComputerLeftClickDragToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerLeftClickDragInput input`
+
+    Click and drag the cursor from `start_coordinate` to `coordinate`.
+
+  - `"left_click_drag" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+### Beta Computer Left Click Input
+
+- `class BetaComputerLeftClickInput`
+
+  - `?list<int> coordinate`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+  - `?string text`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Beta Computer Left Click Tool Use Block
+
+- `class BetaComputerLeftClickToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerLeftClickInput input`
+
+    Click the left mouse button at the specified (x, y) pixel coordinate, or the
+    current cursor position if `coordinate` is omitted.
+
+  - `"left_click" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Computer Left Mouse Down Config
 
 - `class BetaComputerLeftMouseDownConfig`
@@ -2931,6 +4832,30 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Left Mouse Down Input
+
+- `BetaComputerLeftMouseDownInput`
+
+### Beta Computer Left Mouse Down Tool Use Block
+
+- `class BetaComputerLeftMouseDownToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerLeftMouseDownInput input`
+
+    Press and hold the left mouse button at the current cursor position.
+
+  - `"left_mouse_down" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Computer Left Mouse Up Config
 
@@ -2944,6 +4869,30 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Left Mouse Up Input
+
+- `BetaComputerLeftMouseUpInput`
+
+### Beta Computer Left Mouse Up Tool Use Block
+
+- `class BetaComputerLeftMouseUpToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerLeftMouseUpInput input`
+
+    Release the left mouse button.
+
+  - `"left_mouse_up" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Computer Middle Click Config
 
 - `class BetaComputerMiddleClickConfig`
@@ -2955,6 +4904,39 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Middle Click Input
+
+- `class BetaComputerMiddleClickInput`
+
+  - `?list<int> coordinate`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+  - `?string text`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Beta Computer Middle Click Tool Use Block
+
+- `class BetaComputerMiddleClickToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerMiddleClickInput input`
+
+    Click the middle mouse button at the specified (x, y) pixel coordinate, or the
+    current cursor position if `coordinate` is omitted.
+
+  - `"middle_click" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Computer Mouse Move Config
 
@@ -2968,6 +4950,35 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Mouse Move Input
+
+- `class BetaComputerMouseMoveInput`
+
+  - `list<int> coordinate`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+### Beta Computer Mouse Move Tool Use Block
+
+- `class BetaComputerMouseMoveToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerMouseMoveInput input`
+
+    Move the cursor to a specified (x, y) pixel coordinate. Use this ONLY to hover
+    without clicking; otherwise use a click action directly.
+
+  - `"mouse_move" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Computer Right Click Config
 
 - `class BetaComputerRightClickConfig`
@@ -2979,6 +4990,39 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Right Click Input
+
+- `class BetaComputerRightClickInput`
+
+  - `?list<int> coordinate`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+  - `?string text`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Beta Computer Right Click Tool Use Block
+
+- `class BetaComputerRightClickToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerRightClickInput input`
+
+    Click the right mouse button at the specified (x, y) pixel coordinate, or the
+    current cursor position if `coordinate` is omitted.
+
+  - `"right_click" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Computer Screenshot Config
 
@@ -2992,6 +5036,30 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Screenshot Input
+
+- `BetaComputerScreenshotInput`
+
+### Beta Computer Screenshot Tool Use Block
+
+- `class BetaComputerScreenshotToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerScreenshotInput input`
+
+    Take a screenshot of the screen.
+
+  - `"screenshot" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Computer Scroll Config
 
 - `class BetaComputerScrollConfig`
@@ -3003,6 +5071,381 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Scroll Direction
+
+- `enum BetaComputerScrollDirection`
+
+  - `"up"`
+
+  - `"down"`
+
+  - `"left"`
+
+  - `"right"`
+
+### Beta Computer Scroll Input
+
+- `class BetaComputerScrollInput`
+
+  - `int scrollAmount`
+
+    Number of 'clicks' of the scroll wheel.
+
+  - `BetaComputerScrollDirection scrollDirection`
+
+  - `?list<int> coordinate`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+  - `?string text`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Beta Computer Scroll Tool Use Block
+
+- `class BetaComputerScrollToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerScrollInput input`
+
+    Scroll the screen at the specified (x, y) pixel coordinate, or the current cursor
+    position if `coordinate` is omitted. Do NOT use PageUp/PageDown to scroll.
+
+  - `"scroll" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+### Beta Computer Tool Use Block
+
+- `class BetaComputerToolUseBlock`
+
+  - `class BetaComputerKeyToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerKeyInput input`
+
+      Press a key or key-combination on the keyboard. Use "+" to combine modifiers with
+      a key (e.g. "ctrl+s", "alt+Tab", "ctrl+shift+Escape"). Key names are
+      case-insensitive; common names like "Return", "Tab", "Escape", "Up", "Down",
+      "Left", "Right", "Home", "End", "Page_Up", "Page_Down", "Delete", "BackSpace" are
+      supported.
+
+    - `"key" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerHoldKeyToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerHoldKeyInput input`
+
+      Hold down a key or key-combination for a specified duration. Uses the same key
+      syntax as `key`.
+
+    - `"hold_key" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerTypeToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerTypeInput input`
+
+      Type a string of text on the keyboard.
+
+    - `"type" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerCursorPositionToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerCursorPositionInput input`
+
+      Get the current (x, y) pixel coordinate of the cursor.
+
+    - `"cursor_position" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerMouseMoveToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerMouseMoveInput input`
+
+      Move the cursor to a specified (x, y) pixel coordinate. Use this ONLY to hover
+      without clicking; otherwise use a click action directly.
+
+    - `"mouse_move" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerLeftMouseDownToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerLeftMouseDownInput input`
+
+      Press and hold the left mouse button at the current cursor position.
+
+    - `"left_mouse_down" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerLeftMouseUpToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerLeftMouseUpInput input`
+
+      Release the left mouse button.
+
+    - `"left_mouse_up" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerLeftClickToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerLeftClickInput input`
+
+      Click the left mouse button at the specified (x, y) pixel coordinate, or the
+      current cursor position if `coordinate` is omitted.
+
+    - `"left_click" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerLeftClickDragToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerLeftClickDragInput input`
+
+      Click and drag the cursor from `start_coordinate` to `coordinate`.
+
+    - `"left_click_drag" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerRightClickToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerRightClickInput input`
+
+      Click the right mouse button at the specified (x, y) pixel coordinate, or the
+      current cursor position if `coordinate` is omitted.
+
+    - `"right_click" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerMiddleClickToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerMiddleClickInput input`
+
+      Click the middle mouse button at the specified (x, y) pixel coordinate, or the
+      current cursor position if `coordinate` is omitted.
+
+    - `"middle_click" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerDoubleClickToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerDoubleClickInput input`
+
+      Double-click the left mouse button at the specified (x, y) pixel coordinate, or
+      the current cursor position if `coordinate` is omitted.
+
+    - `"double_click" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerTripleClickToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerTripleClickInput input`
+
+      Triple-click the left mouse button at the specified (x, y) pixel coordinate, or
+      the current cursor position if `coordinate` is omitted.
+
+    - `"triple_click" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerScrollToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerScrollInput input`
+
+      Scroll the screen at the specified (x, y) pixel coordinate, or the current cursor
+      position if `coordinate` is omitted. Do NOT use PageUp/PageDown to scroll.
+
+    - `"scroll" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerWaitToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerWaitInput input`
+
+      Wait for a specified duration.
+
+    - `"wait" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerScreenshotToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerScreenshotInput input`
+
+      Take a screenshot of the screen.
+
+    - `"screenshot" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerZoomToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `BetaComputerZoomInput input`
+
+      Take a screenshot of a rectangular region. Region coordinates are in the
+      full-screenshot space (not physical display pixels). The crop is scaled up to
+      fill the image budget so fine details become legible.
+
+    - `"zoom" name`
+
+    - `"computer" toolsetName`
+
+    - `?BetaToolUseCaller caller`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Computer Toolset 20260801
 
@@ -3102,6 +5545,39 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Triple Click Input
+
+- `class BetaComputerTripleClickInput`
+
+  - `?list<int> coordinate`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+  - `?string text`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Beta Computer Triple Click Tool Use Block
+
+- `class BetaComputerTripleClickToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerTripleClickInput input`
+
+    Triple-click the left mouse button at the specified (x, y) pixel coordinate, or
+    the current cursor position if `coordinate` is omitted.
+
+  - `"triple_click" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Computer Type Config
 
 - `class BetaComputerTypeConfig`
@@ -3113,6 +5589,34 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Type Input
+
+- `class BetaComputerTypeInput`
+
+  - `string text`
+
+    The text to type.
+
+### Beta Computer Type Tool Use Block
+
+- `class BetaComputerTypeToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerTypeInput input`
+
+    Type a string of text on the keyboard.
+
+  - `"type" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Computer Wait Config
 
@@ -3126,6 +5630,34 @@ var_dump($betaMessageTokensCount);
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Wait Input
+
+- `class BetaComputerWaitInput`
+
+  - `int duration`
+
+    Duration to wait, in seconds.
+
+### Beta Computer Wait Tool Use Block
+
+- `class BetaComputerWaitToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerWaitInput input`
+
+    Wait for a specified duration.
+
+  - `"wait" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
 ### Beta Computer Zoom Config
 
 - `class BetaComputerZoomConfig`
@@ -3137,6 +5669,36 @@ var_dump($betaMessageTokensCount);
   - `?bool enabled`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Zoom Input
+
+- `class BetaComputerZoomInput`
+
+  - `list<int> region`
+
+    (x0, y0, x1, y1): The region to capture.
+
+### Beta Computer Zoom Tool Use Block
+
+- `class BetaComputerZoomToolUseBlock`
+
+  - `"tool_use" type`
+
+  - `string id`
+
+  - `BetaComputerZoomInput input`
+
+    Take a screenshot of a rectangular region. Region coordinates are in the
+    full-screenshot space (not physical display pixels). The crop is scaled up to
+    fill the image budget so fine details become legible.
+
+  - `"zoom" name`
+
+  - `"computer" toolsetName`
+
+  - `?BetaToolUseCaller caller`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Container
 
@@ -8719,6 +11281,26 @@ var_dump($betaMessageTokensCount);
 
     For a toolset member tool_use, the toolset family this member belongs to.
 
+### Beta Tool Use Caller
+
+- `class BetaToolUseCaller`
+
+  - `class BetaDirectCaller`
+
+    - `"direct" type`
+
+  - `class BetaServerToolCaller`
+
+    - `"code_execution_20250825" type`
+
+    - `string toolID`
+
+  - `class BetaServerToolCaller20260120`
+
+    - `"code_execution_20260120" type`
+
+    - `string toolID`
+
 ### Beta Tool Uses Keep
 
 - `class BetaToolUsesKeep`
@@ -8734,6 +11316,930 @@ var_dump($betaMessageTokensCount);
   - `"tool_uses" type`
 
   - `int value`
+
+### Beta Toolset Tool Use Block
+
+- `class BetaToolsetToolUseBlock`
+
+  - `class BetaBrowserToolUseBlock`
+
+    - `class BetaBrowserNavigateToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserNavigateInput input`
+
+        Navigate to a URL, or go back/forward/reload in history. The protocol may be
+        omitted (defaults to https://).
+
+      - `"navigate" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserListTabsToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserListTabsInput input`
+
+        List all open tabs with each tab's tab_id, title, and URL.
+
+      - `"list_tabs" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserNewTabToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserNewTabInput input`
+
+        Open a new empty tab and return its tab_id.
+
+      - `"new_tab" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserSwitchTabToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserSwitchTabInput input`
+
+        Make the tab with the given tab_id the active tab — the tab that actions without
+        a tab_id apply to.
+
+      - `"switch_tab" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserCloseTabToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserCloseTabInput input`
+
+        Close the tab with the given tab_id.
+
+      - `"close_tab" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserReadPageToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserReadPageInput input`
+
+        Return a structured accessibility tree of the page (or the subtree rooted at
+        `ref`), with element references like [ref_7] that can be used as targets on later
+        actions. Output is capped at 50,000 characters — narrow with `ref` or a smaller
+        `depth` when exceeded.
+
+      - `"read_page" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserGetPageTextToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserGetPageTextInput input`
+
+        Return the page's visible text content as plain text, prioritizing article
+        content. Suited to articles, documentation, and other text-heavy pages.
+
+      - `"get_page_text" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserReadConsoleToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserReadConsoleInput input`
+
+        Return console output (log entries, errors, warnings) accumulated since the
+        driver attached to the tab and since the last read, one line per entry. An empty
+        result does not mean no traffic for a tab that predates attach.
+
+      - `"read_console" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserReadNetworkToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserReadNetworkInput input`
+
+        Return the network requests (method, URL, status, MIME type, timing) recorded
+        since the driver attached to the tab and since the last read, one line per entry.
+        An empty result does not mean no traffic for a tab that predates attach.
+
+      - `"read_network" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserFindToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserFindInput input`
+
+        Find elements matching a natural-language description (e.g. "search bar", "add to
+        cart button") and return up to 20 matches with element references.
+
+      - `"find" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserFormInputToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserFormInputInput input`
+
+        Set the value of a form element (input, textarea, select, checkbox). Use a
+        boolean for checkboxes, an option value or text for selects.
+
+      - `"form_input" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserFileUploadToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserFileUploadInput input`
+
+        Set the value of a file-input element to one or more files. The target must be an
+        element reference; at least one of paths or document_ids is required.
+
+      - `"file_upload" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserScrollToToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserScrollToInput input`
+
+        Scroll an element into view.
+
+      - `"scroll_to" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserScreenshotToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserScreenshotInput input`
+
+        Capture the current browser viewport.
+
+      - `"screenshot" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserZoomToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserZoomInput input`
+
+        Return a cropped screenshot of the given viewport region, scaled up for closer
+        inspection — useful for small icons, buttons, or text. Coordinates are in the
+        same viewport-pixel space as a full screenshot.
+
+      - `"zoom" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserLeftClickToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserLeftClickInput input`
+
+        Left-click at a viewport coordinate or on an element by reference.
+
+      - `"left_click" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserRightClickToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserRightClickInput input`
+
+        Right-click at a viewport coordinate or on an element by reference.
+
+      - `"right_click" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserMiddleClickToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserMiddleClickInput input`
+
+        Middle-click at a viewport coordinate or on an element by reference.
+
+      - `"middle_click" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserDoubleClickToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserDoubleClickInput input`
+
+        Double left-click at a viewport coordinate or on an element by reference.
+
+      - `"double_click" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserTripleClickToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserTripleClickInput input`
+
+        Triple left-click at a viewport coordinate or on an element by reference
+        (typically selects a line or paragraph).
+
+      - `"triple_click" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserHoverToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserHoverInput input`
+
+        Move the cursor to a coordinate or element without clicking.
+
+      - `"hover" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserLeftClickDragToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserLeftClickDragInput input`
+
+        Press at `from`, drag to `target`, release. Both must be coordinate targets.
+
+      - `"left_click_drag" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserLeftMouseDownToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserLeftMouseDownInput input`
+
+        Press and hold the left mouse button at a viewport coordinate. Pair with
+        left_mouse_up to perform a custom drag.
+
+      - `"left_mouse_down" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserLeftMouseUpToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserLeftMouseUpInput input`
+
+        Release the left mouse button at a viewport coordinate.
+
+      - `"left_mouse_up" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserMouseMoveToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserMouseMoveInput input`
+
+        Move the pointer to a viewport coordinate without clicking.
+
+      - `"mouse_move" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserScrollToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserScrollInput input`
+
+        Scroll at a viewport position. `target` must be a coordinate target.
+
+      - `"scroll" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserTypeToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserTypeInput input`
+
+        Type a literal string at the current focus.
+
+      - `"type" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserKeyToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserKeyInput input`
+
+        Press a key or key chord. Use "+" to combine modifiers with a key (e.g. "ctrl+a",
+        "cmd+shift+p") and space to sequence presses (e.g. "Backspace Backspace Delete").
+        Common names like "Return", "Tab", "Escape", "BackSpace" are supported.
+
+      - `"key" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserHoldKeyToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserHoldKeyInput input`
+
+        Hold a key or key chord down for a duration, then release it. Uses the same key
+        names and "+" chord syntax as the key action.
+
+      - `"hold_key" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserWaitToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserWaitInput input`
+
+        Pause for the given duration.
+
+      - `"wait" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaBrowserJavascriptExecToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaBrowserJavascriptExecInput input`
+
+        Execute JavaScript in the page context and return the value of the last
+        expression. The code runs with access to the DOM, `window`, and page variables.
+        Write the expression you want evaluated — do NOT use `return`.
+
+      - `"javascript_exec" name`
+
+      - `"browser" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaComputerToolUseBlock`
+
+    - `class BetaComputerKeyToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerKeyInput input`
+
+        Press a key or key-combination on the keyboard. Use "+" to combine modifiers with
+        a key (e.g. "ctrl+s", "alt+Tab", "ctrl+shift+Escape"). Key names are
+        case-insensitive; common names like "Return", "Tab", "Escape", "Up", "Down",
+        "Left", "Right", "Home", "End", "Page_Up", "Page_Down", "Delete", "BackSpace" are
+        supported.
+
+      - `"key" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerHoldKeyToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerHoldKeyInput input`
+
+        Hold down a key or key-combination for a specified duration. Uses the same key
+        syntax as `key`.
+
+      - `"hold_key" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerTypeToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerTypeInput input`
+
+        Type a string of text on the keyboard.
+
+      - `"type" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerCursorPositionToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerCursorPositionInput input`
+
+        Get the current (x, y) pixel coordinate of the cursor.
+
+      - `"cursor_position" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerMouseMoveToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerMouseMoveInput input`
+
+        Move the cursor to a specified (x, y) pixel coordinate. Use this ONLY to hover
+        without clicking; otherwise use a click action directly.
+
+      - `"mouse_move" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerLeftMouseDownToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerLeftMouseDownInput input`
+
+        Press and hold the left mouse button at the current cursor position.
+
+      - `"left_mouse_down" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerLeftMouseUpToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerLeftMouseUpInput input`
+
+        Release the left mouse button.
+
+      - `"left_mouse_up" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerLeftClickToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerLeftClickInput input`
+
+        Click the left mouse button at the specified (x, y) pixel coordinate, or the
+        current cursor position if `coordinate` is omitted.
+
+      - `"left_click" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerLeftClickDragToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerLeftClickDragInput input`
+
+        Click and drag the cursor from `start_coordinate` to `coordinate`.
+
+      - `"left_click_drag" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerRightClickToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerRightClickInput input`
+
+        Click the right mouse button at the specified (x, y) pixel coordinate, or the
+        current cursor position if `coordinate` is omitted.
+
+      - `"right_click" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerMiddleClickToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerMiddleClickInput input`
+
+        Click the middle mouse button at the specified (x, y) pixel coordinate, or the
+        current cursor position if `coordinate` is omitted.
+
+      - `"middle_click" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerDoubleClickToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerDoubleClickInput input`
+
+        Double-click the left mouse button at the specified (x, y) pixel coordinate, or
+        the current cursor position if `coordinate` is omitted.
+
+      - `"double_click" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerTripleClickToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerTripleClickInput input`
+
+        Triple-click the left mouse button at the specified (x, y) pixel coordinate, or
+        the current cursor position if `coordinate` is omitted.
+
+      - `"triple_click" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerScrollToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerScrollInput input`
+
+        Scroll the screen at the specified (x, y) pixel coordinate, or the current cursor
+        position if `coordinate` is omitted. Do NOT use PageUp/PageDown to scroll.
+
+      - `"scroll" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerWaitToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerWaitInput input`
+
+        Wait for a specified duration.
+
+      - `"wait" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerScreenshotToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerScreenshotInput input`
+
+        Take a screenshot of the screen.
+
+      - `"screenshot" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `class BetaComputerZoomToolUseBlock`
+
+      - `"tool_use" type`
+
+      - `string id`
+
+      - `BetaComputerZoomInput input`
+
+        Take a screenshot of a rectangular region. Region coordinates are in the
+        full-screenshot space (not physical display pixels). The crop is scaled up to
+        fill the image budget so fine details become legible.
+
+      - `"zoom" name`
+
+      - `"computer" toolsetName`
+
+      - `?BetaToolUseCaller caller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `class BetaToolUseBlock`
+
+    - `"tool_use" type`
+
+    - `string id`
+
+    - `array<string,mixed> input`
+
+    - `string name`
+
+    - `?Caller caller`
+
+    - `?string toolsetName`
+
+      For a toolset member tool_use, the toolset family.
 
 ### Beta URL Image Source
 

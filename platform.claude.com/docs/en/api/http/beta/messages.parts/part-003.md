@@ -3,6 +3,4382 @@
 
 <!-- chunk-start -->
 
+              - `defer_loading: optional boolean or null`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `enabled: optional boolean or null`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `BetaToolTextEditor20250124 object`
+
+          - `type: "text_editor_20250124"`
+
+          - `name: "str_replace_editor"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+            - `"direct"`
+
+            - `"code_execution_20250825"`
+
+            - `"code_execution_20260120"`
+
+            - `"code_execution_20260521"`
+
+          - `cache_control: optional BetaCacheControlEphemeral or null`
+
+            Create a cache control breakpoint at this content block.
+
+          - `defer_loading: optional boolean`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `input_examples: optional array of map[unknown]`
+
+          - `strict: optional boolean`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `BetaToolTextEditor20250429 object`
+
+          - `type: "text_editor_20250429"`
+
+          - `name: "str_replace_based_edit_tool"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+            - `"direct"`
+
+            - `"code_execution_20250825"`
+
+            - `"code_execution_20260120"`
+
+            - `"code_execution_20260521"`
+
+          - `cache_control: optional BetaCacheControlEphemeral or null`
+
+            Create a cache control breakpoint at this content block.
+
+          - `defer_loading: optional boolean`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `input_examples: optional array of map[unknown]`
+
+          - `strict: optional boolean`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `BetaToolTextEditor20250728 object`
+
+          - `type: "text_editor_20250728"`
+
+          - `name: "str_replace_based_edit_tool"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+            - `"direct"`
+
+            - `"code_execution_20250825"`
+
+            - `"code_execution_20260120"`
+
+            - `"code_execution_20260521"`
+
+          - `cache_control: optional BetaCacheControlEphemeral or null`
+
+            Create a cache control breakpoint at this content block.
+
+          - `defer_loading: optional boolean`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `input_examples: optional array of map[unknown]`
+
+          - `max_characters: optional number or null`
+
+            Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+            minimum: 1
+
+          - `strict: optional boolean`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `BetaWebSearchTool20250305 object`
+
+          - `type: "web_search_20250305"`
+
+          - `name: "web_search"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+            - `"direct"`
+
+            - `"code_execution_20250825"`
+
+            - `"code_execution_20260120"`
+
+            - `"code_execution_20260521"`
+
+          - `allowed_domains: optional array of string or null`
+
+            If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+          - `blocked_domains: optional array of string or null`
+
+            If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+          - `cache_control: optional BetaCacheControlEphemeral or null`
+
+            Create a cache control breakpoint at this content block.
+
+          - `defer_loading: optional boolean`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `max_uses: optional number or null`
+
+            Maximum number of times the tool can be used in the API request.
+
+            minimum: 1
+
+          - `strict: optional boolean`
+
+            When true, guarantees schema validation on tool names and inputs
+
+          - `user_location: optional BetaUserLocation or null`
+
+            Parameters for the user's location. Used to provide more relevant search results.
+
+            - `type: "approximate"`
+
+            - `city: optional string or null`
+
+              The city of the user.
+
+              minLength: 1, maxLength: 255
+
+            - `country: optional string or null`
+
+              The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+              minLength: 2, maxLength: 2
+
+            - `region: optional string or null`
+
+              The region of the user.
+
+              minLength: 1, maxLength: 255
+
+            - `timezone: optional string or null`
+
+              The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+              minLength: 1, maxLength: 255
+
+        - `BetaWebFetchTool20250910 object`
+
+          - `type: "web_fetch_20250910"`
+
+          - `name: "web_fetch"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+            - `"direct"`
+
+            - `"code_execution_20250825"`
+
+            - `"code_execution_20260120"`
+
+            - `"code_execution_20260521"`
+
+          - `allowed_domains: optional array of string or null`
+
+            List of domains to allow fetching from
+
+          - `blocked_domains: optional array of string or null`
+
+            List of domains to block fetching from
+
+          - `cache_control: optional BetaCacheControlEphemeral or null`
+
+            Create a cache control breakpoint at this content block.
+
+          - `citations: optional BetaCitationsConfigParam or null`
+
+            Citations configuration for fetched documents. Citations are disabled by default.
+
+            - `enabled: optional boolean`
+
+          - `defer_loading: optional boolean`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `max_content_tokens: optional number or null`
+
+            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+            minimum: 1
+
+          - `max_uses: optional number or null`
+
+            Maximum number of times the tool can be used in the API request.
+
+            minimum: 1
+
+          - `strict: optional boolean`
+
+            When true, guarantees schema validation on tool names and inputs
+
+          - `url_sources: optional BetaWebFetchURLSources or null`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+            - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+              Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+              - `BetaWebFetchURLSourceAll object`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+                - `type: "all"`
+
+              - `BetaWebFetchURLSourceNone object`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+                - `type: "none"`
+
+              - `BetaWebFetchURLSourceOnly object`
+
+                The tool filter variant under which only the named tools' results
+                contribute.
+
+                - `type: "only"`
+
+                - `tools: array of BetaWebFetchURLSourceToolReference`
+
+                  - `type: "tool_reference"`
+
+                  - `name: string`
+
+              - `BetaWebFetchURLSourceExcept object`
+
+                The tool filter variant under which every result but the named
+                tools' contributes.
+
+                - `type: "except"`
+
+                - `tools: array of BetaWebFetchURLSourceToolReference`
+
+                  - `type: "tool_reference"`
+
+                  - `name: string`
+
+            - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+              Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+              - `BetaWebFetchURLSourceAll object`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+              - `BetaWebFetchURLSourceNone object`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+              - `BetaWebFetchURLSourceOnly object`
+
+                The tool filter variant under which only the named tools' results
+                contribute.
+
+              - `BetaWebFetchURLSourceExcept object`
+
+                The tool filter variant under which every result but the named
+                tools' contributes.
+
+            - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
+
+              Whether URLs in user messages are fetchable: "all" or "none".
+
+              - `BetaWebFetchURLSourceAll object`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+              - `BetaWebFetchURLSourceNone object`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+        - `BetaWebSearchTool20260209 object`
+
+          - `type: "web_search_20260209"`
+
+          - `name: "web_search"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+            - `"direct"`
+
+            - `"code_execution_20250825"`
+
+            - `"code_execution_20260120"`
+
+            - `"code_execution_20260521"`
+
+          - `allowed_domains: optional array of string or null`
+
+            If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+          - `blocked_domains: optional array of string or null`
+
+            If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+          - `cache_control: optional BetaCacheControlEphemeral or null`
+
+            Create a cache control breakpoint at this content block.
+
+          - `defer_loading: optional boolean`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `max_uses: optional number or null`
+
+            Maximum number of times the tool can be used in the API request.
+
+            minimum: 1
+
+          - `strict: optional boolean`
+
+            When true, guarantees schema validation on tool names and inputs
+
+          - `user_location: optional BetaUserLocation or null`
+
+            Parameters for the user's location. Used to provide more relevant search results.
+
+        - `BetaWebFetchTool20260209 object`
+
+          - `type: "web_fetch_20260209"`
+
+          - `name: "web_fetch"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+            - `"direct"`
+
+            - `"code_execution_20250825"`
+
+            - `"code_execution_20260120"`
+
+            - `"code_execution_20260521"`
+
+          - `allowed_domains: optional array of string or null`
+
+            List of domains to allow fetching from
+
+          - `blocked_domains: optional array of string or null`
+
+            List of domains to block fetching from
+
+          - `cache_control: optional BetaCacheControlEphemeral or null`
+
+            Create a cache control breakpoint at this content block.
+
+          - `citations: optional BetaCitationsConfigParam or null`
+
+            Citations configuration for fetched documents. Citations are disabled by default.
+
+          - `defer_loading: optional boolean`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `max_content_tokens: optional number or null`
+
+            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+            minimum: 1
+
+          - `max_uses: optional number or null`
+
+            Maximum number of times the tool can be used in the API request.
+
+            minimum: 1
+
+          - `strict: optional boolean`
+
+            When true, guarantees schema validation on tool names and inputs
+
+          - `url_sources: optional BetaWebFetchURLSources or null`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+        - `BetaWebFetchTool20260309 object`
+
+          Web fetch tool with use_cache parameter for bypassing cached content.
+
+          - `type: "web_fetch_20260309"`
+
+          - `name: "web_fetch"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+            - `"direct"`
+
+            - `"code_execution_20250825"`
+
+            - `"code_execution_20260120"`
+
+            - `"code_execution_20260521"`
+
+          - `allowed_domains: optional array of string or null`
+
+            List of domains to allow fetching from
+
+          - `blocked_domains: optional array of string or null`
+
+            List of domains to block fetching from
+
+          - `cache_control: optional BetaCacheControlEphemeral or null`
+
+            Create a cache control breakpoint at this content block.
+
+          - `citations: optional BetaCitationsConfigParam or null`
+
+            Citations configuration for fetched documents. Citations are disabled by default.
+
+          - `defer_loading: optional boolean`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `max_content_tokens: optional number or null`
+
+            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+            minimum: 1
+
+          - `max_uses: optional number or null`
+
+            Maximum number of times the tool can be used in the API request.
+
+            minimum: 1
+
+          - `strict: optional boolean`
+
+            When true, guarantees schema validation on tool names and inputs
+
+          - `url_sources: optional BetaWebFetchURLSources or null`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+          - `use_cache: optional boolean`
+
+            Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+        - `BetaWebSearchTool20260318 object`
+
+          - `type: "web_search_20260318"`
+
+          - `name: "web_search"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+            - `"direct"`
+
+            - `"code_execution_20250825"`
+
+            - `"code_execution_20260120"`
+
+            - `"code_execution_20260521"`
+
+          - `allowed_domains: optional array of string or null`
+
+            If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+          - `blocked_domains: optional array of string or null`
+
+            If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+          - `cache_control: optional BetaCacheControlEphemeral or null`
+
+            Create a cache control breakpoint at this content block.
+
+          - `defer_loading: optional boolean`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `max_uses: optional number or null`
+
+            Maximum number of times the tool can be used in the API request.
+
+            minimum: 1
+
+          - `response_inclusion: optional "full" or "excluded"`
+
+            How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+            - `"full"`
+
+            - `"excluded"`
+
+          - `strict: optional boolean`
+
+            When true, guarantees schema validation on tool names and inputs
+
+          - `user_location: optional BetaUserLocation or null`
+
+            Parameters for the user's location. Used to provide more relevant search results.
+
+        - `BetaWebFetchTool20260318 object`
+
+          - `type: "web_fetch_20260318"`
+
+          - `name: "web_fetch"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+            - `"direct"`
+
+            - `"code_execution_20250825"`
+
+            - `"code_execution_20260120"`
+
+            - `"code_execution_20260521"`
+
+          - `allowed_domains: optional array of string or null`
+
+            List of domains to allow fetching from
+
+          - `blocked_domains: optional array of string or null`
+
+            List of domains to block fetching from
+
+          - `cache_control: optional BetaCacheControlEphemeral or null`
+
+            Create a cache control breakpoint at this content block.
+
+          - `citations: optional BetaCitationsConfigParam or null`
+
+            Citations configuration for fetched documents. Citations are disabled by default.
+
+          - `defer_loading: optional boolean`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `max_content_tokens: optional number or null`
+
+            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+            minimum: 1
+
+          - `max_uses: optional number or null`
+
+            Maximum number of times the tool can be used in the API request.
+
+            minimum: 1
+
+          - `response_inclusion: optional "full" or "excluded"`
+
+            How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+            - `"full"`
+
+            - `"excluded"`
+
+          - `strict: optional boolean`
+
+            When true, guarantees schema validation on tool names and inputs
+
+          - `url_sources: optional BetaWebFetchURLSources or null`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+          - `use_cache: optional boolean`
+
+            Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+        - `BetaAdvisorTool20260301 object`
+
+          - `type: "advisor_20260301"`
+
+          - `model: Model`
+
+            The model that will complete your prompt.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-haiku-5-5"`
+
+              Fastest model for high-volume, real-time tasks
+
+            - `"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
+
+            - `"claude-fable-5-1"`
+
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+            - `"claude-opus-5-5"`
+
+              Powerful intelligence for coding, knowledge work, and long-running agents
+
+            - `"claude-mythos-5-1"`
+
+              Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+            - `"claude-sonnet-5"`
+
+              Efficient model for coding and agents
+
+            - `"claude-fable-5"`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `"claude-mythos-5"`
+
+              Most capable model for cybersecurity and biology research
+
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-8"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-7"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-6"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-6"`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-5-20251101"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-mythos-preview"`
+
+              **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              New class of intelligence, strongest in coding and cybersecurity
+
+            - `"claude-sonnet-4-5"`
+
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"`
+
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              High-performance model for agents and coding
+
+            - `string`
+
+          - `name: "advisor"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+            - `"direct"`
+
+            - `"code_execution_20250825"`
+
+            - `"code_execution_20260120"`
+
+            - `"code_execution_20260521"`
+
+          - `cache_control: optional BetaCacheControlEphemeral or null`
+
+            Create a cache control breakpoint at this content block.
+
+          - `caching: optional BetaCacheControlEphemeral or null`
+
+            Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+          - `defer_loading: optional boolean`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `max_tokens: optional number or null`
+
+            Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+            minimum: 1024
+
+          - `max_uses: optional number or null`
+
+            Maximum number of times the tool can be used in the API request.
+
+            minimum: 1
+
+          - `strict: optional boolean`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `BetaToolSearchToolBm25_20251119 object`
+
+          - `type: "tool_search_tool_bm25_20251119" or "tool_search_tool_bm25"`
+
+            - `"tool_search_tool_bm25_20251119"`
+
+            - `"tool_search_tool_bm25"`
+
+          - `name: "tool_search_tool_bm25"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+            - `"direct"`
+
+            - `"code_execution_20250825"`
+
+            - `"code_execution_20260120"`
+
+            - `"code_execution_20260521"`
+
+          - `cache_control: optional BetaCacheControlEphemeral or null`
+
+            Create a cache control breakpoint at this content block.
+
+          - `defer_loading: optional boolean`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `strict: optional boolean`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `BetaToolSearchToolRegex20251119 object`
+
+          - `type: "tool_search_tool_regex_20251119" or "tool_search_tool_regex"`
+
+            - `"tool_search_tool_regex_20251119"`
+
+            - `"tool_search_tool_regex"`
+
+          - `name: "tool_search_tool_regex"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+            - `"direct"`
+
+            - `"code_execution_20250825"`
+
+            - `"code_execution_20260120"`
+
+            - `"code_execution_20260521"`
+
+          - `cache_control: optional BetaCacheControlEphemeral or null`
+
+            Create a cache control breakpoint at this content block.
+
+          - `defer_loading: optional boolean`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `strict: optional boolean`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `BetaMCPToolset object`
+
+          Configuration for a group of tools from an MCP server.
+
+          Allows configuring enabled status and defer_loading for all tools
+          from an MCP server, with optional per-tool overrides.
+
+          - `type: "mcp_toolset"`
+
+          - `mcp_server_name: string`
+
+            Name of the MCP server to configure tools for
+
+            minLength: 1, maxLength: 255
+
+          - `cache_control: optional BetaCacheControlEphemeral or null`
+
+            Create a cache control breakpoint at this content block.
+
+          - `configs: optional map[BetaMCPToolConfig] or null`
+
+            Configuration overrides for specific tools, keyed by tool name
+
+            - `defer_loading: optional boolean`
+
+            - `enabled: optional boolean`
+
+          - `default_config: optional BetaMCPToolDefaultConfig`
+
+            Default configuration applied to all tools from this server
+
+            - `defer_loading: optional boolean`
+
+            - `enabled: optional boolean`
+
+          - `tools: optional array of BetaMCPToolParam or null`
+
+            The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
+            - `input_schema: map[unknown]`
+
+              The tool's input schema as the MCP server lists it, verbatim.
+
+            - `name: string`
+
+              The tool's name as the MCP server lists it (not prefixed with the server name).
+
+              minLength: 1
+
+            - `description: optional string or null`
+
+              The tool's description as the MCP server lists it.
+
+### Beta Response Tool Change MCP Tool Reference
+
+- `BetaResponseToolChangeMCPToolReference object`
+
+  Reference to a single MCP tool, by its server and its name on that
+  server, as a `compaction` block's `tool_changes` entry reports it.
+  Send it back unchanged with the block.
+
+  - `type: "mcp_tool_reference"`
+
+    default: mcp_tool_reference
+
+  - `name: string`
+
+  - `server_name: string`
+
+### Beta Response Tool Change MCP Toolset Reference
+
+- `BetaResponseToolChangeMCPToolsetReference object`
+
+  Reference to every tool in the named MCP server's toolset, as a
+  `compaction` block's `tool_changes` entry reports it. Send it back
+  unchanged with the block.
+
+  - `type: "mcp_toolset_reference"`
+
+    default: mcp_toolset_reference
+
+  - `server_name: string`
+
+### Beta Response Tool Change Tool Reference
+
+- `BetaResponseToolChangeToolReference object`
+
+  Reference to a single tool, by the name the model uses to call it, as
+  a `compaction` block's `tool_changes` entry reports it: a tool
+  declared in `tools` or defined by an earlier `tool_addition` block.
+  Send it back unchanged with the block.
+
+  - `type: "tool_reference"`
+
+    default: tool_reference
+
+  - `name: string`
+
+### Beta Response Tool Input Schema
+
+- `BetaResponseToolInputSchema object`
+
+  [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+  This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+  - `type: "object"`
+
+  - `properties: optional map[unknown] or null`
+
+  - `required: optional array of string or null`
+
+### Beta Response Tool Removal Block
+
+- `BetaResponseToolRemovalBlock object`
+
+  An entry of a `compaction` block's `tool_changes`: a tool of the
+  request's `tools` (or an MCP tool or toolset) that the compacted range
+  withdrew. Send it back unchanged.
+
+  - `type: "tool_removal"`
+
+    default: tool_removal
+
+  - `tool: BetaResponseToolChangeToolReference or BetaResponseToolChangeMCPToolReference or BetaResponseToolChangeMCPToolsetReference`
+
+    A reference to the withdrawn `tools` entry, MCP tool or MCP toolset.
+
+    - `BetaResponseToolChangeToolReference object`
+
+      Reference to a single tool, by the name the model uses to call it, as
+      a `compaction` block's `tool_changes` entry reports it: a tool
+      declared in `tools` or defined by an earlier `tool_addition` block.
+      Send it back unchanged with the block.
+
+      - `type: "tool_reference"`
+
+        default: tool_reference
+
+      - `name: string`
+
+    - `BetaResponseToolChangeMCPToolReference object`
+
+      Reference to a single MCP tool, by its server and its name on that
+      server, as a `compaction` block's `tool_changes` entry reports it.
+      Send it back unchanged with the block.
+
+      - `type: "mcp_tool_reference"`
+
+        default: mcp_tool_reference
+
+      - `name: string`
+
+      - `server_name: string`
+
+    - `BetaResponseToolChangeMCPToolsetReference object`
+
+      Reference to every tool in the named MCP server's toolset, as a
+      `compaction` block's `tool_changes` entry reports it. Send it back
+      unchanged with the block.
+
+      - `type: "mcp_toolset_reference"`
+
+        default: mcp_toolset_reference
+
+      - `server_name: string`
+
+### Beta Response Tool Union
+
+- `BetaResponseToolUnion = BetaResponseTool or BetaToolBash20241022 or BetaToolBash20250124 or 25 more`
+
+  - `BetaResponseTool object`
+
+    A custom tool definition, as sent.
+
+    - `type: optional "custom" or null`
+
+    - `input_schema: BetaResponseToolInputSchema`
+
+      [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+      This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+      - `type: "object"`
+
+      - `properties: optional map[unknown] or null`
+
+      - `required: optional array of string or null`
+
+    - `name: string`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `description: optional string`
+
+      Description of what this tool does.
+
+      Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
+
+    - `eager_input_streaming: optional boolean or null`
+
+      Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+    - `input_examples: optional array of map[unknown]`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaToolBash20241022 object`
+
+    - `type: "bash_20241022"`
+
+    - `name: "bash"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+      - `type: "ephemeral"`
+
+      - `ttl: optional "5m" or "1h"`
+
+        The time-to-live for the cache control breakpoint.
+
+        This may be one the following values:
+
+        - `5m`: 5 minutes
+        - `1h`: 1 hour
+
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+        - `"5m"`
+
+        - `"1h"`
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `input_examples: optional array of map[unknown]`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaToolBash20250124 object`
+
+    - `type: "bash_20250124"`
+
+    - `name: "bash"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `input_examples: optional array of map[unknown]`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaCodeExecutionTool20250522 object`
+
+    - `type: "code_execution_20250522"`
+
+    - `name: "code_execution"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaCodeExecutionTool20250825 object`
+
+    - `type: "code_execution_20250825"`
+
+    - `name: "code_execution"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaCodeExecutionTool20260120 object`
+
+    Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
+    - `type: "code_execution_20260120"`
+
+    - `name: "code_execution"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaCodeExecutionTool20260521 object`
+
+    Code execution tool with REPL state persistence.
+
+    - `type: "code_execution_20260521"`
+
+    - `name: "code_execution"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaBrowserToolset20260801 object`
+
+    The browser toolset: a single `tools[]` entry (carrying no
+    `name`) that declares the browser tool family. The model is served
+    the family's tool with any members disabled via `configs` removed
+    from its schema.
+
+    - `type: "browser_toolset_20260801"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: optional BetaBrowserToolsetConfigs or null`
+
+      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+      - `type: optional BetaBrowserTypeConfig or null`
+
+        `type`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `close_tab: optional BetaBrowserCloseTabConfig or null`
+
+        `close_tab`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `double_click: optional BetaBrowserDoubleClickConfig or null`
+
+        `double_click`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `file_upload: optional BetaBrowserFileUploadConfig or null`
+
+        `file_upload`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `find: optional BetaBrowserFindConfig or null`
+
+        `find`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `form_input: optional BetaBrowserFormInputConfig or null`
+
+        `form_input`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `get_page_text: optional BetaBrowserGetPageTextConfig or null`
+
+        `get_page_text`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hold_key: optional BetaBrowserHoldKeyConfig or null`
+
+        `hold_key`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hover: optional BetaBrowserHoverConfig or null`
+
+        `hover`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `javascript_exec: optional BetaBrowserJavascriptExecConfig or null`
+
+        `javascript_exec`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `key: optional BetaBrowserKeyConfig or null`
+
+        `key`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click: optional BetaBrowserLeftClickConfig or null`
+
+        `left_click`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click_drag: optional BetaBrowserLeftClickDragConfig or null`
+
+        `left_click_drag`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_down: optional BetaBrowserLeftMouseDownConfig or null`
+
+        `left_mouse_down`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_up: optional BetaBrowserLeftMouseUpConfig or null`
+
+        `left_mouse_up`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `list_tabs: optional BetaBrowserListTabsConfig or null`
+
+        `list_tabs`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `middle_click: optional BetaBrowserMiddleClickConfig or null`
+
+        `middle_click`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `mouse_move: optional BetaBrowserMouseMoveConfig or null`
+
+        `mouse_move`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `navigate: optional BetaBrowserNavigateConfig or null`
+
+        `navigate`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `new_tab: optional BetaBrowserNewTabConfig or null`
+
+        `new_tab`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_console: optional BetaBrowserReadConsoleConfig or null`
+
+        `read_console`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_network: optional BetaBrowserReadNetworkConfig or null`
+
+        `read_network`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `read_page: optional BetaBrowserReadPageConfig or null`
+
+        `read_page`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `right_click: optional BetaBrowserRightClickConfig or null`
+
+        `right_click`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `screenshot: optional BetaBrowserScreenshotConfig or null`
+
+        `screenshot`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll: optional BetaBrowserScrollConfig or null`
+
+        `scroll`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll_to: optional BetaBrowserScrollToConfig or null`
+
+        `scroll_to`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `switch_tab: optional BetaBrowserSwitchTabConfig or null`
+
+        `switch_tab`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `triple_click: optional BetaBrowserTripleClickConfig or null`
+
+        `triple_click`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `wait: optional BetaBrowserWaitConfig or null`
+
+        `wait`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `zoom: optional BetaBrowserZoomConfig or null`
+
+        `zoom`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `BetaToolComputerUse20241022 object`
+
+    - `type: "computer_20241022"`
+
+    - `display_height_px: number`
+
+      The height of the display in pixels.
+
+      minimum: 1
+
+    - `display_width_px: number`
+
+      The width of the display in pixels.
+
+      minimum: 1
+
+    - `name: "computer"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `display_number: optional number or null`
+
+      The X11 display number (e.g. 0, 1) for the display.
+
+      minimum: 0
+
+    - `input_examples: optional array of map[unknown]`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaMemoryTool20250818 object`
+
+    - `type: "memory_20250818"`
+
+    - `name: "memory"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `input_examples: optional array of map[unknown]`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaToolComputerUse20250124 object`
+
+    - `type: "computer_20250124"`
+
+    - `display_height_px: number`
+
+      The height of the display in pixels.
+
+      minimum: 1
+
+    - `display_width_px: number`
+
+      The width of the display in pixels.
+
+      minimum: 1
+
+    - `name: "computer"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `display_number: optional number or null`
+
+      The X11 display number (e.g. 0, 1) for the display.
+
+      minimum: 0
+
+    - `input_examples: optional array of map[unknown]`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaToolTextEditor20241022 object`
+
+    - `type: "text_editor_20241022"`
+
+    - `name: "str_replace_editor"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `input_examples: optional array of map[unknown]`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaToolComputerUse20251124 object`
+
+    - `type: "computer_20251124"`
+
+    - `display_height_px: number`
+
+      The height of the display in pixels.
+
+      minimum: 1
+
+    - `display_width_px: number`
+
+      The width of the display in pixels.
+
+      minimum: 1
+
+    - `name: "computer"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `display_number: optional number or null`
+
+      The X11 display number (e.g. 0, 1) for the display.
+
+      minimum: 0
+
+    - `enable_zoom: optional boolean`
+
+      Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+    - `input_examples: optional array of map[unknown]`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaComputerToolset20260801 object`
+
+    The computer toolset: a single `tools[]` entry (carrying no
+    `name`) that declares the computer tool family. The model is
+    served the family's tool with any members disabled via `configs`
+    removed from its schema. Every member is enabled by default, zoom
+    included. The single-tool options `display_number` and
+    `enable_zoom` are not fields of a toolset entry — it carries only
+    `type`, `configs`, and `cache_control`; zoom is controlled
+    via `configs.zoom.enabled`.
+
+    - `type: "computer_toolset_20260801"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: optional BetaComputerToolsetConfigs or null`
+
+      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+      - `type: optional BetaComputerTypeConfig or null`
+
+        `type`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `cursor_position: optional BetaComputerCursorPositionConfig or null`
+
+        `cursor_position`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `double_click: optional BetaComputerDoubleClickConfig or null`
+
+        `double_click`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `hold_key: optional BetaComputerHoldKeyConfig or null`
+
+        `hold_key`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `key: optional BetaComputerKeyConfig or null`
+
+        `key`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click: optional BetaComputerLeftClickConfig or null`
+
+        `left_click`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_click_drag: optional BetaComputerLeftClickDragConfig or null`
+
+        `left_click_drag`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_down: optional BetaComputerLeftMouseDownConfig or null`
+
+        `left_mouse_down`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `left_mouse_up: optional BetaComputerLeftMouseUpConfig or null`
+
+        `left_mouse_up`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `middle_click: optional BetaComputerMiddleClickConfig or null`
+
+        `middle_click`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `mouse_move: optional BetaComputerMouseMoveConfig or null`
+
+        `mouse_move`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `right_click: optional BetaComputerRightClickConfig or null`
+
+        `right_click`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `screenshot: optional BetaComputerScreenshotConfig or null`
+
+        `screenshot`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `scroll: optional BetaComputerScrollConfig or null`
+
+        `scroll`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `triple_click: optional BetaComputerTripleClickConfig or null`
+
+        `triple_click`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `wait: optional BetaComputerWaitConfig or null`
+
+        `wait`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+      - `zoom: optional BetaComputerZoomConfig or null`
+
+        `zoom`'s config overrides.
+
+        - `defer_loading: optional boolean or null`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: optional boolean or null`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+  - `BetaToolTextEditor20250124 object`
+
+    - `type: "text_editor_20250124"`
+
+    - `name: "str_replace_editor"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `input_examples: optional array of map[unknown]`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaToolTextEditor20250429 object`
+
+    - `type: "text_editor_20250429"`
+
+    - `name: "str_replace_based_edit_tool"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `input_examples: optional array of map[unknown]`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaToolTextEditor20250728 object`
+
+    - `type: "text_editor_20250728"`
+
+    - `name: "str_replace_based_edit_tool"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `input_examples: optional array of map[unknown]`
+
+    - `max_characters: optional number or null`
+
+      Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+      minimum: 1
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaWebSearchTool20250305 object`
+
+    - `type: "web_search_20250305"`
+
+    - `name: "web_search"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string or null`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `blocked_domains: optional array of string or null`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `user_location: optional BetaUserLocation or null`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+      - `type: "approximate"`
+
+      - `city: optional string or null`
+
+        The city of the user.
+
+        minLength: 1, maxLength: 255
+
+      - `country: optional string or null`
+
+        The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+        minLength: 2, maxLength: 2
+
+      - `region: optional string or null`
+
+        The region of the user.
+
+        minLength: 1, maxLength: 255
+
+      - `timezone: optional string or null`
+
+        The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+        minLength: 1, maxLength: 255
+
+  - `BetaWebFetchTool20250910 object`
+
+    - `type: "web_fetch_20250910"`
+
+    - `name: "web_fetch"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string or null`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: optional array of string or null`
+
+      List of domains to block fetching from
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: optional BetaCitationsConfigParam or null`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+      - `enabled: optional boolean`
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: optional number or null`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+      minimum: 1
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional BetaWebFetchURLSources or null`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+      - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+        - `BetaWebFetchURLSourceAll object`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+          - `type: "all"`
+
+        - `BetaWebFetchURLSourceNone object`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+          - `type: "none"`
+
+        - `BetaWebFetchURLSourceOnly object`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+          - `type: "only"`
+
+          - `tools: array of BetaWebFetchURLSourceToolReference`
+
+            - `type: "tool_reference"`
+
+            - `name: string`
+
+        - `BetaWebFetchURLSourceExcept object`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+          - `type: "except"`
+
+          - `tools: array of BetaWebFetchURLSourceToolReference`
+
+            - `type: "tool_reference"`
+
+            - `name: string`
+
+      - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+        - `BetaWebFetchURLSourceAll object`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `BetaWebFetchURLSourceNone object`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+        - `BetaWebFetchURLSourceOnly object`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+        - `BetaWebFetchURLSourceExcept object`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+      - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
+
+        - `BetaWebFetchURLSourceAll object`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `BetaWebFetchURLSourceNone object`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+  - `BetaWebSearchTool20260209 object`
+
+    - `type: "web_search_20260209"`
+
+    - `name: "web_search"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string or null`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `blocked_domains: optional array of string or null`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `user_location: optional BetaUserLocation or null`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `BetaWebFetchTool20260209 object`
+
+    - `type: "web_fetch_20260209"`
+
+    - `name: "web_fetch"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string or null`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: optional array of string or null`
+
+      List of domains to block fetching from
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: optional BetaCitationsConfigParam or null`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: optional number or null`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+      minimum: 1
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional BetaWebFetchURLSources or null`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+  - `BetaWebFetchTool20260309 object`
+
+    Web fetch tool with use_cache parameter for bypassing cached content.
+
+    - `type: "web_fetch_20260309"`
+
+    - `name: "web_fetch"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string or null`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: optional array of string or null`
+
+      List of domains to block fetching from
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: optional BetaCitationsConfigParam or null`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: optional number or null`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+      minimum: 1
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional BetaWebFetchURLSources or null`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+    - `use_cache: optional boolean`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+  - `BetaWebSearchTool20260318 object`
+
+    - `type: "web_search_20260318"`
+
+    - `name: "web_search"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string or null`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `blocked_domains: optional array of string or null`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `response_inclusion: optional "full" or "excluded"`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `"full"`
+
+      - `"excluded"`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `user_location: optional BetaUserLocation or null`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `BetaWebFetchTool20260318 object`
+
+    - `type: "web_fetch_20260318"`
+
+    - `name: "web_fetch"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string or null`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: optional array of string or null`
+
+      List of domains to block fetching from
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: optional BetaCitationsConfigParam or null`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: optional number or null`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+      minimum: 1
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `response_inclusion: optional "full" or "excluded"`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `"full"`
+
+      - `"excluded"`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional BetaWebFetchURLSources or null`
+
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+    - `use_cache: optional boolean`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+  - `BetaAdvisorTool20260301 object`
+
+    - `type: "advisor_20260301"`
+
+    - `model: Model`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
+
+      - `"claude-sonnet-5-5"`
+
+        Efficient model for coding and agents
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `"claude-opus-5-5"`
+
+        Powerful intelligence for coding, knowledge work, and long-running agents
+
+      - `"claude-mythos-5-1"`
+
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+      - `"claude-sonnet-5"`
+
+        Efficient model for coding and agents
+
+      - `"claude-fable-5"`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `"claude-mythos-5"`
+
+        Most capable model for cybersecurity and biology research
+
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-8"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-7"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-6"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-sonnet-4-6"`
+
+        Best combination of speed and intelligence
+
+      - `"claude-haiku-4-5"`
+
+        Fastest model with near-frontier intelligence
+
+      - `"claude-haiku-4-5-20251001"`
+
+        Fastest model with near-frontier intelligence
+
+      - `"claude-opus-4-5"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-5-20251101"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
+
+      - `"claude-sonnet-4-5"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `"claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `string`
+
+    - `name: "advisor"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `caching: optional BetaCacheControlEphemeral or null`
+
+      Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_tokens: optional number or null`
+
+      Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+      minimum: 1024
+
+    - `max_uses: optional number or null`
+
+      Maximum number of times the tool can be used in the API request.
+
+      minimum: 1
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaToolSearchToolBm25_20251119 object`
+
+    - `type: "tool_search_tool_bm25_20251119" or "tool_search_tool_bm25"`
+
+      - `"tool_search_tool_bm25_20251119"`
+
+      - `"tool_search_tool_bm25"`
+
+    - `name: "tool_search_tool_bm25"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaToolSearchToolRegex20251119 object`
+
+    - `type: "tool_search_tool_regex_20251119" or "tool_search_tool_regex"`
+
+      - `"tool_search_tool_regex_20251119"`
+
+      - `"tool_search_tool_regex"`
+
+    - `name: "tool_search_tool_regex"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `BetaMCPToolset object`
+
+    Configuration for a group of tools from an MCP server.
+
+    Allows configuring enabled status and defer_loading for all tools
+    from an MCP server, with optional per-tool overrides.
+
+    - `type: "mcp_toolset"`
+
+    - `mcp_server_name: string`
+
+      Name of the MCP server to configure tools for
+
+      minLength: 1, maxLength: 255
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: optional map[BetaMCPToolConfig] or null`
+
+      Configuration overrides for specific tools, keyed by tool name
+
+      - `defer_loading: optional boolean`
+
+      - `enabled: optional boolean`
+
+    - `default_config: optional BetaMCPToolDefaultConfig`
+
+      Default configuration applied to all tools from this server
+
+      - `defer_loading: optional boolean`
+
+      - `enabled: optional boolean`
+
+    - `tools: optional array of BetaMCPToolParam or null`
+
+      The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
+      - `input_schema: map[unknown]`
+
+        The tool's input schema as the MCP server lists it, verbatim.
+
+      - `name: string`
+
+        The tool's name as the MCP server lists it (not prefixed with the server name).
+
+        minLength: 1
+
+      - `description: optional string or null`
+
+        The tool's description as the MCP server lists it.
+
+### Beta Search Result Block Param
+
+- `BetaSearchResultBlockParam object`
+
+  - `type: "search_result"`
+
+  - `content: array of BetaTextBlockParam`
+
+    - `type: "text"`
+
+    - `text: string`
+
+      minLength: 1
+
+    - `cache_control: optional BetaCacheControlEphemeral or null`
+
+      Create a cache control breakpoint at this content block.
+
+      - `type: "ephemeral"`
+
+      - `ttl: optional "5m" or "1h"`
+
+        The time-to-live for the cache control breakpoint.
+
+        This may be one the following values:
+
+        - `5m`: 5 minutes
+        - `1h`: 1 hour
+
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+        - `"5m"`
+
+        - `"1h"`
+
+    - `citations: optional array of BetaTextCitationParam or null`
+
+      - `BetaCitationCharLocationParam object`
+
+        - `type: "char_location"`
+
+        - `cited_text: string`
+
+        - `document_index: number`
+
+          minimum: 0
+
+        - `document_title: string or null`
+
+          minLength: 1, maxLength: 500
+
+        - `end_char_index: number`
+
+        - `start_char_index: number`
+
+          minimum: 0
+
+      - `BetaCitationPageLocationParam object`
+
+        - `type: "page_location"`
+
+        - `cited_text: string`
+
+        - `document_index: number`
+
+          minimum: 0
+
+        - `document_title: string or null`
+
+          minLength: 1, maxLength: 500
+
+        - `end_page_number: number`
+
+        - `start_page_number: number`
+
+          minimum: 1
+
+      - `BetaCitationContentBlockLocationParam object`
+
+        - `type: "content_block_location"`
+
+        - `cited_text: string`
+
+          The full text of the cited block range, concatenated.
+
+          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+        - `document_index: number`
+
+          minimum: 0
+
+        - `document_title: string or null`
+
+          minLength: 1, maxLength: 500
+
+        - `end_block_index: number`
+
+          Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+        - `start_block_index: number`
+
+          0-based index of the first cited block in the source's `content` array.
+
+          minimum: 0
+
+      - `BetaCitationWebSearchResultLocationParam object`
+
+        - `type: "web_search_result_location"`
+
+        - `cited_text: string`
+
+        - `encrypted_index: string`
+
+        - `title: string or null`
+
+          minLength: 1, maxLength: 512
+
+        - `url: string`
+
+          minLength: 1
+
+      - `BetaCitationSearchResultLocationParam object`
+
+        - `type: "search_result_location"`
+
+        - `cited_text: string`
+
+          The full text of the cited block range, concatenated.
+
+          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+        - `end_block_index: number`
+
+          Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+        - `search_result_index: number`
+
+          0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+          Counted separately from `document_index`; server-side web search results are not included in this count.
+
+          minimum: 0
+
+        - `source: string`
+
+        - `start_block_index: number`
+
+          0-based index of the first cited block in the source's `content` array.
+
+          minimum: 0
+
+        - `title: string or null`
+
+  - `source: string`
+
+  - `title: string`
+
+  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+    Create a cache control breakpoint at this content block.
+
+  - `citations: optional BetaCitationsConfigParam`
+
+    - `enabled: optional boolean`
+
+### Beta Server Tool Caller
+
+- `BetaServerToolCaller object`
+
+  Tool invocation generated by a server-side tool.
+
+  - `type: "code_execution_20250825"`
+
+  - `tool_id: string`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Server Tool Caller 20260120
+
+- `BetaServerToolCaller20260120 object`
+
+  - `type: "code_execution_20260120"`
+
+  - `tool_id: string`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Server Tool Usage
+
+- `BetaServerToolUsage object`
+
+  - `web_fetch_requests: number`
+
+    The number of web fetch tool requests.
+
+    default: 0, minimum: 0
+
+  - `web_search_requests: number`
+
+    The number of web search tool requests.
+
+    default: 0, minimum: 0
+
+### Beta Server Tool Use Block
+
+- `BetaServerToolUseBlock object`
+
+  - `type: "server_tool_use"`
+
+    default: server_tool_use
+
+  - `id: string`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `input: map[unknown]`
+
+  - `name: "advisor" or "web_search" or "web_fetch" or 5 more`
+
+    - `"advisor"`
+
+    - `"web_search"`
+
+    - `"web_fetch"`
+
+    - `"code_execution"`
+
+    - `"bash_code_execution"`
+
+    - `"text_editor_code_execution"`
+
+    - `"tool_search_tool_regex"`
+
+    - `"tool_search_tool_bm25"`
+
+  - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+    - `BetaDirectCaller object`
+
+      Tool invocation directly from the model.
+
+      - `type: "direct"`
+
+    - `BetaServerToolCaller object`
+
+      Tool invocation generated by a server-side tool.
+
+      - `type: "code_execution_20250825"`
+
+      - `tool_id: string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `BetaServerToolCaller20260120 object`
+
+      - `type: "code_execution_20260120"`
+
+      - `tool_id: string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Server Tool Use Block Param
+
+- `BetaServerToolUseBlockParam object`
+
+  - `type: "server_tool_use"`
+
+  - `id: string`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `input: map[unknown]`
+
+  - `name: "advisor" or "web_search" or "web_fetch" or 5 more`
+
+    - `"advisor"`
+
+    - `"web_search"`
+
+    - `"web_fetch"`
+
+    - `"code_execution"`
+
+    - `"bash_code_execution"`
+
+    - `"text_editor_code_execution"`
+
+    - `"tool_search_tool_regex"`
+
+    - `"tool_search_tool_bm25"`
+
+  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+    - `BetaDirectCaller object`
+
+      Tool invocation directly from the model.
+
+      - `type: "direct"`
+
+    - `BetaServerToolCaller object`
+
+      Tool invocation generated by a server-side tool.
+
+      - `type: "code_execution_20250825"`
+
+      - `tool_id: string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `BetaServerToolCaller20260120 object`
+
+      - `type: "code_execution_20260120"`
+
+      - `tool_id: string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Signature Delta
+
+- `BetaSignatureDelta object`
+
+  - `type: "signature_delta"`
+
+    default: signature_delta
+
+  - `signature: string`
+
+    The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
+
+### Beta Skill Params
+
+- `BetaSkillParams object`
+
+  Specification for a skill to be loaded in a container (request model).
+
+  - `type: "anthropic" or "custom"`
+
+    Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+    - `"anthropic"`
+
+    - `"custom"`
+
+  - `skill_id: string`
+
+    Skill ID
+
+    minLength: 1, maxLength: 64
+
+  - `version: optional string`
+
+    Skill version or 'latest' for most recent version
+
+    minLength: 1, maxLength: 64
+
+### Beta Stop Reason
+
+- `BetaStopReason = "end_turn" or "max_tokens" or "stop_sequence" or 5 more`
+
+  - `"end_turn"`
+
+  - `"max_tokens"`
+
+  - `"stop_sequence"`
+
+  - `"tool_use"`
+
+  - `"pause_turn"`
+
+  - `"compaction"`
+
+  - `"refusal"`
+
+  - `"model_context_window_exceeded"`
+
+### Beta Summarize Compaction
+
+- `BetaSummarizeCompaction object`
+
+  Compact the whole conversation and return a signed `compaction` block,
+  alone, that a later request sends back first in `messages`, in place of
+  the messages it summarizes. There is no trigger and no pause flag: sending
+  the parameter compacts, and nothing is sampled after the block.
+
+  The summarization prompt is the server's own unless `instructions` are
+  given, which then replace it for this request; a value that is empty or
+  only whitespace counts as absent.
+
+  - `type: "summarize"`
+
+  - `instructions: optional string or null`
+
+    Replaces the server's default summarization prompt for this request. An empty or whitespace-only value counts as absent.
+
+    maxLength: 16384
+
+### Beta System Message Output Config
+
+- `BetaSystemMessageOutputConfig object`
+
+  Per-message output configuration on a role:"system" input message.
+
+  Fields here apply per-turn; `format` remains top-level only. An
+  empty `{}` is accepted on a message that carries content; a message
+  with neither content nor output_config fields is rejected.
+
+  - `effort: optional "low" or "medium" or "high" or 2 more or null`
+
+    How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+    Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
+
+    - `"low"`
+
+    - `"medium"`
+
+    - `"high"`
+
+    - `"xhigh"`
+
+    - `"max"`
+
+### Beta Text Block
+
+- `BetaTextBlock object`
+
+  - `type: "text"`
+
+    default: text
+
+  - `citations: array of BetaTextCitation or null`
+
+    Citations supporting the text block.
+
+    The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+    - `BetaCitationCharLocation object`
+
+      - `type: "char_location"`
+
+        default: char_location
+
+      - `cited_text: string`
+
+      - `document_index: number`
+
+        minimum: 0
+
+      - `document_title: string or null`
+
+      - `end_char_index: number`
+
+      - `file_id: string or null`
+
+      - `start_char_index: number`
+
+        minimum: 0
+
+    - `BetaCitationPageLocation object`
+
+      - `type: "page_location"`
+
+        default: page_location
+
+      - `cited_text: string`
+
+      - `document_index: number`
+
+        minimum: 0
+
+      - `document_title: string or null`
+
+      - `end_page_number: number`
+
+      - `file_id: string or null`
+
+      - `start_page_number: number`
+
+        minimum: 1
+
+    - `BetaCitationContentBlockLocation object`
+
+      - `type: "content_block_location"`
+
+        default: content_block_location
+
+      - `cited_text: string`
+
+        The full text of the cited block range, concatenated.
+
+        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+      - `document_index: number`
+
+        minimum: 0
+
+      - `document_title: string or null`
+
+      - `end_block_index: number`
+
+        Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+      - `file_id: string or null`
+
+      - `start_block_index: number`
+
+        0-based index of the first cited block in the source's `content` array.
+
+        minimum: 0
+
+    - `BetaCitationsWebSearchResultLocation object`
+
+      - `type: "web_search_result_location"`
+
+        default: web_search_result_location
+
+      - `cited_text: string`
+
+      - `encrypted_index: string`
+
+      - `title: string or null`
+
+        maxLength: 512
+
+      - `url: string`
+
+    - `BetaCitationSearchResultLocation object`
+
+      - `type: "search_result_location"`
+
+        default: search_result_location
+
+      - `cited_text: string`
+
+        The full text of the cited block range, concatenated.
+
+        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+      - `end_block_index: number`
+
+        Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+      - `search_result_index: number`
+
+        0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+        Counted separately from `document_index`; server-side web search results are not included in this count.
+
+        minimum: 0
+
+      - `source: string`
+
+      - `start_block_index: number`
+
+        0-based index of the first cited block in the source's `content` array.
+
+        minimum: 0
+
+      - `title: string or null`
+
+  - `text: string`
+
+### Beta Text Block Param
+
+- `BetaTextBlockParam object`
+
+  - `type: "text"`
+
+  - `text: string`
+
+    minLength: 1
+
+  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `citations: optional array of BetaTextCitationParam or null`
+
+    - `BetaCitationCharLocationParam object`
+
+      - `type: "char_location"`
+
+      - `cited_text: string`
+
+      - `document_index: number`
+
+        minimum: 0
+
+      - `document_title: string or null`
+
+        minLength: 1, maxLength: 500
+
+      - `end_char_index: number`
+
+      - `start_char_index: number`
+
+        minimum: 0
+
+    - `BetaCitationPageLocationParam object`
+
+      - `type: "page_location"`
+
+      - `cited_text: string`
+
+      - `document_index: number`
+
+        minimum: 0
+
+      - `document_title: string or null`
+
+        minLength: 1, maxLength: 500
+
+      - `end_page_number: number`
+
+      - `start_page_number: number`
+
+        minimum: 1
+
+    - `BetaCitationContentBlockLocationParam object`
+
+      - `type: "content_block_location"`
+
+      - `cited_text: string`
+
+        The full text of the cited block range, concatenated.
+
+        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+      - `document_index: number`
+
+        minimum: 0
+
+      - `document_title: string or null`
+
+        minLength: 1, maxLength: 500
+
+      - `end_block_index: number`
+
+        Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+      - `start_block_index: number`
+
+        0-based index of the first cited block in the source's `content` array.
+
+        minimum: 0
+
+    - `BetaCitationWebSearchResultLocationParam object`
+
+      - `type: "web_search_result_location"`
+
+      - `cited_text: string`
+
+      - `encrypted_index: string`
+
+      - `title: string or null`
+
+        minLength: 1, maxLength: 512
+
+      - `url: string`
+
+        minLength: 1
+
+    - `BetaCitationSearchResultLocationParam object`
+
+      - `type: "search_result_location"`
+
+      - `cited_text: string`
+
+        The full text of the cited block range, concatenated.
+
+        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+      - `end_block_index: number`
+
+        Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+      - `search_result_index: number`
+
+        0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+        Counted separately from `document_index`; server-side web search results are not included in this count.
+
+        minimum: 0
+
+      - `source: string`
+
+      - `start_block_index: number`
+
+        0-based index of the first cited block in the source's `content` array.
+
+        minimum: 0
+
+      - `title: string or null`
+
+### Beta Text Citation
+
+- `BetaTextCitation = BetaCitationCharLocation or BetaCitationPageLocation or BetaCitationContentBlockLocation or 2 more`
+
+  - `BetaCitationCharLocation object`
+
+    - `type: "char_location"`
+
+      default: char_location
+
+    - `cited_text: string`
+
+    - `document_index: number`
+
+      minimum: 0
+
+    - `document_title: string or null`
+
+    - `end_char_index: number`
+
+    - `file_id: string or null`
+
+    - `start_char_index: number`
+
+      minimum: 0
+
+  - `BetaCitationPageLocation object`
+
+    - `type: "page_location"`
+
+      default: page_location
+
+    - `cited_text: string`
+
+    - `document_index: number`
+
+      minimum: 0
+
+    - `document_title: string or null`
+
+    - `end_page_number: number`
+
+    - `file_id: string or null`
+
+    - `start_page_number: number`
+
+      minimum: 1
+
+  - `BetaCitationContentBlockLocation object`
+
+    - `type: "content_block_location"`
+
+      default: content_block_location
+
+    - `cited_text: string`
+
+      The full text of the cited block range, concatenated.
+
+      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+    - `document_index: number`
+
+      minimum: 0
+
+    - `document_title: string or null`
+
+    - `end_block_index: number`
+
+      Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+    - `file_id: string or null`
+
+    - `start_block_index: number`
+
+      0-based index of the first cited block in the source's `content` array.
+
+      minimum: 0
+
+  - `BetaCitationsWebSearchResultLocation object`
+
+    - `type: "web_search_result_location"`
+
+      default: web_search_result_location
+
+    - `cited_text: string`
+
+    - `encrypted_index: string`
+
+    - `title: string or null`
+
+      maxLength: 512
+
+    - `url: string`
+
+  - `BetaCitationSearchResultLocation object`
+
+    - `type: "search_result_location"`
+
+      default: search_result_location
+
+    - `cited_text: string`
+
+      The full text of the cited block range, concatenated.
+
+      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+    - `end_block_index: number`
+
+      Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+    - `search_result_index: number`
+
+      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+      Counted separately from `document_index`; server-side web search results are not included in this count.
+
+      minimum: 0
+
+    - `source: string`
+
+    - `start_block_index: number`
+
+      0-based index of the first cited block in the source's `content` array.
+
+      minimum: 0
+
+    - `title: string or null`
+
+### Beta Text Citation Param
+
+- `BetaTextCitationParam = BetaCitationCharLocationParam or BetaCitationPageLocationParam or BetaCitationContentBlockLocationParam or 2 more`
+
+  - `BetaCitationCharLocationParam object`
+
+    - `type: "char_location"`
+
+    - `cited_text: string`
+
+    - `document_index: number`
+
+      minimum: 0
+
+    - `document_title: string or null`
+
+      minLength: 1, maxLength: 500
+
+    - `end_char_index: number`
+
+    - `start_char_index: number`
+
+      minimum: 0
+
+  - `BetaCitationPageLocationParam object`
+
+    - `type: "page_location"`
+
+    - `cited_text: string`
+
+    - `document_index: number`
+
+      minimum: 0
+
+    - `document_title: string or null`
+
+      minLength: 1, maxLength: 500
+
+    - `end_page_number: number`
+
+    - `start_page_number: number`
+
+      minimum: 1
+
+  - `BetaCitationContentBlockLocationParam object`
+
+    - `type: "content_block_location"`
+
+    - `cited_text: string`
+
+      The full text of the cited block range, concatenated.
+
+      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+    - `document_index: number`
+
+      minimum: 0
+
+    - `document_title: string or null`
+
+      minLength: 1, maxLength: 500
+
+    - `end_block_index: number`
+
+      Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+    - `start_block_index: number`
+
+      0-based index of the first cited block in the source's `content` array.
+
+      minimum: 0
+
+  - `BetaCitationWebSearchResultLocationParam object`
+
+    - `type: "web_search_result_location"`
+
+    - `cited_text: string`
+
+    - `encrypted_index: string`
+
+    - `title: string or null`
+
+      minLength: 1, maxLength: 512
+
+    - `url: string`
+
+      minLength: 1
+
+  - `BetaCitationSearchResultLocationParam object`
+
+    - `type: "search_result_location"`
+
+    - `cited_text: string`
+
+      The full text of the cited block range, concatenated.
+
+      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+    - `end_block_index: number`
+
+      Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+    - `search_result_index: number`
+
+      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+      Counted separately from `document_index`; server-side web search results are not included in this count.
+
+      minimum: 0
+
+    - `source: string`
+
+    - `start_block_index: number`
+
+      0-based index of the first cited block in the source's `content` array.
+
+      minimum: 0
+
+    - `title: string or null`
+
+### Beta Text Delta
+
+- `BetaTextDelta object`
+
+  - `type: "text_delta"`
+
+    default: text_delta
+
+  - `text: string`
+
+### Beta Text Editor Code Execution Create Result Block
+
+- `BetaTextEditorCodeExecutionCreateResultBlock object`
+
+  - `type: "text_editor_code_execution_create_result"`
+
+    default: text_editor_code_execution_create_result
+
+  - `is_file_update: boolean`
+
+### Beta Text Editor Code Execution Create Result Block Param
+
+- `BetaTextEditorCodeExecutionCreateResultBlockParam object`
+
+  - `type: "text_editor_code_execution_create_result"`
+
+  - `is_file_update: boolean`
+
+### Beta Text Editor Code Execution Str Replace Result Block
+
+- `BetaTextEditorCodeExecutionStrReplaceResultBlock object`
+
+  - `type: "text_editor_code_execution_str_replace_result"`
+
+    default: text_editor_code_execution_str_replace_result
+
+  - `lines: array of string or null`
+
+  - `new_lines: number or null`
+
+  - `new_start: number or null`
+
+  - `old_lines: number or null`
+
+  - `old_start: number or null`
+
+### Beta Text Editor Code Execution Str Replace Result Block Param
+
+- `BetaTextEditorCodeExecutionStrReplaceResultBlockParam object`
+
+  - `type: "text_editor_code_execution_str_replace_result"`
+
+  - `lines: optional array of string or null`
+
+  - `new_lines: optional number or null`
+
+  - `new_start: optional number or null`
+
+  - `old_lines: optional number or null`
+
+  - `old_start: optional number or null`
+
+### Beta Text Editor Code Execution Tool Result Block
+
+- `BetaTextEditorCodeExecutionToolResultBlock object`
+
+  - `type: "text_editor_code_execution_tool_result"`
+
+    default: text_editor_code_execution_tool_result
+
+  - `content: BetaTextEditorCodeExecutionToolResultError or BetaTextEditorCodeExecutionViewResultBlock or BetaTextEditorCodeExecutionCreateResultBlock or BetaTextEditorCodeExecutionStrReplaceResultBlock`
+
+    - `BetaTextEditorCodeExecutionToolResultError object`
+
+      - `type: "text_editor_code_execution_tool_result_error"`
+
+        default: text_editor_code_execution_tool_result_error
+
+      - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
+        - `"invalid_tool_input"`
+
+        - `"unavailable"`
+
+        - `"too_many_requests"`
+
+        - `"execution_time_exceeded"`
+
+        - `"file_not_found"`
+
+      - `error_message: string or null`
+
+    - `BetaTextEditorCodeExecutionViewResultBlock object`
+
+      - `type: "text_editor_code_execution_view_result"`
+
+        default: text_editor_code_execution_view_result
+
+      - `content: string`
+
+      - `file_type: "text" or "image" or "pdf"`
+
+        - `"text"`
+
+        - `"image"`
+
+        - `"pdf"`
+
+      - `num_lines: number or null`
+
+      - `start_line: number or null`
+
+      - `total_lines: number or null`
+
+    - `BetaTextEditorCodeExecutionCreateResultBlock object`
+
+      - `type: "text_editor_code_execution_create_result"`
+
+        default: text_editor_code_execution_create_result
+
+      - `is_file_update: boolean`
+
+    - `BetaTextEditorCodeExecutionStrReplaceResultBlock object`
+
+      - `type: "text_editor_code_execution_str_replace_result"`
+
+        default: text_editor_code_execution_str_replace_result
+
+      - `lines: array of string or null`
+
+      - `new_lines: number or null`
+
+      - `new_start: number or null`
+
+      - `old_lines: number or null`
+
+      - `old_start: number or null`
+
+  - `tool_use_id: string`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Text Editor Code Execution Tool Result Block Param
+
+- `BetaTextEditorCodeExecutionToolResultBlockParam object`
+
+  - `type: "text_editor_code_execution_tool_result"`
+
+  - `content: BetaTextEditorCodeExecutionToolResultErrorParam or BetaTextEditorCodeExecutionViewResultBlockParam or BetaTextEditorCodeExecutionCreateResultBlockParam or BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
+
+    - `BetaTextEditorCodeExecutionToolResultErrorParam object`
+
+      - `type: "text_editor_code_execution_tool_result_error"`
+
+      - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
+        - `"invalid_tool_input"`
+
+        - `"unavailable"`
+
+        - `"too_many_requests"`
+
+        - `"execution_time_exceeded"`
+
+        - `"file_not_found"`
+
+      - `error_message: optional string or null`
+
+    - `BetaTextEditorCodeExecutionViewResultBlockParam object`
+
+      - `type: "text_editor_code_execution_view_result"`
+
+      - `content: string`
+
+      - `file_type: "text" or "image" or "pdf"`
+
+        - `"text"`
+
+        - `"image"`
+
+        - `"pdf"`
+
+      - `num_lines: optional number or null`
+
+      - `start_line: optional number or null`
+
+      - `total_lines: optional number or null`
+
+    - `BetaTextEditorCodeExecutionCreateResultBlockParam object`
+
+      - `type: "text_editor_code_execution_create_result"`
+
+      - `is_file_update: boolean`
+
+    - `BetaTextEditorCodeExecutionStrReplaceResultBlockParam object`
+
+      - `type: "text_editor_code_execution_str_replace_result"`
+
+      - `lines: optional array of string or null`
+
+      - `new_lines: optional number or null`
+
+      - `new_start: optional number or null`
+
+      - `old_lines: optional number or null`
+
+      - `old_start: optional number or null`
+
+  - `tool_use_id: string`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `cache_control: optional BetaCacheControlEphemeral or null`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+### Beta Text Editor Code Execution Tool Result Error
+
+- `BetaTextEditorCodeExecutionToolResultError object`
+
+  - `type: "text_editor_code_execution_tool_result_error"`
+
+    default: text_editor_code_execution_tool_result_error
+
+  - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
+    - `"invalid_tool_input"`
+
+    - `"unavailable"`
+
+    - `"too_many_requests"`
+
+    - `"execution_time_exceeded"`
+
+    - `"file_not_found"`
+
+  - `error_message: string or null`
+
+### Beta Text Editor Code Execution Tool Result Error Param
+
+- `BetaTextEditorCodeExecutionToolResultErrorParam object`
+
+  - `type: "text_editor_code_execution_tool_result_error"`
+
+  - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
+    - `"invalid_tool_input"`
+
+    - `"unavailable"`
+
+    - `"too_many_requests"`
+
+    - `"execution_time_exceeded"`
+
+    - `"file_not_found"`
+
+  - `error_message: optional string or null`
+
+### Beta Text Editor Code Execution View Result Block
+
+- `BetaTextEditorCodeExecutionViewResultBlock object`
+
+  - `type: "text_editor_code_execution_view_result"`
+
+    default: text_editor_code_execution_view_result
+
+  - `content: string`
+
+  - `file_type: "text" or "image" or "pdf"`
+
+    - `"text"`
+
+    - `"image"`
+
+    - `"pdf"`
+
+  - `num_lines: number or null`
+
+  - `start_line: number or null`
+
+  - `total_lines: number or null`
+
+### Beta Text Editor Code Execution View Result Block Param
+
+- `BetaTextEditorCodeExecutionViewResultBlockParam object`
+
+  - `type: "text_editor_code_execution_view_result"`
+
+  - `content: string`
+
+  - `file_type: "text" or "image" or "pdf"`
+
+    - `"text"`
+
+    - `"image"`
+
+    - `"pdf"`
+
+  - `num_lines: optional number or null`
+
+  - `start_line: optional number or null`
+
+  - `total_lines: optional number or null`
+
+### Beta Thinking Block
+
+- `BetaThinkingBlock object`
+
+  - `type: "thinking"`
+
+    default: thinking
+
+  - `signature: string`
+
+    A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
     This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
 
     See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
@@ -2311,6 +6687,10 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-haiku-5-5"`
+
+          Fastest model for high-volume, real-time tasks
+
         - `"claude-sonnet-5-5"`
 
           Efficient model for coding and agents
@@ -4336,6 +8716,10 @@
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-haiku-5-5"`
+
+          Fastest model for high-volume, real-time tasks
 
         - `"claude-sonnet-5-5"`
 
@@ -7753,6 +12137,10 @@
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
+
       - `"claude-sonnet-5-5"`
 
         Efficient model for coding and agents
@@ -8125,6 +12513,36 @@
 
     minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
+### Beta Tool Use Caller
+
+- `BetaToolUseCaller = BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+  Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `BetaDirectCaller object`
+
+    Tool invocation directly from the model.
+
+    - `type: "direct"`
+
+  - `BetaServerToolCaller object`
+
+    Tool invocation generated by a server-side tool.
+
+    - `type: "code_execution_20250825"`
+
+    - `tool_id: string`
+
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `BetaServerToolCaller20260120 object`
+
+    - `type: "code_execution_20260120"`
+
+    - `tool_id: string`
+
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Tool Uses Keep
 
 - `BetaToolUsesKeep object`
@@ -8144,6 +12562,1639 @@
   - `value: number`
 
     minimum: 1
+
+### Beta Toolset Tool Use Block
+
+- `BetaToolsetToolUseBlock = BetaBrowserToolUseBlock or BetaComputerToolUseBlock or BetaToolUseBlock`
+
+  - `BetaBrowserToolUseBlock = BetaBrowserNavigateToolUseBlock or BetaBrowserListTabsToolUseBlock or BetaBrowserNewTabToolUseBlock or 28 more`
+
+    - `BetaBrowserNavigateToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserNavigateInput`
+
+        Navigate to a URL, or go back/forward/reload in history. The protocol may be
+        omitted (defaults to https://).
+
+        - `url: string`
+
+          The URL to navigate to, or "back" / "forward" / "reload" for history navigation.
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "navigate"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+        - `BetaDirectCaller object`
+
+          Tool invocation directly from the model.
+
+          - `type: "direct"`
+
+        - `BetaServerToolCaller object`
+
+          Tool invocation generated by a server-side tool.
+
+          - `type: "code_execution_20250825"`
+
+          - `tool_id: string`
+
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+        - `BetaServerToolCaller20260120 object`
+
+          - `type: "code_execution_20260120"`
+
+          - `tool_id: string`
+
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `BetaBrowserListTabsToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserListTabsInput`
+
+        List all open tabs with each tab's tab_id, title, and URL.
+
+      - `name: "list_tabs"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserNewTabToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserNewTabInput`
+
+        Open a new empty tab and return its tab_id.
+
+      - `name: "new_tab"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserSwitchTabToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserSwitchTabInput`
+
+        Make the tab with the given tab_id the active tab — the tab that actions without
+        a tab_id apply to.
+
+        - `tab_id: string`
+
+          The tab to switch to.
+
+      - `name: "switch_tab"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserCloseTabToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserCloseTabInput`
+
+        Close the tab with the given tab_id.
+
+        - `tab_id: string`
+
+          The tab to close.
+
+      - `name: "close_tab"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserReadPageToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserReadPageInput`
+
+        Return a structured accessibility tree of the page (or the subtree rooted at
+        `ref`), with element references like [ref_7] that can be used as targets on later
+        actions. Output is capped at 50,000 characters — narrow with `ref` or a smaller
+        `depth` when exceeded.
+
+        - `depth: optional number or null`
+
+          Maximum tree depth. Default 15.
+
+          minimum: 1
+
+        - `filter: optional BetaBrowserReadPageFilter or null`
+
+          Which elements to include. Omitted: every visible element. "interactive": interactive elements only. "all": additionally includes off-viewport elements.
+
+          - `"all"`
+
+          - `"interactive"`
+
+        - `ref: optional string or null`
+
+          Element reference to read a subtree from. Omit to read from the page root.
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "read_page"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserGetPageTextToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserGetPageTextInput`
+
+        Return the page's visible text content as plain text, prioritizing article
+        content. Suited to articles, documentation, and other text-heavy pages.
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "get_page_text"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserReadConsoleToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserReadConsoleInput`
+
+        Return console output (log entries, errors, warnings) accumulated since the
+        driver attached to the tab and since the last read, one line per entry. An empty
+        result does not mean no traffic for a tab that predates attach.
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "read_console"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserReadNetworkToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserReadNetworkInput`
+
+        Return the network requests (method, URL, status, MIME type, timing) recorded
+        since the driver attached to the tab and since the last read, one line per entry.
+        An empty result does not mean no traffic for a tab that predates attach.
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "read_network"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserFindToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserFindInput`
+
+        Find elements matching a natural-language description (e.g. "search bar", "add to
+        cart button") and return up to 20 matches with element references.
+
+        - `query: string`
+
+          Natural-language description of the element(s) to find.
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "find"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserFormInputToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserFormInputInput`
+
+        Set the value of a form element (input, textarea, select, checkbox). Use a
+        boolean for checkboxes, an option value or text for selects.
+
+        - `target: BetaBrowserRefTarget`
+
+          An element on the page, identified by a reference from a prior `read_page` or
+          `find` result. References are scoped to the tab that produced them and become
+          stale after navigation or a major re-render.
+
+          - `type: "ref"`
+
+          - `ref: string`
+
+            An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+        - `value: BetaBrowserFormInputValue`
+
+          The value to set.
+
+          - `string`
+
+          - `number`
+
+          - `boolean`
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "form_input"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserFileUploadToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserFileUploadInput`
+
+        Set the value of a file-input element to one or more files. The target must be an
+        element reference; at least one of paths or document_ids is required.
+
+        - `target: BetaBrowserRefTarget`
+
+          An element on the page, identified by a reference from a prior `read_page` or
+          `find` result. References are scoped to the tab that produced them and become
+          stale after navigation or a major re-render.
+
+        - `document_ids: optional array of string or null`
+
+          References to files the harness has staged, for deployments where the browser executor cannot read the caller's filesystem.
+
+          minItems: 1
+
+        - `paths: optional array of string or null`
+
+          File paths on the browser executor's filesystem.
+
+          minItems: 1
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "file_upload"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserScrollToToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserScrollToInput`
+
+        Scroll an element into view.
+
+        - `target: BetaBrowserRefTarget`
+
+          An element on the page, identified by a reference from a prior `read_page` or
+          `find` result. References are scoped to the tab that produced them and become
+          stale after navigation or a major re-render.
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "scroll_to"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserScreenshotToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserScreenshotInput`
+
+        Capture the current browser viewport.
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "screenshot"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserZoomToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserZoomInput`
+
+        Return a cropped screenshot of the given viewport region, scaled up for closer
+        inspection — useful for small icons, buttons, or text. Coordinates are in the
+        same viewport-pixel space as a full screenshot.
+
+        - `region: array of number`
+
+          [x0, y0, x1, y1] in viewport pixels.
+
+          minItems: 4, maxItems: 4
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "zoom"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserLeftClickToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserLeftClickInput`
+
+        Left-click at a viewport coordinate or on an element by reference.
+
+        - `target: BetaBrowserClickTarget`
+
+          Where to act: either a viewport coordinate or an element reference.
+
+          - `BetaBrowserCoordinateTarget object`
+
+            A point in the browser viewport, in viewport pixels (the same frame as a
+            full-viewport screenshot).
+
+            - `type: "coordinate"`
+
+            - `x: number`
+
+              Pixels from the left edge of the viewport.
+
+              minimum: 0
+
+            - `y: number`
+
+              Pixels from the top edge of the viewport.
+
+              minimum: 0
+
+          - `BetaBrowserRefTarget object`
+
+            An element on the page, identified by a reference from a prior `read_page` or
+            `find` result. References are scoped to the tab that produced them and become
+            stale after navigation or a major re-render.
+
+        - `modifiers: optional string or null`
+
+          Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "left_click"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserRightClickToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserRightClickInput`
+
+        Right-click at a viewport coordinate or on an element by reference.
+
+        - `target: BetaBrowserClickTarget`
+
+          Where to act: either a viewport coordinate or an element reference.
+
+        - `modifiers: optional string or null`
+
+          Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "right_click"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserMiddleClickToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserMiddleClickInput`
+
+        Middle-click at a viewport coordinate or on an element by reference.
+
+        - `target: BetaBrowserClickTarget`
+
+          Where to act: either a viewport coordinate or an element reference.
+
+        - `modifiers: optional string or null`
+
+          Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "middle_click"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserDoubleClickToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserDoubleClickInput`
+
+        Double left-click at a viewport coordinate or on an element by reference.
+
+        - `target: BetaBrowserClickTarget`
+
+          Where to act: either a viewport coordinate or an element reference.
+
+        - `modifiers: optional string or null`
+
+          Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "double_click"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserTripleClickToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserTripleClickInput`
+
+        Triple left-click at a viewport coordinate or on an element by reference
+        (typically selects a line or paragraph).
+
+        - `target: BetaBrowserClickTarget`
+
+          Where to act: either a viewport coordinate or an element reference.
+
+        - `modifiers: optional string or null`
+
+          Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "triple_click"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserHoverToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserHoverInput`
+
+        Move the cursor to a coordinate or element without clicking.
+
+        - `target: BetaBrowserClickTarget`
+
+          Where to act: either a viewport coordinate or an element reference.
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "hover"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserLeftClickDragToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserLeftClickDragInput`
+
+        Press at `from`, drag to `target`, release. Both must be coordinate targets.
+
+        - `from: BetaBrowserCoordinateTarget`
+
+          A point in the browser viewport, in viewport pixels (the same frame as a
+          full-viewport screenshot).
+
+        - `target: BetaBrowserCoordinateTarget`
+
+          A point in the browser viewport, in viewport pixels (the same frame as a
+          full-viewport screenshot).
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "left_click_drag"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserLeftMouseDownToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserLeftMouseDownInput`
+
+        Press and hold the left mouse button at a viewport coordinate. Pair with
+        left_mouse_up to perform a custom drag.
+
+        - `target: BetaBrowserCoordinateTarget`
+
+          A point in the browser viewport, in viewport pixels (the same frame as a
+          full-viewport screenshot).
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "left_mouse_down"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserLeftMouseUpToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserLeftMouseUpInput`
+
+        Release the left mouse button at a viewport coordinate.
+
+        - `target: BetaBrowserCoordinateTarget`
+
+          A point in the browser viewport, in viewport pixels (the same frame as a
+          full-viewport screenshot).
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "left_mouse_up"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserMouseMoveToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserMouseMoveInput`
+
+        Move the pointer to a viewport coordinate without clicking.
+
+        - `target: BetaBrowserCoordinateTarget`
+
+          A point in the browser viewport, in viewport pixels (the same frame as a
+          full-viewport screenshot).
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "mouse_move"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserScrollToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserScrollInput`
+
+        Scroll at a viewport position. `target` must be a coordinate target.
+
+        - `scroll_direction: BetaBrowserScrollDirection`
+
+          - `"up"`
+
+          - `"down"`
+
+          - `"left"`
+
+          - `"right"`
+
+        - `target: BetaBrowserCoordinateTarget`
+
+          A point in the browser viewport, in viewport pixels (the same frame as a
+          full-viewport screenshot).
+
+        - `scroll_amount: optional number or null`
+
+          Scroll-wheel notches (1–10). Default 3.
+
+          minimum: 1, maximum: 10
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "scroll"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserTypeToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserTypeInput`
+
+        Type a literal string at the current focus.
+
+        - `text: string`
+
+          The text to type.
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "type"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserKeyToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserKeyInput`
+
+        Press a key or key chord. Use "+" to combine modifiers with a key (e.g. "ctrl+a",
+        "cmd+shift+p") and space to sequence presses (e.g. "Backspace Backspace Delete").
+        Common names like "Return", "Tab", "Escape", "BackSpace" are supported.
+
+        - `text: string`
+
+          The key, chord, or space-separated sequence to press.
+
+        - `repeat: optional number or null`
+
+          Number of times to repeat. Default 1.
+
+          minimum: 1, maximum: 100
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "key"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserHoldKeyToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserHoldKeyInput`
+
+        Hold a key or key chord down for a duration, then release it. Uses the same key
+        names and "+" chord syntax as the key action.
+
+        - `duration: number`
+
+          Seconds to hold the key down (maximum 30).
+
+          minimum: 0, maximum: 30
+
+        - `text: string`
+
+          The key or chord to hold.
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "hold_key"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserWaitToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserWaitInput`
+
+        Pause for the given duration.
+
+        - `duration: number`
+
+          Seconds to wait (maximum 30).
+
+          minimum: 0, maximum: 30
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "wait"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaBrowserJavascriptExecToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaBrowserJavascriptExecInput`
+
+        Execute JavaScript in the page context and return the value of the last
+        expression. The code runs with access to the DOM, `window`, and page variables.
+        Write the expression you want evaluated — do NOT use `return`.
+
+        - `text: string`
+
+          JavaScript to execute in the page context.
+
+        - `tab_id: optional string or null`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `name: "javascript_exec"`
+
+      - `toolset_name: "browser"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `BetaComputerToolUseBlock = BetaComputerKeyToolUseBlock or BetaComputerHoldKeyToolUseBlock or BetaComputerTypeToolUseBlock or 14 more`
+
+    - `BetaComputerKeyToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerKeyInput`
+
+        Press a key or key-combination on the keyboard. Use "+" to combine modifiers with
+        a key (e.g. "ctrl+s", "alt+Tab", "ctrl+shift+Escape"). Key names are
+        case-insensitive; common names like "Return", "Tab", "Escape", "Up", "Down",
+        "Left", "Right", "Home", "End", "Page_Up", "Page_Down", "Delete", "BackSpace" are
+        supported.
+
+        - `text: string`
+
+          The key or key-combination to press.
+
+        - `repeat: optional number or null`
+
+          Number of times to repeat the key press. Default is 1.
+
+          minimum: 1, maximum: 100
+
+      - `name: "key"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerHoldKeyToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerHoldKeyInput`
+
+        Hold down a key or key-combination for a specified duration. Uses the same key
+        syntax as `key`.
+
+        - `duration: number`
+
+          Duration to hold the key, in seconds.
+
+          maximum: 300
+
+        - `text: string`
+
+          The key or key-combination to hold.
+
+      - `name: "hold_key"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerTypeToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerTypeInput`
+
+        Type a string of text on the keyboard.
+
+        - `text: string`
+
+          The text to type.
+
+      - `name: "type"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerCursorPositionToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerCursorPositionInput`
+
+        Get the current (x, y) pixel coordinate of the cursor.
+
+      - `name: "cursor_position"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerMouseMoveToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerMouseMoveInput`
+
+        Move the cursor to a specified (x, y) pixel coordinate. Use this ONLY to hover
+        without clicking; otherwise use a click action directly.
+
+        - `coordinate: array of number`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+      - `name: "mouse_move"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerLeftMouseDownToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerLeftMouseDownInput`
+
+        Press and hold the left mouse button at the current cursor position.
+
+      - `name: "left_mouse_down"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerLeftMouseUpToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerLeftMouseUpInput`
+
+        Release the left mouse button.
+
+      - `name: "left_mouse_up"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerLeftClickToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerLeftClickInput`
+
+        Click the left mouse button at the specified (x, y) pixel coordinate, or the
+        current cursor position if `coordinate` is omitted.
+
+        - `coordinate: optional array of number or null`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `text: optional string or null`
+
+          Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+      - `name: "left_click"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerLeftClickDragToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerLeftClickDragInput`
+
+        Click and drag the cursor from `start_coordinate` to `coordinate`.
+
+        - `coordinate: array of number`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `start_coordinate: array of number`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `text: optional string or null`
+
+          Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+      - `name: "left_click_drag"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerRightClickToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerRightClickInput`
+
+        Click the right mouse button at the specified (x, y) pixel coordinate, or the
+        current cursor position if `coordinate` is omitted.
+
+        - `coordinate: optional array of number or null`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `text: optional string or null`
+
+          Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+      - `name: "right_click"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerMiddleClickToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerMiddleClickInput`
+
+        Click the middle mouse button at the specified (x, y) pixel coordinate, or the
+        current cursor position if `coordinate` is omitted.
+
+        - `coordinate: optional array of number or null`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `text: optional string or null`
+
+          Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+      - `name: "middle_click"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerDoubleClickToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerDoubleClickInput`
+
+        Double-click the left mouse button at the specified (x, y) pixel coordinate, or
+        the current cursor position if `coordinate` is omitted.
+
+        - `coordinate: optional array of number or null`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `text: optional string or null`
+
+          Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+      - `name: "double_click"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerTripleClickToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerTripleClickInput`
+
+        Triple-click the left mouse button at the specified (x, y) pixel coordinate, or
+        the current cursor position if `coordinate` is omitted.
+
+        - `coordinate: optional array of number or null`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `text: optional string or null`
+
+          Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+      - `name: "triple_click"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerScrollToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerScrollInput`
+
+        Scroll the screen at the specified (x, y) pixel coordinate, or the current cursor
+        position if `coordinate` is omitted. Do NOT use PageUp/PageDown to scroll.
+
+        - `scroll_amount: number`
+
+          Number of 'clicks' of the scroll wheel.
+
+        - `scroll_direction: BetaComputerScrollDirection`
+
+          - `"up"`
+
+          - `"down"`
+
+          - `"left"`
+
+          - `"right"`
+
+        - `coordinate: optional array of number or null`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `text: optional string or null`
+
+          Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+      - `name: "scroll"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerWaitToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerWaitInput`
+
+        Wait for a specified duration.
+
+        - `duration: number`
+
+          Duration to wait, in seconds.
+
+          maximum: 300
+
+      - `name: "wait"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerScreenshotToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerScreenshotInput`
+
+        Take a screenshot of the screen.
+
+      - `name: "screenshot"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `BetaComputerZoomToolUseBlock object`
+
+      - `type: "tool_use"`
+
+        default: tool_use
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: BetaComputerZoomInput`
+
+        Take a screenshot of a rectangular region. Region coordinates are in the
+        full-screenshot space (not physical display pixels). The crop is scaled up to
+        fill the image budget so fine details become legible.
+
+        - `region: array of number`
+
+          (x0, y0, x1, y1): The region to capture.
+
+          minItems: 4, maxItems: 4
+
+      - `name: "zoom"`
+
+      - `toolset_name: "computer"`
+
+      - `caller: optional BetaToolUseCaller`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `BetaToolUseBlock object`
+
+    - `type: "tool_use"`
+
+      default: tool_use
+
+    - `id: string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `input: map[unknown]`
+
+    - `name: string`
+
+      minLength: 1
+
+    - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+      - `BetaDirectCaller object`
+
+        Tool invocation directly from the model.
+
+      - `BetaServerToolCaller object`
+
+        Tool invocation generated by a server-side tool.
+
+      - `BetaServerToolCaller20260120 object`
+
+    - `toolset_name: optional string or null`
+
+      For a toolset member tool_use, the toolset family.
+
+      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
 ### Beta URL Image Source
 
@@ -8328,6 +14379,10 @@
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-haiku-5-5"`
+
+          Fastest model for high-volume, real-time tasks
 
         - `"claude-sonnet-5-5"`
 
@@ -14085,6 +20140,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                          - `"claude-haiku-5-5"`
+
+                            Fastest model for high-volume, real-time tasks
+
                           - `"claude-sonnet-5-5"`
 
                             Efficient model for coding and agents
@@ -19271,6 +25330,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                           The model that will complete your prompt.
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                          - `"claude-haiku-5-5"`
+
+                            Fastest model for high-volume, real-time tasks
 
                           - `"claude-sonnet-5-5"`
 

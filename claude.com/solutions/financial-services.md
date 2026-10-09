@@ -8,7 +8,7 @@ Introducing Claude for financial advisors
 
 ![](https://assets.claude.com/650d7729c393e0a6c243ebe61f9b6401c93fd1c8.jpg)
 
-# Claude financial services
+# Claude for financial services
 
 ## Your financial competitive edge, from signal to decision
 
@@ -16,7 +16,7 @@ Claude helps leading financial institutions across banking, insurance, asset and
 
 [Contact sales](https://claude.com/contact-sales/financial-services)[Try Claude](https://claude.ai)
 
-[![](https://assets.claude.com/a97955a9c068ac8a9c6d8f08e95a9805758237f6.png)](https://assets.claude.com/011d6efb4b1d97450a888022c040f53ea98774e5.webm)
+![](https://assets.claude.com/a97955a9c068ac8a9c6d8f08e95a9805758237f6.png)
 
 ![Coinbase](https://assets.claude.com/caf4922a3d82e641d244aa462699628c7b25e0b8.svg)
 
@@ -29,30 +29,6 @@ Varsha Mahadevan, Senior Engineering Manager
 > “LSEG has a long-established reputation for our open, partnership approach and meeting our customers wherever their workflows are taking place. Secure, enterprise grade AI applications, such as Claude, are expanding the opportunities for LSEG to build deep partnerships with customers.”
 
 Ron Lefferts, Co-head, Data and Analytics
-
-![BlackRock](https://assets.claude.com/d72d42304889c5ecd4f2ba410dfde53b13255b97.svg)
-
-> “Advisors are navigating increasingly complex client needs while facing an accelerating pace of change across markets and technology. Our work with Anthropic is an important step in our broader effort to bring BlackRock’s portfolio intelligence and asset allocation expertise to more advisors to help them scale their business and build better portfolios. By making our institutional-quality portfolio analytics more accessible, we are helping more advisors leverage our portfolio intelligence so they can spend more time focused on client relationships.”
-
-Jaime Magyera, Head of US Wealth & Retirement Businesses
-
-![Mercer Advisors](https://assets.claude.com/e417bbb81bf909eb4ebe19fe0dee25370dbfd28e.svg)
-
-> “Anthropic builds AI aligned with human values. Mercer Advisors builds family offices aligned with client interests. That shared obsession is core to both firms and anchors our partnership. Claude helps our teams to work seamlessly across clients' financial lives, while judgment and accountability stay with the advisor. That is how AI should work in any profession built on trust.”
-
-Daniel Gourvitch, President
-
-![Rockefeller Capital Management](https://assets.claude.com/70a6a06de8cab56f6dea00611e665aa99e4d17a4.svg)
-
-> “We are pleased to see Anthropic's continued investment in capabilities tailored to the unique needs of financial advisors. Our collaboration is rooted in a shared belief that technology should support advisors, not replace them, helping them navigate complexity and more efficiently serve clients while keeping human judgment and discretion at the forefront.”
-
-Ashley McCarthy, Chief Operating Officer & Counsel-Managing Director
-
-![Charles Schwab](https://assets.claude.com/ee30d9d9145114578de5ae6a8bdbf4d06f6b1848.svg)
-
-> “The future of advisor technology will be defined by how well firms can connect trusted data, powerful intelligence, and everyday workflows. Our collaboration with Anthropic reflects Schwab's commitment to helping registered investment advisors (RIAs) leverage innovation within the tools they already use, making it easier to serve clients, scale their practices, and grow with confidence.”
-
-Jon Beatty, Head of Schwab Advisor Services
 
 ![Walleye Capital](https://assets.claude.com/cf0916b523805e9786a0a8e6832d5e8fd7c0113d.svg)
 
@@ -182,87 +158,35 @@ Varsha Mahadevan, Senior Engineering Manager
 
 Ron Lefferts, Co-head, Data and Analytics
 
-![BlackRock](https://assets.claude.com/d72d42304889c5ecd4f2ba410dfde53b13255b97.svg)
+![Walleye Capital](https://assets.claude.com/cf0916b523805e9786a0a8e6832d5e8fd7c0113d.svg)
 
-> “Advisors are navigating increasingly complex client needs while facing an accelerating pace of change across markets and technology. Our work with Anthropic is an important step in our broader effort to bring BlackRock’s portfolio intelligence and asset allocation expertise to more advisors to help them scale their business and build better portfolios. By making our institutional-quality portfolio analytics more accessible, we are helping more advisors leverage our portfolio intelligence so they can spend more time focused on client relationships.”
+> “Claude Fable 5 delivers more capable engineering in fewer turns than prior models—handling the complex multi-agent workflows our employees run daily in Claude Code.”
 
-Jaime Magyera, Head of US Wealth & Retirement Businesses
+Luke Anderson, CTO
 
-![Mercer Advisors](https://assets.claude.com/e417bbb81bf909eb4ebe19fe0dee25370dbfd28e.svg)
+![Balyasny Asset Management](https://assets.claude.com/f28eae73cfb17e477c028937aa3c357aeacd65d0.svg)
 
-> “Anthropic builds AI aligned with human values. Mercer Advisors builds family offices aligned with client interests. That shared obsession is core to both firms and anchors our partnership. Claude helps our teams to work seamlessly across clients' financial lives, while judgment and accountability stay with the advisor. That is how AI should work in any profession built on trust.”
+> “Claude Fable 5 is the strongest finance-first model we've tested, both on general finance and reasoning. It's a notable step up.”
 
-Daniel Gourvitch, President
+Damian Miraglia, Principal Engineer, Applied AI
 
-1/25
-
-NEW: Claude for financial advisors
-
-## Claude does the heavy lifting, you give the advice
-
-Claude works across the systems your advisory team runs on, so your time goes to clients.
-
-[Contact sales](https://forms.gle/oyQLyXe7x8zzRuGv7)
-
-### Connect your wealth stack
-
-Claude connects to your custodian, portfolio, planning and CRM systems, plus the tools you use to communicate and sign.
-
-[Browse connectors](https://claude.com/connectors)
-
-### Ready-to-run advisor workflows
-
-Use the plugin to tailor Claude to advisor workflows like client onboarding, meeting prep and follow-up, account opening, portfolio reviews, proposals, and compliance reviews, all with review steps and an audit trail built in.
-
-[Install the plugin](https://claude.com/plugins)
-
-### Built for how RIAs run
-
-Claude comes configured for an independent practice: the connections, workflows and approval steps a firm needs from day one, with a guided path to get every advisor on it.
-
-[Learn more](https://claude.com/blog/claude-for-financial-advisors)
-
-![Video: Financial services](https://assets.claude.com/36be762e22bdc5b33a61b024ea95a194d47f35d0.png?w=2400&q=75&fm=webp&fit=max)
-
-## Works with
-
-* ![Addepar](https://assets.claude.com/fb76688c14d76e8ecea2860238c3074e4bf75a4e.svg)
-* ![BlackRock](https://assets.claude.com/d72d42304889c5ecd4f2ba410dfde53b13255b97.svg)
-* ![Box](https://assets.claude.com/f7051ef3388f6fcd83051cffcba21499a021e446.svg)
-* ![Charles Schwab](https://assets.claude.com/ee30d9d9145114578de5ae6a8bdbf4d06f6b1848.svg)
-* ![Docusign](https://assets.claude.com/e71b8b2ebc326b5b33e6e6fd155465e960464b5c.svg)
-* ![Envestnet](https://assets.claude.com/8cb3d07594ed09df536f166bdacceed33d85eadf.svg)
-* ![iCapital](https://assets.claude.com/8d7d47070da0c183b9e93c94a2ddb4cf3237318b.svg)
-* ![Microsoft / Office 365](https://assets.claude.com/d850923d35bf46d13e44899711e7b38c91c3c827.svg)
-* ![Orion](https://assets.claude.com/43c094e940d801886608b78e8b4ad48d4852dd04.svg)
-* ![Wealthbox](https://assets.claude.com/d0733c2b25bff50a4083994c21a0f8bcebbcabfe.svg)
-* ![Wealth.com](https://assets.claude.com/7d2f8c61095816e9f787e52e70f871b8d7ebdfe8.svg)
-
-Inside Claude for financial advisors: a day in the life
-
-A walkthrough of the connectors and advisor workflows from the team that built them.
-
-[Watch now (opens in new tab)](https://www.anthropic.com/webinars/inside-claude-for-financial-advisors)
+1/21
 
 ## Built for finance
 
-Claude processes data, runs complex analyses, and generates models and reports in minutes. Every number can be traced back to its source, on infrastructure your risk and compliance teams trust.
+Claude processes data, runs complex analyses, and generates models and reports in minutes. It cites its sources so teams can check the work to build infrastructure your teams trust.
 
 ### Trusted AI for finance
 
-Safety is trained into the model, and every output is source-attributed so teams can verify work before they act. Claude meets the compliance requirements your risk committee expects, including SOC 2 and FedRAMP.
+Anthropic holds SOC 2 Type II and FedRAMP certification. Safety is trained into the model, and Claude cites its sources so teams can verify the work before they act.
 
 ### Performance at market speed
 
-Claude leads on financial reasoning benchmarks and works natively inside Excel and PowerPoint to read formulas, edit slides, and process data. Pre-built integrations with LSEG, FactSet, S&P Global, Morningstar and more connect your data.
+Claude performs strongly on financial reasoning benchmarks and works natively inside Excel and PowerPoint to read formulas, edit slides, and process data. It includes pre-built integrations with LSEG, FactSet, S&P Global, Morningstar, and more.
 
 ### Your partner in financial transformation
 
 Access a dedicated FSI solutions team, flexible deployment across AWS, Google Cloud, and Azure, and SI partnerships for enterprise rollout.
-
-New finance agent templates, expanded connectors, and Microsoft add-ins
-
-[Learn more](https://anthropic.com/news/finance-agents)
 
 ## How finance teams use Claude
 
@@ -273,11 +197,6 @@ Investment bankingCommercial bankingAsset managementInsurance
 Prompt
 
 Build a valuation summary slide for the Meridian acquisition using the attached CIM and peer financials. Include peer median and Meridian multiples for EV/Revenue and EV/EBITDA, an implied valuation range across comps, DCF at 10-12% WACC, and precedent transactions. Show current share price vs. implied midpoint with upside, and flag where Meridian sits in the 52-week range. Format for our standard pitch book template in PowerPoint.
-
-Attachments
-
-* Meridian\_CIM\_2026842 kbpdf
-* Peer\_Financials\_Q1156 linesxlsx
 
 ### Pitch materials for investment bankers
 
@@ -303,19 +222,19 @@ Review actuarial workbooks and regulatory filings directly in Excel. Claude vali
 
 ### Agent templates with flexible deployment
 
-With agent templates for pitch books, credit memos, KYC screening, and fund accounting, teams can partner with Claude on real financial work. Available as [plugins (opens in new tab)](https://support.claude.com/en/articles/13837440-use-plugins-in-claude-cowork) in Claude Cowork and Claude Code and as a cookbook for [Claude Managed Agents (opens in new tab)](https://platform.claude.com/docs/en/managed-agents/overview).
+With agent templates for pitch books, credit memos, KYC screening, and fund accounting, teams can partner with Claude on real financial work. Available as plugins in Claude and Claude Code and as a cookbook for Claude Managed Agents.
 
 [Learn more](https://anthropic.com/news/finance-agents)
 
 ### Claude for Microsoft 365
 
-Claude in the surfaces you already use. Build and refine a model in Excel, turn it into a deck in PowerPoint, write up the memo in Word and send a morning brief in Outlook. All with Claude alongside you, from start to finish.
+Claude works in the surfaces you already use. Build and refine a model in Excel, turn it into a deck in PowerPoint, write up the memo in Word, and send a morning brief in Outlook. Claude is alongside you from start to finish.
 
 [Learn more](https://claude.com/claude-for-microsoft-365)
 
 ### Claude Cowork
 
-Delegate work so you're reviewing and refining, not building from scratch. Claude Cowork runs tasks in the background to pull data, draft reports, or organize files so you can come back when it's done.
+Delegate tasks you review and refine. Claude Cowork runs tasks in the background to pull data, draft reports, or organize files so you can come back when it’s done.
 
 [Learn more](https://claude.com/product/cowork)
 
@@ -327,7 +246,7 @@ Speed up software development and update legacy systems with Claude Code, the co
 
 ### Platform
 
-Integrate Claude’s AI directly into bespoke trading platforms, risk systems, KYC and underwriting applications. Deliver production-grade AI agents to transform any workflow.
+Integrate Claude’s AI directly into bespoke trading platforms and risk systems. Build agents that prepare KYC and underwriting work for your team’s review.
 
 [Learn more](https://claude.com/platform/api)
 
@@ -380,6 +299,14 @@ Tune in for live conversations with Anthropic leadership and industry leaders on
 
 [Contact sales](https://claude.com/contact-sales/financial-services)[Try Claude](https://claude.ai)
 
+[Barclays scales Claude to upgrade operations and improve client experience
+
+Blog](https://www.anthropic.com/news/barclays-scales-claude)
+
+[The Briefing: Financial Services
+
+Video](https://www.anthropic.com/events/the-briefing-financial-services-virtual-event)
+
 [Claude for financial services plugins
 
 Resource](https://github.com/anthropics/financial-services)
@@ -395,5 +322,64 @@ Webinar](https://www.anthropic.com/webinars/best-practices-for-claude-in-excel-a
 [Claude for the financial industry: A practical deployment guide
 
 Guide](https://www-cdn.anthropic.com/files/4zrzovbb/website/34783bca828d7fa331f515ced26f1c9232151b2c.pdf)
+
+[The AI investment firm
+
+Guide](https://assets.claude.ai/brand/artifacts/solutions/financial advisors/Claude-eBook-The-AI-investment-firm.pdf)
+
+## FAQ
+
+### What is Claude for Financial Services?
+
+Claude for Financial Services is Anthropic’s offering for banks, insurers, asset and wealth managers, and fintech firms. It brings Claude’s models, apps, financial data connectors, and implementation support into one package. The goal is to help firms serve clients, analyze markets, and manage risk faster.
+
+### What can finance teams do with Claude for Financial Services?
+
+Finance teams can use Claude for Financial Services to practice due diligence, market research, competitive benchmarking, financial modeling with audit trails, and drafting investment memos and pitch decks. By role:
+
+* Investment banking: pitch books, comps tables, and CIMs in PowerPoint and Excel.
+* Commercial banking: credit memos, financial spreads, and covenant analysis in Excel.
+* Asset management: IC memos, performance decks, and portfolio attribution.
+* Insurance: reviews of actuarial workbooks and regulatory filings.
+
+In each case Claude does the assembly, and the professional keeps control of the judgment calls.
+
+### Which data sources does Claude connect to?
+
+Claude connects to pre-built data sources including LSEG, FactSet, S&P Global (Capital IQ), Morningstar, PitchBook, Moody’s, Dun & Bradstreet, Daloopa, Box, Databricks, and Snowflake. Firms can also connect their own internal data, and Claude cites its sources so teams can check the work.
+
+### Does it work inside Excel and PowerPoint?
+
+Claude for Microsoft 365 runs inside Excel, PowerPoint, Word, and Outlook. It can read formulas, build and update models, edit slides, write memos, and send briefs without you needing to leave those apps.
+
+### Is our data secure? What compliance standards does Claude meet?
+
+On Team and Enterprise plans, we don’t train our models on your data by default.
+
+Anthropic holds SOC 2 Type II certification, as well as others, so your team can verify the work before acting on it. Read full details or request specific resources [here (opens in new tab)](https://trust.anthropic.com).
+
+### How can we deploy it?
+
+There are three main ways to deploy Claude for Financial Services:
+
+* Ready-made apps: like Claude Enterprise and Claude for Microsoft 365.
+* Claude Code: for engineering teams, including updating legacy systems.
+* The API: for building Claude into your own trading, risk, KYC, and underwriting systems.
+
+Claude runs on AWS, Google Cloud, and Azure. It can be bought through AWS Marketplace.
+
+Our team is here to support you if you need help deploying Claude for Financial Services. You get a dedicated financial services solutions team, tailored onboarding and training, and consulting partners such as Accenture, Deloitte, KPMG, PwC, and Slalom for enterprise-wide rollouts.
+
+### Is there anything specifically for financial advisors and RIAs?
+
+Claude for Financial Advisors connects to custodian, portfolio, planning, and CRM systems. A plugin covers onboarding, meeting prep, portfolio reviews, proposals, and compliance reviews with review steps and an audit trail built in.
+
+### Does it work with Claude or Claude Cowork?
+
+Claude Cowork is now just Claude, so you don’t have to choose where to get work done. The update is rolling out to Pro and Max plans, with more to follow. If you’re on a different plan, you’ll be walked through the update in the product. We hope you enjoy the simpler experience. [Read](https://claude.com/blog/cowork-is-now-claude) what changed.
+
+## Discover the frontier for financial services
+
+[Contact sales](https://claude.com/contact-sales)[Try Claude](https://claude.ai)
 
 Financial services | Claude by Anthropic

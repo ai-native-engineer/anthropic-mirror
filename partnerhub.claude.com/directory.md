@@ -118,7 +118,7 @@ Global Premier
 
 For 60+ years, DXC has designed, engineered and operated some of the world’s most complex technology estates for enterprises and governments. As a Claude Global Premier Partner, we embed Claude-certified engineers directly in our customers’ environments to bring agentic AI into their mission-critical systems. With our deep domain expertise in insurance, cybersecurity and application modernization,
 
-![Fujitsu logo](https://api.eulerapp.com/partner-directory/assets/f5d98ad8e6e970289f9c40dba240fe69)
+![Fujitsu logo](https://api.eulerapp.com/partner-directory/assets/51fd5bb410a98ef0b7b5963c19c5ae81)
 
 [Fujitsu](https://partnerhub.claude.com/directory/partner/1784259851254x887974829336712900)
 

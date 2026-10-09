@@ -160,21 +160,3 @@ Table 2: Pairwise t-test p values between each model/source. We applied the Fals
 ⁵ We also evaluated Claude 3 Sonnet, the middle model in the Claude 3 family. The average persuasiveness metric for Claude 3 Sonnet was 0.34, which diverges from the scaling trend. Unlike the Claude Instant 1.2 and Claude 3 Haiku, which represent successive generations in the compact model class, Claude 3 Sonnet does not have a comparable model class in previous model generations. Additionally, we observed in a separate qualitative analysis that Claude 3 Sonnet tends to provide neutral answers in response to opinionated claims, which may explain the lower persuasiveness metric. We also evaluated Claude 2.1, which rated as less persuasive as Claude 2.0 (score 0.37), despite being a more recent and improved model. Claude 2.1 demonstrates a greater tendency to refuse answers for queries it deems unsafe, which may account for the lower persuasiveness metric.
 
 ⁶ While our work builds upon the extensive literature on persuasion more broadly, providing a comprehensive review was beyond the scope of this blog post.
-
-### Claude-shaped science
-
-Guest author Prof. Matthew Schwartz describes what happened when he stopped fighting Claude and allowed Claude to find “Claude-shaped” problems: ones best suited to the capabilities of the current generation of LLM tools. This led him to build BootLoops, a toolkit for exact calculations in quantitative science, which he has been applying across scientific fields alongside experts.
-
-[Read more](https://www.anthropic.com/research/claude-shaped-science)
-
-### What work can robots do?
-
-We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
-
-[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
-
-### What do you want from AI?
-
-We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
-
-[Read more](https://www.anthropic.com/research/your-thoughts-on-ai)

@@ -6,6 +6,8 @@ This article explains how usage credits work on your paid Claude plan (Pro, Max 
 
 Usage credits allow individuals subscribed to paid Claude plans (Pro, Max 5x, and Max 20x) to continue using Claude seamlessly after reaching their included usage limits. Instead of being blocked when you hit your session limits, you can switch to consumption-based pricing at standard API rates and continue your work without interruption.
 
+Usage credits are separate from the monthly API credits included with Max plans. Monthly API credits don’t apply to extra usage in Claude, Claude Code, or Claude Cowork. Learn more about **[monthly API credits for Max and Team plans](https://support.claude.com/en/articles/17154008)**.
+
 **Note:** If you subscribed through one of the Claude mobile apps, you can only enable usage credits on the web version of Claude. You will need to add your payment method before enabling and purchasing usage credits on the web.
 
 ---
@@ -36,7 +38,7 @@ To enable usage credits on your paid Claude plan:
 7. You’ll then need to prepay to cover usage beyond your plan limits. Click “Add funds,” enter the amount you want to purchase in the modal, then click “Purchase.”
 8. You can also enable auto-reload to automatically make a purchase when your balance falls below a threshold you set:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1791333900&signature=8524dc8f51bd74d51df4352c97bfd9624bff354702ee10e7f09680d1fc108b35&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ABOapvMxopE7m38YdfekRNrRJiIClXRC9iBk%0AIVugoQ5l7ZcO24tHkj8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1791333900&signature=8524dc8f51bd74d51df4352c97bfd9624bff354702ee10e7f09680d1fc108b35&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ABOapvMxopE7m38YdfekRNrRJiIClXRC9iBk%0AIVugoQ5l7ZcO24tHkj8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1791460800&signature=63e2e0957b032acf125f61cb51fac519e056f79dc10cd0d0a7283d2d67d0f5b2&req=dSgnE8F%2FlIZXXPMW3nq%2BgZ83oo%2BP7c9pBXH0xflyUDlI5RG22O6%2BFn7nchLR%0AV7n08dYoXxuZlX%2Fu4kFFQkWLKUA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1791460800&signature=63e2e0957b032acf125f61cb51fac519e056f79dc10cd0d0a7283d2d67d0f5b2&req=dSgnE8F%2FlIZXXPMW3nq%2BgZ83oo%2BP7c9pBXH0xflyUDlI5RG22O6%2BFn7nchLR%0AV7n08dYoXxuZlX%2Fu4kFFQkWLKUA%3D%0A)
 
 **Note:** There is a daily redemption limit of $2000.
 
@@ -124,8 +126,8 @@ Yes, you’ll see a clear notification when approaching and reaching your includ
 
 In most cases, usage credits do not expire. However, in certain jurisdictions such as Japan, usage credits expire six months after purchase starting September 10, 2026. You'll receive an email notification seven days before your credits expire, and you can view expiration dates on the Usage page in Settings.
 
-* [How do I pay for my Claude API usage?](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage)
+* [I have a paid Claude subscription (Pro, Max, Team, or Enterprise plans). Why is Claude API usage billed separately from my paid Claude plan?](https://support.claude.com/en/articles/9876003-i-have-a-paid-claude-subscription-pro-max-team-or-enterprise-plans-why-is-claude-api-usage-billed-separately-from-my-paid-claude-plan)
 * [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
-* [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
 * [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
 * [Buy usage bundles](https://support.claude.com/en/articles/14246112-buy-usage-bundles)
+* [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)

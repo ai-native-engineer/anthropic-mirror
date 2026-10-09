@@ -98,7 +98,9 @@ A ticket can be assigned to a person or to a coding agent, and because the cycle
 
 [ArticleSep 28, 2026
 
-### Giving companies more control over their AI agents, with NVIDIA
+### A new approach to agent security with Claude Managed Agents and NVIDIA
+
+Note: This blog has been updated from its original version to include additional technical details on Claude Managed Agents.
 
 Claude Platform](https://claude.com/resources/articles/giving-companies-more-control-over-their-ai-agents-with-nvidia)[ArticleSep 8, 2026
 

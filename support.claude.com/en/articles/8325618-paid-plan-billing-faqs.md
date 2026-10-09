@@ -39,7 +39,7 @@ There's no separate option to remove a card, and updating to a new card replaces
 
 If you want to use a name other than the one tied to your payment method, check the "Use a different name on invoices" box when adding or updating your payment method in **[Settings > Billing](https://claude.ai/settings/billing)**.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1791333900&signature=dd6ee2d9b08bf9468e7149e40bc33fafa697e1e1201ae3879c278bc9d1510431&req=dSklFMh6nIZXXPMW1HO4zVXW8WyoaDDFQoNvNFTb5cf0QsSgUzNgYwKjGvHq%0AGa4IOGLF7Y%2B4BWlbuTU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1791333900&signature=dd6ee2d9b08bf9468e7149e40bc33fafa697e1e1201ae3879c278bc9d1510431&req=dSklFMh6nIZXXPMW1HO4zVXW8WyoaDDFQoNvNFTb5cf0QsSgUzNgYwKjGvHq%0AGa4IOGLF7Y%2B4BWlbuTU%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1791460800&signature=7434365deb08ed2ca6800db827019fc0cdf3683b80baab908b1fb1b926cb6bc3&req=dSklFMh6nIZXXPMW3nq%2BgWIvYv5Nd9jvbpuMNUDbBxMpS3j3j9dcRpnSclYM%0AWBolO2EN0XudH1XP3Ep3Z%2F%2BkwEI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1791460800&signature=7434365deb08ed2ca6800db827019fc0cdf3683b80baab908b1fb1b926cb6bc3&req=dSklFMh6nIZXXPMW3nq%2BgWIvYv5Nd9jvbpuMNUDbBxMpS3j3j9dcRpnSclYM%0AWBolO2EN0XudH1XP3Ep3Z%2F%2BkwEI%3D%0A)
 
 ## How can I edit a paid invoice?
 
@@ -60,8 +60,12 @@ If you've paid for a Pro or Max plan but are not seeing this reflected in your a
 1. You've logged in with a different email. We recommend trying to sign in with any alternative emails you may have used to create your paid account.
 2. Your payment method failed and your account was downgraded. To check this, navigate to **[Settings > Billing](https://claude.ai/settings/billing)** to confirm your recent payment status and update your payment method or billing details if needed.
 
+## Where can I see my monthly API credits?
+
+In the Claude Console. All credits appear under **[Settings > Billing](https://platform.claude.com/settings/billing)** in your linked Console organization, with their amount and expiry date. Usage is never charged to your Claude plan. Learn more about **[monthly API credits for Max and Team plans](https://support.claude.com/en/articles/17154008)**.
+
 * [Add or update your paid Claude account’s tax or VAT ID](https://support.claude.com/en/articles/9889408-add-or-update-your-paid-claude-account-s-tax-or-vat-id)
-* [How do I sign up for the Max plan?](https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan)
+* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
 * [Understanding your billing address and tax calculation](https://support.claude.com/en/articles/12997130-understanding-your-billing-address-and-tax-calculation)
 * [Team plan billing FAQs](https://support.claude.com/en/articles/12997503-team-plan-billing-faqs)
 * [Understanding your Pro or Max plan invoices](https://support.claude.com/en/articles/16607638-understanding-your-pro-or-max-plan-invoices)

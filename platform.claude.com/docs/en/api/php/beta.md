@@ -435,6 +435,15 @@ var_dump($page);
         "pdf_input": {
           "supported": true
         },
+        "server_tools": {
+          "code_execution": {
+            "supported": true
+          },
+          "supported": true,
+          "web_search": {
+            "supported": true
+          }
+        },
         "structured_outputs": {
           "supported": true
         },
@@ -442,6 +451,9 @@ var_dump($page);
           "supported": true,
           "types": {
             "adaptive": {
+              "supported": true
+            },
+            "disabled": {
               "supported": true
             },
             "enabled": {
@@ -610,6 +622,15 @@ var_dump($betaModelInfo);
     "pdf_input": {
       "supported": true
     },
+    "server_tools": {
+      "code_execution": {
+        "supported": true
+      },
+      "supported": true,
+      "web_search": {
+        "supported": true
+      }
+    },
     "structured_outputs": {
       "supported": true
     },
@@ -617,6 +638,9 @@ var_dump($betaModelInfo);
       "supported": true,
       "types": {
         "adaptive": {
+          "supported": true
+        },
+        "disabled": {
           "supported": true
         },
         "enabled": {
@@ -1360,7 +1384,7 @@ var_dump($betaMessage);
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-sonnet-5-5",
+        "model": "claude-haiku-5-5",
         "output_tokens": 0,
         "type": "message"
       }
@@ -2511,7 +2535,7 @@ Create Agent
 
 - `multiagent?:optional BetaManagedAgentsMultiagentParams`
 
-  Multiagent orchestration configuration. Currently supports the `coordinator` topology with a roster of 1-20 agents.
+  Multiagent orchestration configuration.
 
 - `skills?:optional list<BetaManagedAgentsSkillParams>`
 
@@ -2675,7 +2699,7 @@ var_dump($betaManagedAgentsAgent);
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -2862,7 +2886,7 @@ var_dump($page);
           "version": "1"
         },
         {
-          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
           "type": "custom",
           "version": "2"
         }
@@ -3035,7 +3059,7 @@ var_dump($betaManagedAgentsAgent);
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -3279,7 +3303,7 @@ var_dump($betaManagedAgentsAgent);
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -3444,7 +3468,7 @@ var_dump($betaManagedAgentsAgent);
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -3623,7 +3647,7 @@ var_dump($page);
           "version": "1"
         },
         {
-          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
           "type": "custom",
           "version": "2"
         }
@@ -5666,7 +5690,7 @@ var_dump($betaManagedAgentsSession);
         "version": "1"
       },
       {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
         "type": "custom",
         "version": "2"
       }
@@ -5713,7 +5737,7 @@ var_dump($betaManagedAgentsSession);
       "description": "Produce a 2-page summary as summary.md",
       "explanation": "All five sections present with inline citations.",
       "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVmjxP",
       "result": "satisfied",
       "type": "outcome_evaluation"
     }
@@ -5728,7 +5752,7 @@ var_dump($betaManagedAgentsSession);
       "updated_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
       "created_at": "2026-03-15T10:00:00Z",
       "mount_path": "/workspace/example-repo",
       "type": "github_repository",
@@ -6022,7 +6046,7 @@ var_dump($page);
             "version": "1"
           },
           {
-            "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+            "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
             "type": "custom",
             "version": "2"
           }
@@ -6069,7 +6093,7 @@ var_dump($page);
           "description": "Produce a 2-page summary as summary.md",
           "explanation": "All five sections present with inline citations.",
           "iteration": 0,
-          "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+          "outcome_id": "outc_011CZkZRSw2kEfs6ncTVmjxP",
           "result": "satisfied",
           "type": "outcome_evaluation"
         }
@@ -6084,7 +6108,7 @@ var_dump($page);
           "updated_at": "2026-03-15T10:00:00Z"
         },
         {
-          "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+          "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
           "created_at": "2026-03-15T10:00:00Z",
           "mount_path": "/workspace/example-repo",
           "type": "github_repository",
@@ -6318,7 +6342,7 @@ var_dump($betaManagedAgentsSession);
         "version": "1"
       },
       {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
         "type": "custom",
         "version": "2"
       }
@@ -6365,7 +6389,7 @@ var_dump($betaManagedAgentsSession);
       "description": "Produce a 2-page summary as summary.md",
       "explanation": "All five sections present with inline citations.",
       "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVmjxP",
       "result": "satisfied",
       "type": "outcome_evaluation"
     }
@@ -6380,7 +6404,7 @@ var_dump($betaManagedAgentsSession);
       "updated_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
       "created_at": "2026-03-15T10:00:00Z",
       "mount_path": "/workspace/example-repo",
       "type": "github_repository",
@@ -6662,7 +6686,7 @@ var_dump($betaManagedAgentsSession);
         "version": "1"
       },
       {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
         "type": "custom",
         "version": "2"
       }
@@ -6709,7 +6733,7 @@ var_dump($betaManagedAgentsSession);
       "description": "Produce a 2-page summary as summary.md",
       "explanation": "All five sections present with inline citations.",
       "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVmjxP",
       "result": "satisfied",
       "type": "outcome_evaluation"
     }
@@ -6724,7 +6748,7 @@ var_dump($betaManagedAgentsSession);
       "updated_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
       "created_at": "2026-03-15T10:00:00Z",
       "mount_path": "/workspace/example-repo",
       "type": "github_repository",
@@ -7011,7 +7035,7 @@ var_dump($betaManagedAgentsSession);
         "version": "1"
       },
       {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
         "type": "custom",
         "version": "2"
       }
@@ -7058,7 +7082,7 @@ var_dump($betaManagedAgentsSession);
       "description": "Produce a 2-page summary as summary.md",
       "explanation": "All five sections present with inline citations.",
       "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVmjxP",
       "result": "satisfied",
       "type": "outcome_evaluation"
     }
@@ -7073,7 +7097,7 @@ var_dump($betaManagedAgentsSession);
       "updated_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
       "created_at": "2026-03-15T10:00:00Z",
       "mount_path": "/workspace/example-repo",
       "type": "github_repository",
@@ -7942,7 +7966,7 @@ var_dump($page);
 {
   "data": [
     {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
       "content": [
         {
           "text": "Where is my order #1234?",
@@ -7953,7 +7977,7 @@ var_dump($page);
       "processed_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
+      "id": "sevt_011CZkZHPq1jCdq5mbRTjiVn",
       "content": [
         {
           "text": "Let me look up order #1234 for you.",
@@ -8032,7 +8056,7 @@ var_dump($betaManagedAgentsSendSessionEvents);
 {
   "data": [
     {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
       "content": [
         {
           "text": "Where is my order #1234?",
@@ -8857,7 +8881,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
 ```json
 {
-  "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+  "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
   "content": [
     {
       "text": "Where is my order #1234?",
@@ -9091,7 +9115,7 @@ var_dump($page);
       "updated_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
       "created_at": "2026-03-15T10:00:00Z",
       "mount_path": "/workspace/example-repo",
       "type": "github_repository",
@@ -9224,7 +9248,7 @@ var_dump($resource);
 
 ```json
 {
-  "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+  "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
   "created_at": "2026-03-15T10:00:00Z",
   "mount_path": "/workspace/example-repo",
   "type": "github_repository",
@@ -9359,7 +9383,7 @@ var_dump($resource);
 
 ```json
 {
-  "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+  "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
   "created_at": "2026-03-15T10:00:00Z",
   "mount_path": "/workspace/example-repo",
   "type": "github_repository",
@@ -9540,7 +9564,7 @@ var_dump($page);
 {
   "data": [
     {
-      "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+      "id": "sthr_011CZkZVWa6oJjw1rgXZpnBt",
       "agent": {
         "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
         "description": "A focused research subagent.",
@@ -9708,7 +9732,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaManagedAgentsSessionThread = $client->beta->sessions->threads->retrieve(
-  'sthr_011CZkZVWa6oIjw0rgXZpnBt',
+  'sthr_011CZkZVWa6oJjw1rgXZpnBt',
   sessionID: 'sesn_011CZkZAtmR3yMPDzynEDxu7',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
   workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
@@ -9721,7 +9745,7 @@ var_dump($betaManagedAgentsSessionThread);
 
 ```json
 {
-  "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "id": "sthr_011CZkZVWa6oJjw1rgXZpnBt",
   "agent": {
     "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
     "description": "A focused research subagent.",
@@ -9886,7 +9910,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaManagedAgentsSessionThread = $client->beta->sessions->threads->archive(
-  'sthr_011CZkZVWa6oIjw0rgXZpnBt',
+  'sthr_011CZkZVWa6oJjw1rgXZpnBt',
   sessionID: 'sesn_011CZkZAtmR3yMPDzynEDxu7',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
   workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
@@ -9899,7 +9923,7 @@ var_dump($betaManagedAgentsSessionThread);
 
 ```json
 {
-  "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "id": "sthr_011CZkZVWa6oJjw1rgXZpnBt",
   "agent": {
     "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
     "description": "A focused research subagent.",
@@ -10762,7 +10786,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $page = $client->beta->sessions->threads->events->list(
-  'sthr_011CZkZVWa6oIjw0rgXZpnBt',
+  'sthr_011CZkZVWa6oJjw1rgXZpnBt',
   sessionID: 'sesn_011CZkZAtmR3yMPDzynEDxu7',
   limit: 0,
   page: 'page',
@@ -10779,7 +10803,7 @@ var_dump($page);
 {
   "data": [
     {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
       "content": [
         {
           "text": "Where is my order #1234?",
@@ -10790,7 +10814,7 @@ var_dump($page);
       "processed_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
+      "id": "sevt_011CZkZHPq1jCdq5mbRTjiVn",
       "content": [
         {
           "text": "Let me look up order #1234 for you.",
@@ -11606,7 +11630,7 @@ $betaManagedAgentsStreamSessionThreadEvents = $client
   ->threads
   ->events
   ->streamStream(
-  'sthr_011CZkZVWa6oIjw0rgXZpnBt',
+  'sthr_011CZkZVWa6oJjw1rgXZpnBt',
   sessionID: 'sesn_011CZkZAtmR3yMPDzynEDxu7',
   eventDeltas: [BetaManagedAgentsDeltaType::AGENT_MESSAGE],
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
@@ -11620,7 +11644,7 @@ var_dump($betaManagedAgentsStreamSessionThreadEvents);
 
 ```json
 {
-  "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+  "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
   "content": [
     {
       "text": "Where is my order #1234?",
@@ -14041,7 +14065,7 @@ var_dump($betaManagedAgentsCredential);
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -14159,7 +14183,7 @@ var_dump($page);
 {
   "data": [
     {
-      "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+      "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
       "archived_at": null,
       "auth": {
         "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -14255,7 +14279,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaManagedAgentsCredential = $client->beta->vaults->credentials->retrieve(
-  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  'vcrd_011CZkZEMt8gZan2iYPQfSkw',
   vaultID: 'vlt_011CZkZDLs7fYzm1hXNPeRjv',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
   workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
@@ -14268,7 +14292,7 @@ var_dump($betaManagedAgentsCredential);
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -14373,7 +14397,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaManagedAgentsCredential = $client->beta->vaults->credentials->update(
-  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  'vcrd_011CZkZEMt8gZan2iYPQfSkw',
   vaultID: 'vlt_011CZkZDLs7fYzm1hXNPeRjv',
   auth: [
     'type' => 'mcp_oauth',
@@ -14400,7 +14424,7 @@ var_dump($betaManagedAgentsCredential);
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -14469,7 +14493,7 @@ $betaManagedAgentsDeletedCredential = $client
   ->vaults
   ->credentials
   ->delete(
-  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  'vcrd_011CZkZEMt8gZan2iYPQfSkw',
   vaultID: 'vlt_011CZkZDLs7fYzm1hXNPeRjv',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
   workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
@@ -14482,7 +14506,7 @@ var_dump($betaManagedAgentsDeletedCredential);
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "type": "vault_credential_deleted"
 }
 ```
@@ -14563,7 +14587,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaManagedAgentsCredential = $client->beta->vaults->credentials->archive(
-  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  'vcrd_011CZkZEMt8gZan2iYPQfSkw',
   vaultID: 'vlt_011CZkZDLs7fYzm1hXNPeRjv',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
   workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
@@ -14576,7 +14600,7 @@ var_dump($betaManagedAgentsCredential);
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -14669,7 +14693,7 @@ $betaManagedAgentsCredentialValidation = $client
   ->vaults
   ->credentials
   ->mcpOAuthValidate(
-  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  'vcrd_011CZkZEMt8gZan2iYPQfSkw',
   vaultID: 'vlt_011CZkZDLs7fYzm1hXNPeRjv',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
   workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
@@ -14682,7 +14706,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 
 ```json
 {
-  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "credential_id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "has_refresh_token": true,
   "mcp_probe": {
     "http_response": {
@@ -21852,7 +21876,7 @@ manage rules whose `oauth_scope` is `workspace:developer` or
 
   - `BetaServiceAccountTarget target`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
   - `int tokenLifetimeSeconds`
 
@@ -22050,7 +22074,7 @@ unless `include_archived=true`.
 
   - `BetaServiceAccountTarget target`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
   - `int tokenLifetimeSeconds`
 
@@ -22219,7 +22243,7 @@ Retrieve a federation rule by its ID (`fdrl_...`).
 
   - `BetaServiceAccountTarget target`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
   - `int tokenLifetimeSeconds`
 
@@ -22431,7 +22455,7 @@ Console session.
 
   - `BetaServiceAccountTarget target`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
   - `int tokenLifetimeSeconds`
 
@@ -22618,7 +22642,7 @@ other scopes require a Console session.
 
   - `BetaServiceAccountTarget target`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
   - `int tokenLifetimeSeconds`
 
@@ -28611,7 +28635,7 @@ var_dump($page);
 
 ### Set Spend Limit
 
-`$client->beta->organization->spendLimits->set(?string amount, Scope scope, ?SpendLimitPeriod period): SpendLimit`
+`$client->beta->organization->spendLimits->set(?string amount, Scope scope, ?SpendLimitPeriod period, ?list<AnthropicBeta> betas): SpendLimit`
 
 **POST** `/v1/organizations/spend_limits`
 
@@ -28636,6 +28660,10 @@ Anthropic account team.
   What the limit applies to. Claude Enterprise organizations set `user` limits. Claude Console organizations set `organization` and `workspace` limits. Any other combination returns 400. Setting `organization` and `workspace` limits through the API is in an early access preview. To request access, contact your Anthropic account team.
 
 - `period?:optional SpendLimitPeriod`
+
+- `betas?:optional list<AnthropicBeta>` (header parameter)
+
+  Optional header to specify the beta version(s) you want to use.
 
 #### Returns
 
@@ -28690,6 +28718,7 @@ $betaSpendLimit = $client->beta->organization->spendLimits->set(
   amount: '50000',
   scope: ['type' => 'user', 'userID' => 'user_01WCz1FkmYMm4gnmykNKUu3Q'],
   period: SpendLimitPeriod::MONTHLY,
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
 var_dump($betaSpendLimit);

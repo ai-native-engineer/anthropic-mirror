@@ -16,6 +16,8 @@ Every seat includes everything in Claude Team:
 
 Premium seats add five times more usage and higher limits for long-running analyses.
 
+Claude Max and Team plans include monthly credits for the Claude API. On the Team plan for scientists, you’ll receive $20 USD per Standard seat and $100 USD per Premium seat. Credits for all seats are pooled into one monthly balance, capped at $500. Learn more about **[monthly API credits for Max and Team plans](https://support.claude.com/en/articles/17154008)**.
+
 ## What does it cost?
 
 * **Standard seats: $0 per user per month**
@@ -66,7 +68,7 @@ By default, Anthropic doesn’t train its models on user data from Team and Ente
 First, you must complete the **[application flow](https://claude.ai/labs-verification/attestation)** to verify your eligibility for the discounted plan. Once you are verified, you can apply the discounted pricing to an existing plan that you manage in **Settings > Account** under **Program verifications**.
 
 * [What is the Team plan?](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)
-* [What is the Enterprise plan?](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)
 * [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
-* [Claude for Teachers: your data and our terms](https://support.claude.com/en/articles/15926041-claude-for-teachers-your-data-and-our-terms)
+* [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)
 * [Get started with Claude Science](https://support.claude.com/en/articles/16563838-get-started-with-claude-science)
+* [Monthly API credits for Max and Team plans](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans)

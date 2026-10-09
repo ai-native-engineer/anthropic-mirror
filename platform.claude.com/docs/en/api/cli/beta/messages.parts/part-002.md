@@ -3,6 +3,4554 @@
 
 <!-- chunk-start -->
 
+        Powerful intelligence for coding, knowledge work, and long-running agents
+
+      - `"claude-mythos-5-1"`
+
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+      - `"claude-sonnet-5"`
+
+        Efficient model for coding and agents
+
+      - `"claude-fable-5"`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `"claude-mythos-5"`
+
+        Most capable model for cybersecurity and biology research
+
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-8"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-7"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-6"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-sonnet-4-6"`
+
+        Best combination of speed and intelligence
+
+      - `"claude-haiku-4-5"`
+
+        Fastest model with near-frontier intelligence
+
+      - `"claude-haiku-4-5-20251001"`
+
+        Fastest model with near-frontier intelligence
+
+      - `"claude-opus-4-5"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-5-20251101"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
+
+      - `"claude-sonnet-4-5"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `"claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+    - `output_tokens: number`
+
+      The number of output tokens which were used.
+
+      minimum: 0
+
+  - `beta_fallback_message_iteration_usage: object`
+
+    Token usage for the fallback-model attempt of a server-side fallback request.
+
+    The terminal entry of a fallback-served turn: when a fallback hop's
+    output is the returned message, the entry for the iteration that
+    completed it carries this type in place of `message`. A declined hop
+    and the serving hop's earlier tool-loop iterations produce `message`
+    entries. Whether a fallback model served the response is signalled by
+    the presence of this entry in `usage.iterations`.
+
+    - `type: "fallback_message"`
+
+      Usage for the fallback-model attempt that served the response
+
+    - `cache_creation: object`
+
+      Breakdown of cached tokens by TTL
+
+      - `ephemeral_1h_input_tokens: number`
+
+        The number of input tokens used to create the 1 hour cache entry.
+
+        minimum: 0
+
+      - `ephemeral_5m_input_tokens: number`
+
+        The number of input tokens used to create the 5 minute cache entry.
+
+        minimum: 0
+
+    - `cache_creation_input_tokens: number`
+
+      The number of input tokens used to create the cache entry.
+
+      minimum: 0
+
+    - `cache_read_input_tokens: number`
+
+      The number of input tokens read from the cache.
+
+      minimum: 0
+
+    - `input_tokens: number`
+
+      The number of input tokens which were used.
+
+      minimum: 0
+
+    - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
+
+      - `"claude-sonnet-5-5"`
+
+        Efficient model for coding and agents
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `"claude-opus-5-5"`
+
+        Powerful intelligence for coding, knowledge work, and long-running agents
+
+      - `"claude-mythos-5-1"`
+
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+      - `"claude-sonnet-5"`
+
+        Efficient model for coding and agents
+
+      - `"claude-fable-5"`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `"claude-mythos-5"`
+
+        Most capable model for cybersecurity and biology research
+
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-8"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-7"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-6"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-sonnet-4-6"`
+
+        Best combination of speed and intelligence
+
+      - `"claude-haiku-4-5"`
+
+        Fastest model with near-frontier intelligence
+
+      - `"claude-haiku-4-5-20251001"`
+
+        Fastest model with near-frontier intelligence
+
+      - `"claude-opus-4-5"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-5-20251101"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
+
+      - `"claude-sonnet-4-5"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `"claude-sonnet-4-5-20250929"`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+    - `output_tokens: number`
+
+      The number of output tokens which were used.
+
+      minimum: 0
+
+### Beta JSON Output Format
+
+- `beta_json_output_format: object`
+
+  - `type: "json_schema"`
+
+  - `schema: map[unknown]`
+
+    The JSON schema of the format
+
+### Beta MCP Tool
+
+- `beta_mcp_tool: object`
+
+  A tool as an MCP server lists it: its name on that server, its
+  description, and its input schema.
+
+  - `input_schema: map[unknown]`
+
+  - `name: string`
+
+  - `description: optional string`
+
+### Beta MCP Tool Config
+
+- `beta_mcp_tool_config: object`
+
+  Configuration for a specific tool in an MCP toolset.
+
+  - `defer_loading: optional boolean`
+
+  - `enabled: optional boolean`
+
+### Beta MCP Tool Default Config
+
+- `beta_mcp_tool_default_config: object`
+
+  Default configuration for tools in an MCP toolset.
+
+  - `defer_loading: optional boolean`
+
+  - `enabled: optional boolean`
+
+### Beta MCP Tool Listing Block
+
+- `beta_mcp_tool_listing_block: object`
+
+  The tool listing the server fetched from an MCP server while producing
+  this response. Send the assistant message back unchanged, this block
+  included, so later requests use this listing instead of asking the MCP
+  server again.
+
+  - `type: "mcp_tool_listing"`
+
+  - `mcp_server_name: string`
+
+  - `tools: array of BetaMCPTool`
+
+    - `input_schema: map[unknown]`
+
+    - `name: string`
+
+    - `description: optional string`
+
+### Beta MCP Tool Listing Block Param
+
+- `beta_mcp_tool_listing_block_param: object`
+
+  The tool listing an MCP server returned while an earlier response was
+  produced, as that response carried it. Send the assistant message back
+  unchanged, this block included, and the server uses this listing for the
+  matching `mcp_toolset` instead of asking the MCP server again.
+
+  - `type: "mcp_tool_listing"`
+
+  - `mcp_server_name: string`
+
+    The name of the MCP server this listing came from, as `mcp_servers` declares it.
+
+    minLength: 1, maxLength: 255
+
+  - `tools: array of BetaMCPToolParam`
+
+    The server's tools, exactly as the response listed them.
+
+    - `input_schema: map[unknown]`
+
+      The tool's input schema as the MCP server lists it, verbatim.
+
+    - `name: string`
+
+      The tool's name as the MCP server lists it (not prefixed with the server name).
+
+      minLength: 1
+
+    - `description: optional string`
+
+      The tool's description as the MCP server lists it.
+
+### Beta MCP Tool Param
+
+- `beta_mcp_tool_param: object`
+
+  A tool as an MCP server lists it: its name on that server, its
+  description, and its input schema.
+
+  - `input_schema: map[unknown]`
+
+    The tool's input schema as the MCP server lists it, verbatim.
+
+  - `name: string`
+
+    The tool's name as the MCP server lists it (not prefixed with the server name).
+
+    minLength: 1
+
+  - `description: optional string`
+
+    The tool's description as the MCP server lists it.
+
+### Beta MCP Tool Result Block
+
+- `beta_mcp_tool_result_block: object`
+
+  - `type: "mcp_tool_result"`
+
+  - `content: string or array of BetaTextBlock`
+
+    - `union_member_0: string`
+
+    - `beta_mcp_tool_result_block_content: array of BetaTextBlock`
+
+      - `type: "text"`
+
+      - `citations: array of BetaTextCitation`
+
+        Citations supporting the text block.
+
+        The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+        - `beta_citation_char_location: object`
+
+          - `type: "char_location"`
+
+          - `cited_text: string`
+
+          - `document_index: number`
+
+            minimum: 0
+
+          - `document_title: string`
+
+          - `end_char_index: number`
+
+          - `file_id: string`
+
+          - `start_char_index: number`
+
+            minimum: 0
+
+        - `beta_citation_page_location: object`
+
+          - `type: "page_location"`
+
+          - `cited_text: string`
+
+          - `document_index: number`
+
+            minimum: 0
+
+          - `document_title: string`
+
+          - `end_page_number: number`
+
+          - `file_id: string`
+
+          - `start_page_number: number`
+
+            minimum: 1
+
+        - `beta_citation_content_block_location: object`
+
+          - `type: "content_block_location"`
+
+          - `cited_text: string`
+
+            The full text of the cited block range, concatenated.
+
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+          - `document_index: number`
+
+            minimum: 0
+
+          - `document_title: string`
+
+          - `end_block_index: number`
+
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+          - `file_id: string`
+
+          - `start_block_index: number`
+
+            0-based index of the first cited block in the source's `content` array.
+
+            minimum: 0
+
+        - `beta_citations_web_search_result_location: object`
+
+          - `type: "web_search_result_location"`
+
+          - `cited_text: string`
+
+          - `encrypted_index: string`
+
+          - `title: string`
+
+            maxLength: 512
+
+          - `url: string`
+
+        - `beta_citation_search_result_location: object`
+
+          - `type: "search_result_location"`
+
+          - `cited_text: string`
+
+            The full text of the cited block range, concatenated.
+
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+          - `end_block_index: number`
+
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+          - `search_result_index: number`
+
+            0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+            Counted separately from `document_index`; server-side web search results are not included in this count.
+
+            minimum: 0
+
+          - `source: string`
+
+          - `start_block_index: number`
+
+            0-based index of the first cited block in the source's `content` array.
+
+            minimum: 0
+
+          - `title: string`
+
+      - `text: string`
+
+  - `is_error: boolean`
+
+  - `tool_use_id: string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+### Beta MCP Tool Use Block
+
+- `beta_mcp_tool_use_block: object`
+
+  - `type: "mcp_tool_use"`
+
+  - `id: string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `input: map[unknown]`
+
+  - `name: string`
+
+    The name of the MCP tool
+
+  - `server_name: string`
+
+    The name of the MCP server
+
+### Beta MCP Tool Use Block Param
+
+- `beta_mcp_tool_use_block_param: object`
+
+  - `type: "mcp_tool_use"`
+
+  - `id: string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `input: map[unknown]`
+
+  - `name: string`
+
+  - `server_name: string`
+
+    The name of the MCP server
+
+  - `cache_control: optional object`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+### Beta MCP Toolset
+
+- `beta_mcp_toolset: object`
+
+  Configuration for a group of tools from an MCP server.
+
+  Allows configuring enabled status and defer_loading for all tools
+  from an MCP server, with optional per-tool overrides.
+
+  - `type: "mcp_toolset"`
+
+  - `mcp_server_name: string`
+
+    Name of the MCP server to configure tools for
+
+    minLength: 1, maxLength: 255
+
+  - `cache_control: optional object`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `configs: optional map[BetaMCPToolConfig]`
+
+    Configuration overrides for specific tools, keyed by tool name
+
+    - `defer_loading: optional boolean`
+
+    - `enabled: optional boolean`
+
+  - `default_config: optional object`
+
+    Default configuration applied to all tools from this server
+
+    - `defer_loading: optional boolean`
+
+    - `enabled: optional boolean`
+
+  - `tools: optional array of BetaMCPToolParam`
+
+    The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
+    - `input_schema: map[unknown]`
+
+      The tool's input schema as the MCP server lists it, verbatim.
+
+    - `name: string`
+
+      The tool's name as the MCP server lists it (not prefixed with the server name).
+
+      minLength: 1
+
+    - `description: optional string`
+
+      The tool's description as the MCP server lists it.
+
+### Beta Memory Tool 20250818
+
+- `beta_memory_tool_20250818: object`
+
+  - `type: "memory_20250818"`
+
+  - `name: "memory"`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `cache_control: optional object`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: optional boolean`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `input_examples: optional array of map[unknown]`
+
+  - `strict: optional boolean`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Memory Tool 20250818 Command
+
+- `beta_memory_tool_20250818_command: BetaMemoryTool20250818ViewCommand or BetaMemoryTool20250818CreateCommand or BetaMemoryTool20250818StrReplaceCommand or 3 more`
+
+  - `beta_memory_tool_20250818_view_command: object`
+
+    - `command: "view"`
+
+      Command type identifier
+
+    - `path: string`
+
+      Path to directory or file to view
+
+    - `view_range: optional array of number`
+
+      Optional line range for viewing specific lines
+
+      minItems: 2, maxItems: 2
+
+  - `beta_memory_tool_20250818_create_command: object`
+
+    - `command: "create"`
+
+      Command type identifier
+
+    - `file_text: string`
+
+      Content to write to the file
+
+    - `path: string`
+
+      Path where the file should be created
+
+  - `beta_memory_tool_20250818_str_replace_command: object`
+
+    - `command: "str_replace"`
+
+      Command type identifier
+
+    - `new_str: string`
+
+      Text to replace with
+
+    - `old_str: string`
+
+      Text to search for and replace
+
+    - `path: string`
+
+      Path to the file where text should be replaced
+
+  - `beta_memory_tool_20250818_insert_command: object`
+
+    - `command: "insert"`
+
+      Command type identifier
+
+    - `insert_line: number`
+
+      Line number where text should be inserted
+
+      minimum: 1
+
+    - `insert_text: string`
+
+      Text to insert at the specified line
+
+    - `path: string`
+
+      Path to the file where text should be inserted
+
+  - `beta_memory_tool_20250818_delete_command: object`
+
+    - `command: "delete"`
+
+      Command type identifier
+
+    - `path: string`
+
+      Path to the file or directory to delete
+
+  - `beta_memory_tool_20250818_rename_command: object`
+
+    - `command: "rename"`
+
+      Command type identifier
+
+    - `new_path: string`
+
+      New path for the file or directory
+
+    - `old_path: string`
+
+      Current path of the file or directory
+
+### Beta Memory Tool 20250818 Create Command
+
+- `beta_memory_tool_20250818_create_command: object`
+
+  - `command: "create"`
+
+    Command type identifier
+
+  - `file_text: string`
+
+    Content to write to the file
+
+  - `path: string`
+
+    Path where the file should be created
+
+### Beta Memory Tool 20250818 Delete Command
+
+- `beta_memory_tool_20250818_delete_command: object`
+
+  - `command: "delete"`
+
+    Command type identifier
+
+  - `path: string`
+
+    Path to the file or directory to delete
+
+### Beta Memory Tool 20250818 Insert Command
+
+- `beta_memory_tool_20250818_insert_command: object`
+
+  - `command: "insert"`
+
+    Command type identifier
+
+  - `insert_line: number`
+
+    Line number where text should be inserted
+
+    minimum: 1
+
+  - `insert_text: string`
+
+    Text to insert at the specified line
+
+  - `path: string`
+
+    Path to the file where text should be inserted
+
+### Beta Memory Tool 20250818 Rename Command
+
+- `beta_memory_tool_20250818_rename_command: object`
+
+  - `command: "rename"`
+
+    Command type identifier
+
+  - `new_path: string`
+
+    New path for the file or directory
+
+  - `old_path: string`
+
+    Current path of the file or directory
+
+### Beta Memory Tool 20250818 Str Replace Command
+
+- `beta_memory_tool_20250818_str_replace_command: object`
+
+  - `command: "str_replace"`
+
+    Command type identifier
+
+  - `new_str: string`
+
+    Text to replace with
+
+  - `old_str: string`
+
+    Text to search for and replace
+
+  - `path: string`
+
+    Path to the file where text should be replaced
+
+### Beta Memory Tool 20250818 View Command
+
+- `beta_memory_tool_20250818_view_command: object`
+
+  - `command: "view"`
+
+    Command type identifier
+
+  - `path: string`
+
+    Path to directory or file to view
+
+  - `view_range: optional array of number`
+
+    Optional line range for viewing specific lines
+
+    minItems: 2, maxItems: 2
+
+### Beta Message
+
+- `beta_message: object`
+
+  - `type: "message"`
+
+    Object type.
+
+    For Messages, this is always `"message"`.
+
+  - `id: string`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `container: object`
+
+    Information about the container used in this request.
+
+    This will be non-null if a container tool (e.g. code execution) was used.
+
+    - `id: string`
+
+      Identifier for the container used in this request
+
+    - `expires_at: string`
+
+      The time at which the container will expire.
+
+      format: date-time
+
+    - `skills: array of BetaContainerSkill`
+
+      Skills loaded in the container
+
+      - `type: "anthropic" or "custom"`
+
+        Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+        - `"anthropic"`
+
+        - `"custom"`
+
+      - `skill_id: string`
+
+        Skill ID
+
+        minLength: 1, maxLength: 64
+
+      - `version: string`
+
+        The resolved version: a skill version ID for custom skills.
+
+        minLength: 1, maxLength: 64
+
+  - `content: array of BetaContentBlock`
+
+    Content generated by the model.
+
+    This is an array of content blocks, each of which has a `type` that determines its shape.
+
+    Example:
+
+    ```json
+    [{"type": "text", "text": "Hi, I'm Claude."}]
+    ```
+
+    If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
+
+    For example, if the input `messages` were:
+
+    ```json
+    [
+      {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+      {"role": "assistant", "content": "The best answer is ("}
+    ]
+    ```
+
+    Then the response `content` might be:
+
+    ```json
+    [{"type": "text", "text": "B)"}]
+    ```
+
+    - `beta_text_block: object`
+
+      - `type: "text"`
+
+      - `citations: array of BetaTextCitation`
+
+        Citations supporting the text block.
+
+        The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+        - `beta_citation_char_location: object`
+
+          - `type: "char_location"`
+
+          - `cited_text: string`
+
+          - `document_index: number`
+
+            minimum: 0
+
+          - `document_title: string`
+
+          - `end_char_index: number`
+
+          - `file_id: string`
+
+          - `start_char_index: number`
+
+            minimum: 0
+
+        - `beta_citation_page_location: object`
+
+          - `type: "page_location"`
+
+          - `cited_text: string`
+
+          - `document_index: number`
+
+            minimum: 0
+
+          - `document_title: string`
+
+          - `end_page_number: number`
+
+          - `file_id: string`
+
+          - `start_page_number: number`
+
+            minimum: 1
+
+        - `beta_citation_content_block_location: object`
+
+          - `type: "content_block_location"`
+
+          - `cited_text: string`
+
+            The full text of the cited block range, concatenated.
+
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+          - `document_index: number`
+
+            minimum: 0
+
+          - `document_title: string`
+
+          - `end_block_index: number`
+
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+          - `file_id: string`
+
+          - `start_block_index: number`
+
+            0-based index of the first cited block in the source's `content` array.
+
+            minimum: 0
+
+        - `beta_citations_web_search_result_location: object`
+
+          - `type: "web_search_result_location"`
+
+          - `cited_text: string`
+
+          - `encrypted_index: string`
+
+          - `title: string`
+
+            maxLength: 512
+
+          - `url: string`
+
+        - `beta_citation_search_result_location: object`
+
+          - `type: "search_result_location"`
+
+          - `cited_text: string`
+
+            The full text of the cited block range, concatenated.
+
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+          - `end_block_index: number`
+
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+          - `search_result_index: number`
+
+            0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+            Counted separately from `document_index`; server-side web search results are not included in this count.
+
+            minimum: 0
+
+          - `source: string`
+
+          - `start_block_index: number`
+
+            0-based index of the first cited block in the source's `content` array.
+
+            minimum: 0
+
+          - `title: string`
+
+      - `text: string`
+
+    - `beta_thinking_block: object`
+
+      - `type: "thinking"`
+
+      - `signature: string`
+
+        A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+        This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+        See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+      - `thinking: string`
+
+        The text of Claude's thinking process for this block.
+
+    - `beta_redacted_thinking_block: object`
+
+      - `type: "redacted_thinking"`
+
+      - `data: string`
+
+        The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+        Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+        See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
+
+    - `beta_tool_use_block: object`
+
+      - `type: "tool_use"`
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: map[unknown]`
+
+      - `name: string`
+
+        minLength: 1
+
+      - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+        - `beta_direct_caller: object`
+
+          Tool invocation directly from the model.
+
+          - `type: "direct"`
+
+        - `beta_server_tool_caller: object`
+
+          Tool invocation generated by a server-side tool.
+
+          - `type: "code_execution_20250825"`
+
+          - `tool_id: string`
+
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+        - `beta_server_tool_caller_20260120: object`
+
+          - `type: "code_execution_20260120"`
+
+          - `tool_id: string`
+
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `toolset_name: optional string`
+
+        For a toolset member tool_use, the toolset family.
+
+        minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
+
+    - `beta_server_tool_use_block: object`
+
+      - `type: "server_tool_use"`
+
+      - `id: string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `input: map[unknown]`
+
+      - `name: "advisor" or "web_search" or "web_fetch" or 5 more`
+
+        - `"advisor"`
+
+        - `"web_search"`
+
+        - `"web_fetch"`
+
+        - `"code_execution"`
+
+        - `"bash_code_execution"`
+
+        - `"text_editor_code_execution"`
+
+        - `"tool_search_tool_regex"`
+
+        - `"tool_search_tool_bm25"`
+
+      - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+        - `beta_direct_caller: object`
+
+          Tool invocation directly from the model.
+
+        - `beta_server_tool_caller: object`
+
+          Tool invocation generated by a server-side tool.
+
+        - `beta_server_tool_caller_20260120: object`
+
+    - `beta_web_search_tool_result_block: object`
+
+      - `type: "web_search_tool_result"`
+
+      - `content: BetaWebSearchToolResultError or array of BetaWebSearchResultBlock`
+
+        - `beta_web_search_tool_result_error: object`
+
+          - `type: "web_search_tool_result_error"`
+
+          - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
+            - `"invalid_tool_input"`
+
+            - `"unavailable"`
+
+            - `"max_uses_exceeded"`
+
+            - `"too_many_requests"`
+
+            - `"query_too_long"`
+
+            - `"request_too_large"`
+
+        - `union_member_1: array of BetaWebSearchResultBlock`
+
+          - `type: "web_search_result"`
+
+          - `encrypted_content: string`
+
+          - `page_age: string`
+
+          - `title: string`
+
+          - `url: string`
+
+      - `tool_use_id: string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+        - `beta_direct_caller: object`
+
+          Tool invocation directly from the model.
+
+        - `beta_server_tool_caller: object`
+
+          Tool invocation generated by a server-side tool.
+
+        - `beta_server_tool_caller_20260120: object`
+
+    - `beta_web_fetch_tool_result_block: object`
+
+      - `type: "web_fetch_tool_result"`
+
+      - `content: BetaWebFetchToolResultErrorBlock or BetaWebFetchBlock`
+
+        - `beta_web_fetch_tool_result_error_block: object`
+
+          - `type: "web_fetch_tool_result_error"`
+
+          - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 7 more`
+
+            - `"invalid_tool_input"`
+
+            - `"url_too_long"`
+
+            - `"url_not_allowed"`
+
+            - `"url_not_in_prior_context"`
+
+            - `"url_not_accessible"`
+
+            - `"unsupported_content_type"`
+
+            - `"too_many_requests"`
+
+            - `"max_uses_exceeded"`
+
+            - `"unavailable"`
+
+            - `"content_too_large"`
+
+        - `beta_web_fetch_block: object`
+
+          - `type: "web_fetch_result"`
+
+          - `content: object`
+
+            - `type: "document"`
+
+            - `citations: object`
+
+              Citation configuration for the document
+
+              - `enabled: boolean`
+
+            - `source: BetaBase64PDFSource or BetaPlainTextSource`
+
+              - `beta_base64_pdf_source: object`
+
+                - `type: "base64"`
+
+                - `data: string`
+
+                  format: byte
+
+                - `media_type: "application/pdf"`
+
+              - `beta_plain_text_source: object`
+
+                - `type: "text"`
+
+                - `data: string`
+
+                - `media_type: "text/plain"`
+
+            - `title: string`
+
+              The title of the document
+
+          - `retrieved_at: string`
+
+            ISO 8601 timestamp when the content was retrieved
+
+          - `url: string`
+
+            Fetched content URL
+
+      - `tool_use_id: string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
+
+        - `beta_direct_caller: object`
+
+          Tool invocation directly from the model.
+
+        - `beta_server_tool_caller: object`
+
+          Tool invocation generated by a server-side tool.
+
+        - `beta_server_tool_caller_20260120: object`
+
+    - `beta_advisor_tool_result_block: object`
+
+      - `type: "advisor_tool_result"`
+
+      - `content: BetaAdvisorToolResultError or BetaAdvisorResultBlock or BetaAdvisorRedactedResultBlock`
+
+        - `beta_advisor_tool_result_error: object`
+
+          - `type: "advisor_tool_result_error"`
+
+          - `error_code: "max_uses_exceeded" or "prompt_too_long" or "too_many_requests" or 4 more`
+
+            - `"max_uses_exceeded"`
+
+            - `"prompt_too_long"`
+
+            - `"too_many_requests"`
+
+            - `"overloaded"`
+
+            - `"unavailable"`
+
+            - `"execution_time_exceeded"`
+
+            - `"model_not_found"`
+
+        - `beta_advisor_result_block: object`
+
+          - `type: "advisor_result"`
+
+          - `stop_reason: string`
+
+            The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
+
+          - `text: string`
+
+        - `beta_advisor_redacted_result_block: object`
+
+          - `type: "advisor_redacted_result"`
+
+          - `encrypted_content: string`
+
+            Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
+
+          - `stop_reason: string`
+
+            The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
+
+      - `tool_use_id: string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `beta_code_execution_tool_result_block: object`
+
+      - `type: "code_execution_tool_result"`
+
+      - `content: BetaCodeExecutionToolResultError or BetaCodeExecutionResultBlock or BetaEncryptedCodeExecutionResultBlock`
+
+        - `beta_code_execution_tool_result_error: object`
+
+          - `type: "code_execution_tool_result_error"`
+
+          - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
+            - `"invalid_tool_input"`
+
+            - `"unavailable"`
+
+            - `"too_many_requests"`
+
+            - `"execution_time_exceeded"`
+
+        - `beta_code_execution_result_block: object`
+
+          - `type: "code_execution_result"`
+
+          - `content: array of BetaCodeExecutionOutputBlock`
+
+            - `type: "code_execution_output"`
+
+            - `file_id: string`
+
+          - `return_code: number`
+
+          - `stderr: string`
+
+          - `stdout: string`
+
+        - `beta_encrypted_code_execution_result_block: object`
+
+          Code execution result with encrypted stdout for PFC + web_search results.
+
+          - `type: "encrypted_code_execution_result"`
+
+          - `content: array of BetaCodeExecutionOutputBlock`
+
+            - `type: "code_execution_output"`
+
+            - `file_id: string`
+
+          - `encrypted_stdout: string`
+
+          - `return_code: number`
+
+          - `stderr: string`
+
+      - `tool_use_id: string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `beta_bash_code_execution_tool_result_block: object`
+
+      - `type: "bash_code_execution_tool_result"`
+
+      - `content: BetaBashCodeExecutionToolResultError or BetaBashCodeExecutionResultBlock`
+
+        - `beta_bash_code_execution_tool_result_error: object`
+
+          - `type: "bash_code_execution_tool_result_error"`
+
+          - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
+            - `"invalid_tool_input"`
+
+            - `"unavailable"`
+
+            - `"too_many_requests"`
+
+            - `"execution_time_exceeded"`
+
+            - `"output_file_too_large"`
+
+        - `beta_bash_code_execution_result_block: object`
+
+          - `type: "bash_code_execution_result"`
+
+          - `content: array of BetaBashCodeExecutionOutputBlock`
+
+            - `type: "bash_code_execution_output"`
+
+            - `file_id: string`
+
+          - `return_code: number`
+
+          - `stderr: string`
+
+          - `stdout: string`
+
+      - `tool_use_id: string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `beta_text_editor_code_execution_tool_result_block: object`
+
+      - `type: "text_editor_code_execution_tool_result"`
+
+      - `content: BetaTextEditorCodeExecutionToolResultError or BetaTextEditorCodeExecutionViewResultBlock or BetaTextEditorCodeExecutionCreateResultBlock or BetaTextEditorCodeExecutionStrReplaceResultBlock`
+
+        - `beta_text_editor_code_execution_tool_result_error: object`
+
+          - `type: "text_editor_code_execution_tool_result_error"`
+
+          - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
+            - `"invalid_tool_input"`
+
+            - `"unavailable"`
+
+            - `"too_many_requests"`
+
+            - `"execution_time_exceeded"`
+
+            - `"file_not_found"`
+
+          - `error_message: string`
+
+        - `beta_text_editor_code_execution_view_result_block: object`
+
+          - `type: "text_editor_code_execution_view_result"`
+
+          - `content: string`
+
+          - `file_type: "text" or "image" or "pdf"`
+
+            - `"text"`
+
+            - `"image"`
+
+            - `"pdf"`
+
+          - `num_lines: number`
+
+          - `start_line: number`
+
+          - `total_lines: number`
+
+        - `beta_text_editor_code_execution_create_result_block: object`
+
+          - `type: "text_editor_code_execution_create_result"`
+
+          - `is_file_update: boolean`
+
+        - `beta_text_editor_code_execution_str_replace_result_block: object`
+
+          - `type: "text_editor_code_execution_str_replace_result"`
+
+          - `lines: array of string`
+
+          - `new_lines: number`
+
+          - `new_start: number`
+
+          - `old_lines: number`
+
+          - `old_start: number`
+
+      - `tool_use_id: string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `beta_tool_search_tool_result_block: object`
+
+      - `type: "tool_search_tool_result"`
+
+      - `content: BetaToolSearchToolResultError or BetaToolSearchToolSearchResultBlock`
+
+        - `beta_tool_search_tool_result_error: object`
+
+          - `type: "tool_search_tool_result_error"`
+
+          - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
+            - `"invalid_tool_input"`
+
+            - `"unavailable"`
+
+            - `"too_many_requests"`
+
+            - `"execution_time_exceeded"`
+
+          - `error_message: string`
+
+        - `beta_tool_search_tool_search_result_block: object`
+
+          - `type: "tool_search_tool_search_result"`
+
+          - `tool_references: array of BetaToolReferenceBlock`
+
+            - `type: "tool_reference"`
+
+            - `tool_name: string`
+
+              minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+      - `tool_use_id: string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `beta_mcp_tool_use_block: object`
+
+      - `type: "mcp_tool_use"`
+
+      - `id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `input: map[unknown]`
+
+      - `name: string`
+
+        The name of the MCP tool
+
+      - `server_name: string`
+
+        The name of the MCP server
+
+    - `beta_mcp_tool_result_block: object`
+
+      - `type: "mcp_tool_result"`
+
+      - `content: string or array of BetaTextBlock`
+
+        - `union_member_0: string`
+
+        - `beta_mcp_tool_result_block_content: array of BetaTextBlock`
+
+          - `type: "text"`
+
+          - `citations: array of BetaTextCitation`
+
+            Citations supporting the text block.
+
+            The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+          - `text: string`
+
+      - `is_error: boolean`
+
+      - `tool_use_id: string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+    - `beta_container_upload_block: object`
+
+      Response model for a file uploaded to the container.
+
+      - `type: "container_upload"`
+
+      - `file_id: string`
+
+    - `beta_compaction_block: object`
+
+      A compaction block returned when autocompact is triggered.
+
+      When content is None, it indicates the compaction failed to produce a valid
+      summary (e.g., malformed output from the model). Clients may round-trip
+      compaction blocks with null content; the server treats them as no-ops.
+
+      - `type: "compaction"`
+
+      - `content: string`
+
+        Summary of compacted content, or null if compaction failed
+
+      - `encrypted_content: string`
+
+        Opaque metadata from prior compaction, to be round-tripped verbatim
+
+      - `signature: optional string`
+
+        Signature over the summary, to be sent back with the block verbatim
+
+      - `tool_changes: optional array of BetaResponseToolAdditionBlock or BetaResponseToolRemovalBlock`
+
+        The tool changes of the compacted range: the `tool_addition` and `tool_removal` blocks that take the request's `tools` to the tool set in effect at the end of the range, or `[]` when the range changed no tool. Absent when the server did not compute them. Send the block back unchanged.
+
+        - `beta_response_tool_addition_block: object`
+
+          An entry of a `compaction` block's `tool_changes`: a tool the
+          compacted range made available, as a reference to a `tools` entry or
+          MCP toolset, or as the tool definition in effect at the end of the
+          range, by value. Send it back unchanged.
+
+          - `type: "tool_addition"`
+
+          - `tool: BetaResponseToolChangeToolReference or BetaResponseToolChangeMCPToolReference or BetaResponseToolChangeMCPToolsetReference or BetaToolChangeToolDefinition`
+
+            The tool made available: a reference to a `tools` entry or MCP toolset, or a `tool_definition` carrying the definition by value.
+
+            - `beta_response_tool_change_tool_reference: object`
+
+              Reference to a single tool, by the name the model uses to call it, as
+              a `compaction` block's `tool_changes` entry reports it: a tool
+              declared in `tools` or defined by an earlier `tool_addition` block.
+              Send it back unchanged with the block.
+
+              - `type: "tool_reference"`
+
+              - `name: string`
+
+            - `beta_response_tool_change_mcp_tool_reference: object`
+
+              Reference to a single MCP tool, by its server and its name on that
+              server, as a `compaction` block's `tool_changes` entry reports it.
+              Send it back unchanged with the block.
+
+              - `type: "mcp_tool_reference"`
+
+              - `name: string`
+
+              - `server_name: string`
+
+            - `beta_response_tool_change_mcp_toolset_reference: object`
+
+              Reference to every tool in the named MCP server's toolset, as a
+              `compaction` block's `tool_changes` entry reports it. Send it back
+              unchanged with the block.
+
+              - `type: "mcp_toolset_reference"`
+
+              - `server_name: string`
+
+            - `beta_tool_change_tool_definition: object`
+
+              A tool defined by value, as a `compaction` block's `tool_changes` entry
+              reports it: `definition` is the tool's definition as it was sent, in the
+              form of a `tools` entry, without `cache_control`. Send it back unchanged
+              with the block.
+
+              - `type: "tool_definition"`
+
+              - `definition: BetaResponseTool or BetaToolBash20241022 or BetaToolBash20250124 or 25 more`
+
+                - `beta_response_tool: object`
+
+                  A custom tool definition, as sent.
+
+                  - `type: optional "custom"`
+
+                  - `input_schema: object`
+
+                    [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+                    This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+                    - `type: "object"`
+
+                    - `properties: optional map[unknown]`
+
+                    - `required: optional array of string`
+
+                  - `name: string`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                    minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `description: optional string`
+
+                    Description of what this tool does.
+
+                    Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
+
+                  - `eager_input_streaming: optional boolean`
+
+                    Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_bash_20241022: object`
+
+                  - `type: "bash_20241022"`
+
+                  - `name: "bash"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                      - `"5m"`
+
+                      - `"1h"`
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_bash_20250124: object`
+
+                  - `type: "bash_20250124"`
+
+                  - `name: "bash"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_code_execution_tool_20250522: object`
+
+                  - `type: "code_execution_20250522"`
+
+                  - `name: "code_execution"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_code_execution_tool_20250825: object`
+
+                  - `type: "code_execution_20250825"`
+
+                  - `name: "code_execution"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_code_execution_tool_20260120: object`
+
+                  Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
+                  - `type: "code_execution_20260120"`
+
+                  - `name: "code_execution"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_code_execution_tool_20260521: object`
+
+                  Code execution tool with REPL state persistence.
+
+                  - `type: "code_execution_20260521"`
+
+                  - `name: "code_execution"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_browser_toolset_20260801: object`
+
+                  The browser toolset: a single `tools[]` entry (carrying no
+                  `name`) that declares the browser tool family. The model is served
+                  the family's tool with any members disabled via `configs` removed
+                  from its schema.
+
+                  - `type: "browser_toolset_20260801"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `configs: optional object`
+
+                    Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+                    - `type: optional object`
+
+                      `type`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `close_tab: optional object`
+
+                      `close_tab`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `double_click: optional object`
+
+                      `double_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `file_upload: optional object`
+
+                      `file_upload`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `find: optional object`
+
+                      `find`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `form_input: optional object`
+
+                      `form_input`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `get_page_text: optional object`
+
+                      `get_page_text`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `hold_key: optional object`
+
+                      `hold_key`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `hover: optional object`
+
+                      `hover`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `javascript_exec: optional object`
+
+                      `javascript_exec`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `key: optional object`
+
+                      `key`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_click: optional object`
+
+                      `left_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_click_drag: optional object`
+
+                      `left_click_drag`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_mouse_down: optional object`
+
+                      `left_mouse_down`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_mouse_up: optional object`
+
+                      `left_mouse_up`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `list_tabs: optional object`
+
+                      `list_tabs`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `middle_click: optional object`
+
+                      `middle_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `mouse_move: optional object`
+
+                      `mouse_move`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `navigate: optional object`
+
+                      `navigate`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `new_tab: optional object`
+
+                      `new_tab`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `read_console: optional object`
+
+                      `read_console`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `read_network: optional object`
+
+                      `read_network`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `read_page: optional object`
+
+                      `read_page`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `right_click: optional object`
+
+                      `right_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `screenshot: optional object`
+
+                      `screenshot`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `scroll: optional object`
+
+                      `scroll`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `scroll_to: optional object`
+
+                      `scroll_to`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `switch_tab: optional object`
+
+                      `switch_tab`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `triple_click: optional object`
+
+                      `triple_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `wait: optional object`
+
+                      `wait`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `zoom: optional object`
+
+                      `zoom`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                - `beta_tool_computer_use_20241022: object`
+
+                  - `type: "computer_20241022"`
+
+                  - `display_height_px: number`
+
+                    The height of the display in pixels.
+
+                    minimum: 1
+
+                  - `display_width_px: number`
+
+                    The width of the display in pixels.
+
+                    minimum: 1
+
+                  - `name: "computer"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `display_number: optional number`
+
+                    The X11 display number (e.g. 0, 1) for the display.
+
+                    minimum: 0
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_memory_tool_20250818: object`
+
+                  - `type: "memory_20250818"`
+
+                  - `name: "memory"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_computer_use_20250124: object`
+
+                  - `type: "computer_20250124"`
+
+                  - `display_height_px: number`
+
+                    The height of the display in pixels.
+
+                    minimum: 1
+
+                  - `display_width_px: number`
+
+                    The width of the display in pixels.
+
+                    minimum: 1
+
+                  - `name: "computer"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `display_number: optional number`
+
+                    The X11 display number (e.g. 0, 1) for the display.
+
+                    minimum: 0
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_text_editor_20241022: object`
+
+                  - `type: "text_editor_20241022"`
+
+                  - `name: "str_replace_editor"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_computer_use_20251124: object`
+
+                  - `type: "computer_20251124"`
+
+                  - `display_height_px: number`
+
+                    The height of the display in pixels.
+
+                    minimum: 1
+
+                  - `display_width_px: number`
+
+                    The width of the display in pixels.
+
+                    minimum: 1
+
+                  - `name: "computer"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `display_number: optional number`
+
+                    The X11 display number (e.g. 0, 1) for the display.
+
+                    minimum: 0
+
+                  - `enable_zoom: optional boolean`
+
+                    Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_computer_toolset_20260801: object`
+
+                  The computer toolset: a single `tools[]` entry (carrying no
+                  `name`) that declares the computer tool family. The model is
+                  served the family's tool with any members disabled via `configs`
+                  removed from its schema. Every member is enabled by default, zoom
+                  included. The single-tool options `display_number` and
+                  `enable_zoom` are not fields of a toolset entry — it carries only
+                  `type`, `configs`, and `cache_control`; zoom is controlled
+                  via `configs.zoom.enabled`.
+
+                  - `type: "computer_toolset_20260801"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `configs: optional object`
+
+                    Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+                    - `type: optional object`
+
+                      `type`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `cursor_position: optional object`
+
+                      `cursor_position`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `double_click: optional object`
+
+                      `double_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `hold_key: optional object`
+
+                      `hold_key`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `key: optional object`
+
+                      `key`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_click: optional object`
+
+                      `left_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_click_drag: optional object`
+
+                      `left_click_drag`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_mouse_down: optional object`
+
+                      `left_mouse_down`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_mouse_up: optional object`
+
+                      `left_mouse_up`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `middle_click: optional object`
+
+                      `middle_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `mouse_move: optional object`
+
+                      `mouse_move`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `right_click: optional object`
+
+                      `right_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `screenshot: optional object`
+
+                      `screenshot`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `scroll: optional object`
+
+                      `scroll`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `triple_click: optional object`
+
+                      `triple_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `wait: optional object`
+
+                      `wait`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `zoom: optional object`
+
+                      `zoom`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                - `beta_tool_text_editor_20250124: object`
+
+                  - `type: "text_editor_20250124"`
+
+                  - `name: "str_replace_editor"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_text_editor_20250429: object`
+
+                  - `type: "text_editor_20250429"`
+
+                  - `name: "str_replace_based_edit_tool"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_text_editor_20250728: object`
+
+                  - `type: "text_editor_20250728"`
+
+                  - `name: "str_replace_based_edit_tool"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `max_characters: optional number`
+
+                    Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+                    minimum: 1
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_web_search_tool_20250305: object`
+
+                  - `type: "web_search_20250305"`
+
+                  - `name: "web_search"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `allowed_domains: optional array of string`
+
+                    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                  - `blocked_domains: optional array of string`
+
+                    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    minimum: 1
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                  - `user_location: optional object`
+
+                    Parameters for the user's location. Used to provide more relevant search results.
+
+                    - `type: "approximate"`
+
+                    - `city: optional string`
+
+                      The city of the user.
+
+                      minLength: 1, maxLength: 255
+
+                    - `country: optional string`
+
+                      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+                      minLength: 2, maxLength: 2
+
+                    - `region: optional string`
+
+                      The region of the user.
+
+                      minLength: 1, maxLength: 255
+
+                    - `timezone: optional string`
+
+                      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+                      minLength: 1, maxLength: 255
+
+                - `beta_web_fetch_tool_20250910: object`
+
+                  - `type: "web_fetch_20250910"`
+
+                  - `name: "web_fetch"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `allowed_domains: optional array of string`
+
+                    List of domains to allow fetching from
+
+                  - `blocked_domains: optional array of string`
+
+                    List of domains to block fetching from
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `citations: optional object`
+
+                    Citations configuration for fetched documents. Citations are disabled by default.
+
+                    - `enabled: optional boolean`
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_content_tokens: optional number`
+
+                    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                    minimum: 1
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    minimum: 1
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                  - `url_sources: optional object`
+
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                    - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+                      - `beta_web_fetch_url_source_all: object`
+
+                        The `url_sources` variant under which a source contributes in
+                        full: every result of the tool filter's source, or all user input.
+
+                        - `type: "all"`
+
+                      - `beta_web_fetch_url_source_none: object`
+
+                        The `url_sources` variant under which a source contributes nothing:
+                        no result of the tool filter's source, or no user input.
+
+                        - `type: "none"`
+
+                      - `beta_web_fetch_url_source_only: object`
+
+                        The tool filter variant under which only the named tools' results
+                        contribute.
+
+                        - `type: "only"`
+
+                        - `tools: array of BetaWebFetchURLSourceToolReference`
+
+                          - `type: "tool_reference"`
+
+                          - `name: string`
+
+                      - `beta_web_fetch_url_source_except: object`
+
+                        The tool filter variant under which every result but the named
+                        tools' contributes.
+
+                        - `type: "except"`
+
+                        - `tools: array of BetaWebFetchURLSourceToolReference`
+
+                          - `type: "tool_reference"`
+
+                          - `name: string`
+
+                    - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+                      - `beta_web_fetch_url_source_all: object`
+
+                        The `url_sources` variant under which a source contributes in
+                        full: every result of the tool filter's source, or all user input.
+
+                      - `beta_web_fetch_url_source_none: object`
+
+                        The `url_sources` variant under which a source contributes nothing:
+                        no result of the tool filter's source, or no user input.
+
+                      - `beta_web_fetch_url_source_only: object`
+
+                        The tool filter variant under which only the named tools' results
+                        contribute.
+
+                      - `beta_web_fetch_url_source_except: object`
+
+                        The tool filter variant under which every result but the named
+                        tools' contributes.
+
+                    - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
+
+                      Whether URLs in user messages are fetchable: "all" or "none".
+
+                      - `beta_web_fetch_url_source_all: object`
+
+                        The `url_sources` variant under which a source contributes in
+                        full: every result of the tool filter's source, or all user input.
+
+                      - `beta_web_fetch_url_source_none: object`
+
+                        The `url_sources` variant under which a source contributes nothing:
+                        no result of the tool filter's source, or no user input.
+
+                - `beta_web_search_tool_20260209: object`
+
+                  - `type: "web_search_20260209"`
+
+                  - `name: "web_search"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `allowed_domains: optional array of string`
+
+                    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                  - `blocked_domains: optional array of string`
+
+                    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    minimum: 1
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                  - `user_location: optional object`
+
+                    Parameters for the user's location. Used to provide more relevant search results.
+
+                    - `type: "approximate"`
+
+                    - `city: optional string`
+
+                      The city of the user.
+
+                      minLength: 1, maxLength: 255
+
+                    - `country: optional string`
+
+                      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+                      minLength: 2, maxLength: 2
+
+                    - `region: optional string`
+
+                      The region of the user.
+
+                      minLength: 1, maxLength: 255
+
+                    - `timezone: optional string`
+
+                      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+                      minLength: 1, maxLength: 255
+
+                - `beta_web_fetch_tool_20260209: object`
+
+                  - `type: "web_fetch_20260209"`
+
+                  - `name: "web_fetch"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `allowed_domains: optional array of string`
+
+                    List of domains to allow fetching from
+
+                  - `blocked_domains: optional array of string`
+
+                    List of domains to block fetching from
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `citations: optional object`
+
+                    Citations configuration for fetched documents. Citations are disabled by default.
+
+                    - `enabled: optional boolean`
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_content_tokens: optional number`
+
+                    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                    minimum: 1
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    minimum: 1
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                  - `url_sources: optional object`
+
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                    - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+                    - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+                    - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
+
+                      Whether URLs in user messages are fetchable: "all" or "none".
+
+                - `beta_web_fetch_tool_20260309: object`
+
+                  Web fetch tool with use_cache parameter for bypassing cached content.
+
+                  - `type: "web_fetch_20260309"`
+
+                  - `name: "web_fetch"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `allowed_domains: optional array of string`
+
+                    List of domains to allow fetching from
+
+                  - `blocked_domains: optional array of string`
+
+                    List of domains to block fetching from
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `citations: optional object`
+
+                    Citations configuration for fetched documents. Citations are disabled by default.
+
+                    - `enabled: optional boolean`
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_content_tokens: optional number`
+
+                    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                    minimum: 1
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    minimum: 1
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                  - `url_sources: optional object`
+
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                    - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+                    - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+                    - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
+
+                      Whether URLs in user messages are fetchable: "all" or "none".
+
+                  - `use_cache: optional boolean`
+
+                    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+                - `beta_web_search_tool_20260318: object`
+
+                  - `type: "web_search_20260318"`
+
+                  - `name: "web_search"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `allowed_domains: optional array of string`
+
+                    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                  - `blocked_domains: optional array of string`
+
+                    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    minimum: 1
+
+                  - `response_inclusion: optional "full" or "excluded"`
+
+                    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+                    - `"full"`
+
+                    - `"excluded"`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                  - `user_location: optional object`
+
+                    Parameters for the user's location. Used to provide more relevant search results.
+
+                    - `type: "approximate"`
+
+                    - `city: optional string`
+
+                      The city of the user.
+
+                      minLength: 1, maxLength: 255
+
+                    - `country: optional string`
+
+                      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+                      minLength: 2, maxLength: 2
+
+                    - `region: optional string`
+
+                      The region of the user.
+
+                      minLength: 1, maxLength: 255
+
+                    - `timezone: optional string`
+
+                      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+                      minLength: 1, maxLength: 255
+
+                - `beta_web_fetch_tool_20260318: object`
+
+                  - `type: "web_fetch_20260318"`
+
+                  - `name: "web_fetch"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `allowed_domains: optional array of string`
+
+                    List of domains to allow fetching from
+
+                  - `blocked_domains: optional array of string`
+
+                    List of domains to block fetching from
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `citations: optional object`
+
+                    Citations configuration for fetched documents. Citations are disabled by default.
+
+                    - `enabled: optional boolean`
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_content_tokens: optional number`
+
+                    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                    minimum: 1
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    minimum: 1
+
+                  - `response_inclusion: optional "full" or "excluded"`
+
+                    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+                    - `"full"`
+
+                    - `"excluded"`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                  - `url_sources: optional object`
+
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                    - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+                    - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+                    - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
+
+                      Whether URLs in user messages are fetchable: "all" or "none".
+
+                  - `use_cache: optional boolean`
+
+                    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+                - `beta_advisor_tool_20260301: object`
+
+                  - `type: "advisor_20260301"`
+
+                  - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
+
+                    The model that will complete your prompt.
+
+                    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                    - `"claude-haiku-5-5"`
+
+                      Fastest model for high-volume, real-time tasks
+
+                    - `"claude-sonnet-5-5"`
+
+                      Efficient model for coding and agents
+
+                    - `"claude-fable-5-1"`
+
+                      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                    - `"claude-opus-5-5"`
+
+                      Powerful intelligence for coding, knowledge work, and long-running agents
+
+                    - `"claude-mythos-5-1"`
+
+                      Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+                    - `"claude-sonnet-5"`
+
+                      Efficient model for coding and agents
+
+                    - `"claude-fable-5"`
+
+                      Next generation of intelligence for the hardest knowledge work and coding problems
+
+                    - `"claude-mythos-5"`
+
+                      Most capable model for cybersecurity and biology research
+
+                    - `"claude-opus-5"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `"claude-opus-4-8"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `"claude-opus-4-7"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `"claude-opus-4-6"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `"claude-sonnet-4-6"`
+
+                      Best combination of speed and intelligence
+
+                    - `"claude-haiku-4-5"`
+
+                      Fastest model with near-frontier intelligence
+
+                    - `"claude-haiku-4-5-20251001"`
+
+                      Fastest model with near-frontier intelligence
+
+                    - `"claude-opus-4-5"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `"claude-opus-4-5-20251101"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `"claude-mythos-preview"`
+
+                      **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      New class of intelligence, strongest in coding and cybersecurity
+
+                    - `"claude-sonnet-4-5"`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
+
+                    - `"claude-sonnet-4-5-20250929"`
+
+                      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      High-performance model for agents and coding
+
+                  - `name: "advisor"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `caching: optional object`
+
+                    Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_tokens: optional number`
+
+                    Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+                    minimum: 1024
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    minimum: 1
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_search_tool_bm25_20251119: object`
+
+                  - `type: "tool_search_tool_bm25_20251119" or "tool_search_tool_bm25"`
+
+                    - `"tool_search_tool_bm25_20251119"`
+
+                    - `"tool_search_tool_bm25"`
+
+                  - `name: "tool_search_tool_bm25"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_search_tool_regex_20251119: object`
+
+                  - `type: "tool_search_tool_regex_20251119" or "tool_search_tool_regex"`
+
+                    - `"tool_search_tool_regex_20251119"`
+
+                    - `"tool_search_tool_regex"`
+
+                  - `name: "tool_search_tool_regex"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_mcp_toolset: object`
+
+                  Configuration for a group of tools from an MCP server.
+
+                  Allows configuring enabled status and defer_loading for all tools
+                  from an MCP server, with optional per-tool overrides.
+
+                  - `type: "mcp_toolset"`
+
+                  - `mcp_server_name: string`
+
+                    Name of the MCP server to configure tools for
+
+                    minLength: 1, maxLength: 255
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `configs: optional map[BetaMCPToolConfig]`
+
+                    Configuration overrides for specific tools, keyed by tool name
+
+                    - `defer_loading: optional boolean`
+
+                    - `enabled: optional boolean`
+
+                  - `default_config: optional object`
+
+                    Default configuration applied to all tools from this server
+
+                    - `defer_loading: optional boolean`
+
+                    - `enabled: optional boolean`
+
+                  - `tools: optional array of BetaMCPToolParam`
+
+                    The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
+                    - `input_schema: map[unknown]`
+
+                      The tool's input schema as the MCP server lists it, verbatim.
+
+                    - `name: string`
+
+                      The tool's name as the MCP server lists it (not prefixed with the server name).
+
+                      minLength: 1
+
+                    - `description: optional string`
+
+                      The tool's description as the MCP server lists it.
+
+        - `beta_response_tool_removal_block: object`
+
+          An entry of a `compaction` block's `tool_changes`: a tool of the
+          request's `tools` (or an MCP tool or toolset) that the compacted range
+          withdrew. Send it back unchanged.
+
+          - `type: "tool_removal"`
+
+          - `tool: BetaResponseToolChangeToolReference or BetaResponseToolChangeMCPToolReference or BetaResponseToolChangeMCPToolsetReference`
+
+            A reference to the withdrawn `tools` entry, MCP tool or MCP toolset.
+
+            - `beta_response_tool_change_tool_reference: object`
+
+              Reference to a single tool, by the name the model uses to call it, as
+              a `compaction` block's `tool_changes` entry reports it: a tool
+              declared in `tools` or defined by an earlier `tool_addition` block.
+              Send it back unchanged with the block.
+
+            - `beta_response_tool_change_mcp_tool_reference: object`
+
+              Reference to a single MCP tool, by its server and its name on that
+              server, as a `compaction` block's `tool_changes` entry reports it.
+              Send it back unchanged with the block.
+
+            - `beta_response_tool_change_mcp_toolset_reference: object`
+
+              Reference to every tool in the named MCP server's toolset, as a
+              `compaction` block's `tool_changes` entry reports it. Send it back
+              unchanged with the block.
+
+    - `beta_fallback_block: object`
+
+      Marks the point in `content` where one model's output gives way to the next.
+
+      One block appears per hop where a preceding model actually ran this turn and
+      declined. A turn where no preceding model ran and declined has no such
+      boundary and carries no block — the signal for whether a fallback model
+      served the response is the presence of a `fallback_message` entry in
+      `usage.iterations`, not this block.
+
+      The block is treated like a server-tool content block for streaming: it
+      arrives via the standard `content_block_start` / `content_block_stop`
+      pair and carries no deltas.
+
+      - `type: "fallback"`
+
+      - `from: object`
+
+        The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+        - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
+
+          - `"claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
+
+          - `"claude-mythos-5-1"`
+
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+          - `"claude-sonnet-5"`
+
+            Efficient model for coding and agents
+
+          - `"claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-mythos-5"`
+
+            Most capable model for cybersecurity and biology research
+
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-8"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-7"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-6"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-6"`
+
+            Best combination of speed and intelligence
+
+          - `"claude-haiku-4-5"`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-haiku-4-5-20251001"`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-opus-4-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-5-20251101"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-mythos-preview"`
+
+            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            New class of intelligence, strongest in coding and cybersecurity
+
+          - `"claude-sonnet-4-5"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            High-performance model for agents and coding
+
+      - `to: object`
+
+        The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+        - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `trigger: object`
+
+        What caused the `from` model to hand over at this hop.
+
+        - `type: "refusal"`
+
+        - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+
+          The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
+
+          - `"cyber"`
+
+            The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
+          - `"bio"`
+
+            The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+
+          - `"frontier_llm"`
+
+            The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
+          - `"reasoning_extraction"`
+
+            The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+          - `"general_harms"`
+
+            The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
+    - `beta_mcp_tool_listing_block: object`
+
+      The tool listing the server fetched from an MCP server while producing
+      this response. Send the assistant message back unchanged, this block
+      included, so later requests use this listing instead of asking the MCP
+      server again.
+
+      - `type: "mcp_tool_listing"`
+
+      - `mcp_server_name: string`
+
+      - `tools: array of BetaMCPTool`
+
+        - `input_schema: map[unknown]`
+
+        - `name: string`
+
+        - `description: optional string`
+
+  - `context_management: object`
+
+    Context management response.
+
+    Information about context management strategies applied during the request.
+
+    - `applied_edits: array of BetaClearToolUses20250919EditResponse or BetaClearThinking20251015EditResponse`
+
+      List of context management edits that were applied.
+
+      - `beta_clear_tool_uses_20250919_edit_response: object`
+
+        - `type: "clear_tool_uses_20250919"`
+
+          The type of context management edit applied.
+
+        - `cleared_input_tokens: number`
+
+          Number of input tokens cleared by this edit.
+
+          minimum: 0
+
+        - `cleared_tool_uses: number`
+
+          Number of tool uses that were cleared.
+
+          minimum: 0
+
+      - `beta_clear_thinking_20251015_edit_response: object`
+
+        - `type: "clear_thinking_20251015"`
+
+          The type of context management edit applied.
+
+        - `cleared_input_tokens: number`
+
+          Number of input tokens cleared by this edit.
+
+          minimum: 0
+
+        - `cleared_thinking_turns: number`
+
+          Number of thinking turns that were cleared.
+
+          minimum: 0
+
+  - `diagnostics: object`
+
+    Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+    - `cache_miss_reason: BetaCacheMissModelChanged or BetaCacheMissSystemChanged or BetaCacheMissToolsChanged or 3 more`
+
+      Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+      - `beta_cache_miss_model_changed: object`
+
+        - `type: "model_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `beta_cache_miss_system_changed: object`
+
+        - `type: "system_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `beta_cache_miss_tools_changed: object`
+
+        - `type: "tools_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `beta_cache_miss_messages_changed: object`
+
+        - `type: "messages_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `beta_cache_miss_previous_message_not_found: object`
+
+        - `type: "previous_message_not_found"`
+
+      - `beta_cache_miss_unavailable: object`
+
+        - `type: "unavailable"`
+
+  - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-haiku-5-5"`
+
+      Fastest model for high-volume, real-time tasks
+
+    - `"claude-sonnet-5-5"`
+
+      Efficient model for coding and agents
+
+    - `"claude-fable-5-1"`
+
+      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `"claude-opus-5-5"`
+
+      Powerful intelligence for coding, knowledge work, and long-running agents
+
+    - `"claude-mythos-5-1"`
+
+      Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+    - `"claude-sonnet-5"`
+
+      Efficient model for coding and agents
+
+    - `"claude-fable-5"`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `"claude-mythos-5"`
+
+      Most capable model for cybersecurity and biology research
+
+    - `"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `"claude-opus-4-8"`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `"claude-opus-4-7"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `"claude-opus-4-6"`
 
       Powerful intelligence for long-running agents and coding
@@ -354,11 +4902,15 @@
 
           minimum: 0
 
-        - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+        - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
 
           - `"claude-sonnet-5-5"`
 
@@ -538,11 +5090,15 @@
 
           minimum: 0
 
-        - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+        - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
 
           - `"claude-sonnet-5-5"`
 
@@ -681,11 +5237,15 @@
 
           minimum: 0
 
-        - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+        - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
 
           - `"claude-sonnet-5-5"`
 
@@ -1077,11 +5637,15 @@
 
         minimum: 0
 
-      - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+      - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-haiku-5-5"`
+
+          Fastest model for high-volume, real-time tasks
 
         - `"claude-sonnet-5-5"`
 
@@ -1261,11 +5825,15 @@
 
         minimum: 0
 
-      - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+      - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-haiku-5-5"`
+
+          Fastest model for high-volume, real-time tasks
 
         - `"claude-sonnet-5-5"`
 
@@ -1404,11 +5972,15 @@
 
         minimum: 0
 
-      - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+      - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-haiku-5-5"`
+
+          Fastest model for high-volume, real-time tasks
 
         - `"claude-sonnet-5-5"`
 
@@ -1584,11 +6156,15 @@
 
     minimum: 0
 
-  - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+  - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-haiku-5-5"`
+
+      Fastest model for high-volume, real-time tasks
 
     - `"claude-sonnet-5-5"`
 
@@ -5331,11 +9907,15 @@
 
                   - `type: "advisor_20260301"`
 
-                  - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+                  - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
                     The model that will complete your prompt.
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                    - `"claude-haiku-5-5"`
+
+                      Fastest model for high-volume, real-time tasks
 
                     - `"claude-sonnet-5-5"`
 
@@ -5807,11 +10387,15 @@
 
         Identifies one hop of a fallback transition.
 
-        - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+        - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
 
           - `"claude-sonnet-5-5"`
 
@@ -5899,7 +10483,7 @@
 
         Identifies one hop of a fallback transition.
 
-        - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+        - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
           The model that will complete your prompt.
 
@@ -9324,11 +13908,15 @@
 
                   - `type: "advisor_20260301"`
 
-                  - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+                  - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
                     The model that will complete your prompt.
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                    - `"claude-haiku-5-5"`
+
+                      Fastest model for high-volume, real-time tasks
 
                     - `"claude-sonnet-5-5"`
 
@@ -9697,11 +14285,15 @@
 
         The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-        - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+        - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
 
           - `"claude-sonnet-5-5"`
 
@@ -9789,7 +14381,7 @@
 
         The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-        - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+        - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
           The model that will complete your prompt.
 
@@ -10211,11 +14803,15 @@
 
           minimum: 0
 
-        - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+        - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
 
           - `"claude-sonnet-5-5"`
 
@@ -10395,11 +14991,15 @@
 
           minimum: 0
 
-        - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+        - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
 
           - `"claude-sonnet-5-5"`
 
@@ -10538,11 +15138,15 @@
 
           minimum: 0
 
-        - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+        - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
 
           - `"claude-sonnet-5-5"`
 
@@ -13771,11 +18375,15 @@
 
                     - `type: "advisor_20260301"`
 
-                    - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+                    - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
                       The model that will complete your prompt.
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                      - `"claude-haiku-5-5"`
+
+                        Fastest model for high-volume, real-time tasks
 
                       - `"claude-sonnet-5-5"`
 
@@ -14144,11 +18752,15 @@
 
           The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-          - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+          - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-haiku-5-5"`
+
+              Fastest model for high-volume, real-time tasks
 
             - `"claude-sonnet-5-5"`
 
@@ -14236,7 +18848,7 @@
 
           The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-          - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+          - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
             The model that will complete your prompt.
 
@@ -14385,11 +18997,15 @@
 
           - `type: "unavailable"`
 
-    - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+    - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
 
       - `"claude-sonnet-5-5"`
 
@@ -14782,11 +19398,15 @@
 
             minimum: 0
 
-          - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+          - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-haiku-5-5"`
+
+              Fastest model for high-volume, real-time tasks
 
             - `"claude-sonnet-5-5"`
 
@@ -14966,11 +19586,15 @@
 
             minimum: 0
 
-          - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+          - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-haiku-5-5"`
+
+              Fastest model for high-volume, real-time tasks
 
             - `"claude-sonnet-5-5"`
 
@@ -15109,11 +19733,15 @@
 
             minimum: 0
 
-          - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+          - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-haiku-5-5"`
+
+              Fastest model for high-volume, real-time tasks
 
             - `"claude-sonnet-5-5"`
 
@@ -18370,11 +22998,15 @@
 
                       - `type: "advisor_20260301"`
 
-                      - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+                      - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
                         The model that will complete your prompt.
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                        - `"claude-haiku-5-5"`
+
+                          Fastest model for high-volume, real-time tasks
 
                         - `"claude-sonnet-5-5"`
 
@@ -18743,11 +23375,15 @@
 
             The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-            - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+            - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-haiku-5-5"`
+
+                Fastest model for high-volume, real-time tasks
 
               - `"claude-sonnet-5-5"`
 
@@ -18835,7 +23471,7 @@
 
             The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-            - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+            - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
               The model that will complete your prompt.
 
@@ -18984,11 +23620,15 @@
 
             - `type: "unavailable"`
 
-      - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+      - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-haiku-5-5"`
+
+          Fastest model for high-volume, real-time tasks
 
         - `"claude-sonnet-5-5"`
 
@@ -19381,11 +24021,15 @@
 
               minimum: 0
 
-            - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+            - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-haiku-5-5"`
+
+                Fastest model for high-volume, real-time tasks
 
               - `"claude-sonnet-5-5"`
 
@@ -19565,11 +24209,15 @@
 
               minimum: 0
 
-            - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+            - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-haiku-5-5"`
+
+                Fastest model for high-volume, real-time tasks
 
               - `"claude-sonnet-5-5"`
 
@@ -19708,11 +24356,15 @@
 
               minimum: 0
 
-            - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+            - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-haiku-5-5"`
+
+                Fastest model for high-volume, real-time tasks
 
               - `"claude-sonnet-5-5"`
 
@@ -23503,11 +28155,15 @@
 
           - `type: "advisor_20260301"`
 
-          - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
+          - `model: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-fable-5-1" or 17 more or string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-haiku-5-5"`
+
+              Fastest model for high-volume, real-time tasks
 
             - `"claude-sonnet-5-5"`
 
@@ -24874,4960 +29530,3 @@
             If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
           - `input_examples: optional array of map[unknown]`
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `beta_tool_computer_use_20250124: object`
-
-          - `type: "computer_20250124"`
-
-          - `display_height_px: number`
-
-            The height of the display in pixels.
-
-            minimum: 1
-
-          - `display_width_px: number`
-
-            The width of the display in pixels.
-
-            minimum: 1
-
-          - `name: "computer"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `display_number: optional number`
-
-            The X11 display number (e.g. 0, 1) for the display.
-
-            minimum: 0
-
-          - `input_examples: optional array of map[unknown]`
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `beta_tool_text_editor_20241022: object`
-
-          - `type: "text_editor_20241022"`
-
-          - `name: "str_replace_editor"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `input_examples: optional array of map[unknown]`
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `beta_tool_computer_use_20251124: object`
-
-          - `type: "computer_20251124"`
-
-          - `display_height_px: number`
-
-            The height of the display in pixels.
-
-            minimum: 1
-
-          - `display_width_px: number`
-
-            The width of the display in pixels.
-
-            minimum: 1
-
-          - `name: "computer"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `display_number: optional number`
-
-            The X11 display number (e.g. 0, 1) for the display.
-
-            minimum: 0
-
-          - `enable_zoom: optional boolean`
-
-            Whether to enable an action to take a zoomed-in screenshot of the screen.
-
-          - `input_examples: optional array of map[unknown]`
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `beta_computer_toolset_20260801: object`
-
-          The computer toolset: a single `tools[]` entry (carrying no
-          `name`) that declares the computer tool family. The model is
-          served the family's tool with any members disabled via `configs`
-          removed from its schema. Every member is enabled by default, zoom
-          included. The single-tool options `display_number` and
-          `enable_zoom` are not fields of a toolset entry — it carries only
-          `type`, `configs`, and `cache_control`; zoom is controlled
-          via `configs.zoom.enabled`.
-
-          - `type: "computer_toolset_20260801"`
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `configs: optional object`
-
-            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
-
-            - `type: optional object`
-
-              `type`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `cursor_position: optional object`
-
-              `cursor_position`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `double_click: optional object`
-
-              `double_click`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `hold_key: optional object`
-
-              `hold_key`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `key: optional object`
-
-              `key`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `left_click: optional object`
-
-              `left_click`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `left_click_drag: optional object`
-
-              `left_click_drag`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `left_mouse_down: optional object`
-
-              `left_mouse_down`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `left_mouse_up: optional object`
-
-              `left_mouse_up`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `middle_click: optional object`
-
-              `middle_click`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `mouse_move: optional object`
-
-              `mouse_move`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `right_click: optional object`
-
-              `right_click`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `screenshot: optional object`
-
-              `screenshot`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `scroll: optional object`
-
-              `scroll`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `triple_click: optional object`
-
-              `triple_click`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `wait: optional object`
-
-              `wait`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `zoom: optional object`
-
-              `zoom`'s config overrides.
-
-              - `defer_loading: optional boolean`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `enabled: optional boolean`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `beta_tool_text_editor_20250124: object`
-
-          - `type: "text_editor_20250124"`
-
-          - `name: "str_replace_editor"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `input_examples: optional array of map[unknown]`
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `beta_tool_text_editor_20250429: object`
-
-          - `type: "text_editor_20250429"`
-
-          - `name: "str_replace_based_edit_tool"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `input_examples: optional array of map[unknown]`
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `beta_tool_text_editor_20250728: object`
-
-          - `type: "text_editor_20250728"`
-
-          - `name: "str_replace_based_edit_tool"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `input_examples: optional array of map[unknown]`
-
-          - `max_characters: optional number`
-
-            Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
-
-            minimum: 1
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `beta_web_search_tool_20250305: object`
-
-          - `type: "web_search_20250305"`
-
-          - `name: "web_search"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `allowed_domains: optional array of string`
-
-            If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-          - `blocked_domains: optional array of string`
-
-            If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `max_uses: optional number`
-
-            Maximum number of times the tool can be used in the API request.
-
-            minimum: 1
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-          - `user_location: optional object`
-
-            Parameters for the user's location. Used to provide more relevant search results.
-
-            - `type: "approximate"`
-
-            - `city: optional string`
-
-              The city of the user.
-
-              minLength: 1, maxLength: 255
-
-            - `country: optional string`
-
-              The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-              minLength: 2, maxLength: 2
-
-            - `region: optional string`
-
-              The region of the user.
-
-              minLength: 1, maxLength: 255
-
-            - `timezone: optional string`
-
-              The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-              minLength: 1, maxLength: 255
-
-        - `beta_web_fetch_tool_20250910: object`
-
-          - `type: "web_fetch_20250910"`
-
-          - `name: "web_fetch"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `allowed_domains: optional array of string`
-
-            List of domains to allow fetching from
-
-          - `blocked_domains: optional array of string`
-
-            List of domains to block fetching from
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `citations: optional object`
-
-            Citations configuration for fetched documents. Citations are disabled by default.
-
-            - `enabled: optional boolean`
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `max_content_tokens: optional number`
-
-            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-            minimum: 1
-
-          - `max_uses: optional number`
-
-            Maximum number of times the tool can be used in the API request.
-
-            minimum: 1
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-          - `url_sources: optional object`
-
-            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-            - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-              Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
-
-              - `beta_web_fetch_url_source_all: object`
-
-                The `url_sources` variant under which a source contributes in
-                full: every result of the tool filter's source, or all user input.
-
-                - `type: "all"`
-
-              - `beta_web_fetch_url_source_none: object`
-
-                The `url_sources` variant under which a source contributes nothing:
-                no result of the tool filter's source, or no user input.
-
-                - `type: "none"`
-
-              - `beta_web_fetch_url_source_only: object`
-
-                The tool filter variant under which only the named tools' results
-                contribute.
-
-                - `type: "only"`
-
-                - `tools: array of BetaWebFetchURLSourceToolReference`
-
-                  - `type: "tool_reference"`
-
-                  - `name: string`
-
-              - `beta_web_fetch_url_source_except: object`
-
-                The tool filter variant under which every result but the named
-                tools' contributes.
-
-                - `type: "except"`
-
-                - `tools: array of BetaWebFetchURLSourceToolReference`
-
-                  - `type: "tool_reference"`
-
-                  - `name: string`
-
-            - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-              Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
-
-              - `beta_web_fetch_url_source_all: object`
-
-                The `url_sources` variant under which a source contributes in
-                full: every result of the tool filter's source, or all user input.
-
-              - `beta_web_fetch_url_source_none: object`
-
-                The `url_sources` variant under which a source contributes nothing:
-                no result of the tool filter's source, or no user input.
-
-              - `beta_web_fetch_url_source_only: object`
-
-                The tool filter variant under which only the named tools' results
-                contribute.
-
-              - `beta_web_fetch_url_source_except: object`
-
-                The tool filter variant under which every result but the named
-                tools' contributes.
-
-            - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
-
-              Whether URLs in user messages are fetchable: "all" or "none".
-
-              - `beta_web_fetch_url_source_all: object`
-
-                The `url_sources` variant under which a source contributes in
-                full: every result of the tool filter's source, or all user input.
-
-              - `beta_web_fetch_url_source_none: object`
-
-                The `url_sources` variant under which a source contributes nothing:
-                no result of the tool filter's source, or no user input.
-
-        - `beta_web_search_tool_20260209: object`
-
-          - `type: "web_search_20260209"`
-
-          - `name: "web_search"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `allowed_domains: optional array of string`
-
-            If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-          - `blocked_domains: optional array of string`
-
-            If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `max_uses: optional number`
-
-            Maximum number of times the tool can be used in the API request.
-
-            minimum: 1
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-          - `user_location: optional object`
-
-            Parameters for the user's location. Used to provide more relevant search results.
-
-            - `type: "approximate"`
-
-            - `city: optional string`
-
-              The city of the user.
-
-              minLength: 1, maxLength: 255
-
-            - `country: optional string`
-
-              The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-              minLength: 2, maxLength: 2
-
-            - `region: optional string`
-
-              The region of the user.
-
-              minLength: 1, maxLength: 255
-
-            - `timezone: optional string`
-
-              The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-              minLength: 1, maxLength: 255
-
-        - `beta_web_fetch_tool_20260209: object`
-
-          - `type: "web_fetch_20260209"`
-
-          - `name: "web_fetch"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `allowed_domains: optional array of string`
-
-            List of domains to allow fetching from
-
-          - `blocked_domains: optional array of string`
-
-            List of domains to block fetching from
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `citations: optional object`
-
-            Citations configuration for fetched documents. Citations are disabled by default.
-
-            - `enabled: optional boolean`
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `max_content_tokens: optional number`
-
-            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-            minimum: 1
-
-          - `max_uses: optional number`
-
-            Maximum number of times the tool can be used in the API request.
-
-            minimum: 1
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-          - `url_sources: optional object`
-
-            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-            - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-              Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
-
-            - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-              Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
-
-            - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
-
-              Whether URLs in user messages are fetchable: "all" or "none".
-
-        - `beta_web_fetch_tool_20260309: object`
-
-          Web fetch tool with use_cache parameter for bypassing cached content.
-
-          - `type: "web_fetch_20260309"`
-
-          - `name: "web_fetch"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `allowed_domains: optional array of string`
-
-            List of domains to allow fetching from
-
-          - `blocked_domains: optional array of string`
-
-            List of domains to block fetching from
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `citations: optional object`
-
-            Citations configuration for fetched documents. Citations are disabled by default.
-
-            - `enabled: optional boolean`
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `max_content_tokens: optional number`
-
-            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-            minimum: 1
-
-          - `max_uses: optional number`
-
-            Maximum number of times the tool can be used in the API request.
-
-            minimum: 1
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-          - `url_sources: optional object`
-
-            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-            - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-              Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
-
-            - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-              Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
-
-            - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
-
-              Whether URLs in user messages are fetchable: "all" or "none".
-
-          - `use_cache: optional boolean`
-
-            Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-        - `beta_web_search_tool_20260318: object`
-
-          - `type: "web_search_20260318"`
-
-          - `name: "web_search"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `allowed_domains: optional array of string`
-
-            If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-          - `blocked_domains: optional array of string`
-
-            If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `max_uses: optional number`
-
-            Maximum number of times the tool can be used in the API request.
-
-            minimum: 1
-
-          - `response_inclusion: optional "full" or "excluded"`
-
-            How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-            - `"full"`
-
-            - `"excluded"`
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-          - `user_location: optional object`
-
-            Parameters for the user's location. Used to provide more relevant search results.
-
-            - `type: "approximate"`
-
-            - `city: optional string`
-
-              The city of the user.
-
-              minLength: 1, maxLength: 255
-
-            - `country: optional string`
-
-              The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-              minLength: 2, maxLength: 2
-
-            - `region: optional string`
-
-              The region of the user.
-
-              minLength: 1, maxLength: 255
-
-            - `timezone: optional string`
-
-              The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-              minLength: 1, maxLength: 255
-
-        - `beta_web_fetch_tool_20260318: object`
-
-          - `type: "web_fetch_20260318"`
-
-          - `name: "web_fetch"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `allowed_domains: optional array of string`
-
-            List of domains to allow fetching from
-
-          - `blocked_domains: optional array of string`
-
-            List of domains to block fetching from
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `citations: optional object`
-
-            Citations configuration for fetched documents. Citations are disabled by default.
-
-            - `enabled: optional boolean`
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `max_content_tokens: optional number`
-
-            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-            minimum: 1
-
-          - `max_uses: optional number`
-
-            Maximum number of times the tool can be used in the API request.
-
-            minimum: 1
-
-          - `response_inclusion: optional "full" or "excluded"`
-
-            How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-            - `"full"`
-
-            - `"excluded"`
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-          - `url_sources: optional object`
-
-            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-            - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-              Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
-
-            - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-              Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
-
-            - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
-
-              Whether URLs in user messages are fetchable: "all" or "none".
-
-          - `use_cache: optional boolean`
-
-            Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-        - `beta_advisor_tool_20260301: object`
-
-          - `type: "advisor_20260301"`
-
-          - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
-
-            The model that will complete your prompt.
-
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-            - `"claude-sonnet-5-5"`
-
-              Efficient model for coding and agents
-
-            - `"claude-fable-5-1"`
-
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-            - `"claude-opus-5-5"`
-
-              Powerful intelligence for coding, knowledge work, and long-running agents
-
-            - `"claude-mythos-5-1"`
-
-              Our most capable model for cybersecurity and biology research, available through trusted access programs
-
-            - `"claude-sonnet-5"`
-
-              Efficient model for coding and agents
-
-            - `"claude-fable-5"`
-
-              Next generation of intelligence for the hardest knowledge work and coding problems
-
-            - `"claude-mythos-5"`
-
-              Most capable model for cybersecurity and biology research
-
-            - `"claude-opus-5"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-8"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-7"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-6"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-sonnet-4-6"`
-
-              Best combination of speed and intelligence
-
-            - `"claude-haiku-4-5"`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-haiku-4-5-20251001"`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-opus-4-5"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-5-20251101"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-mythos-preview"`
-
-              **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-              New class of intelligence, strongest in coding and cybersecurity
-
-            - `"claude-sonnet-4-5"`
-
-              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-              High-performance model for agents and coding
-
-            - `"claude-sonnet-4-5-20250929"`
-
-              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-              High-performance model for agents and coding
-
-          - `name: "advisor"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `caching: optional object`
-
-            Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `max_tokens: optional number`
-
-            Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
-
-            minimum: 1024
-
-          - `max_uses: optional number`
-
-            Maximum number of times the tool can be used in the API request.
-
-            minimum: 1
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `beta_tool_search_tool_bm25_20251119: object`
-
-          - `type: "tool_search_tool_bm25_20251119" or "tool_search_tool_bm25"`
-
-            - `"tool_search_tool_bm25_20251119"`
-
-            - `"tool_search_tool_bm25"`
-
-          - `name: "tool_search_tool_bm25"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `beta_tool_search_tool_regex_20251119: object`
-
-          - `type: "tool_search_tool_regex_20251119" or "tool_search_tool_regex"`
-
-            - `"tool_search_tool_regex_20251119"`
-
-            - `"tool_search_tool_regex"`
-
-          - `name: "tool_search_tool_regex"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-            - `"direct"`
-
-            - `"code_execution_20250825"`
-
-            - `"code_execution_20260120"`
-
-            - `"code_execution_20260521"`
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `defer_loading: optional boolean`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `strict: optional boolean`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `beta_mcp_toolset: object`
-
-          Configuration for a group of tools from an MCP server.
-
-          Allows configuring enabled status and defer_loading for all tools
-          from an MCP server, with optional per-tool overrides.
-
-          - `type: "mcp_toolset"`
-
-          - `mcp_server_name: string`
-
-            Name of the MCP server to configure tools for
-
-            minLength: 1, maxLength: 255
-
-          - `cache_control: optional object`
-
-            Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-            - `ttl: optional "5m" or "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `configs: optional map[BetaMCPToolConfig]`
-
-            Configuration overrides for specific tools, keyed by tool name
-
-            - `defer_loading: optional boolean`
-
-            - `enabled: optional boolean`
-
-          - `default_config: optional object`
-
-            Default configuration applied to all tools from this server
-
-            - `defer_loading: optional boolean`
-
-            - `enabled: optional boolean`
-
-          - `tools: optional array of BetaMCPToolParam`
-
-            The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
-
-            - `input_schema: map[unknown]`
-
-              The tool's input schema as the MCP server lists it, verbatim.
-
-            - `name: string`
-
-              The tool's name as the MCP server lists it (not prefixed with the server name).
-
-              minLength: 1
-
-            - `description: optional string`
-
-              The tool's description as the MCP server lists it.
-
-### Beta Response Tool Change MCP Tool Reference
-
-- `beta_response_tool_change_mcp_tool_reference: object`
-
-  Reference to a single MCP tool, by its server and its name on that
-  server, as a `compaction` block's `tool_changes` entry reports it.
-  Send it back unchanged with the block.
-
-  - `type: "mcp_tool_reference"`
-
-  - `name: string`
-
-  - `server_name: string`
-
-### Beta Response Tool Change MCP Toolset Reference
-
-- `beta_response_tool_change_mcp_toolset_reference: object`
-
-  Reference to every tool in the named MCP server's toolset, as a
-  `compaction` block's `tool_changes` entry reports it. Send it back
-  unchanged with the block.
-
-  - `type: "mcp_toolset_reference"`
-
-  - `server_name: string`
-
-### Beta Response Tool Change Tool Reference
-
-- `beta_response_tool_change_tool_reference: object`
-
-  Reference to a single tool, by the name the model uses to call it, as
-  a `compaction` block's `tool_changes` entry reports it: a tool
-  declared in `tools` or defined by an earlier `tool_addition` block.
-  Send it back unchanged with the block.
-
-  - `type: "tool_reference"`
-
-  - `name: string`
-
-### Beta Response Tool Input Schema
-
-- `beta_response_tool_input_schema: object`
-
-  [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
-
-  This defines the shape of the `input` that your tool accepts and that the model will produce.
-
-  - `type: "object"`
-
-  - `properties: optional map[unknown]`
-
-  - `required: optional array of string`
-
-### Beta Response Tool Removal Block
-
-- `beta_response_tool_removal_block: object`
-
-  An entry of a `compaction` block's `tool_changes`: a tool of the
-  request's `tools` (or an MCP tool or toolset) that the compacted range
-  withdrew. Send it back unchanged.
-
-  - `type: "tool_removal"`
-
-  - `tool: BetaResponseToolChangeToolReference or BetaResponseToolChangeMCPToolReference or BetaResponseToolChangeMCPToolsetReference`
-
-    A reference to the withdrawn `tools` entry, MCP tool or MCP toolset.
-
-    - `beta_response_tool_change_tool_reference: object`
-
-      Reference to a single tool, by the name the model uses to call it, as
-      a `compaction` block's `tool_changes` entry reports it: a tool
-      declared in `tools` or defined by an earlier `tool_addition` block.
-      Send it back unchanged with the block.
-
-      - `type: "tool_reference"`
-
-      - `name: string`
-
-    - `beta_response_tool_change_mcp_tool_reference: object`
-
-      Reference to a single MCP tool, by its server and its name on that
-      server, as a `compaction` block's `tool_changes` entry reports it.
-      Send it back unchanged with the block.
-
-      - `type: "mcp_tool_reference"`
-
-      - `name: string`
-
-      - `server_name: string`
-
-    - `beta_response_tool_change_mcp_toolset_reference: object`
-
-      Reference to every tool in the named MCP server's toolset, as a
-      `compaction` block's `tool_changes` entry reports it. Send it back
-      unchanged with the block.
-
-      - `type: "mcp_toolset_reference"`
-
-      - `server_name: string`
-
-### Beta Response Tool Union
-
-- `beta_response_tool_union: BetaResponseTool or BetaToolBash20241022 or BetaToolBash20250124 or 25 more`
-
-  - `beta_response_tool: object`
-
-    A custom tool definition, as sent.
-
-    - `type: optional "custom"`
-
-    - `input_schema: object`
-
-      [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
-
-      This defines the shape of the `input` that your tool accepts and that the model will produce.
-
-      - `type: "object"`
-
-      - `properties: optional map[unknown]`
-
-      - `required: optional array of string`
-
-    - `name: string`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-      minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `description: optional string`
-
-      Description of what this tool does.
-
-      Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
-
-    - `eager_input_streaming: optional boolean`
-
-      Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
-
-    - `input_examples: optional array of map[unknown]`
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_tool_bash_20241022: object`
-
-    - `type: "bash_20241022"`
-
-    - `name: "bash"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-        - `"5m"`
-
-        - `"1h"`
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `input_examples: optional array of map[unknown]`
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_tool_bash_20250124: object`
-
-    - `type: "bash_20250124"`
-
-    - `name: "bash"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `input_examples: optional array of map[unknown]`
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_code_execution_tool_20250522: object`
-
-    - `type: "code_execution_20250522"`
-
-    - `name: "code_execution"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_code_execution_tool_20250825: object`
-
-    - `type: "code_execution_20250825"`
-
-    - `name: "code_execution"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_code_execution_tool_20260120: object`
-
-    Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
-
-    - `type: "code_execution_20260120"`
-
-    - `name: "code_execution"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_code_execution_tool_20260521: object`
-
-    Code execution tool with REPL state persistence.
-
-    - `type: "code_execution_20260521"`
-
-    - `name: "code_execution"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_browser_toolset_20260801: object`
-
-    The browser toolset: a single `tools[]` entry (carrying no
-    `name`) that declares the browser tool family. The model is served
-    the family's tool with any members disabled via `configs` removed
-    from its schema.
-
-    - `type: "browser_toolset_20260801"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `configs: optional object`
-
-      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
-
-      - `type: optional object`
-
-        `type`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `close_tab: optional object`
-
-        `close_tab`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `double_click: optional object`
-
-        `double_click`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `file_upload: optional object`
-
-        `file_upload`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `find: optional object`
-
-        `find`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `form_input: optional object`
-
-        `form_input`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `get_page_text: optional object`
-
-        `get_page_text`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `hold_key: optional object`
-
-        `hold_key`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `hover: optional object`
-
-        `hover`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `javascript_exec: optional object`
-
-        `javascript_exec`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `key: optional object`
-
-        `key`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_click: optional object`
-
-        `left_click`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_click_drag: optional object`
-
-        `left_click_drag`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_mouse_down: optional object`
-
-        `left_mouse_down`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_mouse_up: optional object`
-
-        `left_mouse_up`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `list_tabs: optional object`
-
-        `list_tabs`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `middle_click: optional object`
-
-        `middle_click`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `mouse_move: optional object`
-
-        `mouse_move`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `navigate: optional object`
-
-        `navigate`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `new_tab: optional object`
-
-        `new_tab`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `read_console: optional object`
-
-        `read_console`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `read_network: optional object`
-
-        `read_network`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `read_page: optional object`
-
-        `read_page`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `right_click: optional object`
-
-        `right_click`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `screenshot: optional object`
-
-        `screenshot`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `scroll: optional object`
-
-        `scroll`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `scroll_to: optional object`
-
-        `scroll_to`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `switch_tab: optional object`
-
-        `switch_tab`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `triple_click: optional object`
-
-        `triple_click`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `wait: optional object`
-
-        `wait`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `zoom: optional object`
-
-        `zoom`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-  - `beta_tool_computer_use_20241022: object`
-
-    - `type: "computer_20241022"`
-
-    - `display_height_px: number`
-
-      The height of the display in pixels.
-
-      minimum: 1
-
-    - `display_width_px: number`
-
-      The width of the display in pixels.
-
-      minimum: 1
-
-    - `name: "computer"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `display_number: optional number`
-
-      The X11 display number (e.g. 0, 1) for the display.
-
-      minimum: 0
-
-    - `input_examples: optional array of map[unknown]`
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_memory_tool_20250818: object`
-
-    - `type: "memory_20250818"`
-
-    - `name: "memory"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `input_examples: optional array of map[unknown]`
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_tool_computer_use_20250124: object`
-
-    - `type: "computer_20250124"`
-
-    - `display_height_px: number`
-
-      The height of the display in pixels.
-
-      minimum: 1
-
-    - `display_width_px: number`
-
-      The width of the display in pixels.
-
-      minimum: 1
-
-    - `name: "computer"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `display_number: optional number`
-
-      The X11 display number (e.g. 0, 1) for the display.
-
-      minimum: 0
-
-    - `input_examples: optional array of map[unknown]`
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_tool_text_editor_20241022: object`
-
-    - `type: "text_editor_20241022"`
-
-    - `name: "str_replace_editor"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `input_examples: optional array of map[unknown]`
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_tool_computer_use_20251124: object`
-
-    - `type: "computer_20251124"`
-
-    - `display_height_px: number`
-
-      The height of the display in pixels.
-
-      minimum: 1
-
-    - `display_width_px: number`
-
-      The width of the display in pixels.
-
-      minimum: 1
-
-    - `name: "computer"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `display_number: optional number`
-
-      The X11 display number (e.g. 0, 1) for the display.
-
-      minimum: 0
-
-    - `enable_zoom: optional boolean`
-
-      Whether to enable an action to take a zoomed-in screenshot of the screen.
-
-    - `input_examples: optional array of map[unknown]`
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_computer_toolset_20260801: object`
-
-    The computer toolset: a single `tools[]` entry (carrying no
-    `name`) that declares the computer tool family. The model is
-    served the family's tool with any members disabled via `configs`
-    removed from its schema. Every member is enabled by default, zoom
-    included. The single-tool options `display_number` and
-    `enable_zoom` are not fields of a toolset entry — it carries only
-    `type`, `configs`, and `cache_control`; zoom is controlled
-    via `configs.zoom.enabled`.
-
-    - `type: "computer_toolset_20260801"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `configs: optional object`
-
-      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
-
-      - `type: optional object`
-
-        `type`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `cursor_position: optional object`
-
-        `cursor_position`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `double_click: optional object`
-
-        `double_click`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `hold_key: optional object`
-
-        `hold_key`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `key: optional object`
-
-        `key`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_click: optional object`
-
-        `left_click`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_click_drag: optional object`
-
-        `left_click_drag`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_mouse_down: optional object`
-
-        `left_mouse_down`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_mouse_up: optional object`
-
-        `left_mouse_up`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `middle_click: optional object`
-
-        `middle_click`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `mouse_move: optional object`
-
-        `mouse_move`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `right_click: optional object`
-
-        `right_click`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `screenshot: optional object`
-
-        `screenshot`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `scroll: optional object`
-
-        `scroll`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `triple_click: optional object`
-
-        `triple_click`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `wait: optional object`
-
-        `wait`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `zoom: optional object`
-
-        `zoom`'s config overrides.
-
-        - `defer_loading: optional boolean`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: optional boolean`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-  - `beta_tool_text_editor_20250124: object`
-
-    - `type: "text_editor_20250124"`
-
-    - `name: "str_replace_editor"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `input_examples: optional array of map[unknown]`
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_tool_text_editor_20250429: object`
-
-    - `type: "text_editor_20250429"`
-
-    - `name: "str_replace_based_edit_tool"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `input_examples: optional array of map[unknown]`
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_tool_text_editor_20250728: object`
-
-    - `type: "text_editor_20250728"`
-
-    - `name: "str_replace_based_edit_tool"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `input_examples: optional array of map[unknown]`
-
-    - `max_characters: optional number`
-
-      Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
-
-      minimum: 1
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_web_search_tool_20250305: object`
-
-    - `type: "web_search_20250305"`
-
-    - `name: "web_search"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `allowed_domains: optional array of string`
-
-      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-    - `blocked_domains: optional array of string`
-
-      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `max_uses: optional number`
-
-      Maximum number of times the tool can be used in the API request.
-
-      minimum: 1
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-    - `user_location: optional object`
-
-      Parameters for the user's location. Used to provide more relevant search results.
-
-      - `type: "approximate"`
-
-      - `city: optional string`
-
-        The city of the user.
-
-        minLength: 1, maxLength: 255
-
-      - `country: optional string`
-
-        The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-        minLength: 2, maxLength: 2
-
-      - `region: optional string`
-
-        The region of the user.
-
-        minLength: 1, maxLength: 255
-
-      - `timezone: optional string`
-
-        The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-        minLength: 1, maxLength: 255
-
-  - `beta_web_fetch_tool_20250910: object`
-
-    - `type: "web_fetch_20250910"`
-
-    - `name: "web_fetch"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `allowed_domains: optional array of string`
-
-      List of domains to allow fetching from
-
-    - `blocked_domains: optional array of string`
-
-      List of domains to block fetching from
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `citations: optional object`
-
-      Citations configuration for fetched documents. Citations are disabled by default.
-
-      - `enabled: optional boolean`
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `max_content_tokens: optional number`
-
-      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-      minimum: 1
-
-    - `max_uses: optional number`
-
-      Maximum number of times the tool can be used in the API request.
-
-      minimum: 1
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-    - `url_sources: optional object`
-
-      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-      - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
-
-        - `beta_web_fetch_url_source_all: object`
-
-          The `url_sources` variant under which a source contributes in
-          full: every result of the tool filter's source, or all user input.
-
-          - `type: "all"`
-
-        - `beta_web_fetch_url_source_none: object`
-
-          The `url_sources` variant under which a source contributes nothing:
-          no result of the tool filter's source, or no user input.
-
-          - `type: "none"`
-
-        - `beta_web_fetch_url_source_only: object`
-
-          The tool filter variant under which only the named tools' results
-          contribute.
-
-          - `type: "only"`
-
-          - `tools: array of BetaWebFetchURLSourceToolReference`
-
-            - `type: "tool_reference"`
-
-            - `name: string`
-
-        - `beta_web_fetch_url_source_except: object`
-
-          The tool filter variant under which every result but the named
-          tools' contributes.
-
-          - `type: "except"`
-
-          - `tools: array of BetaWebFetchURLSourceToolReference`
-
-            - `type: "tool_reference"`
-
-            - `name: string`
-
-      - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
-
-        - `beta_web_fetch_url_source_all: object`
-
-          The `url_sources` variant under which a source contributes in
-          full: every result of the tool filter's source, or all user input.
-
-        - `beta_web_fetch_url_source_none: object`
-
-          The `url_sources` variant under which a source contributes nothing:
-          no result of the tool filter's source, or no user input.
-
-        - `beta_web_fetch_url_source_only: object`
-
-          The tool filter variant under which only the named tools' results
-          contribute.
-
-        - `beta_web_fetch_url_source_except: object`
-
-          The tool filter variant under which every result but the named
-          tools' contributes.
-
-      - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
-
-        Whether URLs in user messages are fetchable: "all" or "none".
-
-        - `beta_web_fetch_url_source_all: object`
-
-          The `url_sources` variant under which a source contributes in
-          full: every result of the tool filter's source, or all user input.
-
-        - `beta_web_fetch_url_source_none: object`
-
-          The `url_sources` variant under which a source contributes nothing:
-          no result of the tool filter's source, or no user input.
-
-  - `beta_web_search_tool_20260209: object`
-
-    - `type: "web_search_20260209"`
-
-    - `name: "web_search"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `allowed_domains: optional array of string`
-
-      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-    - `blocked_domains: optional array of string`
-
-      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `max_uses: optional number`
-
-      Maximum number of times the tool can be used in the API request.
-
-      minimum: 1
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-    - `user_location: optional object`
-
-      Parameters for the user's location. Used to provide more relevant search results.
-
-      - `type: "approximate"`
-
-      - `city: optional string`
-
-        The city of the user.
-
-        minLength: 1, maxLength: 255
-
-      - `country: optional string`
-
-        The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-        minLength: 2, maxLength: 2
-
-      - `region: optional string`
-
-        The region of the user.
-
-        minLength: 1, maxLength: 255
-
-      - `timezone: optional string`
-
-        The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-        minLength: 1, maxLength: 255
-
-  - `beta_web_fetch_tool_20260209: object`
-
-    - `type: "web_fetch_20260209"`
-
-    - `name: "web_fetch"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `allowed_domains: optional array of string`
-
-      List of domains to allow fetching from
-
-    - `blocked_domains: optional array of string`
-
-      List of domains to block fetching from
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `citations: optional object`
-
-      Citations configuration for fetched documents. Citations are disabled by default.
-
-      - `enabled: optional boolean`
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `max_content_tokens: optional number`
-
-      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-      minimum: 1
-
-    - `max_uses: optional number`
-
-      Maximum number of times the tool can be used in the API request.
-
-      minimum: 1
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-    - `url_sources: optional object`
-
-      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-      - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
-
-      - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
-
-      - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
-
-        Whether URLs in user messages are fetchable: "all" or "none".
-
-  - `beta_web_fetch_tool_20260309: object`
-
-    Web fetch tool with use_cache parameter for bypassing cached content.
-
-    - `type: "web_fetch_20260309"`
-
-    - `name: "web_fetch"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `allowed_domains: optional array of string`
-
-      List of domains to allow fetching from
-
-    - `blocked_domains: optional array of string`
-
-      List of domains to block fetching from
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `citations: optional object`
-
-      Citations configuration for fetched documents. Citations are disabled by default.
-
-      - `enabled: optional boolean`
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `max_content_tokens: optional number`
-
-      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-      minimum: 1
-
-    - `max_uses: optional number`
-
-      Maximum number of times the tool can be used in the API request.
-
-      minimum: 1
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-    - `url_sources: optional object`
-
-      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-      - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
-
-      - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
-
-      - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
-
-        Whether URLs in user messages are fetchable: "all" or "none".
-
-    - `use_cache: optional boolean`
-
-      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-  - `beta_web_search_tool_20260318: object`
-
-    - `type: "web_search_20260318"`
-
-    - `name: "web_search"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `allowed_domains: optional array of string`
-
-      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-    - `blocked_domains: optional array of string`
-
-      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `max_uses: optional number`
-
-      Maximum number of times the tool can be used in the API request.
-
-      minimum: 1
-
-    - `response_inclusion: optional "full" or "excluded"`
-
-      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-      - `"full"`
-
-      - `"excluded"`
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-    - `user_location: optional object`
-
-      Parameters for the user's location. Used to provide more relevant search results.
-
-      - `type: "approximate"`
-
-      - `city: optional string`
-
-        The city of the user.
-
-        minLength: 1, maxLength: 255
-
-      - `country: optional string`
-
-        The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-        minLength: 2, maxLength: 2
-
-      - `region: optional string`
-
-        The region of the user.
-
-        minLength: 1, maxLength: 255
-
-      - `timezone: optional string`
-
-        The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-        minLength: 1, maxLength: 255
-
-  - `beta_web_fetch_tool_20260318: object`
-
-    - `type: "web_fetch_20260318"`
-
-    - `name: "web_fetch"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `allowed_domains: optional array of string`
-
-      List of domains to allow fetching from
-
-    - `blocked_domains: optional array of string`
-
-      List of domains to block fetching from
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `citations: optional object`
-
-      Citations configuration for fetched documents. Citations are disabled by default.
-
-      - `enabled: optional boolean`
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `max_content_tokens: optional number`
-
-      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-      minimum: 1
-
-    - `max_uses: optional number`
-
-      Maximum number of times the tool can be used in the API request.
-
-      minimum: 1
-
-    - `response_inclusion: optional "full" or "excluded"`
-
-      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-      - `"full"`
-
-      - `"excluded"`
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-    - `url_sources: optional object`
-
-      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-      - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
-
-      - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
-
-        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
-
-      - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
-
-        Whether URLs in user messages are fetchable: "all" or "none".
-
-    - `use_cache: optional boolean`
-
-      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-  - `beta_advisor_tool_20260301: object`
-
-    - `type: "advisor_20260301"`
-
-    - `model: "claude-sonnet-5-5" or "claude-fable-5-1" or "claude-opus-5-5" or 16 more or string`
-
-      The model that will complete your prompt.
-
-      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-      - `"claude-sonnet-5-5"`
-
-        Efficient model for coding and agents
-
-      - `"claude-fable-5-1"`
-
-        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-      - `"claude-opus-5-5"`
-
-        Powerful intelligence for coding, knowledge work, and long-running agents
-
-      - `"claude-mythos-5-1"`
-
-        Our most capable model for cybersecurity and biology research, available through trusted access programs
-
-      - `"claude-sonnet-5"`
-
-        Efficient model for coding and agents
-
-      - `"claude-fable-5"`
-
-        Next generation of intelligence for the hardest knowledge work and coding problems
-
-      - `"claude-mythos-5"`
-
-        Most capable model for cybersecurity and biology research
-
-      - `"claude-opus-5"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `"claude-opus-4-8"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `"claude-opus-4-7"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `"claude-opus-4-6"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `"claude-sonnet-4-6"`
-
-        Best combination of speed and intelligence
-
-      - `"claude-haiku-4-5"`
-
-        Fastest model with near-frontier intelligence
-
-      - `"claude-haiku-4-5-20251001"`
-
-        Fastest model with near-frontier intelligence
-
-      - `"claude-opus-4-5"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `"claude-opus-4-5-20251101"`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `"claude-mythos-preview"`
-
-        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-        New class of intelligence, strongest in coding and cybersecurity
-
-      - `"claude-sonnet-4-5"`
-
-        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-        High-performance model for agents and coding
-
-      - `"claude-sonnet-4-5-20250929"`
-
-        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-        High-performance model for agents and coding
-
-    - `name: "advisor"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `caching: optional object`
-
-      Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `max_tokens: optional number`
-
-      Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
-
-      minimum: 1024
-
-    - `max_uses: optional number`
-
-      Maximum number of times the tool can be used in the API request.
-
-      minimum: 1
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_tool_search_tool_bm25_20251119: object`
-
-    - `type: "tool_search_tool_bm25_20251119" or "tool_search_tool_bm25"`
-
-      - `"tool_search_tool_bm25_20251119"`
-
-      - `"tool_search_tool_bm25"`
-
-    - `name: "tool_search_tool_bm25"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_tool_search_tool_regex_20251119: object`
-
-    - `type: "tool_search_tool_regex_20251119" or "tool_search_tool_regex"`
-
-      - `"tool_search_tool_regex_20251119"`
-
-      - `"tool_search_tool_regex"`
-
-    - `name: "tool_search_tool_regex"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `defer_loading: optional boolean`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `strict: optional boolean`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `beta_mcp_toolset: object`
-
-    Configuration for a group of tools from an MCP server.
-
-    Allows configuring enabled status and defer_loading for all tools
-    from an MCP server, with optional per-tool overrides.
-
-    - `type: "mcp_toolset"`
-
-    - `mcp_server_name: string`
-
-      Name of the MCP server to configure tools for
-
-      minLength: 1, maxLength: 255
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-    - `configs: optional map[BetaMCPToolConfig]`
-
-      Configuration overrides for specific tools, keyed by tool name
-
-      - `defer_loading: optional boolean`
-
-      - `enabled: optional boolean`
-
-    - `default_config: optional object`
-
-      Default configuration applied to all tools from this server
-
-      - `defer_loading: optional boolean`
-
-      - `enabled: optional boolean`
-
-    - `tools: optional array of BetaMCPToolParam`
-
-      The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
-
-      - `input_schema: map[unknown]`
-
-        The tool's input schema as the MCP server lists it, verbatim.
-
-      - `name: string`
-
-        The tool's name as the MCP server lists it (not prefixed with the server name).
-
-        minLength: 1
-
-      - `description: optional string`
-
-        The tool's description as the MCP server lists it.
-
-### Beta Search Result Block Param
-
-- `beta_search_result_block_param: object`
-
-  - `type: "search_result"`
-
-  - `content: array of BetaTextBlockParam`
-
-    - `type: "text"`
-
-    - `text: string`
-
-      minLength: 1
-
-    - `cache_control: optional object`
-
-      Create a cache control breakpoint at this content block.
-
-      - `type: "ephemeral"`
-
-      - `ttl: optional "5m" or "1h"`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-        - `"5m"`
-
-        - `"1h"`
-
-    - `citations: optional array of BetaTextCitationParam`
-
-      - `beta_citation_char_location_param: object`
-
-        - `type: "char_location"`
-
-        - `cited_text: string`
-
-        - `document_index: number`
-
-          minimum: 0
-
-        - `document_title: string`
-
-          minLength: 1, maxLength: 500
-
-        - `end_char_index: number`
-
-        - `start_char_index: number`
-
-          minimum: 0
-
-      - `beta_citation_page_location_param: object`
-
-        - `type: "page_location"`
-
-        - `cited_text: string`
-
-        - `document_index: number`
-
-          minimum: 0
-
-        - `document_title: string`
-
-          minLength: 1, maxLength: 500
-
-        - `end_page_number: number`
-
-        - `start_page_number: number`
-
-          minimum: 1
-
-      - `beta_citation_content_block_location_param: object`
-
-        - `type: "content_block_location"`
-
-        - `cited_text: string`
-
-          The full text of the cited block range, concatenated.
-
-          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-        - `document_index: number`
-
-          minimum: 0
-
-        - `document_title: string`
-
-          minLength: 1, maxLength: 500
-
-        - `end_block_index: number`
-
-          Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-        - `start_block_index: number`
-
-          0-based index of the first cited block in the source's `content` array.
-
-          minimum: 0
-
-      - `beta_citation_web_search_result_location_param: object`
-
-        - `type: "web_search_result_location"`
-
-        - `cited_text: string`
-
-        - `encrypted_index: string`
-
-        - `title: string`
-
-          minLength: 1, maxLength: 512
-
-        - `url: string`
-
-          minLength: 1
-
-      - `beta_citation_search_result_location_param: object`
-
-        - `type: "search_result_location"`
-
-        - `cited_text: string`
-
-          The full text of the cited block range, concatenated.
-
-          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-        - `end_block_index: number`
-
-          Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-        - `search_result_index: number`
-
-          0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-          Counted separately from `document_index`; server-side web search results are not included in this count.
-
-          minimum: 0
-
-        - `source: string`
-
-        - `start_block_index: number`
-
-          0-based index of the first cited block in the source's `content` array.
-
-          minimum: 0
-
-        - `title: string`
-
-  - `source: string`
-
-  - `title: string`
-
-  - `cache_control: optional object`
-
-    Create a cache control breakpoint at this content block.
-
-    - `type: "ephemeral"`
-
-    - `ttl: optional "5m" or "1h"`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-  - `citations: optional object`
-
-    - `enabled: optional boolean`
-
-### Beta Server Tool Caller
-
-- `beta_server_tool_caller: object`
-
-  Tool invocation generated by a server-side tool.
-
-  - `type: "code_execution_20250825"`
-
-  - `tool_id: string`
-
-    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-### Beta Server Tool Caller 20260120
-
-- `beta_server_tool_caller_20260120: object`
-
-  - `type: "code_execution_20260120"`
-
-  - `tool_id: string`
-
-    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-### Beta Server Tool Usage
-
-- `beta_server_tool_usage: object`
-
-  - `web_fetch_requests: number`
-
-    The number of web fetch tool requests.
-
-    minimum: 0
-
-  - `web_search_requests: number`
-
-    The number of web search tool requests.
-
-    minimum: 0
-
-### Beta Server Tool Use Block
-
-- `beta_server_tool_use_block: object`
-
-  - `type: "server_tool_use"`
-
-  - `id: string`
-
-    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `input: map[unknown]`
-
-  - `name: "advisor" or "web_search" or "web_fetch" or 5 more`
-
-    - `"advisor"`
-
-    - `"web_search"`
-
-    - `"web_fetch"`
-
-    - `"code_execution"`
-
-    - `"bash_code_execution"`
-
-    - `"text_editor_code_execution"`
-
-    - `"tool_search_tool_regex"`
-
-    - `"tool_search_tool_bm25"`
-
-  - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-    - `beta_direct_caller: object`
-
-      Tool invocation directly from the model.
-
-      - `type: "direct"`
-
-    - `beta_server_tool_caller: object`
-
-      Tool invocation generated by a server-side tool.
-
-      - `type: "code_execution_20250825"`
-
-      - `tool_id: string`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `beta_server_tool_caller_20260120: object`
-
-      - `type: "code_execution_20260120"`
-
-      - `tool_id: string`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-### Beta Server Tool Use Block Param
-
-- `beta_server_tool_use_block_param: object`
-
-  - `type: "server_tool_use"`
-
-  - `id: string`
-
-    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `input: map[unknown]`
-
-  - `name: "advisor" or "web_search" or "web_fetch" or 5 more`
-
-    - `"advisor"`
-
-    - `"web_search"`
-
-    - `"web_fetch"`
-
-    - `"code_execution"`
-
-    - `"bash_code_execution"`
-
-    - `"text_editor_code_execution"`
-
-    - `"tool_search_tool_regex"`
-
-    - `"tool_search_tool_bm25"`
-
-  - `cache_control: optional object`
-
-    Create a cache control breakpoint at this content block.
-
-    - `type: "ephemeral"`
-
-    - `ttl: optional "5m" or "1h"`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `"5m"`
-
-      - `"1h"`
-
-  - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-    - `beta_direct_caller: object`
-
-      Tool invocation directly from the model.
-
-      - `type: "direct"`
-
-    - `beta_server_tool_caller: object`
-
-      Tool invocation generated by a server-side tool.
-
-      - `type: "code_execution_20250825"`
-
-      - `tool_id: string`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `beta_server_tool_caller_20260120: object`
-
-      - `type: "code_execution_20260120"`
-
-      - `tool_id: string`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-### Beta Signature Delta
-
-- `beta_signature_delta: object`
-
-  - `type: "signature_delta"`
-
-  - `signature: string`
-
-    The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
-
-### Beta Skill Params
-
-- `beta_skill_params: object`
-
-  Specification for a skill to be loaded in a container (request model).
-
-  - `type: "anthropic" or "custom"`
-
-    Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
-    - `"anthropic"`
-
-    - `"custom"`
-
-  - `skill_id: string`
-
-    Skill ID
-
-    minLength: 1, maxLength: 64
-
-  - `version: optional string`
-
-    Skill version or 'latest' for most recent version
-
-    minLength: 1, maxLength: 64
-
-### Beta Stop Reason
-
-- `beta_stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 5 more`
-
-  - `"end_turn"`
-
-  - `"max_tokens"`
-
-  - `"stop_sequence"`
-
-  - `"tool_use"`
-
-  - `"pause_turn"`
-
-  - `"compaction"`
-
-  - `"refusal"`
-
-  - `"model_context_window_exceeded"`
-
-### Beta Summarize Compaction
-
-- `beta_summarize_compaction: object`
-
-  Compact the whole conversation and return a signed `compaction` block,
-  alone, that a later request sends back first in `messages`, in place of
-  the messages it summarizes. There is no trigger and no pause flag: sending
-  the parameter compacts, and nothing is sampled after the block.
-
-  The summarization prompt is the server's own unless `instructions` are
-  given, which then replace it for this request; a value that is empty or
-  only whitespace counts as absent.
-
-  - `type: "summarize"`
-
-  - `instructions: optional string`
-
-    Replaces the server's default summarization prompt for this request. An empty or whitespace-only value counts as absent.
-
-    maxLength: 16384
-
-### Beta System Message Output Config
-
-- `beta_system_message_output_config: object`
-
-  Per-message output configuration on a role:"system" input message.
-
-  Fields here apply per-turn; `format` remains top-level only. An
-  empty `{}` is accepted on a message that carries content; a message
-  with neither content nor output_config fields is rejected.
-
-  - `effort: optional "low" or "medium" or "high" or 2 more`
-
-    How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
-
-    Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
-
-    - `"low"`
-
-    - `"medium"`
-
-    - `"high"`
-
-    - `"xhigh"`
-
-    - `"max"`
-
-### Beta Text Block
-
-- `beta_text_block: object`
-
-  - `type: "text"`
-
-  - `citations: array of BetaTextCitation`
-
-    Citations supporting the text block.
-
-    The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-
-    - `beta_citation_char_location: object`
-
-      - `type: "char_location"`
-
-      - `cited_text: string`
-
-      - `document_index: number`
-
-        minimum: 0
-
-      - `document_title: string`
-
-      - `end_char_index: number`
-
-      - `file_id: string`
-
-      - `start_char_index: number`
-
-        minimum: 0
-
-    - `beta_citation_page_location: object`
-
-      - `type: "page_location"`
-
-      - `cited_text: string`
-
-      - `document_index: number`
-
-        minimum: 0
-
-      - `document_title: string`
-
-      - `end_page_number: number`
-
-      - `file_id: string`
-
-      - `start_page_number: number`
-
-        minimum: 1
-
-    - `beta_citation_content_block_location: object`
-
-      - `type: "content_block_location"`
-
-      - `cited_text: string`
-
-        The full text of the cited block range, concatenated.
-
-        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-      - `document_index: number`
-
-        minimum: 0
-
-      - `document_title: string`
-
-      - `end_block_index: number`
-
-        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-      - `file_id: string`
-
-      - `start_block_index: number`
-
-        0-based index of the first cited block in the source's `content` array.
-
-        minimum: 0
-
-    - `beta_citations_web_search_result_location: object`
-
-      - `type: "web_search_result_location"`
-
-      - `cited_text: string`
-
-      - `encrypted_index: string`
-
-      - `title: string`
-
-        maxLength: 512
-
-      - `url: string`
-
-    - `beta_citation_search_result_location: object`
-
-      - `type: "search_result_location"`
-
-      - `cited_text: string`
-
-        The full text of the cited block range, concatenated.
-
-        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-      - `end_block_index: number`
-
-        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-      - `search_result_index: number`
-
-        0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-        Counted separately from `document_index`; server-side web search results are not included in this count.
-
-        minimum: 0
-
-      - `source: string`
-
-      - `start_block_index: number`
-
-        0-based index of the first cited block in the source's `content` array.
-
-        minimum: 0
-
-      - `title: string`
-
-  - `text: string`
-
-### Beta Text Block Param
-
-- `beta_text_block_param: object`
-
-  - `type: "text"`
-
-  - `text: string`
-
-    minLength: 1
-
-  - `cache_control: optional object`
-
-    Create a cache control breakpoint at this content block.
-
-    - `type: "ephemeral"`
-
-    - `ttl: optional "5m" or "1h"`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `"5m"`
-
-      - `"1h"`
-
-  - `citations: optional array of BetaTextCitationParam`
-
-    - `beta_citation_char_location_param: object`
-
-      - `type: "char_location"`
-
-      - `cited_text: string`
-
-      - `document_index: number`
-
-        minimum: 0
-
-      - `document_title: string`
-
-        minLength: 1, maxLength: 500
-
-      - `end_char_index: number`
-
-      - `start_char_index: number`
-
-        minimum: 0
-
-    - `beta_citation_page_location_param: object`
-
-      - `type: "page_location"`
-
-      - `cited_text: string`
-
-      - `document_index: number`
-
-        minimum: 0
-
-      - `document_title: string`
-
-        minLength: 1, maxLength: 500
-
-      - `end_page_number: number`
-
-      - `start_page_number: number`
-
-        minimum: 1
-
-    - `beta_citation_content_block_location_param: object`
-
-      - `type: "content_block_location"`
-
-      - `cited_text: string`
-
-        The full text of the cited block range, concatenated.
-
-        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-      - `document_index: number`
-
-        minimum: 0
-
-      - `document_title: string`
-
-        minLength: 1, maxLength: 500
-
-      - `end_block_index: number`
-
-        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-      - `start_block_index: number`
-
-        0-based index of the first cited block in the source's `content` array.
-
-        minimum: 0
-
-    - `beta_citation_web_search_result_location_param: object`
-
-      - `type: "web_search_result_location"`
-
-      - `cited_text: string`
-
-      - `encrypted_index: string`
-
-      - `title: string`
-
-        minLength: 1, maxLength: 512
-
-      - `url: string`
-
-        minLength: 1
-
-    - `beta_citation_search_result_location_param: object`
-
-      - `type: "search_result_location"`
-
-      - `cited_text: string`
-
-        The full text of the cited block range, concatenated.
-
-        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-      - `end_block_index: number`
-
-        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-      - `search_result_index: number`
-
-        0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-        Counted separately from `document_index`; server-side web search results are not included in this count.
-
-        minimum: 0
-
-      - `source: string`
-
-      - `start_block_index: number`
-
-        0-based index of the first cited block in the source's `content` array.
-
-        minimum: 0
-
-      - `title: string`
-
-### Beta Text Citation
-
-- `beta_text_citation: BetaCitationCharLocation or BetaCitationPageLocation or BetaCitationContentBlockLocation or 2 more`
-
-  - `beta_citation_char_location: object`
-
-    - `type: "char_location"`
-
-    - `cited_text: string`
-
-    - `document_index: number`
-
-      minimum: 0
-
-    - `document_title: string`
-
-    - `end_char_index: number`
-
-    - `file_id: string`
-
-    - `start_char_index: number`
-
-      minimum: 0
-
-  - `beta_citation_page_location: object`
-
-    - `type: "page_location"`
-
-    - `cited_text: string`
-
-    - `document_index: number`
-
-      minimum: 0
-
-    - `document_title: string`
-
-    - `end_page_number: number`
-
-    - `file_id: string`
-
-    - `start_page_number: number`
-
-      minimum: 1
-
-  - `beta_citation_content_block_location: object`
-
-    - `type: "content_block_location"`
-
-    - `cited_text: string`

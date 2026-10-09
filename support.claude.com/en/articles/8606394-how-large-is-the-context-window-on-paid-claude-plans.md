@@ -17,6 +17,7 @@ This article explains how large the context window is on paid Claude plans (Pro,
 | Claude Sonnet 5.5 | 1M tokens |
 | Claude Sonnet 5 | 1M tokens |
 | Claude Sonnet 4.6 | 500K tokens |
+| Claude Haiku 5.5 | 1M tokens |
 
 Outside of these models, Claude’s context window size is 200K, meaning it can ingest 200K+ tokens (about 500 pages of text or more) when using a paid Claude plan to chat with Claude.
 
@@ -35,6 +36,7 @@ Outside of these models, Claude’s context window size is 200K, meaning it can 
 | Claude Sonnet 5.5 | 1M tokens |
 | Claude Sonnet 5 | 1M tokens |
 | Claude Sonnet 4.6 | 1M tokens  **Note:** 1M context window available by selecting `claude-sonnet-4-6[1m]` with `/model`; usage credits must be enabled to access (except for usage-based Enterprise plans) |
+| Claude Haiku 5.5 | 1M tokens |
 
 ## Claude Cowork
 
@@ -51,6 +53,7 @@ Outside of these models, Claude’s context window size is 200K, meaning it can 
 | Claude Sonnet 5.5 | 1M tokens |
 | Claude Sonnet 5 | 1M tokens  **Note:** Sonnet 5 automatically compacts the conversation at 500K tokens |
 | Claude Sonnet 4.6 | 200K tokens |
+| Claude Haiku 5.5 | 500K tokens |
 | Haiku 4.5 | 200K tokens |
 
 ## Automatic context management
@@ -73,4 +76,4 @@ While context is managed automatically for most conversations, you can still opt
 * [Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
 * [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
-* [Why Claude switched models in your conversation with Sonnet 5.5](https://support.claude.com/en/articles/17161993-why-claude-switched-models-in-your-conversation-with-sonnet-5-5)
+* [How Claude marks AI-generated content](https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content)

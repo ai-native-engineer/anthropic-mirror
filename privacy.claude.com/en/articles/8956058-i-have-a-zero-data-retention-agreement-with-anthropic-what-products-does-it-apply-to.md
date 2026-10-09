@@ -2,7 +2,7 @@
 
 # I have a zero data retention agreement with Anthropic. What products does it apply to?
 
-Updated yesterday
+Updated this week
 
 *This article is about certain commercial products, including the Anthropic Messages API and Claude Code on Enterprise plans. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see [here](https://privacy.anthropic.com/en/collections/10663362-consumers).*
 

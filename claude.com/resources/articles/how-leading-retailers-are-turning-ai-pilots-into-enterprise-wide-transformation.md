@@ -64,5 +64,3 @@ Claude PlatformClaude Code](https://claude.com/resources/articles/working-at-the
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
 
 Please provide your email address if you'd like to receive our monthly developer newsletter. You can unsubscribe at any time.
-
-How leading retailers are turning AI pilots into enterprise-wide transformation | Claude by Anthropic

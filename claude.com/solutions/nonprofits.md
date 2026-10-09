@@ -327,7 +327,7 @@ This free course will help anyone on your team feel confident with AI. No techni
 
 [View course (opens in new tab)](https://anthropic.skilljar.com/ai-fluency-for-nonprofits)
 
-[![](https://assets.claude.com/4b5e702da1bc3c25f8154f3e2c755944ae103a0e.png)](https://assets.claude.com/94adfb3ff8d773b34857d608b8a33da42c8a62e6.webm)
+![](https://assets.claude.com/4b5e702da1bc3c25f8154f3e2c755944ae103a0e.png)
 
 ## Get started with Claude
 

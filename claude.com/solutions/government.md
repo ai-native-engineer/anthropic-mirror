@@ -333,3 +333,5 @@ Learn more: [California expands AI access across state government through Anthro
 Trusted AI that supports your mission. Talk to our public sector team about the right deployment for your government.
 
 [Contact sales](https://claude.com/contact-sales)
+
+Claude for Government | Claude by Anthropic

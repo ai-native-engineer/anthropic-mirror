@@ -157,7 +157,7 @@ no time filter) with the default `order_by`. `user_ids[]` with
 
   - `name: string`
 
-    Chat name/title
+    Chat name. Empty when `deleted_at` is set.
 
   - `organization_uuid: string`
 
@@ -319,7 +319,7 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID \
 
   - `name: string`
 
-    Chat name/title
+    Chat name. Empty when `deleted_at` is set.
 
   - `organization_uuid: string`
 
@@ -723,7 +723,7 @@ Retrieves message history and file metadata for a specific chat.
 
 - `name: string`
 
-  Chat name
+  Chat name. Empty when `deleted_at` is set.
 
 - `organization_uuid: string`
 

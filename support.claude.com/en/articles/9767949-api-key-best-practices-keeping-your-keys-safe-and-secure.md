@@ -111,8 +111,8 @@ Refer to this article for more information: [What should I do if I suspect my AP
 
 API key security is an ongoing process that requires vigilance and regular review of your security measure. By following these best practices, you can significantly reduce the risk of API key leaks and unauthorized access.
 
-* [Claude Code on the web](https://support.claude.com/en/articles/12618689-claude-code-on-the-web)
 * [Manage plugins for your organization](https://support.claude.com/en/articles/13837433-manage-plugins-for-your-organization)
 * [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)
 * [Get started with Claude Compliance API integrations](https://support.claude.com/en/articles/15167101-get-started-with-claude-compliance-api-integrations)
+* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
 * [Cyber Verification Program Security Requirements](https://support.claude.com/en/articles/17202708-cyber-verification-program-security-requirements)

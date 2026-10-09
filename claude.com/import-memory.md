@@ -6,7 +6,7 @@ Bring your preferences and context from other AI providers to Claude. With one c
 
 [Get started](https://claude.ai/settings/capabilities?open_memory_import=true)
 
-[![](https://assets.claude.com/fdd57702ebf9e41b833e700428350d23d1985165.png)](https://assets.claude.com/9698240446360831babf51002f977fec49c43212.webm)
+![](https://assets.claude.com/fdd57702ebf9e41b833e700428350d23d1985165.png)
 
 ## Import what matters in under a minute
 

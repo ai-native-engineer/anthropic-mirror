@@ -28,5 +28,3 @@ With context about your entire codebase, you can use Claude 3.5 Sonnet on GitHub
 GitHub is releasing Claude 3.5 Sonnet in public preview starting today. Claude 3.5 Sonnet runs on GitHub Copilot via Amazon Bedrock, leveraging Bedrock’s cross-region inference to further enhance reliability.
 
 All developers and organizations should have access to Claude 3.5 Sonnet over the coming weeks. Explore the GitHub [blog](https://github.blog/news-insights/product-news/bringing-developer-choice-to-copilot) and [documentation](https://docs.github.com/en/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot) to learn more.
-
-Claude 3.5 Sonnet on GitHub Copilot \ Anthropic

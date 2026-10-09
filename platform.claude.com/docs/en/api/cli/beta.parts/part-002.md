@@ -3,6 +3,1954 @@
 
 <!-- chunk-start -->
 
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `beta_managed_agents_always_allow_policy: object`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `beta_managed_agents_always_ask_policy: object`
+
+                        Tool calls require user confirmation before execution.
+
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `beta_managed_agents_read_tool_config: object`
+
+                    Configuration for the read tool.
+
+                    - `type: "read"`
+
+                    - `enabled: boolean`
+
+                    - `name: "read"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `beta_managed_agents_always_allow_policy: object`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `beta_managed_agents_always_ask_policy: object`
+
+                        Tool calls require user confirmation before execution.
+
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `beta_managed_agents_write_tool_config: object`
+
+                    Configuration for the write tool.
+
+                    - `type: "write"`
+
+                    - `enabled: boolean`
+
+                    - `name: "write"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `beta_managed_agents_always_allow_policy: object`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `beta_managed_agents_always_ask_policy: object`
+
+                        Tool calls require user confirmation before execution.
+
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `beta_managed_agents_glob_tool_config: object`
+
+                    Configuration for the glob tool.
+
+                    - `type: "glob"`
+
+                    - `enabled: boolean`
+
+                    - `name: "glob"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `beta_managed_agents_always_allow_policy: object`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `beta_managed_agents_always_ask_policy: object`
+
+                        Tool calls require user confirmation before execution.
+
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `beta_managed_agents_grep_tool_config: object`
+
+                    Configuration for the grep tool.
+
+                    - `type: "grep"`
+
+                    - `enabled: boolean`
+
+                    - `name: "grep"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `beta_managed_agents_always_allow_policy: object`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `beta_managed_agents_always_ask_policy: object`
+
+                        Tool calls require user confirmation before execution.
+
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `beta_managed_agents_web_fetch_tool_config: object`
+
+                    Configuration for the web_fetch tool.
+
+                    - `type: "web_fetch"`
+
+                    - `enabled: boolean`
+
+                    - `name: "web_fetch"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `beta_managed_agents_always_allow_policy: object`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `beta_managed_agents_always_ask_policy: object`
+
+                        Tool calls require user confirmation before execution.
+
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                    - `url_sources: object`
+
+                      Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                      - `client_tool_results: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone or BetaManagedAgentsWebFetchURLSourceOnly or BetaManagedAgentsWebFetchURLSourceExcept`
+
+                        Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                        - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                          - `type: "all"`
+
+                        - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                          This source contributes no URLs that may be fetched.
+
+                          - `type: "none"`
+
+                        - `beta_managed_agents_web_fetch_url_source_only: object`
+
+                          Only the named tools' results contribute URLs that may be fetched.
+
+                          - `type: "only"`
+
+                          - `tools: array of BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                            The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                            - `type: "tool_reference"`
+
+                              Must be "tool_reference".
+
+                            - `name: string`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                        - `beta_managed_agents_web_fetch_url_source_except: object`
+
+                          Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                          - `type: "except"`
+
+                          - `tools: array of BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                            The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                            - `type: "tool_reference"`
+
+                              Must be "tool_reference".
+
+                            - `name: string`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                      - `server_tool_results: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone or BetaManagedAgentsWebFetchURLSourceOnly or BetaManagedAgentsWebFetchURLSourceExcept`
+
+                        Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                        - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                        - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                          This source contributes no URLs that may be fetched.
+
+                        - `beta_managed_agents_web_fetch_url_source_only: object`
+
+                          Only the named tools' results contribute URLs that may be fetched.
+
+                        - `beta_managed_agents_web_fetch_url_source_except: object`
+
+                          Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                      - `user_input: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone`
+
+                        Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                        - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                          - `type: "all"`
+
+                        - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                          This source contributes no URLs that may be fetched.
+
+                          - `type: "none"`
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `max_content_tokens: optional number`
+
+                      format: int32
+
+                  - `beta_managed_agents_web_search_tool_config: object`
+
+                    Configuration for the web_search tool.
+
+                    - `type: "web_search"`
+
+                    - `enabled: boolean`
+
+                    - `name: "web_search"`
+
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `beta_managed_agents_always_allow_policy: object`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `beta_managed_agents_always_ask_policy: object`
+
+                        Tool calls require user confirmation before execution.
+
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                    - `allowed_domains: optional array of string`
+
+                    - `blocked_domains: optional array of string`
+
+                    - `user_location: optional object`
+
+                      Approximate user location for search result localization.
+
+                      - `type: "approximate"`
+
+                        Location precision. Only "approximate" is supported.
+
+                      - `city: optional string`
+
+                        City name.
+
+                        minLength: 1, maxLength: 255
+
+                      - `country: optional string`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `region: optional string`
+
+                        Region or state name.
+
+                        minLength: 1, maxLength: 255
+
+                      - `timezone: optional string`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                        minLength: 1, maxLength: 255
+
+                - `default_config: object`
+
+                  Resolved default configuration for agent tools.
+
+                  - `enabled: boolean`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `beta_managed_agents_always_allow_policy: object`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `beta_managed_agents_always_ask_policy: object`
+
+                      Tool calls require user confirmation before execution.
+
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `beta_managed_agents_mcp_toolset: object`
+
+                - `type: "mcp_toolset"`
+
+                - `configs: array of BetaManagedAgentsMCPToolConfig`
+
+                  - `enabled: boolean`
+
+                  - `name: string`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `beta_managed_agents_always_allow_policy: object`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `beta_managed_agents_always_ask_policy: object`
+
+                      Tool calls require user confirmation before execution.
+
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `default_config: object`
+
+                  Resolved default configuration for all tools from an MCP server.
+
+                  - `enabled: boolean`
+
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `beta_managed_agents_always_allow_policy: object`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `beta_managed_agents_always_ask_policy: object`
+
+                      Tool calls require user confirmation before execution.
+
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `mcp_server_name: string`
+
+              - `beta_managed_agents_custom_tool: object`
+
+                A custom tool as returned in API responses.
+
+                - `type: "custom"`
+
+                - `description: string`
+
+                - `input_schema: object`
+
+                  JSON Schema for custom tool input parameters.
+
+                  - `type: "object"`
+
+                  - `properties: optional map[unknown]`
+
+                  - `required: optional array of string`
+
+                - `name: string`
+
+            - `version: number`
+
+              format: int32
+
+          - `beta_managed_agents_advisor: object`
+
+            Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+            - `type: "advisor"`
+
+            - `model: string`
+
+              The advisor model id.
+
+      - `name: string`
+
+      - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
+
+        - `beta_managed_agents_anthropic_skill: object`
+
+          A resolved Anthropic-managed skill.
+
+        - `beta_managed_agents_custom_skill: object`
+
+          A resolved user-created custom skill.
+
+      - `system: string`
+
+      - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
+
+        - `beta_managed_agents_agent_toolset20260401: object`
+
+        - `beta_managed_agents_mcp_toolset: object`
+
+        - `beta_managed_agents_custom_tool: object`
+
+          A custom tool as returned in API responses.
+
+      - `version: number`
+
+        format: int32
+
+    - `budget: optional object`
+
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
+
+      - `type: "limit"`
+
+      - `max_list_cost: object`
+
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
+
+        - `amount: string`
+
+          Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+        - `currency: "USD"`
+
+          Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+    - `metadata: optional map[string]`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `title: optional string`
+
+      The session's new title. Present only when the update changed it.
+
+  - `beta_managed_agents_start_event: object`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `type: "event_start"`
+
+    - `event: BetaManagedAgentsAgentMessagePreview or BetaManagedAgentsAgentThinkingPreview`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `beta_managed_agents_agent_message_preview: object`
+
+        - `type: "agent.message"`
+
+        - `id: string`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+      - `beta_managed_agents_agent_thinking_preview: object`
+
+        - `type: "agent.thinking"`
+
+        - `id: string`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+  - `beta_managed_agents_delta_event: object`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `type: "event_delta"`
+
+    - `delta: object`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `type: "content_delta"`
+
+      - `content: object`
+
+        A partial element of the content array at index, typed like the element itself — the same shape the buffered agent.message carries in content.
+
+        - `type: "text"`
+
+        - `text: string`
+
+          The text content.
+
+          minLength: 1
+
+      - `index: optional number`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `event_id: string`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+  - `beta_managed_agents_system_message_event: object`
+
+    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `type: "system.message"`
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: array of BetaManagedAgentsSystemContentBlock`
+
+      System content blocks. Text-only.
+
+      - `type: "text"`
+
+      - `text: string`
+
+        The text content.
+
+        minLength: 1
+
+    - `processed_at: optional string`
+
+      Timestamp when this system message was processed.
+
+      format: date-time
+
+  - `beta_managed_agents_session_usage_event: object`
+
+    Periodic snapshot of the session's cumulative usage and tracked list cost.
+
+    - `type: "session.usage"`
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      Timestamp when the snapshot was taken.
+
+      format: date-time
+
+    - `usage: object`
+
+      The session's cumulative usage at the snapshot time.
+
+      - `active_seconds: optional number`
+
+        Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
+
+        format: double
+
+      - `cache_creation: optional object`
+
+        Tokens used to create prompt cache entries, broken down by cache TTL.
+
+        - `ephemeral_1h_input_tokens: optional number`
+
+          Tokens used to create 1-hour ephemeral cache entries.
+
+          format: int32
+
+        - `ephemeral_5m_input_tokens: optional number`
+
+          Tokens used to create 5-minute ephemeral cache entries.
+
+          format: int32
+
+      - `cache_read_input_tokens: optional number`
+
+        Total tokens read from prompt cache.
+
+        format: int32
+
+      - `input_tokens: optional number`
+
+        Total input tokens consumed across all turns.
+
+        format: int32
+
+      - `list_cost: optional object`
+
+        Cumulative list cost of the session across all turns, priced at public list rates.
+
+        - `amount: string`
+
+          Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+        - `currency: "USD"`
+
+          Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+      - `output_tokens: optional number`
+
+        Total output tokens generated across all turns.
+
+        format: int32
+
+      - `server_tool_use: optional object`
+
+        Cumulative server-executed tool usage across all turns.
+
+        - `web_fetch_requests: optional number`
+
+          Number of server-executed web fetch requests.
+
+          format: int32
+
+        - `web_search_requests: optional number`
+
+          Number of server-executed web search requests.
+
+          format: int32
+
+    - `budget: optional object`
+
+      The session's configured budget at the snapshot time, or null when the session has no budget.
+
+      - `type: "limit"`
+
+      - `max_list_cost: object`
+
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
+
+#### Example
+
+```bash
+ant beta:sessions:events stream \
+  --api-key my-anthropic-api-key \
+  --session-id sesn_011CZkZAtmR3yMPDzynEDxu7
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
+  "content": [
+    {
+      "text": "Where is my order #1234?",
+      "type": "text"
+    }
+  ],
+  "type": "user.message",
+  "processed_at": "2026-03-15T10:00:00Z"
+}
+```
+
+## Beta › Sessions › Resources
+
+### Add Session Resource
+
+`$ ant beta:sessions:resources add`
+
+**POST** `/v1/sessions/{session_id}/resources`
+
+Add Session Resource
+
+#### Parameters
+
+- `--session-id: string` (path parameter)
+
+- `--file-id: string`
+
+  ID of a previously uploaded file.
+
+  minLength: 1, maxLength: 128
+
+- `--type: "file"`
+
+- `--mount-path: optional string`
+
+  Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+  minLength: 1, maxLength: 4096
+
+- `--beta: optional array of AnthropicBeta` (header parameter)
+
+  Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string` (header parameter)
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `beta_managed_agents_file_resource: object`
+
+  - `type: "file"`
+
+  - `id: string`
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `file_id: string`
+
+  - `mount_path: string`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+#### Example
+
+```bash
+ant beta:sessions:resources add \
+  --api-key my-anthropic-api-key \
+  --session-id sesn_011CZkZAtmR3yMPDzynEDxu7 \
+  --file-id file_011CNha8iCJcU1wXNR6q4V8w \
+  --type file
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "created_at": "2026-03-15T10:00:00Z",
+  "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "mount_path": "/uploads/receipt.pdf",
+  "type": "file",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+### List Session Resources
+
+`$ ant beta:sessions:resources list`
+
+**GET** `/v1/sessions/{session_id}/resources`
+
+List Session Resources
+
+#### Parameters
+
+- `--session-id: string` (path parameter)
+
+- `--limit: optional number` (query parameter)
+
+  Maximum number of resources to return per page (max 1000). If omitted, returns all resources.
+
+  format: int32
+
+- `--page: optional string` (query parameter)
+
+  Opaque cursor from a previous response's `next_page` field.
+
+- `--beta: optional array of AnthropicBeta` (header parameter)
+
+  Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string` (header parameter)
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsListSessionResources: object`
+
+  Paginated list of resources attached to a session.
+
+  - `data: array of BetaManagedAgentsSessionResource`
+
+    Resources for the session, ordered by `created_at`.
+
+    - `beta_managed_agents_github_repository_resource: object`
+
+      - `type: "github_repository"`
+
+      - `id: string`
+
+      - `created_at: string`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `mount_path: string`
+
+      - `updated_at: string`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `url: string`
+
+      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
+        - `beta_managed_agents_branch_checkout: object`
+
+          - `type: "branch"`
+
+          - `name: string`
+
+            Branch name to check out.
+
+            minLength: 1, maxLength: 255
+
+        - `beta_managed_agents_commit_checkout: object`
+
+          - `type: "commit"`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+            minLength: 7, maxLength: 64
+
+    - `beta_managed_agents_file_resource: object`
+
+      - `type: "file"`
+
+      - `id: string`
+
+      - `created_at: string`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `file_id: string`
+
+      - `mount_path: string`
+
+      - `updated_at: string`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+    - `beta_managed_agents_memory_store_resource: object`
+
+      A memory store attached to an agent session.
+
+      - `type: "memory_store"`
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `access: optional "read_write" or "read_only"`
+
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `description: optional string`
+
+        Description of the memory store, snapshotted at attach time. Rendered into the agent's system prompt. Empty string when the store has no description.
+
+      - `instructions: optional string`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+        maxLength: 4096
+
+      - `mount_path: optional string`
+
+        Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
+
+      - `name: optional string`
+
+        Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
+
+  - `next_page: optional string`
+
+    Opaque cursor for the next page. Null when no more results.
+
+#### Example
+
+```bash
+ant beta:sessions:resources list \
+  --api-key my-anthropic-api-key \
+  --session-id sesn_011CZkZAtmR3yMPDzynEDxu7
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+      "created_at": "2026-03-15T10:00:00Z",
+      "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "mount_path": "/uploads/receipt.pdf",
+      "type": "file",
+      "updated_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
+      "created_at": "2026-03-15T10:00:00Z",
+      "mount_path": "/workspace/example-repo",
+      "type": "github_repository",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "url": "https://github.com/example-org/example-repo",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      }
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+### Get Session Resource
+
+`$ ant beta:sessions:resources retrieve`
+
+**GET** `/v1/sessions/{session_id}/resources/{resource_id}`
+
+Get Session Resource
+
+#### Parameters
+
+- `--session-id: string` (path parameter)
+
+- `--resource-id: string` (path parameter)
+
+- `--beta: optional array of AnthropicBeta` (header parameter)
+
+  Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string` (header parameter)
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaSessionResourceGetResponse: BetaManagedAgentsGitHubRepositoryResource or BetaManagedAgentsFileResource or BetaManagedAgentsMemoryStoreResource`
+
+  The requested session resource.
+
+  - `beta_managed_agents_github_repository_resource: object`
+
+    - `type: "github_repository"`
+
+    - `id: string`
+
+    - `created_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `mount_path: string`
+
+    - `updated_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `url: string`
+
+    - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
+      - `beta_managed_agents_branch_checkout: object`
+
+        - `type: "branch"`
+
+        - `name: string`
+
+          Branch name to check out.
+
+          minLength: 1, maxLength: 255
+
+      - `beta_managed_agents_commit_checkout: object`
+
+        - `type: "commit"`
+
+        - `sha: string`
+
+          Full commit SHA to check out.
+
+          minLength: 7, maxLength: 64
+
+  - `beta_managed_agents_file_resource: object`
+
+    - `type: "file"`
+
+    - `id: string`
+
+    - `created_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `file_id: string`
+
+    - `mount_path: string`
+
+    - `updated_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+  - `beta_managed_agents_memory_store_resource: object`
+
+    A memory store attached to an agent session.
+
+    - `type: "memory_store"`
+
+    - `memory_store_id: string`
+
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+    - `access: optional "read_write" or "read_only"`
+
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
+
+      - `"read_write"`
+
+      - `"read_only"`
+
+    - `description: optional string`
+
+      Description of the memory store, snapshotted at attach time. Rendered into the agent's system prompt. Empty string when the store has no description.
+
+    - `instructions: optional string`
+
+      Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+      maxLength: 4096
+
+    - `mount_path: optional string`
+
+      Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
+
+    - `name: optional string`
+
+      Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
+
+#### Example
+
+```bash
+ant beta:sessions:resources retrieve \
+  --api-key my-anthropic-api-key \
+  --session-id sesn_011CZkZAtmR3yMPDzynEDxu7 \
+  --resource-id sesrsc_011CZkZBJq5dWxk9fVLNcPht
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
+  "created_at": "2026-03-15T10:00:00Z",
+  "mount_path": "/workspace/example-repo",
+  "type": "github_repository",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "url": "https://github.com/example-org/example-repo",
+  "checkout": {
+    "name": "main",
+    "type": "branch"
+  }
+}
+```
+
+### Update Session Resource
+
+`$ ant beta:sessions:resources update`
+
+**POST** `/v1/sessions/{session_id}/resources/{resource_id}`
+
+Update Session Resource
+
+#### Parameters
+
+- `--session-id: string` (path parameter)
+
+- `--resource-id: string` (path parameter)
+
+- `--authorization-token: string`
+
+  New authorization token for the resource. Currently only `github_repository` resources support token rotation.
+
+  minLength: 1, maxLength: 4096
+
+- `--beta: optional array of AnthropicBeta` (header parameter)
+
+  Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string` (header parameter)
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaSessionResourceUpdateResponse: BetaManagedAgentsGitHubRepositoryResource or BetaManagedAgentsFileResource or BetaManagedAgentsMemoryStoreResource`
+
+  The updated session resource.
+
+  - `beta_managed_agents_github_repository_resource: object`
+
+    - `type: "github_repository"`
+
+    - `id: string`
+
+    - `created_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `mount_path: string`
+
+    - `updated_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `url: string`
+
+    - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
+      - `beta_managed_agents_branch_checkout: object`
+
+        - `type: "branch"`
+
+        - `name: string`
+
+          Branch name to check out.
+
+          minLength: 1, maxLength: 255
+
+      - `beta_managed_agents_commit_checkout: object`
+
+        - `type: "commit"`
+
+        - `sha: string`
+
+          Full commit SHA to check out.
+
+          minLength: 7, maxLength: 64
+
+  - `beta_managed_agents_file_resource: object`
+
+    - `type: "file"`
+
+    - `id: string`
+
+    - `created_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `file_id: string`
+
+    - `mount_path: string`
+
+    - `updated_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+  - `beta_managed_agents_memory_store_resource: object`
+
+    A memory store attached to an agent session.
+
+    - `type: "memory_store"`
+
+    - `memory_store_id: string`
+
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+    - `access: optional "read_write" or "read_only"`
+
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
+
+      - `"read_write"`
+
+      - `"read_only"`
+
+    - `description: optional string`
+
+      Description of the memory store, snapshotted at attach time. Rendered into the agent's system prompt. Empty string when the store has no description.
+
+    - `instructions: optional string`
+
+      Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+      maxLength: 4096
+
+    - `mount_path: optional string`
+
+      Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
+
+    - `name: optional string`
+
+      Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
+
+#### Example
+
+```bash
+ant beta:sessions:resources update \
+  --api-key my-anthropic-api-key \
+  --session-id sesn_011CZkZAtmR3yMPDzynEDxu7 \
+  --resource-id sesrsc_011CZkZBJq5dWxk9fVLNcPht \
+  --authorization-token ghp_exampletoken
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
+  "created_at": "2026-03-15T10:00:00Z",
+  "mount_path": "/workspace/example-repo",
+  "type": "github_repository",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "url": "https://github.com/example-org/example-repo",
+  "checkout": {
+    "name": "main",
+    "type": "branch"
+  }
+}
+```
+
+### Delete Session Resource
+
+`$ ant beta:sessions:resources delete`
+
+**DELETE** `/v1/sessions/{session_id}/resources/{resource_id}`
+
+Delete Session Resource
+
+#### Parameters
+
+- `--session-id: string` (path parameter)
+
+- `--resource-id: string` (path parameter)
+
+- `--beta: optional array of AnthropicBeta` (header parameter)
+
+  Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string` (header parameter)
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `beta_managed_agents_delete_session_resource: object`
+
+  Confirmation of resource deletion.
+
+  - `type: "session_resource_deleted"`
+
+  - `id: string`
+
+#### Example
+
+```bash
+ant beta:sessions:resources delete \
+  --api-key my-anthropic-api-key \
+  --session-id sesn_011CZkZAtmR3yMPDzynEDxu7 \
+  --resource-id sesrsc_011CZkZBJq5dWxk9fVLNcPht
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "type": "session_resource_deleted"
+}
+```
+
+## Beta › Sessions › Threads
+
+### List Session Threads
+
+`$ ant beta:sessions:threads list`
+
+**GET** `/v1/sessions/{session_id}/threads`
+
+List Session Threads
+
+#### Parameters
+
+- `--session-id: string` (path parameter)
+
+- `--limit: optional number` (query parameter)
+
+  Maximum results per page. Defaults to 1000.
+
+  format: int32
+
+- `--page: optional string` (query parameter)
+
+  Opaque pagination cursor from a previous response's `next_page`. Forward-only.
+
+- `--beta: optional array of AnthropicBeta` (header parameter)
+
+  Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string` (header parameter)
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsListSessionThreads: object`
+
+  Paginated list of threads within a `session`.
+
+  - `data: optional array of BetaManagedAgentsSessionThread`
+
+    Threads in the session, primary first then children in spawn order.
+
+    - `type: "session_thread"`
+
+    - `id: string`
+
+      Unique identifier for this thread.
+
+    - `agent: BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
+
+      Resolved agent definition for this thread. Snapshot of the agent at thread creation time.
+
+      - `beta_managed_agents_session_thread_agent: object`
+
+        Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
+
+        - `type: "agent"`
+
+        - `id: string`
+
+        - `description: string`
+
+        - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
+
+          - `type: "url"`
+
+          - `name: string`
+
+          - `url: string`
+
+        - `model: object`
+
+          Model identifier and configuration.
+
+          - `id: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-opus-5-5" or 14 more or string`
+
+            The model that will power your agent.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-haiku-5-5"`
+
+              Fastest model for high-volume, real-time tasks
+
+            - `"claude-sonnet-5-5"`
+
+              Efficient model for coding and agents
+
+            - `"claude-opus-5-5"`
+
+              Powerful intelligence for coding, knowledge work, and long-running agents
+
+            - `"claude-fable-5-1"`
+
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+            - `"claude-sonnet-5"`
+
+              Efficient model for coding and agents
+
+            - `"claude-fable-5"`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-8"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-7"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-6"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-6"`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-5-20251101"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-5"`
+
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"`
+
+              **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              High-performance model for agents and coding
+
+          - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+            How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
+
+            - `beta_managed_agents_effort_low: object`
+
+              Low effort. Favors latency over reasoning depth.
+
+              - `type: "low"`
+
+            - `beta_managed_agents_effort_medium: object`
+
+              Medium effort. Balances latency and reasoning depth.
+
+              - `type: "medium"`
+
+            - `beta_managed_agents_effort_high: object`
+
+              High effort. Favors reasoning depth.
+
+              - `type: "high"`
+
+            - `beta_managed_agents_effort_xhigh: object`
+
+              Extra-high effort. Not all models accept this level.
+
+              - `type: "xhigh"`
+
+            - `beta_managed_agents_effort_max: object`
+
+              Maximum effort. Favors reasoning depth over latency.
+
+              - `type: "max"`
+
+          - `inference_geo: optional string`
+
+            Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
+          - `speed: optional "standard" or "fast"`
+
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
+
+            - `"standard"`
+
+            - `"fast"`
+
+        - `name: string`
+
+        - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
+
+          - `beta_managed_agents_anthropic_skill: object`
+
+            A resolved Anthropic-managed skill.
+
+            - `type: "anthropic"`
+
+            - `skill_id: string`
+
+            - `version: string`
+
+          - `beta_managed_agents_custom_skill: object`
+
+            A resolved user-created custom skill.
+
+            - `type: "custom"`
+
+            - `skill_id: string`
+
+            - `version: string`
+
+        - `system: string`
+
+        - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
+
+          - `beta_managed_agents_agent_toolset20260401: object`
+
+            - `type: "agent_toolset_20260401"`
+
+            - `configs: array of BetaManagedAgentsAgentToolConfig`
+
+              - `beta_managed_agents_bash_tool_config: object`
+
+                Configuration for the bash tool.
+
+                - `type: "bash"`
+
+                - `enabled: boolean`
+
+                - `name: "bash"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `beta_managed_agents_always_allow_policy: object`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                    - `type: "always_allow"`
+
+                  - `beta_managed_agents_always_ask_policy: object`
+
+                    Tool calls require user confirmation before execution.
+
+                    - `type: "always_ask"`
+
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                    - `type: "auto"`
+
+              - `beta_managed_agents_edit_tool_config: object`
+
+                Configuration for the edit tool.
+
+                - `type: "edit"`
+
+                - `enabled: boolean`
+
+                - `name: "edit"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `beta_managed_agents_always_allow_policy: object`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `beta_managed_agents_always_ask_policy: object`
+
+                    Tool calls require user confirmation before execution.
+
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `beta_managed_agents_read_tool_config: object`
+
+                Configuration for the read tool.
+
+                - `type: "read"`
+
+                - `enabled: boolean`
+
+                - `name: "read"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `beta_managed_agents_always_allow_policy: object`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `beta_managed_agents_always_ask_policy: object`
+
+                    Tool calls require user confirmation before execution.
+
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `beta_managed_agents_write_tool_config: object`
+
+                Configuration for the write tool.
+
+                - `type: "write"`
+
+                - `enabled: boolean`
+
+                - `name: "write"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `beta_managed_agents_always_allow_policy: object`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `beta_managed_agents_always_ask_policy: object`
+
+                    Tool calls require user confirmation before execution.
+
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `beta_managed_agents_glob_tool_config: object`
+
+                Configuration for the glob tool.
+
+                - `type: "glob"`
+
+                - `enabled: boolean`
+
+                - `name: "glob"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `beta_managed_agents_always_allow_policy: object`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `beta_managed_agents_always_ask_policy: object`
+
+                    Tool calls require user confirmation before execution.
+
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `beta_managed_agents_grep_tool_config: object`
+
+                Configuration for the grep tool.
+
+                - `type: "grep"`
+
+                - `enabled: boolean`
+
+                - `name: "grep"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `beta_managed_agents_always_allow_policy: object`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `beta_managed_agents_always_ask_policy: object`
+
+                    Tool calls require user confirmation before execution.
+
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `beta_managed_agents_web_fetch_tool_config: object`
+
+                Configuration for the web_fetch tool.
+
+                - `type: "web_fetch"`
+
+                - `enabled: boolean`
+
+                - `name: "web_fetch"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `beta_managed_agents_always_allow_policy: object`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `beta_managed_agents_always_ask_policy: object`
+
+                    Tool calls require user confirmation before execution.
+
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `url_sources: object`
+
+                  Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                  - `client_tool_results: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone or BetaManagedAgentsWebFetchURLSourceOnly or BetaManagedAgentsWebFetchURLSourceExcept`
+
+                    Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                    - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                      Every URL from this source may be fetched. This is the default.
+
+                      - `type: "all"`
+
+                    - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                      This source contributes no URLs that may be fetched.
+
+                      - `type: "none"`
+
+                    - `beta_managed_agents_web_fetch_url_source_only: object`
+
+                      Only the named tools' results contribute URLs that may be fetched.
+
+                      - `type: "only"`
+
+                      - `tools: array of BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                        The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                        - `type: "tool_reference"`
+
+                          Must be "tool_reference".
+
+                        - `name: string`
+
+                          Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                          minLength: 1, maxLength: 128
+
+                    - `beta_managed_agents_web_fetch_url_source_except: object`
+
+                      Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                      - `type: "except"`
+
+                      - `tools: array of BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                        The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                        - `type: "tool_reference"`
+
+                          Must be "tool_reference".
+
+                        - `name: string`
+
+                          Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                          minLength: 1, maxLength: 128
+
+                  - `server_tool_results: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone or BetaManagedAgentsWebFetchURLSourceOnly or BetaManagedAgentsWebFetchURLSourceExcept`
+
+                    Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                    - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                      Every URL from this source may be fetched. This is the default.
+
+                    - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                      This source contributes no URLs that may be fetched.
+
+                    - `beta_managed_agents_web_fetch_url_source_only: object`
+
+                      Only the named tools' results contribute URLs that may be fetched.
+
+                    - `beta_managed_agents_web_fetch_url_source_except: object`
+
+                      Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                  - `user_input: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone`
+
+                    Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                    - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                      Every URL from this source may be fetched. This is the default.
+
+                      - `type: "all"`
+
+                    - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                      This source contributes no URLs that may be fetched.
+
+                      - `type: "none"`
+
+                - `allowed_domains: optional array of string`
+
+                - `blocked_domains: optional array of string`
+
+                - `max_content_tokens: optional number`
+
+                  format: int32
+
+              - `beta_managed_agents_web_search_tool_config: object`
+
+                Configuration for the web_search tool.
+
+                - `type: "web_search"`
+
+                - `enabled: boolean`
+
+                - `name: "web_search"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `beta_managed_agents_always_allow_policy: object`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `beta_managed_agents_always_ask_policy: object`
+
+                    Tool calls require user confirmation before execution.
+
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `allowed_domains: optional array of string`
+
+                - `blocked_domains: optional array of string`
+
+                - `user_location: optional object`
+
+                  Approximate user location for search result localization.
+
+                  - `type: "approximate"`
+
+                    Location precision. Only "approximate" is supported.
+
+                  - `city: optional string`
+
+                    City name.
+
+                    minLength: 1, maxLength: 255
+
+                  - `country: optional string`
+
+                    Two-letter ISO 3166-1 country code, uppercase.
+
+                  - `region: optional string`
+
+                    Region or state name.
+
+                    minLength: 1, maxLength: 255
+
+                  - `timezone: optional string`
+
+                    IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                    minLength: 1, maxLength: 255
+
+            - `default_config: object`
+
+              Resolved default configuration for agent tools.
+
+              - `enabled: boolean`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                Permission policy for tool execution.
+
+                - `beta_managed_agents_always_allow_policy: object`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `beta_managed_agents_always_ask_policy: object`
+
+                  Tool calls require user confirmation before execution.
+
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `beta_managed_agents_mcp_toolset: object`
+
+            - `type: "mcp_toolset"`
+
+            - `configs: array of BetaManagedAgentsMCPToolConfig`
+
+              - `enabled: boolean`
+
+              - `name: string`
+
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
+
+                Permission policy for tool execution.
+
+                - `beta_managed_agents_always_allow_policy: object`
+
                   Tool calls are automatically approved without user confirmation.
 
                 - `beta_managed_agents_always_ask_policy: object`
@@ -221,7 +2169,7 @@ ant beta:sessions:threads list \
 {
   "data": [
     {
-      "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+      "id": "sthr_011CZkZVWa6oJjw1rgXZpnBt",
       "agent": {
         "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
         "description": "A focused research subagent.",
@@ -337,7 +2285,7 @@ Get Session Thread
 
 - `beta_managed_agents_session_thread: object`
 
-  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
+  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads.
 
   - `type: "session_thread"`
 
@@ -371,11 +2319,15 @@ Get Session Thread
 
         Model identifier and configuration.
 
-        - `id: "claude-sonnet-5-5" or "claude-opus-5-5" or "claude-fable-5-1" or 13 more or string`
+        - `id: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-opus-5-5" or 14 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
 
           - `"claude-sonnet-5-5"`
 
@@ -712,6 +2664,102 @@ Get Session Thread
                 - `beta_managed_agents_auto_policy: object`
 
                   The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `url_sources: object`
+
+                Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                - `client_tool_results: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone or BetaManagedAgentsWebFetchURLSourceOnly or BetaManagedAgentsWebFetchURLSourceExcept`
+
+                  Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                  - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                    - `type: "all"`
+
+                  - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                    This source contributes no URLs that may be fetched.
+
+                    - `type: "none"`
+
+                  - `beta_managed_agents_web_fetch_url_source_only: object`
+
+                    Only the named tools' results contribute URLs that may be fetched.
+
+                    - `type: "only"`
+
+                    - `tools: array of BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                      The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                      - `type: "tool_reference"`
+
+                        Must be "tool_reference".
+
+                      - `name: string`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                  - `beta_managed_agents_web_fetch_url_source_except: object`
+
+                    Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                    - `type: "except"`
+
+                    - `tools: array of BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                      The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                      - `type: "tool_reference"`
+
+                        Must be "tool_reference".
+
+                      - `name: string`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                - `server_tool_results: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone or BetaManagedAgentsWebFetchURLSourceOnly or BetaManagedAgentsWebFetchURLSourceExcept`
+
+                  Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                  - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                  - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                    This source contributes no URLs that may be fetched.
+
+                  - `beta_managed_agents_web_fetch_url_source_only: object`
+
+                    Only the named tools' results contribute URLs that may be fetched.
+
+                  - `beta_managed_agents_web_fetch_url_source_except: object`
+
+                    Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `user_input: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone`
+
+                  Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                  - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                    - `type: "all"`
+
+                  - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                    This source contributes no URLs that may be fetched.
+
+                    - `type: "none"`
 
               - `allowed_domains: optional array of string`
 
@@ -1025,14 +3073,14 @@ Get Session Thread
 ant beta:sessions:threads retrieve \
   --api-key my-anthropic-api-key \
   --session-id sesn_011CZkZAtmR3yMPDzynEDxu7 \
-  --thread-id sthr_011CZkZVWa6oIjw0rgXZpnBt
+  --thread-id sthr_011CZkZVWa6oJjw1rgXZpnBt
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "id": "sthr_011CZkZVWa6oJjw1rgXZpnBt",
   "agent": {
     "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
     "description": "A focused research subagent.",
@@ -1145,7 +3193,7 @@ Archive Session Thread
 
 - `beta_managed_agents_session_thread: object`
 
-  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
+  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads.
 
   - `type: "session_thread"`
 
@@ -1179,11 +3227,15 @@ Archive Session Thread
 
         Model identifier and configuration.
 
-        - `id: "claude-sonnet-5-5" or "claude-opus-5-5" or "claude-fable-5-1" or 13 more or string`
+        - `id: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-opus-5-5" or 14 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
 
           - `"claude-sonnet-5-5"`
 
@@ -1521,6 +3573,102 @@ Archive Session Thread
 
                   The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
+              - `url_sources: object`
+
+                Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                - `client_tool_results: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone or BetaManagedAgentsWebFetchURLSourceOnly or BetaManagedAgentsWebFetchURLSourceExcept`
+
+                  Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                  - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                    - `type: "all"`
+
+                  - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                    This source contributes no URLs that may be fetched.
+
+                    - `type: "none"`
+
+                  - `beta_managed_agents_web_fetch_url_source_only: object`
+
+                    Only the named tools' results contribute URLs that may be fetched.
+
+                    - `type: "only"`
+
+                    - `tools: array of BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                      The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                      - `type: "tool_reference"`
+
+                        Must be "tool_reference".
+
+                      - `name: string`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                  - `beta_managed_agents_web_fetch_url_source_except: object`
+
+                    Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                    - `type: "except"`
+
+                    - `tools: array of BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                      The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                      - `type: "tool_reference"`
+
+                        Must be "tool_reference".
+
+                      - `name: string`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                - `server_tool_results: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone or BetaManagedAgentsWebFetchURLSourceOnly or BetaManagedAgentsWebFetchURLSourceExcept`
+
+                  Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                  - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                  - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                    This source contributes no URLs that may be fetched.
+
+                  - `beta_managed_agents_web_fetch_url_source_only: object`
+
+                    Only the named tools' results contribute URLs that may be fetched.
+
+                  - `beta_managed_agents_web_fetch_url_source_except: object`
+
+                    Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `user_input: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone`
+
+                  Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                  - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                    - `type: "all"`
+
+                  - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                    This source contributes no URLs that may be fetched.
+
+                    - `type: "none"`
+
               - `allowed_domains: optional array of string`
 
               - `blocked_domains: optional array of string`
@@ -1833,14 +3981,14 @@ Archive Session Thread
 ant beta:sessions:threads archive \
   --api-key my-anthropic-api-key \
   --session-id sesn_011CZkZAtmR3yMPDzynEDxu7 \
-  --thread-id sthr_011CZkZVWa6oIjw0rgXZpnBt
+  --thread-id sthr_011CZkZVWa6oJjw1rgXZpnBt
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "id": "sthr_011CZkZVWa6oJjw1rgXZpnBt",
   "agent": {
     "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
     "description": "A focused research subagent.",
@@ -3213,7 +5361,7 @@ List Session Thread Events
 
     - `beta_managed_agents_session_thread_created_event: object`
 
-      Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+      Emitted when a child thread is created. Written to the parent thread's output stream so clients observing the session see child creation.
 
       - `type: "session.thread_created"`
 
@@ -3721,11 +5869,15 @@ List Session Thread Events
 
           Model identifier and configuration.
 
-          - `id: "claude-sonnet-5-5" or "claude-opus-5-5" or "claude-fable-5-1" or 13 more or string`
+          - `id: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-opus-5-5" or 14 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-haiku-5-5"`
+
+              Fastest model for high-volume, real-time tasks
 
             - `"claude-sonnet-5-5"`
 
@@ -3873,7 +6025,7 @@ List Session Thread Events
 
                 Model identifier and configuration.
 
-                - `id: "claude-sonnet-5-5" or "claude-opus-5-5" or "claude-fable-5-1" or 13 more or string`
+                - `id: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-opus-5-5" or 14 more or string`
 
                   The model that will power your agent.
 
@@ -4112,6 +6264,102 @@ List Session Thread Events
                         - `beta_managed_agents_auto_policy: object`
 
                           The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `url_sources: object`
+
+                        Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                        - `client_tool_results: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone or BetaManagedAgentsWebFetchURLSourceOnly or BetaManagedAgentsWebFetchURLSourceExcept`
+
+                          Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                          - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                            Every URL from this source may be fetched. This is the default.
+
+                            - `type: "all"`
+
+                          - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                            This source contributes no URLs that may be fetched.
+
+                            - `type: "none"`
+
+                          - `beta_managed_agents_web_fetch_url_source_only: object`
+
+                            Only the named tools' results contribute URLs that may be fetched.
+
+                            - `type: "only"`
+
+                            - `tools: array of BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                              The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                              - `type: "tool_reference"`
+
+                                Must be "tool_reference".
+
+                              - `name: string`
+
+                                Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                                minLength: 1, maxLength: 128
+
+                          - `beta_managed_agents_web_fetch_url_source_except: object`
+
+                            Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                            - `type: "except"`
+
+                            - `tools: array of BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                              The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                              - `type: "tool_reference"`
+
+                                Must be "tool_reference".
+
+                              - `name: string`
+
+                                Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                                minLength: 1, maxLength: 128
+
+                        - `server_tool_results: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone or BetaManagedAgentsWebFetchURLSourceOnly or BetaManagedAgentsWebFetchURLSourceExcept`
+
+                          Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                          - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                            Every URL from this source may be fetched. This is the default.
+
+                          - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                            This source contributes no URLs that may be fetched.
+
+                          - `beta_managed_agents_web_fetch_url_source_only: object`
+
+                            Only the named tools' results contribute URLs that may be fetched.
+
+                          - `beta_managed_agents_web_fetch_url_source_except: object`
+
+                            Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                        - `user_input: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone`
+
+                          Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                          - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                            Every URL from this source may be fetched. This is the default.
+
+                            - `type: "all"`
+
+                          - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                            This source contributes no URLs that may be fetched.
+
+                            - `type: "none"`
 
                       - `allowed_domains: optional array of string`
 
@@ -4477,7 +6725,7 @@ List Session Thread Events
 ant beta:sessions:threads:events list \
   --api-key my-anthropic-api-key \
   --session-id sesn_011CZkZAtmR3yMPDzynEDxu7 \
-  --thread-id sthr_011CZkZVWa6oIjw0rgXZpnBt
+  --thread-id sthr_011CZkZVWa6oJjw1rgXZpnBt
 ```
 
 ##### Response (200)
@@ -4486,7 +6734,7 @@ ant beta:sessions:threads:events list \
 {
   "data": [
     {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
       "content": [
         {
           "text": "Where is my order #1234?",
@@ -4497,7 +6745,7 @@ ant beta:sessions:threads:events list \
       "processed_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
+      "id": "sevt_011CZkZHPq1jCdq5mbRTjiVn",
       "content": [
         {
           "text": "Let me look up order #1234 for you.",
@@ -5792,7 +8040,7 @@ Stream Session Thread Events
 
   - `beta_managed_agents_session_thread_created_event: object`
 
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+    Emitted when a child thread is created. Written to the parent thread's output stream so clients observing the session see child creation.
 
     - `type: "session.thread_created"`
 
@@ -6300,11 +8548,15 @@ Stream Session Thread Events
 
         Model identifier and configuration.
 
-        - `id: "claude-sonnet-5-5" or "claude-opus-5-5" or "claude-fable-5-1" or 13 more or string`
+        - `id: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-opus-5-5" or 14 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
 
           - `"claude-sonnet-5-5"`
 
@@ -6452,7 +8704,7 @@ Stream Session Thread Events
 
               Model identifier and configuration.
 
-              - `id: "claude-sonnet-5-5" or "claude-opus-5-5" or "claude-fable-5-1" or 13 more or string`
+              - `id: "claude-haiku-5-5" or "claude-sonnet-5-5" or "claude-opus-5-5" or 14 more or string`
 
                 The model that will power your agent.
 
@@ -6691,6 +8943,102 @@ Stream Session Thread Events
                       - `beta_managed_agents_auto_policy: object`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                    - `url_sources: object`
+
+                      Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                      - `client_tool_results: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone or BetaManagedAgentsWebFetchURLSourceOnly or BetaManagedAgentsWebFetchURLSourceExcept`
+
+                        Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                        - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                          - `type: "all"`
+
+                        - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                          This source contributes no URLs that may be fetched.
+
+                          - `type: "none"`
+
+                        - `beta_managed_agents_web_fetch_url_source_only: object`
+
+                          Only the named tools' results contribute URLs that may be fetched.
+
+                          - `type: "only"`
+
+                          - `tools: array of BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                            The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                            - `type: "tool_reference"`
+
+                              Must be "tool_reference".
+
+                            - `name: string`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                        - `beta_managed_agents_web_fetch_url_source_except: object`
+
+                          Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                          - `type: "except"`
+
+                          - `tools: array of BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                            The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                            - `type: "tool_reference"`
+
+                              Must be "tool_reference".
+
+                            - `name: string`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                      - `server_tool_results: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone or BetaManagedAgentsWebFetchURLSourceOnly or BetaManagedAgentsWebFetchURLSourceExcept`
+
+                        Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                        - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                        - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                          This source contributes no URLs that may be fetched.
+
+                        - `beta_managed_agents_web_fetch_url_source_only: object`
+
+                          Only the named tools' results contribute URLs that may be fetched.
+
+                        - `beta_managed_agents_web_fetch_url_source_except: object`
+
+                          Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                      - `user_input: BetaManagedAgentsWebFetchURLSourceAll or BetaManagedAgentsWebFetchURLSourceNone`
+
+                        Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                        - `beta_managed_agents_web_fetch_url_source_all: object`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                          - `type: "all"`
+
+                        - `beta_managed_agents_web_fetch_url_source_none: object`
+
+                          This source contributes no URLs that may be fetched.
+
+                          - `type: "none"`
 
                     - `allowed_domains: optional array of string`
 
@@ -7110,14 +9458,14 @@ Stream Session Thread Events
 ant beta:sessions:threads:events stream \
   --api-key my-anthropic-api-key \
   --session-id sesn_011CZkZAtmR3yMPDzynEDxu7 \
-  --thread-id sthr_011CZkZVWa6oIjw0rgXZpnBt
+  --thread-id sthr_011CZkZVWa6oJjw1rgXZpnBt
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+  "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
   "content": [
     {
       "text": "Where is my order #1234?",
@@ -13226,7 +15574,7 @@ ant beta:vaults:credentials create \
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -13457,7 +15805,7 @@ ant beta:vaults:credentials list \
 {
   "data": [
     {
-      "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+      "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
       "archived_at": null,
       "auth": {
         "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -13665,14 +16013,14 @@ Get Credential
 ant beta:vaults:credentials retrieve \
   --api-key my-anthropic-api-key \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv \
-  --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
+  --credential-id vcrd_011CZkZEMt8gZan2iYPQfSkw
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -13891,14 +16239,14 @@ Update Credential
 ant beta:vaults:credentials update \
   --api-key my-anthropic-api-key \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv \
-  --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
+  --credential-id vcrd_011CZkZEMt8gZan2iYPQfSkw
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -13961,14 +16309,14 @@ Delete Credential
 ant beta:vaults:credentials delete \
   --api-key my-anthropic-api-key \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv \
-  --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
+  --credential-id vcrd_011CZkZEMt8gZan2iYPQfSkw
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "type": "vault_credential_deleted"
 }
 ```
@@ -14161,14 +16509,14 @@ Archive Credential
 ant beta:vaults:credentials archive \
   --api-key my-anthropic-api-key \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv \
-  --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
+  --credential-id vcrd_011CZkZEMt8gZan2iYPQfSkw
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -14337,14 +16685,14 @@ Validate Credential
 ant beta:vaults:credentials mcp-oauth-validate \
   --api-key my-anthropic-api-key \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv \
-  --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
+  --credential-id vcrd_011CZkZEMt8gZan2iYPQfSkw
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "credential_id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "has_refresh_token": true,
   "mcp_probe": {
     "http_response": {
@@ -23390,7 +25738,7 @@ manage rules whose `oauth_scope` is `workspace:developer` or
 
   - `target: object`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
     - `type: "service_account"`
 
@@ -23603,7 +25951,7 @@ unless `include_archived=true`.
 
     - `target: object`
 
-      Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+      What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
       - `type: "service_account"`
 
@@ -23812,7 +26160,7 @@ Retrieve a federation rule by its ID (`fdrl_...`).
 
   - `target: object`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
     - `type: "service_account"`
 
@@ -24073,7 +26421,7 @@ Console session.
 
   - `target: object`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
     - `type: "service_account"`
 
@@ -24282,7 +26630,7 @@ other scopes require a Console session.
 
   - `target: object`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
     - `type: "service_account"`
 
@@ -30556,7 +32904,7 @@ key with the `read:analytics` scope.
 
   - `data_refreshed_at: string`
 
-    RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case every bucket's `results` list is empty. Buckets beyond this watermark are incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
+    RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case every bucket's `results` list is empty. Buckets beyond this watermark are incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours. Values can be revised as late events arrive and reconciliation runs, until about 7 days after the end of the calendar month the usage falls in; for example, values for October 1 can change until about November 7.
 
     format: date-time
 
@@ -30712,2518 +33060,3 @@ organizations on a Claude Enterprise plan. Requires an API key with the
   Metric to rank actors by. Defaults to `total_tokens`.
 
 - `--page: optional string` (query parameter)
-
-  Opaque cursor from a previous response's `next_page` field.
-
-- `--product: optional array of BetaAnalyticsProductFilter` (query parameter)
-
-  Product surfaces to include. Defaults to all products.
-
-  maxItems: 100
-
-- `--rbac-group-id: optional array of string` (query parameter)
-
-  Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
-
-  maxItems: 100
-
-- `--slack-channel-id: optional array of string` (query parameter)
-
-  Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
-
-  maxItems: 100
-
-- `--speed: optional array of "fast" or "standard"` (query parameter)
-
-  Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
-
-  maxItems: 100
-
-- `--user-id: optional array of string` (query parameter)
-
-  Filter to specific users by tagged user ID.
-
-  maxItems: 100
-
-#### Returns
-
-- `BetaAnalyticsUsageUsersResponse: object`
-
-  - `data: array of BetaAnalyticsUsageUsersItem`
-
-    Rows for this page, ranked by `order_by` in the `order` direction. One row per user, or several per user when `group_by[]` or `bucket_width` breaks that user's usage or cost out across rows. Rows split out by `cost_type` or `token_type` (cost endpoint only) stay adjacent and are ranked as one unit.
-
-    - `actor: object`
-
-      The user this row's usage or cost is attributed to. Always a `user_actor`.
-
-      - `type: "user_actor"`
-
-        Actor type. Always `"user_actor"`.
-
-      - `deleted: boolean`
-
-        True when the account has been deleted, or when the user is no longer a member of the organization or its associated organizations (for example, their membership was removed or they were deprovisioned via your identity provider). `email_address` stays populated for removed users and is null when the account has been deleted. `name` follows the rules described on that field. The `user_id` is still populated for reconciliation.
-
-      - `email_address: string`
-
-        The user's email address, including for users who are no longer members of the organization or its associated organizations. Null when the account has been deleted (check `deleted`) and for system-minted service accounts, which have no person's mailbox behind them (check `name`).
-
-      - `name: string`
-
-        The user's full name. Null when the user has not set a name. Returns `"Deleted User"` when the account itself has been deleted, or when the user is no longer a member of the organization or its associated organizations and the organization has chosen to hide the names of removed users. Otherwise, the name stays populated for removed users. Rows for system-minted service accounts render the service name (for example, `"Claude Security"` for usage by Anthropic's security-patching service) or null.
-
-      - `user_id: string`
-
-        Tagged user ID.
-
-    - `cache_creation: object`
-
-      The number of input tokens for cache creation.
-
-      - `ephemeral_1h_input_tokens: number`
-
-        The number of input tokens used to create the 1 hour cache entry.
-
-        minimum: 0
-
-      - `ephemeral_5m_input_tokens: number`
-
-        The number of input tokens used to create the 5 minute cache entry.
-
-        minimum: 0
-
-    - `cache_read_input_tokens: number`
-
-      The number of input tokens read from the cache.
-
-    - `claude_tag_category: "dm" or "engaged" or "monitoring" or 2 more`
-
-      Claude Tag (Claude in Slack) spend category: `engaged` (a person addressed Claude in a channel or thread), `proactive` (Claude responded without being addressed), `scheduled` (a scheduled routine ran), `monitoring` (Claude watching a channel it was asked to monitor), or `dm` (direct messages with Claude). Populated only when `claude_tag_category` is in `group_by[]`; null for usage that is not Claude Tag. Direct-message usage is billed to the individual user and is reported under that user's product, not under `claude-tag`. New categories may be added over time.
-
-      - `"dm"`
-
-      - `"engaged"`
-
-      - `"monitoring"`
-
-      - `"proactive"`
-
-      - `"scheduled"`
-
-    - `claude_tag_user_id: string`
-
-      Slack user ID (for example `U0123ABCDEF`) of the member the Claude Tag (Claude in Slack) usage is attributed to, not a claude.ai user ID. Populated only when `claude_tag_user_id` is in `group_by[]`; null for usage that is not Claude Tag and for Claude Tag usage that is not attributed to a single user (for example `monitoring`, and `proactive` usage Claude initiated), so per-user rows can sum to less than the Claude Tag total. Cannot be combined with `group_by[]=rbac_group_id` or the `rbac_group_ids[]` filter.
-
-    - `context_window: "0-200k" or "200k-1M"`
-
-      Context-window pricing tier of the usage or cost. Null unless `context_window` is in `group_by[]`; it can also be null on grouped rows with no context-window tier, such as code execution.
-
-      - `"0-200k"`
-
-      - `"200k-1M"`
-
-    - `ending_at: string`
-
-      End of the row's UTC time bucket (exclusive), as an RFC 3339 timestamp; equal to `starting_at` plus one `bucket_width`. Null unless `bucket_width` is set.
-
-      format: date-time
-
-    - `inference_geo: "global" or "us"`
-
-      Inference region of the usage or cost. Null unless `inference_geo` is in `group_by[]`; it can also be null on grouped rows where the region is not set (the rows that `inference_geos[]=not_available` matches).
-
-      - `"global"`
-
-      - `"us"`
-
-    - `model: string`
-
-      Model that produced the usage or cost, as a model name in the form the `models[]` filter accepts (for example, `claude-opus-5`). Null unless `model` is in `group_by[]`; it can also be null on grouped rows whose usage or cost is not attributed to a specific model, such as code execution.
-
-    - `output_tokens: number`
-
-      The number of output tokens generated.
-
-    - `product: string`
-
-      Product surface that produced the usage or cost. Null unless product is in `group_by[]`; it can also be null on grouped rows whose usage cannot be attributed to a known surface. Values include `chat`, `claude_code`, `cowork`, `office_agent`, `claude_in_chrome`, `claude_design`, and `claude-tag`. `claude-tag` is Claude Tag, the Claude product in Slack. Some unattributed usage is reported as "other".
-
-    - `rbac_group_id: string`
-
-      RBAC group (team) the usage is attributed to, in the public tagged `rbac_group_...` spelling — the same spelling the activity resources use for this key, so the same team has one id across resources and it round-trips as an `rbac_group_ids[]` filter value. Populated only when `rbac_group_id` is in `group_by[]`. Any-membership semantics: a user in several groups contributes their full usage to each of those groups' rows, so the named-group rows overlap and their sum can exceed the org total. A null value is the single unassigned row: users in no group on that (UTC) day. For the true org total, run the same query without `group_by[]`.
-
-    - `requests: number`
-
-      Number of API requests in this row's scope. For sandbox / code-execution events, this counts execution spans rather than HTTP requests (these rows surface with `product: null`).
-
-    - `server_tool_use: object`
-
-      Server-side tool usage metrics.
-
-      - `web_search_requests: number`
-
-        The number of web search requests made.
-
-    - `slack_channel_id: string`
-
-      Slack channel the usage originated from. Populated only when `slack_channel_id` is in `group_by[]`; null for usage outside Slack (and for rows recorded before channel attribution was enabled).
-
-    - `speed: "fast" or "standard"`
-
-      Inference speed mode of the usage or cost: `fast` or `standard`. Null unless `speed` is in `group_by[]`.
-
-      - `"fast"`
-
-      - `"standard"`
-
-    - `starting_at: string`
-
-      Start of the row's UTC time bucket (inclusive), as an RFC 3339 timestamp. Null unless `bucket_width` is set; without `bucket_width`, each row aggregates the full requested range.
-
-      format: date-time
-
-    - `total_tokens: number`
-
-      Total token count across all token types. This is the value the default `order_by` (`total_tokens`) sorts on.
-
-    - `uncached_input_tokens: number`
-
-      The number of uncached input tokens processed.
-
-  - `data_refreshed_at: string`
-
-    RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case `data` is empty. Data beyond this watermark is incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
-
-    format: date-time
-
-  - `has_more: boolean`
-
-    Whether another page is available. When true, pass `next_page` as the `page` parameter to fetch it.
-
-  - `next_page: string`
-
-    Opaque cursor for the next page, or null when `has_more` is false. Pass it as the `page` parameter, keeping the other parameters unchanged. A cursor can expire after the underlying data refreshes; the request then returns HTTP 410 and pagination must restart from the first page.
-
-  - `organization_id: string`
-
-    ID of the Organization.
-
-#### Example
-
-```bash
-ant beta:organization:analytics:user-usage-report list \
-  --api-key my-anthropic-api-key \
-  --starting-at ''\''2019-12-27T18:11:19.117Z'\'''
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "actor": {
-        "deleted": true,
-        "email": "jane@example.com",
-        "email_address": "jane@example.com",
-        "name": "Jane Smith",
-        "type": "user_actor",
-        "user_id": "user_01AbCdEfGhIjKlMnOpQrSt"
-      },
-      "cache_creation": {
-        "ephemeral_1h_input_tokens": 0,
-        "ephemeral_5m_input_tokens": 0
-      },
-      "cache_read_input_tokens": 3200000,
-      "claude_tag_category": "dm",
-      "claude_tag_user_id": "U0123ABCDEF",
-      "context_window": "0-200k",
-      "ending_at": "2019-12-27T18:11:19.117Z",
-      "inference_geo": "global",
-      "model": "claude-opus-5",
-      "output_tokens": 891000,
-      "product": "chat",
-      "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
-      "requests": 128,
-      "server_tool_use": {
-        "web_search_requests": 10
-      },
-      "slack_channel_id": "C0123ABCDEF",
-      "speed": "fast",
-      "starting_at": "2019-12-27T18:11:19.117Z",
-      "total_tokens": 5377000,
-      "uncached_input_tokens": 1284500
-    }
-  ],
-  "data_refreshed_at": "2019-12-27T18:11:19.117Z",
-  "has_more": true,
-  "next_page": "next_page",
-  "organization_id": "org_013FP9SaFPBg7Kw7fetjn6cF"
-}
-```
-
-## Beta › Organization › Analytics › Cost Report
-
-### Get Cost Over Time
-
-`$ ant beta:organization:analytics:cost-report list`
-
-**GET** `/v1/organizations/analytics/cost_report`
-
-Get cost in USD over time across a date range.
-
-Returns cost bucketed by minute, hour, or day, optionally broken down by
-product, model, context window, inference region, speed, cost type, or
-token type. Available to organizations on a Claude Enterprise plan.
-Requires an API key with the `read:analytics` scope.
-
-#### Parameters
-
-- `--starting-at: string` (query parameter)
-
-  Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
-
-  format: date-time
-
-- `--bucket-width: optional "1d" or "1h" or "1m"` (query parameter)
-
-  Time bucket granularity.
-
-- `--claude-tag-category: optional array of BetaAnalyticsClaudeTagCategory` (query parameter)
-
-  Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
-
-  maxItems: 100
-
-- `--claude-tag-user-id: optional array of string` (query parameter)
-
-  Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
-
-  maxItems: 100
-
-- `--context-window: optional array of BetaAnalyticsContextWindow` (query parameter)
-
-  Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
-
-  maxItems: 100
-
-- `--ending-at: optional string` (query parameter)
-
-  End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
-
-  format: date-time
-
-- `--group-by: optional array of "claude_tag_category" or "claude_tag_user_id" or "context_window" or 8 more` (query parameter)
-
-  Dimensions to break each time bucket out by. Defaults to no grouping (one total per bucket). Each bucket reports at most its top 100 groups; a group beyond that cap has no row in that bucket (there is no remainder row), so grouped buckets are not exhaustive when a dimension has more than 100 distinct values.
-
-  maxItems: 100
-
-- `--inference-geo: optional array of BetaAnalyticsInferenceGeoFilter` (query parameter)
-
-  Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
-
-  maxItems: 100
-
-- `--limit: optional number` (query parameter)
-
-  Maximum number of time buckets per page. Defaults and caps vary by `bucket_width` (`1d`: default 7, max 31; `1h`: default 24, max 168; `1m`: default 60, max 256).
-
-  minimum: 1
-
-- `--model: optional array of string` (query parameter)
-
-  Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
-
-  maxItems: 100
-
-- `--page: optional string` (query parameter)
-
-  Opaque cursor from a previous response's `next_page` field.
-
-- `--product: optional array of BetaAnalyticsProductFilter` (query parameter)
-
-  Product surfaces to include. Defaults to all products. Use `group_by[]=product` to break out per-product values.
-
-  maxItems: 100
-
-- `--rbac-group-id: optional array of string` (query parameter)
-
-  Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
-
-  maxItems: 100
-
-- `--slack-channel-id: optional array of string` (query parameter)
-
-  Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
-
-  maxItems: 100
-
-- `--speed: optional array of "fast" or "standard"` (query parameter)
-
-  Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
-
-  maxItems: 100
-
-- `--user-id: optional array of string` (query parameter)
-
-  Filter to specific users by tagged user ID.
-
-  maxItems: 100
-
-#### Returns
-
-- `BetaAnalyticsCostBucketedResponse: object`
-
-  - `data: array of BetaAnalyticsCostReportTimeBucket`
-
-    Time buckets for this page, oldest first: one per `bucket_width` interval, including intervals with no data (their `results` list is empty). A page holds at most `limit` buckets.
-
-    - `ending_at: string`
-
-      End of the time bucket (exclusive) in RFC 3339 format.
-
-      format: date-time
-
-    - `results: array of BetaAnalyticsCostBucketedResult`
-
-      Rows for this time bucket. Empty when the bucket has no data; otherwise a single combined row when `group_by[]` is omitted, or one row per group (subject to the per-bucket group cap described on the `group_by[]` parameter).
-
-      - `amount: string`
-
-        Amount (post-discount, pre-credit) in fractional cents.
-
-      - `claude_tag_category: "dm" or "engaged" or "monitoring" or 2 more`
-
-        Claude Tag (Claude in Slack) spend category: `engaged` (a person addressed Claude in a channel or thread), `proactive` (Claude responded without being addressed), `scheduled` (a scheduled routine ran), `monitoring` (Claude watching a channel it was asked to monitor), or `dm` (direct messages with Claude). Populated only when `claude_tag_category` is in `group_by[]`; null for usage that is not Claude Tag. Direct-message usage is billed to the individual user and is reported under that user's product, not under `claude-tag`. New categories may be added over time.
-
-        - `"dm"`
-
-        - `"engaged"`
-
-        - `"monitoring"`
-
-        - `"proactive"`
-
-        - `"scheduled"`
-
-      - `claude_tag_user_id: string`
-
-        Slack user ID (for example `U0123ABCDEF`) of the member the Claude Tag (Claude in Slack) usage is attributed to, not a claude.ai user ID. Populated only when `claude_tag_user_id` is in `group_by[]`; null for usage that is not Claude Tag and for Claude Tag usage that is not attributed to a single user (for example `monitoring`, and `proactive` usage Claude initiated), so per-user rows can sum to less than the Claude Tag total. Cannot be combined with `group_by[]=rbac_group_id` or the `rbac_group_ids[]` filter.
-
-      - `context_window: "0-200k" or "200k-1M"`
-
-        Context-window pricing tier of the usage or cost. Null unless `context_window` is in `group_by[]`; it can also be null on grouped rows with no context-window tier, such as code execution.
-
-        - `"0-200k"`
-
-        - `"200k-1M"`
-
-      - `cost_type: "code_execution" or "tokens" or "web_search"`
-
-        Cost component when `group_by[]=cost_type`; null otherwise (amount is the combined total).
-
-        - `"code_execution"`
-
-        - `"tokens"`
-
-        - `"web_search"`
-
-      - `currency: string`
-
-        Currency code for the cost amount. Currently always `"USD"`.
-
-      - `inference_geo: "global" or "us"`
-
-        Inference region of the usage or cost. Null unless `inference_geo` is in `group_by[]`; it can also be null on grouped rows where the region is not set (the rows that `inference_geos[]=not_available` matches).
-
-        - `"global"`
-
-        - `"us"`
-
-      - `list_amount: string`
-
-        List-price amount (pre-discount) in fractional cents.
-
-      - `model: string`
-
-        Model that produced the usage or cost, as a model name in the form the `models[]` filter accepts (for example, `claude-opus-5`). Null unless `model` is in `group_by[]`; it can also be null on grouped rows whose usage or cost is not attributed to a specific model, such as code execution.
-
-      - `product: string`
-
-        Product surface that produced the usage or cost. Null unless product is in `group_by[]`; it can also be null on grouped rows whose usage cannot be attributed to a known surface. Values include `chat`, `claude_code`, `cowork`, `office_agent`, `claude_in_chrome`, `claude_design`, and `claude-tag`. `claude-tag` is Claude Tag, the Claude product in Slack. Some unattributed usage is reported as "other".
-
-      - `rbac_group_id: string`
-
-        RBAC group (team) the usage is attributed to, in the public tagged `rbac_group_...` spelling — the same spelling the activity resources use for this key, so the same team has one id across resources and it round-trips as an `rbac_group_ids[]` filter value. Populated only when `rbac_group_id` is in `group_by[]`. Any-membership semantics: a user in several groups contributes their full usage to each of those groups' rows, so the named-group rows overlap and their sum can exceed the org total. A null value is the single unassigned row: users in no group on that (UTC) day. For the true org total, run the same query without `group_by[]`.
-
-      - `requests: number`
-
-        Number of API requests in this row's scope. Null when `group_by` includes `cost_type` or `token_type` (the count has no per-component attribution; read it from the ungrouped response). For sandbox / code-execution events, this counts execution spans rather than HTTP requests (these rows surface with `product: null`).
-
-      - `slack_channel_id: string`
-
-        Slack channel the usage originated from. Populated only when `slack_channel_id` is in `group_by[]`; null for usage outside Slack (and for rows recorded before channel attribution was enabled).
-
-      - `speed: "fast" or "standard"`
-
-        Inference speed mode of the usage or cost: `fast` or `standard`. Null unless `speed` is in `group_by[]`.
-
-        - `"fast"`
-
-        - `"standard"`
-
-      - `token_type: "cache_creation.ephemeral_1h_input_tokens" or "cache_creation.ephemeral_5m_input_tokens" or "cache_read_input_tokens" or 2 more`
-
-        Token type when `group_by[]=token_type` and `cost_type=tokens`; null otherwise.
-
-        - `"cache_creation.ephemeral_1h_input_tokens"`
-
-        - `"cache_creation.ephemeral_5m_input_tokens"`
-
-        - `"cache_read_input_tokens"`
-
-        - `"output_tokens"`
-
-        - `"uncached_input_tokens"`
-
-    - `starting_at: string`
-
-      Start of the time bucket (inclusive) in RFC 3339 format.
-
-      format: date-time
-
-  - `data_refreshed_at: string`
-
-    RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case every bucket's `results` list is empty. Buckets beyond this watermark are incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
-
-    format: date-time
-
-  - `has_more: boolean`
-
-    Whether another page is available. When true, pass `next_page` as the `page` parameter to fetch it.
-
-  - `next_page: string`
-
-    Opaque cursor for the next page, or null when `has_more` is false. Pass it as the `page` parameter, keeping the other parameters unchanged. A cursor can expire after the underlying data refreshes; the request then returns HTTP 410 and pagination must restart from the first page.
-
-  - `organization_id: string`
-
-    ID of the Organization.
-
-#### Example
-
-```bash
-ant beta:organization:analytics:cost-report list \
-  --api-key my-anthropic-api-key \
-  --starting-at ''\''2019-12-27T18:11:19.117Z'\'''
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "ending_at": "2019-12-27T18:11:19.117Z",
-      "results": [
-        {
-          "amount": "amount",
-          "claude_tag_category": "dm",
-          "claude_tag_user_id": "U0123ABCDEF",
-          "context_window": "0-200k",
-          "cost_type": "code_execution",
-          "currency": "USD",
-          "inference_geo": "global",
-          "list_amount": "list_amount",
-          "model": "claude-opus-5",
-          "product": "chat",
-          "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
-          "requests": 0,
-          "slack_channel_id": "C0123ABCDEF",
-          "speed": "fast",
-          "token_type": "cache_creation.ephemeral_1h_input_tokens"
-        }
-      ],
-      "starting_at": "2019-12-27T18:11:19.117Z"
-    }
-  ],
-  "data_refreshed_at": "2019-12-27T18:11:19.117Z",
-  "has_more": true,
-  "next_page": "next_page",
-  "organization_id": "org_013FP9SaFPBg7Kw7fetjn6cF"
-}
-```
-
-## Beta › Organization › Analytics › User Cost Report
-
-### Get Per-User Cost
-
-`$ ant beta:organization:analytics:user-cost-report list`
-
-**GET** `/v1/organizations/analytics/user_cost_report`
-
-Get per-user cost in USD across a date range.
-
-Returns one row per user, ranked by spend. Use this to see which users
-account for the most cost. Only cost attributable to a seat user is
-included; for organization-wide totals including direct API-key and
-automation traffic, use the bucketed
-`/v1/organizations/analytics/cost_report` endpoint. Available to
-organizations on a Claude Enterprise plan. Requires an API key with the
-`read:analytics` scope.
-
-#### Parameters
-
-- `--starting-at: string` (query parameter)
-
-  Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
-
-  format: date-time
-
-- `--bucket-width: optional "1d" or "1h" or "1m"` (query parameter)
-
-  Time-bucket granularity. When set, each row's `starting_at` and `ending_at` are populated and one actor may span several rows (one per time bucket with usage). The time bucket counts toward `limit`, so one page can return multiple rows for the same actor. `ending_at` is required when `bucket_width` is set, and with `bucket_width="1m"` the range may span at most 24 hours. When omitted, each row aggregates the full `[starting_at, ending_at)` range.
-
-- `--claude-tag-category: optional array of BetaAnalyticsClaudeTagCategory` (query parameter)
-
-  Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
-
-  maxItems: 100
-
-- `--claude-tag-user-id: optional array of string` (query parameter)
-
-  Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
-
-  maxItems: 100
-
-- `--context-window: optional array of BetaAnalyticsContextWindow` (query parameter)
-
-  Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
-
-  maxItems: 100
-
-- `--ending-at: optional string` (query parameter)
-
-  End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
-
-  format: date-time
-
-- `--exclude-deleted-users: optional boolean` (query parameter)
-
-  If true, omit rows for users who are deleted (`deleted: true`). A page may contain fewer than `limit` rows; use `has_more` and `next_page` to paginate as usual.
-
-- `--group-by: optional array of "claude_tag_category" or "claude_tag_user_id" or "context_window" or 8 more` (query parameter)
-
-  Break each actor's row out by the given dimensions. Accepts the same values as the bucketed `/cost_report` endpoint. The `product`, `model`, `context_window`, `inference_geo`, and `speed` dimensions — and the time bucket, when `bucket_width` is set — count toward `limit`. `cost_type` and `token_type` do not: `cost_type` returns one row per cost component (tokens, web search, code execution); `token_type` returns one row per token type, each with `cost_type: "tokens"`; combining both returns the per-token-type rows plus the web-search and code-execution rows. A page can therefore contain more rows than `limit` when `cost_type` or `token_type` is requested.
-
-  maxItems: 100
-
-- `--inference-geo: optional array of BetaAnalyticsInferenceGeoFilter` (query parameter)
-
-  Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
-
-  maxItems: 100
-
-- `--limit: optional number` (query parameter)
-
-  Number of rows per page (1-1000, default 20). One row per actor unless `group_by[]` or `bucket_width` splits an actor across rows; `cost_type`/`token_type` fan-out rows (cost endpoint only) are the exception — they do not count toward this limit, so `data` can exceed it.
-
-  minimum: 1, maximum: 1000
-
-- `--model: optional array of string` (query parameter)
-
-  Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
-
-  maxItems: 100
-
-- `--order: optional "asc" or "desc"` (query parameter)
-
-  Sort direction. Defaults to `desc`.
-
-- `--order-by: optional "amount" or "list_amount"` (query parameter)
-
-  Metric to rank actors by. Defaults to `amount`.
-
-- `--page: optional string` (query parameter)
-
-  Opaque cursor from a previous response's `next_page` field.
-
-- `--product: optional array of BetaAnalyticsProductFilter` (query parameter)
-
-  Product surfaces to include. Defaults to all products.
-
-  maxItems: 100
-
-- `--rbac-group-id: optional array of string` (query parameter)
-
-  Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
-
-  maxItems: 100
-
-- `--slack-channel-id: optional array of string` (query parameter)
-
-  Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
-
-  maxItems: 100
-
-- `--speed: optional array of "fast" or "standard"` (query parameter)
-
-  Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
-
-  maxItems: 100
-
-- `--user-id: optional array of string` (query parameter)
-
-  Filter to specific users by tagged user ID.
-
-  maxItems: 100
-
-#### Returns
-
-- `BetaAnalyticsCostUsersResponse: object`
-
-  - `data: array of BetaAnalyticsCostUsersItem`
-
-    Rows for this page, ranked by `order_by` in the `order` direction. One row per user, or several per user when `group_by[]` or `bucket_width` breaks that user's usage or cost out across rows. Rows split out by `cost_type` or `token_type` (cost endpoint only) stay adjacent and are ranked as one unit.
-
-    - `actor: object`
-
-      The user this row's usage or cost is attributed to. Always a `user_actor`.
-
-      - `type: "user_actor"`
-
-        Actor type. Always `"user_actor"`.
-
-      - `deleted: boolean`
-
-        True when the account has been deleted, or when the user is no longer a member of the organization or its associated organizations (for example, their membership was removed or they were deprovisioned via your identity provider). `email_address` stays populated for removed users and is null when the account has been deleted. `name` follows the rules described on that field. The `user_id` is still populated for reconciliation.
-
-      - `email_address: string`
-
-        The user's email address, including for users who are no longer members of the organization or its associated organizations. Null when the account has been deleted (check `deleted`) and for system-minted service accounts, which have no person's mailbox behind them (check `name`).
-
-      - `name: string`
-
-        The user's full name. Null when the user has not set a name. Returns `"Deleted User"` when the account itself has been deleted, or when the user is no longer a member of the organization or its associated organizations and the organization has chosen to hide the names of removed users. Otherwise, the name stays populated for removed users. Rows for system-minted service accounts render the service name (for example, `"Claude Security"` for usage by Anthropic's security-patching service) or null.
-
-      - `user_id: string`
-
-        Tagged user ID.
-
-    - `amount: string`
-
-      Amount (post-discount, pre-credit) in fractional cents (minor units).
-
-    - `claude_tag_category: "dm" or "engaged" or "monitoring" or 2 more`
-
-      Claude Tag (Claude in Slack) spend category: `engaged` (a person addressed Claude in a channel or thread), `proactive` (Claude responded without being addressed), `scheduled` (a scheduled routine ran), `monitoring` (Claude watching a channel it was asked to monitor), or `dm` (direct messages with Claude). Populated only when `claude_tag_category` is in `group_by[]`; null for usage that is not Claude Tag. Direct-message usage is billed to the individual user and is reported under that user's product, not under `claude-tag`. New categories may be added over time.
-
-      - `"dm"`
-
-      - `"engaged"`
-
-      - `"monitoring"`
-
-      - `"proactive"`
-
-      - `"scheduled"`
-
-    - `claude_tag_user_id: string`
-
-      Slack user ID (for example `U0123ABCDEF`) of the member the Claude Tag (Claude in Slack) usage is attributed to, not a claude.ai user ID. Populated only when `claude_tag_user_id` is in `group_by[]`; null for usage that is not Claude Tag and for Claude Tag usage that is not attributed to a single user (for example `monitoring`, and `proactive` usage Claude initiated), so per-user rows can sum to less than the Claude Tag total. Cannot be combined with `group_by[]=rbac_group_id` or the `rbac_group_ids[]` filter.
-
-    - `context_window: "0-200k" or "200k-1M"`
-
-      Context-window pricing tier of the usage or cost. Null unless `context_window` is in `group_by[]`; it can also be null on grouped rows with no context-window tier, such as code execution.
-
-      - `"0-200k"`
-
-      - `"200k-1M"`
-
-    - `cost_type: "code_execution" or "tokens" or "web_search"`
-
-      Cost component breakdown; null when returning the combined total.
-
-      - `"code_execution"`
-
-      - `"tokens"`
-
-      - `"web_search"`
-
-    - `currency: string`
-
-      Currency code for the cost amount. Currently always `"USD"`.
-
-    - `ending_at: string`
-
-      End of the row's UTC time bucket (exclusive), as an RFC 3339 timestamp; equal to `starting_at` plus one `bucket_width`. Null unless `bucket_width` is set.
-
-      format: date-time
-
-    - `inference_geo: "global" or "us"`
-
-      Inference region of the usage or cost. Null unless `inference_geo` is in `group_by[]`; it can also be null on grouped rows where the region is not set (the rows that `inference_geos[]=not_available` matches).
-
-      - `"global"`
-
-      - `"us"`
-
-    - `list_amount: string`
-
-      List-price amount (pre-discount) in fractional cents.
-
-    - `model: string`
-
-      Model that produced the usage or cost, as a model name in the form the `models[]` filter accepts (for example, `claude-opus-5`). Null unless `model` is in `group_by[]`; it can also be null on grouped rows whose usage or cost is not attributed to a specific model, such as code execution.
-
-    - `product: string`
-
-      Product surface that produced the usage or cost. Null unless product is in `group_by[]`; it can also be null on grouped rows whose usage cannot be attributed to a known surface. Values include `chat`, `claude_code`, `cowork`, `office_agent`, `claude_in_chrome`, `claude_design`, and `claude-tag`. `claude-tag` is Claude Tag, the Claude product in Slack. Some unattributed usage is reported as "other".
-
-    - `rbac_group_id: string`
-
-      RBAC group (team) the usage is attributed to, in the public tagged `rbac_group_...` spelling — the same spelling the activity resources use for this key, so the same team has one id across resources and it round-trips as an `rbac_group_ids[]` filter value. Populated only when `rbac_group_id` is in `group_by[]`. Any-membership semantics: a user in several groups contributes their full usage to each of those groups' rows, so the named-group rows overlap and their sum can exceed the org total. A null value is the single unassigned row: users in no group on that (UTC) day. For the true org total, run the same query without `group_by[]`.
-
-    - `requests: number`
-
-      Number of API requests in this row's scope. Null when `group_by` includes `cost_type` or `token_type` (the count has no per-component attribution; read it from the ungrouped response). For sandbox / code-execution events, this counts execution spans rather than HTTP requests (these rows surface with `product: null`).
-
-    - `slack_channel_id: string`
-
-      Slack channel the usage originated from. Populated only when `slack_channel_id` is in `group_by[]`; null for usage outside Slack (and for rows recorded before channel attribution was enabled).
-
-    - `speed: "fast" or "standard"`
-
-      Inference speed mode of the usage or cost: `fast` or `standard`. Null unless `speed` is in `group_by[]`.
-
-      - `"fast"`
-
-      - `"standard"`
-
-    - `starting_at: string`
-
-      Start of the row's UTC time bucket (inclusive), as an RFC 3339 timestamp. Null unless `bucket_width` is set; without `bucket_width`, each row aggregates the full requested range.
-
-      format: date-time
-
-    - `token_type: "cache_creation.ephemeral_1h_input_tokens" or "cache_creation.ephemeral_5m_input_tokens" or "cache_read_input_tokens" or 2 more`
-
-      Token type when `cost_type` is `tokens`; null otherwise.
-
-      - `"cache_creation.ephemeral_1h_input_tokens"`
-
-      - `"cache_creation.ephemeral_5m_input_tokens"`
-
-      - `"cache_read_input_tokens"`
-
-      - `"output_tokens"`
-
-      - `"uncached_input_tokens"`
-
-  - `data_refreshed_at: string`
-
-    RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case `data` is empty. Data beyond this watermark is incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
-
-    format: date-time
-
-  - `has_more: boolean`
-
-    Whether another page is available. When true, pass `next_page` as the `page` parameter to fetch it.
-
-  - `next_page: string`
-
-    Opaque cursor for the next page, or null when `has_more` is false. Pass it as the `page` parameter, keeping the other parameters unchanged. A cursor can expire after the underlying data refreshes; the request then returns HTTP 410 and pagination must restart from the first page.
-
-  - `organization_id: string`
-
-    ID of the Organization.
-
-#### Example
-
-```bash
-ant beta:organization:analytics:user-cost-report list \
-  --api-key my-anthropic-api-key \
-  --starting-at ''\''2019-12-27T18:11:19.117Z'\'''
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "actor": {
-        "deleted": true,
-        "email": "jane@example.com",
-        "email_address": "jane@example.com",
-        "name": "Jane Smith",
-        "type": "user_actor",
-        "user_id": "user_01AbCdEfGhIjKlMnOpQrSt"
-      },
-      "amount": "41280.000000",
-      "claude_tag_category": "dm",
-      "claude_tag_user_id": "U0123ABCDEF",
-      "context_window": "0-200k",
-      "cost_type": "code_execution",
-      "currency": "USD",
-      "ending_at": "2019-12-27T18:11:19.117Z",
-      "inference_geo": "global",
-      "list_amount": "51600.000000",
-      "model": "claude-opus-5",
-      "product": "chat",
-      "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
-      "requests": 128,
-      "slack_channel_id": "C0123ABCDEF",
-      "speed": "fast",
-      "starting_at": "2019-12-27T18:11:19.117Z",
-      "token_type": "cache_creation.ephemeral_1h_input_tokens"
-    }
-  ],
-  "data_refreshed_at": "2019-12-27T18:11:19.117Z",
-  "has_more": true,
-  "next_page": "next_page",
-  "organization_id": "org_013FP9SaFPBg7Kw7fetjn6cF"
-}
-```
-
-## Beta › Organization › Spend Limits
-
-### Set Spend Limit
-
-`$ ant beta:organization:spend-limits set`
-
-**POST** `/v1/organizations/spend_limits`
-
-Set a spend limit.
-
-Upsert keyed on (scope, period): setting a limit that already exists
-overwrites it in place. A Claude Enterprise organization sets `user`
-limits. Its seat-tier, group, and organization-level defaults are configured
-in claude.ai. A Claude Console organization sets `organization` and
-`workspace` limits, which are monthly and always carry an amount. Setting those
-limits is in an early access preview. To request access, contact your
-Anthropic account team.
-
-#### Parameters
-
-- `--amount: string`
-
-  Limit amount as a non-negative integer decimal string in the minor unit of the organization's billing currency (cents for USD): "50000" is $500.00. `null` sets an explicit no-limit override for this scope and `period` only — each period resolves independently, so caps for other periods still apply.
-
-- `--scope: BetaSpendLimitUserScope or BetaSpendLimitOrganizationScope or BetaSpendLimitWorkspaceScope`
-
-  What the limit applies to. Claude Enterprise organizations set `user` limits. Claude Console organizations set `organization` and `workspace` limits. Any other combination returns 400. Setting `organization` and `workspace` limits through the API is in an early access preview. To request access, contact your Anthropic account team.
-
-- `--period: optional "daily" or "monthly" or "weekly"`
-
-#### Returns
-
-- `beta_spend_limit: object`
-
-  A configured spend limit: a cap on metered spend for one scope and period.
-
-  - `type: "spend_limit"`
-
-    Object type. Always `spend_limit`.
-
-  - `id: string`
-
-    Unique tagged ID of the spend limit (`spl_...`).
-
-  - `amount: string`
-
-    Limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD): "50000" is $500.00. `null` means no numeric cap is configured at this scope — see the effective report for whether a limit applies.
-
-  - `created_at: string`
-
-    RFC 3339 datetime at which the spend limit was created.
-
-    format: date-time
-
-  - `currency: string`
-
-    ISO 4217 code of the organization's billing currency; the unit for `amount`.
-
-  - `is_enabled: boolean`
-
-    Read-only. `false` when extra usage is switched off for this organization (`organization` limit) or for this member (`user` limit); `amount` is kept and applies again when it's switched back on. Always `true` for other limits.
-
-  - `period: "daily" or "monthly" or "weekly"`
-
-    Length of the window the limit resets over. `amount` caps spend within each period.
-
-    - `"daily"`
-
-    - `"monthly"`
-
-    - `"weekly"`
-
-  - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
-
-    What the limit applies to. A tagged union on `type`; each variant carries the identifier for its scope.
-
-    - `beta_spend_limit_user_scope: object`
-
-      Scope selecting a single member of the organization.
-
-      - `type: "user"`
-
-        Scope type. Always `user` for this scope.
-
-      - `user_id: string`
-
-        Tagged ID of the member the spend limit applies to.
-
-    - `beta_spend_limit_seat_tier_scope: object`
-
-      - `type: "seat_tier"`
-
-      - `seat_tier: string`
-
-    - `beta_spend_limit_rbac_group_scope: object`
-
-      - `type: "rbac_group"`
-
-      - `rbac_group_id: string`
-
-    - `beta_spend_limit_organization_service_scope: object`
-
-      - `type: "organization_service"`
-
-      - `service: string`
-
-    - `beta_spend_limit_organization_scope: object`
-
-      - `type: "organization"`
-
-    - `beta_spend_limit_workspace_scope: object`
-
-      Scope selecting one workspace of a Claude Console organization.
-
-      - `type: "workspace"`
-
-        Scope type. Always `workspace` for this scope.
-
-      - `workspace_id: string`
-
-        Tagged ID of the workspace the spend limit applies to.
-
-  - `updated_at: string`
-
-    RFC 3339 datetime at which the spend limit was last modified.
-
-    format: date-time
-
-#### Example
-
-```bash
-ant beta:organization:spend-limits set \
-  --api-key my-anthropic-api-key \
-  --amount 50000 \
-  --scope '{type: user, user_id: user_01WCz1FkmYMm4gnmykNKUu3Q}'
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "amount": "50000",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "currency": "USD",
-  "is_enabled": true,
-  "period": "daily",
-  "scope": {
-    "type": "user",
-    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-  },
-  "type": "spend_limit",
-  "updated_at": "2019-12-27T18:11:19.117Z"
-}
-```
-
-### Get Spend Limit
-
-`$ ant beta:organization:spend-limits retrieve`
-
-**GET** `/v1/organizations/spend_limits/{spend_limit_id}`
-
-Retrieve a spend limit by ID.
-
-#### Parameters
-
-- `--spend-limit-id: string` (path parameter)
-
-  ID of the Spend Limit.
-
-#### Returns
-
-- `beta_spend_limit: object`
-
-  A configured spend limit: a cap on metered spend for one scope and period.
-
-  - `type: "spend_limit"`
-
-    Object type. Always `spend_limit`.
-
-  - `id: string`
-
-    Unique tagged ID of the spend limit (`spl_...`).
-
-  - `amount: string`
-
-    Limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD): "50000" is $500.00. `null` means no numeric cap is configured at this scope — see the effective report for whether a limit applies.
-
-  - `created_at: string`
-
-    RFC 3339 datetime at which the spend limit was created.
-
-    format: date-time
-
-  - `currency: string`
-
-    ISO 4217 code of the organization's billing currency; the unit for `amount`.
-
-  - `is_enabled: boolean`
-
-    Read-only. `false` when extra usage is switched off for this organization (`organization` limit) or for this member (`user` limit); `amount` is kept and applies again when it's switched back on. Always `true` for other limits.
-
-  - `period: "daily" or "monthly" or "weekly"`
-
-    Length of the window the limit resets over. `amount` caps spend within each period.
-
-    - `"daily"`
-
-    - `"monthly"`
-
-    - `"weekly"`
-
-  - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
-
-    What the limit applies to. A tagged union on `type`; each variant carries the identifier for its scope.
-
-    - `beta_spend_limit_user_scope: object`
-
-      Scope selecting a single member of the organization.
-
-      - `type: "user"`
-
-        Scope type. Always `user` for this scope.
-
-      - `user_id: string`
-
-        Tagged ID of the member the spend limit applies to.
-
-    - `beta_spend_limit_seat_tier_scope: object`
-
-      - `type: "seat_tier"`
-
-      - `seat_tier: string`
-
-    - `beta_spend_limit_rbac_group_scope: object`
-
-      - `type: "rbac_group"`
-
-      - `rbac_group_id: string`
-
-    - `beta_spend_limit_organization_service_scope: object`
-
-      - `type: "organization_service"`
-
-      - `service: string`
-
-    - `beta_spend_limit_organization_scope: object`
-
-      - `type: "organization"`
-
-    - `beta_spend_limit_workspace_scope: object`
-
-      Scope selecting one workspace of a Claude Console organization.
-
-      - `type: "workspace"`
-
-        Scope type. Always `workspace` for this scope.
-
-      - `workspace_id: string`
-
-        Tagged ID of the workspace the spend limit applies to.
-
-  - `updated_at: string`
-
-    RFC 3339 datetime at which the spend limit was last modified.
-
-    format: date-time
-
-#### Example
-
-```bash
-ant beta:organization:spend-limits retrieve \
-  --api-key my-anthropic-api-key \
-  --spend-limit-id spend_limit_id
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "amount": "50000",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "currency": "USD",
-  "is_enabled": true,
-  "period": "daily",
-  "scope": {
-    "type": "user",
-    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-  },
-  "type": "spend_limit",
-  "updated_at": "2019-12-27T18:11:19.117Z"
-}
-```
-
-### Delete Spend Limit
-
-`$ ant beta:organization:spend-limits delete`
-
-**DELETE** `/v1/organizations/spend_limits/{spend_limit_id}`
-
-Delete a spend limit.
-
-For a Claude Enterprise organization, this deletes a per-user override, and
-the member falls back to any inherited spend limit at that period. Its
-seat-tier, group, and organization-level rows cannot be deleted via this
-endpoint. A Claude Console organization deletes its organization and
-workspace limits. Deleting them through the API is in an early access preview.
-
-#### Parameters
-
-- `--spend-limit-id: string` (path parameter)
-
-  ID of the Spend Limit.
-
-#### Returns
-
-- `BetaOrganizationSpendLimitDeleteResponse: object`
-
-  - `type: "spend_limit_deleted"`
-
-  - `id: string`
-
-#### Example
-
-```bash
-ant beta:organization:spend-limits delete \
-  --api-key my-anthropic-api-key \
-  --spend-limit-id spend_limit_id
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "type": "spend_limit_deleted"
-}
-```
-
-### List Spend Limits
-
-`$ ant beta:organization:spend-limits list`
-
-**GET** `/v1/organizations/spend_limits`
-
-List the organization's spend limits.
-
-A Claude Console organization's limits come in an order that is stable across
-pages. A Claude Enterprise organization's are grouped by scope type,
-in the order `organization`, `seat_tier`, `rbac_group`,
-`organization_service`, `user`; within a type they come in a fixed order that
-is not creation order.
-
-#### Parameters
-
-- `--limit: optional number` (query parameter)
-
-  Maximum number of limits per page. Defaults to `20`.
-
-  minimum: 1, maximum: 1000
-
-- `--page: optional string` (query parameter)
-
-  Opaque cursor from a previous response's `next_page` field.
-
-- `--scope-type: optional array of "organization" or "organization_service" or "rbac_group" or 3 more` (query parameter)
-
-  Return only limits with these scope types. A Claude Console organization has `organization` and `workspace` limits; a Claude Enterprise organization has `organization`, `seat_tier`, `rbac_group`, `organization_service` and `user` limits. Omit for all.
-
-  maxItems: 6
-
-- `--beta: optional array of AnthropicBeta` (header parameter)
-
-  This endpoint is in beta: requests must send `spend-limit-reads-2026-09-26` in this header.
-
-#### Returns
-
-- `BetaListSpendLimitsResponse: object`
-
-  - `data: array of BetaSpendLimit`
-
-    - `type: "spend_limit"`
-
-      Object type. Always `spend_limit`.
-
-    - `id: string`
-
-      Unique tagged ID of the spend limit (`spl_...`).
-
-    - `amount: string`
-
-      Limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD): "50000" is $500.00. `null` means no numeric cap is configured at this scope — see the effective report for whether a limit applies.
-
-    - `created_at: string`
-
-      RFC 3339 datetime at which the spend limit was created.
-
-      format: date-time
-
-    - `currency: string`
-
-      ISO 4217 code of the organization's billing currency; the unit for `amount`.
-
-    - `is_enabled: boolean`
-
-      Read-only. `false` when extra usage is switched off for this organization (`organization` limit) or for this member (`user` limit); `amount` is kept and applies again when it's switched back on. Always `true` for other limits.
-
-    - `period: "daily" or "monthly" or "weekly"`
-
-      Length of the window the limit resets over. `amount` caps spend within each period.
-
-      - `"daily"`
-
-      - `"monthly"`
-
-      - `"weekly"`
-
-    - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
-
-      What the limit applies to. A tagged union on `type`; each variant carries the identifier for its scope.
-
-      - `beta_spend_limit_user_scope: object`
-
-        Scope selecting a single member of the organization.
-
-        - `type: "user"`
-
-          Scope type. Always `user` for this scope.
-
-        - `user_id: string`
-
-          Tagged ID of the member the spend limit applies to.
-
-      - `beta_spend_limit_seat_tier_scope: object`
-
-        - `type: "seat_tier"`
-
-        - `seat_tier: string`
-
-      - `beta_spend_limit_rbac_group_scope: object`
-
-        - `type: "rbac_group"`
-
-        - `rbac_group_id: string`
-
-      - `beta_spend_limit_organization_service_scope: object`
-
-        - `type: "organization_service"`
-
-        - `service: string`
-
-      - `beta_spend_limit_organization_scope: object`
-
-        - `type: "organization"`
-
-      - `beta_spend_limit_workspace_scope: object`
-
-        Scope selecting one workspace of a Claude Console organization.
-
-        - `type: "workspace"`
-
-          Scope type. Always `workspace` for this scope.
-
-        - `workspace_id: string`
-
-          Tagged ID of the workspace the spend limit applies to.
-
-    - `updated_at: string`
-
-      RFC 3339 datetime at which the spend limit was last modified.
-
-      format: date-time
-
-  - `next_page: string`
-
-#### Example
-
-```bash
-ant beta:organization:spend-limits list \
-  --api-key my-anthropic-api-key
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "amount": "50000",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "currency": "USD",
-      "is_enabled": true,
-      "period": "daily",
-      "scope": {
-        "type": "user",
-        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-      },
-      "type": "spend_limit",
-      "updated_at": "2019-12-27T18:11:19.117Z"
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-## Beta › Organization › Spend Limits › Effective
-
-### List Effective Spend Limits
-
-`$ ant beta:organization:spend-limits:effective list`
-
-**GET** `/v1/organizations/spend_limits/effective`
-
-List each member's effective spend limit and period-to-date spend.
-
-Returns one row per (member, period) the member resolves a spend limit
-for, with the `source` scope the spend limit was inherited from.
-Paginates by member, so a member's periods never split across pages.
-
-#### Parameters
-
-- `--limit: optional number` (query parameter)
-
-  Maximum number of members per page. A member's period rows never split across pages, so a page may carry more rows than this. Defaults to `20`.
-
-  minimum: 1, maximum: 1000
-
-- `--page: optional string` (query parameter)
-
-  Opaque cursor from a previous response's `next_page` field.
-
-- `--period: optional array of "daily" or "monthly" or "weekly"` (query parameter)
-
-  Restrict the report to these limit periods. Omit to return one row per period each member resolves a spend limit for.
-
-  maxItems: 3
-
-- `--user-id: optional array of string` (query parameter)
-
-  Restrict the report to these members, by tagged user ID (`user_...`). At most 100 entries.
-
-  maxItems: 100
-
-#### Returns
-
-- `BetaListEffectiveSpendLimitsResponse: object`
-
-  - `data: array of BetaSpendSummary`
-
-    - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
-
-      - `beta_spend_limit_user_actor: object`
-
-        A user within the organization. `name` and `email_address` are
-        null when the underlying account is unavailable or has been deleted;
-        `deleted` is true only for deleted accounts.
-
-        - `type: "user_actor"`
-
-          Actor type. Always `user_actor`.
-
-        - `deleted: boolean`
-
-          True only when the underlying account has been deleted.
-
-        - `email_address: string`
-
-          The user's email address. Null when the account is unavailable or has been deleted.
-
-        - `name: string`
-
-          The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
-
-        - `user_id: string`
-
-          Tagged ID of the user.
-
-      - `beta_spend_limit_scoped_api_key_actor: object`
-
-        A scoped Admin API key acting on behalf of the organization.
-
-        - `type: "scoped_api_key_actor"`
-
-        - `scoped_api_key_id: string`
-
-    - `amount: string`
-
-      Effective limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD). `null` means no limit applies for this row's `period` — each period resolves independently, so another period may still cap this member.
-
-    - `currency: string`
-
-      ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
-
-    - `period: "daily" or "monthly" or "weekly"`
-
-      Period this row's effective limit and spend are reported for.
-
-      - `"daily"`
-
-      - `"monthly"`
-
-      - `"weekly"`
-
-    - `period_to_date_spend: string`
-
-      The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
-
-    - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
-
-      - `beta_spend_limit_user_scope: object`
-
-        Scope selecting a single member of the organization.
-
-        - `type: "user"`
-
-          Scope type. Always `user` for this scope.
-
-        - `user_id: string`
-
-          Tagged ID of the member the spend limit applies to.
-
-      - `beta_spend_limit_seat_tier_scope: object`
-
-        - `type: "seat_tier"`
-
-        - `seat_tier: string`
-
-      - `beta_spend_limit_rbac_group_scope: object`
-
-        - `type: "rbac_group"`
-
-        - `rbac_group_id: string`
-
-      - `beta_spend_limit_organization_service_scope: object`
-
-        - `type: "organization_service"`
-
-        - `service: string`
-
-      - `beta_spend_limit_organization_scope: object`
-
-        - `type: "organization"`
-
-      - `beta_spend_limit_workspace_scope: object`
-
-        Scope selecting one workspace of a Claude Console organization.
-
-        - `type: "workspace"`
-
-          Scope type. Always `workspace` for this scope.
-
-        - `workspace_id: string`
-
-          Tagged ID of the workspace the spend limit applies to.
-
-    - `source: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
-
-      - `beta_spend_limit_user_scope: object`
-
-        Scope selecting a single member of the organization.
-
-      - `beta_spend_limit_seat_tier_scope: object`
-
-      - `beta_spend_limit_rbac_group_scope: object`
-
-      - `beta_spend_limit_organization_service_scope: object`
-
-      - `beta_spend_limit_organization_scope: object`
-
-      - `beta_spend_limit_workspace_scope: object`
-
-        Scope selecting one workspace of a Claude Console organization.
-
-    - `spend_limit_id: string`
-
-  - `next_page: string`
-
-#### Example
-
-```bash
-ant beta:organization:spend-limits:effective list \
-  --api-key my-anthropic-api-key
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "actor": {
-        "deleted": true,
-        "email_address": "email_address",
-        "name": "name",
-        "type": "user_actor",
-        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-      },
-      "amount": "50000",
-      "currency": "USD",
-      "period": "daily",
-      "period_to_date_spend": "12050.5",
-      "scope": {
-        "type": "user",
-        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-      },
-      "source": {
-        "type": "user",
-        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-      },
-      "spend_limit_id": "spend_limit_id"
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-## Beta › Organization › Spend Limits › Increase Requests
-
-### List Spend Limit Increase Requests
-
-`$ ant beta:organization:spend-limits:increase-requests list`
-
-**GET** `/v1/organizations/spend_limit_increase_requests`
-
-List spend limit increase requests, most recent first.
-
-Pending requests include a live `spend_summary` for the requester.
-Requests whose requester is no longer a member are excluded.
-
-#### Parameters
-
-- `--actor-id: optional array of string` (query parameter)
-
-  Filter by requester, as `user_...` tagged IDs.
-
-- `--limit: optional number` (query parameter)
-
-  minimum: 1, maximum: 1000
-
-- `--page: optional string` (query parameter)
-
-  Opaque cursor from a previous response's `next_page`.
-
-- `--status: optional array of BetaSpendLimitIncreaseRequestStatus` (query parameter)
-
-  Filter by status. Omit to return all.
-
-#### Returns
-
-- `BetaSpendLimitIncreaseRequestListResponse: object`
-
-  - `data: array of BetaSpendLimitIncreaseRequest`
-
-    - `type: "spend_limit_increase_request"`
-
-    - `id: string`
-
-    - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
-
-      - `beta_spend_limit_user_actor: object`
-
-        A user within the organization. `name` and `email_address` are
-        null when the underlying account is unavailable or has been deleted;
-        `deleted` is true only for deleted accounts.
-
-        - `type: "user_actor"`
-
-          Actor type. Always `user_actor`.
-
-        - `deleted: boolean`
-
-          True only when the underlying account has been deleted.
-
-        - `email_address: string`
-
-          The user's email address. Null when the account is unavailable or has been deleted.
-
-        - `name: string`
-
-          The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
-
-        - `user_id: string`
-
-          Tagged ID of the user.
-
-      - `beta_spend_limit_scoped_api_key_actor: object`
-
-        A scoped Admin API key acting on behalf of the organization.
-
-        - `type: "scoped_api_key_actor"`
-
-        - `scoped_api_key_id: string`
-
-    - `created_at: string`
-
-      format: date-time
-
-    - `period: "daily" or "monthly" or "weekly"`
-
-      - `"daily"`
-
-      - `"monthly"`
-
-      - `"weekly"`
-
-    - `resolved_at: string`
-
-      format: date-time
-
-    - `resolved_by: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
-
-      - `beta_spend_limit_user_actor: object`
-
-        A user within the organization. `name` and `email_address` are
-        null when the underlying account is unavailable or has been deleted;
-        `deleted` is true only for deleted accounts.
-
-      - `beta_spend_limit_scoped_api_key_actor: object`
-
-        A scoped Admin API key acting on behalf of the organization.
-
-    - `spend_summary: object`
-
-      Per-member effective-limit report row (`GET /spend_limits/effective`).
-
-      - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
-
-        - `beta_spend_limit_user_actor: object`
-
-          A user within the organization. `name` and `email_address` are
-          null when the underlying account is unavailable or has been deleted;
-          `deleted` is true only for deleted accounts.
-
-        - `beta_spend_limit_scoped_api_key_actor: object`
-
-          A scoped Admin API key acting on behalf of the organization.
-
-      - `amount: string`
-
-        Effective limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD). `null` means no limit applies for this row's `period` — each period resolves independently, so another period may still cap this member.
-
-      - `currency: string`
-
-        ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
-
-      - `period: "daily" or "monthly" or "weekly"`
-
-        Period this row's effective limit and spend are reported for.
-
-        - `"daily"`
-
-        - `"monthly"`
-
-        - `"weekly"`
-
-      - `period_to_date_spend: string`
-
-        The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
-
-      - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
-
-        - `beta_spend_limit_user_scope: object`
-
-          Scope selecting a single member of the organization.
-
-          - `type: "user"`
-
-            Scope type. Always `user` for this scope.
-
-          - `user_id: string`
-
-            Tagged ID of the member the spend limit applies to.
-
-        - `beta_spend_limit_seat_tier_scope: object`
-
-          - `type: "seat_tier"`
-
-          - `seat_tier: string`
-
-        - `beta_spend_limit_rbac_group_scope: object`
-
-          - `type: "rbac_group"`
-
-          - `rbac_group_id: string`
-
-        - `beta_spend_limit_organization_service_scope: object`
-
-          - `type: "organization_service"`
-
-          - `service: string`
-
-        - `beta_spend_limit_organization_scope: object`
-
-          - `type: "organization"`
-
-        - `beta_spend_limit_workspace_scope: object`
-
-          Scope selecting one workspace of a Claude Console organization.
-
-          - `type: "workspace"`
-
-            Scope type. Always `workspace` for this scope.
-
-          - `workspace_id: string`
-
-            Tagged ID of the workspace the spend limit applies to.
-
-      - `source: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
-
-        - `beta_spend_limit_user_scope: object`
-
-          Scope selecting a single member of the organization.
-
-        - `beta_spend_limit_seat_tier_scope: object`
-
-        - `beta_spend_limit_rbac_group_scope: object`
-
-        - `beta_spend_limit_organization_service_scope: object`
-
-        - `beta_spend_limit_organization_scope: object`
-
-        - `beta_spend_limit_workspace_scope: object`
-
-          Scope selecting one workspace of a Claude Console organization.
-
-      - `spend_limit_id: string`
-
-    - `status: "approved" or "denied" or "pending"`
-
-      - `"approved"`
-
-      - `"denied"`
-
-      - `"pending"`
-
-  - `next_page: string`
-
-#### Example
-
-```bash
-ant beta:organization:spend-limits:increase-requests list \
-  --api-key my-anthropic-api-key
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "actor": {
-        "deleted": true,
-        "email_address": "email_address",
-        "name": "name",
-        "type": "user_actor",
-        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-      },
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "period": "daily",
-      "resolved_at": "2019-12-27T18:11:19.117Z",
-      "resolved_by": {
-        "deleted": true,
-        "email_address": "email_address",
-        "name": "name",
-        "type": "user_actor",
-        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-      },
-      "spend_summary": {
-        "actor": {
-          "deleted": true,
-          "email_address": "email_address",
-          "name": "name",
-          "type": "user_actor",
-          "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-        },
-        "amount": "50000",
-        "currency": "USD",
-        "period": "daily",
-        "period_to_date_spend": "12050.5",
-        "scope": {
-          "type": "user",
-          "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-        },
-        "source": {
-          "type": "user",
-          "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-        },
-        "spend_limit_id": "spend_limit_id"
-      },
-      "status": "approved",
-      "type": "spend_limit_increase_request"
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-### Get Spend Limit Increase Request
-
-`$ ant beta:organization:spend-limits:increase-requests retrieve`
-
-**GET** `/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}`
-
-Retrieve a spend limit increase request.
-
-While `pending`, the response includes a live `spend_summary` for the
-requester at the request's period.
-
-#### Parameters
-
-- `--spend-limit-increase-request-id: string` (path parameter)
-
-  ID of the spend limit increase request.
-
-#### Returns
-
-- `beta_spend_limit_increase_request: object`
-
-  - `type: "spend_limit_increase_request"`
-
-  - `id: string`
-
-  - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
-
-    - `beta_spend_limit_user_actor: object`
-
-      A user within the organization. `name` and `email_address` are
-      null when the underlying account is unavailable or has been deleted;
-      `deleted` is true only for deleted accounts.
-
-      - `type: "user_actor"`
-
-        Actor type. Always `user_actor`.
-
-      - `deleted: boolean`
-
-        True only when the underlying account has been deleted.
-
-      - `email_address: string`
-
-        The user's email address. Null when the account is unavailable or has been deleted.
-
-      - `name: string`
-
-        The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
-
-      - `user_id: string`
-
-        Tagged ID of the user.
-
-    - `beta_spend_limit_scoped_api_key_actor: object`
-
-      A scoped Admin API key acting on behalf of the organization.
-
-      - `type: "scoped_api_key_actor"`
-
-      - `scoped_api_key_id: string`
-
-  - `created_at: string`
-
-    format: date-time
-
-  - `period: "daily" or "monthly" or "weekly"`
-
-    - `"daily"`
-
-    - `"monthly"`
-
-    - `"weekly"`
-
-  - `resolved_at: string`
-
-    format: date-time
-
-  - `resolved_by: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
-
-    - `beta_spend_limit_user_actor: object`
-
-      A user within the organization. `name` and `email_address` are
-      null when the underlying account is unavailable or has been deleted;
-      `deleted` is true only for deleted accounts.
-
-    - `beta_spend_limit_scoped_api_key_actor: object`
-
-      A scoped Admin API key acting on behalf of the organization.
-
-  - `spend_summary: object`
-
-    Per-member effective-limit report row (`GET /spend_limits/effective`).
-
-    - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
-
-      - `beta_spend_limit_user_actor: object`
-
-        A user within the organization. `name` and `email_address` are
-        null when the underlying account is unavailable or has been deleted;
-        `deleted` is true only for deleted accounts.
-
-      - `beta_spend_limit_scoped_api_key_actor: object`
-
-        A scoped Admin API key acting on behalf of the organization.
-
-    - `amount: string`
-
-      Effective limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD). `null` means no limit applies for this row's `period` — each period resolves independently, so another period may still cap this member.
-
-    - `currency: string`
-
-      ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
-
-    - `period: "daily" or "monthly" or "weekly"`
-
-      Period this row's effective limit and spend are reported for.
-
-      - `"daily"`
-
-      - `"monthly"`
-
-      - `"weekly"`
-
-    - `period_to_date_spend: string`
-
-      The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
-
-    - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
-
-      - `beta_spend_limit_user_scope: object`
-
-        Scope selecting a single member of the organization.
-
-        - `type: "user"`
-
-          Scope type. Always `user` for this scope.
-
-        - `user_id: string`
-
-          Tagged ID of the member the spend limit applies to.
-
-      - `beta_spend_limit_seat_tier_scope: object`
-
-        - `type: "seat_tier"`
-
-        - `seat_tier: string`
-
-      - `beta_spend_limit_rbac_group_scope: object`
-
-        - `type: "rbac_group"`
-
-        - `rbac_group_id: string`
-
-      - `beta_spend_limit_organization_service_scope: object`
-
-        - `type: "organization_service"`
-
-        - `service: string`
-
-      - `beta_spend_limit_organization_scope: object`
-
-        - `type: "organization"`
-
-      - `beta_spend_limit_workspace_scope: object`
-
-        Scope selecting one workspace of a Claude Console organization.
-
-        - `type: "workspace"`
-
-          Scope type. Always `workspace` for this scope.
-
-        - `workspace_id: string`
-
-          Tagged ID of the workspace the spend limit applies to.
-
-    - `source: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
-
-      - `beta_spend_limit_user_scope: object`
-
-        Scope selecting a single member of the organization.
-
-      - `beta_spend_limit_seat_tier_scope: object`
-
-      - `beta_spend_limit_rbac_group_scope: object`
-
-      - `beta_spend_limit_organization_service_scope: object`
-
-      - `beta_spend_limit_organization_scope: object`
-
-      - `beta_spend_limit_workspace_scope: object`
-
-        Scope selecting one workspace of a Claude Console organization.
-
-    - `spend_limit_id: string`
-
-  - `status: "approved" or "denied" or "pending"`
-
-    - `"approved"`
-
-    - `"denied"`
-
-    - `"pending"`
-
-#### Example
-
-```bash
-ant beta:organization:spend-limits:increase-requests retrieve \
-  --api-key my-anthropic-api-key \
-  --spend-limit-increase-request-id spend_limit_increase_request_id
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "actor": {
-    "deleted": true,
-    "email_address": "email_address",
-    "name": "name",
-    "type": "user_actor",
-    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-  },
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "period": "daily",
-  "resolved_at": "2019-12-27T18:11:19.117Z",
-  "resolved_by": {
-    "deleted": true,
-    "email_address": "email_address",
-    "name": "name",
-    "type": "user_actor",
-    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-  },
-  "spend_summary": {
-    "actor": {
-      "deleted": true,
-      "email_address": "email_address",
-      "name": "name",
-      "type": "user_actor",
-      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-    },
-    "amount": "50000",
-    "currency": "USD",
-    "period": "daily",
-    "period_to_date_spend": "12050.5",
-    "scope": {
-      "type": "user",
-      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-    },
-    "source": {
-      "type": "user",
-      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-    },
-    "spend_limit_id": "spend_limit_id"
-  },
-  "status": "approved",
-  "type": "spend_limit_increase_request"
-}
-```
-
-### Approve Spend Limit Increase Request
-
-`$ ant beta:organization:spend-limits:increase-requests approve`
-
-**POST** `/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}/approve`
-
-Approve a pending spend limit increase request.
-
-Writes a per-user spend limit at `amount` for the requester and
-transitions the request to `approved`. `period` defaults to the period
-the member was blocked on. Anthropic emails the requester unless
-`suppress_notification` is set.
-
-#### Parameters
-
-- `--spend-limit-increase-request-id: string` (path parameter)
-
-  ID of the spend limit increase request.
-
-- `--amount: string`
-
-  New per-user spend limit as a non-negative integer decimal string (minor units).
-
-- `--period: optional "daily" or "monthly" or "weekly"`
-
-- `--suppress-notification: optional boolean`
-
-#### Returns
-
-- `BetaOrganizationSpendLimitIncreaseRequestApproveResponse: object`
-
-  - `type: "spend_limit_increase_request"`
-
-  - `id: string`
-
-  - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
-
-    - `beta_spend_limit_user_actor: object`
-
-      A user within the organization. `name` and `email_address` are
-      null when the underlying account is unavailable or has been deleted;
-      `deleted` is true only for deleted accounts.
-
-      - `type: "user_actor"`
-
-        Actor type. Always `user_actor`.
-
-      - `deleted: boolean`
-
-        True only when the underlying account has been deleted.
-
-      - `email_address: string`
-
-        The user's email address. Null when the account is unavailable or has been deleted.
-
-      - `name: string`
-
-        The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
-
-      - `user_id: string`
-
-        Tagged ID of the user.
-
-    - `beta_spend_limit_scoped_api_key_actor: object`
-
-      A scoped Admin API key acting on behalf of the organization.
-
-      - `type: "scoped_api_key_actor"`
-
-      - `scoped_api_key_id: string`
-
-  - `created_at: string`
-
-    format: date-time
-
-  - `period: "daily" or "monthly" or "weekly"`
-
-    - `"daily"`
-
-    - `"monthly"`
-
-    - `"weekly"`
-
-  - `resolved_at: string`
-
-    format: date-time
-
-  - `resolved_by: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
-
-    - `beta_spend_limit_user_actor: object`
-
-      A user within the organization. `name` and `email_address` are
-      null when the underlying account is unavailable or has been deleted;
-      `deleted` is true only for deleted accounts.
-
-    - `beta_spend_limit_scoped_api_key_actor: object`
-
-      A scoped Admin API key acting on behalf of the organization.
-
-  - `spend_limit: object`
-
-    A configured spend limit: a cap on metered spend for one scope and period.
-
-    - `type: "spend_limit"`
-
-      Object type. Always `spend_limit`.
-
-    - `id: string`
-
-      Unique tagged ID of the spend limit (`spl_...`).
-
-    - `amount: string`
-
-      Limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD): "50000" is $500.00. `null` means no numeric cap is configured at this scope — see the effective report for whether a limit applies.
-
-    - `created_at: string`
-
-      RFC 3339 datetime at which the spend limit was created.
-
-      format: date-time
-
-    - `currency: string`
-
-      ISO 4217 code of the organization's billing currency; the unit for `amount`.
-
-    - `is_enabled: boolean`
-
-      Read-only. `false` when extra usage is switched off for this organization (`organization` limit) or for this member (`user` limit); `amount` is kept and applies again when it's switched back on. Always `true` for other limits.
-
-    - `period: "daily" or "monthly" or "weekly"`
-
-      Length of the window the limit resets over. `amount` caps spend within each period.
-
-      - `"daily"`
-
-      - `"monthly"`
-
-      - `"weekly"`
-
-    - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
-
-      What the limit applies to. A tagged union on `type`; each variant carries the identifier for its scope.
-
-      - `beta_spend_limit_user_scope: object`
-
-        Scope selecting a single member of the organization.
-
-        - `type: "user"`
-
-          Scope type. Always `user` for this scope.
-
-        - `user_id: string`
-
-          Tagged ID of the member the spend limit applies to.
-
-      - `beta_spend_limit_seat_tier_scope: object`
-
-        - `type: "seat_tier"`
-
-        - `seat_tier: string`
-
-      - `beta_spend_limit_rbac_group_scope: object`
-
-        - `type: "rbac_group"`
-
-        - `rbac_group_id: string`
-
-      - `beta_spend_limit_organization_service_scope: object`
-
-        - `type: "organization_service"`
-
-        - `service: string`
-
-      - `beta_spend_limit_organization_scope: object`
-
-        - `type: "organization"`
-
-      - `beta_spend_limit_workspace_scope: object`
-
-        Scope selecting one workspace of a Claude Console organization.
-
-        - `type: "workspace"`
-
-          Scope type. Always `workspace` for this scope.
-
-        - `workspace_id: string`
-
-          Tagged ID of the workspace the spend limit applies to.
-
-    - `updated_at: string`
-
-      RFC 3339 datetime at which the spend limit was last modified.
-
-      format: date-time
-
-  - `spend_summary: object`
-
-    Per-member effective-limit report row (`GET /spend_limits/effective`).
-
-    - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
-
-      - `beta_spend_limit_user_actor: object`
-
-        A user within the organization. `name` and `email_address` are
-        null when the underlying account is unavailable or has been deleted;
-        `deleted` is true only for deleted accounts.
-
-      - `beta_spend_limit_scoped_api_key_actor: object`
-
-        A scoped Admin API key acting on behalf of the organization.
-
-    - `amount: string`
-
-      Effective limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD). `null` means no limit applies for this row's `period` — each period resolves independently, so another period may still cap this member.
-
-    - `currency: string`
-
-      ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
-
-    - `period: "daily" or "monthly" or "weekly"`
-
-      Period this row's effective limit and spend are reported for.
-
-      - `"daily"`
-
-      - `"monthly"`
-
-      - `"weekly"`
-
-    - `period_to_date_spend: string`
-
-      The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
-
-    - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
-
-      - `beta_spend_limit_user_scope: object`
-
-        Scope selecting a single member of the organization.
-
-      - `beta_spend_limit_seat_tier_scope: object`
-
-      - `beta_spend_limit_rbac_group_scope: object`
-
-      - `beta_spend_limit_organization_service_scope: object`
-
-      - `beta_spend_limit_organization_scope: object`
-
-      - `beta_spend_limit_workspace_scope: object`
-
-        Scope selecting one workspace of a Claude Console organization.
-
-    - `source: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
-
-      - `beta_spend_limit_user_scope: object`
-
-        Scope selecting a single member of the organization.
-
-      - `beta_spend_limit_seat_tier_scope: object`
-
-      - `beta_spend_limit_rbac_group_scope: object`
-
-      - `beta_spend_limit_organization_service_scope: object`
-
-      - `beta_spend_limit_organization_scope: object`
-
-      - `beta_spend_limit_workspace_scope: object`
-
-        Scope selecting one workspace of a Claude Console organization.
-
-    - `spend_limit_id: string`
-
-  - `status: "approved" or "denied" or "pending"`
-
-    - `"approved"`
-
-    - `"denied"`
-
-    - `"pending"`
-
-#### Example
-
-```bash
-ant beta:organization:spend-limits:increase-requests approve \
-  --api-key my-anthropic-api-key \
-  --spend-limit-increase-request-id spend_limit_increase_request_id \
-  --amount 50000
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "actor": {
-    "deleted": true,
-    "email_address": "email_address",
-    "name": "name",
-    "type": "user_actor",
-    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-  },
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "period": "daily",
-  "resolved_at": "2019-12-27T18:11:19.117Z",
-  "resolved_by": {
-    "deleted": true,
-    "email_address": "email_address",
-    "name": "name",
-    "type": "user_actor",
-    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-  },
-  "spend_limit": {
-    "id": "id",
-    "amount": "50000",
-    "created_at": "2019-12-27T18:11:19.117Z",
-    "currency": "USD",
-    "is_enabled": true,
-    "period": "daily",
-    "scope": {
-      "type": "user",
-      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-    },
-    "type": "spend_limit",
-    "updated_at": "2019-12-27T18:11:19.117Z"
-  },
-  "spend_summary": {
-    "actor": {
-      "deleted": true,
-      "email_address": "email_address",
-      "name": "name",
-      "type": "user_actor",
-      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-    },
-    "amount": "50000",
-    "currency": "USD",
-    "period": "daily",
-    "period_to_date_spend": "12050.5",
-    "scope": {
-      "type": "user",
-      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-    },
-    "source": {
-      "type": "user",
-      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
-    },
-    "spend_limit_id": "spend_limit_id"
-  },
-  "status": "approved",
-  "type": "spend_limit_increase_request"
-}
-```
-
-### Deny Spend Limit Increase Request
-
-`$ ant beta:organization:spend-limits:increase-requests deny`
-
-**POST** `/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}/deny`
-
-Deny a pending spend limit increase request.
-
-Idempotent on `denied`; denying an already-`approved` request returns
-400. Anthropic emails the requester unless `suppress_notification` is set.
-
-#### Parameters
-
-- `--spend-limit-increase-request-id: string` (path parameter)
-
-  ID of the spend limit increase request.
-
-- `--suppress-notification: optional boolean`
-
-#### Returns
-
-- `beta_spend_limit_increase_request: object`
-
-  - `type: "spend_limit_increase_request"`
-
-  - `id: string`
-
-  - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`

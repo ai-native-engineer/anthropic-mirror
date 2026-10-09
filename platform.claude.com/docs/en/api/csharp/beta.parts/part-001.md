@@ -404,7 +404,7 @@ The Models API response can be used to determine which models are available for 
 
     - `required BetaCapabilitySupport CodeExecution`
 
-      Whether the model supports code execution tools.
+      Whether code that the model runs in the code execution tool can call the request's other tools, as in programmatic tool calling and dynamic filtering for web search and web fetch. Support for the code execution tool itself is in `server_tools.code_execution`.
 
     - `required BetaCompactionCapability? Compaction`
 
@@ -474,6 +474,22 @@ The Models API response can be used to determine which models are available for 
 
       Whether the model accepts PDF content blocks.
 
+    - `required BetaServerToolsCapability ServerTools`
+
+      Whether this model supports the web search and code execution server tools. `supported` is true when the model supports at least one of the tools. A supported tool can still be rejected for your organization, for example when an admin has turned web search off.
+
+      - `required BetaCapabilitySupport CodeExecution`
+
+        Whether the model supports the code execution tool: true when the model supports at least one version of the tool, not necessarily every version.
+
+      - `required bool Supported`
+
+        Whether this capability is supported by the model.
+
+      - `required BetaCapabilitySupport WebSearch`
+
+        Whether the model supports the web search tool: true when the model supports at least one version of the tool, not necessarily every version.
+
     - `required BetaCapabilitySupport StructuredOutputs`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
@@ -492,11 +508,15 @@ The Models API response can be used to determine which models are available for 
 
         - `required BetaCapabilitySupport Adaptive`
 
-          Whether the model supports thinking with type 'adaptive' (auto).
+          Whether the model accepts thinking with type 'adaptive' (the model decides whether and how much to think).
+
+        - `required BetaCapabilitySupport Disabled`
+
+          Whether the model accepts thinking with type 'disabled' (thinking turned off). False exactly when a request that sends it gets a 400 from this model. True on a model that does not support thinking.
 
         - `required BetaCapabilitySupport Enabled`
 
-          Whether the model supports thinking with type 'enabled'.
+          Whether the model accepts thinking with type 'enabled' (extended thinking with a caller-set `budget_tokens`).
 
   - `required DateTimeOffset CreatedAt`
 
@@ -604,6 +624,15 @@ await foreach (var item in page.Paginate())
         "pdf_input": {
           "supported": true
         },
+        "server_tools": {
+          "code_execution": {
+            "supported": true
+          },
+          "supported": true,
+          "web_search": {
+            "supported": true
+          }
+        },
         "structured_outputs": {
           "supported": true
         },
@@ -611,6 +640,9 @@ await foreach (var item in page.Paginate())
           "supported": true,
           "types": {
             "adaptive": {
+              "supported": true
+            },
+            "disabled": {
               "supported": true
             },
             "enabled": {
@@ -797,7 +829,7 @@ The Models API response can be used to determine information about a specific mo
 
     - `required BetaCapabilitySupport CodeExecution`
 
-      Whether the model supports code execution tools.
+      Whether code that the model runs in the code execution tool can call the request's other tools, as in programmatic tool calling and dynamic filtering for web search and web fetch. Support for the code execution tool itself is in `server_tools.code_execution`.
 
     - `required BetaCompactionCapability? Compaction`
 
@@ -867,6 +899,22 @@ The Models API response can be used to determine information about a specific mo
 
       Whether the model accepts PDF content blocks.
 
+    - `required BetaServerToolsCapability ServerTools`
+
+      Whether this model supports the web search and code execution server tools. `supported` is true when the model supports at least one of the tools. A supported tool can still be rejected for your organization, for example when an admin has turned web search off.
+
+      - `required BetaCapabilitySupport CodeExecution`
+
+        Whether the model supports the code execution tool: true when the model supports at least one version of the tool, not necessarily every version.
+
+      - `required bool Supported`
+
+        Whether this capability is supported by the model.
+
+      - `required BetaCapabilitySupport WebSearch`
+
+        Whether the model supports the web search tool: true when the model supports at least one version of the tool, not necessarily every version.
+
     - `required BetaCapabilitySupport StructuredOutputs`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
@@ -885,11 +933,15 @@ The Models API response can be used to determine information about a specific mo
 
         - `required BetaCapabilitySupport Adaptive`
 
-          Whether the model supports thinking with type 'adaptive' (auto).
+          Whether the model accepts thinking with type 'adaptive' (the model decides whether and how much to think).
+
+        - `required BetaCapabilitySupport Disabled`
+
+          Whether the model accepts thinking with type 'disabled' (thinking turned off). False exactly when a request that sends it gets a 400 from this model. True on a model that does not support thinking.
 
         - `required BetaCapabilitySupport Enabled`
 
-          Whether the model supports thinking with type 'enabled'.
+          Whether the model accepts thinking with type 'enabled' (extended thinking with a caller-set `budget_tokens`).
 
   - `required DateTimeOffset CreatedAt`
 
@@ -993,6 +1045,15 @@ Console.WriteLine(betaModelInfo);
     "pdf_input": {
       "supported": true
     },
+    "server_tools": {
+      "code_execution": {
+        "supported": true
+      },
+      "supported": true,
+      "web_search": {
+        "supported": true
+      }
+    },
     "structured_outputs": {
       "supported": true
     },
@@ -1000,6 +1061,9 @@ Console.WriteLine(betaModelInfo);
       "supported": true,
       "types": {
         "adaptive": {
+          "supported": true
+        },
+        "disabled": {
           "supported": true
         },
         "enabled": {
@@ -4005,6 +4069,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                         The model that will complete your prompt.
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                        - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+                          Fastest model for high-volume, real-time tasks
 
                         - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -7564,6 +7632,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                    - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+                      Fastest model for high-volume, real-time tasks
+
                     - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
                       Efficient model for coding and agents
@@ -9020,7 +9092,7 @@ Console.WriteLine(betaMessage);
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-sonnet-5-5",
+        "model": "claude-haiku-5-5",
         "output_tokens": 0,
         "type": "message"
       }
@@ -12020,6 +12092,10 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                         The model that will complete your prompt.
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                        - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+                          Fastest model for high-volume, real-time tasks
 
                         - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -15851,6 +15927,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                             The model that will complete your prompt.
 
                             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                            - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+                              Fastest model for high-volume, real-time tasks
 
                             - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -21154,6 +21234,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                          - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+                            Fastest model for high-volume, real-time tasks
+
                           - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
                             Efficient model for coding and agents
@@ -22314,6 +22398,10 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+        Fastest model for high-volume, real-time tasks
+
       - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
         Efficient model for coding and agents
@@ -22391,6 +22479,10 @@ Create Agent
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+          Fastest model for high-volume, real-time tasks
 
         - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -22566,7 +22658,7 @@ Create Agent
 
   - `BetaManagedAgentsMultiagentParams? multiagent`
 
-    Multiagent orchestration configuration. Currently supports the `coordinator` topology with a roster of 1-20 agents.
+    Multiagent orchestration configuration.
 
   - `IReadOnlyList<BetaManagedAgentsSkillParams> skills`
 
@@ -22857,6 +22949,102 @@ Create Agent
             - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `BetaManagedAgentsWebFetchUrlSourcesParams? UrlSources`
+
+            Which sources contribute URLs the tool may fetch. Omit to allow every source.
+
+            - `BetaManagedAgentsWebFetchUrlSourceToolFilterParams? ClientToolResults`
+
+              Which custom tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be a custom tool in the same tools array.
+
+              - `enum BetaManagedAgentsWebFetchUrlSourceShorthand`
+
+                String form of a url_sources value that has no field other than its type: "all" means {"type": "all"} and "none" means {"type": "none"}.
+
+                - `All("all")`
+
+                - `None("none")`
+
+              - `class BetaManagedAgentsWebFetchUrlSourceToolFilter: union`
+
+                Which tools' results contribute URLs that may be fetched.
+
+                - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                  Every URL from this source may be fetched. This is the default.
+
+                  - `JsonElement Type = "all"`
+
+                - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                  This source contributes no URLs that may be fetched.
+
+                  - `JsonElement Type = "none"`
+
+                - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                  Only the named tools' results contribute URLs that may be fetched.
+
+                  - `JsonElement Type = "only"`
+
+                  - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                    The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                    - `JsonElement Type = "tool_reference"`
+
+                      Must be "tool_reference".
+
+                    - `required string Name`
+
+                      Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                      minLength: 1, maxLength: 128
+
+                - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                  Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                  - `JsonElement Type = "except"`
+
+                  - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                    The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                    - `JsonElement Type = "tool_reference"`
+
+                      Must be "tool_reference".
+
+                    - `required string Name`
+
+                      Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                      minLength: 1, maxLength: 128
+
+            - `BetaManagedAgentsWebFetchUrlSourceToolFilterParams? ServerToolResults`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be "web_search" or "web_fetch".
+
+            - `BetaManagedAgentsWebFetchUrlSourceUserInputParams? UserInput`
+
+              Whether URLs in the text of user messages may be fetched: "all" (the default) or "none".
+
+              - `enum BetaManagedAgentsWebFetchUrlSourceShorthand`
+
+                String form of a url_sources value that has no field other than its type: "all" means {"type": "all"} and "none" means {"type": "none"}.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceUserInput: union`
+
+                Whether URLs in the text of user messages may be fetched.
+
+                - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                  Every URL from this source may be fetched. This is the default.
+
+                - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                  This source contributes no URLs that may be fetched.
 
         - `class BetaManagedAgentsWebSearchToolConfigParams`
 
@@ -23198,6 +23386,10 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+        Fastest model for high-volume, real-time tasks
+
       - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
         Efficient model for coding and agents
@@ -23565,6 +23757,82 @@ Create Agent
             - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+            Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+            - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+              Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `JsonElement Type = "all"`
+
+              - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `JsonElement Type = "none"`
+
+              - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `JsonElement Type = "only"`
+
+                - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `JsonElement Type = "tool_reference"`
+
+                    Must be "tool_reference".
+
+                  - `required string Name`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `JsonElement Type = "except"`
+
+                - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `JsonElement Type = "tool_reference"`
+
+                    Must be "tool_reference".
+
+                  - `required string Name`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+            - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+            - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+              Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                This source contributes no URLs that may be fetched.
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -23796,7 +24064,7 @@ Console.WriteLine(betaManagedAgentsAgent);
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -24020,6 +24288,10 @@ List Agents
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+        Fastest model for high-volume, real-time tasks
 
       - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -24388,6 +24660,82 @@ List Agents
             - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+            Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+            - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+              Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `JsonElement Type = "all"`
+
+              - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `JsonElement Type = "none"`
+
+              - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `JsonElement Type = "only"`
+
+                - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `JsonElement Type = "tool_reference"`
+
+                    Must be "tool_reference".
+
+                  - `required string Name`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `JsonElement Type = "except"`
+
+                - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `JsonElement Type = "tool_reference"`
+
+                    Must be "tool_reference".
+
+                  - `required string Name`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+            - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+            - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+              Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                This source contributes no URLs that may be fetched.
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -24619,7 +24967,7 @@ await foreach (var item in page.Paginate())
           "version": "1"
         },
         {
-          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
           "type": "custom",
           "version": "2"
         }
@@ -24830,6 +25178,10 @@ Get Agent
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+        Fastest model for high-volume, real-time tasks
 
       - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -25199,6 +25551,82 @@ Get Agent
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
+          - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+            Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+            - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+              Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `JsonElement Type = "all"`
+
+              - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `JsonElement Type = "none"`
+
+              - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `JsonElement Type = "only"`
+
+                - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `JsonElement Type = "tool_reference"`
+
+                    Must be "tool_reference".
+
+                  - `required string Name`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `JsonElement Type = "except"`
+
+                - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `JsonElement Type = "tool_reference"`
+
+                    Must be "tool_reference".
+
+                  - `required string Name`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+            - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+            - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+              Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
           - `IReadOnlyList<string> AllowedDomains`
 
           - `IReadOnlyList<string> BlockedDomains`
@@ -25428,7 +25856,7 @@ Console.WriteLine(betaManagedAgentsAgent);
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -25515,6 +25943,10 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+        Fastest model for high-volume, real-time tasks
+
       - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
         Efficient model for coding and agents
@@ -25592,6 +26024,10 @@ Update Agent
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+          Fastest model for high-volume, real-time tasks
 
         - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -26031,6 +26467,102 @@ Update Agent
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
+          - `BetaManagedAgentsWebFetchUrlSourcesParams? UrlSources`
+
+            Which sources contribute URLs the tool may fetch. Omit to allow every source.
+
+            - `BetaManagedAgentsWebFetchUrlSourceToolFilterParams? ClientToolResults`
+
+              Which custom tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be a custom tool in the same tools array.
+
+              - `enum BetaManagedAgentsWebFetchUrlSourceShorthand`
+
+                String form of a url_sources value that has no field other than its type: "all" means {"type": "all"} and "none" means {"type": "none"}.
+
+                - `All("all")`
+
+                - `None("none")`
+
+              - `class BetaManagedAgentsWebFetchUrlSourceToolFilter: union`
+
+                Which tools' results contribute URLs that may be fetched.
+
+                - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                  Every URL from this source may be fetched. This is the default.
+
+                  - `JsonElement Type = "all"`
+
+                - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                  This source contributes no URLs that may be fetched.
+
+                  - `JsonElement Type = "none"`
+
+                - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                  Only the named tools' results contribute URLs that may be fetched.
+
+                  - `JsonElement Type = "only"`
+
+                  - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                    The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                    - `JsonElement Type = "tool_reference"`
+
+                      Must be "tool_reference".
+
+                    - `required string Name`
+
+                      Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                      minLength: 1, maxLength: 128
+
+                - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                  Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                  - `JsonElement Type = "except"`
+
+                  - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                    The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                    - `JsonElement Type = "tool_reference"`
+
+                      Must be "tool_reference".
+
+                    - `required string Name`
+
+                      Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                      minLength: 1, maxLength: 128
+
+            - `BetaManagedAgentsWebFetchUrlSourceToolFilterParams? ServerToolResults`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be "web_search" or "web_fetch".
+
+            - `BetaManagedAgentsWebFetchUrlSourceUserInputParams? UserInput`
+
+              Whether URLs in the text of user messages may be fetched: "all" (the default) or "none".
+
+              - `enum BetaManagedAgentsWebFetchUrlSourceShorthand`
+
+                String form of a url_sources value that has no field other than its type: "all" means {"type": "all"} and "none" means {"type": "none"}.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceUserInput: union`
+
+                Whether URLs in the text of user messages may be fetched.
+
+                - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                  Every URL from this source may be fetched. This is the default.
+
+                - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                  This source contributes no URLs that may be fetched.
+
         - `class BetaManagedAgentsWebSearchToolConfigParams`
 
           Configuration override for the web_search tool.
@@ -26377,6 +26909,10 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+        Fastest model for high-volume, real-time tasks
+
       - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
         Efficient model for coding and agents
@@ -26744,6 +27280,82 @@ Update Agent
             - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+            Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+            - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+              Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `JsonElement Type = "all"`
+
+              - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `JsonElement Type = "none"`
+
+              - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `JsonElement Type = "only"`
+
+                - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `JsonElement Type = "tool_reference"`
+
+                    Must be "tool_reference".
+
+                  - `required string Name`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `JsonElement Type = "except"`
+
+                - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `JsonElement Type = "tool_reference"`
+
+                    Must be "tool_reference".
+
+                  - `required string Name`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+            - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+            - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+              Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                This source contributes no URLs that may be fetched.
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -26974,7 +27586,7 @@ Console.WriteLine(betaManagedAgentsAgent);
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -27176,6 +27788,10 @@ Archive Agent
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+        Fastest model for high-volume, real-time tasks
 
       - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -27544,6 +28160,82 @@ Archive Agent
             - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+            Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+            - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+              Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `JsonElement Type = "all"`
+
+              - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `JsonElement Type = "none"`
+
+              - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `JsonElement Type = "only"`
+
+                - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `JsonElement Type = "tool_reference"`
+
+                    Must be "tool_reference".
+
+                  - `required string Name`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `JsonElement Type = "except"`
+
+                - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `JsonElement Type = "tool_reference"`
+
+                    Must be "tool_reference".
+
+                  - `required string Name`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+            - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+            - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+              Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                This source contributes no URLs that may be fetched.
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -27774,7 +28466,7 @@ Console.WriteLine(betaManagedAgentsAgent);
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -27988,6 +28680,10 @@ List Agent Versions
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+        Fastest model for high-volume, real-time tasks
 
       - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -28357,6 +29053,82 @@ List Agent Versions
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
+          - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+            Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+            - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+              Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `JsonElement Type = "all"`
+
+              - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `JsonElement Type = "none"`
+
+              - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `JsonElement Type = "only"`
+
+                - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `JsonElement Type = "tool_reference"`
+
+                    Must be "tool_reference".
+
+                  - `required string Name`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `JsonElement Type = "except"`
+
+                - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `JsonElement Type = "tool_reference"`
+
+                    Must be "tool_reference".
+
+                  - `required string Name`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+            - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+            - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+              Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
           - `IReadOnlyList<string> AllowedDomains`
 
           - `IReadOnlyList<string> BlockedDomains`
@@ -28502,1246 +29274,3 @@ List Agent Versions
       A custom tool as returned in API responses.
 
       - `required Type Type`
-
-      - `required string Description`
-
-      - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
-
-        JSON Schema for custom tool input parameters.
-
-        - `JsonElement Type = "object"`
-
-        - `IReadOnlyDictionary<string, JsonElement>? Properties`
-
-        - `IReadOnlyList<string>? Required`
-
-      - `required string Name`
-
-  - `required DateTimeOffset UpdatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required int Version`
-
-    The agent's current version. Starts at 1 and increments when the agent is modified.
-
-    format: int32
-
-#### Example
-
-```csharp
-VersionListParams parameters = new()
-{
-    AgentID = "agent_011CZkYpogX7uDKUyvBTophP"
-};
-
-var page = await client.Beta.Agents.Versions.List(parameters);
-await foreach (var item in page.Paginate())
-{
-    Console.WriteLine(item);
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "agent_011CZkYpogX7uDKUyvBTophP",
-      "archived_at": null,
-      "created_at": "2026-03-15T10:00:00Z",
-      "description": "A general-purpose starter agent.",
-      "mcp_servers": [
-        {
-          "name": "example-mcp",
-          "type": "url",
-          "url": "https://example-server.modelcontextprotocol.io/sse"
-        }
-      ],
-      "metadata": {
-        "foo": "bar"
-      },
-      "model": {
-        "id": "claude-opus-5",
-        "effort": {
-          "type": "low"
-        },
-        "inference_geo": "inference_geo",
-        "speed": "standard"
-      },
-      "multiagent": {
-        "agents": [
-          {
-            "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-            "type": "agent",
-            "version": 1
-          }
-        ],
-        "type": "coordinator"
-      },
-      "name": "My First Agent",
-      "skills": [
-        {
-          "skill_id": "xlsx",
-          "type": "anthropic",
-          "version": "1"
-        },
-        {
-          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
-          "type": "custom",
-          "version": "2"
-        }
-      ],
-      "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
-      "tools": [
-        {
-          "configs": [
-            {
-              "enabled": true,
-              "name": "bash",
-              "permission_policy": {
-                "type": "always_allow"
-              },
-              "type": "bash"
-            }
-          ],
-          "default_config": {
-            "enabled": true,
-            "permission_policy": {
-              "type": "always_ask"
-            }
-          },
-          "type": "agent_toolset_20260401"
-        }
-      ],
-      "type": "agent",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "version": 1
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-## Beta › Environments
-
-### Create Environment
-
-`BetaEnvironment Beta.Environments.Create(parameters, cancellationToken = default)`
-
-**POST** `/v1/environments`
-
-Create a new environment with the specified configuration.
-
-#### Parameters
-
-- `EnvironmentCreateParams parameters`
-
-  - `required string name`
-
-    Human-readable name for the environment
-
-    minLength: 1, maxLength: 256
-
-  - `Config? config`
-
-    Environment configuration
-
-    - `class BetaCloudConfigParams`
-
-      Request params for `cloud` environment configuration.
-
-      Fields default to null; on update, omitted fields preserve the
-      existing value.
-
-      - `JsonElement Type = "cloud"`
-
-        Environment type
-
-      - `Networking? Networking`
-
-        Network configuration policy. Omit on update to preserve the existing value.
-
-        - `class BetaUnrestrictedNetwork`
-
-          Unrestricted network access.
-
-          - `JsonElement Type = "unrestricted"`
-
-            Network policy type
-
-        - `class BetaLimitedNetworkParams`
-
-          Limited network request params.
-
-          Fields default to null; on update, omitted fields preserve the
-          existing value.
-
-          - `JsonElement Type = "limited"`
-
-            Network policy type
-
-          - `bool? AllowMcpServers`
-
-            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array. Defaults to `false`.
-
-          - `bool? AllowPackageManagers`
-
-            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array. Defaults to `false` on creation. Must be `true` when `packages` are specified.
-
-          - `IReadOnlyList<string>? AllowedHosts`
-
-            Specifies domains the container can reach.
-
-      - `BetaPackagesParams? Packages`
-
-        Package manager configuration. Under `limited` networking, requires `networking.allow_package_managers` to be `true`. Omit on update to preserve the existing value.
-
-        - `Type Type`
-
-          Package configuration type
-
-        - `IReadOnlyList<string>? Apt`
-
-          Ubuntu/Debian packages to install
-
-        - `IReadOnlyList<string>? Cargo`
-
-          Rust packages to install
-
-        - `IReadOnlyList<string>? Gem`
-
-          Ruby packages to install
-
-        - `IReadOnlyList<string>? Go`
-
-          Go packages to install
-
-        - `IReadOnlyList<string>? Npm`
-
-          Node.js packages to install
-
-        - `IReadOnlyList<string>? Pip`
-
-          Python packages to install
-
-    - `class BetaSelfHostedConfigParams`
-
-      Request params for `self_hosted` environment configuration.
-
-      - `JsonElement Type = "self_hosted"`
-
-        Environment type
-
-  - `string? description`
-
-    Optional description of the environment
-
-    maxLength: 1024
-
-  - `IReadOnlyDictionary<string, string> metadata`
-
-    User-provided metadata key-value pairs
-
-  - `Scope? scope`
-
-    The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. API organizations support only 'organization'; 'account' is rejected. If not specified, defaults based on organization type.
-
-    - `Organization("organization")`
-
-    - `Account("account")`
-
-  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
-
-    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
-
-  - `string workspaceID` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaEnvironment`
-
-  Unified Environment resource for both cloud and self-hosted environments.
-
-  - `JsonElement Type = "environment"`
-
-    The type of object (always 'environment')
-
-  - `required string ID`
-
-    Environment identifier (e.g., 'env_...')
-
-  - `required string? ArchivedAt`
-
-    RFC 3339 timestamp when environment was archived, or null if not archived
-
-  - `required Config Config`
-
-    Environment configuration (either Anthropic Cloud or self-hosted)
-
-    - `class BetaCloudConfig`
-
-      `cloud` environment configuration.
-
-      - `JsonElement Type = "cloud"`
-
-        Environment type
-
-      - `required Networking Networking`
-
-        Network configuration policy.
-
-        - `class BetaUnrestrictedNetwork`
-
-          Unrestricted network access.
-
-          - `JsonElement Type = "unrestricted"`
-
-            Network policy type
-
-        - `class BetaLimitedNetwork`
-
-          Limited network access.
-
-          - `JsonElement Type = "limited"`
-
-            Network policy type
-
-          - `required bool AllowMcpServers`
-
-            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
-
-          - `required bool AllowPackageManagers`
-
-            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
-
-          - `required IReadOnlyList<string> AllowedHosts`
-
-            Specifies domains the container can reach.
-
-      - `required BetaPackages Packages`
-
-        Package manager configuration.
-
-        - `Type Type`
-
-          Package configuration type
-
-        - `required IReadOnlyList<string> Apt`
-
-          Ubuntu/Debian packages to install
-
-        - `required IReadOnlyList<string> Cargo`
-
-          Rust packages to install
-
-        - `required IReadOnlyList<string> Gem`
-
-          Ruby packages to install
-
-        - `required IReadOnlyList<string> Go`
-
-          Go packages to install
-
-        - `required IReadOnlyList<string> Npm`
-
-          Node.js packages to install
-
-        - `required IReadOnlyList<string> Pip`
-
-          Python packages to install
-
-    - `class BetaSelfHostedConfig`
-
-      Configuration for self-hosted environments.
-
-      - `JsonElement Type = "self_hosted"`
-
-        Environment type
-
-  - `required string CreatedAt`
-
-    RFC 3339 timestamp when environment was created
-
-  - `required string? Description`
-
-    User-provided description for the environment; null when unset
-
-  - `required IReadOnlyDictionary<string, string> Metadata`
-
-    User-provided metadata key-value pairs
-
-  - `required string Name`
-
-    Human-readable name for the environment
-
-  - `required string UpdatedAt`
-
-    RFC 3339 timestamp when environment was last updated
-
-  - `Scope Scope`
-
-    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
-
-    - `Organization("organization")`
-
-    - `Account("account")`
-
-#### Example
-
-```csharp
-EnvironmentCreateParams parameters = new() { Name = "python-data-analysis" };
-
-var betaEnvironment = await client.Beta.Environments.Create(parameters);
-
-Console.WriteLine(betaEnvironment);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "archived_at": null,
-  "config": {
-    "networking": {
-      "allow_mcp_servers": false,
-      "allow_package_managers": true,
-      "allowed_hosts": [
-        "api.example.com"
-      ],
-      "type": "limited"
-    },
-    "packages": {
-      "apt": [
-        "string"
-      ],
-      "cargo": [
-        "string"
-      ],
-      "gem": [
-        "string"
-      ],
-      "go": [
-        "string"
-      ],
-      "npm": [
-        "string"
-      ],
-      "pip": [
-        "pandas",
-        "numpy"
-      ],
-      "type": "packages"
-    },
-    "type": "cloud"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "description": "Python environment with data-analysis packages.",
-  "metadata": {},
-  "name": "python-data-analysis",
-  "type": "environment",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "scope": "organization"
-}
-```
-
-### List Environments
-
-`EnvironmentListPage Beta.Environments.List(parameters, cancellationToken = default)`
-
-**GET** `/v1/environments`
-
-List environments with pagination support.
-
-#### Parameters
-
-- `EnvironmentListParams parameters`
-
-  - `bool includeArchived` (query parameter)
-
-    Include archived environments in the response
-
-  - `long limit` (query parameter)
-
-    Maximum number of environments to return
-
-    minimum: 1, maximum: 1000
-
-  - `string? page` (query parameter)
-
-    Opaque cursor from previous response for pagination. Pass the `next_page` value from the previous response.
-
-  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
-
-    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
-
-  - `string workspaceID` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaEnvironment`
-
-  Unified Environment resource for both cloud and self-hosted environments.
-
-  - `JsonElement Type = "environment"`
-
-    The type of object (always 'environment')
-
-  - `required string ID`
-
-    Environment identifier (e.g., 'env_...')
-
-  - `required string? ArchivedAt`
-
-    RFC 3339 timestamp when environment was archived, or null if not archived
-
-  - `required Config Config`
-
-    Environment configuration (either Anthropic Cloud or self-hosted)
-
-    - `class BetaCloudConfig`
-
-      `cloud` environment configuration.
-
-      - `JsonElement Type = "cloud"`
-
-        Environment type
-
-      - `required Networking Networking`
-
-        Network configuration policy.
-
-        - `class BetaUnrestrictedNetwork`
-
-          Unrestricted network access.
-
-          - `JsonElement Type = "unrestricted"`
-
-            Network policy type
-
-        - `class BetaLimitedNetwork`
-
-          Limited network access.
-
-          - `JsonElement Type = "limited"`
-
-            Network policy type
-
-          - `required bool AllowMcpServers`
-
-            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
-
-          - `required bool AllowPackageManagers`
-
-            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
-
-          - `required IReadOnlyList<string> AllowedHosts`
-
-            Specifies domains the container can reach.
-
-      - `required BetaPackages Packages`
-
-        Package manager configuration.
-
-        - `Type Type`
-
-          Package configuration type
-
-        - `required IReadOnlyList<string> Apt`
-
-          Ubuntu/Debian packages to install
-
-        - `required IReadOnlyList<string> Cargo`
-
-          Rust packages to install
-
-        - `required IReadOnlyList<string> Gem`
-
-          Ruby packages to install
-
-        - `required IReadOnlyList<string> Go`
-
-          Go packages to install
-
-        - `required IReadOnlyList<string> Npm`
-
-          Node.js packages to install
-
-        - `required IReadOnlyList<string> Pip`
-
-          Python packages to install
-
-    - `class BetaSelfHostedConfig`
-
-      Configuration for self-hosted environments.
-
-      - `JsonElement Type = "self_hosted"`
-
-        Environment type
-
-  - `required string CreatedAt`
-
-    RFC 3339 timestamp when environment was created
-
-  - `required string? Description`
-
-    User-provided description for the environment; null when unset
-
-  - `required IReadOnlyDictionary<string, string> Metadata`
-
-    User-provided metadata key-value pairs
-
-  - `required string Name`
-
-    Human-readable name for the environment
-
-  - `required string UpdatedAt`
-
-    RFC 3339 timestamp when environment was last updated
-
-  - `Scope Scope`
-
-    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
-
-    - `Organization("organization")`
-
-    - `Account("account")`
-
-#### Example
-
-```csharp
-EnvironmentListParams parameters = new();
-
-var page = await client.Beta.Environments.List(parameters);
-await foreach (var item in page.Paginate())
-{
-    Console.WriteLine(item);
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-      "archived_at": null,
-      "config": {
-        "networking": {
-          "allow_mcp_servers": false,
-          "allow_package_managers": true,
-          "allowed_hosts": [
-            "api.example.com"
-          ],
-          "type": "limited"
-        },
-        "packages": {
-          "apt": [
-            "string"
-          ],
-          "cargo": [
-            "string"
-          ],
-          "gem": [
-            "string"
-          ],
-          "go": [
-            "string"
-          ],
-          "npm": [
-            "string"
-          ],
-          "pip": [
-            "pandas",
-            "numpy"
-          ],
-          "type": "packages"
-        },
-        "type": "cloud"
-      },
-      "created_at": "2026-03-15T10:00:00Z",
-      "description": "Python environment with data-analysis packages.",
-      "metadata": {},
-      "name": "python-data-analysis",
-      "type": "environment",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "scope": "organization"
-    }
-  ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-### Get Environment
-
-`BetaEnvironment Beta.Environments.Retrieve(parameters, cancellationToken = default)`
-
-**GET** `/v1/environments/{environment_id}`
-
-Retrieve a specific environment by ID.
-
-#### Parameters
-
-- `EnvironmentRetrieveParams parameters`
-
-  - `required string environmentID` (path parameter)
-
-  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
-
-    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
-
-  - `string workspaceID` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaEnvironment`
-
-  Unified Environment resource for both cloud and self-hosted environments.
-
-  - `JsonElement Type = "environment"`
-
-    The type of object (always 'environment')
-
-  - `required string ID`
-
-    Environment identifier (e.g., 'env_...')
-
-  - `required string? ArchivedAt`
-
-    RFC 3339 timestamp when environment was archived, or null if not archived
-
-  - `required Config Config`
-
-    Environment configuration (either Anthropic Cloud or self-hosted)
-
-    - `class BetaCloudConfig`
-
-      `cloud` environment configuration.
-
-      - `JsonElement Type = "cloud"`
-
-        Environment type
-
-      - `required Networking Networking`
-
-        Network configuration policy.
-
-        - `class BetaUnrestrictedNetwork`
-
-          Unrestricted network access.
-
-          - `JsonElement Type = "unrestricted"`
-
-            Network policy type
-
-        - `class BetaLimitedNetwork`
-
-          Limited network access.
-
-          - `JsonElement Type = "limited"`
-
-            Network policy type
-
-          - `required bool AllowMcpServers`
-
-            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
-
-          - `required bool AllowPackageManagers`
-
-            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
-
-          - `required IReadOnlyList<string> AllowedHosts`
-
-            Specifies domains the container can reach.
-
-      - `required BetaPackages Packages`
-
-        Package manager configuration.
-
-        - `Type Type`
-
-          Package configuration type
-
-        - `required IReadOnlyList<string> Apt`
-
-          Ubuntu/Debian packages to install
-
-        - `required IReadOnlyList<string> Cargo`
-
-          Rust packages to install
-
-        - `required IReadOnlyList<string> Gem`
-
-          Ruby packages to install
-
-        - `required IReadOnlyList<string> Go`
-
-          Go packages to install
-
-        - `required IReadOnlyList<string> Npm`
-
-          Node.js packages to install
-
-        - `required IReadOnlyList<string> Pip`
-
-          Python packages to install
-
-    - `class BetaSelfHostedConfig`
-
-      Configuration for self-hosted environments.
-
-      - `JsonElement Type = "self_hosted"`
-
-        Environment type
-
-  - `required string CreatedAt`
-
-    RFC 3339 timestamp when environment was created
-
-  - `required string? Description`
-
-    User-provided description for the environment; null when unset
-
-  - `required IReadOnlyDictionary<string, string> Metadata`
-
-    User-provided metadata key-value pairs
-
-  - `required string Name`
-
-    Human-readable name for the environment
-
-  - `required string UpdatedAt`
-
-    RFC 3339 timestamp when environment was last updated
-
-  - `Scope Scope`
-
-    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
-
-    - `Organization("organization")`
-
-    - `Account("account")`
-
-#### Example
-
-```csharp
-EnvironmentRetrieveParams parameters = new()
-{
-    EnvironmentID = "env_011CZkZ9X2dpNyB7HsEFoRfW"
-};
-
-var betaEnvironment = await client.Beta.Environments.Retrieve(parameters);
-
-Console.WriteLine(betaEnvironment);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "archived_at": null,
-  "config": {
-    "networking": {
-      "allow_mcp_servers": false,
-      "allow_package_managers": true,
-      "allowed_hosts": [
-        "api.example.com"
-      ],
-      "type": "limited"
-    },
-    "packages": {
-      "apt": [
-        "string"
-      ],
-      "cargo": [
-        "string"
-      ],
-      "gem": [
-        "string"
-      ],
-      "go": [
-        "string"
-      ],
-      "npm": [
-        "string"
-      ],
-      "pip": [
-        "pandas",
-        "numpy"
-      ],
-      "type": "packages"
-    },
-    "type": "cloud"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "description": "Python environment with data-analysis packages.",
-  "metadata": {},
-  "name": "python-data-analysis",
-  "type": "environment",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "scope": "organization"
-}
-```
-
-### Update Environment
-
-`BetaEnvironment Beta.Environments.Update(parameters, cancellationToken = default)`
-
-**POST** `/v1/environments/{environment_id}`
-
-Update an existing environment's configuration.
-
-#### Parameters
-
-- `EnvironmentUpdateParams parameters`
-
-  - `required string environmentID` (path parameter)
-
-  - `Config? config`
-
-    Updated environment configuration
-
-    - `class BetaCloudConfigParams`
-
-      Request params for `cloud` environment configuration.
-
-      Fields default to null; on update, omitted fields preserve the
-      existing value.
-
-      - `JsonElement Type = "cloud"`
-
-        Environment type
-
-      - `Networking? Networking`
-
-        Network configuration policy. Omit on update to preserve the existing value.
-
-        - `class BetaUnrestrictedNetwork`
-
-          Unrestricted network access.
-
-          - `JsonElement Type = "unrestricted"`
-
-            Network policy type
-
-        - `class BetaLimitedNetworkParams`
-
-          Limited network request params.

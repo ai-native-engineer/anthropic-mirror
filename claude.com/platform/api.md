@@ -35,6 +35,9 @@ Batch processing
 
 Next generation intelligence for long-running agents
 
+* Multi-day autonomous projects
+* Expert-level work for frontier research
+
 Prompt caching
 :   Read
     :   $0.25 / MTok
@@ -48,16 +51,14 @@ Input
 Output
 :   $50 / MTok
 
-Model use cases:
-
-* Multi-day autonomous projects
-* Expert-level work for frontier research
-
 [Explore Fable (opens in new tab)](https://www.anthropic.com/claude/fable)
 
 ### Opus 5.5
 
 Daily driver for agentic coding and enterprise work
+
+* Long-horizon coding and large migrations
+* Multi-step agents across enterprise tools and data
 
 Prompt caching
 :   Read
@@ -72,20 +73,18 @@ Input
 Output
 :   $20 / MTok
 
-Model use cases:
-
-* Long-horizon coding and large migrations
-* Multi-step agents across enterprise tools and data
-
 [Explore Opus (opens in new tab)](https://www.anthropic.com/claude/opus)
 
 ### Sonnet 5.5
 
 High-performance model for coding and agents
 
+* Everyday coding and developer loops
+* Customer-facing agents and multi-tool workflows at scale
+
 Prompt caching
 :   Read
-    :   $0.20 / MTok
+    :   $0.10 / MTok
 
     Write
     :   $2.50 / MTok
@@ -96,34 +95,45 @@ Input
 Output
 :   $10 / MTok
 
-Model use cases:
-
-* Everyday coding and developer loops
-* Customer-facing agents and multi-tool workflows at scale
-
 [Explore Sonnet (opens in new tab)](https://www.anthropic.com/claude/sonnet)
 
-### Haiku 4.5
+### Haiku 5.5
 
 Fastest, most cost-effective model
 
-Prompt caching
-:   Read
-    :   $0.10 / MTok
-
-    Write
-    :   $1.25 / MTok
-
-Input
-:   $1 / MTok
-
-Output
-:   $5 / MTok
-
-Model use cases:
-
 * Real-time, latency-sensitive product experiences
 * Sub-agents inside larger multi-model systems
+
+Prompt caching
+:   Prompts ≤ 100K tokens
+
+    Read
+    :   $0.01 / MTok
+
+    Write
+    :   $0.125 / MTok
+
+    Prompts > 100K tokens
+
+    Read
+    :   $0.05 / MTok
+
+    Write
+    :   $0.625 / MTok
+
+Input
+:   Prompts ≤ 100K tokens
+    :   $0.10 / MTok
+
+    Prompts > 100K tokens
+    :   $0.50 / MTok
+
+Output
+:   Prompts ≤ 100K tokens
+    :   $0.50 / MTok
+
+    Prompts > 100K tokens
+    :   $2.50 / MTok
 
 [Explore Haiku (opens in new tab)](https://www.anthropic.com/claude/haiku)
 

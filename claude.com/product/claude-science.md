@@ -25,7 +25,7 @@ Download now
 
 [Contact sales](https://claude.com/contact-sales/life-sciences)
 
-[![](https://assets.claude.com/c5a97b41637f9801db4c7eb3ce5bcee1175918ef.png)](https://assets.claude.com/ff9c7c293c2f58cc37fa2fbfe39d80eaae9439aa.webm)
+![](https://assets.claude.com/c5a97b41637f9801db4c7eb3ce5bcee1175918ef.png)
 
 ## Built for scientific research
 
@@ -3224,5 +3224,3 @@ Yes. The Claude Science app is available on the Enterprise plan with SSO, SCIM p
 ### Where can I learn more?
 
 Start with the [documentation (opens in new tab)](https://claude.com/docs/claude-science/overview). It covers installation, connecting your tools and compute, and admin setup for Team and Enterprise.
-
-Claude Science (beta) | Claude by Anthropic

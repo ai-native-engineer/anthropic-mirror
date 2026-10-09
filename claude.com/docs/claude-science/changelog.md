@@ -8,10 +8,30 @@
 
 [Skip to main content](#content-area)
 
+0.1.60
+
+October 7, 2026
+
+* Mac: fixed a problem introduced in 0.1.59 where Python, R, and some shell commands could fail to run when Claude Science has access to many folders
+* **Settings > Network > Package mirror** now shows a mirror credential file your organization deployed, instead of asking for a token
+
+0.1.59
+
+October 6, 2026
+
+* Saved approvals for tools from your organization’s plugins are cleared, so Claude asks again; new approvals apply only to the plugin that added the tool
+* Skills from plugins your organization’s admin uploads now appear under Organization in **Settings > Skills**, instead of under Featured
+* Comment boxes on figures, PDFs, reports, and files now grow as you type, and a new comment that fails to save keeps your text and shows an error
+* Fixed some files failing to upload when you add hundreds of files to a message at once
+* `claude-science --here` now refuses to start on a data folder another install created if it holds organization policy files or folders that Claude Science creates for itself; if the folder is yours, run it once with `--trust-here-data`
+* Security hardening of the analysis sandbox on Mac, Windows, and Linux
+* Various bug fixes and security improvements
+
 0.1.56
 
 October 2, 2026
 
+* When safeguards flag a message for life sciences content, Claude Science can now retry it once on another model automatically, depending on the model; turn this off with **Switch models when a message is flagged** in **Settings > General > Model**
 * Excel (.xlsx) previews now show cell colors, bold text, and color-scale heat maps
 * Reviewer findings now open in place, with a button to the reviewer’s full transcript
 * A stalled file upload now stops by itself, and a failed upload says why under the file

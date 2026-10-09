@@ -58,8 +58,9 @@ The connectors teams reach for first.
 Fast-growing connectors this week.
 
 1. 01![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)[Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)Amazon Selling Partner MCP
-2. 02![](https://www.gemini.com/favicon.ico)[Gemini](https://claude.com/marketplace/connectors/gemini-mcp)Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
-3. 03![](https://www.coinversa.ai/web-app-manifest-512x512.png)[Coinversa Pulse](https://claude.com/marketplace/connectors/coinversa-pulse)Live crypto, stock, gold & oil trading data from Hyperliquid: see what the best traders and whales are doing on Bitcoin, ETH, the S&P 500 and more
+2. 02![](https://www.coinversa.ai/web-app-manifest-512x512.png)[Coinversa Pulse](https://claude.com/marketplace/connectors/coinversa-pulse)Live crypto, stock, gold & oil trading data from Hyperliquid: see what the best traders and whales are doing on Bitcoin, ETH, the S&P 500 and more
+3. 03![](https://app.superbooks.io/icons/icon-512.png)[SuperBooks](https://claude.com/marketplace/connectors/superbooks)Financial OS for small businesses
+4. 04![](https://www.gemini.com/favicon.ico)[Gemini](https://claude.com/marketplace/connectors/gemini-mcp)Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
 
 ### Connectors for Connector category: Productivity
 

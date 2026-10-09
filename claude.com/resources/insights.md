@@ -89,3 +89,5 @@ Eight trends we predict will define agentic coding in 2026, and how coding agent
 Claude Code](https://claude.com/resources/guides/2026-agentic-coding-trends-report)
 
 View more
+
+Insights | Claude by Anthropic

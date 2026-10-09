@@ -9,7 +9,7 @@ Turn your ideas into interactive visual and written work, all in one conversatio
 Claude Design, Claude Slides and Claude Docs are available in beta on paid plans.
 Enterprise admins can enable them in Organization settings.
 
-[![](https://assets.claude.com/5417c7f247242efc74cab6cab3a72de5e1a8ea7c.png)](https://assets.claude.com/c5788873a7fbd74ad7caec11fa90610ee8d8bc14.webm)
+![](https://assets.claude.com/5417c7f247242efc74cab6cab3a72de5e1a8ea7c.png)
 
 01
 

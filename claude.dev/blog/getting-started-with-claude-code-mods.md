@@ -22,7 +22,7 @@ Claude Code already lets you change a lot about how it behaves: settings, permis
 
 That makes mods a way to fit Claude Code to how you work. You can add a readout you check all the time, put a guard in front of the commands that make you nervous, or build a review view for how you like to read changes.
 
-This guide builds one mod from an empty folder, **Token Weather**, a live forecast of the context window drawn above the prompt. It's about 80 lines. Then it tours two larger mods, **Blast Radius** and **Replay Theater**, to show what else the API can do.
+This guide builds one mod from an empty folder, **Token Weather**, a live forecast of the context window drawn above the prompt. It's about 80 lines. Then it tours two larger mods, **Blast Radius** and **Replay Theater**, to show what else the API can do. The finished code for all three is in [anthropics/claude-code-playground](https://github.com/anthropics/claude-code-playground/tree/main/claude-code/mods).
 
 TerminalDesktop
 
@@ -456,6 +456,8 @@ claude plugin marketplace add ./my-mods
 claude plugin install token-weather@my-mods --scope user
 ```
 
+To compare your version with a finished one, see [the complete Token Weather mod](https://github.com/anthropics/claude-code-playground/tree/main/claude-code/mods/token-weather) in anthropics/claude-code-playground.
+
 ## SHARING YOUR MOD
 
 A mod is a Claude Code plugin, so you share it the same way as any other plugin, and there's nothing new to learn. Put the mod in a GitHub repo with a marketplace file and that repo becomes your marketplace. Anyone can install from it, and you can update it with a normal push.
@@ -479,6 +481,8 @@ The Claude directory accepts plugins that include mods, and you can submit yours
 ## TWO MORE MODS
 
 Token Weather only watches and draws. The next two mods step into events, open panes, and take input.
+
+The complete code for both is in anthropics/claude-code-playground: [Blast Radius](https://github.com/anthropics/claude-code-playground/tree/main/claude-code/mods/blast-radius) and [Replay Theater](https://github.com/anthropics/claude-code-playground/tree/main/claude-code/mods/replay-theater), each with a README that explains how it was built.
 
 ### Blast Radius: see what a risky command would change before it runs
 

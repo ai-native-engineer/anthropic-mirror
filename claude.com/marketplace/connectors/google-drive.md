@@ -24,6 +24,16 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
+![](https://raw.githubusercontent.com/grafana/ai-marketplace/12be5634a492f73c189d466c5449d09b853ad7a4/plugins/grafana-cloud-mcp/assets/logo.svg)
+
+### [Grafana Cloud](https://claude.com/marketplace/connectors/grafana-cloud)
+
+Anthropic verifiedNew
+
+Query metrics, logs, and traces and manage dashboards and alerts
+
+[Add Grafana Cloud in Claude (opens in new tab)](https://claude.ai/directory/3392c633-e335-4638-bda7-5b259808c3f7 "Add in Claude")
+
 ![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
 
 ### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
@@ -65,11 +75,3 @@ Connect AI assistants to live crypto markets, prediction markets, your trading a
 Connect your Notion workspace to search, update, and power workflows across tools
 
 [Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
-
-![](https://assets.claude.com/bdf25f3db0bfe9b74855f504c31bd8522659edae.svg?w=128&fit=max&auto=format)
-
-### [Slack](https://claude.com/marketplace/connectors/slack)
-
-Send messages, create canvases, and fetch Slack data
-
-[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

@@ -2,6 +2,1401 @@
 <!-- part of: https://platform.claude.com/docs/en/api/ruby/beta -->
 
 <!-- chunk-start -->
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Python environment with data-analysis packages.",
+  "metadata": {},
+  "name": "python-data-analysis",
+  "type": "environment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "scope": "organization"
+}
+```
+
+## Beta › Environments › Work
+
+### Get Work Item
+
+`beta.environments.work.retrieve(work_id, **kwargs) -> BetaSelfHostedWork`
+
+**GET** `/v1/environments/{environment_id}/work/{work_id}`
+
+Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
+
+Retrieve detailed information about a specific work item.
+
+#### Parameters
+
+- `environment_id: String` (path parameter)
+
+- `work_id: String` (path parameter)
+
+- `betas: Array[AnthropicBeta]` (header parameter)
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `:"message-batches-2024-09-24"`
+
+  - `:"prompt-caching-2024-07-31"`
+
+  - `:"computer-use-2024-10-22"`
+
+  - `:"computer-use-2025-01-24"`
+
+  - `:"pdfs-2024-09-25"`
+
+  - `:"token-counting-2024-11-01"`
+
+  - `:"token-efficient-tools-2025-02-19"`
+
+  - `:"output-128k-2025-02-19"`
+
+  - `:"files-api-2025-04-14"`
+
+  - `:"mcp-client-2025-04-04"`
+
+  - `:"mcp-client-2025-11-20"`
+
+  - `:"dev-full-thinking-2025-05-14"`
+
+  - `:"interleaved-thinking-2025-05-14"`
+
+  - `:"code-execution-2025-05-22"`
+
+  - `:"extended-cache-ttl-2025-04-11"`
+
+  - `:"context-1m-2025-08-07"`
+
+  - `:"context-management-2025-06-27"`
+
+  - `:"model-context-window-exceeded-2025-08-26"`
+
+  - `:"skills-2025-10-02"`
+
+  - `:"fast-mode-2026-02-01"`
+
+  - `:"output-300k-2026-03-24"`
+
+  - `:"user-profiles-2026-03-24"`
+
+  - `:"user-profiles-2026-08-18"`
+
+  - `:"user-profiles-2026-09-04"`
+
+  - `:"advisor-tool-2026-03-01"`
+
+  - `:"managed-agents-2026-04-01"`
+
+  - `:"cache-diagnosis-2026-04-07"`
+
+  - `:"dreaming-2026-04-21"`
+
+  - `:"thinking-token-count-2026-05-13"`
+
+  - `:"server-side-fallback-2026-06-01"`
+
+  - `:"server-side-fallback-2026-07-01"`
+
+  - `:"fallback-credit-2026-06-01"`
+
+  - `:"fallback-credit-2026-07-01"`
+
+  - `:"agent-memory-2026-07-22"`
+
+  - `:"mid-conversation-tool-changes-2026-07-01"`
+
+  - `:"compact-2026-01-12"`
+
+  - `:"computer-use-2025-11-24"`
+
+  - `:"mcp-tunnels-2026-06-22"`
+
+  - `:"structured-outputs-2025-11-13"`
+
+  - `:"task-budgets-2026-03-13"`
+
+  - `:"thinking-display-updates-2026-08-18"`
+
+  - `:"ce-user-management-2026-07-13"`
+
+  - `:"mid-conversation-output-config-2026-07-01"`
+
+  - `:"thinking-binding-controls-2026-08-01"`
+
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
+
+  - `:"spend-limit-reads-2026-09-26"`
+
+- `workspace_id: String` (header parameter)
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaSelfHostedWork`
+
+  Work resource representing a unit of work in a self-hosted environment.
+
+  Work items are queued when sessions are created or when long-dormant sessions
+  receive new messages. The environment worker polls for work to execute in a
+  self-hosted sandbox.
+
+  - `type: :work`
+
+    The type of object (always 'work')
+
+  - `id: String`
+
+    Work identifier (e.g., 'work_...')
+
+  - `acknowledged_at: String`
+
+    RFC 3339 timestamp when the work item was acknowledged and assigned to a self-hosted sandbox
+
+  - `created_at: String`
+
+    RFC 3339 timestamp when work was created
+
+  - `data: BetaSessionWorkData`
+
+    The actual work to be performed
+
+    - `type: :session`
+
+      Type of work data
+
+    - `id: String`
+
+      Session identifier (e.g., 'session_...')
+
+  - `environment_id: String`
+
+    Environment identifier this work belongs to (e.g., `env_...`)
+
+  - `latest_heartbeat_at: String`
+
+    RFC 3339 timestamp of the most recent heartbeat
+
+  - `metadata: Hash[Symbol, String]`
+
+    User-provided metadata key-value pairs associated with this work item
+
+  - `secret: String`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
+  - `started_at: String`
+
+    RFC 3339 timestamp when work execution started
+
+  - `state: :queued | :starting | :active | 2 more`
+
+    Current state of the work item
+
+    - `:queued`
+
+    - `:starting`
+
+    - `:active`
+
+    - `:stopping`
+
+    - `:stopped`
+
+  - `stop_requested_at: String`
+
+    RFC 3339 timestamp when stop was requested
+
+  - `stopped_at: String`
+
+    RFC 3339 timestamp when work execution stopped
+
+#### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_self_hosted_work = anthropic.beta.environments.work.retrieve("work_id", environment_id: "env_011CZkZ9X2dpNyB7HsEFoRfW")
+
+puts(beta_self_hosted_work)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "acknowledged_at": "acknowledged_at",
+  "created_at": "created_at",
+  "data": {
+    "id": "id",
+    "type": "session"
+  },
+  "environment_id": "environment_id",
+  "latest_heartbeat_at": "latest_heartbeat_at",
+  "metadata": {
+    "foo": "string"
+  },
+  "secret": "secret",
+  "started_at": "started_at",
+  "state": "queued",
+  "stop_requested_at": "stop_requested_at",
+  "stopped_at": "stopped_at",
+  "type": "work"
+}
+```
+
+### Poll for Work
+
+`beta.environments.work.poll(environment_id, **kwargs) -> BetaSelfHostedWork`
+
+**GET** `/v1/environments/{environment_id}/work/poll`
+
+Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
+
+Long poll for work items in the queue.
+
+#### Parameters
+
+- `environment_id: String` (path parameter)
+
+- `block_ms: Integer` (query parameter)
+
+  How long to wait for work to arrive before returning. Must be 1-999 in milliseconds. Defaults to non-blocking (returns immediately if no work is available).
+
+  minimum: 1
+
+- `reclaim_older_than_ms: Integer` (query parameter)
+
+  Reclaim unacknowledged work items older than this many milliseconds. If omitted, uses the default (5000ms).
+
+  minimum: 1
+
+- `betas: Array[AnthropicBeta]` (header parameter)
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `:"message-batches-2024-09-24"`
+
+  - `:"prompt-caching-2024-07-31"`
+
+  - `:"computer-use-2024-10-22"`
+
+  - `:"computer-use-2025-01-24"`
+
+  - `:"pdfs-2024-09-25"`
+
+  - `:"token-counting-2024-11-01"`
+
+  - `:"token-efficient-tools-2025-02-19"`
+
+  - `:"output-128k-2025-02-19"`
+
+  - `:"files-api-2025-04-14"`
+
+  - `:"mcp-client-2025-04-04"`
+
+  - `:"mcp-client-2025-11-20"`
+
+  - `:"dev-full-thinking-2025-05-14"`
+
+  - `:"interleaved-thinking-2025-05-14"`
+
+  - `:"code-execution-2025-05-22"`
+
+  - `:"extended-cache-ttl-2025-04-11"`
+
+  - `:"context-1m-2025-08-07"`
+
+  - `:"context-management-2025-06-27"`
+
+  - `:"model-context-window-exceeded-2025-08-26"`
+
+  - `:"skills-2025-10-02"`
+
+  - `:"fast-mode-2026-02-01"`
+
+  - `:"output-300k-2026-03-24"`
+
+  - `:"user-profiles-2026-03-24"`
+
+  - `:"user-profiles-2026-08-18"`
+
+  - `:"user-profiles-2026-09-04"`
+
+  - `:"advisor-tool-2026-03-01"`
+
+  - `:"managed-agents-2026-04-01"`
+
+  - `:"cache-diagnosis-2026-04-07"`
+
+  - `:"dreaming-2026-04-21"`
+
+  - `:"thinking-token-count-2026-05-13"`
+
+  - `:"server-side-fallback-2026-06-01"`
+
+  - `:"server-side-fallback-2026-07-01"`
+
+  - `:"fallback-credit-2026-06-01"`
+
+  - `:"fallback-credit-2026-07-01"`
+
+  - `:"agent-memory-2026-07-22"`
+
+  - `:"mid-conversation-tool-changes-2026-07-01"`
+
+  - `:"compact-2026-01-12"`
+
+  - `:"computer-use-2025-11-24"`
+
+  - `:"mcp-tunnels-2026-06-22"`
+
+  - `:"structured-outputs-2025-11-13"`
+
+  - `:"task-budgets-2026-03-13"`
+
+  - `:"thinking-display-updates-2026-08-18"`
+
+  - `:"ce-user-management-2026-07-13"`
+
+  - `:"mid-conversation-output-config-2026-07-01"`
+
+  - `:"thinking-binding-controls-2026-08-01"`
+
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
+
+  - `:"spend-limit-reads-2026-09-26"`
+
+- `anthropic_worker_id: String` (header parameter)
+
+  Unique identifier for the specific worker polling, used to track aggregated environment-level work metrics in Console
+
+#### Returns
+
+- `class BetaSelfHostedWork`
+
+  Work resource representing a unit of work in a self-hosted environment.
+
+  Work items are queued when sessions are created or when long-dormant sessions
+  receive new messages. The environment worker polls for work to execute in a
+  self-hosted sandbox.
+
+  - `type: :work`
+
+    The type of object (always 'work')
+
+  - `id: String`
+
+    Work identifier (e.g., 'work_...')
+
+  - `acknowledged_at: String`
+
+    RFC 3339 timestamp when the work item was acknowledged and assigned to a self-hosted sandbox
+
+  - `created_at: String`
+
+    RFC 3339 timestamp when work was created
+
+  - `data: BetaSessionWorkData`
+
+    The actual work to be performed
+
+    - `type: :session`
+
+      Type of work data
+
+    - `id: String`
+
+      Session identifier (e.g., 'session_...')
+
+  - `environment_id: String`
+
+    Environment identifier this work belongs to (e.g., `env_...`)
+
+  - `latest_heartbeat_at: String`
+
+    RFC 3339 timestamp of the most recent heartbeat
+
+  - `metadata: Hash[Symbol, String]`
+
+    User-provided metadata key-value pairs associated with this work item
+
+  - `secret: String`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
+  - `started_at: String`
+
+    RFC 3339 timestamp when work execution started
+
+  - `state: :queued | :starting | :active | 2 more`
+
+    Current state of the work item
+
+    - `:queued`
+
+    - `:starting`
+
+    - `:active`
+
+    - `:stopping`
+
+    - `:stopped`
+
+  - `stop_requested_at: String`
+
+    RFC 3339 timestamp when stop was requested
+
+  - `stopped_at: String`
+
+    RFC 3339 timestamp when work execution stopped
+
+#### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_self_hosted_work = anthropic.beta.environments.work.poll("env_011CZkZ9X2dpNyB7HsEFoRfW")
+
+puts(beta_self_hosted_work)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "acknowledged_at": "acknowledged_at",
+  "created_at": "created_at",
+  "data": {
+    "id": "id",
+    "type": "session"
+  },
+  "environment_id": "environment_id",
+  "latest_heartbeat_at": "latest_heartbeat_at",
+  "metadata": {
+    "foo": "string"
+  },
+  "secret": "secret",
+  "started_at": "started_at",
+  "state": "queued",
+  "stop_requested_at": "stop_requested_at",
+  "stopped_at": "stopped_at",
+  "type": "work"
+}
+```
+
+### Acknowledge Work
+
+`beta.environments.work.ack(work_id, **kwargs) -> BetaSelfHostedWork`
+
+**POST** `/v1/environments/{environment_id}/work/{work_id}/ack`
+
+Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
+
+Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting' and removing it from the queue.
+
+#### Parameters
+
+- `environment_id: String` (path parameter)
+
+- `work_id: String` (path parameter)
+
+- `betas: Array[AnthropicBeta]` (header parameter)
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `:"message-batches-2024-09-24"`
+
+  - `:"prompt-caching-2024-07-31"`
+
+  - `:"computer-use-2024-10-22"`
+
+  - `:"computer-use-2025-01-24"`
+
+  - `:"pdfs-2024-09-25"`
+
+  - `:"token-counting-2024-11-01"`
+
+  - `:"token-efficient-tools-2025-02-19"`
+
+  - `:"output-128k-2025-02-19"`
+
+  - `:"files-api-2025-04-14"`
+
+  - `:"mcp-client-2025-04-04"`
+
+  - `:"mcp-client-2025-11-20"`
+
+  - `:"dev-full-thinking-2025-05-14"`
+
+  - `:"interleaved-thinking-2025-05-14"`
+
+  - `:"code-execution-2025-05-22"`
+
+  - `:"extended-cache-ttl-2025-04-11"`
+
+  - `:"context-1m-2025-08-07"`
+
+  - `:"context-management-2025-06-27"`
+
+  - `:"model-context-window-exceeded-2025-08-26"`
+
+  - `:"skills-2025-10-02"`
+
+  - `:"fast-mode-2026-02-01"`
+
+  - `:"output-300k-2026-03-24"`
+
+  - `:"user-profiles-2026-03-24"`
+
+  - `:"user-profiles-2026-08-18"`
+
+  - `:"user-profiles-2026-09-04"`
+
+  - `:"advisor-tool-2026-03-01"`
+
+  - `:"managed-agents-2026-04-01"`
+
+  - `:"cache-diagnosis-2026-04-07"`
+
+  - `:"dreaming-2026-04-21"`
+
+  - `:"thinking-token-count-2026-05-13"`
+
+  - `:"server-side-fallback-2026-06-01"`
+
+  - `:"server-side-fallback-2026-07-01"`
+
+  - `:"fallback-credit-2026-06-01"`
+
+  - `:"fallback-credit-2026-07-01"`
+
+  - `:"agent-memory-2026-07-22"`
+
+  - `:"mid-conversation-tool-changes-2026-07-01"`
+
+  - `:"compact-2026-01-12"`
+
+  - `:"computer-use-2025-11-24"`
+
+  - `:"mcp-tunnels-2026-06-22"`
+
+  - `:"structured-outputs-2025-11-13"`
+
+  - `:"task-budgets-2026-03-13"`
+
+  - `:"thinking-display-updates-2026-08-18"`
+
+  - `:"ce-user-management-2026-07-13"`
+
+  - `:"mid-conversation-output-config-2026-07-01"`
+
+  - `:"thinking-binding-controls-2026-08-01"`
+
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
+
+  - `:"spend-limit-reads-2026-09-26"`
+
+#### Returns
+
+- `class BetaSelfHostedWork`
+
+  Work resource representing a unit of work in a self-hosted environment.
+
+  Work items are queued when sessions are created or when long-dormant sessions
+  receive new messages. The environment worker polls for work to execute in a
+  self-hosted sandbox.
+
+  - `type: :work`
+
+    The type of object (always 'work')
+
+  - `id: String`
+
+    Work identifier (e.g., 'work_...')
+
+  - `acknowledged_at: String`
+
+    RFC 3339 timestamp when the work item was acknowledged and assigned to a self-hosted sandbox
+
+  - `created_at: String`
+
+    RFC 3339 timestamp when work was created
+
+  - `data: BetaSessionWorkData`
+
+    The actual work to be performed
+
+    - `type: :session`
+
+      Type of work data
+
+    - `id: String`
+
+      Session identifier (e.g., 'session_...')
+
+  - `environment_id: String`
+
+    Environment identifier this work belongs to (e.g., `env_...`)
+
+  - `latest_heartbeat_at: String`
+
+    RFC 3339 timestamp of the most recent heartbeat
+
+  - `metadata: Hash[Symbol, String]`
+
+    User-provided metadata key-value pairs associated with this work item
+
+  - `secret: String`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
+  - `started_at: String`
+
+    RFC 3339 timestamp when work execution started
+
+  - `state: :queued | :starting | :active | 2 more`
+
+    Current state of the work item
+
+    - `:queued`
+
+    - `:starting`
+
+    - `:active`
+
+    - `:stopping`
+
+    - `:stopped`
+
+  - `stop_requested_at: String`
+
+    RFC 3339 timestamp when stop was requested
+
+  - `stopped_at: String`
+
+    RFC 3339 timestamp when work execution stopped
+
+#### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_self_hosted_work = anthropic.beta.environments.work.ack("work_id", environment_id: "env_011CZkZ9X2dpNyB7HsEFoRfW")
+
+puts(beta_self_hosted_work)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "acknowledged_at": "acknowledged_at",
+  "created_at": "created_at",
+  "data": {
+    "id": "id",
+    "type": "session"
+  },
+  "environment_id": "environment_id",
+  "latest_heartbeat_at": "latest_heartbeat_at",
+  "metadata": {
+    "foo": "string"
+  },
+  "secret": "secret",
+  "started_at": "started_at",
+  "state": "queued",
+  "stop_requested_at": "stop_requested_at",
+  "stopped_at": "stopped_at",
+  "type": "work"
+}
+```
+
+### Record Heartbeat
+
+`beta.environments.work.heartbeat(work_id, **kwargs) -> BetaSelfHostedWorkHeartbeatResponse`
+
+**POST** `/v1/environments/{environment_id}/work/{work_id}/heartbeat`
+
+Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
+
+Record a heartbeat for a work item to maintain the lease.
+
+#### Parameters
+
+- `environment_id: String` (path parameter)
+
+- `work_id: String` (path parameter)
+
+- `desired_ttl_seconds: Integer` (query parameter)
+
+  Desired TTL in seconds
+
+- `expected_last_heartbeat: String` (query parameter)
+
+  Expected last_heartbeat for conditional update (optimistic concurrency). Use literal 'NO_HEARTBEAT' to claim an unclaimed lease (first heartbeat). For subsequent heartbeats, echo the server's previous last_heartbeat value exactly. Returns 412 Precondition Failed if the actual value doesn't match.
+
+- `betas: Array[AnthropicBeta]` (header parameter)
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `:"message-batches-2024-09-24"`
+
+  - `:"prompt-caching-2024-07-31"`
+
+  - `:"computer-use-2024-10-22"`
+
+  - `:"computer-use-2025-01-24"`
+
+  - `:"pdfs-2024-09-25"`
+
+  - `:"token-counting-2024-11-01"`
+
+  - `:"token-efficient-tools-2025-02-19"`
+
+  - `:"output-128k-2025-02-19"`
+
+  - `:"files-api-2025-04-14"`
+
+  - `:"mcp-client-2025-04-04"`
+
+  - `:"mcp-client-2025-11-20"`
+
+  - `:"dev-full-thinking-2025-05-14"`
+
+  - `:"interleaved-thinking-2025-05-14"`
+
+  - `:"code-execution-2025-05-22"`
+
+  - `:"extended-cache-ttl-2025-04-11"`
+
+  - `:"context-1m-2025-08-07"`
+
+  - `:"context-management-2025-06-27"`
+
+  - `:"model-context-window-exceeded-2025-08-26"`
+
+  - `:"skills-2025-10-02"`
+
+  - `:"fast-mode-2026-02-01"`
+
+  - `:"output-300k-2026-03-24"`
+
+  - `:"user-profiles-2026-03-24"`
+
+  - `:"user-profiles-2026-08-18"`
+
+  - `:"user-profiles-2026-09-04"`
+
+  - `:"advisor-tool-2026-03-01"`
+
+  - `:"managed-agents-2026-04-01"`
+
+  - `:"cache-diagnosis-2026-04-07"`
+
+  - `:"dreaming-2026-04-21"`
+
+  - `:"thinking-token-count-2026-05-13"`
+
+  - `:"server-side-fallback-2026-06-01"`
+
+  - `:"server-side-fallback-2026-07-01"`
+
+  - `:"fallback-credit-2026-06-01"`
+
+  - `:"fallback-credit-2026-07-01"`
+
+  - `:"agent-memory-2026-07-22"`
+
+  - `:"mid-conversation-tool-changes-2026-07-01"`
+
+  - `:"compact-2026-01-12"`
+
+  - `:"computer-use-2025-11-24"`
+
+  - `:"mcp-tunnels-2026-06-22"`
+
+  - `:"structured-outputs-2025-11-13"`
+
+  - `:"task-budgets-2026-03-13"`
+
+  - `:"thinking-display-updates-2026-08-18"`
+
+  - `:"ce-user-management-2026-07-13"`
+
+  - `:"mid-conversation-output-config-2026-07-01"`
+
+  - `:"thinking-binding-controls-2026-08-01"`
+
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
+
+  - `:"spend-limit-reads-2026-09-26"`
+
+#### Returns
+
+- `class BetaSelfHostedWorkHeartbeatResponse`
+
+  Response after recording a heartbeat for a work item.
+
+  - `type: :work_heartbeat`
+
+    The type of response
+
+  - `last_heartbeat: String`
+
+    RFC 3339 timestamp of the actual heartbeat from DB
+
+  - `lease_extended: bool`
+
+    Whether the heartbeat succeeded in extending the lease
+
+  - `state: :queued | :starting | :active | 2 more`
+
+    Current state of the work item (active/stopping/stopped)
+
+    - `:queued`
+
+    - `:starting`
+
+    - `:active`
+
+    - `:stopping`
+
+    - `:stopped`
+
+  - `ttl_seconds: Integer`
+
+    Effective TTL applied to the lease
+
+#### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_self_hosted_work_heartbeat_response = anthropic.beta.environments.work.heartbeat("work_id", environment_id: "env_011CZkZ9X2dpNyB7HsEFoRfW")
+
+puts(beta_self_hosted_work_heartbeat_response)
+```
+
+##### Response (200)
+
+```json
+{
+  "last_heartbeat": "last_heartbeat",
+  "lease_extended": true,
+  "state": "queued",
+  "ttl_seconds": 0,
+  "type": "work_heartbeat"
+}
+```
+
+### Stop Work
+
+`beta.environments.work.stop(work_id, **kwargs) -> BetaSelfHostedWork`
+
+**POST** `/v1/environments/{environment_id}/work/{work_id}/stop`
+
+Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
+
+Stop a work item, initiating graceful or forced shutdown.
+
+#### Parameters
+
+- `environment_id: String` (path parameter)
+
+- `work_id: String` (path parameter)
+
+- `force: bool`
+
+  If true, immediately stop work without graceful shutdown
+
+- `betas: Array[AnthropicBeta]` (header parameter)
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `:"message-batches-2024-09-24"`
+
+  - `:"prompt-caching-2024-07-31"`
+
+  - `:"computer-use-2024-10-22"`
+
+  - `:"computer-use-2025-01-24"`
+
+  - `:"pdfs-2024-09-25"`
+
+  - `:"token-counting-2024-11-01"`
+
+  - `:"token-efficient-tools-2025-02-19"`
+
+  - `:"output-128k-2025-02-19"`
+
+  - `:"files-api-2025-04-14"`
+
+  - `:"mcp-client-2025-04-04"`
+
+  - `:"mcp-client-2025-11-20"`
+
+  - `:"dev-full-thinking-2025-05-14"`
+
+  - `:"interleaved-thinking-2025-05-14"`
+
+  - `:"code-execution-2025-05-22"`
+
+  - `:"extended-cache-ttl-2025-04-11"`
+
+  - `:"context-1m-2025-08-07"`
+
+  - `:"context-management-2025-06-27"`
+
+  - `:"model-context-window-exceeded-2025-08-26"`
+
+  - `:"skills-2025-10-02"`
+
+  - `:"fast-mode-2026-02-01"`
+
+  - `:"output-300k-2026-03-24"`
+
+  - `:"user-profiles-2026-03-24"`
+
+  - `:"user-profiles-2026-08-18"`
+
+  - `:"user-profiles-2026-09-04"`
+
+  - `:"advisor-tool-2026-03-01"`
+
+  - `:"managed-agents-2026-04-01"`
+
+  - `:"cache-diagnosis-2026-04-07"`
+
+  - `:"dreaming-2026-04-21"`
+
+  - `:"thinking-token-count-2026-05-13"`
+
+  - `:"server-side-fallback-2026-06-01"`
+
+  - `:"server-side-fallback-2026-07-01"`
+
+  - `:"fallback-credit-2026-06-01"`
+
+  - `:"fallback-credit-2026-07-01"`
+
+  - `:"agent-memory-2026-07-22"`
+
+  - `:"mid-conversation-tool-changes-2026-07-01"`
+
+  - `:"compact-2026-01-12"`
+
+  - `:"computer-use-2025-11-24"`
+
+  - `:"mcp-tunnels-2026-06-22"`
+
+  - `:"structured-outputs-2025-11-13"`
+
+  - `:"task-budgets-2026-03-13"`
+
+  - `:"thinking-display-updates-2026-08-18"`
+
+  - `:"ce-user-management-2026-07-13"`
+
+  - `:"mid-conversation-output-config-2026-07-01"`
+
+  - `:"thinking-binding-controls-2026-08-01"`
+
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
+
+  - `:"spend-limit-reads-2026-09-26"`
+
+- `workspace_id: String` (header parameter)
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaSelfHostedWork`
+
+  Work resource representing a unit of work in a self-hosted environment.
+
+  Work items are queued when sessions are created or when long-dormant sessions
+  receive new messages. The environment worker polls for work to execute in a
+  self-hosted sandbox.
+
+  - `type: :work`
+
+    The type of object (always 'work')
+
+  - `id: String`
+
+    Work identifier (e.g., 'work_...')
+
+  - `acknowledged_at: String`
+
+    RFC 3339 timestamp when the work item was acknowledged and assigned to a self-hosted sandbox
+
+  - `created_at: String`
+
+    RFC 3339 timestamp when work was created
+
+  - `data: BetaSessionWorkData`
+
+    The actual work to be performed
+
+    - `type: :session`
+
+      Type of work data
+
+    - `id: String`
+
+      Session identifier (e.g., 'session_...')
+
+  - `environment_id: String`
+
+    Environment identifier this work belongs to (e.g., `env_...`)
+
+  - `latest_heartbeat_at: String`
+
+    RFC 3339 timestamp of the most recent heartbeat
+
+  - `metadata: Hash[Symbol, String]`
+
+    User-provided metadata key-value pairs associated with this work item
+
+  - `secret: String`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
+  - `started_at: String`
+
+    RFC 3339 timestamp when work execution started
+
+  - `state: :queued | :starting | :active | 2 more`
+
+    Current state of the work item
+
+    - `:queued`
+
+    - `:starting`
+
+    - `:active`
+
+    - `:stopping`
+
+    - `:stopped`
+
+  - `stop_requested_at: String`
+
+    RFC 3339 timestamp when stop was requested
+
+  - `stopped_at: String`
+
+    RFC 3339 timestamp when work execution stopped
+
+#### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_self_hosted_work = anthropic.beta.environments.work.stop("work_id", environment_id: "env_011CZkZ9X2dpNyB7HsEFoRfW")
+
+puts(beta_self_hosted_work)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "acknowledged_at": "acknowledged_at",
+  "created_at": "created_at",
+  "data": {
+    "id": "id",
+    "type": "session"
+  },
+  "environment_id": "environment_id",
+  "latest_heartbeat_at": "latest_heartbeat_at",
+  "metadata": {
+    "foo": "string"
+  },
+  "secret": "secret",
+  "started_at": "started_at",
+  "state": "queued",
+  "stop_requested_at": "stop_requested_at",
+  "stopped_at": "stopped_at",
+  "type": "work"
+}
+```
+
+### List Work Items
+
+`beta.environments.work.list(environment_id, **kwargs) -> PageCursor<BetaSelfHostedWork>`
+
+**GET** `/v1/environments/{environment_id}/work`
+
+Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
+
+List work items in an environment.
+
+#### Parameters
+
+- `environment_id: String` (path parameter)
+
+- `limit: Integer` (query parameter)
+
+  Maximum number of work items to return
+
+  minimum: 1, maximum: 1000
+
+- `page: String` (query parameter)
+
+  Opaque cursor from previous response for pagination
+
+- `betas: Array[AnthropicBeta]` (header parameter)
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `:"message-batches-2024-09-24"`
+
+  - `:"prompt-caching-2024-07-31"`
+
+  - `:"computer-use-2024-10-22"`
+
+  - `:"computer-use-2025-01-24"`
+
+  - `:"pdfs-2024-09-25"`
+
+  - `:"token-counting-2024-11-01"`
+
+  - `:"token-efficient-tools-2025-02-19"`
+
+  - `:"output-128k-2025-02-19"`
+
+  - `:"files-api-2025-04-14"`
+
+  - `:"mcp-client-2025-04-04"`
+
+  - `:"mcp-client-2025-11-20"`
+
+  - `:"dev-full-thinking-2025-05-14"`
+
+  - `:"interleaved-thinking-2025-05-14"`
+
+  - `:"code-execution-2025-05-22"`
+
+  - `:"extended-cache-ttl-2025-04-11"`
+
+  - `:"context-1m-2025-08-07"`
+
+  - `:"context-management-2025-06-27"`
+
+  - `:"model-context-window-exceeded-2025-08-26"`
+
+  - `:"skills-2025-10-02"`
+
+  - `:"fast-mode-2026-02-01"`
+
+  - `:"output-300k-2026-03-24"`
+
+  - `:"user-profiles-2026-03-24"`
+
+  - `:"user-profiles-2026-08-18"`
+
+  - `:"user-profiles-2026-09-04"`
+
+  - `:"advisor-tool-2026-03-01"`
+
+  - `:"managed-agents-2026-04-01"`
+
+  - `:"cache-diagnosis-2026-04-07"`
+
+  - `:"dreaming-2026-04-21"`
+
+  - `:"thinking-token-count-2026-05-13"`
+
+  - `:"server-side-fallback-2026-06-01"`
+
+  - `:"server-side-fallback-2026-07-01"`
+
+  - `:"fallback-credit-2026-06-01"`
+
+  - `:"fallback-credit-2026-07-01"`
+
+  - `:"agent-memory-2026-07-22"`
+
+  - `:"mid-conversation-tool-changes-2026-07-01"`
+
+  - `:"compact-2026-01-12"`
+
+  - `:"computer-use-2025-11-24"`
+
+  - `:"mcp-tunnels-2026-06-22"`
+
+  - `:"structured-outputs-2025-11-13"`
+
+  - `:"task-budgets-2026-03-13"`
+
+  - `:"thinking-display-updates-2026-08-18"`
+
+  - `:"ce-user-management-2026-07-13"`
+
+  - `:"mid-conversation-output-config-2026-07-01"`
+
+  - `:"thinking-binding-controls-2026-08-01"`
+
+  - `:"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `:"compact-2026-09-04"`
+
+  - `:"inline-tools-2026-09-15"`
+
+  - `:"mcp-client-2026-09-15"`
+
+  - `:"ce-plugins-2026-09-01"`
+
+  - `:"spend-limit-reads-2026-09-26"`
+
+#### Returns
+
+- `class BetaSelfHostedWork`
+
+  Work resource representing a unit of work in a self-hosted environment.
+
+  Work items are queued when sessions are created or when long-dormant sessions
+  receive new messages. The environment worker polls for work to execute in a
+  self-hosted sandbox.
+
+  - `type: :work`
+
+    The type of object (always 'work')
+
+  - `id: String`
+
+    Work identifier (e.g., 'work_...')
+
+  - `acknowledged_at: String`
+
+    RFC 3339 timestamp when the work item was acknowledged and assigned to a self-hosted sandbox
+
+  - `created_at: String`
+
+    RFC 3339 timestamp when work was created
+
+  - `data: BetaSessionWorkData`
+
+    The actual work to be performed
+
+    - `type: :session`
+
+      Type of work data
+
+    - `id: String`
+
+      Session identifier (e.g., 'session_...')
+
+  - `environment_id: String`
+
+    Environment identifier this work belongs to (e.g., `env_...`)
+
+  - `latest_heartbeat_at: String`
+
+    RFC 3339 timestamp of the most recent heartbeat
+
+  - `metadata: Hash[Symbol, String]`
+
+    User-provided metadata key-value pairs associated with this work item
+
+  - `secret: String`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
+  - `started_at: String`
+
+    RFC 3339 timestamp when work execution started
+
+  - `state: :queued | :starting | :active | 2 more`
+
+    Current state of the work item
+
+    - `:queued`
+
+    - `:starting`
+
+    - `:active`
+
+    - `:stopping`
+
+    - `:stopped`
+
+  - `stop_requested_at: String`
+
+    RFC 3339 timestamp when stop was requested
+
+  - `stopped_at: String`
 
     RFC 3339 timestamp when work execution stopped
 
@@ -546,11 +1941,15 @@ Create Session
 
       Replacement model. Accepts the model string, e.g. `claude-opus-5`, or a `model_config` object. Omit to use the agent's model.
 
-      - `type BetaManagedAgentsModel = :"claude-sonnet-5-5" | :"claude-opus-5-5" | :"claude-fable-5-1" | 13 more | String`
+      - `type BetaManagedAgentsModel = :"claude-haiku-5-5" | :"claude-sonnet-5-5" | :"claude-opus-5-5" | 14 more | String`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-haiku-5-5"`
+
+          Fastest model for high-volume, real-time tasks
 
         - `:"claude-sonnet-5-5"`
 
@@ -991,6 +2390,102 @@ Create Session
               - `class BetaManagedAgentsAutoPolicy`
 
                 The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+            - `url_sources: BetaManagedAgentsWebFetchURLSourcesParams`
+
+              Which sources contribute URLs the tool may fetch. Omit to allow every source.
+
+              - `client_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilterParams`
+
+                Which custom tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be a custom tool in the same tools array.
+
+                - `type BetaManagedAgentsWebFetchURLSourceShorthand = :all | :none`
+
+                  String form of a url_sources value that has no field other than its type: "all" means {"type": "all"} and "none" means {"type": "none"}.
+
+                  - `:all`
+
+                  - `:none`
+
+                - `type BetaManagedAgentsWebFetchURLSourceToolFilter = BetaManagedAgentsWebFetchURLSourceAll | BetaManagedAgentsWebFetchURLSourceNone | BetaManagedAgentsWebFetchURLSourceOnly | BetaManagedAgentsWebFetchURLSourceExcept`
+
+                  Which tools' results contribute URLs that may be fetched.
+
+                  - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                    - `type: :all`
+
+                  - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                    This source contributes no URLs that may be fetched.
+
+                    - `type: :none`
+
+                  - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                    Only the named tools' results contribute URLs that may be fetched.
+
+                    - `type: :only`
+
+                    - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                      The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                      - `type: :tool_reference`
+
+                        Must be "tool_reference".
+
+                      - `name: String`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                  - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                    Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                    - `type: :except`
+
+                    - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                      The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                      - `type: :tool_reference`
+
+                        Must be "tool_reference".
+
+                      - `name: String`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+              - `server_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilterParams`
+
+                Which of the web_search and web_fetch tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be "web_search" or "web_fetch".
+
+              - `user_input: BetaManagedAgentsWebFetchURLSourceUserInputParams`
+
+                Whether URLs in the text of user messages may be fetched: "all" (the default) or "none".
+
+                - `type BetaManagedAgentsWebFetchURLSourceShorthand = :all | :none`
+
+                  String form of a url_sources value that has no field other than its type: "all" means {"type": "all"} and "none" means {"type": "none"}.
+
+                - `type BetaManagedAgentsWebFetchURLSourceUserInput = BetaManagedAgentsWebFetchURLSourceAll | BetaManagedAgentsWebFetchURLSourceNone`
+
+                  Whether URLs in the text of user messages may be fetched.
+
+                  - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                  - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                    This source contributes no URLs that may be fetched.
 
           - `class BetaManagedAgentsWebSearchToolConfigParams`
 
@@ -1668,6 +3163,10 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `:"claude-haiku-5-5"`
+
+          Fastest model for high-volume, real-time tasks
+
         - `:"claude-sonnet-5-5"`
 
           Efficient model for coding and agents
@@ -2037,6 +3536,82 @@ Create Session
                     - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `url_sources: BetaManagedAgentsWebFetchURLSources`
+
+                    Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                    - `client_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                      Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                      - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                        - `type: :all`
+
+                      - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                        This source contributes no URLs that may be fetched.
+
+                        - `type: :none`
+
+                      - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                        Only the named tools' results contribute URLs that may be fetched.
+
+                        - `type: :only`
+
+                        - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                          The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                          - `type: :tool_reference`
+
+                            Must be "tool_reference".
+
+                          - `name: String`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                      - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                        Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                        - `type: :except`
+
+                        - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                          The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                          - `type: :tool_reference`
+
+                            Must be "tool_reference".
+
+                          - `name: String`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                    - `server_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                      Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                    - `user_input: BetaManagedAgentsWebFetchURLSourceUserInput`
+
+                      Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                      - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                      - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                        This source contributes no URLs that may be fetched.
 
                   - `allowed_domains: Array[String]`
 
@@ -2628,7 +4203,7 @@ puts(beta_managed_agents_session)
         "version": "1"
       },
       {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
         "type": "custom",
         "version": "2"
       }
@@ -2675,7 +4250,7 @@ puts(beta_managed_agents_session)
       "description": "Produce a 2-page summary as summary.md",
       "explanation": "All five sections present with inline citations.",
       "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVmjxP",
       "result": "satisfied",
       "type": "outcome_evaluation"
     }
@@ -2690,7 +4265,7 @@ puts(beta_managed_agents_session)
       "updated_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
       "created_at": "2026-03-15T10:00:00Z",
       "mount_path": "/workspace/example-repo",
       "type": "github_repository",
@@ -2978,6 +4553,10 @@ List Sessions
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-haiku-5-5"`
+
+          Fastest model for high-volume, real-time tasks
 
         - `:"claude-sonnet-5-5"`
 
@@ -3348,6 +4927,82 @@ List Sessions
                     - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `url_sources: BetaManagedAgentsWebFetchURLSources`
+
+                    Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                    - `client_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                      Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                      - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                        - `type: :all`
+
+                      - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                        This source contributes no URLs that may be fetched.
+
+                        - `type: :none`
+
+                      - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                        Only the named tools' results contribute URLs that may be fetched.
+
+                        - `type: :only`
+
+                        - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                          The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                          - `type: :tool_reference`
+
+                            Must be "tool_reference".
+
+                          - `name: String`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                      - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                        Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                        - `type: :except`
+
+                        - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                          The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                          - `type: :tool_reference`
+
+                            Must be "tool_reference".
+
+                          - `name: String`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                    - `server_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                      Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                    - `user_input: BetaManagedAgentsWebFetchURLSourceUserInput`
+
+                      Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                      - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                      - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                        This source contributes no URLs that may be fetched.
 
                   - `allowed_domains: Array[String]`
 
@@ -3938,7 +5593,7 @@ puts(page)
             "version": "1"
           },
           {
-            "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+            "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
             "type": "custom",
             "version": "2"
           }
@@ -3985,7 +5640,7 @@ puts(page)
           "description": "Produce a 2-page summary as summary.md",
           "explanation": "All five sections present with inline citations.",
           "iteration": 0,
-          "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+          "outcome_id": "outc_011CZkZRSw2kEfs6ncTVmjxP",
           "result": "satisfied",
           "type": "outcome_evaluation"
         }
@@ -4000,7 +5655,7 @@ puts(page)
           "updated_at": "2026-03-15T10:00:00Z"
         },
         {
-          "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+          "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
           "created_at": "2026-03-15T10:00:00Z",
           "mount_path": "/workspace/example-repo",
           "type": "github_repository",
@@ -4210,6 +5865,10 @@ Get Session
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-haiku-5-5"`
+
+          Fastest model for high-volume, real-time tasks
 
         - `:"claude-sonnet-5-5"`
 
@@ -4580,6 +6239,82 @@ Get Session
                     - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `url_sources: BetaManagedAgentsWebFetchURLSources`
+
+                    Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                    - `client_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                      Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                      - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                        - `type: :all`
+
+                      - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                        This source contributes no URLs that may be fetched.
+
+                        - `type: :none`
+
+                      - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                        Only the named tools' results contribute URLs that may be fetched.
+
+                        - `type: :only`
+
+                        - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                          The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                          - `type: :tool_reference`
+
+                            Must be "tool_reference".
+
+                          - `name: String`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                      - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                        Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                        - `type: :except`
+
+                        - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                          The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                          - `type: :tool_reference`
+
+                            Must be "tool_reference".
+
+                          - `name: String`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                    - `server_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                      Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                    - `user_input: BetaManagedAgentsWebFetchURLSourceUserInput`
+
+                      Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                      - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                      - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                        This source contributes no URLs that may be fetched.
 
                   - `allowed_domains: Array[String]`
 
@@ -5168,7 +6903,7 @@ puts(beta_managed_agents_session)
         "version": "1"
       },
       {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
         "type": "custom",
         "version": "2"
       }
@@ -5215,7 +6950,7 @@ puts(beta_managed_agents_session)
       "description": "Produce a 2-page summary as summary.md",
       "explanation": "All five sections present with inline citations.",
       "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVmjxP",
       "result": "satisfied",
       "type": "outcome_evaluation"
     }
@@ -5230,7 +6965,7 @@ puts(beta_managed_agents_session)
       "updated_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
       "created_at": "2026-03-15T10:00:00Z",
       "mount_path": "/workspace/example-repo",
       "type": "github_repository",
@@ -5552,6 +7287,102 @@ Update Session
             - `class BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `url_sources: BetaManagedAgentsWebFetchURLSourcesParams`
+
+            Which sources contribute URLs the tool may fetch. Omit to allow every source.
+
+            - `client_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilterParams`
+
+              Which custom tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be a custom tool in the same tools array.
+
+              - `type BetaManagedAgentsWebFetchURLSourceShorthand = :all | :none`
+
+                String form of a url_sources value that has no field other than its type: "all" means {"type": "all"} and "none" means {"type": "none"}.
+
+                - `:all`
+
+                - `:none`
+
+              - `type BetaManagedAgentsWebFetchURLSourceToolFilter = BetaManagedAgentsWebFetchURLSourceAll | BetaManagedAgentsWebFetchURLSourceNone | BetaManagedAgentsWebFetchURLSourceOnly | BetaManagedAgentsWebFetchURLSourceExcept`
+
+                Which tools' results contribute URLs that may be fetched.
+
+                - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                  Every URL from this source may be fetched. This is the default.
+
+                  - `type: :all`
+
+                - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                  This source contributes no URLs that may be fetched.
+
+                  - `type: :none`
+
+                - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                  Only the named tools' results contribute URLs that may be fetched.
+
+                  - `type: :only`
+
+                  - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                    The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                    - `type: :tool_reference`
+
+                      Must be "tool_reference".
+
+                    - `name: String`
+
+                      Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                      minLength: 1, maxLength: 128
+
+                - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                  Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                  - `type: :except`
+
+                  - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                    The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                    - `type: :tool_reference`
+
+                      Must be "tool_reference".
+
+                    - `name: String`
+
+                      Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                      minLength: 1, maxLength: 128
+
+            - `server_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilterParams`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be "web_search" or "web_fetch".
+
+            - `user_input: BetaManagedAgentsWebFetchURLSourceUserInputParams`
+
+              Whether URLs in the text of user messages may be fetched: "all" (the default) or "none".
+
+              - `type BetaManagedAgentsWebFetchURLSourceShorthand = :all | :none`
+
+                String form of a url_sources value that has no field other than its type: "all" means {"type": "all"} and "none" means {"type": "none"}.
+
+              - `type BetaManagedAgentsWebFetchURLSourceUserInput = BetaManagedAgentsWebFetchURLSourceAll | BetaManagedAgentsWebFetchURLSourceNone`
+
+                Whether URLs in the text of user messages may be fetched.
+
+                - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                  Every URL from this source may be fetched. This is the default.
+
+                - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                  This source contributes no URLs that may be fetched.
 
         - `class BetaManagedAgentsWebSearchToolConfigParams`
 
@@ -5920,6 +7751,10 @@ Update Session
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-haiku-5-5"`
+
+          Fastest model for high-volume, real-time tasks
 
         - `:"claude-sonnet-5-5"`
 
@@ -6290,6 +8125,82 @@ Update Session
                     - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `url_sources: BetaManagedAgentsWebFetchURLSources`
+
+                    Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                    - `client_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                      Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                      - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                        - `type: :all`
+
+                      - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                        This source contributes no URLs that may be fetched.
+
+                        - `type: :none`
+
+                      - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                        Only the named tools' results contribute URLs that may be fetched.
+
+                        - `type: :only`
+
+                        - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                          The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                          - `type: :tool_reference`
+
+                            Must be "tool_reference".
+
+                          - `name: String`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                      - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                        Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                        - `type: :except`
+
+                        - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                          The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                          - `type: :tool_reference`
+
+                            Must be "tool_reference".
+
+                          - `name: String`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                    - `server_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                      Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                    - `user_input: BetaManagedAgentsWebFetchURLSourceUserInput`
+
+                      Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                      - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                      - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                        This source contributes no URLs that may be fetched.
 
                   - `allowed_domains: Array[String]`
 
@@ -6878,7 +8789,7 @@ puts(beta_managed_agents_session)
         "version": "1"
       },
       {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
         "type": "custom",
         "version": "2"
       }
@@ -6925,7 +8836,7 @@ puts(beta_managed_agents_session)
       "description": "Produce a 2-page summary as summary.md",
       "explanation": "All five sections present with inline citations.",
       "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVmjxP",
       "result": "satisfied",
       "type": "outcome_evaluation"
     }
@@ -6940,7 +8851,7 @@ puts(beta_managed_agents_session)
       "updated_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
       "created_at": "2026-03-15T10:00:00Z",
       "mount_path": "/workspace/example-repo",
       "type": "github_repository",
@@ -7301,6 +9212,10 @@ Archive Session
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-haiku-5-5"`
+
+          Fastest model for high-volume, real-time tasks
 
         - `:"claude-sonnet-5-5"`
 
@@ -7671,6 +9586,82 @@ Archive Session
                     - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `url_sources: BetaManagedAgentsWebFetchURLSources`
+
+                    Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                    - `client_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                      Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                      - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                        - `type: :all`
+
+                      - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                        This source contributes no URLs that may be fetched.
+
+                        - `type: :none`
+
+                      - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                        Only the named tools' results contribute URLs that may be fetched.
+
+                        - `type: :only`
+
+                        - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                          The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                          - `type: :tool_reference`
+
+                            Must be "tool_reference".
+
+                          - `name: String`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                      - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                        Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                        - `type: :except`
+
+                        - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                          The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                          - `type: :tool_reference`
+
+                            Must be "tool_reference".
+
+                          - `name: String`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                    - `server_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                      Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                    - `user_input: BetaManagedAgentsWebFetchURLSourceUserInput`
+
+                      Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                      - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                      - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                        This source contributes no URLs that may be fetched.
 
                   - `allowed_domains: Array[String]`
 
@@ -8259,7 +10250,7 @@ puts(beta_managed_agents_session)
         "version": "1"
       },
       {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
         "type": "custom",
         "version": "2"
       }
@@ -8306,7 +10297,7 @@ puts(beta_managed_agents_session)
       "description": "Produce a 2-page summary as summary.md",
       "explanation": "All five sections present with inline citations.",
       "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVmjxP",
       "result": "satisfied",
       "type": "outcome_evaluation"
     }
@@ -8321,7 +10312,7 @@ puts(beta_managed_agents_session)
       "updated_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
       "created_at": "2026-03-15T10:00:00Z",
       "mount_path": "/workspace/example-repo",
       "type": "github_repository",
@@ -9838,7 +11829,7 @@ List Events
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent`
 
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+    Emitted when a child thread is created. Written to the parent thread's output stream so clients observing the session see child creation.
 
     - `type: :"session.thread_created"`
 
@@ -10314,6 +12305,10 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
+
           - `:"claude-sonnet-5-5"`
 
             Efficient model for coding and agents
@@ -10684,6 +12679,82 @@ List Events
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
+                    - `url_sources: BetaManagedAgentsWebFetchURLSources`
+
+                      Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                      - `client_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                        Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                        - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                          - `type: :all`
+
+                        - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                          This source contributes no URLs that may be fetched.
+
+                          - `type: :none`
+
+                        - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                          Only the named tools' results contribute URLs that may be fetched.
+
+                          - `type: :only`
+
+                          - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                            The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                            - `type: :tool_reference`
+
+                              Must be "tool_reference".
+
+                            - `name: String`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                        - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                          Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                          - `type: :except`
+
+                          - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                            The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                            - `type: :tool_reference`
+
+                              Must be "tool_reference".
+
+                            - `name: String`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                      - `server_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                        Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                      - `user_input: BetaManagedAgentsWebFetchURLSourceUserInput`
+
+                        Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                        - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                        - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                          This source contributes no URLs that may be fetched.
+
                     - `allowed_domains: Array[String]`
 
                     - `blocked_domains: Array[String]`
@@ -11042,7 +13113,7 @@ puts(page)
 {
   "data": [
     {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
       "content": [
         {
           "text": "Where is my order #1234?",
@@ -11053,7 +13124,7 @@ puts(page)
       "processed_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
+      "id": "sevt_011CZkZHPq1jCdq5mbRTjiVn",
       "content": [
         {
           "text": "Let me look up order #1234 for you.",
@@ -12021,7 +14092,7 @@ puts(beta_managed_agents_send_session_events)
 {
   "data": [
     {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
       "content": [
         {
           "text": "Where is my order #1234?",
@@ -13401,7 +15472,7 @@ Stream Events
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent`
 
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+    Emitted when a child thread is created. Written to the parent thread's output stream so clients observing the session see child creation.
 
     - `type: :"session.thread_created"`
 
@@ -13877,6 +15948,10 @@ Stream Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
+
           - `:"claude-sonnet-5-5"`
 
             Efficient model for coding and agents
@@ -14246,6 +16321,82 @@ Stream Events
                       - `class BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                    - `url_sources: BetaManagedAgentsWebFetchURLSources`
+
+                      Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                      - `client_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                        Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                        - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                          - `type: :all`
+
+                        - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                          This source contributes no URLs that may be fetched.
+
+                          - `type: :none`
+
+                        - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                          Only the named tools' results contribute URLs that may be fetched.
+
+                          - `type: :only`
+
+                          - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                            The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                            - `type: :tool_reference`
+
+                              Must be "tool_reference".
+
+                            - `name: String`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                        - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                          Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                          - `type: :except`
+
+                          - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                            The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                            - `type: :tool_reference`
+
+                              Must be "tool_reference".
+
+                            - `name: String`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                      - `server_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                        Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                      - `user_input: BetaManagedAgentsWebFetchURLSourceUserInput`
+
+                        Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                        - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                        - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                          This source contributes no URLs that may be fetched.
 
                     - `allowed_domains: Array[String]`
 
@@ -14653,7 +16804,7 @@ puts(beta_managed_agents_stream_session_events)
 
 ```json
 {
-  "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+  "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
   "content": [
     {
       "text": "Where is my order #1234?",
@@ -15124,7 +17275,7 @@ puts(page)
       "updated_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
       "created_at": "2026-03-15T10:00:00Z",
       "mount_path": "/workspace/example-repo",
       "type": "github_repository",
@@ -15393,7 +17544,7 @@ puts(resource)
 
 ```json
 {
-  "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+  "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
   "created_at": "2026-03-15T10:00:00Z",
   "mount_path": "/workspace/example-repo",
   "type": "github_repository",
@@ -15666,7 +17817,7 @@ puts(resource)
 
 ```json
 {
-  "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+  "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
   "created_at": "2026-03-15T10:00:00Z",
   "mount_path": "/workspace/example-repo",
   "type": "github_repository",
@@ -15979,7 +18130,7 @@ List Session Threads
 
 - `class BetaManagedAgentsSessionThread`
 
-  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
+  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads.
 
   - `type: :session_thread`
 
@@ -16018,6 +18169,10 @@ List Session Threads
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
 
           - `:"claude-sonnet-5-5"`
 
@@ -16356,6 +18511,82 @@ List Session Threads
                 - `class BetaManagedAgentsAutoPolicy`
 
                   The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `url_sources: BetaManagedAgentsWebFetchURLSources`
+
+                Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                - `client_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                  Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                  - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                    - `type: :all`
+
+                  - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                    This source contributes no URLs that may be fetched.
+
+                    - `type: :none`
+
+                  - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                    Only the named tools' results contribute URLs that may be fetched.
+
+                    - `type: :only`
+
+                    - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                      The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                      - `type: :tool_reference`
+
+                        Must be "tool_reference".
+
+                      - `name: String`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                  - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                    Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                    - `type: :except`
+
+                    - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                      The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                      - `type: :tool_reference`
+
+                        Must be "tool_reference".
+
+                      - `name: String`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                - `server_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                  Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                - `user_input: BetaManagedAgentsWebFetchURLSourceUserInput`
+
+                  Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                  - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                  - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                    This source contributes no URLs that may be fetched.
 
               - `allowed_domains: Array[String]`
 
@@ -16681,7 +18912,7 @@ puts(page)
 {
   "data": [
     {
-      "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+      "id": "sthr_011CZkZVWa6oJjw1rgXZpnBt",
       "agent": {
         "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
         "description": "A focused research subagent.",
@@ -16899,7 +19130,7 @@ Get Session Thread
 
 - `class BetaManagedAgentsSessionThread`
 
-  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
+  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads.
 
   - `type: :session_thread`
 
@@ -16938,6 +19169,10 @@ Get Session Thread
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
 
           - `:"claude-sonnet-5-5"`
 
@@ -17276,6 +19511,82 @@ Get Session Thread
                 - `class BetaManagedAgentsAutoPolicy`
 
                   The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `url_sources: BetaManagedAgentsWebFetchURLSources`
+
+                Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                - `client_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                  Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                  - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                    - `type: :all`
+
+                  - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                    This source contributes no URLs that may be fetched.
+
+                    - `type: :none`
+
+                  - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                    Only the named tools' results contribute URLs that may be fetched.
+
+                    - `type: :only`
+
+                    - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                      The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                      - `type: :tool_reference`
+
+                        Must be "tool_reference".
+
+                      - `name: String`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                  - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                    Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                    - `type: :except`
+
+                    - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                      The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                      - `type: :tool_reference`
+
+                        Must be "tool_reference".
+
+                      - `name: String`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                - `server_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                  Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                - `user_input: BetaManagedAgentsWebFetchURLSourceUserInput`
+
+                  Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                  - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                  - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                    This source contributes no URLs that may be fetched.
 
               - `allowed_domains: Array[String]`
 
@@ -17591,7 +19902,7 @@ require "anthropic"
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
 beta_managed_agents_session_thread = anthropic.beta.sessions.threads.retrieve(
-  "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "sthr_011CZkZVWa6oJjw1rgXZpnBt",
   session_id: "sesn_011CZkZAtmR3yMPDzynEDxu7"
 )
 
@@ -17602,7 +19913,7 @@ puts(beta_managed_agents_session_thread)
 
 ```json
 {
-  "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "id": "sthr_011CZkZVWa6oJjw1rgXZpnBt",
   "agent": {
     "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
     "description": "A focused research subagent.",
@@ -17817,7 +20128,7 @@ Archive Session Thread
 
 - `class BetaManagedAgentsSessionThread`
 
-  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
+  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads.
 
   - `type: :session_thread`
 
@@ -17856,6 +20167,10 @@ Archive Session Thread
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
 
           - `:"claude-sonnet-5-5"`
 
@@ -18195,6 +20510,82 @@ Archive Session Thread
 
                   The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
+              - `url_sources: BetaManagedAgentsWebFetchURLSources`
+
+                Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                - `client_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                  Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                  - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                    - `type: :all`
+
+                  - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                    This source contributes no URLs that may be fetched.
+
+                    - `type: :none`
+
+                  - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                    Only the named tools' results contribute URLs that may be fetched.
+
+                    - `type: :only`
+
+                    - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                      The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                      - `type: :tool_reference`
+
+                        Must be "tool_reference".
+
+                      - `name: String`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                  - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                    Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                    - `type: :except`
+
+                    - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                      The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                      - `type: :tool_reference`
+
+                        Must be "tool_reference".
+
+                      - `name: String`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                - `server_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                  Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                - `user_input: BetaManagedAgentsWebFetchURLSourceUserInput`
+
+                  Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                  - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                  - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                    This source contributes no URLs that may be fetched.
+
               - `allowed_domains: Array[String]`
 
               - `blocked_domains: Array[String]`
@@ -18509,7 +20900,7 @@ require "anthropic"
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
 beta_managed_agents_session_thread = anthropic.beta.sessions.threads.archive(
-  "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "sthr_011CZkZVWa6oJjw1rgXZpnBt",
   session_id: "sesn_011CZkZAtmR3yMPDzynEDxu7"
 )
 
@@ -18520,7 +20911,7 @@ puts(beta_managed_agents_session_thread)
 
 ```json
 {
-  "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "id": "sthr_011CZkZVWa6oJjw1rgXZpnBt",
   "agent": {
     "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
     "description": "A focused research subagent.",
@@ -19973,7 +22364,7 @@ List Session Thread Events
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent`
 
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+    Emitted when a child thread is created. Written to the parent thread's output stream so clients observing the session see child creation.
 
     - `type: :"session.thread_created"`
 
@@ -20449,6 +22840,10 @@ List Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
+
           - `:"claude-sonnet-5-5"`
 
             Efficient model for coding and agents
@@ -20819,6 +23214,82 @@ List Session Thread Events
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
+                    - `url_sources: BetaManagedAgentsWebFetchURLSources`
+
+                      Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                      - `client_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                        Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                        - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                          - `type: :all`
+
+                        - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                          This source contributes no URLs that may be fetched.
+
+                          - `type: :none`
+
+                        - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                          Only the named tools' results contribute URLs that may be fetched.
+
+                          - `type: :only`
+
+                          - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                            The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                            - `type: :tool_reference`
+
+                              Must be "tool_reference".
+
+                            - `name: String`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                        - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                          Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                          - `type: :except`
+
+                          - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                            The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                            - `type: :tool_reference`
+
+                              Must be "tool_reference".
+
+                            - `name: String`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                      - `server_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                        Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                      - `user_input: BetaManagedAgentsWebFetchURLSourceUserInput`
+
+                        Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                        - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                        - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                          This source contributes no URLs that may be fetched.
+
                     - `allowed_domains: Array[String]`
 
                     - `blocked_domains: Array[String]`
@@ -21167,7 +23638,7 @@ require "anthropic"
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
 page = anthropic.beta.sessions.threads.events.list(
-  "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "sthr_011CZkZVWa6oJjw1rgXZpnBt",
   session_id: "sesn_011CZkZAtmR3yMPDzynEDxu7"
 )
 
@@ -21180,7 +23651,7 @@ puts(page)
 {
   "data": [
     {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
       "content": [
         {
           "text": "Where is my order #1234?",
@@ -21191,7 +23662,7 @@ puts(page)
       "processed_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
+      "id": "sevt_011CZkZHPq1jCdq5mbRTjiVn",
       "content": [
         {
           "text": "Let me look up order #1234 for you.",
@@ -22574,7 +25045,7 @@ Stream Session Thread Events
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent`
 
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+    Emitted when a child thread is created. Written to the parent thread's output stream so clients observing the session see child creation.
 
     - `type: :"session.thread_created"`
 
@@ -23050,6 +25521,10 @@ Stream Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
+
           - `:"claude-sonnet-5-5"`
 
             Efficient model for coding and agents
@@ -23419,6 +25894,82 @@ Stream Session Thread Events
                       - `class BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                    - `url_sources: BetaManagedAgentsWebFetchURLSources`
+
+                      Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                      - `client_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                        Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                        - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                          - `type: :all`
+
+                        - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                          This source contributes no URLs that may be fetched.
+
+                          - `type: :none`
+
+                        - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+                          Only the named tools' results contribute URLs that may be fetched.
+
+                          - `type: :only`
+
+                          - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                            The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                            - `type: :tool_reference`
+
+                              Must be "tool_reference".
+
+                            - `name: String`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                        - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+                          Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                          - `type: :except`
+
+                          - `tools: Array[BetaManagedAgentsWebFetchURLSourceToolReference]`
+
+                            The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                            - `type: :tool_reference`
+
+                              Must be "tool_reference".
+
+                            - `name: String`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                      - `server_tool_results: BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+                        Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                      - `user_input: BetaManagedAgentsWebFetchURLSourceUserInput`
+
+                        Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                        - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                        - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+                          This source contributes no URLs that may be fetched.
 
                     - `allowed_domains: Array[String]`
 
@@ -23818,7 +26369,7 @@ require "anthropic"
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
 beta_managed_agents_stream_session_thread_events = anthropic.beta.sessions.threads.events.stream(
-  "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "sthr_011CZkZVWa6oJjw1rgXZpnBt",
   session_id: "sesn_011CZkZAtmR3yMPDzynEDxu7"
 )
 
@@ -23829,7 +26380,7 @@ puts(beta_managed_agents_stream_session_thread_events)
 
 ```json
 {
-  "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+  "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
   "content": [
     {
       "text": "Where is my order #1234?",
@@ -32609,7 +35160,7 @@ puts(beta_managed_agents_credential)
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -32938,7 +35489,7 @@ puts(page)
 {
   "data": [
     {
-      "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+      "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
       "archived_at": null,
       "auth": {
         "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -33250,7 +35801,7 @@ require "anthropic"
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
 beta_managed_agents_credential = anthropic.beta.vaults.credentials.retrieve(
-  "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv"
 )
 
@@ -33261,7 +35812,7 @@ puts(beta_managed_agents_credential)
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -33700,7 +36251,7 @@ require "anthropic"
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
 beta_managed_agents_credential = anthropic.beta.vaults.credentials.update(
-  "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv"
 )
 
@@ -33711,7 +36262,7 @@ puts(beta_managed_agents_credential)
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -33878,2943 +36429,3 @@ require "anthropic"
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
 beta_managed_agents_deleted_credential = anthropic.beta.vaults.credentials.delete(
-  "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-)
-
-puts(beta_managed_agents_deleted_credential)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "type": "vault_credential_deleted"
-}
-```
-
-### Archive Credential
-
-`beta.vaults.credentials.archive(credential_id, **kwargs) -> BetaManagedAgentsCredential`
-
-**POST** `/v1/vaults/{vault_id}/credentials/{credential_id}/archive`
-
-Archive Credential
-
-#### Parameters
-
-- `vault_id: String` (path parameter)
-
-  Identifier of the vault containing the credential.
-
-- `credential_id: String` (path parameter)
-
-  Unique identifier of the credential to archive.
-
-- `betas: Array[AnthropicBeta]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `:"message-batches-2024-09-24"`
-
-  - `:"prompt-caching-2024-07-31"`
-
-  - `:"computer-use-2024-10-22"`
-
-  - `:"computer-use-2025-01-24"`
-
-  - `:"pdfs-2024-09-25"`
-
-  - `:"token-counting-2024-11-01"`
-
-  - `:"token-efficient-tools-2025-02-19"`
-
-  - `:"output-128k-2025-02-19"`
-
-  - `:"files-api-2025-04-14"`
-
-  - `:"mcp-client-2025-04-04"`
-
-  - `:"mcp-client-2025-11-20"`
-
-  - `:"dev-full-thinking-2025-05-14"`
-
-  - `:"interleaved-thinking-2025-05-14"`
-
-  - `:"code-execution-2025-05-22"`
-
-  - `:"extended-cache-ttl-2025-04-11"`
-
-  - `:"context-1m-2025-08-07"`
-
-  - `:"context-management-2025-06-27"`
-
-  - `:"model-context-window-exceeded-2025-08-26"`
-
-  - `:"skills-2025-10-02"`
-
-  - `:"fast-mode-2026-02-01"`
-
-  - `:"output-300k-2026-03-24"`
-
-  - `:"user-profiles-2026-03-24"`
-
-  - `:"user-profiles-2026-08-18"`
-
-  - `:"user-profiles-2026-09-04"`
-
-  - `:"advisor-tool-2026-03-01"`
-
-  - `:"managed-agents-2026-04-01"`
-
-  - `:"cache-diagnosis-2026-04-07"`
-
-  - `:"dreaming-2026-04-21"`
-
-  - `:"thinking-token-count-2026-05-13"`
-
-  - `:"server-side-fallback-2026-06-01"`
-
-  - `:"server-side-fallback-2026-07-01"`
-
-  - `:"fallback-credit-2026-06-01"`
-
-  - `:"fallback-credit-2026-07-01"`
-
-  - `:"agent-memory-2026-07-22"`
-
-  - `:"mid-conversation-tool-changes-2026-07-01"`
-
-  - `:"compact-2026-01-12"`
-
-  - `:"computer-use-2025-11-24"`
-
-  - `:"mcp-tunnels-2026-06-22"`
-
-  - `:"structured-outputs-2025-11-13"`
-
-  - `:"task-budgets-2026-03-13"`
-
-  - `:"thinking-display-updates-2026-08-18"`
-
-  - `:"ce-user-management-2026-07-13"`
-
-  - `:"mid-conversation-output-config-2026-07-01"`
-
-  - `:"thinking-binding-controls-2026-08-01"`
-
-  - `:"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `:"compact-2026-09-04"`
-
-  - `:"inline-tools-2026-09-15"`
-
-  - `:"mcp-client-2026-09-15"`
-
-  - `:"ce-plugins-2026-09-01"`
-
-  - `:"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: String` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsCredential`
-
-  A credential stored in a vault. Sensitive fields are never returned in responses.
-
-  - `type: :vault_credential`
-
-  - `id: String`
-
-    Unique identifier for the credential.
-
-  - `archived_at: Time`
-
-    When the credential was archived. Null if not archived.
-
-    format: date-time
-
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
-
-    Authentication configuration for this credential.
-
-    - `class BetaManagedAgentsMCPOAuthAuthResponse`
-
-      OAuth credential details for an MCP server.
-
-      - `type: :mcp_oauth`
-
-      - `mcp_server_url: String`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `expires_at: Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `refresh: BetaManagedAgentsMCPOAuthRefreshResponse`
-
-        Refresh token configuration, if the credential supports token refresh.
-
-        - `client_id: String`
-
-          OAuth client ID.
-
-        - `token_endpoint: String`
-
-          Token endpoint URL used to refresh the access token.
-
-        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          - `class BetaManagedAgentsTokenEndpointAuthNoneResponse`
-
-            Token endpoint requires no client authentication.
-
-            - `type: :none`
-
-          - `class BetaManagedAgentsTokenEndpointAuthBasicResponse`
-
-            Token endpoint uses HTTP Basic authentication with client credentials.
-
-            - `type: :client_secret_basic`
-
-          - `class BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-            Token endpoint uses POST body authentication with client credentials.
-
-            - `type: :client_secret_post`
-
-        - `resource: String`
-
-          OAuth resource indicator.
-
-        - `scope: String`
-
-          OAuth scope for the refresh request.
-
-    - `class BetaManagedAgentsStaticBearerAuthResponse`
-
-      Static bearer token credential details for an MCP server.
-
-      - `type: :static_bearer`
-
-      - `mcp_server_url: String`
-
-        URL of the MCP server this credential authenticates against.
-
-    - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
-
-      Environment variable credential details. The secret value is never returned.
-
-      - `type: :environment_variable`
-
-      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
-
-        Where in the outbound request the secret value is substituted.
-
-        - `body: bool`
-
-          Whether the placeholder is substituted in the request body.
-
-        - `header: bool`
-
-          Whether the placeholder is substituted in request header values.
-
-      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-        Outbound hosts the secret value is substituted on.
-
-        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
-
-          The secret is substituted on any host the session's Environment network policy permits egress to.
-
-          - `type: :unrestricted`
-
-        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-          The secret is substituted only on requests to the listed hosts.
-
-          - `type: :limited`
-
-          - `allowed_hosts: Array[String]`
-
-            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-      - `secret_name: String`
-
-        Name of the environment variable.
-
-  - `created_at: Time`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `metadata: Hash[Symbol, String]`
-
-    Arbitrary key-value metadata attached to the credential.
-
-  - `updated_at: Time`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `vault_id: String`
-
-    Identifier of the vault this credential belongs to.
-
-  - `display_name: String`
-
-    Human-readable name for the credential.
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_credential = anthropic.beta.vaults.credentials.archive(
-  "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-)
-
-puts(beta_managed_agents_credential)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "archived_at": null,
-  "auth": {
-    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
-    "type": "static_bearer"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault_credential",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "display_name": "Example credential"
-}
-```
-
-### Validate Credential
-
-`beta.vaults.credentials.mcp_oauth_validate(credential_id, **kwargs) -> BetaManagedAgentsCredentialValidation`
-
-**POST** `/v1/vaults/{vault_id}/credentials/{credential_id}/mcp_oauth_validate`
-
-Validate Credential
-
-#### Parameters
-
-- `vault_id: String` (path parameter)
-
-  Identifier of the vault containing the credential.
-
-- `credential_id: String` (path parameter)
-
-  Unique identifier of the credential to validate.
-
-- `betas: Array[AnthropicBeta]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `:"message-batches-2024-09-24"`
-
-  - `:"prompt-caching-2024-07-31"`
-
-  - `:"computer-use-2024-10-22"`
-
-  - `:"computer-use-2025-01-24"`
-
-  - `:"pdfs-2024-09-25"`
-
-  - `:"token-counting-2024-11-01"`
-
-  - `:"token-efficient-tools-2025-02-19"`
-
-  - `:"output-128k-2025-02-19"`
-
-  - `:"files-api-2025-04-14"`
-
-  - `:"mcp-client-2025-04-04"`
-
-  - `:"mcp-client-2025-11-20"`
-
-  - `:"dev-full-thinking-2025-05-14"`
-
-  - `:"interleaved-thinking-2025-05-14"`
-
-  - `:"code-execution-2025-05-22"`
-
-  - `:"extended-cache-ttl-2025-04-11"`
-
-  - `:"context-1m-2025-08-07"`
-
-  - `:"context-management-2025-06-27"`
-
-  - `:"model-context-window-exceeded-2025-08-26"`
-
-  - `:"skills-2025-10-02"`
-
-  - `:"fast-mode-2026-02-01"`
-
-  - `:"output-300k-2026-03-24"`
-
-  - `:"user-profiles-2026-03-24"`
-
-  - `:"user-profiles-2026-08-18"`
-
-  - `:"user-profiles-2026-09-04"`
-
-  - `:"advisor-tool-2026-03-01"`
-
-  - `:"managed-agents-2026-04-01"`
-
-  - `:"cache-diagnosis-2026-04-07"`
-
-  - `:"dreaming-2026-04-21"`
-
-  - `:"thinking-token-count-2026-05-13"`
-
-  - `:"server-side-fallback-2026-06-01"`
-
-  - `:"server-side-fallback-2026-07-01"`
-
-  - `:"fallback-credit-2026-06-01"`
-
-  - `:"fallback-credit-2026-07-01"`
-
-  - `:"agent-memory-2026-07-22"`
-
-  - `:"mid-conversation-tool-changes-2026-07-01"`
-
-  - `:"compact-2026-01-12"`
-
-  - `:"computer-use-2025-11-24"`
-
-  - `:"mcp-tunnels-2026-06-22"`
-
-  - `:"structured-outputs-2025-11-13"`
-
-  - `:"task-budgets-2026-03-13"`
-
-  - `:"thinking-display-updates-2026-08-18"`
-
-  - `:"ce-user-management-2026-07-13"`
-
-  - `:"mid-conversation-output-config-2026-07-01"`
-
-  - `:"thinking-binding-controls-2026-08-01"`
-
-  - `:"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `:"compact-2026-09-04"`
-
-  - `:"inline-tools-2026-09-15"`
-
-  - `:"mcp-client-2026-09-15"`
-
-  - `:"ce-plugins-2026-09-01"`
-
-  - `:"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: String` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsCredentialValidation`
-
-  Result of live-probing a credential against its configured MCP server.
-
-  - `type: :vault_credential_validation`
-
-  - `credential_id: String`
-
-    Unique identifier of the credential that was validated.
-
-  - `has_refresh_token: bool`
-
-    Whether the credential has a refresh token configured.
-
-  - `mcp_probe: BetaManagedAgentsMCPProbe`
-
-    Details of the failing MCP probe step. Null when the probe succeeded.
-
-    - `http_response: BetaManagedAgentsRefreshHTTPResponse`
-
-      The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
-
-      - `body: String`
-
-        Response body. May be truncated and has sensitive values scrubbed.
-
-      - `body_truncated: bool`
-
-        Whether `body` was truncated.
-
-      - `content_type: String`
-
-        Value of the `Content-Type` response header.
-
-      - `status_code: Integer`
-
-        HTTP status code.
-
-        format: int32
-
-    - `method_: String`
-
-      The MCP method that failed (for example `initialize` or `tools/list`).
-
-  - `refresh: BetaManagedAgentsRefreshObject`
-
-    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
-
-    - `http_response: BetaManagedAgentsRefreshHTTPResponse`
-
-      The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
-
-    - `status: :succeeded | :failed | :connect_error | :no_refresh_token`
-
-      Outcome of the refresh attempt.
-
-      - `:succeeded`
-
-        The token endpoint returned a new access token.
-
-      - `:failed`
-
-        The token endpoint returned an error response. See `http_response` for detail.
-
-      - `:connect_error`
-
-        The token endpoint could not be reached (DNS, TLS, or connection error).
-
-      - `:no_refresh_token`
-
-        No refresh token is stored for the credential, so no exchange was attempted.
-
-  - `status: BetaManagedAgentsCredentialValidationStatus`
-
-    Overall verdict of the validation probe.
-
-    - `:valid`
-
-      The credential successfully authenticated against its MCP server.
-
-    - `:invalid`
-
-      The probe reached the MCP server and was rejected, and a refresh (if attempted) did not recover it.
-
-    - `:unknown`
-
-      The probe could not determine validity — for example, a transport error or a successful refresh that was not re-probed.
-
-  - `validated_at: Time`
-
-    When the validation probe was performed.
-
-    format: date-time
-
-  - `vault_id: String`
-
-    Identifier of the vault containing the credential.
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_credential_validation = anthropic.beta.vaults.credentials.mcp_oauth_validate(
-  "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-)
-
-puts(beta_managed_agents_credential_validation)
-```
-
-##### Response (200)
-
-```json
-{
-  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "has_refresh_token": true,
-  "mcp_probe": {
-    "http_response": {
-      "body": "body",
-      "body_truncated": true,
-      "content_type": "content_type",
-      "status_code": 0
-    },
-    "method": "method"
-  },
-  "refresh": {
-    "http_response": {
-      "body": "body",
-      "body_truncated": true,
-      "content_type": "content_type",
-      "status_code": 0
-    },
-    "status": "succeeded"
-  },
-  "status": "valid",
-  "type": "vault_credential_validation",
-  "validated_at": "2026-03-15T10:00:00Z",
-  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-}
-```
-
-## Beta › Memory Stores
-
-### Create a memory store
-
-`beta.memory_stores.create(**kwargs) -> BetaManagedAgentsMemoryStore`
-
-**POST** `/v1/memory_stores`
-
-Create a memory store
-
-#### Parameters
-
-- `name: String`
-
-  Human-readable name for the store. Required; 1–255 characters; no control characters. The mount-path slug under `/mnt/memory/` is derived from this name (lowercased, non-alphanumeric runs collapsed to a hyphen). Names need not be unique within a workspace.
-
-  minLength: 1, maxLength: 255
-
-- `description: String`
-
-  Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent.
-
-  maxLength: 1024
-
-- `metadata: Hash[Symbol, String]`
-
-  Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Not visible to the agent.
-
-- `betas: Array[AnthropicBeta]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `:"message-batches-2024-09-24"`
-
-  - `:"prompt-caching-2024-07-31"`
-
-  - `:"computer-use-2024-10-22"`
-
-  - `:"computer-use-2025-01-24"`
-
-  - `:"pdfs-2024-09-25"`
-
-  - `:"token-counting-2024-11-01"`
-
-  - `:"token-efficient-tools-2025-02-19"`
-
-  - `:"output-128k-2025-02-19"`
-
-  - `:"files-api-2025-04-14"`
-
-  - `:"mcp-client-2025-04-04"`
-
-  - `:"mcp-client-2025-11-20"`
-
-  - `:"dev-full-thinking-2025-05-14"`
-
-  - `:"interleaved-thinking-2025-05-14"`
-
-  - `:"code-execution-2025-05-22"`
-
-  - `:"extended-cache-ttl-2025-04-11"`
-
-  - `:"context-1m-2025-08-07"`
-
-  - `:"context-management-2025-06-27"`
-
-  - `:"model-context-window-exceeded-2025-08-26"`
-
-  - `:"skills-2025-10-02"`
-
-  - `:"fast-mode-2026-02-01"`
-
-  - `:"output-300k-2026-03-24"`
-
-  - `:"user-profiles-2026-03-24"`
-
-  - `:"user-profiles-2026-08-18"`
-
-  - `:"user-profiles-2026-09-04"`
-
-  - `:"advisor-tool-2026-03-01"`
-
-  - `:"managed-agents-2026-04-01"`
-
-  - `:"cache-diagnosis-2026-04-07"`
-
-  - `:"dreaming-2026-04-21"`
-
-  - `:"thinking-token-count-2026-05-13"`
-
-  - `:"server-side-fallback-2026-06-01"`
-
-  - `:"server-side-fallback-2026-07-01"`
-
-  - `:"fallback-credit-2026-06-01"`
-
-  - `:"fallback-credit-2026-07-01"`
-
-  - `:"agent-memory-2026-07-22"`
-
-  - `:"mid-conversation-tool-changes-2026-07-01"`
-
-  - `:"compact-2026-01-12"`
-
-  - `:"computer-use-2025-11-24"`
-
-  - `:"mcp-tunnels-2026-06-22"`
-
-  - `:"structured-outputs-2025-11-13"`
-
-  - `:"task-budgets-2026-03-13"`
-
-  - `:"thinking-display-updates-2026-08-18"`
-
-  - `:"ce-user-management-2026-07-13"`
-
-  - `:"mid-conversation-output-config-2026-07-01"`
-
-  - `:"thinking-binding-controls-2026-08-01"`
-
-  - `:"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `:"compact-2026-09-04"`
-
-  - `:"inline-tools-2026-09-15"`
-
-  - `:"mcp-client-2026-09-15"`
-
-  - `:"ce-plugins-2026-09-01"`
-
-  - `:"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: String` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsMemoryStore`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `type: :memory_store`
-
-  - `id: String`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `archived_at: Time`
-
-    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
-
-    format: date-time
-
-  - `created_at: Time`
-
-    Timestamp when the store was created.
-
-    format: date-time
-
-  - `description: String`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: Hash[Symbol, String]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-  - `name: String`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `updated_at: Time`
-
-    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
-
-    format: date-time
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_memory_store = anthropic.beta.memory_stores.create(name: "x")
-
-puts(beta_managed_agents_memory_store)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z"
-}
-```
-
-### List memory stores
-
-`beta.memory_stores.list(**kwargs) -> PageCursor<BetaManagedAgentsMemoryStore>`
-
-**GET** `/v1/memory_stores`
-
-List memory stores
-
-#### Parameters
-
-- `created_at_gte: Time` (query parameter)
-
-  Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
-
-  format: date-time
-
-- `created_at_lte: Time` (query parameter)
-
-  Return only stores whose `created_at` is at or before this time (inclusive). Sent on the wire as `created_at[lte]`.
-
-  format: date-time
-
-- `include_archived: bool` (query parameter)
-
-  When `true`, archived stores are included in the results. Defaults to `false` (archived stores are excluded).
-
-- `limit: Integer` (query parameter)
-
-  Maximum number of stores to return per page. Must be between 1 and 100. Defaults to 20 when omitted.
-
-  format: int32
-
-- `page: String` (query parameter)
-
-  Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
-
-- `betas: Array[AnthropicBeta]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `:"message-batches-2024-09-24"`
-
-  - `:"prompt-caching-2024-07-31"`
-
-  - `:"computer-use-2024-10-22"`
-
-  - `:"computer-use-2025-01-24"`
-
-  - `:"pdfs-2024-09-25"`
-
-  - `:"token-counting-2024-11-01"`
-
-  - `:"token-efficient-tools-2025-02-19"`
-
-  - `:"output-128k-2025-02-19"`
-
-  - `:"files-api-2025-04-14"`
-
-  - `:"mcp-client-2025-04-04"`
-
-  - `:"mcp-client-2025-11-20"`
-
-  - `:"dev-full-thinking-2025-05-14"`
-
-  - `:"interleaved-thinking-2025-05-14"`
-
-  - `:"code-execution-2025-05-22"`
-
-  - `:"extended-cache-ttl-2025-04-11"`
-
-  - `:"context-1m-2025-08-07"`
-
-  - `:"context-management-2025-06-27"`
-
-  - `:"model-context-window-exceeded-2025-08-26"`
-
-  - `:"skills-2025-10-02"`
-
-  - `:"fast-mode-2026-02-01"`
-
-  - `:"output-300k-2026-03-24"`
-
-  - `:"user-profiles-2026-03-24"`
-
-  - `:"user-profiles-2026-08-18"`
-
-  - `:"user-profiles-2026-09-04"`
-
-  - `:"advisor-tool-2026-03-01"`
-
-  - `:"managed-agents-2026-04-01"`
-
-  - `:"cache-diagnosis-2026-04-07"`
-
-  - `:"dreaming-2026-04-21"`
-
-  - `:"thinking-token-count-2026-05-13"`
-
-  - `:"server-side-fallback-2026-06-01"`
-
-  - `:"server-side-fallback-2026-07-01"`
-
-  - `:"fallback-credit-2026-06-01"`
-
-  - `:"fallback-credit-2026-07-01"`
-
-  - `:"agent-memory-2026-07-22"`
-
-  - `:"mid-conversation-tool-changes-2026-07-01"`
-
-  - `:"compact-2026-01-12"`
-
-  - `:"computer-use-2025-11-24"`
-
-  - `:"mcp-tunnels-2026-06-22"`
-
-  - `:"structured-outputs-2025-11-13"`
-
-  - `:"task-budgets-2026-03-13"`
-
-  - `:"thinking-display-updates-2026-08-18"`
-
-  - `:"ce-user-management-2026-07-13"`
-
-  - `:"mid-conversation-output-config-2026-07-01"`
-
-  - `:"thinking-binding-controls-2026-08-01"`
-
-  - `:"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `:"compact-2026-09-04"`
-
-  - `:"inline-tools-2026-09-15"`
-
-  - `:"mcp-client-2026-09-15"`
-
-  - `:"ce-plugins-2026-09-01"`
-
-  - `:"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: String` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsMemoryStore`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `type: :memory_store`
-
-  - `id: String`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `archived_at: Time`
-
-    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
-
-    format: date-time
-
-  - `created_at: Time`
-
-    Timestamp when the store was created.
-
-    format: date-time
-
-  - `description: String`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: Hash[Symbol, String]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-  - `name: String`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `updated_at: Time`
-
-    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
-
-    format: date-time
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-page = anthropic.beta.memory_stores.list
-
-puts(page)
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "memstore_01Wf3kQ8tZxB2mVr7HcJ4aNd",
-      "archived_at": null,
-      "created_at": "2026-03-15T10:00:00Z",
-      "description": "Per-user preferences and project context.",
-      "metadata": {},
-      "name": "User Preferences",
-      "type": "memory_store",
-      "updated_at": "2026-03-15T10:00:00Z"
-    }
-  ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-### Retrieve a memory store
-
-`beta.memory_stores.retrieve(memory_store_id, **kwargs) -> BetaManagedAgentsMemoryStore`
-
-**GET** `/v1/memory_stores/{memory_store_id}`
-
-Retrieve a memory store
-
-#### Parameters
-
-- `memory_store_id: String` (path parameter)
-
-  ID of the memory store to retrieve (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`.
-
-- `betas: Array[AnthropicBeta]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `:"message-batches-2024-09-24"`
-
-  - `:"prompt-caching-2024-07-31"`
-
-  - `:"computer-use-2024-10-22"`
-
-  - `:"computer-use-2025-01-24"`
-
-  - `:"pdfs-2024-09-25"`
-
-  - `:"token-counting-2024-11-01"`
-
-  - `:"token-efficient-tools-2025-02-19"`
-
-  - `:"output-128k-2025-02-19"`
-
-  - `:"files-api-2025-04-14"`
-
-  - `:"mcp-client-2025-04-04"`
-
-  - `:"mcp-client-2025-11-20"`
-
-  - `:"dev-full-thinking-2025-05-14"`
-
-  - `:"interleaved-thinking-2025-05-14"`
-
-  - `:"code-execution-2025-05-22"`
-
-  - `:"extended-cache-ttl-2025-04-11"`
-
-  - `:"context-1m-2025-08-07"`
-
-  - `:"context-management-2025-06-27"`
-
-  - `:"model-context-window-exceeded-2025-08-26"`
-
-  - `:"skills-2025-10-02"`
-
-  - `:"fast-mode-2026-02-01"`
-
-  - `:"output-300k-2026-03-24"`
-
-  - `:"user-profiles-2026-03-24"`
-
-  - `:"user-profiles-2026-08-18"`
-
-  - `:"user-profiles-2026-09-04"`
-
-  - `:"advisor-tool-2026-03-01"`
-
-  - `:"managed-agents-2026-04-01"`
-
-  - `:"cache-diagnosis-2026-04-07"`
-
-  - `:"dreaming-2026-04-21"`
-
-  - `:"thinking-token-count-2026-05-13"`
-
-  - `:"server-side-fallback-2026-06-01"`
-
-  - `:"server-side-fallback-2026-07-01"`
-
-  - `:"fallback-credit-2026-06-01"`
-
-  - `:"fallback-credit-2026-07-01"`
-
-  - `:"agent-memory-2026-07-22"`
-
-  - `:"mid-conversation-tool-changes-2026-07-01"`
-
-  - `:"compact-2026-01-12"`
-
-  - `:"computer-use-2025-11-24"`
-
-  - `:"mcp-tunnels-2026-06-22"`
-
-  - `:"structured-outputs-2025-11-13"`
-
-  - `:"task-budgets-2026-03-13"`
-
-  - `:"thinking-display-updates-2026-08-18"`
-
-  - `:"ce-user-management-2026-07-13"`
-
-  - `:"mid-conversation-output-config-2026-07-01"`
-
-  - `:"thinking-binding-controls-2026-08-01"`
-
-  - `:"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `:"compact-2026-09-04"`
-
-  - `:"inline-tools-2026-09-15"`
-
-  - `:"mcp-client-2026-09-15"`
-
-  - `:"ce-plugins-2026-09-01"`
-
-  - `:"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: String` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsMemoryStore`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `type: :memory_store`
-
-  - `id: String`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `archived_at: Time`
-
-    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
-
-    format: date-time
-
-  - `created_at: Time`
-
-    Timestamp when the store was created.
-
-    format: date-time
-
-  - `description: String`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: Hash[Symbol, String]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-  - `name: String`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `updated_at: Time`
-
-    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
-
-    format: date-time
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_memory_store = anthropic.beta.memory_stores.retrieve("memory_store_id")
-
-puts(beta_managed_agents_memory_store)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z"
-}
-```
-
-### Update a memory store
-
-`beta.memory_stores.update(memory_store_id, **kwargs) -> BetaManagedAgentsMemoryStore`
-
-**POST** `/v1/memory_stores/{memory_store_id}`
-
-Update a memory store
-
-#### Parameters
-
-- `memory_store_id: String` (path parameter)
-
-  ID of the memory store to update (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`. Updating an archived store returns 400.
-
-- `description: String`
-
-  New description for the store, up to 1024 characters. Pass an empty string to clear it.
-
-  maxLength: 1024
-
-- `metadata: Hash[Symbol, String]`
-
-  Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
-
-- `name: String`
-
-  New human-readable name for the store. 1–255 characters; no control characters. Renaming changes the slug used for the store's `mount_path` in sessions created after the update.
-
-  minLength: 1, maxLength: 255
-
-- `betas: Array[AnthropicBeta]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `:"message-batches-2024-09-24"`
-
-  - `:"prompt-caching-2024-07-31"`
-
-  - `:"computer-use-2024-10-22"`
-
-  - `:"computer-use-2025-01-24"`
-
-  - `:"pdfs-2024-09-25"`
-
-  - `:"token-counting-2024-11-01"`
-
-  - `:"token-efficient-tools-2025-02-19"`
-
-  - `:"output-128k-2025-02-19"`
-
-  - `:"files-api-2025-04-14"`
-
-  - `:"mcp-client-2025-04-04"`
-
-  - `:"mcp-client-2025-11-20"`
-
-  - `:"dev-full-thinking-2025-05-14"`
-
-  - `:"interleaved-thinking-2025-05-14"`
-
-  - `:"code-execution-2025-05-22"`
-
-  - `:"extended-cache-ttl-2025-04-11"`
-
-  - `:"context-1m-2025-08-07"`
-
-  - `:"context-management-2025-06-27"`
-
-  - `:"model-context-window-exceeded-2025-08-26"`
-
-  - `:"skills-2025-10-02"`
-
-  - `:"fast-mode-2026-02-01"`
-
-  - `:"output-300k-2026-03-24"`
-
-  - `:"user-profiles-2026-03-24"`
-
-  - `:"user-profiles-2026-08-18"`
-
-  - `:"user-profiles-2026-09-04"`
-
-  - `:"advisor-tool-2026-03-01"`
-
-  - `:"managed-agents-2026-04-01"`
-
-  - `:"cache-diagnosis-2026-04-07"`
-
-  - `:"dreaming-2026-04-21"`
-
-  - `:"thinking-token-count-2026-05-13"`
-
-  - `:"server-side-fallback-2026-06-01"`
-
-  - `:"server-side-fallback-2026-07-01"`
-
-  - `:"fallback-credit-2026-06-01"`
-
-  - `:"fallback-credit-2026-07-01"`
-
-  - `:"agent-memory-2026-07-22"`
-
-  - `:"mid-conversation-tool-changes-2026-07-01"`
-
-  - `:"compact-2026-01-12"`
-
-  - `:"computer-use-2025-11-24"`
-
-  - `:"mcp-tunnels-2026-06-22"`
-
-  - `:"structured-outputs-2025-11-13"`
-
-  - `:"task-budgets-2026-03-13"`
-
-  - `:"thinking-display-updates-2026-08-18"`
-
-  - `:"ce-user-management-2026-07-13"`
-
-  - `:"mid-conversation-output-config-2026-07-01"`
-
-  - `:"thinking-binding-controls-2026-08-01"`
-
-  - `:"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `:"compact-2026-09-04"`
-
-  - `:"inline-tools-2026-09-15"`
-
-  - `:"mcp-client-2026-09-15"`
-
-  - `:"ce-plugins-2026-09-01"`
-
-  - `:"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: String` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsMemoryStore`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `type: :memory_store`
-
-  - `id: String`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `archived_at: Time`
-
-    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
-
-    format: date-time
-
-  - `created_at: Time`
-
-    Timestamp when the store was created.
-
-    format: date-time
-
-  - `description: String`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: Hash[Symbol, String]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-  - `name: String`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `updated_at: Time`
-
-    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
-
-    format: date-time
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_memory_store = anthropic.beta.memory_stores.update("memory_store_id")
-
-puts(beta_managed_agents_memory_store)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z"
-}
-```
-
-### Delete a memory store
-
-`beta.memory_stores.delete(memory_store_id, **kwargs) -> BetaManagedAgentsDeletedMemoryStore`
-
-**DELETE** `/v1/memory_stores/{memory_store_id}`
-
-Delete a memory store
-
-#### Parameters
-
-- `memory_store_id: String` (path parameter)
-
-  ID of the memory store to permanently delete (a `memstore_...` identifier). Required. Deletion cascades to all memories and memory versions in the store and cannot be undone.
-
-- `betas: Array[AnthropicBeta]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `:"message-batches-2024-09-24"`
-
-  - `:"prompt-caching-2024-07-31"`
-
-  - `:"computer-use-2024-10-22"`
-
-  - `:"computer-use-2025-01-24"`
-
-  - `:"pdfs-2024-09-25"`
-
-  - `:"token-counting-2024-11-01"`
-
-  - `:"token-efficient-tools-2025-02-19"`
-
-  - `:"output-128k-2025-02-19"`
-
-  - `:"files-api-2025-04-14"`
-
-  - `:"mcp-client-2025-04-04"`
-
-  - `:"mcp-client-2025-11-20"`
-
-  - `:"dev-full-thinking-2025-05-14"`
-
-  - `:"interleaved-thinking-2025-05-14"`
-
-  - `:"code-execution-2025-05-22"`
-
-  - `:"extended-cache-ttl-2025-04-11"`
-
-  - `:"context-1m-2025-08-07"`
-
-  - `:"context-management-2025-06-27"`
-
-  - `:"model-context-window-exceeded-2025-08-26"`
-
-  - `:"skills-2025-10-02"`
-
-  - `:"fast-mode-2026-02-01"`
-
-  - `:"output-300k-2026-03-24"`
-
-  - `:"user-profiles-2026-03-24"`
-
-  - `:"user-profiles-2026-08-18"`
-
-  - `:"user-profiles-2026-09-04"`
-
-  - `:"advisor-tool-2026-03-01"`
-
-  - `:"managed-agents-2026-04-01"`
-
-  - `:"cache-diagnosis-2026-04-07"`
-
-  - `:"dreaming-2026-04-21"`
-
-  - `:"thinking-token-count-2026-05-13"`
-
-  - `:"server-side-fallback-2026-06-01"`
-
-  - `:"server-side-fallback-2026-07-01"`
-
-  - `:"fallback-credit-2026-06-01"`
-
-  - `:"fallback-credit-2026-07-01"`
-
-  - `:"agent-memory-2026-07-22"`
-
-  - `:"mid-conversation-tool-changes-2026-07-01"`
-
-  - `:"compact-2026-01-12"`
-
-  - `:"computer-use-2025-11-24"`
-
-  - `:"mcp-tunnels-2026-06-22"`
-
-  - `:"structured-outputs-2025-11-13"`
-
-  - `:"task-budgets-2026-03-13"`
-
-  - `:"thinking-display-updates-2026-08-18"`
-
-  - `:"ce-user-management-2026-07-13"`
-
-  - `:"mid-conversation-output-config-2026-07-01"`
-
-  - `:"thinking-binding-controls-2026-08-01"`
-
-  - `:"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `:"compact-2026-09-04"`
-
-  - `:"inline-tools-2026-09-15"`
-
-  - `:"mcp-client-2026-09-15"`
-
-  - `:"ce-plugins-2026-09-01"`
-
-  - `:"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: String` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsDeletedMemoryStore`
-
-  Confirmation that a `memory_store` was deleted.
-
-  - `type: :memory_store_deleted`
-
-  - `id: String`
-
-    ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_deleted_memory_store = anthropic.beta.memory_stores.delete("memory_store_id")
-
-puts(beta_managed_agents_deleted_memory_store)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "type": "memory_store_deleted"
-}
-```
-
-### Archive a memory store
-
-`beta.memory_stores.archive(memory_store_id, **kwargs) -> BetaManagedAgentsMemoryStore`
-
-**POST** `/v1/memory_stores/{memory_store_id}/archive`
-
-Archive a memory store
-
-#### Parameters
-
-- `memory_store_id: String` (path parameter)
-
-  ID of the memory store to archive (a `memstore_...` identifier). Required. Archiving is one-way and idempotent; archived stores cannot be unarchived. Enumerate IDs via `GET /v1/memory_stores`.
-
-- `betas: Array[AnthropicBeta]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `:"message-batches-2024-09-24"`
-
-  - `:"prompt-caching-2024-07-31"`
-
-  - `:"computer-use-2024-10-22"`
-
-  - `:"computer-use-2025-01-24"`
-
-  - `:"pdfs-2024-09-25"`
-
-  - `:"token-counting-2024-11-01"`
-
-  - `:"token-efficient-tools-2025-02-19"`
-
-  - `:"output-128k-2025-02-19"`
-
-  - `:"files-api-2025-04-14"`
-
-  - `:"mcp-client-2025-04-04"`
-
-  - `:"mcp-client-2025-11-20"`
-
-  - `:"dev-full-thinking-2025-05-14"`
-
-  - `:"interleaved-thinking-2025-05-14"`
-
-  - `:"code-execution-2025-05-22"`
-
-  - `:"extended-cache-ttl-2025-04-11"`
-
-  - `:"context-1m-2025-08-07"`
-
-  - `:"context-management-2025-06-27"`
-
-  - `:"model-context-window-exceeded-2025-08-26"`
-
-  - `:"skills-2025-10-02"`
-
-  - `:"fast-mode-2026-02-01"`
-
-  - `:"output-300k-2026-03-24"`
-
-  - `:"user-profiles-2026-03-24"`
-
-  - `:"user-profiles-2026-08-18"`
-
-  - `:"user-profiles-2026-09-04"`
-
-  - `:"advisor-tool-2026-03-01"`
-
-  - `:"managed-agents-2026-04-01"`
-
-  - `:"cache-diagnosis-2026-04-07"`
-
-  - `:"dreaming-2026-04-21"`
-
-  - `:"thinking-token-count-2026-05-13"`
-
-  - `:"server-side-fallback-2026-06-01"`
-
-  - `:"server-side-fallback-2026-07-01"`
-
-  - `:"fallback-credit-2026-06-01"`
-
-  - `:"fallback-credit-2026-07-01"`
-
-  - `:"agent-memory-2026-07-22"`
-
-  - `:"mid-conversation-tool-changes-2026-07-01"`
-
-  - `:"compact-2026-01-12"`
-
-  - `:"computer-use-2025-11-24"`
-
-  - `:"mcp-tunnels-2026-06-22"`
-
-  - `:"structured-outputs-2025-11-13"`
-
-  - `:"task-budgets-2026-03-13"`
-
-  - `:"thinking-display-updates-2026-08-18"`
-
-  - `:"ce-user-management-2026-07-13"`
-
-  - `:"mid-conversation-output-config-2026-07-01"`
-
-  - `:"thinking-binding-controls-2026-08-01"`
-
-  - `:"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `:"compact-2026-09-04"`
-
-  - `:"inline-tools-2026-09-15"`
-
-  - `:"mcp-client-2026-09-15"`
-
-  - `:"ce-plugins-2026-09-01"`
-
-  - `:"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: String` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsMemoryStore`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `type: :memory_store`
-
-  - `id: String`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `archived_at: Time`
-
-    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
-
-    format: date-time
-
-  - `created_at: Time`
-
-    Timestamp when the store was created.
-
-    format: date-time
-
-  - `description: String`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `metadata: Hash[Symbol, String]`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-  - `name: String`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `updated_at: Time`
-
-    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
-
-    format: date-time
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_memory_store = anthropic.beta.memory_stores.archive("memory_store_id")
-
-puts(beta_managed_agents_memory_store)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z"
-}
-```
-
-## Beta › Memory Stores › Memories
-
-### Create a memory
-
-`beta.memory_stores.memories.create(memory_store_id, **kwargs) -> BetaManagedAgentsMemory`
-
-**POST** `/v1/memory_stores/{memory_store_id}/memories`
-
-Create a memory
-
-#### Parameters
-
-- `memory_store_id: String` (path parameter)
-
-  The ID of the memory store to create the memory in (`memstore_...`).
-
-- `content: String`
-
-  UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
-
-- `path: String`
-
-  Hierarchical path for the new memory, e.g. `/projects/foo/notes.md`. Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, or the Unicode line and paragraph separators (U+2028, U+2029), and must be NFC-normalized. Paths are case-sensitive.
-
-  minLength: 2, maxLength: 1024
-
-- `view: BetaManagedAgentsMemoryView` (query parameter)
-
-  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
-
-  - `:basic`
-
-    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
-
-  - `:full`
-
-    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
-
-- `betas: Array[AnthropicBeta]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `:"message-batches-2024-09-24"`
-
-  - `:"prompt-caching-2024-07-31"`
-
-  - `:"computer-use-2024-10-22"`
-
-  - `:"computer-use-2025-01-24"`
-
-  - `:"pdfs-2024-09-25"`
-
-  - `:"token-counting-2024-11-01"`
-
-  - `:"token-efficient-tools-2025-02-19"`
-
-  - `:"output-128k-2025-02-19"`
-
-  - `:"files-api-2025-04-14"`
-
-  - `:"mcp-client-2025-04-04"`
-
-  - `:"mcp-client-2025-11-20"`
-
-  - `:"dev-full-thinking-2025-05-14"`
-
-  - `:"interleaved-thinking-2025-05-14"`
-
-  - `:"code-execution-2025-05-22"`
-
-  - `:"extended-cache-ttl-2025-04-11"`
-
-  - `:"context-1m-2025-08-07"`
-
-  - `:"context-management-2025-06-27"`
-
-  - `:"model-context-window-exceeded-2025-08-26"`
-
-  - `:"skills-2025-10-02"`
-
-  - `:"fast-mode-2026-02-01"`
-
-  - `:"output-300k-2026-03-24"`
-
-  - `:"user-profiles-2026-03-24"`
-
-  - `:"user-profiles-2026-08-18"`
-
-  - `:"user-profiles-2026-09-04"`
-
-  - `:"advisor-tool-2026-03-01"`
-
-  - `:"managed-agents-2026-04-01"`
-
-  - `:"cache-diagnosis-2026-04-07"`
-
-  - `:"dreaming-2026-04-21"`
-
-  - `:"thinking-token-count-2026-05-13"`
-
-  - `:"server-side-fallback-2026-06-01"`
-
-  - `:"server-side-fallback-2026-07-01"`
-
-  - `:"fallback-credit-2026-06-01"`
-
-  - `:"fallback-credit-2026-07-01"`
-
-  - `:"agent-memory-2026-07-22"`
-
-  - `:"mid-conversation-tool-changes-2026-07-01"`
-
-  - `:"compact-2026-01-12"`
-
-  - `:"computer-use-2025-11-24"`
-
-  - `:"mcp-tunnels-2026-06-22"`
-
-  - `:"structured-outputs-2025-11-13"`
-
-  - `:"task-budgets-2026-03-13"`
-
-  - `:"thinking-display-updates-2026-08-18"`
-
-  - `:"ce-user-management-2026-07-13"`
-
-  - `:"mid-conversation-output-config-2026-07-01"`
-
-  - `:"thinking-binding-controls-2026-08-01"`
-
-  - `:"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `:"compact-2026-09-04"`
-
-  - `:"inline-tools-2026-09-15"`
-
-  - `:"mcp-client-2026-09-15"`
-
-  - `:"ce-plugins-2026-09-01"`
-
-  - `:"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: String` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsMemory`
-
-  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-  - `type: :memory`
-
-  - `id: String`
-
-    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-  - `content_sha256: String`
-
-    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-  - `content_size_bytes: Integer`
-
-    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-    format: int32
-
-  - `created_at: Time`
-
-    When this memory was created, in RFC 3339 format.
-
-    format: date-time
-
-  - `memory_store_id: String`
-
-    ID of the memory store this memory belongs to (a `memstore_...` value).
-
-  - `memory_version_id: String`
-
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
-
-  - `path: String`
-
-    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `updated_at: Time`
-
-    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
-
-    format: date-time
-
-  - `content: String`
-
-    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_memory = anthropic.beta.memory_stores.memories.create("memory_store_id", content: "content", path: "xx")
-
-puts(beta_managed_agents_memory)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "content_sha256": "content_sha256",
-  "content_size_bytes": 0,
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "memory_store_id": "memory_store_id",
-  "memory_version_id": "memory_version_id",
-  "path": "path",
-  "type": "memory",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "content": "content"
-}
-```
-
-### List memories
-
-`beta.memory_stores.memories.list(memory_store_id, **kwargs) -> PageCursor<BetaManagedAgentsMemoryListItem>`
-
-**GET** `/v1/memory_stores/{memory_store_id}/memories`
-
-List memories
-
-#### Parameters
-
-- `memory_store_id: String` (path parameter)
-
-  The ID of the memory store to list memories from (`memstore_...`).
-
-- `depth: Integer` (query parameter)
-
-  `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
-
-  format: int32
-
-- `limit: Integer` (query parameter)
-
-  Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
-
-  format: int32
-
-- `page: String` (query parameter)
-
-  Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
-
-- `path_prefix: String` (query parameter)
-
-  Optional path prefix filter. Must end with `/` (segment-aligned), e.g., `/notes/`. This value appears in request URLs. Do not include secrets or personally identifiable information.
-
-- `view: BetaManagedAgentsMemoryView` (query parameter)
-
-  Which projection of each `memory` to return. Defaults to `basic` (content omitted). `full` populates `content` on each item and caps `limit` at 20; use this as the bulk-read path for export and sync.
-
-  - `:basic`
-
-    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
-
-  - `:full`
-
-    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
-
-- `betas: Array[AnthropicBeta]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `:"message-batches-2024-09-24"`
-
-  - `:"prompt-caching-2024-07-31"`
-
-  - `:"computer-use-2024-10-22"`
-
-  - `:"computer-use-2025-01-24"`
-
-  - `:"pdfs-2024-09-25"`
-
-  - `:"token-counting-2024-11-01"`
-
-  - `:"token-efficient-tools-2025-02-19"`
-
-  - `:"output-128k-2025-02-19"`
-
-  - `:"files-api-2025-04-14"`
-
-  - `:"mcp-client-2025-04-04"`
-
-  - `:"mcp-client-2025-11-20"`
-
-  - `:"dev-full-thinking-2025-05-14"`
-
-  - `:"interleaved-thinking-2025-05-14"`
-
-  - `:"code-execution-2025-05-22"`
-
-  - `:"extended-cache-ttl-2025-04-11"`
-
-  - `:"context-1m-2025-08-07"`
-
-  - `:"context-management-2025-06-27"`
-
-  - `:"model-context-window-exceeded-2025-08-26"`
-
-  - `:"skills-2025-10-02"`
-
-  - `:"fast-mode-2026-02-01"`
-
-  - `:"output-300k-2026-03-24"`
-
-  - `:"user-profiles-2026-03-24"`
-
-  - `:"user-profiles-2026-08-18"`
-
-  - `:"user-profiles-2026-09-04"`
-
-  - `:"advisor-tool-2026-03-01"`
-
-  - `:"managed-agents-2026-04-01"`
-
-  - `:"cache-diagnosis-2026-04-07"`
-
-  - `:"dreaming-2026-04-21"`
-
-  - `:"thinking-token-count-2026-05-13"`
-
-  - `:"server-side-fallback-2026-06-01"`
-
-  - `:"server-side-fallback-2026-07-01"`
-
-  - `:"fallback-credit-2026-06-01"`
-
-  - `:"fallback-credit-2026-07-01"`
-
-  - `:"agent-memory-2026-07-22"`
-
-  - `:"mid-conversation-tool-changes-2026-07-01"`
-
-  - `:"compact-2026-01-12"`
-
-  - `:"computer-use-2025-11-24"`
-
-  - `:"mcp-tunnels-2026-06-22"`
-
-  - `:"structured-outputs-2025-11-13"`
-
-  - `:"task-budgets-2026-03-13"`
-
-  - `:"thinking-display-updates-2026-08-18"`
-
-  - `:"ce-user-management-2026-07-13"`
-
-  - `:"mid-conversation-output-config-2026-07-01"`
-
-  - `:"thinking-binding-controls-2026-08-01"`
-
-  - `:"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `:"compact-2026-09-04"`
-
-  - `:"inline-tools-2026-09-15"`
-
-  - `:"mcp-client-2026-09-15"`
-
-  - `:"ce-plugins-2026-09-01"`
-
-  - `:"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: String` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `type BetaManagedAgentsMemoryListItem = BetaManagedAgentsMemory | BetaManagedAgentsMemoryPrefix`
-
-  One item in a [List memories](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
-
-  - `class BetaManagedAgentsMemory`
-
-    A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-    - `type: :memory`
-
-    - `id: String`
-
-      Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-    - `content_sha256: String`
-
-      Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-    - `content_size_bytes: Integer`
-
-      Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-      format: int32
-
-    - `created_at: Time`
-
-      When this memory was created, in RFC 3339 format.
-
-      format: date-time
-
-    - `memory_store_id: String`
-
-      ID of the memory store this memory belongs to (a `memstore_...` value).
-
-    - `memory_version_id: String`
-
-      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
-
-    - `path: String`
-
-      Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-    - `updated_at: Time`
-
-      When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
-
-      format: date-time
-
-    - `content: String`
-
-      The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-  - `class BetaManagedAgentsMemoryPrefix`
-
-    A rolled-up directory marker returned by [List memories](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
-    - `type: :memory_prefix`
-
-    - `path: String`
-
-      The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-page = anthropic.beta.memory_stores.memories.list("memory_store_id")
-
-puts(page)
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "mem_011CZkZ9X2dpNyB6YbtxvB6e",
-      "content_sha256": "ba7936d94c84d948a2232088f78228f175df6a8353b2d5bc9228eee5794a0024",
-      "content_size_bytes": 28,
-      "created_at": "2026-03-15T10:00:00Z",
-      "memory_store_id": "memstore_01Wf3kQ8tZxB2mVr7HcJ4aNd",
-      "memory_version_id": "memver_011CZkZBJq5dWxk9fVLNcPht",
-      "path": "/preferences/formatting.md",
-      "type": "memory",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "content": null
-    }
-  ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-### Retrieve a memory
-
-`beta.memory_stores.memories.retrieve(memory_id, **kwargs) -> BetaManagedAgentsMemory`
-
-**GET** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
-
-Retrieve a memory
-
-#### Parameters
-
-- `memory_store_id: String` (path parameter)
-
-  The ID of the memory store that holds the memory (`memstore_...`).
-
-- `memory_id: String` (path parameter)
-
-  The ID of the memory to retrieve (`mem_...`).
-
-- `view: BetaManagedAgentsMemoryView` (query parameter)
-
-  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
-
-  - `:basic`
-
-    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
-
-  - `:full`
-
-    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
-
-- `betas: Array[AnthropicBeta]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `:"message-batches-2024-09-24"`
-
-  - `:"prompt-caching-2024-07-31"`
-
-  - `:"computer-use-2024-10-22"`
-
-  - `:"computer-use-2025-01-24"`
-
-  - `:"pdfs-2024-09-25"`
-
-  - `:"token-counting-2024-11-01"`
-
-  - `:"token-efficient-tools-2025-02-19"`
-
-  - `:"output-128k-2025-02-19"`
-
-  - `:"files-api-2025-04-14"`
-
-  - `:"mcp-client-2025-04-04"`
-
-  - `:"mcp-client-2025-11-20"`
-
-  - `:"dev-full-thinking-2025-05-14"`
-
-  - `:"interleaved-thinking-2025-05-14"`
-
-  - `:"code-execution-2025-05-22"`
-
-  - `:"extended-cache-ttl-2025-04-11"`
-
-  - `:"context-1m-2025-08-07"`
-
-  - `:"context-management-2025-06-27"`
-
-  - `:"model-context-window-exceeded-2025-08-26"`
-
-  - `:"skills-2025-10-02"`
-
-  - `:"fast-mode-2026-02-01"`
-
-  - `:"output-300k-2026-03-24"`
-
-  - `:"user-profiles-2026-03-24"`
-
-  - `:"user-profiles-2026-08-18"`
-
-  - `:"user-profiles-2026-09-04"`
-
-  - `:"advisor-tool-2026-03-01"`
-
-  - `:"managed-agents-2026-04-01"`
-
-  - `:"cache-diagnosis-2026-04-07"`
-
-  - `:"dreaming-2026-04-21"`
-
-  - `:"thinking-token-count-2026-05-13"`
-
-  - `:"server-side-fallback-2026-06-01"`
-
-  - `:"server-side-fallback-2026-07-01"`
-
-  - `:"fallback-credit-2026-06-01"`
-
-  - `:"fallback-credit-2026-07-01"`
-
-  - `:"agent-memory-2026-07-22"`
-
-  - `:"mid-conversation-tool-changes-2026-07-01"`
-
-  - `:"compact-2026-01-12"`
-
-  - `:"computer-use-2025-11-24"`
-
-  - `:"mcp-tunnels-2026-06-22"`
-
-  - `:"structured-outputs-2025-11-13"`
-
-  - `:"task-budgets-2026-03-13"`
-
-  - `:"thinking-display-updates-2026-08-18"`
-
-  - `:"ce-user-management-2026-07-13"`
-
-  - `:"mid-conversation-output-config-2026-07-01"`
-
-  - `:"thinking-binding-controls-2026-08-01"`
-
-  - `:"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `:"compact-2026-09-04"`
-
-  - `:"inline-tools-2026-09-15"`
-
-  - `:"mcp-client-2026-09-15"`
-
-  - `:"ce-plugins-2026-09-01"`
-
-  - `:"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: String` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsMemory`
-
-  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-  - `type: :memory`
-
-  - `id: String`
-
-    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-  - `content_sha256: String`
-
-    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-  - `content_size_bytes: Integer`
-
-    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-    format: int32
-
-  - `created_at: Time`
-
-    When this memory was created, in RFC 3339 format.
-
-    format: date-time
-
-  - `memory_store_id: String`
-
-    ID of the memory store this memory belongs to (a `memstore_...` value).
-
-  - `memory_version_id: String`
-
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
-
-  - `path: String`
-
-    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `updated_at: Time`
-
-    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
-
-    format: date-time
-
-  - `content: String`
-
-    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_memory = anthropic.beta.memory_stores.memories.retrieve("memory_id", memory_store_id: "memory_store_id")
-
-puts(beta_managed_agents_memory)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "content_sha256": "content_sha256",
-  "content_size_bytes": 0,
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "memory_store_id": "memory_store_id",
-  "memory_version_id": "memory_version_id",
-  "path": "path",
-  "type": "memory",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "content": "content"
-}
-```
-
-### Update a memory
-
-`beta.memory_stores.memories.update(memory_id, **kwargs) -> BetaManagedAgentsMemory`
-
-**POST** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
-
-Update a memory
-
-#### Parameters
-
-- `memory_store_id: String` (path parameter)
-
-  The ID of the memory store that holds the memory (`memstore_...`).
-
-- `memory_id: String` (path parameter)
-
-  The ID of the memory to update (`mem_...`).
-
-- `view: BetaManagedAgentsMemoryView` (query parameter)
-
-  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
-
-  - `:basic`
-
-    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
-
-  - `:full`
-
-    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
-
-- `content: String`
-
-  New UTF-8 text content for the memory. Maximum 100 kB (102,400 bytes). Omit to leave the content unchanged (e.g., for a rename-only update).
-
-- `path: String`
-
-  New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, or the Unicode line and paragraph separators (U+2028, U+2029), and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
-
-  minLength: 2, maxLength: 1024
-
-- `precondition: BetaManagedAgentsPrecondition`
-
-  Optional optimistic-concurrency precondition. When supplied, the update applies only if the memory's current state matches; on mismatch the request returns `memory_precondition_failed_error` (HTTP 409). When omitted, the update is unconditional.
-
-  - `type: :content_sha256`
-
-  - `content_sha256: String`
-
-    Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.
-
-- `betas: Array[AnthropicBeta]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `:"message-batches-2024-09-24"`
-
-  - `:"prompt-caching-2024-07-31"`
-
-  - `:"computer-use-2024-10-22"`
-
-  - `:"computer-use-2025-01-24"`
-
-  - `:"pdfs-2024-09-25"`
-
-  - `:"token-counting-2024-11-01"`
-
-  - `:"token-efficient-tools-2025-02-19"`
-
-  - `:"output-128k-2025-02-19"`
-
-  - `:"files-api-2025-04-14"`
-
-  - `:"mcp-client-2025-04-04"`
-
-  - `:"mcp-client-2025-11-20"`
-
-  - `:"dev-full-thinking-2025-05-14"`
-
-  - `:"interleaved-thinking-2025-05-14"`
-
-  - `:"code-execution-2025-05-22"`
-
-  - `:"extended-cache-ttl-2025-04-11"`
-
-  - `:"context-1m-2025-08-07"`
-
-  - `:"context-management-2025-06-27"`
-
-  - `:"model-context-window-exceeded-2025-08-26"`
-
-  - `:"skills-2025-10-02"`
-
-  - `:"fast-mode-2026-02-01"`
-
-  - `:"output-300k-2026-03-24"`
-
-  - `:"user-profiles-2026-03-24"`
-
-  - `:"user-profiles-2026-08-18"`
-
-  - `:"user-profiles-2026-09-04"`
-
-  - `:"advisor-tool-2026-03-01"`
-
-  - `:"managed-agents-2026-04-01"`
-
-  - `:"cache-diagnosis-2026-04-07"`
-
-  - `:"dreaming-2026-04-21"`
-
-  - `:"thinking-token-count-2026-05-13"`
-
-  - `:"server-side-fallback-2026-06-01"`
-
-  - `:"server-side-fallback-2026-07-01"`
-
-  - `:"fallback-credit-2026-06-01"`
-
-  - `:"fallback-credit-2026-07-01"`
-
-  - `:"agent-memory-2026-07-22"`
-
-  - `:"mid-conversation-tool-changes-2026-07-01"`
-
-  - `:"compact-2026-01-12"`
-
-  - `:"computer-use-2025-11-24"`
-
-  - `:"mcp-tunnels-2026-06-22"`
-
-  - `:"structured-outputs-2025-11-13"`
-
-  - `:"task-budgets-2026-03-13"`
-
-  - `:"thinking-display-updates-2026-08-18"`
-
-  - `:"ce-user-management-2026-07-13"`
-
-  - `:"mid-conversation-output-config-2026-07-01"`
-
-  - `:"thinking-binding-controls-2026-08-01"`
-
-  - `:"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `:"compact-2026-09-04"`
-
-  - `:"inline-tools-2026-09-15"`
-
-  - `:"mcp-client-2026-09-15"`
-
-  - `:"ce-plugins-2026-09-01"`
-
-  - `:"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: String` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsMemory`
-
-  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-  - `type: :memory`
-
-  - `id: String`
-
-    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-  - `content_sha256: String`
-
-    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-  - `content_size_bytes: Integer`
-
-    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-    format: int32
-
-  - `created_at: Time`
-
-    When this memory was created, in RFC 3339 format.
-
-    format: date-time
-
-  - `memory_store_id: String`
-
-    ID of the memory store this memory belongs to (a `memstore_...` value).
-
-  - `memory_version_id: String`
-
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
-
-  - `path: String`
-
-    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `updated_at: Time`
-
-    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list).
-
-    format: date-time
-
-  - `content: String`
-
-    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_memory = anthropic.beta.memory_stores.memories.update("memory_id", memory_store_id: "memory_store_id")
-
-puts(beta_managed_agents_memory)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "content_sha256": "content_sha256",
-  "content_size_bytes": 0,
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "memory_store_id": "memory_store_id",
-  "memory_version_id": "memory_version_id",
-  "path": "path",
-  "type": "memory",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "content": "content"
-}
-```
-
-### Delete a memory
-
-`beta.memory_stores.memories.delete(memory_id, **kwargs) -> BetaManagedAgentsDeletedMemory`
-
-**DELETE** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
-
-Delete a memory
-
-#### Parameters
-
-- `memory_store_id: String` (path parameter)
-
-  The ID of the memory store that holds the memory (`memstore_...`).
-
-- `memory_id: String` (path parameter)
-
-  The ID of the memory to delete (`mem_...`).
-
-- `expected_content_sha256: String` (query parameter)
-
-  Delete the memory only if its current `content_sha256` equals this value, given as 64 lowercase hexadecimal characters. Omit it to delete unconditionally.
-
-  If the hashes differ, the request fails with HTTP status 409 and nothing is deleted.
-
-- `betas: Array[AnthropicBeta]` (header parameter)
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `:"message-batches-2024-09-24"`
-
-  - `:"prompt-caching-2024-07-31"`
-
-  - `:"computer-use-2024-10-22"`
-
-  - `:"computer-use-2025-01-24"`
-
-  - `:"pdfs-2024-09-25"`
-
-  - `:"token-counting-2024-11-01"`
-
-  - `:"token-efficient-tools-2025-02-19"`
-
-  - `:"output-128k-2025-02-19"`
-
-  - `:"files-api-2025-04-14"`
-
-  - `:"mcp-client-2025-04-04"`
-
-  - `:"mcp-client-2025-11-20"`
-
-  - `:"dev-full-thinking-2025-05-14"`
-
-  - `:"interleaved-thinking-2025-05-14"`
-
-  - `:"code-execution-2025-05-22"`
-
-  - `:"extended-cache-ttl-2025-04-11"`
-
-  - `:"context-1m-2025-08-07"`
-
-  - `:"context-management-2025-06-27"`
-
-  - `:"model-context-window-exceeded-2025-08-26"`
-
-  - `:"skills-2025-10-02"`
-
-  - `:"fast-mode-2026-02-01"`
-
-  - `:"output-300k-2026-03-24"`
-
-  - `:"user-profiles-2026-03-24"`
-
-  - `:"user-profiles-2026-08-18"`
-
-  - `:"user-profiles-2026-09-04"`
-
-  - `:"advisor-tool-2026-03-01"`
-
-  - `:"managed-agents-2026-04-01"`
-
-  - `:"cache-diagnosis-2026-04-07"`
-
-  - `:"dreaming-2026-04-21"`
-
-  - `:"thinking-token-count-2026-05-13"`
-
-  - `:"server-side-fallback-2026-06-01"`
-
-  - `:"server-side-fallback-2026-07-01"`
-
-  - `:"fallback-credit-2026-06-01"`
-
-  - `:"fallback-credit-2026-07-01"`
-
-  - `:"agent-memory-2026-07-22"`
-
-  - `:"mid-conversation-tool-changes-2026-07-01"`
-
-  - `:"compact-2026-01-12"`
-
-  - `:"computer-use-2025-11-24"`
-
-  - `:"mcp-tunnels-2026-06-22"`
-
-  - `:"structured-outputs-2025-11-13"`
-
-  - `:"task-budgets-2026-03-13"`
-
-  - `:"thinking-display-updates-2026-08-18"`
-
-  - `:"ce-user-management-2026-07-13"`
-
-  - `:"mid-conversation-output-config-2026-07-01"`
-
-  - `:"thinking-binding-controls-2026-08-01"`
-
-  - `:"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `:"compact-2026-09-04"`
-
-  - `:"inline-tools-2026-09-15"`
-
-  - `:"mcp-client-2026-09-15"`
-
-  - `:"ce-plugins-2026-09-01"`
-
-  - `:"spend-limit-reads-2026-09-26"`
-
-- `workspace_id: String` (header parameter)
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsDeletedMemory`
-
-  Tombstone returned by [Delete a memory](https://platform.claude.com/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](https://platform.claude.com/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
-
-  - `type: :memory_deleted`
-
-  - `id: String`
-
-    ID of the deleted memory (a `mem_...` value).
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_deleted_memory = anthropic.beta.memory_stores.memories.delete("memory_id", memory_store_id: "memory_store_id")
-
-puts(beta_managed_agents_deleted_memory)
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "type": "memory_deleted"
-}
-```
-
-## Beta › Memory Stores › Memory Versions
-
-### List memory versions
-
-`beta.memory_stores.memory_versions.list(memory_store_id, **kwargs) -> PageCursor<BetaManagedAgentsMemoryVersion>`
-
-**GET** `/v1/memory_stores/{memory_store_id}/memory_versions`
-
-List memory versions
-
-#### Parameters
-
-- `memory_store_id: String` (path parameter)

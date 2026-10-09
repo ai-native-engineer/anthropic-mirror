@@ -2,13 +2,13 @@
 
 A pooled group budget gives a group one shared monthly amount that all its members draw from, on top of each user's own monthly spend limit. This article explains how pooled budgets work and how to set, prioritize, and monitor them.
 
-Pooled group budgets are in beta for Enterprise plan organizations. Primary Owners, Owners, Admins, and custom roles with the **Billing** permission set to "Can manage" can set pooled budgets in **[Organization settings > Usage](https://claude.ai/admin-settings/usage)**. To share feedback on the beta, contact your Anthropic account team.
+Pooled group budgets are in beta for Enterprise plan organizations. Primary Owners, Owners, and custom roles with the **Billing** permission set to "Can manage" can set pooled budgets in **[Organization settings > Usage](https://claude.ai/admin-settings/usage)**. To share feedback on the beta, contact your Anthropic account team.
 
 ## How pooled budgets work
 
 A group spend limit applies to each group member separately, so every member gets the same monthly limit. A pooled budget adds one shared amount for the whole group.
 
-Every request counts against both the user's own monthly spend limit and the group's pooled budget, and the user stops at whichever runs out first. Usage can go slightly over a limit before it pauses. When the pooled budget is used up, usage pauses for every member of the group until you raise the budget or it resets for the new month. After you raise it, group members can send messages again right away.
+Every request counts against both the user's own monthly spend limit and the group's pooled budget. The user stops when their own limit runs out, or when every pooled budget they can use is used up. When the pooled budget is used up, usage pauses for every member of the group until you raise the budget or it resets for the new month. After you raise it, group members can send messages again right away.
 
 **Note:** A pooled budget isn't an equal share for each person. If you set the member monthly limit to the pooled budget divided by the number of group members, you're back to one-person limits and lose the benefit of a shared budget. Set the member monthly limit as a guard rail against unusually high use by one person.
 
@@ -22,7 +22,7 @@ Check the following before you set a pooled budget:
 
 ## Choose starting amounts
 
-Base your first amounts on last month's actual spend, not an estimate. You need two numbers for the group. Editing limits for a group suggests these automatically, alternatively you can verify these numbers in **Analytics**:
+Base your first amounts on last month's actual spend, not an estimate. You need two numbers for the group. Editing limits for a group suggests these automatically. You can also verify them in **Analytics**:
 
 * **Last month's spend for the group:** In **Analytics**, filter the members table to the group and add up the spend.
 * **The group's top spender:** The first row when you sort that table by spend.
@@ -47,34 +47,36 @@ If the member monthly limit is too low for the pooled budget, you'll see a warni
 ## Change, freeze, or turn off a pooled budget
 
 * **Change the amount:** Select "Edit limits" in the group's row menu and enter a new amount.
-* **Freeze the group:** Set the pooled budget to $0. Every group member stops until you raise it.
-* **Pause the pooled budget**: select Paused. The amount is kept but not enforced until you select Set amount again. To remove the pool, select **No pooled budget**
+* **Freeze the group:** Set the pooled budget to $0. Group members can no longer spend from this pooled budget.
+* **Pause the pooled budget:** Select "Paused." The amount is kept but not enforced until you select "Set amount" again. To remove the pool, select "No pooled budget."
 * **Remove the group's spend limit:** This also removes the group's pooled budget.
 
 ## Set the budget priority for users in several groups
 
-If a user belongs to more than one group with a pooled budget, the largest pooled budget pays first by default. To choose the order yourself:
+If a user belongs to more than one group with a pooled budget, the largest pooled budget pays first by default. When it is used up, the next largest with usage remaining pays. To choose the order yourself:
 
 1. Navigate to **[Organization settings > Usage](https://claude.ai/admin-settings/usage)**.
 2. In the **Pooled budget priority** card, select "Custom order."
 3. Use the arrows to put the groups in order, with the most specific team first.
 4. Click "Save order."
 
-With a custom order, the first available pooled budget with remaining usage in your list pays first.
+With a custom order, the first pooled budget in your list with budget remaining pays.
 
-**Note:** Budget priority only decides which pooled budget pays. To choose which group's member monthly limit applies to a user in more than one group, use the **Member limit from groups** setting under **Spending defaults**.
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2719736736/a4ec8e92af4975a87891357e5dbd/6f58b496-432d-4069-ba18-72a6390ab2ea?expires=1791434700&signature=7690c62a65b1a8b59e75966ce4137bcb8e24e4c358b6fb64bc7a6ac9f94d8652&req=dicmH859m4ZcX%2FMW1HO4zU9wBwUcUow0TLR6JppsyjQCPX6LaBwQOv%2Bgp6IK%0A0Zkb99ycgpoBuUGw60o%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2719736736/a4ec8e92af4975a87891357e5dbd/6f58b496-432d-4069-ba18-72a6390ab2ea?expires=1791434700&signature=7690c62a65b1a8b59e75966ce4137bcb8e24e4c358b6fb64bc7a6ac9f94d8652&req=dicmH859m4ZcX%2FMW1HO4zU9wBwUcUow0TLR6JppsyjQCPX6LaBwQOv%2Bgp6IK%0A0Zkb99ycgpoBuUGw60o%3D%0A)
+
+**Note:** Budget priority only decides the order in which pooled budgets pay. To choose which group's member monthly limit applies to a user in more than one group, use the **Member limit from groups** setting under **Spending defaults**.
 
 ## Monitor pooled budgets
 
-Check pooled budget usage at any time in the **Pooled budget** column on the "By group/tier" tab in **[Organization settings > Usage](https://claude.ai/admin-settings/usage)**. The column shows each group's pooled budget and how much of it has been used this month. The bar turns amber at 75% and red at 90%., and a dash means the group has no pooled budget.
+Check pooled budget usage at any time in the **Pooled budget** column on the "By group/tier" tab in **[Organization settings > Usage](https://claude.ai/admin-settings/usage)**. The column shows each group's pooled budget and how much of it has been used this month. The bar turns amber at 75% and red at 90%. A dash means the group has no pooled budget.
 
-When a pooled budget reaches 50%, 75%, 95%, and 100% of its monthly amount, every admin with billing permissions gets an email, and a notice for the group appears on the admin home page. Click "View group" in the notice to go to the group's row, then dismiss the notice once you've acted on it.
+When a pooled budget reaches 50%, 75%, 95%, and 100% of its monthly amount, everyone with the Billing permission gets an email, and a notice for the group appears on the admin home page. Click "View group" in the notice to go to the group's row, then dismiss the notice once you've acted on it.
 
 To tell whether your amounts are right, also check the number of requests under **Review requests**. If a pooled budget is 75% used before the 20th of the month, consider raising it by 50%. If users keep requesting more, raise the member monthly limit.
 
 ## What users see
 
-Nothing changes for users until they reach their own monthly spend limit or the group's pooled budget runs out. At that point, a message appears in the message box with a "Request more" button. If the pooled budget is used up, the message says their team's shared budget has run out.
+Nothing changes for users until they reach their own monthly spend limit or until every pooled budget they can use is used up. At that point, a message appears in the message box with a "Request more" button. If the pooled budget is used up, the message says their team's shared budget has run out.
 
 Requests from users appear under **Review requests**. Users never see the group's name or the pooled budget amount.
 
@@ -85,6 +87,6 @@ Requests from users appear under **Review requests**. Users never see the group'
 
 * [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
 * [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
+* [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
 * [Manage groups and group spend limits on Enterprise plans](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)
 * [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)
-* [Claude Enterprise Admin API reference guide](https://support.claude.com/en/articles/15330651-claude-enterprise-admin-api-reference-guide)

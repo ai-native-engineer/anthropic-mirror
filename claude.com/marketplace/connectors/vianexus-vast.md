@@ -33,6 +33,16 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
+![](https://raw.githubusercontent.com/grafana/ai-marketplace/12be5634a492f73c189d466c5449d09b853ad7a4/plugins/grafana-cloud-mcp/assets/logo.svg)
+
+### [Grafana Cloud](https://claude.com/marketplace/connectors/grafana-cloud)
+
+Anthropic verifiedNew
+
+Query metrics, logs, and traces and manage dashboards and alerts
+
+[Add Grafana Cloud in Claude (opens in new tab)](https://claude.ai/directory/3392c633-e335-4638-bda7-5b259808c3f7 "Add in Claude")
+
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
 ### [Google Drive](https://claude.com/marketplace/connectors/google-drive)
@@ -74,11 +84,3 @@ Connect AI assistants to live crypto markets, prediction markets, your trading a
 Send messages, create canvases, and fetch Slack data
 
 [Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
-
-![](https://assets.claude.com/afd2ecc5d1ddcedf60ce9d230297b84286373bdb.jpg?w=128&fit=max&auto=format)
-
-### [Asana](https://claude.com/marketplace/connectors/asana)
-
-Connect to Asana to coordinate tasks, projects, and goals
-
-[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")

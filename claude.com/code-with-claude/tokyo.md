@@ -626,5 +626,3 @@ Yes, the San Francisco (May 6), London (19 May) and Tokyo (10 June) events will 
 Is there a cost to attend?
 
 No, both in-person attendance and the livestream access are free.
-
-Tokyo — Code w/ Claude 2026

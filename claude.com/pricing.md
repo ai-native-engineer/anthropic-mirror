@@ -32,8 +32,6 @@ Free for everyone
 
 ### Pro
 
-Claude Code included
-
 For everyday work
 
 $17
@@ -47,14 +45,13 @@ Everything in Free, plus:
 * More usage\*
 * Hand off and schedule tasks
 * Claude Design, Slides, Docs
+* Claude Code
 * Claude Science
 * Projects
 * More Claude models
 * Claude in Chrome and Microsoft 365
 
 ### Max
-
-Claude Code included
 
 For people who work with Claude all day
 
@@ -403,7 +400,7 @@ Prompt caching
 
 Read
 
-$0.20 / MTok
+$0.10 / MTok
 
 Write
 
@@ -417,27 +414,51 @@ Output
 
 $10 / MTok
 
-### Haiku 4.5
+### Haiku 5.5
 
 Fastest, most cost-efficient model
 
 Prompt caching
 
+Prompts ≤ 100K tokens
+
 Read
 
-$0.10 / MTok
+$0.01 / MTok
 
 Write
 
-$1.25 / MTok
+$0.125 / MTok
+
+Prompts > 100K tokens
+
+Read
+
+$0.05 / MTok
+
+Write
+
+$0.625 / MTok
 
 Input
 
-$1 / MTok
+Prompts ≤ 100K tokens
+
+$0.10 / MTok
+
+Prompts > 100K tokens
+
+$0.50 / MTok
 
 Output
 
-$5 / MTok
+Prompts ≤ 100K tokens
+
+$0.50 / MTok
+
+Prompts > 100K tokens
+
+$2.50 / MTok
 
 For workloads that need to run in the US, US-only inference is available at 1.1x pricing for input and output tokens. [Learn more](https://platform.claude.com/docs/en/build-with-claude/data-residency).
 
@@ -494,9 +515,27 @@ Balance availability, performance, and predictable costs based on your needs.
 
 [Learn more (opens in new tab)](https://platform.claude.com/docs/en/about-claude/models/overview)[Explore detailed pricing (opens in new tab)](https://platform.claude.com/docs/en/about-claude/pricing)
 
-### Sonnet 5
+### Haiku 4.5
 
-High-performance model for coding and agents
+Prompt caching
+
+Read
+
+$0.10 / MTok
+
+Write
+
+$1.25 / MTok
+
+Input
+
+$1 / MTok
+
+Output
+
+$5 / MTok
+
+### Sonnet 5
 
 Prompt caching
 
@@ -516,9 +555,11 @@ Output
 
 $10 / MTok
 
-### Opus 5
+Save 50% with batch processing. [Learn more](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
 
-Ideal for complex agentic coding and enterprise work
+Batch processing
+
+### Opus 5
 
 Prompt caching
 
@@ -537,10 +578,6 @@ $5 / MTok
 Output
 
 $25 / MTok
-
-Save 50% with batch processing. [Learn more](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
-
-Batch processing
 
 ### Fable 5
 
@@ -758,4 +795,4 @@ You can cancel anytime, and your plan stays active until the end of your current
 
 Canceling doesn't delete your data. Your chats, projects, and files stay with your account, though some features aren't available on the Free plan. For Pro and Max, your account moves to the Free plan once the period ends. For step-by-step help, see [how to cancel a Pro or Max plan](https://support.claude.com/en/articles/8325617-how-do-i-cancel-my-paid-claude-subscription) or [cancel a Team plan](https://support.claude.com/en/articles/9267323-cancel-your-organization-s-team-plan-subscription).
 
-Plans & Pricing | Claude by Anthropic
+Plans & pricing | Claude by Anthropic

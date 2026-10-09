@@ -66,7 +66,7 @@ Mark Gilbert, CEO and Co-founder
 
 Dr. Jordan Hutchison, Vice President of Technology and Operations
 
-![Wealthbox](https://assets.claude.com/d0733c2b25bff50a4083994c21a0f8bcebbcabfe.svg)
+![Wealthbox](https://assets.claude.com/31be98f5c18121a5063482dbcb91cd4bb812e9c7.svg)
 
 > “Advisors have spent years building deep client context in Wealthbox. This lets them bring that context straight into Claude and put a frontier model to work on it, such as preparing for meetings, handling follow-up, drafting communications, while everything stays connected to the CRM their practice runs on."”
 
@@ -174,7 +174,7 @@ Mark Gilbert, CEO and Co-founder
 
 Dr. Jordan Hutchison, Vice President of Technology and Operations
 
-![Wealthbox](https://assets.claude.com/d0733c2b25bff50a4083994c21a0f8bcebbcabfe.svg)
+![Wealthbox](https://assets.claude.com/31be98f5c18121a5063482dbcb91cd4bb812e9c7.svg)
 
 > “Advisors have spent years building deep client context in Wealthbox. This lets them bring that context straight into Claude and put a frontier model to work on it, such as preparing for meetings, handling follow-up, drafting communications, while everything stays connected to the CRM their practice runs on."”
 

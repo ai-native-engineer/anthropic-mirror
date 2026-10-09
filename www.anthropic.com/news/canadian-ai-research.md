@@ -95,5 +95,3 @@ Les pays qui investiront le plus dans l’IA de pointe au cours des prochaines a
 La semaine dernière, nous avons publié une étude de cas sur le ministère de la Technologie et de l’Innovation du gouvernement de l’Alberta, où une équipe a utilisé Claude Code pour passer en revue 466 millions de lignes de code dans l’ensemble des systèmes provinciaux en environ 20 heures, puis a [communiqué ses méthodes](https://thevelocitywhitepapers.com/) à d’autres gouvernements.
 
 Les huit partenariats annoncés aujourd’hui ne sont qu’un commencement pour nos investissements dans la recherche canadienne. Nous sommes ravis à l’idée d’apporter notre soutien à ces travaux dans les instituts de recherche, les hôpitaux et les universités pour de nombreuses années encore.
-
-Anthropic commits $10 million to Canadian AI research \ Anthropic

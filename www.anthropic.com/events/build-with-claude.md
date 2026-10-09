@@ -95,7 +95,6 @@ Austin
 Bentonville
 Boston
 Chicago
-Dallas
 Frisco
 Houston
 London
@@ -124,34 +123,6 @@ Non-Technical
 Financial Services
 Healthcare & Life Sciences
 Clear filters
-
-Claude Code Workshop
-
-Dallas
-
-October 6
-
-About this session
-
-Hands-on session for developers and technical builders. Bring a laptop and a project and write code with Claude Code.
-
-[Apply ↗](https://luma.com/tenex-claude-code-workshop-dallas-oct)
-
-Claude Code Workshop
-
-New York City
-
-October 6
-
-About this session
-
-Hands-on session for developers and technical builders. Bring a laptop and a project and write code with Claude Code.
-
-Focus
-
-Hosted with Fractal
-
-[Apply ↗](https://fractal.ai/events/fractal-claude-code-workshop-ny-2026/)
 
 Claude Workshop
 
@@ -228,6 +199,22 @@ About this session
 Hands-on session for developers and technical builders. Bring a laptop and a project and write code with Claude Code.
 
 [Apply ↗](https://www.anthropic.com/webinars/recurring-virtual-claude-code-workshop)
+
+Claude SMB Workshop
+
+San Francisco
+
+October 12
+
+About this session
+
+A hands-on AI fluency session for small and medium-sized business owners and operators. Learn how to hand Claude real tasks from your actual job — payroll, marketing, invoices, lead follow-ups — and get time back.
+
+Focus
+
+Claude on AWS · with AWS and Caylent · no coding needed
+
+[Apply ↗](https://aws-experience.com/amer/smb/e/16342/claude-on-aws-workshop---san-francisco)
 
 Claude Code Workshop
 
@@ -341,6 +328,22 @@ Hands-on session for developers and technical builders. Bring a laptop and a pro
 
 [Apply ↗](https://luma.com/claude-code-workshop-sf-oct-19)
 
+Claude SMB Workshop
+
+Chicago
+
+October 19
+
+About this session
+
+A hands-on AI fluency session for small and medium-sized business owners and operators. Learn how to hand Claude real tasks from your actual job — payroll, marketing, invoices, lead follow-ups — and get time back.
+
+Focus
+
+Claude on AWS · with AWS and Caylent · no coding needed
+
+[Apply ↗](https://aws-experience.com/amer/smb/e/7356e/claude-on-aws-workshop---chicago)
+
 Claude Code Workshop
 
 London
@@ -371,6 +374,30 @@ A hands-on AI fluency session for small and medium-sized business owners and ope
 
 [Apply ↗](https://anthropic.swoogo.com/claude-smb-workshop-memphis/rta)
 
+Claude Workshop
+
+New York City
+
+October 20
+
+About this session
+
+A hands-on session for non-developers. Learn how to hand Claude real tasks from your actual job — research, drafts, decks, follow-ups — and get time back.
+
+[Apply ↗](https://luma.com/claude-workshop-nyc-oct-20)
+
+Claude Code Workshop
+
+New York City
+
+October 20
+
+About this session
+
+Hands-on session for developers and technical builders. Bring a laptop and a project and write code with Claude Code.
+
+[Apply ↗](https://luma.com/claude-code-workshop-nyc-oct-20)
+
 Claude SMB Workshop
 
 Savannah
@@ -382,6 +409,22 @@ About this session
 A hands-on AI fluency session for small and medium-sized business owners and operators. Learn how to hand Claude real tasks from your actual job — payroll, marketing, invoices, lead follow-ups — and get time back.
 
 [Apply ↗](https://anthropic.swoogo.com/claude-smb-workshop-savannah/rta)
+
+Claude SMB Workshop
+
+Boston
+
+October 26
+
+About this session
+
+A hands-on AI fluency session for small and medium-sized business owners and operators. Learn how to hand Claude real tasks from your actual job — payroll, marketing, invoices, lead follow-ups — and get time back.
+
+Focus
+
+Claude on AWS · with AWS and AllCloud · no coding needed
+
+[Apply ↗](https://aws-experience.com/amer/smb/e/5000a/claude-on-aws-workshop---boston)
 
 Claude Code Workshop
 

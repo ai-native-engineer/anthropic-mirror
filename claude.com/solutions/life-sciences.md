@@ -287,7 +287,7 @@ Claude Science works through your research like a skilled biologist, running ana
 
 [Learn more](https://claude.com/product/claude-science)
 
-[![](https://assets.claude.com/c5a97b41637f9801db4c7eb3ce5bcee1175918ef.png)](https://assets.claude.com/ff9c7c293c2f58cc37fa2fbfe39d80eaae9439aa.webm)
+![](https://assets.claude.com/c5a97b41637f9801db4c7eb3ce5bcee1175918ef.png)
 
 ### Claude Code
 
@@ -3569,5 +3569,3 @@ Customer story](https://claude.com/customers/garvan-institute-qa)
 ## Ready to bring Claude to your lab?
 
 [Try Claude Science](https://claude.com/product/claude-science)[Contact sales](https://claude.com/contact-sales/life-sciences)
-
-Claude for life science teams | Claude by Anthropic

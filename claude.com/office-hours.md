@@ -16,7 +16,7 @@ The best engineering teams are rethinking how they work with AI. Boris Cherny ta
 
   Chief Executive Officer
 
-[![](https://assets.claude.com/4659b56ffa1388c4efb944e897d667d45d4a8db5.png)](https://assets.claude.com/361d6d43c1947474def111d51b90b02760c0d2e7.webm)
+![](https://assets.claude.com/4659b56ffa1388c4efb944e897d667d45d4a8db5.png)
 
 ![Stripe](https://assets.claude.com/8997c058bff47ff57fd097dc3a866a2347ca266c.svg)
 
@@ -37,7 +37,7 @@ Patrick CollisonChief Executive Officer
 
   Staff Software Engineer
 
-[![](https://assets.claude.com/a44a6f2357c0c9b4f44cc5fb00b77ce440180c23.png)](https://assets.claude.com/4719d2d3ab51eb505636fc22cd9f03ed08f303fd.webm)
+![](https://assets.claude.com/a44a6f2357c0c9b4f44cc5fb00b77ce440180c23.png)
 
 ![Ramp](https://assets.claude.com/36cbe6084bc72eb4f82c03f775a8b590ca24708e.svg)
 
@@ -55,7 +55,7 @@ Rahul SengottuveluChief Technology Officer
 
   Chief Architect and VP of Engineering
 
-[![](https://assets.claude.com/bd9d6fba6cd4b06746a54b143ad0fa4542710f41.png)](https://assets.claude.com/3a4d1ed62862291ca20b8d1e77227d6f8a0b501a.webm)
+![](https://assets.claude.com/bd9d6fba6cd4b06746a54b143ad0fa4542710f41.png)
 
 ![Spotify](https://assets.claude.com/95ea6651445ed111cb4017cf63dec40c671edc65.svg)
 
@@ -73,7 +73,7 @@ Niklas GustavssonChief Architect and VP of Engineering
 
   Co-founder and CTO
 
-[![](https://assets.claude.com/1ca61d7fbca3a0d3cdfa0eb0c7e5013baee54b48.png)](https://assets.claude.com/2f5dc6138f2c387c5be999fc835d5c74d2740fa8.webm)
+![](https://assets.claude.com/1ca61d7fbca3a0d3cdfa0eb0c7e5013baee54b48.png)
 
 ![Doordash](https://assets.claude.com/bf6cd7d3755e578a1a4cb3b65e8adb7b86a9d0d6.svg)
 

@@ -23,7 +23,7 @@ Create Credential
 
 - `params BetaVaultCredentialNewParams`
 
-  - `Auth param.Field[BetaVaultCredentialNewParamsAuthUnion]`
+  - `Auth BetaVaultCredentialNewParamsAuthUnion`
 
     Authentication configuration for the credential.
 
@@ -185,17 +185,17 @@ Create Credential
 
           Substitute when the placeholder appears in a request header value.
 
-  - `DisplayName param.Field[string] Optional`
+  - `DisplayName param.Opt[string] Optional`
 
     Human-readable name for the credential. Up to 255 characters.
 
     maxLength: 255
 
-  - `Metadata param.Field[map[string, string]] Optional`
+  - `Metadata map[string, string] Optional`
 
     Arbitrary key-value metadata to attach to the credential. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -299,7 +299,7 @@ Create Credential
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -500,7 +500,7 @@ func main() {
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -533,21 +533,21 @@ List Credentials
 
 - `params BetaVaultCredentialListParams`
 
-  - `IncludeArchived param.Field[bool] Optional` (query parameter)
+  - `IncludeArchived param.Opt[bool] Optional` (query parameter)
 
     Whether to include archived credentials in the results.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum number of credentials to return per page. Defaults to 20, maximum 100.
 
     format: int32
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque pagination token from a previous `list_credentials` response.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -651,7 +651,7 @@ List Credentials
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -846,7 +846,7 @@ func main() {
 {
   "data": [
     {
-      "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+      "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
       "archived_at": null,
       "auth": {
         "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -882,11 +882,11 @@ Get Credential
 
 - `params BetaVaultCredentialGetParams`
 
-  - `VaultID param.Field[string]` (path parameter)
+  - `VaultID string` (path parameter)
 
     Identifier of the vault containing the credential.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -990,7 +990,7 @@ Get Credential
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1169,7 +1169,7 @@ func main() {
 	)
 	betaManagedAgentsCredential, err := client.Beta.Vaults.Credentials.Get(
 		context.TODO(),
-		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		"vcrd_011CZkZEMt8gZan2iYPQfSkw",
 		anthropic.BetaVaultCredentialGetParams{
 			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
 		},
@@ -1185,7 +1185,7 @@ func main() {
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -1218,11 +1218,11 @@ Update Credential
 
 - `params BetaVaultCredentialUpdateParams`
 
-  - `VaultID param.Field[string]` (path parameter)
+  - `VaultID string` (path parameter)
 
     Identifier of the vault containing the credential.
 
-  - `Auth param.Field[BetaVaultCredentialUpdateParamsAuthUnion] Optional`
+  - `Auth BetaVaultCredentialUpdateParamsAuthUnion Optional`
 
     Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
 
@@ -1342,17 +1342,17 @@ Update Credential
 
         minLength: 1, maxLength: 4096
 
-  - `DisplayName param.Field[string] Optional`
+  - `DisplayName param.Opt[string] Optional`
 
     Updated human-readable name for the credential. 1-255 characters.
 
     minLength: 1, maxLength: 255
 
-  - `Metadata param.Field[map[string, string]] Optional`
+  - `Metadata map[string, string] Optional`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -1456,7 +1456,7 @@ Update Credential
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1635,7 +1635,7 @@ func main() {
 	)
 	betaManagedAgentsCredential, err := client.Beta.Vaults.Credentials.Update(
 		context.TODO(),
-		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		"vcrd_011CZkZEMt8gZan2iYPQfSkw",
 		anthropic.BetaVaultCredentialUpdateParams{
 			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
 		},
@@ -1651,7 +1651,7 @@ func main() {
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -1684,11 +1684,11 @@ Delete Credential
 
 - `params BetaVaultCredentialDeleteParams`
 
-  - `VaultID param.Field[string]` (path parameter)
+  - `VaultID string` (path parameter)
 
     Identifier of the vault containing the credential.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -1792,7 +1792,7 @@ Delete Credential
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1829,7 +1829,7 @@ func main() {
 	)
 	betaManagedAgentsDeletedCredential, err := client.Beta.Vaults.Credentials.Delete(
 		context.TODO(),
-		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		"vcrd_011CZkZEMt8gZan2iYPQfSkw",
 		anthropic.BetaVaultCredentialDeleteParams{
 			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
 		},
@@ -1845,7 +1845,7 @@ func main() {
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "type": "vault_credential_deleted"
 }
 ```
@@ -1866,11 +1866,11 @@ Archive Credential
 
 - `params BetaVaultCredentialArchiveParams`
 
-  - `VaultID param.Field[string]` (path parameter)
+  - `VaultID string` (path parameter)
 
     Identifier of the vault containing the credential.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -1974,7 +1974,7 @@ Archive Credential
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -2153,7 +2153,7 @@ func main() {
 	)
 	betaManagedAgentsCredential, err := client.Beta.Vaults.Credentials.Archive(
 		context.TODO(),
-		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		"vcrd_011CZkZEMt8gZan2iYPQfSkw",
 		anthropic.BetaVaultCredentialArchiveParams{
 			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
 		},
@@ -2169,7 +2169,7 @@ func main() {
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -2202,11 +2202,11 @@ Validate Credential
 
 - `params BetaVaultCredentialMCPOAuthValidateParams`
 
-  - `VaultID param.Field[string]` (path parameter)
+  - `VaultID string` (path parameter)
 
     Identifier of the vault containing the credential.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -2310,7 +2310,7 @@ Validate Credential
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -2435,7 +2435,7 @@ func main() {
 	)
 	betaManagedAgentsCredentialValidation, err := client.Beta.Vaults.Credentials.MCPOAuthValidate(
 		context.TODO(),
-		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		"vcrd_011CZkZEMt8gZan2iYPQfSkw",
 		anthropic.BetaVaultCredentialMCPOAuthValidateParams{
 			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
 		},
@@ -2451,7 +2451,7 @@ func main() {
 
 ```json
 {
-  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "credential_id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "has_refresh_token": true,
   "mcp_probe": {
     "http_response": {

@@ -52,10 +52,10 @@ Access bioRxiv and medRxiv preprint data
 
 [Add bioRxiv in Claude (opens in new tab)](https://claude.ai/directory/7f750eb6-c3cb-47d7-9269-d35c43fe9925 "Add in Claude")
 
-![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/chembl.png)
+![](https://assets.claude.com/f4e416e3635b80335fd10dbd602a88caa4be89ab.jpg?w=128&fit=max&auto=format)
 
-### [ChEMBL](https://claude.com/marketplace/connectors/chembl)
+### [Wiley Scholar Gateway](https://claude.com/marketplace/connectors/scholar-gateway)
 
-Access the ChEMBL Database
+Enhance responses with scholarly research and citations
 
-[Add ChEMBL in Claude (opens in new tab)](https://claude.ai/directory/711ccc94-754b-4659-903d-d61b29dd781e "Add in Claude")
+[Add Wiley Scholar Gateway in Claude (opens in new tab)](https://claude.ai/directory/ff091334-0f12-4d0e-a973-c00467dd3818 "Add in Claude")

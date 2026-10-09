@@ -28,3 +28,5 @@
 ## Transform how your organization operates with Claude
 
 [Try Claude (opens in new tab)](https://claude.ai)[Contact sales](https://claude.com/contact-sales)
+
+Claude Code best practices: Power user insights from Lightspeed portfolio companies | Claude by Anthropic

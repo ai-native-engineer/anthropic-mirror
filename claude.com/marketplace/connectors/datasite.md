@@ -76,10 +76,12 @@ Intelligent, secure contract management by Docusign
 
 [Add Docusign in Claude (opens in new tab)](https://claude.ai/directory/a876b642-2b05-4808-a565-deeb271802fd "Add in Claude")
 
-![](https://raw.githubusercontent.com/dropbox/dropbox-ai-plugins/refs/heads/main/codex/assets/logo-light.png)
+![](https://www.coinversa.ai/web-app-manifest-512x512.png)
 
-### [Dropbox](https://claude.com/marketplace/connectors/dropbox)
+### [Coinversa Pulse](https://claude.com/marketplace/connectors/coinversa-pulse)
 
-Search, organize, and take action on your Dropbox content
+Anthropic verifiedTrending
 
-[Add Dropbox in Claude (opens in new tab)](https://claude.ai/directory/1e4280cc-037c-47f0-9873-56bea1871bdb "Add in Claude")
+Live crypto, stock, gold & oil trading data from Hyperliquid: see what the best traders and whales are doing on Bitcoin, ETH, the S&P 500 and more
+
+[Add Coinversa Pulse in Claude (opens in new tab)](https://claude.ai/directory/4f5d3539-79ae-4f8b-8011-356259b4dff6 "Add in Claude")

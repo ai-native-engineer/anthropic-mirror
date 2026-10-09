@@ -14,7 +14,7 @@ SortRecommendedMost popularTrendingNewestA–Z
 
 ## Top connectors
 
-Show all 911
+Show all 919
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
@@ -142,7 +142,7 @@ Browser automation and end-to-end testing MCP server by Microsoft. Enables Claud
 
 ## Trending connectors
 
-Show all 6
+Show all 7
 
 ![](https://www.google.com/s2/favicons?domain=slicktrip.com&sz=96)
 
@@ -184,16 +184,6 @@ Search and compare hotels with public and private wholesale rates.
 
 [Add Brek - Hotel Wholesale Booking in Claude (opens in new tab)](https://claude.ai/directory/5590ae2e-c452-4baf-afe8-697ec9f2ef70 "Add in Claude")
 
-![](https://www.gemini.com/favicon.ico)
-
-### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
-
-Anthropic verifiedTrending
-
-Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
-
-[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
-
 ![](https://www.coinversa.ai/web-app-manifest-512x512.png)
 
 ### [Coinversa Pulse](https://claude.com/marketplace/connectors/coinversa-pulse)
@@ -204,9 +194,39 @@ Live crypto, stock, gold & oil trading data from Hyperliquid: see what the best 
 
 [Add Coinversa Pulse in Claude (opens in new tab)](https://claude.ai/directory/4f5d3539-79ae-4f8b-8011-356259b4dff6 "Add in Claude")
 
+![](https://app.superbooks.io/icons/icon-512.png)
+
+### [SuperBooks](https://claude.com/marketplace/connectors/superbooks)
+
+Anthropic verifiedTrending
+
+Financial OS for small businesses
+
+[Add SuperBooks in Claude (opens in new tab)](https://claude.ai/directory/f80d20ad-23dc-46d7-bca4-0057424eb163 "Add in Claude")
+
+![](https://www.gemini.com/favicon.ico)
+
+### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
+
+Anthropic verifiedTrending
+
+Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
+
+[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
+
 ## New connectors
 
 Show all 7
+
+![](https://raw.githubusercontent.com/grafana/ai-marketplace/12be5634a492f73c189d466c5449d09b853ad7a4/plugins/grafana-cloud-mcp/assets/logo.svg)
+
+### [Grafana Cloud](https://claude.com/marketplace/connectors/grafana-cloud)
+
+Anthropic verifiedNew
+
+Query metrics, logs, and traces and manage dashboards and alerts
+
+[Add Grafana Cloud in Claude (opens in new tab)](https://claude.ai/directory/3392c633-e335-4638-bda7-5b259808c3f7 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=edreams.com&sz=96)
 
@@ -268,27 +288,19 @@ Build & backtest Hyperliquid strategies
 
 [Add Keel in Claude (opens in new tab)](https://claude.ai/directory/5d401eef-9944-4811-8204-96e40dc752dd "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
-
-### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
-
-Anthropic verifiedTrending
-
-Amazon Selling Partner MCP
-
-[Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
-
 ## All connectors
 
-911 connectors
+919 connectors
 
-![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
+![](https://raw.githubusercontent.com/grafana/ai-marketplace/12be5634a492f73c189d466c5449d09b853ad7a4/plugins/grafana-cloud-mcp/assets/logo.svg)
 
-### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
+### [Grafana Cloud](https://claude.com/marketplace/connectors/grafana-cloud)
 
-Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
+Anthropic verifiedNew
 
-[Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
+Query metrics, logs, and traces and manage dashboards and alerts
+
+[Add Grafana Cloud in Claude (opens in new tab)](https://claude.ai/directory/3392c633-e335-4638-bda7-5b259808c3f7 "Add in Claude")
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
@@ -305,6 +317,14 @@ Search, read, and upload files instantly
 Draft replies, summarize threads, & search your inbox
 
 [Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
+
+![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
+
+### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
+
+Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
+
+[Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
 ![](https://assets.claude.com/646945a1897f9146e5221ee6ace82001a2e52f4d.svg?w=128&fit=max&auto=format)
 
@@ -467,13 +487,5 @@ Search, recap, and act on your Zoom meetings
 Music and podcast recommendations, just for you.
 
 [Add Spotify in Claude (opens in new tab)](https://claude.ai/directory/86925244-b3bb-415b-b7e8-6e3cd1392247 "Add in Claude")
-
-![](https://assets.claude.com/f8c4f0634cd056e248c7ea396b1839b922470ac6.jpg?w=128&fit=max&auto=format)
-
-### [Vercel](https://claude.com/marketplace/connectors/vercel)
-
-Analyze, debug, and manage projects and deployments
-
-[Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")
 
 View more

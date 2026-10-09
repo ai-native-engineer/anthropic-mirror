@@ -66,9 +66,11 @@ AfricaAsia PacificAustraliaEMEAEuropeIndiaLatin AmericaNorth AmericaSouth Americ
 
 GridList
 
-283 stories
+284 stories
 
-[![IRC (Rescue)](https://assets.claude.com/e63d6d26bb5c35a117de419a1a7a8452f081db25.svg)
+[![Zendesk](https://assets.claude.com/eb4ae3eeaffc7fb16618696c1baa3ef6c6224977.svg)
+
+### Zendesk built custom agents on Claude and reached 1 million agent executions in 7 weeks](https://claude.com/customers/zendesk)[![IRC (Rescue)](https://assets.claude.com/e63d6d26bb5c35a117de419a1a7a8452f081db25.svg)
 
 ### A conversation with IRC on turning frontline health data into action in Burkina Faso](https://claude.com/customers/irc-qa)[![IRC (Rescue)](https://assets.claude.com/e63d6d26bb5c35a117de419a1a7a8452f081db25.svg)
 
@@ -96,9 +98,7 @@ GridList
 
 ### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
-### How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)[![Notion](https://assets.claude.com/19e0cdfaef9d2980bddd19cd993076d62b46c0c7.svg)
-
-### How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)
+### How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)
 
 View more
 

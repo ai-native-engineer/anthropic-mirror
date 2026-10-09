@@ -201,5 +201,3 @@ Research and writing by Daniel Ford. Thanks to Orowa Sikder, Gautam Mittal, and 
 ## Get the developer newsletter
 
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
-
-Contextual Retrieval in AI Systems \ Anthropic

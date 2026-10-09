@@ -6,7 +6,7 @@ Turn your expertise, procedures, and best practices into reusable capabilities s
 
 [Start using skills](https://claude.ai/settings/capabilities)
 
-[![](https://assets.claude.com/85aca3edcc57aadbb9259395ad06959d43540ffd.png)](https://assets.claude.com/3ec626bfee08f251c31203f17f02c5c032213ffe.webm)
+![](https://assets.claude.com/85aca3edcc57aadbb9259395ad06959d43540ffd.png)
 
 ## Expert output, every time
 

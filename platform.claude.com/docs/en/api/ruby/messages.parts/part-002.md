@@ -1,0 +1,1688 @@
+<!-- source: https://platform.claude.com/docs/en/api/ruby/messages -->
+<!-- part of: https://platform.claude.com/docs/en/api/ruby/messages -->
+
+<!-- chunk-start -->
+
+This endpoint is idempotent and can be used to poll for Message Batch completion. To access the results of a Message Batch, make a request to the `results_url` field in the response.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `message_batch_id: String` (path parameter)
+
+  ID of the Message Batch.
+
+- `workspace_id: String` (header parameter)
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class MessageBatch`
+
+  - `type: :message_batch`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+  - `id: String`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `archived_at: Time`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
+
+    format: date-time
+
+  - `cancel_initiated_at: Time`
+
+    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
+
+    format: date-time
+
+  - `created_at: Time`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was created.
+
+    format: date-time
+
+  - `ended_at: Time`
+
+    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
+
+    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
+
+    format: date-time
+
+  - `expires_at: Time`
+
+    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
+
+    format: date-time
+
+  - `processing_status: :in_progress | :canceling | :ended`
+
+    Processing status of the Message Batch.
+
+    - `:in_progress`
+
+    - `:canceling`
+
+    - `:ended`
+
+  - `request_counts: MessageBatchRequestCounts`
+
+    Tallies requests within the Message Batch, categorized by their status.
+
+    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
+    - `canceled: Integer`
+
+      Number of requests in the Message Batch that have been canceled.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `errored: Integer`
+
+      Number of requests in the Message Batch that encountered an error.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `expired: Integer`
+
+      Number of requests in the Message Batch that have expired.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `processing: Integer`
+
+      Number of requests in the Message Batch that are processing.
+
+    - `succeeded: Integer`
+
+      Number of requests in the Message Batch that have completed successfully.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+  - `results_url: String`
+
+    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
+
+    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+#### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+message_batch = anthropic.messages.batches.retrieve("message_batch_id")
+
+puts(message_batch)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "archived_at": "2024-08-20T18:37:24.100435Z",
+  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+  "created_at": "2024-08-20T18:37:24.100435Z",
+  "ended_at": "2024-08-20T18:37:24.100435Z",
+  "expires_at": "2024-08-20T18:37:24.100435Z",
+  "processing_status": "in_progress",
+  "request_counts": {
+    "canceled": 10,
+    "errored": 30,
+    "expired": 10,
+    "processing": 100,
+    "succeeded": 50
+  },
+  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+  "type": "message_batch"
+}
+```
+
+### List Message Batches
+
+`messages.batches.list(**kwargs) -> Page<MessageBatch>`
+
+**GET** `/v1/messages/batches`
+
+List all Message Batches within a Workspace. Most recently created batches are returned first.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `after_id: String` (query parameter)
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+
+- `before_id: String` (query parameter)
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+
+- `limit: Integer` (query parameter)
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `1000`.
+
+  minimum: 1, maximum: 1000
+
+- `workspace_id: String` (header parameter)
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class MessageBatch`
+
+  - `type: :message_batch`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+  - `id: String`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `archived_at: Time`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
+
+    format: date-time
+
+  - `cancel_initiated_at: Time`
+
+    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
+
+    format: date-time
+
+  - `created_at: Time`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was created.
+
+    format: date-time
+
+  - `ended_at: Time`
+
+    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
+
+    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
+
+    format: date-time
+
+  - `expires_at: Time`
+
+    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
+
+    format: date-time
+
+  - `processing_status: :in_progress | :canceling | :ended`
+
+    Processing status of the Message Batch.
+
+    - `:in_progress`
+
+    - `:canceling`
+
+    - `:ended`
+
+  - `request_counts: MessageBatchRequestCounts`
+
+    Tallies requests within the Message Batch, categorized by their status.
+
+    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
+    - `canceled: Integer`
+
+      Number of requests in the Message Batch that have been canceled.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `errored: Integer`
+
+      Number of requests in the Message Batch that encountered an error.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `expired: Integer`
+
+      Number of requests in the Message Batch that have expired.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `processing: Integer`
+
+      Number of requests in the Message Batch that are processing.
+
+    - `succeeded: Integer`
+
+      Number of requests in the Message Batch that have completed successfully.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+  - `results_url: String`
+
+    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
+
+    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+#### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+page = anthropic.messages.batches.list
+
+puts(page)
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+      "archived_at": "2024-08-20T18:37:24.100435Z",
+      "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+      "created_at": "2024-08-20T18:37:24.100435Z",
+      "ended_at": "2024-08-20T18:37:24.100435Z",
+      "expires_at": "2024-08-20T18:37:24.100435Z",
+      "processing_status": "in_progress",
+      "request_counts": {
+        "canceled": 10,
+        "errored": 30,
+        "expired": 10,
+        "processing": 100,
+        "succeeded": 50
+      },
+      "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+      "type": "message_batch"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+### Cancel a Message Batch
+
+`messages.batches.cancel(message_batch_id, **kwargs) -> MessageBatch`
+
+**POST** `/v1/messages/batches/{message_batch_id}/cancel`
+
+Batches may be canceled any time before processing ends. Once cancellation is initiated, the batch enters a `canceling` state, at which time the system may complete any in-progress, non-interruptible requests before finalizing cancellation.
+
+The number of canceled requests is specified in `request_counts`. To determine which requests were canceled, check the individual results within the batch. Note that cancellation may not result in any canceled requests if they were non-interruptible.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `message_batch_id: String` (path parameter)
+
+  ID of the Message Batch.
+
+- `workspace_id: String` (header parameter)
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class MessageBatch`
+
+  - `type: :message_batch`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+  - `id: String`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `archived_at: Time`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
+
+    format: date-time
+
+  - `cancel_initiated_at: Time`
+
+    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
+
+    format: date-time
+
+  - `created_at: Time`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was created.
+
+    format: date-time
+
+  - `ended_at: Time`
+
+    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
+
+    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
+
+    format: date-time
+
+  - `expires_at: Time`
+
+    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
+
+    format: date-time
+
+  - `processing_status: :in_progress | :canceling | :ended`
+
+    Processing status of the Message Batch.
+
+    - `:in_progress`
+
+    - `:canceling`
+
+    - `:ended`
+
+  - `request_counts: MessageBatchRequestCounts`
+
+    Tallies requests within the Message Batch, categorized by their status.
+
+    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
+    - `canceled: Integer`
+
+      Number of requests in the Message Batch that have been canceled.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `errored: Integer`
+
+      Number of requests in the Message Batch that encountered an error.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `expired: Integer`
+
+      Number of requests in the Message Batch that have expired.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `processing: Integer`
+
+      Number of requests in the Message Batch that are processing.
+
+    - `succeeded: Integer`
+
+      Number of requests in the Message Batch that have completed successfully.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+  - `results_url: String`
+
+    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
+
+    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+#### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+message_batch = anthropic.messages.batches.cancel("message_batch_id")
+
+puts(message_batch)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "archived_at": "2024-08-20T18:37:24.100435Z",
+  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+  "created_at": "2024-08-20T18:37:24.100435Z",
+  "ended_at": "2024-08-20T18:37:24.100435Z",
+  "expires_at": "2024-08-20T18:37:24.100435Z",
+  "processing_status": "in_progress",
+  "request_counts": {
+    "canceled": 10,
+    "errored": 30,
+    "expired": 10,
+    "processing": 100,
+    "succeeded": 50
+  },
+  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+  "type": "message_batch"
+}
+```
+
+### Delete a Message Batch
+
+`messages.batches.delete(message_batch_id, **kwargs) -> DeletedMessageBatch`
+
+**DELETE** `/v1/messages/batches/{message_batch_id}`
+
+Delete a Message Batch.
+
+Message Batches can only be deleted once they've finished processing. If you'd like to delete an in-progress batch, you must first cancel it.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `message_batch_id: String` (path parameter)
+
+  ID of the Message Batch.
+
+- `workspace_id: String` (header parameter)
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class DeletedMessageBatch`
+
+  - `type: :message_batch_deleted`
+
+    Deleted object type.
+
+    For Message Batches, this is always `"message_batch_deleted"`.
+
+  - `id: String`
+
+    ID of the Message Batch.
+
+#### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+deleted_message_batch = anthropic.messages.batches.delete("message_batch_id")
+
+puts(deleted_message_batch)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "type": "message_batch_deleted"
+}
+```
+
+### Retrieve Message Batch results
+
+`messages.batches.results(message_batch_id, **kwargs) -> MessageBatchIndividualResponse`
+
+**GET** `/v1/messages/batches/{message_batch_id}/results`
+
+Streams the results of a Message Batch as a `.jsonl` file.
+
+Each line in the file is a JSON object containing the result of a single request in the Message Batch. Results are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `message_batch_id: String` (path parameter)
+
+  ID of the Message Batch.
+
+- `workspace_id: String` (header parameter)
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class MessageBatchIndividualResponse`
+
+  This is a single line in the response `.jsonl` file and does not represent the response as a whole.
+
+  - `custom_id: String`
+
+    Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
+
+    Must be unique for each request within the Message Batch.
+
+  - `result: MessageBatchResult`
+
+    Processing result for this request.
+
+    Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
+
+    - `class MessageBatchSucceededResult`
+
+      - `type: :succeeded`
+
+      - `message: Message`
+
+        - `type: :message`
+
+          Object type.
+
+          For Messages, this is always `"message"`.
+
+        - `id: String`
+
+          Unique object identifier.
+
+          The format and length of IDs may change over time.
+
+        - `container: Container`
+
+          Information about the container used in this request.
+
+          This will be non-null if a container tool (e.g. code execution) was used.
+
+          - `id: String`
+
+            Identifier for the container used in this request
+
+          - `expires_at: Time`
+
+            The time at which the container will expire.
+
+            format: date-time
+
+          - `skills: Array[ContainerSkill]`
+
+            Skills loaded in the container
+
+            - `type: :anthropic | :custom`
+
+              Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+              - `:anthropic`
+
+              - `:custom`
+
+            - `skill_id: String`
+
+              Skill ID
+
+              minLength: 1, maxLength: 64
+
+            - `version: String`
+
+              The resolved version: a skill version ID for custom skills.
+
+              minLength: 1, maxLength: 64
+
+        - `content: Array[ContentBlock]`
+
+          Content generated by the model.
+
+          This is an array of content blocks, each of which has a `type` that determines its shape.
+
+          Example:
+
+          ```json
+          [{"type": "text", "text": "Hi, I'm Claude."}]
+          ```
+
+          If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
+
+          For example, if the input `messages` were:
+
+          ```json
+          [
+            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+            {"role": "assistant", "content": "The best answer is ("}
+          ]
+          ```
+
+          Then the response `content` might be:
+
+          ```json
+          [{"type": "text", "text": "B)"}]
+          ```
+
+          - `class TextBlock`
+
+            - `type: :text`
+
+            - `citations: Array[TextCitation]`
+
+              Citations supporting the text block.
+
+              The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+              - `class CitationCharLocation`
+
+                - `type: :char_location`
+
+                - `cited_text: String`
+
+                - `document_index: Integer`
+
+                  minimum: 0
+
+                - `document_title: String`
+
+                - `end_char_index: Integer`
+
+                - `file_id: String`
+
+                - `start_char_index: Integer`
+
+                  minimum: 0
+
+              - `class CitationPageLocation`
+
+                - `type: :page_location`
+
+                - `cited_text: String`
+
+                - `document_index: Integer`
+
+                  minimum: 0
+
+                - `document_title: String`
+
+                - `end_page_number: Integer`
+
+                - `file_id: String`
+
+                - `start_page_number: Integer`
+
+                  minimum: 1
+
+              - `class CitationContentBlockLocation`
+
+                - `type: :content_block_location`
+
+                - `cited_text: String`
+
+                  The full text of the cited block range, concatenated.
+
+                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                - `document_index: Integer`
+
+                  minimum: 0
+
+                - `document_title: String`
+
+                - `end_block_index: Integer`
+
+                  Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                - `file_id: String`
+
+                - `start_block_index: Integer`
+
+                  0-based index of the first cited block in the source's `content` array.
+
+                  minimum: 0
+
+              - `class CitationsWebSearchResultLocation`
+
+                - `type: :web_search_result_location`
+
+                - `cited_text: String`
+
+                - `encrypted_index: String`
+
+                - `title: String`
+
+                  maxLength: 512
+
+                - `url: String`
+
+              - `class CitationsSearchResultLocation`
+
+                - `type: :search_result_location`
+
+                - `cited_text: String`
+
+                  The full text of the cited block range, concatenated.
+
+                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                - `end_block_index: Integer`
+
+                  Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                - `search_result_index: Integer`
+
+                  0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+                  Counted separately from `document_index`; server-side web search results are not included in this count.
+
+                  minimum: 0
+
+                - `source: String`
+
+                - `start_block_index: Integer`
+
+                  0-based index of the first cited block in the source's `content` array.
+
+                  minimum: 0
+
+                - `title: String`
+
+            - `text: String`
+
+          - `class ThinkingBlock`
+
+            - `type: :thinking`
+
+            - `signature: String`
+
+              A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+              This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+            - `thinking: String`
+
+              The text of Claude's thinking process for this block.
+
+          - `class RedactedThinkingBlock`
+
+            - `type: :redacted_thinking`
+
+            - `data: String`
+
+              The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+              Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
+
+          - `class ToolUseBlock`
+
+            - `type: :tool_use`
+
+            - `id: String`
+
+              pattern: ^[a-zA-Z0-9_-]+$
+
+            - `caller_: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
+
+              - `class DirectCaller`
+
+                Tool invocation directly from the model.
+
+                - `type: :direct`
+
+              - `class ServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+                - `type: :code_execution_20250825`
+
+                - `tool_id: String`
+
+                  pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+              - `class ServerToolCaller20260120`
+
+                - `type: :code_execution_20260120`
+
+                - `tool_id: String`
+
+                  pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `input: Hash[Symbol, untyped]`
+
+            - `name: String`
+
+              minLength: 1
+
+            - `toolset_name: String`
+
+              For a toolset member tool_use, the toolset family.
+
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
+
+          - `class ServerToolUseBlock`
+
+            - `type: :server_tool_use`
+
+            - `id: String`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `caller_: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
+
+              - `class DirectCaller`
+
+                Tool invocation directly from the model.
+
+              - `class ServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+              - `class ServerToolCaller20260120`
+
+            - `input: Hash[Symbol, untyped]`
+
+            - `name: :web_search | :web_fetch | :code_execution | 4 more`
+
+              - `:web_search`
+
+              - `:web_fetch`
+
+              - `:code_execution`
+
+              - `:bash_code_execution`
+
+              - `:text_editor_code_execution`
+
+              - `:tool_search_tool_regex`
+
+              - `:tool_search_tool_bm25`
+
+          - `class WebSearchToolResultBlock`
+
+            - `type: :web_search_tool_result`
+
+            - `caller_: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
+
+              - `class DirectCaller`
+
+                Tool invocation directly from the model.
+
+              - `class ServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+              - `class ServerToolCaller20260120`
+
+            - `content: WebSearchToolResultBlockContent`
+
+              - `class WebSearchToolResultError`
+
+                - `type: :web_search_tool_result_error`
+
+                - `error_code: WebSearchToolResultErrorCode`
+
+                  - `:invalid_tool_input`
+
+                  - `:unavailable`
+
+                  - `:max_uses_exceeded`
+
+                  - `:too_many_requests`
+
+                  - `:query_too_long`
+
+                  - `:request_too_large`
+
+              - `UnionMember1 = Array[WebSearchResultBlock]`
+
+                - `type: :web_search_result`
+
+                - `encrypted_content: String`
+
+                - `page_age: String`
+
+                - `title: String`
+
+                - `url: String`
+
+            - `tool_use_id: String`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class WebFetchToolResultBlock`
+
+            - `type: :web_fetch_tool_result`
+
+            - `caller_: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
+
+              - `class DirectCaller`
+
+                Tool invocation directly from the model.
+
+              - `class ServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+              - `class ServerToolCaller20260120`
+
+            - `content: WebFetchToolResultErrorBlock | WebFetchBlock`
+
+              - `class WebFetchToolResultErrorBlock`
+
+                - `type: :web_fetch_tool_result_error`
+
+                - `error_code: WebFetchToolResultErrorCode`
+
+                  - `:invalid_tool_input`
+
+                  - `:url_too_long`
+
+                  - `:url_not_allowed`
+
+                  - `:url_not_in_prior_context`
+
+                  - `:url_not_accessible`
+
+                  - `:unsupported_content_type`
+
+                  - `:too_many_requests`
+
+                  - `:max_uses_exceeded`
+
+                  - `:unavailable`
+
+                  - `:content_too_large`
+
+              - `class WebFetchBlock`
+
+                - `type: :web_fetch_result`
+
+                - `content: DocumentBlock`
+
+                  - `type: :document`
+
+                  - `citations: CitationsConfig`
+
+                    Citation configuration for the document
+
+                    - `enabled: bool`
+
+                  - `source: Base64PDFSource | PlainTextSource`
+
+                    - `class Base64PDFSource`
+
+                      - `type: :base64`
+
+                      - `data: String`
+
+                        format: byte
+
+                      - `media_type: :"application/pdf"`
+
+                    - `class PlainTextSource`
+
+                      - `type: :text`
+
+                      - `data: String`
+
+                      - `media_type: :"text/plain"`
+
+                  - `title: String`
+
+                    The title of the document
+
+                - `retrieved_at: String`
+
+                  ISO 8601 timestamp when the content was retrieved
+
+                - `url: String`
+
+                  Fetched content URL
+
+            - `tool_use_id: String`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class CodeExecutionToolResultBlock`
+
+            - `type: :code_execution_tool_result`
+
+            - `content: CodeExecutionToolResultBlockContent`
+
+              - `class CodeExecutionToolResultError`
+
+                - `type: :code_execution_tool_result_error`
+
+                - `error_code: CodeExecutionToolResultErrorCode`
+
+                  - `:invalid_tool_input`
+
+                  - `:unavailable`
+
+                  - `:too_many_requests`
+
+                  - `:execution_time_exceeded`
+
+              - `class CodeExecutionResultBlock`
+
+                - `type: :code_execution_result`
+
+                - `content: Array[CodeExecutionOutputBlock]`
+
+                  - `type: :code_execution_output`
+
+                  - `file_id: String`
+
+                - `return_code: Integer`
+
+                - `stderr: String`
+
+                - `stdout: String`
+
+              - `class EncryptedCodeExecutionResultBlock`
+
+                Code execution result with encrypted stdout for PFC + web_search results.
+
+                - `type: :encrypted_code_execution_result`
+
+                - `content: Array[CodeExecutionOutputBlock]`
+
+                  - `type: :code_execution_output`
+
+                  - `file_id: String`
+
+                - `encrypted_stdout: String`
+
+                - `return_code: Integer`
+
+                - `stderr: String`
+
+            - `tool_use_id: String`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class BashCodeExecutionToolResultBlock`
+
+            - `type: :bash_code_execution_tool_result`
+
+            - `content: BashCodeExecutionToolResultError | BashCodeExecutionResultBlock`
+
+              - `class BashCodeExecutionToolResultError`
+
+                - `type: :bash_code_execution_tool_result_error`
+
+                - `error_code: BashCodeExecutionToolResultErrorCode`
+
+                  - `:invalid_tool_input`
+
+                  - `:unavailable`
+
+                  - `:too_many_requests`
+
+                  - `:execution_time_exceeded`
+
+                  - `:output_file_too_large`
+
+              - `class BashCodeExecutionResultBlock`
+
+                - `type: :bash_code_execution_result`
+
+                - `content: Array[BashCodeExecutionOutputBlock]`
+
+                  - `type: :bash_code_execution_output`
+
+                  - `file_id: String`
+
+                - `return_code: Integer`
+
+                - `stderr: String`
+
+                - `stdout: String`
+
+            - `tool_use_id: String`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class TextEditorCodeExecutionToolResultBlock`
+
+            - `type: :text_editor_code_execution_tool_result`
+
+            - `content: TextEditorCodeExecutionToolResultError | TextEditorCodeExecutionViewResultBlock | TextEditorCodeExecutionCreateResultBlock | TextEditorCodeExecutionStrReplaceResultBlock`
+
+              - `class TextEditorCodeExecutionToolResultError`
+
+                - `type: :text_editor_code_execution_tool_result_error`
+
+                - `error_code: TextEditorCodeExecutionToolResultErrorCode`
+
+                  - `:invalid_tool_input`
+
+                  - `:unavailable`
+
+                  - `:too_many_requests`
+
+                  - `:execution_time_exceeded`
+
+                  - `:file_not_found`
+
+                - `error_message: String`
+
+              - `class TextEditorCodeExecutionViewResultBlock`
+
+                - `type: :text_editor_code_execution_view_result`
+
+                - `content: String`
+
+                - `file_type: :text | :image | :pdf`
+
+                  - `:text`
+
+                  - `:image`
+
+                  - `:pdf`
+
+                - `num_lines: Integer`
+
+                - `start_line: Integer`
+
+                - `total_lines: Integer`
+
+              - `class TextEditorCodeExecutionCreateResultBlock`
+
+                - `type: :text_editor_code_execution_create_result`
+
+                - `is_file_update: bool`
+
+              - `class TextEditorCodeExecutionStrReplaceResultBlock`
+
+                - `type: :text_editor_code_execution_str_replace_result`
+
+                - `lines: Array[String]`
+
+                - `new_lines: Integer`
+
+                - `new_start: Integer`
+
+                - `old_lines: Integer`
+
+                - `old_start: Integer`
+
+            - `tool_use_id: String`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class ToolSearchToolResultBlock`
+
+            - `type: :tool_search_tool_result`
+
+            - `content: ToolSearchToolResultError | ToolSearchToolSearchResultBlock`
+
+              - `class ToolSearchToolResultError`
+
+                - `type: :tool_search_tool_result_error`
+
+                - `error_code: ToolSearchToolResultErrorCode`
+
+                  - `:invalid_tool_input`
+
+                  - `:unavailable`
+
+                  - `:too_many_requests`
+
+                  - `:execution_time_exceeded`
+
+                - `error_message: String`
+
+              - `class ToolSearchToolSearchResultBlock`
+
+                - `type: :tool_search_tool_search_result`
+
+                - `tool_references: Array[ToolReferenceBlock]`
+
+                  - `type: :tool_reference`
+
+                  - `tool_name: String`
+
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+            - `tool_use_id: String`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class ContainerUploadBlock`
+
+            Response model for a file uploaded to the container.
+
+            - `type: :container_upload`
+
+            - `file_id: String`
+
+        - `diagnostics: Diagnostics`
+
+          Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+          - `cache_miss_reason: CacheMissReason`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+            - `class CacheMissModelChanged`
+
+              - `type: :model_changed`
+
+              - `cache_missed_input_tokens: Integer`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissSystemChanged`
+
+              - `type: :system_changed`
+
+              - `cache_missed_input_tokens: Integer`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissToolsChanged`
+
+              - `type: :tools_changed`
+
+              - `cache_missed_input_tokens: Integer`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissMessagesChanged`
+
+              - `type: :messages_changed`
+
+              - `cache_missed_input_tokens: Integer`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissPreviousMessageNotFound`
+
+              - `type: :previous_message_not_found`
+
+            - `class CacheMissUnavailable`
+
+              - `type: :unavailable`
+
+        - `model: Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
+
+          - `:"claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
+
+          - `:"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `:"claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
+
+          - `:"claude-mythos-5-1"`
+
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+          - `:"claude-sonnet-5"`
+
+            Efficient model for coding and agents
+
+          - `:"claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `:"claude-mythos-5"`
+
+            Most capable model for cybersecurity and biology research
+
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-opus-4-8"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-opus-4-7"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-opus-4-6"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-sonnet-4-6"`
+
+            Best combination of speed and intelligence
+
+          - `:"claude-haiku-4-5"`
+
+            Fastest model with near-frontier intelligence
+
+          - `:"claude-haiku-4-5-20251001"`
+
+            Fastest model with near-frontier intelligence
+
+          - `:"claude-opus-4-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-opus-4-5-20251101"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-mythos-preview"`
+
+            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            New class of intelligence, strongest in coding and cybersecurity
+
+          - `:"claude-sonnet-4-5"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            High-performance model for agents and coding
+
+          - `:"claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            High-performance model for agents and coding
+
+          - `String = String`
+
+        - `role: :assistant`
+
+          Conversational role of the generated message.
+
+          This will always be `"assistant"`.
+
+        - `stop_details: RefusalStopDetails`
+
+          Structured information about why model output stopped.
+
+          This is `null` when the `stop_reason` has no additional detail to report.
+
+          - `type: :refusal`
+
+          - `category: :cyber | :bio | :frontier_llm | 2 more`
+
+            The policy category that triggered the refusal.
+
+            `null` when the refusal doesn't map to a named category.
+
+            - `:cyber`
+
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
+            - `:bio`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+
+            - `:frontier_llm`
+
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
+            - `:reasoning_extraction`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `:general_harms`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
+          - `explanation: String`
+
+            Human-readable explanation of the refusal.
+
+            This text is not guaranteed to be stable. `null` when no explanation is available for the category.
+
+        - `stop_reason: StopReason`
+
+          The reason that we stopped.
+
+          This may be one the following values:
+
+          * `"end_turn"`: the model reached a natural stopping point
+          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          * `"tool_use"`: the model invoked one or more tools
+          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          * `"model_context_window_exceeded"`: we exceeded the model's context window
+
+          In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
+          - `:end_turn`
+
+          - `:max_tokens`
+
+          - `:stop_sequence`
+
+          - `:tool_use`
+
+          - `:pause_turn`
+
+          - `:refusal`
+
+          - `:model_context_window_exceeded`
+
+        - `stop_sequence: String`
+
+          Which custom stop sequence was generated, if any.
+
+          This value will be a non-null string if one of your custom stop sequences was generated.
+
+        - `usage: Usage`
+
+          Billing and rate-limit usage.
+
+          Anthropic's API bills and rate-limits by token counts, as tokens represent the underlying cost to our systems.
+
+          Under the hood, the API transforms requests into a format suitable for the model. The model's output then goes through a parsing stage before becoming an API response. As a result, the token counts in `usage` will not match one-to-one with the exact visible content of an API request or response.
+
+          For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
+
+          Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
+          - `cache_creation: CacheCreation`
+
+            Breakdown of cached tokens by TTL
+
+            - `ephemeral_1h_input_tokens: Integer`
+
+              The number of input tokens used to create the 1 hour cache entry.
+
+              minimum: 0
+
+            - `ephemeral_5m_input_tokens: Integer`
+
+              The number of input tokens used to create the 5 minute cache entry.
+
+              minimum: 0
+
+          - `cache_creation_input_tokens: Integer`
+
+            The number of input tokens used to create the cache entry.
+
+            minimum: 0
+
+          - `cache_read_input_tokens: Integer`
+
+            The number of input tokens read from the cache.
+
+            minimum: 0
+
+          - `inference_geo: String`
+
+            The geographic region where inference was performed for this request.
+
+          - `input_tokens: Integer`
+
+            The number of input tokens which were used.
+
+            minimum: 0
+
+          - `output_tokens: Integer`
+
+            The number of output tokens which were used.
+
+            minimum: 0
+
+          - `output_tokens_details: OutputTokensDetails`
+
+            Breakdown of output tokens by category.
+
+            `output_tokens` remains the inclusive, authoritative total used for billing.
+            This object provides a read-only decomposition for observability — for example,
+            how many of the billed output tokens were spent on internal reasoning that may
+            have been summarized before being returned to you.
+
+            - `thinking_tokens: Integer`
+
+              Number of output tokens the model generated as internal reasoning, including
+              the thinking-block delimiter tokens.
+
+              Reflects the raw reasoning the model produced, not the (possibly shorter)
+              summarized thinking text returned in the response body. Computed by
+              re-tokenizing the raw reasoning text, so it may differ from the model's exact
+              generation count by a small number of tokens. Always ≤ `output_tokens`;
+              `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
+              minimum: 0
+
+          - `server_tool_use: ServerToolUsage`
+
+            The number of server tool requests.
+
+            - `web_fetch_requests: Integer`
+
+              The number of web fetch tool requests.
+
+              minimum: 0
+
+            - `web_search_requests: Integer`
+
+              The number of web search tool requests.
+
+              minimum: 0
+
+          - `service_tier: :standard | :priority | :batch`
+
+            If the request used the priority, standard, or batch tier.
+
+            - `:standard`
+
+            - `:priority`
+
+            - `:batch`
+
+    - `class MessageBatchErroredResult`
+
+      - `type: :errored`
+
+      - `error: ErrorResponse`
+
+        - `type: :error`
+
+        - `error: ErrorObject`
+
+          - `class InvalidRequestError`
+
+            - `type: :invalid_request_error`
+
+            - `message: String`
+
+          - `class AuthenticationError`
+
+            - `type: :authentication_error`
+
+            - `message: String`
+
+          - `class BillingError`
+
+            - `type: :billing_error`
+
+            - `message: String`
+
+          - `class PermissionError`
+
+            - `type: :permission_error`
+
+            - `message: String`
+
+          - `class NotFoundError`
+
+            - `type: :not_found_error`
+
+            - `message: String`
+
+          - `class RateLimitError`
+
+            - `type: :rate_limit_error`
+
+            - `message: String`
+
+          - `class GatewayTimeoutError`
+
+            - `type: :timeout_error`
+
+            - `message: String`
+
+          - `class APIErrorObject`
+
+            - `type: :api_error`
+
+            - `message: String`
+
+          - `class OverloadedError`
+
+            - `type: :overloaded_error`
+
+            - `message: String`
+
+        - `request_id: String`
+
+    - `class MessageBatchCanceledResult`
+
+      - `type: :canceled`
+
+    - `class MessageBatchExpiredResult`
+
+      - `type: :expired`
+
+#### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+message_batch_individual_response = anthropic.messages.batches.results("message_batch_id")
+
+puts(message_batch_individual_response)
+```

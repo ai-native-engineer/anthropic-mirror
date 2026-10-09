@@ -55,7 +55,7 @@ To see which Workspaces have data retention on, navigate to **[Organization sett
 You can turn retention off again from the same switch. If the Workspace uses customer-managed encryption keys, you can't turn retention off. If a program on the Workspace requires retention, turning it off removes that program.
 
 * [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
+* [About the Development Partner Program](https://support.claude.com/en/articles/11174108-about-the-development-partner-program)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
 * [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
 * [Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)
-* [Use Claude Code (local mode) and Claude Cowork (local mode) on a HIPAA-ready Enterprise plan](https://support.claude.com/en/articles/17318731-use-claude-code-local-mode-and-claude-cowork-local-mode-on-a-hipaa-ready-enterprise-plan)

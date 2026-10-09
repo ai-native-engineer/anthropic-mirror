@@ -51,14 +51,6 @@ Run your event operations in RSVPify, end-to-end
 
 [Add RSVPify in Claude (opens in new tab)](https://claude.ai/directory/10622bb7-fadd-4edf-bf2d-29d73138711e "Add in Claude")
 
-![](https://jotform.com/assets/img/portal/jotformAppsLogo.png)
-
-### [Jotform Apps](https://claude.com/marketplace/connectors/jotform-apps)
-
-Build and manage no-code apps
-
-[Add Jotform Apps in Claude (opens in new tab)](https://claude.ai/directory/47f4bce8-bac1-4872-be7e-b296a1e6f707 "Add in Claude")
-
 ![](https://assets.claude.com/02447ea067dc2624af0c1eb2a51df059d6242b4c.png?w=128&fit=max&auto=format)
 
 ### [Granted](https://claude.com/marketplace/connectors/granted)
@@ -66,3 +58,11 @@ Build and manage no-code apps
 Discover every grant opportunity in existence.
 
 [Add Granted in Claude (opens in new tab)](https://claude.ai/directory/59156499-2b9f-42b9-8438-8994d7ce5dad "Add in Claude")
+
+![](https://jotform.com/assets/img/portal/jotformAppsLogo.png)
+
+### [Jotform Apps](https://claude.com/marketplace/connectors/jotform-apps)
+
+Build and manage no-code apps
+
+[Add Jotform Apps in Claude (opens in new tab)](https://claude.ai/directory/47f4bce8-bac1-4872-be7e-b296a1e6f707 "Add in Claude")

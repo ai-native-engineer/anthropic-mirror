@@ -16,7 +16,7 @@ Featured resource 1 of 5: Inside the Cyber Verification Program: Tiers, Migratio
 
 Advanced filters
 
-Showing 24 of 108 resources
+Showing 26 of 110 resources
 
 [WebinarUpcoming | Oct 8, 2026
 
@@ -34,7 +34,11 @@ Claude Platform](https://claude.com/resources/webinars/ai-as-an-engineering-lead
 
 Your career is yours. It always was - but when the market was hot, it didn't seem like you needed to think about it.
 
-Claude apps](https://claude.com/resources/webinars/dri-ing-your-career)[WebinarUpcoming | Oct 14, 2026
+Claude apps](https://claude.com/resources/webinars/dri-ing-your-career)[WebinarUpcoming | Oct 13, 2026
+
+### Measuring AI Fluency at Your Organization
+
+Seat counts don't show if AI is working. Kristen Swanson shares how to measure AI Fluency beyond usage, without a huge lift.](https://claude.com/resources/webinars/measuring-ai-fluency-at-your-organization)[WebinarUpcoming | Oct 14, 2026
 
 ### Inside the Cyber Verification Program: Tiers, Migration, and Best Practices
 
@@ -48,7 +52,11 @@ Claude adoption in Microsoft Foundry is moving from individual developers to ent
 
 We open on an incident. An alert fires in a Slack channel and, without anyone typing a prompt, Claude reads the logs, repos and…
 
-Claude Tag](https://claude.com/resources/webinars/claude-tag-on-call-a-new-teammate-in-your-incident-channel)
+Claude Tag](https://claude.com/resources/webinars/claude-tag-on-call-a-new-teammate-in-your-incident-channel)[WebinarUpcoming | Oct 21, 2026
+
+### Tokenomics on AWS: Control and optimize your Claude spend
+
+Learn how to control and optimize Claude spend on AWS, from admin controls and default models to cost per task for API agents.](https://claude.com/resources/webinars/tokenomics-on-aws-control-and-optimize-your-claude-spend)
 
 [WebinarUpcoming | Multiple dates
 

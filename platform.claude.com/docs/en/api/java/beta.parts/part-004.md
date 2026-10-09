@@ -2,6 +2,2819 @@
 <!-- part of: https://platform.claude.com/docs/en/api/java/beta -->
 
 <!-- chunk-start -->
+  },
+  "spend_summary": {
+    "actor": {
+      "deleted": true,
+      "email_address": "email_address",
+      "name": "name",
+      "type": "user_actor",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "amount": "50000",
+    "currency": "USD",
+    "period": "daily",
+    "period_to_date_spend": "12050.5",
+    "scope": {
+      "type": "user",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "source": {
+      "type": "user",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "spend_limit_id": "spend_limit_id"
+  },
+  "status": "approved",
+  "type": "spend_limit_increase_request"
+}
+```
+
+### Approve Spend Limit Increase Request
+
+`IncreaseRequestApproveResponse beta().organization().spendLimits().increaseRequests().approve(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}/approve`
+
+Approve a pending spend limit increase request.
+
+Writes a per-user spend limit at `amount` for the requester and
+transitions the request to `approved`. `period` defaults to the period
+the member was blocked on. Anthropic emails the requester unless
+`suppress_notification` is set.
+
+#### Parameters
+
+- `IncreaseRequestApproveParams params`
+
+  - `Optional<String> spendLimitIncreaseRequestId` (path parameter)
+
+    ID of the spend limit increase request.
+
+  - `String amount`
+
+    New per-user spend limit as a non-negative integer decimal string (minor units).
+
+  - `Optional<BetaSpendLimitPeriod> period`
+
+  - `Optional<Boolean> suppressNotification`
+
+#### Returns
+
+- `class IncreaseRequestApproveResponse`
+
+  - `JsonValue type = "spend_limit_increase_request"`
+
+  - `String id`
+
+  - `Actor actor`
+
+    - `class BetaSpendLimitUserActor`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+      - `JsonValue type = "user_actor"`
+
+        Actor type. Always `user_actor`.
+
+      - `boolean deleted`
+
+        True only when the underlying account has been deleted.
+
+      - `Optional<String> emailAddress`
+
+        The user's email address. Null when the account is unavailable or has been deleted.
+
+      - `Optional<String> name`
+
+        The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+
+      - `String userId`
+
+        Tagged ID of the user.
+
+    - `class BetaSpendLimitScopedApiKeyActor`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+      - `JsonValue type = "scoped_api_key_actor"`
+
+      - `String scopedApiKeyId`
+
+  - `LocalDateTime createdAt`
+
+    format: date-time
+
+  - `BetaSpendLimitPeriod period`
+
+    - `DAILY("daily")`
+
+    - `MONTHLY("monthly")`
+
+    - `WEEKLY("weekly")`
+
+  - `Optional<LocalDateTime> resolvedAt`
+
+    format: date-time
+
+  - `Optional<ResolvedBy> resolvedBy`
+
+    - `class BetaSpendLimitUserActor`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+    - `class BetaSpendLimitScopedApiKeyActor`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+  - `BetaSpendLimit spendLimit`
+
+    A configured spend limit: a cap on metered spend for one scope and period.
+
+    - `JsonValue type = "spend_limit"`
+
+      Object type. Always `spend_limit`.
+
+    - `String id`
+
+      Unique tagged ID of the spend limit (`spl_...`).
+
+    - `Optional<String> amount`
+
+      Limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD): "50000" is $500.00. `null` means no numeric cap is configured at this scope — see the effective report for whether a limit applies.
+
+    - `LocalDateTime createdAt`
+
+      RFC 3339 datetime at which the spend limit was created.
+
+      format: date-time
+
+    - `String currency`
+
+      ISO 4217 code of the organization's billing currency; the unit for `amount`.
+
+    - `boolean isEnabled`
+
+      Read-only. `false` when extra usage is switched off for this organization (`organization` limit) or for this member (`user` limit); `amount` is kept and applies again when it's switched back on. Always `true` for other limits.
+
+    - `BetaSpendLimitPeriod period`
+
+      Length of the window the limit resets over. `amount` caps spend within each period.
+
+    - `Scope scope`
+
+      What the limit applies to. A tagged union on `type`; each variant carries the identifier for its scope.
+
+      - `class BetaSpendLimitUserScope`
+
+        Scope selecting a single member of the organization.
+
+        - `JsonValue type = "user"`
+
+          Scope type. Always `user` for this scope.
+
+        - `String userId`
+
+          Tagged ID of the member the spend limit applies to.
+
+      - `class BetaSpendLimitSeatTierScope`
+
+        - `JsonValue type = "seat_tier"`
+
+        - `String seatTier`
+
+      - `class BetaSpendLimitRbacGroupScope`
+
+        - `JsonValue type = "rbac_group"`
+
+        - `String rbacGroupId`
+
+      - `class BetaSpendLimitOrganizationServiceScope`
+
+        - `JsonValue type = "organization_service"`
+
+        - `String service`
+
+      - `class BetaSpendLimitOrganizationScope`
+
+        - `JsonValue type = "organization"`
+
+      - `class BetaSpendLimitWorkspaceScope`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+        - `JsonValue type = "workspace"`
+
+          Scope type. Always `workspace` for this scope.
+
+        - `String workspaceId`
+
+          Tagged ID of the workspace the spend limit applies to.
+
+    - `LocalDateTime updatedAt`
+
+      RFC 3339 datetime at which the spend limit was last modified.
+
+      format: date-time
+
+  - `Optional<BetaSpendSummary> spendSummary`
+
+    Per-member effective-limit report row (`GET /spend_limits/effective`).
+
+    - `Actor actor`
+
+      - `class BetaSpendLimitUserActor`
+
+        A user within the organization. `name` and `email_address` are
+        null when the underlying account is unavailable or has been deleted;
+        `deleted` is true only for deleted accounts.
+
+      - `class BetaSpendLimitScopedApiKeyActor`
+
+        A scoped Admin API key acting on behalf of the organization.
+
+    - `Optional<String> amount`
+
+      Effective limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD). `null` means no limit applies for this row's `period` — each period resolves independently, so another period may still cap this member.
+
+    - `String currency`
+
+      ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
+
+    - `BetaSpendLimitPeriod period`
+
+      Period this row's effective limit and spend are reported for.
+
+    - `String periodToDateSpend`
+
+      The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
+
+    - `Scope scope`
+
+      - `class BetaSpendLimitUserScope`
+
+        Scope selecting a single member of the organization.
+
+      - `class BetaSpendLimitSeatTierScope`
+
+      - `class BetaSpendLimitRbacGroupScope`
+
+      - `class BetaSpendLimitOrganizationServiceScope`
+
+      - `class BetaSpendLimitOrganizationScope`
+
+      - `class BetaSpendLimitWorkspaceScope`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+    - `Source source`
+
+      - `class BetaSpendLimitUserScope`
+
+        Scope selecting a single member of the organization.
+
+      - `class BetaSpendLimitSeatTierScope`
+
+      - `class BetaSpendLimitRbacGroupScope`
+
+      - `class BetaSpendLimitOrganizationServiceScope`
+
+      - `class BetaSpendLimitOrganizationScope`
+
+      - `class BetaSpendLimitWorkspaceScope`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+    - `String spendLimitId`
+
+  - `BetaSpendLimitIncreaseRequestStatus status`
+
+    - `APPROVED("approved")`
+
+    - `DENIED("denied")`
+
+    - `PENDING("pending")`
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.spendlimits.increaserequests.IncreaseRequestApproveParams;
+import com.anthropic.models.beta.organization.spendlimits.increaserequests.IncreaseRequestApproveResponse;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        IncreaseRequestApproveParams params = IncreaseRequestApproveParams.builder()
+            .spendLimitIncreaseRequestId("spend_limit_increase_request_id")
+            .amount("50000")
+            .build();
+        IncreaseRequestApproveResponse response = client.beta().organization().spendLimits().increaseRequests().approve(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "actor": {
+    "deleted": true,
+    "email_address": "email_address",
+    "name": "name",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "period": "daily",
+  "resolved_at": "2019-12-27T18:11:19.117Z",
+  "resolved_by": {
+    "deleted": true,
+    "email_address": "email_address",
+    "name": "name",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "spend_limit": {
+    "id": "id",
+    "amount": "50000",
+    "created_at": "2019-12-27T18:11:19.117Z",
+    "currency": "USD",
+    "is_enabled": true,
+    "period": "daily",
+    "scope": {
+      "type": "user",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "type": "spend_limit",
+    "updated_at": "2019-12-27T18:11:19.117Z"
+  },
+  "spend_summary": {
+    "actor": {
+      "deleted": true,
+      "email_address": "email_address",
+      "name": "name",
+      "type": "user_actor",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "amount": "50000",
+    "currency": "USD",
+    "period": "daily",
+    "period_to_date_spend": "12050.5",
+    "scope": {
+      "type": "user",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "source": {
+      "type": "user",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "spend_limit_id": "spend_limit_id"
+  },
+  "status": "approved",
+  "type": "spend_limit_increase_request"
+}
+```
+
+### Deny Spend Limit Increase Request
+
+`BetaSpendLimitIncreaseRequest beta().organization().spendLimits().increaseRequests().deny(params = IncreaseRequestDenyParams.none(), requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}/deny`
+
+Deny a pending spend limit increase request.
+
+Idempotent on `denied`; denying an already-`approved` request returns
+400. Anthropic emails the requester unless `suppress_notification` is set.
+
+#### Parameters
+
+- `IncreaseRequestDenyParams params`
+
+  - `Optional<String> spendLimitIncreaseRequestId` (path parameter)
+
+    ID of the spend limit increase request.
+
+  - `Optional<Boolean> suppressNotification`
+
+#### Returns
+
+- `class BetaSpendLimitIncreaseRequest`
+
+  - `JsonValue type = "spend_limit_increase_request"`
+
+  - `String id`
+
+  - `Actor actor`
+
+    - `class BetaSpendLimitUserActor`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+      - `JsonValue type = "user_actor"`
+
+        Actor type. Always `user_actor`.
+
+      - `boolean deleted`
+
+        True only when the underlying account has been deleted.
+
+      - `Optional<String> emailAddress`
+
+        The user's email address. Null when the account is unavailable or has been deleted.
+
+      - `Optional<String> name`
+
+        The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+
+      - `String userId`
+
+        Tagged ID of the user.
+
+    - `class BetaSpendLimitScopedApiKeyActor`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+      - `JsonValue type = "scoped_api_key_actor"`
+
+      - `String scopedApiKeyId`
+
+  - `LocalDateTime createdAt`
+
+    format: date-time
+
+  - `BetaSpendLimitPeriod period`
+
+    - `DAILY("daily")`
+
+    - `MONTHLY("monthly")`
+
+    - `WEEKLY("weekly")`
+
+  - `Optional<LocalDateTime> resolvedAt`
+
+    format: date-time
+
+  - `Optional<ResolvedBy> resolvedBy`
+
+    - `class BetaSpendLimitUserActor`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+    - `class BetaSpendLimitScopedApiKeyActor`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+  - `Optional<BetaSpendSummary> spendSummary`
+
+    Per-member effective-limit report row (`GET /spend_limits/effective`).
+
+    - `Actor actor`
+
+      - `class BetaSpendLimitUserActor`
+
+        A user within the organization. `name` and `email_address` are
+        null when the underlying account is unavailable or has been deleted;
+        `deleted` is true only for deleted accounts.
+
+      - `class BetaSpendLimitScopedApiKeyActor`
+
+        A scoped Admin API key acting on behalf of the organization.
+
+    - `Optional<String> amount`
+
+      Effective limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD). `null` means no limit applies for this row's `period` — each period resolves independently, so another period may still cap this member.
+
+    - `String currency`
+
+      ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
+
+    - `BetaSpendLimitPeriod period`
+
+      Period this row's effective limit and spend are reported for.
+
+    - `String periodToDateSpend`
+
+      The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
+
+    - `Scope scope`
+
+      - `class BetaSpendLimitUserScope`
+
+        Scope selecting a single member of the organization.
+
+        - `JsonValue type = "user"`
+
+          Scope type. Always `user` for this scope.
+
+        - `String userId`
+
+          Tagged ID of the member the spend limit applies to.
+
+      - `class BetaSpendLimitSeatTierScope`
+
+        - `JsonValue type = "seat_tier"`
+
+        - `String seatTier`
+
+      - `class BetaSpendLimitRbacGroupScope`
+
+        - `JsonValue type = "rbac_group"`
+
+        - `String rbacGroupId`
+
+      - `class BetaSpendLimitOrganizationServiceScope`
+
+        - `JsonValue type = "organization_service"`
+
+        - `String service`
+
+      - `class BetaSpendLimitOrganizationScope`
+
+        - `JsonValue type = "organization"`
+
+      - `class BetaSpendLimitWorkspaceScope`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+        - `JsonValue type = "workspace"`
+
+          Scope type. Always `workspace` for this scope.
+
+        - `String workspaceId`
+
+          Tagged ID of the workspace the spend limit applies to.
+
+    - `Source source`
+
+      - `class BetaSpendLimitUserScope`
+
+        Scope selecting a single member of the organization.
+
+      - `class BetaSpendLimitSeatTierScope`
+
+      - `class BetaSpendLimitRbacGroupScope`
+
+      - `class BetaSpendLimitOrganizationServiceScope`
+
+      - `class BetaSpendLimitOrganizationScope`
+
+      - `class BetaSpendLimitWorkspaceScope`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+    - `String spendLimitId`
+
+  - `BetaSpendLimitIncreaseRequestStatus status`
+
+    - `APPROVED("approved")`
+
+    - `DENIED("denied")`
+
+    - `PENDING("pending")`
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.spendlimits.increaserequests.BetaSpendLimitIncreaseRequest;
+import com.anthropic.models.beta.organization.spendlimits.increaserequests.IncreaseRequestDenyParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaSpendLimitIncreaseRequest betaSpendLimitIncreaseRequest = client.beta().organization().spendLimits().increaseRequests().deny("spend_limit_increase_request_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "actor": {
+    "deleted": true,
+    "email_address": "email_address",
+    "name": "name",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "period": "daily",
+  "resolved_at": "2019-12-27T18:11:19.117Z",
+  "resolved_by": {
+    "deleted": true,
+    "email_address": "email_address",
+    "name": "name",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "spend_summary": {
+    "actor": {
+      "deleted": true,
+      "email_address": "email_address",
+      "name": "name",
+      "type": "user_actor",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "amount": "50000",
+    "currency": "USD",
+    "period": "daily",
+    "period_to_date_spend": "12050.5",
+    "scope": {
+      "type": "user",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "source": {
+      "type": "user",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "spend_limit_id": "spend_limit_id"
+  },
+  "status": "approved",
+  "type": "spend_limit_increase_request"
+}
+```
+
+## Beta › Organization › RBAC Groups
+
+### Create RBAC Group
+
+`BetaRbacGroup beta().organization().rbacGroups().create(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/rbac_groups`
+
+Create an RBAC Group in the Claude Enterprise tenant. Groups created via the API have source type `"direct"`.
+
+The RBAC Groups API is available to Claude Enterprise organizations only.
+
+#### Parameters
+
+- `RbacGroupCreateParams params`
+
+  - `String name`
+
+    Name of the RBAC Group. Not uniqueness-enforced.
+
+    minLength: 1, maxLength: 255
+
+#### Returns
+
+- `class BetaRbacGroup`
+
+  - `JsonValue type = "rbac_group"`
+
+    Object type.
+
+    For RBAC Groups, this is always `"rbac_group"`.
+
+  - `String id`
+
+    ID of the RBAC Group.
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339 timestamp of when the RBAC Group was created.
+
+    format: date-time
+
+  - `String name`
+
+    Name of the RBAC Group. Not uniqueness-enforced.
+
+  - `Optional<List<String>> roleIds`
+
+    RBAC Role IDs attached to this RBAC Group. Role attachment is managed in the admin settings and is read-only on this API. `null` means role data was temporarily unavailable — retry to distinguish from an empty list.
+
+  - `SourceType sourceType`
+
+    How the RBAC Group was created: `"direct"` for groups created directly (for example, in the organization's admin settings), `"scim"` for groups provisioned by the identity provider.
+
+    - `DIRECT("direct")`
+
+    - `SCIM("scim")`
+
+  - `LocalDateTime updatedAt`
+
+    RFC 3339 timestamp of when the RBAC Group was last updated.
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.rbacgroups.BetaRbacGroup;
+import com.anthropic.models.beta.organization.rbacgroups.RbacGroupCreateParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        RbacGroupCreateParams params = RbacGroupCreateParams.builder()
+            .name("Engineering")
+            .build();
+        BetaRbacGroup betaRbacGroup = client.beta().organization().rbacGroups().create(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "name": "Engineering",
+  "role_ids": [
+    "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
+  ],
+  "roles": [
+    "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
+  ],
+  "source_type": "direct",
+  "type": "rbac_group",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### List RBAC Groups
+
+`RbacGroupListPage beta().organization().rbacGroups().list(params = RbacGroupListParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/rbac_groups`
+
+List RBAC Groups in the Claude Enterprise tenant.
+
+The RBAC Groups API is available to Claude Enterprise organizations only.
+
+#### Parameters
+
+- `RbacGroupListParams params`
+
+  - `Optional<Long> limit` (query parameter)
+
+    Number of items to return per page.
+
+    Defaults to `20`. Ranges from `1` to `1000`.
+
+    minimum: 1, maximum: 1000
+
+  - `Optional<String> page` (query parameter)
+
+    Optionally set to the `next_page` token from the previous response.
+
+#### Returns
+
+- `class BetaRbacGroup`
+
+  - `JsonValue type = "rbac_group"`
+
+    Object type.
+
+    For RBAC Groups, this is always `"rbac_group"`.
+
+  - `String id`
+
+    ID of the RBAC Group.
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339 timestamp of when the RBAC Group was created.
+
+    format: date-time
+
+  - `String name`
+
+    Name of the RBAC Group. Not uniqueness-enforced.
+
+  - `Optional<List<String>> roleIds`
+
+    RBAC Role IDs attached to this RBAC Group. Role attachment is managed in the admin settings and is read-only on this API. `null` means role data was temporarily unavailable — retry to distinguish from an empty list.
+
+  - `SourceType sourceType`
+
+    How the RBAC Group was created: `"direct"` for groups created directly (for example, in the organization's admin settings), `"scim"` for groups provisioned by the identity provider.
+
+    - `DIRECT("direct")`
+
+    - `SCIM("scim")`
+
+  - `LocalDateTime updatedAt`
+
+    RFC 3339 timestamp of when the RBAC Group was last updated.
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.rbacgroups.RbacGroupListPage;
+import com.anthropic.models.beta.organization.rbacgroups.RbacGroupListParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        RbacGroupListPage page = client.beta().organization().rbacGroups().list();
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "name": "Engineering",
+      "role_ids": [
+        "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
+      ],
+      "roles": [
+        "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
+      ],
+      "source_type": "direct",
+      "type": "rbac_group",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "has_more": false,
+  "next_page": "eyJjdXJzb3IiOiAicmJhY19ncm91cF8wMSJ9"
+}
+```
+
+### Get RBAC Group
+
+`BetaRbacGroup beta().organization().rbacGroups().retrieve(params = RbacGroupRetrieveParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/rbac_groups/{rbac_group_id}`
+
+Retrieve an RBAC Group by ID.
+
+The RBAC Groups API is available to Claude Enterprise organizations only.
+
+#### Parameters
+
+- `RbacGroupRetrieveParams params`
+
+  - `Optional<String> rbacGroupId` (path parameter)
+
+    ID of the RBAC Group.
+
+#### Returns
+
+- `class BetaRbacGroup`
+
+  - `JsonValue type = "rbac_group"`
+
+    Object type.
+
+    For RBAC Groups, this is always `"rbac_group"`.
+
+  - `String id`
+
+    ID of the RBAC Group.
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339 timestamp of when the RBAC Group was created.
+
+    format: date-time
+
+  - `String name`
+
+    Name of the RBAC Group. Not uniqueness-enforced.
+
+  - `Optional<List<String>> roleIds`
+
+    RBAC Role IDs attached to this RBAC Group. Role attachment is managed in the admin settings and is read-only on this API. `null` means role data was temporarily unavailable — retry to distinguish from an empty list.
+
+  - `SourceType sourceType`
+
+    How the RBAC Group was created: `"direct"` for groups created directly (for example, in the organization's admin settings), `"scim"` for groups provisioned by the identity provider.
+
+    - `DIRECT("direct")`
+
+    - `SCIM("scim")`
+
+  - `LocalDateTime updatedAt`
+
+    RFC 3339 timestamp of when the RBAC Group was last updated.
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.rbacgroups.BetaRbacGroup;
+import com.anthropic.models.beta.organization.rbacgroups.RbacGroupRetrieveParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaRbacGroup betaRbacGroup = client.beta().organization().rbacGroups().retrieve("rbac_group_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "name": "Engineering",
+  "role_ids": [
+    "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
+  ],
+  "roles": [
+    "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
+  ],
+  "source_type": "direct",
+  "type": "rbac_group",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### Update RBAC Group
+
+`BetaRbacGroup beta().organization().rbacGroups().update(params = RbacGroupUpdateParams.none(), requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/rbac_groups/{rbac_group_id}`
+
+Update an RBAC Group's name. Groups provisioned by an identity provider (source type `"scim"`) cannot be modified via the API while an organization in the tenant uses SCIM provisioning.
+
+The RBAC Groups API is available to Claude Enterprise organizations only.
+
+#### Parameters
+
+- `RbacGroupUpdateParams params`
+
+  - `Optional<String> rbacGroupId` (path parameter)
+
+    ID of the RBAC Group.
+
+  - `Optional<String> name`
+
+    Name of the RBAC Group. Not uniqueness-enforced.
+
+    minLength: 1, maxLength: 255
+
+#### Returns
+
+- `class BetaRbacGroup`
+
+  - `JsonValue type = "rbac_group"`
+
+    Object type.
+
+    For RBAC Groups, this is always `"rbac_group"`.
+
+  - `String id`
+
+    ID of the RBAC Group.
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339 timestamp of when the RBAC Group was created.
+
+    format: date-time
+
+  - `String name`
+
+    Name of the RBAC Group. Not uniqueness-enforced.
+
+  - `Optional<List<String>> roleIds`
+
+    RBAC Role IDs attached to this RBAC Group. Role attachment is managed in the admin settings and is read-only on this API. `null` means role data was temporarily unavailable — retry to distinguish from an empty list.
+
+  - `SourceType sourceType`
+
+    How the RBAC Group was created: `"direct"` for groups created directly (for example, in the organization's admin settings), `"scim"` for groups provisioned by the identity provider.
+
+    - `DIRECT("direct")`
+
+    - `SCIM("scim")`
+
+  - `LocalDateTime updatedAt`
+
+    RFC 3339 timestamp of when the RBAC Group was last updated.
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.rbacgroups.BetaRbacGroup;
+import com.anthropic.models.beta.organization.rbacgroups.RbacGroupUpdateParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaRbacGroup betaRbacGroup = client.beta().organization().rbacGroups().update("rbac_group_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "name": "Engineering",
+  "role_ids": [
+    "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
+  ],
+  "roles": [
+    "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
+  ],
+  "source_type": "direct",
+  "type": "rbac_group",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### Delete RBAC Group
+
+`RbacGroupDeleteResponse beta().organization().rbacGroups().delete(params = RbacGroupDeleteParams.none(), requestOptions = RequestOptions.none())`
+
+**DELETE** `/v1/organizations/rbac_groups/{rbac_group_id}`
+
+Delete an RBAC Group. Groups provisioned by an identity provider (source type `"scim"`) cannot be deleted via the API while an organization in the tenant uses SCIM provisioning.
+
+The RBAC Groups API is available to Claude Enterprise organizations only.
+
+#### Parameters
+
+- `RbacGroupDeleteParams params`
+
+  - `Optional<String> rbacGroupId` (path parameter)
+
+    ID of the RBAC Group.
+
+#### Returns
+
+- `class RbacGroupDeleteResponse`
+
+  - `JsonValue type = "rbac_group_deleted"`
+
+    Deleted object type.
+
+    For RBAC Groups, this is always `"rbac_group_deleted"`.
+
+  - `String id`
+
+    ID of the RBAC Group.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.rbacgroups.RbacGroupDeleteParams;
+import com.anthropic.models.beta.organization.rbacgroups.RbacGroupDeleteResponse;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        RbacGroupDeleteResponse rbacGroup = client.beta().organization().rbacGroups().delete("rbac_group_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+  "type": "rbac_group_deleted"
+}
+```
+
+## Beta › Organization › RBAC Groups › Members
+
+### List RBAC Group Members
+
+`MemberListPage beta().organization().rbacGroups().members().list(params = MemberListParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/rbac_groups/{rbac_group_id}/members`
+
+List members of an RBAC Group.
+
+The RBAC Groups API is available to Claude Enterprise organizations only.
+
+#### Parameters
+
+- `MemberListParams params`
+
+  - `Optional<String> rbacGroupId` (path parameter)
+
+    ID of the RBAC Group.
+
+  - `Optional<Long> limit` (query parameter)
+
+    Number of items to return per page.
+
+    Defaults to `20`. Ranges from `1` to `1000`.
+
+    minimum: 1, maximum: 1000
+
+  - `Optional<String> page` (query parameter)
+
+    Optionally set to the `next_page` token from the previous response.
+
+#### Returns
+
+- `class BetaRbacGroupMember`
+
+  - `JsonValue type = "rbac_group_member"`
+
+    Object type.
+
+    For RBAC Group Members, this is always `"rbac_group_member"`.
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339 timestamp of when the User was added to the RBAC Group.
+
+    format: date-time
+
+  - `String email`
+
+    Email of the User.
+
+  - `String rbacGroupId`
+
+    ID of the RBAC Group.
+
+  - `String userId`
+
+    ID of the User.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.rbacgroups.members.MemberListPage;
+import com.anthropic.models.beta.organization.rbacgroups.members.MemberListParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        MemberListPage page = client.beta().organization().rbacGroups().members().list("rbac_group_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "email": "user@emaildomain.com",
+      "group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+      "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+      "type": "rbac_group_member",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    }
+  ],
+  "has_more": false,
+  "next_page": "eyJjdXJzb3IiOiAicmJhY19ncm91cF8wMSJ9"
+}
+```
+
+### Add RBAC Group Member
+
+`BetaRbacGroupMember beta().organization().rbacGroups().members().add(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/rbac_groups/{rbac_group_id}/members`
+
+Add a User to an RBAC Group. Membership of groups provisioned by an identity provider (source type `"scim"`) cannot be modified via the API while an organization in the tenant uses SCIM provisioning.
+
+The RBAC Groups API is available to Claude Enterprise organizations only.
+
+#### Parameters
+
+- `MemberAddParams params`
+
+  - `Optional<String> rbacGroupId` (path parameter)
+
+    ID of the RBAC Group.
+
+  - `String userId`
+
+    ID of the User.
+
+#### Returns
+
+- `class BetaRbacGroupMember`
+
+  - `JsonValue type = "rbac_group_member"`
+
+    Object type.
+
+    For RBAC Group Members, this is always `"rbac_group_member"`.
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339 timestamp of when the User was added to the RBAC Group.
+
+    format: date-time
+
+  - `String email`
+
+    Email of the User.
+
+  - `String rbacGroupId`
+
+    ID of the RBAC Group.
+
+  - `String userId`
+
+    ID of the User.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.rbacgroups.members.BetaRbacGroupMember;
+import com.anthropic.models.beta.organization.rbacgroups.members.MemberAddParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        MemberAddParams params = MemberAddParams.builder()
+            .rbacGroupId("rbac_group_id")
+            .userId("user_01WCz1FkmYMm4gnmykNKUu3Q")
+            .build();
+        BetaRbacGroupMember betaRbacGroupMember = client.beta().organization().rbacGroups().members().add(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "email": "user@emaildomain.com",
+  "group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+  "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+  "type": "rbac_group_member",
+  "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+}
+```
+
+### Remove RBAC Group Member
+
+`MemberRemoveResponse beta().organization().rbacGroups().members().remove(params, requestOptions = RequestOptions.none())`
+
+**DELETE** `/v1/organizations/rbac_groups/{rbac_group_id}/members/{user_id}`
+
+Remove a User from an RBAC Group. Membership of groups provisioned by an identity provider (source type `"scim"`) cannot be modified via the API while an organization in the tenant uses SCIM provisioning.
+
+The RBAC Groups API is available to Claude Enterprise organizations only.
+
+#### Parameters
+
+- `MemberRemoveParams params`
+
+  - `String rbacGroupId` (path parameter)
+
+    ID of the RBAC Group.
+
+  - `Optional<String> userId` (path parameter)
+
+    ID of the User.
+
+#### Returns
+
+- `class MemberRemoveResponse`
+
+  - `JsonValue type = "rbac_group_member_deleted"`
+
+    Deleted object type. For RBAC Group Members, this is always `"rbac_group_member_deleted"`.
+
+  - `String rbacGroupId`
+
+    ID of the RBAC Group.
+
+  - `String userId`
+
+    ID of the User.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.rbacgroups.members.MemberRemoveParams;
+import com.anthropic.models.beta.organization.rbacgroups.members.MemberRemoveResponse;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        MemberRemoveParams params = MemberRemoveParams.builder()
+            .rbacGroupId("rbac_group_id")
+            .userId("user_id")
+            .build();
+        MemberRemoveResponse member = client.beta().organization().rbacGroups().members().remove(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+  "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+  "type": "rbac_group_member_deleted",
+  "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+}
+```
+
+## Beta › Organization › RBAC Roles
+
+### List RBAC Roles
+
+`RbacRoleListPage beta().organization().rbacRoles().list(params = RbacRoleListParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/rbac_roles`
+
+List RBAC Roles in the organization.
+
+The RBAC Roles API is available to Claude Enterprise organizations only.
+
+#### Parameters
+
+- `RbacRoleListParams params`
+
+  - `Optional<Long> limit` (query parameter)
+
+    Number of items to return per page.
+
+    Defaults to `20`. Ranges from `1` to `1000`.
+
+    minimum: 1, maximum: 1000
+
+  - `Optional<String> page` (query parameter)
+
+    Optionally set to the `next_page` token from the previous response.
+
+#### Returns
+
+- `class BetaRbacRole`
+
+  - `JsonValue type = "rbac_role"`
+
+    Object type.
+
+    For RBAC Roles, this is always `"rbac_role"`.
+
+  - `String id`
+
+    ID of the RBAC Role.
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339 datetime string indicating when the RBAC Role was created.
+
+    format: date-time
+
+  - `String displayName`
+
+    Name of the RBAC Role. For a role created by Anthropic, this name can differ from the label claude.ai shows, and Anthropic may change the name. To keep a lasting reference to a role, store its `id`.
+
+  - `LocalDateTime updatedAt`
+
+    RFC 3339 datetime string indicating when the RBAC Role was last updated.
+
+    format: date-time
+
+  - `String name`
+
+    **Deprecated**: Use `display_name` instead; `name` always has the same value.
+
+    Deprecated: use `display_name` instead. Name of the RBAC Role; always the same value as `display_name`.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.rbacroles.RbacRoleListPage;
+import com.anthropic.models.beta.organization.rbacroles.RbacRoleListParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        RbacRoleListPage page = client.beta().organization().rbacRoles().list();
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_name": "Project Editor",
+      "name": "Project Editor",
+      "type": "rbac_role",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "has_more": true,
+  "next_page": "eyJjdXJzb3IiOiAicmJhY19yb2xlXzAxIn0"
+}
+```
+
+### Get RBAC Role
+
+`BetaRbacRole beta().organization().rbacRoles().retrieve(params = RbacRoleRetrieveParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/rbac_roles/{rbac_role_id}`
+
+Retrieve an RBAC Role by ID.
+
+The RBAC Roles API is available to Claude Enterprise organizations only.
+
+#### Parameters
+
+- `RbacRoleRetrieveParams params`
+
+  - `Optional<String> rbacRoleId` (path parameter)
+
+    ID of the RBAC Role.
+
+#### Returns
+
+- `class BetaRbacRole`
+
+  - `JsonValue type = "rbac_role"`
+
+    Object type.
+
+    For RBAC Roles, this is always `"rbac_role"`.
+
+  - `String id`
+
+    ID of the RBAC Role.
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339 datetime string indicating when the RBAC Role was created.
+
+    format: date-time
+
+  - `String displayName`
+
+    Name of the RBAC Role. For a role created by Anthropic, this name can differ from the label claude.ai shows, and Anthropic may change the name. To keep a lasting reference to a role, store its `id`.
+
+  - `LocalDateTime updatedAt`
+
+    RFC 3339 datetime string indicating when the RBAC Role was last updated.
+
+    format: date-time
+
+  - `String name`
+
+    **Deprecated**: Use `display_name` instead; `name` always has the same value.
+
+    Deprecated: use `display_name` instead. Name of the RBAC Role; always the same value as `display_name`.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.rbacroles.BetaRbacRole;
+import com.anthropic.models.beta.organization.rbacroles.RbacRoleRetrieveParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaRbacRole betaRbacRole = client.beta().organization().rbacRoles().retrieve("rbac_role_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "Project Editor",
+  "name": "Project Editor",
+  "type": "rbac_role",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+## Beta › Organization › RBAC Roles › Permissions
+
+### List RBAC Role Permissions
+
+`PermissionListPage beta().organization().rbacRoles().permissions().list(params = PermissionListParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/rbac_roles/{rbac_role_id}/permissions`
+
+List the permissions an RBAC Role grants.
+
+The RBAC Roles API is available to Claude Enterprise organizations only.
+
+#### Parameters
+
+- `PermissionListParams params`
+
+  - `Optional<String> rbacRoleId` (path parameter)
+
+    ID of the RBAC Role.
+
+  - `Optional<Long> limit` (query parameter)
+
+    Number of items to return per page.
+
+    Defaults to `20`. Ranges from `1` to `1000`.
+
+    minimum: 1, maximum: 1000
+
+  - `Optional<String> page` (query parameter)
+
+    Optionally set to the `next_page` token from the previous response.
+
+#### Returns
+
+- `class BetaRbacRolePermission`
+
+  - `JsonValue type = "rbac_role_permission"`
+
+    Object type.
+
+    For RBAC Role Permissions, this is always `"rbac_role_permission"`.
+
+  - `String action`
+
+    Action the permission grants on the resource.
+
+    The vocabulary follows the resource: an `organization` grant carries a
+    product-feature entitlement (for example `chat`), an admin-panel
+    permission entitlement (`permission_*`), or a blanket capability-access
+    mode — `capability_access_all` grants every product-feature entitlement,
+    and `capability_access_all_ga` grants the generally-available subset as
+    it stands at permission-check time; neither mode grants model-access
+    entitlements. A consumer enumerating a role's per-feature grants should
+    treat a blanket row as granting every product-feature entitlement it
+    covers, or it will under-report the role's effective access. A `connector_tool` grant carries
+    a tool-access action (`use` or `always_allow`); a `connector_scope` grant
+    carries the scope action `grant` (the role may receive the named OAuth
+    scope when tokens are minted for the connector); `connector` and
+    `all_connectors` grants carry a tool-access action, the scope action, or
+    an authentication-method action (`interactive` or `managed`).
+
+  - `Resource resource`
+
+    What the permission applies to.
+
+    A tagged union: `type` names the kind of resource and determines which
+    identifier fields are present.
+
+    - `class BetaRbacOrganizationPermissionResource`
+
+      - `JsonValue type = "organization"`
+
+        Kind of resource the permission applies to.
+
+      - `String organizationId`
+
+        UUID of the organization the permission applies to.
+
+    - `class BetaRbacConnectorToolPermissionResource`
+
+      - `JsonValue type = "connector_tool"`
+
+        Kind of resource the permission applies to.
+
+      - `String connectorId`
+
+        ID of the connector the permission applies to.
+
+      - `String toolName`
+
+        Published name of the connector tool the permission applies to.
+
+        When the published name contains characters outside `[a-zA-Z0-9_-]` (or
+        collides with a reserved form), it is server-encoded into a stable
+        `{prefix}_{32-hex}` form — a shortened readable prefix of the name plus
+        a hash — from which the published name is not recoverable.
+
+    - `class BetaRbacConnectorScopePermissionResource`
+
+      - `JsonValue type = "connector_scope"`
+
+        Kind of resource the permission applies to.
+
+      - `String connectorId`
+
+        ID of the connector the permission applies to.
+
+      - `String scope`
+
+        OAuth scope the permission names — the role may receive this scope when
+        tokens are minted for the connector.
+
+        Subject to the same encoding rule as `tool_name`: a scope containing
+        characters outside `[a-zA-Z0-9_-]` (or colliding with a reserved form)
+        appears server-encoded in a stable `{prefix}_{32-hex}` form. OAuth
+        scopes routinely contain `:` and `/`, so most appear encoded.
+
+    - `class BetaRbacConnectorPermissionResource`
+
+      - `JsonValue type = "connector"`
+
+        Kind of resource the permission applies to.
+
+      - `String connectorId`
+
+        ID of the connector the permission applies to.
+
+    - `class BetaRbacAllConnectorsPermissionResource`
+
+      - `JsonValue type = "all_connectors"`
+
+        Kind of resource the permission applies to.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.rbacroles.permissions.PermissionListPage;
+import com.anthropic.models.beta.organization.rbacroles.permissions.PermissionListParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        PermissionListPage page = client.beta().organization().rbacRoles().permissions().list("rbac_role_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "action": "use",
+      "resource": {
+        "organization_id": "3c4f5e6d-7a8b-49c0-9d1e-2f3a4b5c6d7e",
+        "type": "organization"
+      },
+      "type": "rbac_role_permission"
+    }
+  ],
+  "has_more": true,
+  "next_page": "eyJjdXJzb3IiOiAicmJhY19yb2xlXzAxIn0"
+}
+```
+
+## Beta › Organization › Plugins
+
+### Create Plugin
+
+`BetaPlugin beta().organization().plugins().create(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/plugins`
+
+Create an organization-owned Plugin and its first version by uploading the
+version's files.
+
+The upload is `multipart/form-data`: the version's files (`files`, each part sent
+as `files[]`), with an optional `marketplace_id` and `release_notes`. The manifest's `name` becomes the
+Plugin's `name`, and `display_name`, `description` and `manifest_version` come
+from the manifest too.
+
+`name` may contain lowercase letters (from any alphabet), digits, and hyphens, up
+to 64 characters. Uppercase letters, spaces, underscores, and other punctuation are
+rejected.
+
+The `name` must be unique within the marketplace: a name already taken
+returns a 409 with `error_code` `plugin_name_taken` and, when a Plugin holds it,
+that Plugin's ID in `details.plugin_id`. A Plugin going into the organization's
+library marketplace is also refused with a 409 when one of its skills has the name of
+an organization skill (a skill an administrator uploaded for the whole organization
+in claude.ai): `error_code` `skill_name_taken`, with that name in
+`details.skill_name`; rename the skill, or remove the organization skill in
+claude.ai. A 503 with `error_code`
+`registration_pending` means the Plugin and its version were stored (their IDs are
+in `details`) but are not yet usable in claude.ai: do not retry the create (the
+retry would return `plugin_name_taken`); create a version on the stored Plugin
+instead, which completes it.
+
+For a worked example, see [Create a plugin](https://platform.claude.com/docs/en/manage-claude/plugins-api#create-a-plugin)
+in the Plugins API guide.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `PluginCreateParams params`
+
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
+
+  - `List<String> files`
+
+    The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
+
+  - `Optional<String> marketplaceId`
+
+    ID of the organization-owned plugin marketplace to create the Plugin in (prefixed `marketplace_`). It must be a `manual` marketplace, one whose Plugins are uploaded rather than synchronized from a repository. When omitted, the Plugin is created in the organization's library marketplace, an organization-owned `manual` marketplace created on first use.
+
+  - `Optional<String> releaseNotes`
+
+    Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
+
+    maxLength: 5000
+
+#### Returns
+
+- `class BetaPlugin`
+
+  - `JsonValue type = "plugin"`
+
+    Always `plugin`.
+
+  - `String id`
+
+    The Plugin's ID.
+
+  - `Optional<List<BetaPluginComponent>> components`
+
+    What the served version contains; null when not enumerated.
+
+    - `Type type`
+
+      The kind of component.
+
+      - `AGENT("agent")`
+
+      - `CLI("cli")`
+
+      - `COMMAND("command")`
+
+      - `HOOK("hook")`
+
+      - `MCP_SERVER("mcp_server")`
+
+      - `SKILL("skill")`
+
+    - `Optional<String> description`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `String name`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `Optional<BetaPluginContentScan> contentScan`
+
+    The served version's content scan; null when it has not been scanned.
+
+    - `Optional<Assessment> assessment`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `FAIL("fail")`
+
+      - `PASS("pass")`
+
+      - `UNKNOWN("unknown")`
+
+      - `WARN("warn")`
+
+    - `Optional<String> reason`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `Status status`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `COMPLETED("completed")`
+
+      - `ERRORED("errored")`
+
+      - `PROCESSING("processing")`
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `Optional<CreatedBy> createdBy`
+
+    Who created the Plugin; null when no creator is recorded.
+
+    - `class BetaPluginUserActor`
+
+      - `JsonValue type = "user_actor"`
+
+        A member of the organization.
+
+      - `Optional<String> emailAddress`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `String userId`
+
+        The member's User ID.
+
+    - `class BetaPluginApiActor`
+
+      - `JsonValue type = "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+      - `String apiKeyId`
+
+        The key's ID.
+
+  - `Optional<String> description`
+
+    The served version's description.
+
+  - `Optional<String> displayName`
+
+    The served version's display name.
+
+  - `String latestVersionId`
+
+    The newest version.
+
+  - `Optional<String> manifestVersion`
+
+    The version string the served version's manifest declares.
+
+  - `String marketplaceId`
+
+    The ID of the plugin marketplace the Plugin lives in.
+
+  - `String name`
+
+    Lowercase identifier, unique within its plugin marketplace. Fixed for an organization-owned Plugin's lifetime; a member-owned Plugin's changes when its owner renames it in claude.ai, while its `id` stays the same.
+
+  - `Optional<OrganizationInstallationPreference> organizationInstallationPreference`
+
+    Organization-owned Plugin: the organization-wide installation setting every member gets unless an RBAC Group they belong to holds its own — the Plugin's own setting, or its plugin marketplace's default. Null for a member-owned Plugin, which has shares instead. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `AUTO_INSTALL("auto_install")`
+
+    - `AVAILABLE("available")`
+
+    - `NOT_AVAILABLE("not_available")`
+
+    - `REQUIRED("required")`
+
+  - `Optional<Boolean> organizationInstallationPreferenceInherited`
+
+    Organization-owned Plugin: true while it has no organization-wide setting of its own and `organization_installation_preference` is its plugin marketplace's default. Null for a member-owned Plugin.
+
+  - `Owner owner`
+
+    Who owns the Plugin: the organization, or the member whose personal plugin marketplace it lives in.
+
+    - `class BetaPluginOwnerOrganization`
+
+      - `JsonValue type = "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+    - `class BetaPluginOwnerUser`
+
+      - `JsonValue type = "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+      - `String userId`
+
+        The member's User ID.
+
+  - `Optional<Reach> reach`
+
+    How far the served version reaches: `remote` when it declares an MCP server or a CLI, `privileged` when it declares a hook, monitor, language server or settings but nothing remote, `contained` otherwise; null when not classifiable.
+
+    - `CONTAINED("contained")`
+
+    - `PRIVILEGED("privileged")`
+
+    - `REMOTE("remote")`
+
+  - `String servedVersionId`
+
+    The version claude.ai serves to members.
+
+  - `boolean servedVersionPinned`
+
+    False while the served version follows each new version; true once it has been pinned to one.
+
+  - `LocalDateTime updatedAt`
+
+    RFC 3339. Moves on a new version and on a served-version change; a change to the Plugin's installation settings or shares does not move it.
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.plugins.BetaPlugin;
+import com.anthropic.models.beta.organization.plugins.PluginCreateParams;
+import java.io.ByteArrayInputStream;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        PluginCreateParams params = PluginCreateParams.builder()
+            .addFile(new ByteArrayInputStream("Example data".getBytes()))
+            .build();
+        BetaPlugin betaPlugin = client.beta().organization().plugins().create(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "latest_version_id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "manifest_version": "1.2.0",
+  "marketplace_id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "name": "code-review-helper",
+  "organization_installation_preference": "available",
+  "organization_installation_preference_inherited": true,
+  "owner": {
+    "type": "organization"
+  },
+  "reach": "contained",
+  "served_version_id": "pluginver_01K9wPcHd4Rm2Tx8Vq6Ln3Sb",
+  "served_version_pinned": true,
+  "type": "plugin",
+  "updated_at": "2026-03-14T09:26:53.589793Z"
+}
+```
+
+### Get Plugin
+
+`BetaPlugin beta().organization().plugins().retrieve(params = PluginRetrieveParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/plugins/{plugin_id}`
+
+Retrieve a Plugin by ID.
+
+**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `PluginRetrieveParams params`
+
+  - `Optional<String> pluginId` (path parameter)
+
+    ID of the Plugin (prefixed `plugin_`).
+
+  - `Optional<String> organizationId` (query parameter)
+
+    For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
+
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
+
+#### Returns
+
+- `class BetaPlugin`
+
+  - `JsonValue type = "plugin"`
+
+    Always `plugin`.
+
+  - `String id`
+
+    The Plugin's ID.
+
+  - `Optional<List<BetaPluginComponent>> components`
+
+    What the served version contains; null when not enumerated.
+
+    - `Type type`
+
+      The kind of component.
+
+      - `AGENT("agent")`
+
+      - `CLI("cli")`
+
+      - `COMMAND("command")`
+
+      - `HOOK("hook")`
+
+      - `MCP_SERVER("mcp_server")`
+
+      - `SKILL("skill")`
+
+    - `Optional<String> description`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `String name`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `Optional<BetaPluginContentScan> contentScan`
+
+    The served version's content scan; null when it has not been scanned.
+
+    - `Optional<Assessment> assessment`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `FAIL("fail")`
+
+      - `PASS("pass")`
+
+      - `UNKNOWN("unknown")`
+
+      - `WARN("warn")`
+
+    - `Optional<String> reason`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `Status status`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `COMPLETED("completed")`
+
+      - `ERRORED("errored")`
+
+      - `PROCESSING("processing")`
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `Optional<CreatedBy> createdBy`
+
+    Who created the Plugin; null when no creator is recorded.
+
+    - `class BetaPluginUserActor`
+
+      - `JsonValue type = "user_actor"`
+
+        A member of the organization.
+
+      - `Optional<String> emailAddress`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `String userId`
+
+        The member's User ID.
+
+    - `class BetaPluginApiActor`
+
+      - `JsonValue type = "api_actor"`
+
+        An Admin API key, in the same form the Compliance API activity feed uses for it.
+
+      - `String apiKeyId`
+
+        The key's ID.
+
+  - `Optional<String> description`
+
+    The served version's description.
+
+  - `Optional<String> displayName`
+
+    The served version's display name.
+
+  - `String latestVersionId`
+
+    The newest version.
+
+  - `Optional<String> manifestVersion`
+
+    The version string the served version's manifest declares.
+
+  - `String marketplaceId`
+
+    The ID of the plugin marketplace the Plugin lives in.
+
+  - `String name`
+
+    Lowercase identifier, unique within its plugin marketplace. Fixed for an organization-owned Plugin's lifetime; a member-owned Plugin's changes when its owner renames it in claude.ai, while its `id` stays the same.
+
+  - `Optional<OrganizationInstallationPreference> organizationInstallationPreference`
+
+    Organization-owned Plugin: the organization-wide installation setting every member gets unless an RBAC Group they belong to holds its own — the Plugin's own setting, or its plugin marketplace's default. Null for a member-owned Plugin, which has shares instead. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
+
+    - `AUTO_INSTALL("auto_install")`
+
+    - `AVAILABLE("available")`
+
+    - `NOT_AVAILABLE("not_available")`
+
+    - `REQUIRED("required")`
+
+  - `Optional<Boolean> organizationInstallationPreferenceInherited`
+
+    Organization-owned Plugin: true while it has no organization-wide setting of its own and `organization_installation_preference` is its plugin marketplace's default. Null for a member-owned Plugin.
+
+  - `Owner owner`
+
+    Who owns the Plugin: the organization, or the member whose personal plugin marketplace it lives in.
+
+    - `class BetaPluginOwnerOrganization`
+
+      - `JsonValue type = "organization"`
+
+        The Plugin lives in a plugin marketplace the organization owns.
+
+    - `class BetaPluginOwnerUser`
+
+      - `JsonValue type = "user"`
+
+        The Plugin lives in one member's personal plugin marketplace.
+
+      - `String userId`
+
+        The member's User ID.
+
+  - `Optional<Reach> reach`
+
+    How far the served version reaches: `remote` when it declares an MCP server or a CLI, `privileged` when it declares a hook, monitor, language server or settings but nothing remote, `contained` otherwise; null when not classifiable.
+
+    - `CONTAINED("contained")`
+
+    - `PRIVILEGED("privileged")`
+
+    - `REMOTE("remote")`
+
+  - `String servedVersionId`
+
+    The version claude.ai serves to members.
+
+  - `boolean servedVersionPinned`
+
+    False while the served version follows each new version; true once it has been pinned to one.
+
+  - `LocalDateTime updatedAt`
+
+    RFC 3339. Moves on a new version and on a served-version change; a change to the Plugin's installation settings or shares does not move it.
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.plugins.BetaPlugin;
+import com.anthropic.models.beta.organization.plugins.PluginRetrieveParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaPlugin betaPlugin = client.beta().organization().plugins().retrieve("plugin_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
+  "components": [
+    {
+      "description": "description",
+      "name": "review-pr",
+      "type": "skill"
+    }
+  ],
+  "content_scan": {
+    "assessment": "warn",
+    "reason": "credential-exposure",
+    "status": "completed"
+  },
+  "created_at": "2026-03-14T09:26:53.589793Z",
+  "created_by": {
+    "email_address": "user@example.com",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "description": "Reviews pull requests against your team's conventions.",
+  "display_name": "Code Review Helper",
+  "latest_version_id": "pluginver_01KaZmQpRsTuVwXyZ2b4c6d8",
+  "manifest_version": "1.2.0",
+  "marketplace_id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
+  "name": "code-review-helper",
+  "organization_installation_preference": "available",
+  "organization_installation_preference_inherited": true,
+  "owner": {
+    "type": "organization"
+  },
+  "reach": "contained",
+  "served_version_id": "pluginver_01K9wPcHd4Rm2Tx8Vq6Ln3Sb",
+  "served_version_pinned": true,
+  "type": "plugin",
+  "updated_at": "2026-03-14T09:26:53.589793Z"
+}
+```
+
+### Update Plugin
+
+`BetaPlugin beta().organization().plugins().update(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/plugins/{plugin_id}`
+
+Change which stored version of an organization-owned Plugin is served to members,
+for example to roll back to an earlier one. This pins the served version: later
+uploads are stored but no longer change what is served, and pinning cannot currently
+be undone, here or in claude.ai.
+
+Pass the version as `served_version_id`: an earlier one to roll back, a later one to
+start serving a version that was stored without being served, or the one already
+served to pin it without changing what is served. No new version is created.
+
+When the organization has content scanning enabled, a version whose scan is still
+running is refused with a 409 (`error_code` `scan_pending`; retry once the scan
+finishes) and one whose scan failed, errored or reached no verdict with a 400
+(`scan_failed`; a `warn` is accepted). When the Plugin is in the organization's
+library marketplace, a version other than the one served is also refused with a 409
+when one of its skills has a name that an organization skill (one an administrator
+uploaded for the whole organization in claude.ai) has since taken: `error_code`
+`skill_name_taken`, with that name in `details.skill_name`. A member-owned Plugin
+cannot be updated here (403).
+
+This endpoint does not write installation settings; they are written at
+`/v1/organizations/plugins/{plugin_id}/installation_settings/{target}`.
+
+**Accepted credentials:** an Admin API key with the `write:plugins` scope.
+
+Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
+
+#### Parameters
+
+- `PluginUpdateParams params`
+
+  - `Optional<String> pluginId` (path parameter)
+
+    ID of the Plugin (prefixed `plugin_`).
+
+  - `Optional<List<AnthropicBeta>> betas` (header parameter)
+
+    This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
+    - `CE_PLUGINS_2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SPEND_LIMIT_READS_2026_09_26("spend-limit-reads-2026-09-26")`
+
+  - `String servedVersionId`
+
+    Serve this version of the Plugin (prefixed `pluginver_`) and pin the served version to it; `latest` is not accepted.
+
+#### Returns
+
+- `class BetaPlugin`
+
+  - `JsonValue type = "plugin"`
+
+    Always `plugin`.
+
+  - `String id`
+
+    The Plugin's ID.
+
+  - `Optional<List<BetaPluginComponent>> components`
+
+    What the served version contains; null when not enumerated.
+
+    - `Type type`
+
+      The kind of component.
+
+      - `AGENT("agent")`
+
+      - `CLI("cli")`
+
+      - `COMMAND("command")`
+
+      - `HOOK("hook")`
+
+      - `MCP_SERVER("mcp_server")`
+
+      - `SKILL("skill")`
+
+    - `Optional<String> description`
+
+      What the component declares about itself; always null for MCP servers, hooks, and CLIs.
+
+    - `String name`
+
+      The component's name: a skill's, command's or agent's name, an MCP server's key in the manifest, the event a hook runs on, or a CLI's executable.
+
+  - `Optional<BetaPluginContentScan> contentScan`
+
+    The served version's content scan; null when it has not been scanned.
+
+    - `Optional<Assessment> assessment`
+
+      The scan's verdict; set only when `status` is `completed`.
+
+      - `FAIL("fail")`
+
+      - `PASS("pass")`
+
+      - `UNKNOWN("unknown")`
+
+      - `WARN("warn")`
+
+    - `Optional<String> reason`
+
+      The primary mechanism behind a `warn` or `fail`, such as `credential-exposure` or `guardrail-tampering`; a mechanism this API does not yet name reads as `other`. Null on a `pass`, whenever `assessment` is null, and when no mechanism is reported for the verdict.
+
+    - `Status status`
+
+      `processing` while a scan runs, `completed` when it ran to completion, `errored` when it could not run or its outcome cannot be read.
+
+      - `COMPLETED("completed")`
+
+      - `ERRORED("errored")`
+
+      - `PROCESSING("processing")`
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339.
+
+    format: date-time
+
+  - `Optional<CreatedBy> createdBy`
+
+    Who created the Plugin; null when no creator is recorded.
+
+    - `class BetaPluginUserActor`
+
+      - `JsonValue type = "user_actor"`
+
+        A member of the organization.
+
+      - `Optional<String> emailAddress`
+
+        The member's email address; may be null, for example when they are no longer a member of the organization.
+
+      - `String userId`
+
+        The member's User ID.
+
+    - `class BetaPluginApiActor`
+
+      - `JsonValue type = "api_actor"`
 
         An Admin API key, in the same form the Compliance API activity feed uses for it.
 

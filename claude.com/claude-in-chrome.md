@@ -20,7 +20,7 @@ Claude in Chrome reads the page you’re signed in to, then clicks, types, and f
 
 Available on all paid plans. Not on a paid plan? [Upgrade now](https://claude.com/pricing)
 
-[![](https://assets.claude.com/d4b0681109f28f7b787a5ccfd55470f7f0fe43a9.png)](https://assets.claude.com/713c0c02f030abb3c3e1ca45aadc75a28e377197.webm)
+![](https://assets.claude.com/d4b0681109f28f7b787a5ccfd55470f7f0fe43a9.png)
 
 ## A refreshing way to work on the web
 
@@ -28,7 +28,7 @@ No more copying, pasting, and switching tabs.
 
 Claude CoworkClaude CodeEveryday toolsBackground tasks
 
-[![](https://assets.claude.com/48b2ce0c4145ec752dc30dcbd41c71a4f91ffa66.png)](https://assets.claude.com/032a2abc20d7be25555ccbfbdf0a6a98082156ad.webm)
+![](https://assets.claude.com/48b2ce0c4145ec752dc30dcbd41c71a4f91ffa66.png)
 
 ### From browser research to finished deliverables
 

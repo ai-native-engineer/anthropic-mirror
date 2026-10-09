@@ -183,7 +183,7 @@ The Models API response can be used to determine which models are available for 
 
     - `required BetaCapabilitySupport CodeExecution`
 
-      Whether the model supports code execution tools.
+      Whether code that the model runs in the code execution tool can call the request's other tools, as in programmatic tool calling and dynamic filtering for web search and web fetch. Support for the code execution tool itself is in `server_tools.code_execution`.
 
     - `required BetaCompactionCapability? Compaction`
 
@@ -253,6 +253,22 @@ The Models API response can be used to determine which models are available for 
 
       Whether the model accepts PDF content blocks.
 
+    - `required BetaServerToolsCapability ServerTools`
+
+      Whether this model supports the web search and code execution server tools. `supported` is true when the model supports at least one of the tools. A supported tool can still be rejected for your organization, for example when an admin has turned web search off.
+
+      - `required BetaCapabilitySupport CodeExecution`
+
+        Whether the model supports the code execution tool: true when the model supports at least one version of the tool, not necessarily every version.
+
+      - `required bool Supported`
+
+        Whether this capability is supported by the model.
+
+      - `required BetaCapabilitySupport WebSearch`
+
+        Whether the model supports the web search tool: true when the model supports at least one version of the tool, not necessarily every version.
+
     - `required BetaCapabilitySupport StructuredOutputs`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
@@ -271,11 +287,15 @@ The Models API response can be used to determine which models are available for 
 
         - `required BetaCapabilitySupport Adaptive`
 
-          Whether the model supports thinking with type 'adaptive' (auto).
+          Whether the model accepts thinking with type 'adaptive' (the model decides whether and how much to think).
+
+        - `required BetaCapabilitySupport Disabled`
+
+          Whether the model accepts thinking with type 'disabled' (thinking turned off). False exactly when a request that sends it gets a 400 from this model. True on a model that does not support thinking.
 
         - `required BetaCapabilitySupport Enabled`
 
-          Whether the model supports thinking with type 'enabled'.
+          Whether the model accepts thinking with type 'enabled' (extended thinking with a caller-set `budget_tokens`).
 
   - `required DateTimeOffset CreatedAt`
 
@@ -383,6 +403,15 @@ await foreach (var item in page.Paginate())
         "pdf_input": {
           "supported": true
         },
+        "server_tools": {
+          "code_execution": {
+            "supported": true
+          },
+          "supported": true,
+          "web_search": {
+            "supported": true
+          }
+        },
         "structured_outputs": {
           "supported": true
         },
@@ -390,6 +419,9 @@ await foreach (var item in page.Paginate())
           "supported": true,
           "types": {
             "adaptive": {
+              "supported": true
+            },
+            "disabled": {
               "supported": true
             },
             "enabled": {
@@ -576,7 +608,7 @@ The Models API response can be used to determine information about a specific mo
 
     - `required BetaCapabilitySupport CodeExecution`
 
-      Whether the model supports code execution tools.
+      Whether code that the model runs in the code execution tool can call the request's other tools, as in programmatic tool calling and dynamic filtering for web search and web fetch. Support for the code execution tool itself is in `server_tools.code_execution`.
 
     - `required BetaCompactionCapability? Compaction`
 
@@ -646,6 +678,22 @@ The Models API response can be used to determine information about a specific mo
 
       Whether the model accepts PDF content blocks.
 
+    - `required BetaServerToolsCapability ServerTools`
+
+      Whether this model supports the web search and code execution server tools. `supported` is true when the model supports at least one of the tools. A supported tool can still be rejected for your organization, for example when an admin has turned web search off.
+
+      - `required BetaCapabilitySupport CodeExecution`
+
+        Whether the model supports the code execution tool: true when the model supports at least one version of the tool, not necessarily every version.
+
+      - `required bool Supported`
+
+        Whether this capability is supported by the model.
+
+      - `required BetaCapabilitySupport WebSearch`
+
+        Whether the model supports the web search tool: true when the model supports at least one version of the tool, not necessarily every version.
+
     - `required BetaCapabilitySupport StructuredOutputs`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
@@ -664,11 +712,15 @@ The Models API response can be used to determine information about a specific mo
 
         - `required BetaCapabilitySupport Adaptive`
 
-          Whether the model supports thinking with type 'adaptive' (auto).
+          Whether the model accepts thinking with type 'adaptive' (the model decides whether and how much to think).
+
+        - `required BetaCapabilitySupport Disabled`
+
+          Whether the model accepts thinking with type 'disabled' (thinking turned off). False exactly when a request that sends it gets a 400 from this model. True on a model that does not support thinking.
 
         - `required BetaCapabilitySupport Enabled`
 
-          Whether the model supports thinking with type 'enabled'.
+          Whether the model accepts thinking with type 'enabled' (extended thinking with a caller-set `budget_tokens`).
 
   - `required DateTimeOffset CreatedAt`
 
@@ -772,6 +824,15 @@ Console.WriteLine(betaModelInfo);
     "pdf_input": {
       "supported": true
     },
+    "server_tools": {
+      "code_execution": {
+        "supported": true
+      },
+      "supported": true,
+      "web_search": {
+        "supported": true
+      }
+    },
     "structured_outputs": {
       "supported": true
     },
@@ -779,6 +840,9 @@ Console.WriteLine(betaModelInfo);
       "supported": true,
       "types": {
         "adaptive": {
+          "supported": true
+        },
+        "disabled": {
           "supported": true
         },
         "enabled": {
@@ -908,7 +972,7 @@ Console.WriteLine(betaModelInfo);
 
   - `required BetaCapabilitySupport CodeExecution`
 
-    Whether the model supports code execution tools.
+    Whether code that the model runs in the code execution tool can call the request's other tools, as in programmatic tool calling and dynamic filtering for web search and web fetch. Support for the code execution tool itself is in `server_tools.code_execution`.
 
   - `required BetaCompactionCapability? Compaction`
 
@@ -978,6 +1042,22 @@ Console.WriteLine(betaModelInfo);
 
     Whether the model accepts PDF content blocks.
 
+  - `required BetaServerToolsCapability ServerTools`
+
+    Whether this model supports the web search and code execution server tools. `supported` is true when the model supports at least one of the tools. A supported tool can still be rejected for your organization, for example when an admin has turned web search off.
+
+    - `required BetaCapabilitySupport CodeExecution`
+
+      Whether the model supports the code execution tool: true when the model supports at least one version of the tool, not necessarily every version.
+
+    - `required bool Supported`
+
+      Whether this capability is supported by the model.
+
+    - `required BetaCapabilitySupport WebSearch`
+
+      Whether the model supports the web search tool: true when the model supports at least one version of the tool, not necessarily every version.
+
   - `required BetaCapabilitySupport StructuredOutputs`
 
     Whether the model supports structured output / JSON mode / strict tool schemas.
@@ -996,11 +1076,15 @@ Console.WriteLine(betaModelInfo);
 
       - `required BetaCapabilitySupport Adaptive`
 
-        Whether the model supports thinking with type 'adaptive' (auto).
+        Whether the model accepts thinking with type 'adaptive' (the model decides whether and how much to think).
+
+      - `required BetaCapabilitySupport Disabled`
+
+        Whether the model accepts thinking with type 'disabled' (thinking turned off). False exactly when a request that sends it gets a 400 from this model. True on a model that does not support thinking.
 
       - `required BetaCapabilitySupport Enabled`
 
-        Whether the model supports thinking with type 'enabled'.
+        Whether the model accepts thinking with type 'enabled' (extended thinking with a caller-set `budget_tokens`).
 
 ### Beta Model Info
 
@@ -1038,7 +1122,7 @@ Console.WriteLine(betaModelInfo);
 
     - `required BetaCapabilitySupport CodeExecution`
 
-      Whether the model supports code execution tools.
+      Whether code that the model runs in the code execution tool can call the request's other tools, as in programmatic tool calling and dynamic filtering for web search and web fetch. Support for the code execution tool itself is in `server_tools.code_execution`.
 
     - `required BetaCompactionCapability? Compaction`
 
@@ -1108,6 +1192,22 @@ Console.WriteLine(betaModelInfo);
 
       Whether the model accepts PDF content blocks.
 
+    - `required BetaServerToolsCapability ServerTools`
+
+      Whether this model supports the web search and code execution server tools. `supported` is true when the model supports at least one of the tools. A supported tool can still be rejected for your organization, for example when an admin has turned web search off.
+
+      - `required BetaCapabilitySupport CodeExecution`
+
+        Whether the model supports the code execution tool: true when the model supports at least one version of the tool, not necessarily every version.
+
+      - `required bool Supported`
+
+        Whether this capability is supported by the model.
+
+      - `required BetaCapabilitySupport WebSearch`
+
+        Whether the model supports the web search tool: true when the model supports at least one version of the tool, not necessarily every version.
+
     - `required BetaCapabilitySupport StructuredOutputs`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
@@ -1126,11 +1226,15 @@ Console.WriteLine(betaModelInfo);
 
         - `required BetaCapabilitySupport Adaptive`
 
-          Whether the model supports thinking with type 'adaptive' (auto).
+          Whether the model accepts thinking with type 'adaptive' (the model decides whether and how much to think).
+
+        - `required BetaCapabilitySupport Disabled`
+
+          Whether the model accepts thinking with type 'disabled' (thinking turned off). False exactly when a request that sends it gets a 400 from this model. True on a model that does not support thinking.
 
         - `required BetaCapabilitySupport Enabled`
 
-          Whether the model supports thinking with type 'enabled'.
+          Whether the model accepts thinking with type 'enabled' (extended thinking with a caller-set `budget_tokens`).
 
   - `required DateTimeOffset CreatedAt`
 
@@ -1180,6 +1284,28 @@ Console.WriteLine(betaModelInfo);
 
   - `Mythos("mythos")`
 
+### Beta Server Tools Capability
+
+- `class BetaServerToolsCapability`
+
+  Web search and code execution tool support, with one entry per tool.
+
+  - `required BetaCapabilitySupport CodeExecution`
+
+    Whether the model supports the code execution tool: true when the model supports at least one version of the tool, not necessarily every version.
+
+    - `required bool Supported`
+
+      Whether this capability is supported by the model.
+
+  - `required bool Supported`
+
+    Whether this capability is supported by the model.
+
+  - `required BetaCapabilitySupport WebSearch`
+
+    Whether the model supports the web search tool: true when the model supports at least one version of the tool, not necessarily every version.
+
 ### Beta Thinking Capability
 
 - `class BetaThinkingCapability`
@@ -1196,30 +1322,38 @@ Console.WriteLine(betaModelInfo);
 
     - `required BetaCapabilitySupport Adaptive`
 
-      Whether the model supports thinking with type 'adaptive' (auto).
+      Whether the model accepts thinking with type 'adaptive' (the model decides whether and how much to think).
 
       - `required bool Supported`
 
         Whether this capability is supported by the model.
 
+    - `required BetaCapabilitySupport Disabled`
+
+      Whether the model accepts thinking with type 'disabled' (thinking turned off). False exactly when a request that sends it gets a 400 from this model. True on a model that does not support thinking.
+
     - `required BetaCapabilitySupport Enabled`
 
-      Whether the model supports thinking with type 'enabled'.
+      Whether the model accepts thinking with type 'enabled' (extended thinking with a caller-set `budget_tokens`).
 
 ### Beta Thinking Types
 
 - `class BetaThinkingTypes`
 
-  Supported thinking type configurations.
+  Which `thinking.type` values the model accepts on requests. Read each key on its own: for example, `enabled` can be false while `disabled` is true.
 
   - `required BetaCapabilitySupport Adaptive`
 
-    Whether the model supports thinking with type 'adaptive' (auto).
+    Whether the model accepts thinking with type 'adaptive' (the model decides whether and how much to think).
 
     - `required bool Supported`
 
       Whether this capability is supported by the model.
 
+  - `required BetaCapabilitySupport Disabled`
+
+    Whether the model accepts thinking with type 'disabled' (thinking turned off). False exactly when a request that sends it gets a 400 from this model. True on a model that does not support thinking.
+
   - `required BetaCapabilitySupport Enabled`
 
-    Whether the model supports thinking with type 'enabled'.
+    Whether the model accepts thinking with type 'enabled' (extended thinking with a caller-set `budget_tokens`).

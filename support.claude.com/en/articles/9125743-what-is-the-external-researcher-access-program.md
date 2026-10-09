@@ -25,7 +25,7 @@ Please complete the following application form with details about your team and 
 2. If successful, we will apply $1000 in API credits to the account. For rare special cases, we may approve a higher quantity of credit.
 3. **Please note that given the substantial number of applications we receive (sometimes thousands in a single week), we regret that we cannot provide individual responses to unapproved submissions.** In addition, we reserve the right to reject submissions for any reason and will not be able to provide explanations for each individual applicant. However, we appreciate the time and effort put into each submission and will carefully review all entries. Thank you for your understanding.
 
-If you are having an issue that requires a response urgently (e.g., you’ve suddenly run out of your credits before a major conference), please email [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#f88a9d8b9d998a9b909d8a999b9b9d8b8bb899968c908a9788919bd69b9795). However, please note that we will not be able to respond if your question is already addressed by the following FAQ.
+If you are having an issue that requires a response urgently (e.g., you’ve suddenly run out of your credits before a major conference), please email [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#8dffe8fee8ecffeee5e8ffeceeeee8fefecdece3f9e5ffe2fde4eea3eee2e0). However, please note that we will not be able to respond if your question is already addressed by the following FAQ.
 
 ---
 
@@ -87,4 +87,4 @@ Thank you for your interest in our Researcher Access Program and for taking the 
 * [Model Safety Bug Bounty Program](https://support.claude.com/en/articles/12119250-model-safety-bug-bounty-program)
 * [Cyber Verification Program](https://support.claude.com/en/articles/14604842-cyber-verification-program)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
-* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
+* [Claude Team plan for scientists](https://support.claude.com/en/articles/16634237-claude-team-plan-for-scientists)

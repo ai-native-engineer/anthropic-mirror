@@ -31,6 +31,16 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
+![](https://raw.githubusercontent.com/grafana/ai-marketplace/12be5634a492f73c189d466c5449d09b853ad7a4/plugins/grafana-cloud-mcp/assets/logo.svg)
+
+### [Grafana Cloud](https://claude.com/marketplace/connectors/grafana-cloud)
+
+Anthropic verifiedNew
+
+Query metrics, logs, and traces and manage dashboards and alerts
+
+[Add Grafana Cloud in Claude (opens in new tab)](https://claude.ai/directory/3392c633-e335-4638-bda7-5b259808c3f7 "Add in Claude")
+
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
 ### [Google Drive](https://claude.com/marketplace/connectors/google-drive)
@@ -72,11 +82,3 @@ monday.com project management & CRM for projects, tasks, portfolios, boards, wor
 Manage databases, authentication, and storage
 
 [Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
-
-![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
-
-### [Box](https://claude.com/marketplace/connectors/box)
-
-Search, edit and get insights on your Box content
-
-[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")

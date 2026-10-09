@@ -18,7 +18,7 @@ Claude scans your codebase with Claude Mythos 5.1, validates findings, and sugge
 
 [Contact sales](https://claude.com/contact-sales)[Read the tutorial](https://academy.claude.com/tutorials/getting-started-with-claude-security)
 
-[![](https://assets.claude.com/db5b0eb52879bafd5325601021c5431e874ba9f3.png)](https://assets.claude.com/15a276ba3a448f2c1ee91c6287345a06059bb9ab.webm)
+![](https://assets.claude.com/db5b0eb52879bafd5325601021c5431e874ba9f3.png)
 
 ## How teams use Claude Security
 

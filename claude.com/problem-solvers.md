@@ -14,7 +14,7 @@ The most driven founders are problem solvers. What keeps them building on Claude
 
   Co-founder and CEO
 
-[![](https://assets.claude.com/c1e8bfe48e6fcdeed1115faa614a213799e64f33.png)](https://assets.claude.com/5a6e78a70154943f5c5dfbbdeb8c81e44b8f5538.webm)
+![](https://assets.claude.com/c1e8bfe48e6fcdeed1115faa614a213799e64f33.png)
 
 ![Cursor](https://assets.claude.com/ff9cb146ba10268aa06e6488b4a5528bc06e0830.svg)
 
@@ -34,7 +34,7 @@ Michael TruellCo-founder and CEO
 
   Co-founder and CEO
 
-[![](https://assets.claude.com/008dd681bd3829493fc0985615e596b0ed699ee1.png)](https://assets.claude.com/dd4192c4f14303c2bce3e43aa9b5f56ecd7b5b2d.webm)
+![](https://assets.claude.com/008dd681bd3829493fc0985615e596b0ed699ee1.png)
 
 ![Legora](https://assets.claude.com/666fbd8fbde356286a5ac8370b994f246c08fb10.svg)
 
@@ -54,7 +54,7 @@ Max JunestrandCo-founder and CEO
 
   Co-founder and CEO
 
-[![](https://assets.claude.com/dd26f63ae36ce0c04342038527061380f21fcc4c.png)](https://assets.claude.com/b5486afea27de8d80fa1e7267c5e36b6ea6a877f.webm)
+![](https://assets.claude.com/dd26f63ae36ce0c04342038527061380f21fcc4c.png)
 
 ![Lovable](https://assets.claude.com/696241c910e095691021db3ee35efd8dfac8f4f2.svg)
 
@@ -74,7 +74,7 @@ Anton OsikaCo-founder and CEO
 
   President & Head of AI
 
-[![](https://assets.claude.com/4d2ff08fcd469c27af57c02f7a7e0c910ebc7c39.png)](https://assets.claude.com/e721d39154e51980c8521a77dc42cb6f8dc33467.webm)
+![](https://assets.claude.com/4d2ff08fcd469c27af57c02f7a7e0c910ebc7c39.png)
 
 ![Replit](https://assets.claude.com/28b18c56c8aea46930c7b90ecfe004893de1d250.svg)
 
@@ -94,7 +94,7 @@ Michele CatastaPresident & Head of AI
 
   Co-founder and CEO
 
-[![](https://assets.claude.com/c61b0246c89352aebe35125c37752ac2c6ae0ea4.png)](https://assets.claude.com/3fe86b0492a8ad80b4283d390be9ff6ab3617ed3.webm)
+![](https://assets.claude.com/c61b0246c89352aebe35125c37752ac2c6ae0ea4.png)
 
 ![Cognition](https://assets.claude.com/668e21fde8e649dceecf16e585196cbf01f4f916.svg)
 
@@ -114,7 +114,7 @@ Scott WuCo-founder and CEO
 
   Co-founder and CTO
 
-[![](https://assets.claude.com/fb24ec8606933fba343f3ceccedc963c19736dd4.png)](https://assets.claude.com/cc0193277a473e32eb77f8f6746cc33c1681737c.webm)
+![](https://assets.claude.com/fb24ec8606933fba343f3ceccedc963c19736dd4.png)
 
 ![Genspark](https://assets.claude.com/f7609f31c0cf1fec90df22f32dd40c8c1277442f.svg)
 

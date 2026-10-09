@@ -4,13 +4,19 @@ This article explains how billing works for the Claude API, the playground, and 
 
 ## Prepaid usage credits
 
-Claude API and playground usage is billed through prepaid usage credits. Buy credits before you use the API, and they're applied to your usage according to our current **[pricing](https://claude.com/pricing#api)**. Credits cover API access, playground usage, and Claude Code.
+Claude API and playground usage is billed through prepaid usage credits. Buy credits before you use the API, and they're applied to your usage according to our current **[pricing](https://claude.com/pricing#api)**. Purchased credits cover API access, playground usage, and Claude Code.
 
 You're billed only for successful API calls and completed tasks. Failed requests aren't charged.
 
 **Note:** If your client disconnects or times out in the middle of a request that was on track to succeed, that request is still charged.
 
 If you run out of credits, you can no longer call the API or use the playground until you add more.
+
+## Monthly API credits for Max and Team plans
+
+Claude Max and Team plans include monthly credits for the Claude API. To claim your credits, you link a Claude Console organization to your plan. Your monthly credits are spent before any credits you’ve purchased, and unused credits expire at the end of each billing cycle. Monthly API credits can’t be used in Claude Code or the Claude apps, including for extra usage.
+
+If your organization is invoiced through Anthropic sales, usage beyond the credits is billed as usual. Learn more about **[monthly API credits for Max and Team plans](https://support.claude.com/en/articles/17154008)**.
 
 ## Buy credits
 
@@ -52,8 +58,8 @@ If you need custom rate limits, monthly invoicing, or hands-on support, **[conta
 3. Click the pencil icon next to your current payment method.
 4. Enter your new card details in the **Update payment method** modal, then click "Update."
 
-* [How can I access the Claude API?](https://support.claude.com/en/articles/8114521-how-can-i-access-the-claude-api)
 * [I created a Claude Console organization - how do I start using the Claude API?](https://support.claude.com/en/articles/8114531-i-created-a-claude-console-organization-how-do-i-start-using-the-claude-api)
 * [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 * [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
 * [Understanding your Claude API invoices](https://support.claude.com/en/articles/16608069-understanding-your-claude-api-invoices)
+* [Monthly API credits for Max and Team plans](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans)

@@ -13,5 +13,3 @@ Jay was appointed to the board by Anthropic's Long-Term Benefit Trust. As a memb
 Daniela Amodei, co-founder and President of Anthropic, said, "As a seasoned founder, Jay brings a wealth of expertise in building and scaling highly technical businesses, serving customers, and leading fast-growing teams. His track record, coupled with his commitment to ensuring AI is developed and deployed responsibly make him an invaluable asset to our Board. At the same time, I would like to extend my deepest gratitude to Luke for his contributions to Anthropic. His guidance and thoughtfulness helped the company navigate our first phase of growth in line with our public benefit mission, and we wish him the very best."
 
 Neil Buddy Shah, Chair of Anthropic's Long-Term Benefit Trust and CEO of the Clinton Health Access Initiative, said, "Jay is an outstanding addition to the board, and I am confident that his expertise and leadership will guide Anthropic through the scale that is to come, while upholding the company’s deep and founding commitment to building safe and trustworthy AI systems."
-
-Jay Kreps appointed to Anthropic's Board of Directors \ Anthropic

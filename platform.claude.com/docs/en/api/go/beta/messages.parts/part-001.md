@@ -26,7 +26,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `params BetaMessageNewParams`
 
-  - `MaxTokens param.Field[int64]`
+  - `MaxTokens int64`
 
     The maximum number of tokens to generate before stopping.
 
@@ -38,7 +38,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     minimum: 0
 
-  - `Messages param.Field[[]BetaMessageParamResp]`
+  - `Messages []BetaMessageParam`
 
     Input messages.
 
@@ -2993,6 +2993,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                        - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+                          Fastest model for high-volume, real-time tasks
+
                         - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
                           Efficient model for coding and agents
@@ -3410,23 +3414,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `const BetaSystemMessageOutputConfigEffortMax BetaSystemMessageOutputConfigEffort = "max"`
 
-  - `Model param.Field[Model]`
+  - `Model Model`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-  - `CacheControl param.Field[BetaCacheControlEphemeral] Optional`
+  - `CacheControl BetaCacheControlEphemeralParam Optional`
 
     Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
-  - `Compaction param.Field[BetaCompactionConfig] Optional`
+  - `Compaction BetaCompactionConfigParam Optional`
 
     Compaction configuration.
 
     When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
 
-  - `Container param.Field[BetaMessageNewParamsContainerUnion] Optional`
+  - `Container BetaMessageNewParamsContainerUnion Optional`
 
     Container identifier for reuse across requests.
 
@@ -3466,17 +3470,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `string`
 
-  - `ContextManagement param.Field[BetaContextManagementConfig] Optional`
+  - `ContextManagement BetaContextManagementConfigParam Optional`
 
     Context management configuration.
 
     This allows you to control how Claude manages context across multiple requests, such as whether to clear function results or not.
 
-  - `Diagnostics param.Field[BetaDiagnosticsParamResp] Optional`
+  - `Diagnostics BetaDiagnosticsParam Optional`
 
     Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
 
-  - `FallbackCreditToken param.Field[BetaMessageNewParamsFallbackCreditTokenUnion] Optional`
+  - `FallbackCreditToken BetaMessageNewParamsFallbackCreditTokenUnion Optional`
 
     The `fallback_credit_token` from a prior refusal's `stop_details`.
 
@@ -3525,15 +3529,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `const BetaFallbackCreditTokenParamModeBestEffort BetaFallbackCreditTokenParamMode = "best_effort"`
 
-  - `Fallbacks param.Field[BetaFallbacksParamUnionResp] Optional`
+  - `Fallbacks BetaFallbacksParamUnion Optional`
 
     Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on. The string "default" requests the requested model's server-defined default fallback configuration.
 
-  - `InferenceGeo param.Field[string] Optional`
+  - `InferenceGeo param.Opt[string] Optional`
 
     Specifies the geographic region for inference processing. If not specified, the workspace's `default_inference_geo` is used.
 
-  - `MCPServers param.Field[[]BetaRequestMCPServerURLDefinition] Optional`
+  - `MCPServers []BetaRequestMCPServerURLDefinitionParam Optional`
 
     MCP servers to be utilized in this request
 
@@ -3553,15 +3557,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Enabled bool Optional`
 
-  - `Metadata param.Field[BetaMetadata] Optional`
+  - `Metadata BetaMetadataParam Optional`
 
     An object describing metadata about the request.
 
-  - `OutputConfig param.Field[BetaOutputConfig] Optional`
+  - `OutputConfig BetaOutputConfigParam Optional`
 
     Configuration options for the model's output, such as the output format.
 
-  - `ServiceTier param.Field[BetaMessageNewParamsServiceTier] Optional`
+  - `ServiceTier BetaMessageNewParamsServiceTier Optional`
 
     Determines whether to use priority capacity (if available) or standard capacity for this request.
 
@@ -3571,7 +3575,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `const BetaMessageNewParamsServiceTierStandardOnly BetaMessageNewParamsServiceTier = "standard_only"`
 
-  - `Speed param.Field[BetaMessageNewParamsSpeed] Optional`
+  - `Speed BetaMessageNewParamsSpeed Optional`
 
     The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
@@ -3579,7 +3583,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `const BetaMessageNewParamsSpeedFast BetaMessageNewParamsSpeed = "fast"`
 
-  - `StopSequences param.Field[[]string] Optional`
+  - `StopSequences []string Optional`
 
     Custom text sequences that will cause the model to stop generating.
 
@@ -3587,7 +3591,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     If you want the model to stop generating when it encounters custom strings of text, you can use the `stop_sequences` parameter. If the model encounters one of the custom sequences, the response `stop_reason` value will be `"stop_sequence"` and the response `stop_sequence` value will contain the matched stop sequence.
 
-  - `System param.Field[[]BetaTextBlockParamResp] Optional`
+  - `System []BetaTextBlockParam Optional`
 
     System prompt.
 
@@ -3607,7 +3611,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Citations []BetaTextCitationParamUnionResp Optional`
 
-  - `Thinking param.Field[BetaThinkingConfigParamUnionResp] Optional`
+  - `Thinking BetaThinkingConfigParamUnion Optional`
 
     Configuration for enabling Claude's extended thinking.
 
@@ -3615,11 +3619,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-  - `ToolChoice param.Field[BetaToolChoiceUnion] Optional`
+  - `ToolChoice BetaToolChoiceUnionParam Optional`
 
     How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
-  - `Tools param.Field[[]BetaToolUnion] Optional`
+  - `Tools []BetaToolUnionParam Optional`
 
     Definitions of tools that the model may use.
 
@@ -3764,7 +3768,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -3868,17 +3872,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `UserProfileID param.Field[string] Optional` (header parameter)
+  - `UserProfileID param.Opt[string] Optional` (header parameter)
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
-  - `OutputFormat param.Field[BetaJSONOutputFormat] Optional`
+  - `OutputFormat BetaJSONOutputFormatParam Optional`
 
     **Deprecated**
 
@@ -3886,7 +3890,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
 
-  - `Temperature param.Field[float64] Optional`
+  - `Temperature param.Opt[float64] Optional`
 
     **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
@@ -3898,7 +3902,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     minimum: 0, maximum: 1
 
-  - `TopK param.Field[int64] Optional`
+  - `TopK param.Opt[int64] Optional`
 
     **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not accept top_k; any value will be rejected with a 400 error.
 
@@ -3910,7 +3914,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     minimum: 0
 
-  - `TopP param.Field[float64] Optional`
+  - `TopP param.Opt[float64] Optional`
 
     **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting top_p. A value >= 0.99 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
@@ -6655,6 +6659,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                    - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+                      Fastest model for high-volume, real-time tasks
+
                     - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
                       Efficient model for coding and agents
@@ -8168,7 +8176,7 @@ func main() {
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-sonnet-5-5",
+        "model": "claude-haiku-5-5",
         "output_tokens": 0,
         "type": "message"
       }
@@ -8210,7 +8218,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 - `params BetaMessageCountTokensParams`
 
-  - `Messages param.Field[[]BetaMessageParamResp]`
+  - `Messages []BetaMessageParam`
 
     Input messages.
 
@@ -11165,6 +11173,10 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                        - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+                          Fastest model for high-volume, real-time tasks
+
                         - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
                           Efficient model for coding and agents
@@ -11582,29 +11594,29 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaSystemMessageOutputConfigEffortMax BetaSystemMessageOutputConfigEffort = "max"`
 
-  - `Model param.Field[Model]`
+  - `Model Model`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-  - `CacheControl param.Field[BetaCacheControlEphemeral] Optional`
+  - `CacheControl BetaCacheControlEphemeralParam Optional`
 
     Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
-  - `Compaction param.Field[BetaCompactionConfig] Optional`
+  - `Compaction BetaCompactionConfigParam Optional`
 
     Compaction configuration.
 
     When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
 
-  - `ContextManagement param.Field[BetaContextManagementConfig] Optional`
+  - `ContextManagement BetaContextManagementConfigParam Optional`
 
     Context management configuration.
 
     This allows you to control how Claude manages context across multiple requests, such as whether to clear function results or not.
 
-  - `MCPServers param.Field[[]BetaRequestMCPServerURLDefinition] Optional`
+  - `MCPServers []BetaRequestMCPServerURLDefinitionParam Optional`
 
     MCP servers to be utilized in this request
 
@@ -11624,11 +11636,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `Enabled bool Optional`
 
-  - `OutputConfig param.Field[BetaOutputConfig] Optional`
+  - `OutputConfig BetaOutputConfigParam Optional`
 
     Configuration options for the model's output, such as the output format.
 
-  - `Speed param.Field[BetaMessageCountTokensParamsSpeed] Optional`
+  - `Speed BetaMessageCountTokensParamsSpeed Optional`
 
     The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
@@ -11636,7 +11648,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `const BetaMessageCountTokensParamsSpeedFast BetaMessageCountTokensParamsSpeed = "fast"`
 
-  - `System param.Field[BetaMessageCountTokensParamsSystemUnion] Optional`
+  - `System BetaMessageCountTokensParamsSystemUnion Optional`
 
     System prompt.
 
@@ -11658,7 +11670,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `Citations []BetaTextCitationParamUnionResp Optional`
 
-  - `Thinking param.Field[BetaThinkingConfigParamUnionResp] Optional`
+  - `Thinking BetaThinkingConfigParamUnion Optional`
 
     Configuration for enabling Claude's extended thinking.
 
@@ -11666,11 +11678,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-  - `ToolChoice param.Field[BetaToolChoiceUnion] Optional`
+  - `ToolChoice BetaToolChoiceUnionParam Optional`
 
     How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
-  - `Tools param.Field[[]BetaMessageCountTokensParamsToolUnion] Optional`
+  - `Tools []BetaMessageCountTokensParamsToolUnion Optional`
 
     Definitions of tools that the model may use.
 
@@ -11815,7 +11827,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -11919,17 +11931,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `UserProfileID param.Field[string] Optional` (header parameter)
+  - `UserProfileID param.Opt[string] Optional` (header parameter)
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
-  - `OutputFormat param.Field[BetaJSONOutputFormat] Optional`
+  - `OutputFormat BetaJSONOutputFormatParam Optional`
 
     **Deprecated**
 
@@ -12052,6 +12064,10 @@ func main() {
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+      Fastest model for high-volume, real-time tasks
 
     - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
@@ -12204,6 +12220,10 @@ func main() {
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+      Fastest model for high-volume, real-time tasks
 
     - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
@@ -12778,6 +12798,43 @@ func main() {
 
     - `const BetaBashCodeExecutionToolResultErrorParamErrorCodeOutputFileTooLarge BetaBashCodeExecutionToolResultErrorParamErrorCode = "output_file_too_large"`
 
+### Beta Browser Click Target
+
+- `type BetaBrowserClickTargetUnion interface{…}`
+
+  Where to act: either a viewport coordinate or an element reference.
+
+  - `type BetaBrowserCoordinateTarget`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+    - `Type Coordinate`
+
+    - `X int64`
+
+      Pixels from the left edge of the viewport.
+
+      minimum: 0
+
+    - `Y int64`
+
+      Pixels from the top edge of the viewport.
+
+      minimum: 0
+
+  - `type BetaBrowserRefTarget`
+
+    An element on the page, identified by a reference from a prior `read_page` or
+    `find` result. References are scoped to the tab that produced them and become
+    stale after navigation or a major re-render.
+
+    - `Type Ref`
+
+    - `Ref string`
+
+      An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
 ### Beta Browser Close Tab Config
 
 - `type BetaBrowserCloseTabConfig`
@@ -12791,6 +12848,89 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Close Tab Input
+
+- `type BetaBrowserCloseTabInput`
+
+  Close the tab with the given tab_id.
+
+  - `TabID string`
+
+    The tab to close.
+
+### Beta Browser Close Tab Tool Use Block
+
+- `type BetaBrowserCloseTabToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserCloseTabInput`
+
+    Close the tab with the given tab_id.
+
+    - `TabID string`
+
+      The tab to close.
+
+  - `Name CloseTab`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Browser Coordinate Target
+
+- `type BetaBrowserCoordinateTarget`
+
+  A point in the browser viewport, in viewport pixels (the same frame as a
+  full-viewport screenshot).
+
+  - `Type Coordinate`
+
+  - `X int64`
+
+    Pixels from the left edge of the viewport.
+
+    minimum: 0
+
+  - `Y int64`
+
+    Pixels from the top edge of the viewport.
+
+    minimum: 0
 
 ### Beta Browser Double Click Config
 
@@ -12806,6 +12946,146 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Double Click Input
+
+- `type BetaBrowserDoubleClickInput`
+
+  Double left-click at a viewport coordinate or on an element by reference.
+
+  - `Target BetaBrowserClickTargetUnion`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+    - `type BetaBrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `type BetaBrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `Modifiers string Optional`
+
+    Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Double Click Tool Use Block
+
+- `type BetaBrowserDoubleClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserDoubleClickInput`
+
+    Double left-click at a viewport coordinate or on an element by reference.
+
+    - `Target BetaBrowserClickTargetUnion`
+
+      Where to act: either a viewport coordinate or an element reference.
+
+      - `type BetaBrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+        - `Type Coordinate`
+
+        - `X int64`
+
+          Pixels from the left edge of the viewport.
+
+          minimum: 0
+
+        - `Y int64`
+
+          Pixels from the top edge of the viewport.
+
+          minimum: 0
+
+      - `type BetaBrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+        - `Type Ref`
+
+        - `Ref string`
+
+          An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `Modifiers string Optional`
+
+      Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name DoubleClick`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Browser File Upload Config
 
 - `type BetaBrowserFileUploadConfig`
@@ -12819,6 +13099,118 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser File Upload Input
+
+- `type BetaBrowserFileUploadInput`
+
+  Set the value of a file-input element to one or more files. The target must be an
+  element reference; at least one of paths or document_ids is required.
+
+  - `Target BetaBrowserRefTarget`
+
+    An element on the page, identified by a reference from a prior `read_page` or
+    `find` result. References are scoped to the tab that produced them and become
+    stale after navigation or a major re-render.
+
+    - `Type Ref`
+
+    - `Ref string`
+
+      An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `DocumentIDs []string Optional`
+
+    References to files the harness has staged, for deployments where the browser executor cannot read the caller's filesystem.
+
+    minItems: 1
+
+  - `Paths []string Optional`
+
+    File paths on the browser executor's filesystem.
+
+    minItems: 1
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser File Upload Tool Use Block
+
+- `type BetaBrowserFileUploadToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserFileUploadInput`
+
+    Set the value of a file-input element to one or more files. The target must be an
+    element reference; at least one of paths or document_ids is required.
+
+    - `Target BetaBrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `DocumentIDs []string Optional`
+
+      References to files the harness has staged, for deployments where the browser executor cannot read the caller's filesystem.
+
+      minItems: 1
+
+    - `Paths []string Optional`
+
+      File paths on the browser executor's filesystem.
+
+      minItems: 1
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name FileUpload`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Browser Find Config
 
@@ -12834,6 +13226,78 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Find Input
+
+- `type BetaBrowserFindInput`
+
+  Find elements matching a natural-language description (e.g. "search bar", "add to
+  cart button") and return up to 20 matches with element references.
+
+  - `Query string`
+
+    Natural-language description of the element(s) to find.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Find Tool Use Block
+
+- `type BetaBrowserFindToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserFindInput`
+
+    Find elements matching a natural-language description (e.g. "search bar", "add to
+    cart button") and return up to 20 matches with element references.
+
+    - `Query string`
+
+      Natural-language description of the element(s) to find.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Find`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Browser Form Input Config
 
 - `type BetaBrowserFormInputConfig`
@@ -12847,6 +13311,124 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Form Input Input
+
+- `type BetaBrowserFormInputInput`
+
+  Set the value of a form element (input, textarea, select, checkbox). Use a
+  boolean for checkboxes, an option value or text for selects.
+
+  - `Target BetaBrowserRefTarget`
+
+    An element on the page, identified by a reference from a prior `read_page` or
+    `find` result. References are scoped to the tab that produced them and become
+    stale after navigation or a major re-render.
+
+    - `Type Ref`
+
+    - `Ref string`
+
+      An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `Value BetaBrowserFormInputValueUnion`
+
+    The value to set.
+
+    - `string`
+
+    - `float64`
+
+    - `bool`
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Form Input Tool Use Block
+
+- `type BetaBrowserFormInputToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserFormInputInput`
+
+    Set the value of a form element (input, textarea, select, checkbox). Use a
+    boolean for checkboxes, an option value or text for selects.
+
+    - `Target BetaBrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `Value BetaBrowserFormInputValueUnion`
+
+      The value to set.
+
+      - `string`
+
+      - `float64`
+
+      - `bool`
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name FormInput`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Browser Form Input Value
+
+- `type BetaBrowserFormInputValueUnion interface{…}`
+
+  - `string`
+
+  - `float64`
+
+  - `bool`
 
 ### Beta Browser Get Page Text Config
 
@@ -12862,6 +13444,70 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Get Page Text Input
+
+- `type BetaBrowserGetPageTextInput`
+
+  Return the page's visible text content as plain text, prioritizing article
+  content. Suited to articles, documentation, and other text-heavy pages.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Get Page Text Tool Use Block
+
+- `type BetaBrowserGetPageTextToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserGetPageTextInput`
+
+    Return the page's visible text content as plain text, prioritizing article
+    content. Suited to articles, documentation, and other text-heavy pages.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name GetPageText`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Browser Hold Key Config
 
 - `type BetaBrowserHoldKeyConfig`
@@ -12875,6 +13521,90 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Hold Key Input
+
+- `type BetaBrowserHoldKeyInput`
+
+  Hold a key or key chord down for a duration, then release it. Uses the same key
+  names and "+" chord syntax as the key action.
+
+  - `Duration float64`
+
+    Seconds to hold the key down (maximum 30).
+
+    minimum: 0, maximum: 30
+
+  - `Text string`
+
+    The key or chord to hold.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Hold Key Tool Use Block
+
+- `type BetaBrowserHoldKeyToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserHoldKeyInput`
+
+    Hold a key or key chord down for a duration, then release it. Uses the same key
+    names and "+" chord syntax as the key action.
+
+    - `Duration float64`
+
+      Seconds to hold the key down (maximum 30).
+
+      minimum: 0, maximum: 30
+
+    - `Text string`
+
+      The key or chord to hold.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name HoldKey`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Browser Hover Config
 
@@ -12890,6 +13620,138 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Hover Input
+
+- `type BetaBrowserHoverInput`
+
+  Move the cursor to a coordinate or element without clicking.
+
+  - `Target BetaBrowserClickTargetUnion`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+    - `type BetaBrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `type BetaBrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Hover Tool Use Block
+
+- `type BetaBrowserHoverToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserHoverInput`
+
+    Move the cursor to a coordinate or element without clicking.
+
+    - `Target BetaBrowserClickTargetUnion`
+
+      Where to act: either a viewport coordinate or an element reference.
+
+      - `type BetaBrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+        - `Type Coordinate`
+
+        - `X int64`
+
+          Pixels from the left edge of the viewport.
+
+          minimum: 0
+
+        - `Y int64`
+
+          Pixels from the top edge of the viewport.
+
+          minimum: 0
+
+      - `type BetaBrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+        - `Type Ref`
+
+        - `Ref string`
+
+          An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Hover`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Browser Javascript Exec Config
 
 - `type BetaBrowserJavascriptExecConfig`
@@ -12904,6 +13766,80 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Javascript Exec Input
+
+- `type BetaBrowserJavascriptExecInput`
+
+  Execute JavaScript in the page context and return the value of the last
+  expression. The code runs with access to the DOM, `window`, and page variables.
+  Write the expression you want evaluated — do NOT use `return`.
+
+  - `Text string`
+
+    JavaScript to execute in the page context.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Javascript Exec Tool Use Block
+
+- `type BetaBrowserJavascriptExecToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserJavascriptExecInput`
+
+    Execute JavaScript in the page context and return the value of the last
+    expression. The code runs with access to the DOM, `window`, and page variables.
+    Write the expression you want evaluated — do NOT use `return`.
+
+    - `Text string`
+
+      JavaScript to execute in the page context.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name JavascriptExec`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Browser Key Config
 
 - `type BetaBrowserKeyConfig`
@@ -12917,6 +13853,92 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Key Input
+
+- `type BetaBrowserKeyInput`
+
+  Press a key or key chord. Use "+" to combine modifiers with a key (e.g. "ctrl+a",
+  "cmd+shift+p") and space to sequence presses (e.g. "Backspace Backspace Delete").
+  Common names like "Return", "Tab", "Escape", "BackSpace" are supported.
+
+  - `Text string`
+
+    The key, chord, or space-separated sequence to press.
+
+  - `Repeat int64 Optional`
+
+    Number of times to repeat. Default 1.
+
+    minimum: 1, maximum: 100
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Key Tool Use Block
+
+- `type BetaBrowserKeyToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserKeyInput`
+
+    Press a key or key chord. Use "+" to combine modifiers with a key (e.g. "ctrl+a",
+    "cmd+shift+p") and space to sequence presses (e.g. "Backspace Backspace Delete").
+    Common names like "Return", "Tab", "Escape", "BackSpace" are supported.
+
+    - `Text string`
+
+      The key, chord, or space-separated sequence to press.
+
+    - `Repeat int64 Optional`
+
+      Number of times to repeat. Default 1.
+
+      minimum: 1, maximum: 100
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Key`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Browser Left Click Config
 
@@ -12946,6 +13968,256 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Left Click Drag Input
+
+- `type BetaBrowserLeftClickDragInput`
+
+  Press at `from`, drag to `target`, release. Both must be coordinate targets.
+
+  - `From BetaBrowserCoordinateTarget`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+    - `Type Coordinate`
+
+    - `X int64`
+
+      Pixels from the left edge of the viewport.
+
+      minimum: 0
+
+    - `Y int64`
+
+      Pixels from the top edge of the viewport.
+
+      minimum: 0
+
+  - `Target BetaBrowserCoordinateTarget`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Left Click Drag Tool Use Block
+
+- `type BetaBrowserLeftClickDragToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserLeftClickDragInput`
+
+    Press at `from`, drag to `target`, release. Both must be coordinate targets.
+
+    - `From BetaBrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `Target BetaBrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name LeftClickDrag`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Browser Left Click Input
+
+- `type BetaBrowserLeftClickInput`
+
+  Left-click at a viewport coordinate or on an element by reference.
+
+  - `Target BetaBrowserClickTargetUnion`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+    - `type BetaBrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `type BetaBrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `Modifiers string Optional`
+
+    Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Left Click Tool Use Block
+
+- `type BetaBrowserLeftClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserLeftClickInput`
+
+    Left-click at a viewport coordinate or on an element by reference.
+
+    - `Target BetaBrowserClickTargetUnion`
+
+      Where to act: either a viewport coordinate or an element reference.
+
+      - `type BetaBrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+        - `Type Coordinate`
+
+        - `X int64`
+
+          Pixels from the left edge of the viewport.
+
+          minimum: 0
+
+        - `Y int64`
+
+          Pixels from the top edge of the viewport.
+
+          minimum: 0
+
+      - `type BetaBrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+        - `Type Ref`
+
+        - `Ref string`
+
+          An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `Modifiers string Optional`
+
+      Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name LeftClick`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Browser Left Mouse Down Config
 
 - `type BetaBrowserLeftMouseDownConfig`
@@ -12959,6 +14231,108 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Left Mouse Down Input
+
+- `type BetaBrowserLeftMouseDownInput`
+
+  Press and hold the left mouse button at a viewport coordinate. Pair with
+  left_mouse_up to perform a custom drag.
+
+  - `Target BetaBrowserCoordinateTarget`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+    - `Type Coordinate`
+
+    - `X int64`
+
+      Pixels from the left edge of the viewport.
+
+      minimum: 0
+
+    - `Y int64`
+
+      Pixels from the top edge of the viewport.
+
+      minimum: 0
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Left Mouse Down Tool Use Block
+
+- `type BetaBrowserLeftMouseDownToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserLeftMouseDownInput`
+
+    Press and hold the left mouse button at a viewport coordinate. Pair with
+    left_mouse_up to perform a custom drag.
+
+    - `Target BetaBrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name LeftMouseDown`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Browser Left Mouse Up Config
 
@@ -12974,6 +14348,106 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Left Mouse Up Input
+
+- `type BetaBrowserLeftMouseUpInput`
+
+  Release the left mouse button at a viewport coordinate.
+
+  - `Target BetaBrowserCoordinateTarget`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+    - `Type Coordinate`
+
+    - `X int64`
+
+      Pixels from the left edge of the viewport.
+
+      minimum: 0
+
+    - `Y int64`
+
+      Pixels from the top edge of the viewport.
+
+      minimum: 0
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Left Mouse Up Tool Use Block
+
+- `type BetaBrowserLeftMouseUpToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserLeftMouseUpInput`
+
+    Release the left mouse button at a viewport coordinate.
+
+    - `Target BetaBrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name LeftMouseUp`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Browser List Tabs Config
 
 - `type BetaBrowserListTabsConfig`
@@ -12987,6 +14461,60 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser List Tabs Input
+
+- `type BetaBrowserListTabsInput struct{…}`
+
+  List all open tabs with each tab's tab_id, title, and URL.
+
+### Beta Browser List Tabs Tool Use Block
+
+- `type BetaBrowserListTabsToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserListTabsInput`
+
+    List all open tabs with each tab's tab_id, title, and URL.
+
+  - `Name ListTabs`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Browser Middle Click Config
 
@@ -13002,6 +14530,146 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Middle Click Input
+
+- `type BetaBrowserMiddleClickInput`
+
+  Middle-click at a viewport coordinate or on an element by reference.
+
+  - `Target BetaBrowserClickTargetUnion`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+    - `type BetaBrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `type BetaBrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `Modifiers string Optional`
+
+    Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Middle Click Tool Use Block
+
+- `type BetaBrowserMiddleClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserMiddleClickInput`
+
+    Middle-click at a viewport coordinate or on an element by reference.
+
+    - `Target BetaBrowserClickTargetUnion`
+
+      Where to act: either a viewport coordinate or an element reference.
+
+      - `type BetaBrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+        - `Type Coordinate`
+
+        - `X int64`
+
+          Pixels from the left edge of the viewport.
+
+          minimum: 0
+
+        - `Y int64`
+
+          Pixels from the top edge of the viewport.
+
+          minimum: 0
+
+      - `type BetaBrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+        - `Type Ref`
+
+        - `Ref string`
+
+          An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `Modifiers string Optional`
+
+      Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name MiddleClick`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Browser Mouse Move Config
 
 - `type BetaBrowserMouseMoveConfig`
@@ -13015,6 +14683,106 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Mouse Move Input
+
+- `type BetaBrowserMouseMoveInput`
+
+  Move the pointer to a viewport coordinate without clicking.
+
+  - `Target BetaBrowserCoordinateTarget`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+    - `Type Coordinate`
+
+    - `X int64`
+
+      Pixels from the left edge of the viewport.
+
+      minimum: 0
+
+    - `Y int64`
+
+      Pixels from the top edge of the viewport.
+
+      minimum: 0
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Mouse Move Tool Use Block
+
+- `type BetaBrowserMouseMoveToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserMouseMoveInput`
+
+    Move the pointer to a viewport coordinate without clicking.
+
+    - `Target BetaBrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name MouseMove`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Browser Navigate Config
 
@@ -13030,6 +14798,78 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Navigate Input
+
+- `type BetaBrowserNavigateInput`
+
+  Navigate to a URL, or go back/forward/reload in history. The protocol may be
+  omitted (defaults to https://).
+
+  - `URL string`
+
+    The URL to navigate to, or "back" / "forward" / "reload" for history navigation.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Navigate Tool Use Block
+
+- `type BetaBrowserNavigateToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserNavigateInput`
+
+    Navigate to a URL, or go back/forward/reload in history. The protocol may be
+    omitted (defaults to https://).
+
+    - `URL string`
+
+      The URL to navigate to, or "back" / "forward" / "reload" for history navigation.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Navigate`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Browser New Tab Config
 
 - `type BetaBrowserNewTabConfig`
@@ -13043,6 +14883,60 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser New Tab Input
+
+- `type BetaBrowserNewTabInput struct{…}`
+
+  Open a new empty tab and return its tab_id.
+
+### Beta Browser New Tab Tool Use Block
+
+- `type BetaBrowserNewTabToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserNewTabInput`
+
+    Open a new empty tab and return its tab_id.
+
+  - `Name NewTab`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Browser Read Console Config
 
@@ -13058,6 +14952,72 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Read Console Input
+
+- `type BetaBrowserReadConsoleInput`
+
+  Return console output (log entries, errors, warnings) accumulated since the
+  driver attached to the tab and since the last read, one line per entry. An empty
+  result does not mean no traffic for a tab that predates attach.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Read Console Tool Use Block
+
+- `type BetaBrowserReadConsoleToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserReadConsoleInput`
+
+    Return console output (log entries, errors, warnings) accumulated since the
+    driver attached to the tab and since the last read, one line per entry. An empty
+    result does not mean no traffic for a tab that predates attach.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name ReadConsole`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Browser Read Network Config
 
 - `type BetaBrowserReadNetworkConfig`
@@ -13071,6 +15031,72 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Read Network Input
+
+- `type BetaBrowserReadNetworkInput`
+
+  Return the network requests (method, URL, status, MIME type, timing) recorded
+  since the driver attached to the tab and since the last read, one line per entry.
+  An empty result does not mean no traffic for a tab that predates attach.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Read Network Tool Use Block
+
+- `type BetaBrowserReadNetworkToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserReadNetworkInput`
+
+    Return the network requests (method, URL, status, MIME type, timing) recorded
+    since the driver attached to the tab and since the last read, one line per entry.
+    An empty result does not mean no traffic for a tab that predates attach.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name ReadNetwork`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Browser Read Page Config
 
@@ -13086,6 +15112,132 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Read Page Filter
+
+- `type BetaBrowserReadPageFilter string`
+
+  - `const BetaBrowserReadPageFilterAll BetaBrowserReadPageFilter = "all"`
+
+  - `const BetaBrowserReadPageFilterInteractive BetaBrowserReadPageFilter = "interactive"`
+
+### Beta Browser Read Page Input
+
+- `type BetaBrowserReadPageInput`
+
+  Return a structured accessibility tree of the page (or the subtree rooted at
+  `ref`), with element references like [ref_7] that can be used as targets on later
+  actions. Output is capped at 50,000 characters — narrow with `ref` or a smaller
+  `depth` when exceeded.
+
+  - `Depth int64 Optional`
+
+    Maximum tree depth. Default 15.
+
+    minimum: 1
+
+  - `Filter BetaBrowserReadPageFilter Optional`
+
+    Which elements to include. Omitted: every visible element. "interactive": interactive elements only. "all": additionally includes off-viewport elements.
+
+    - `const BetaBrowserReadPageFilterAll BetaBrowserReadPageFilter = "all"`
+
+    - `const BetaBrowserReadPageFilterInteractive BetaBrowserReadPageFilter = "interactive"`
+
+  - `Ref string Optional`
+
+    Element reference to read a subtree from. Omit to read from the page root.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Read Page Tool Use Block
+
+- `type BetaBrowserReadPageToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserReadPageInput`
+
+    Return a structured accessibility tree of the page (or the subtree rooted at
+    `ref`), with element references like [ref_7] that can be used as targets on later
+    actions. Output is capped at 50,000 characters — narrow with `ref` or a smaller
+    `depth` when exceeded.
+
+    - `Depth int64 Optional`
+
+      Maximum tree depth. Default 15.
+
+      minimum: 1
+
+    - `Filter BetaBrowserReadPageFilter Optional`
+
+      Which elements to include. Omitted: every visible element. "interactive": interactive elements only. "all": additionally includes off-viewport elements.
+
+      - `const BetaBrowserReadPageFilterAll BetaBrowserReadPageFilter = "all"`
+
+      - `const BetaBrowserReadPageFilterInteractive BetaBrowserReadPageFilter = "interactive"`
+
+    - `Ref string Optional`
+
+      Element reference to read a subtree from. Omit to read from the page root.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name ReadPage`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Browser Ref Target
+
+- `type BetaBrowserRefTarget`
+
+  An element on the page, identified by a reference from a prior `read_page` or
+  `find` result. References are scoped to the tab that produced them and become
+  stale after navigation or a major re-render.
+
+  - `Type Ref`
+
+  - `Ref string`
+
+    An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
 ### Beta Browser Right Click Config
 
 - `type BetaBrowserRightClickConfig`
@@ -13099,6 +15251,146 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Right Click Input
+
+- `type BetaBrowserRightClickInput`
+
+  Right-click at a viewport coordinate or on an element by reference.
+
+  - `Target BetaBrowserClickTargetUnion`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+    - `type BetaBrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `type BetaBrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `Modifiers string Optional`
+
+    Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Right Click Tool Use Block
+
+- `type BetaBrowserRightClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserRightClickInput`
+
+    Right-click at a viewport coordinate or on an element by reference.
+
+    - `Target BetaBrowserClickTargetUnion`
+
+      Where to act: either a viewport coordinate or an element reference.
+
+      - `type BetaBrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+        - `Type Coordinate`
+
+        - `X int64`
+
+          Pixels from the left edge of the viewport.
+
+          minimum: 0
+
+        - `Y int64`
+
+          Pixels from the top edge of the viewport.
+
+          minimum: 0
+
+      - `type BetaBrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+        - `Type Ref`
+
+        - `Ref string`
+
+          An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `Modifiers string Optional`
+
+      Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name RightClick`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Browser Screenshot Config
 
@@ -13114,6 +15406,68 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Screenshot Input
+
+- `type BetaBrowserScreenshotInput`
+
+  Capture the current browser viewport.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Screenshot Tool Use Block
+
+- `type BetaBrowserScreenshotToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserScreenshotInput`
+
+    Capture the current browser viewport.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Screenshot`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Browser Scroll Config
 
 - `type BetaBrowserScrollConfig`
@@ -13128,6 +15482,63 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Scroll Direction
+
+- `type BetaBrowserScrollDirection string`
+
+  - `const BetaBrowserScrollDirectionUp BetaBrowserScrollDirection = "up"`
+
+  - `const BetaBrowserScrollDirectionDown BetaBrowserScrollDirection = "down"`
+
+  - `const BetaBrowserScrollDirectionLeft BetaBrowserScrollDirection = "left"`
+
+  - `const BetaBrowserScrollDirectionRight BetaBrowserScrollDirection = "right"`
+
+### Beta Browser Scroll Input
+
+- `type BetaBrowserScrollInput`
+
+  Scroll at a viewport position. `target` must be a coordinate target.
+
+  - `ScrollDirection BetaBrowserScrollDirection`
+
+    - `const BetaBrowserScrollDirectionUp BetaBrowserScrollDirection = "up"`
+
+    - `const BetaBrowserScrollDirectionDown BetaBrowserScrollDirection = "down"`
+
+    - `const BetaBrowserScrollDirectionLeft BetaBrowserScrollDirection = "left"`
+
+    - `const BetaBrowserScrollDirectionRight BetaBrowserScrollDirection = "right"`
+
+  - `Target BetaBrowserCoordinateTarget`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+    - `Type Coordinate`
+
+    - `X int64`
+
+      Pixels from the left edge of the viewport.
+
+      minimum: 0
+
+    - `Y int64`
+
+      Pixels from the top edge of the viewport.
+
+      minimum: 0
+
+  - `ScrollAmount int64 Optional`
+
+    Scroll-wheel notches (1–10). Default 3.
+
+    minimum: 1, maximum: 10
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
 ### Beta Browser Scroll To Config
 
 - `type BetaBrowserScrollToConfig`
@@ -13141,6 +15552,179 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Scroll To Input
+
+- `type BetaBrowserScrollToInput`
+
+  Scroll an element into view.
+
+  - `Target BetaBrowserRefTarget`
+
+    An element on the page, identified by a reference from a prior `read_page` or
+    `find` result. References are scoped to the tab that produced them and become
+    stale after navigation or a major re-render.
+
+    - `Type Ref`
+
+    - `Ref string`
+
+      An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Scroll To Tool Use Block
+
+- `type BetaBrowserScrollToToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserScrollToInput`
+
+    Scroll an element into view.
+
+    - `Target BetaBrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name ScrollTo`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Browser Scroll Tool Use Block
+
+- `type BetaBrowserScrollToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserScrollInput`
+
+    Scroll at a viewport position. `target` must be a coordinate target.
+
+    - `ScrollDirection BetaBrowserScrollDirection`
+
+      - `const BetaBrowserScrollDirectionUp BetaBrowserScrollDirection = "up"`
+
+      - `const BetaBrowserScrollDirectionDown BetaBrowserScrollDirection = "down"`
+
+      - `const BetaBrowserScrollDirectionLeft BetaBrowserScrollDirection = "left"`
+
+      - `const BetaBrowserScrollDirectionRight BetaBrowserScrollDirection = "right"`
+
+    - `Target BetaBrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `ScrollAmount int64 Optional`
+
+      Scroll-wheel notches (1–10). Default 3.
+
+      minimum: 1, maximum: 10
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Scroll`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Browser State Block Param
 
@@ -13550,6 +16134,1145 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Switch Tab Input
+
+- `type BetaBrowserSwitchTabInput`
+
+  Make the tab with the given tab_id the active tab — the tab that actions without
+  a tab_id apply to.
+
+  - `TabID string`
+
+    The tab to switch to.
+
+### Beta Browser Switch Tab Tool Use Block
+
+- `type BetaBrowserSwitchTabToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserSwitchTabInput`
+
+    Make the tab with the given tab_id the active tab — the tab that actions without
+    a tab_id apply to.
+
+    - `TabID string`
+
+      The tab to switch to.
+
+  - `Name SwitchTab`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Browser Tool Use Block
+
+- `type BetaBrowserToolUseBlockUnion interface{…}`
+
+  - `type BetaBrowserNavigateToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserNavigateInput`
+
+      Navigate to a URL, or go back/forward/reload in history. The protocol may be
+      omitted (defaults to https://).
+
+      - `URL string`
+
+        The URL to navigate to, or "back" / "forward" / "reload" for history navigation.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Navigate`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `type BetaDirectCaller`
+
+        Tool invocation directly from the model.
+
+        - `Type Direct`
+
+      - `type BetaServerToolCaller`
+
+        Tool invocation generated by a server-side tool.
+
+        - `Type CodeExecution20250825`
+
+        - `ToolID string`
+
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `type BetaServerToolCaller20260120`
+
+        - `Type CodeExecution20260120`
+
+        - `ToolID string`
+
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `type BetaBrowserListTabsToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserListTabsInput`
+
+      List all open tabs with each tab's tab_id, title, and URL.
+
+    - `Name ListTabs`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserNewTabToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserNewTabInput`
+
+      Open a new empty tab and return its tab_id.
+
+    - `Name NewTab`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserSwitchTabToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserSwitchTabInput`
+
+      Make the tab with the given tab_id the active tab — the tab that actions without
+      a tab_id apply to.
+
+      - `TabID string`
+
+        The tab to switch to.
+
+    - `Name SwitchTab`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserCloseTabToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserCloseTabInput`
+
+      Close the tab with the given tab_id.
+
+      - `TabID string`
+
+        The tab to close.
+
+    - `Name CloseTab`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserReadPageToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserReadPageInput`
+
+      Return a structured accessibility tree of the page (or the subtree rooted at
+      `ref`), with element references like [ref_7] that can be used as targets on later
+      actions. Output is capped at 50,000 characters — narrow with `ref` or a smaller
+      `depth` when exceeded.
+
+      - `Depth int64 Optional`
+
+        Maximum tree depth. Default 15.
+
+        minimum: 1
+
+      - `Filter BetaBrowserReadPageFilter Optional`
+
+        Which elements to include. Omitted: every visible element. "interactive": interactive elements only. "all": additionally includes off-viewport elements.
+
+        - `const BetaBrowserReadPageFilterAll BetaBrowserReadPageFilter = "all"`
+
+        - `const BetaBrowserReadPageFilterInteractive BetaBrowserReadPageFilter = "interactive"`
+
+      - `Ref string Optional`
+
+        Element reference to read a subtree from. Omit to read from the page root.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name ReadPage`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserGetPageTextToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserGetPageTextInput`
+
+      Return the page's visible text content as plain text, prioritizing article
+      content. Suited to articles, documentation, and other text-heavy pages.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name GetPageText`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserReadConsoleToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserReadConsoleInput`
+
+      Return console output (log entries, errors, warnings) accumulated since the
+      driver attached to the tab and since the last read, one line per entry. An empty
+      result does not mean no traffic for a tab that predates attach.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name ReadConsole`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserReadNetworkToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserReadNetworkInput`
+
+      Return the network requests (method, URL, status, MIME type, timing) recorded
+      since the driver attached to the tab and since the last read, one line per entry.
+      An empty result does not mean no traffic for a tab that predates attach.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name ReadNetwork`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserFindToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserFindInput`
+
+      Find elements matching a natural-language description (e.g. "search bar", "add to
+      cart button") and return up to 20 matches with element references.
+
+      - `Query string`
+
+        Natural-language description of the element(s) to find.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Find`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserFormInputToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserFormInputInput`
+
+      Set the value of a form element (input, textarea, select, checkbox). Use a
+      boolean for checkboxes, an option value or text for selects.
+
+      - `Target BetaBrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+        - `Type Ref`
+
+        - `Ref string`
+
+          An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+      - `Value BetaBrowserFormInputValueUnion`
+
+        The value to set.
+
+        - `string`
+
+        - `float64`
+
+        - `bool`
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name FormInput`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserFileUploadToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserFileUploadInput`
+
+      Set the value of a file-input element to one or more files. The target must be an
+      element reference; at least one of paths or document_ids is required.
+
+      - `Target BetaBrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+      - `DocumentIDs []string Optional`
+
+        References to files the harness has staged, for deployments where the browser executor cannot read the caller's filesystem.
+
+        minItems: 1
+
+      - `Paths []string Optional`
+
+        File paths on the browser executor's filesystem.
+
+        minItems: 1
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name FileUpload`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserScrollToToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserScrollToInput`
+
+      Scroll an element into view.
+
+      - `Target BetaBrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name ScrollTo`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserScreenshotToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserScreenshotInput`
+
+      Capture the current browser viewport.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Screenshot`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserZoomToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserZoomInput`
+
+      Return a cropped screenshot of the given viewport region, scaled up for closer
+      inspection — useful for small icons, buttons, or text. Coordinates are in the
+      same viewport-pixel space as a full screenshot.
+
+      - `Region []int64`
+
+        [x0, y0, x1, y1] in viewport pixels.
+
+        minItems: 4, maxItems: 4
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Zoom`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserLeftClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserLeftClickInput`
+
+      Left-click at a viewport coordinate or on an element by reference.
+
+      - `Target BetaBrowserClickTargetUnion`
+
+        Where to act: either a viewport coordinate or an element reference.
+
+        - `type BetaBrowserCoordinateTarget`
+
+          A point in the browser viewport, in viewport pixels (the same frame as a
+          full-viewport screenshot).
+
+          - `Type Coordinate`
+
+          - `X int64`
+
+            Pixels from the left edge of the viewport.
+
+            minimum: 0
+
+          - `Y int64`
+
+            Pixels from the top edge of the viewport.
+
+            minimum: 0
+
+        - `type BetaBrowserRefTarget`
+
+          An element on the page, identified by a reference from a prior `read_page` or
+          `find` result. References are scoped to the tab that produced them and become
+          stale after navigation or a major re-render.
+
+      - `Modifiers string Optional`
+
+        Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name LeftClick`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserRightClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserRightClickInput`
+
+      Right-click at a viewport coordinate or on an element by reference.
+
+      - `Target BetaBrowserClickTargetUnion`
+
+        Where to act: either a viewport coordinate or an element reference.
+
+      - `Modifiers string Optional`
+
+        Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name RightClick`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserMiddleClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserMiddleClickInput`
+
+      Middle-click at a viewport coordinate or on an element by reference.
+
+      - `Target BetaBrowserClickTargetUnion`
+
+        Where to act: either a viewport coordinate or an element reference.
+
+      - `Modifiers string Optional`
+
+        Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name MiddleClick`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserDoubleClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserDoubleClickInput`
+
+      Double left-click at a viewport coordinate or on an element by reference.
+
+      - `Target BetaBrowserClickTargetUnion`
+
+        Where to act: either a viewport coordinate or an element reference.
+
+      - `Modifiers string Optional`
+
+        Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name DoubleClick`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserTripleClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserTripleClickInput`
+
+      Triple left-click at a viewport coordinate or on an element by reference
+      (typically selects a line or paragraph).
+
+      - `Target BetaBrowserClickTargetUnion`
+
+        Where to act: either a viewport coordinate or an element reference.
+
+      - `Modifiers string Optional`
+
+        Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name TripleClick`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserHoverToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserHoverInput`
+
+      Move the cursor to a coordinate or element without clicking.
+
+      - `Target BetaBrowserClickTargetUnion`
+
+        Where to act: either a viewport coordinate or an element reference.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Hover`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserLeftClickDragToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserLeftClickDragInput`
+
+      Press at `from`, drag to `target`, release. Both must be coordinate targets.
+
+      - `From BetaBrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+      - `Target BetaBrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name LeftClickDrag`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserLeftMouseDownToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserLeftMouseDownInput`
+
+      Press and hold the left mouse button at a viewport coordinate. Pair with
+      left_mouse_up to perform a custom drag.
+
+      - `Target BetaBrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name LeftMouseDown`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserLeftMouseUpToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserLeftMouseUpInput`
+
+      Release the left mouse button at a viewport coordinate.
+
+      - `Target BetaBrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name LeftMouseUp`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserMouseMoveToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserMouseMoveInput`
+
+      Move the pointer to a viewport coordinate without clicking.
+
+      - `Target BetaBrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name MouseMove`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserScrollToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserScrollInput`
+
+      Scroll at a viewport position. `target` must be a coordinate target.
+
+      - `ScrollDirection BetaBrowserScrollDirection`
+
+        - `const BetaBrowserScrollDirectionUp BetaBrowserScrollDirection = "up"`
+
+        - `const BetaBrowserScrollDirectionDown BetaBrowserScrollDirection = "down"`
+
+        - `const BetaBrowserScrollDirectionLeft BetaBrowserScrollDirection = "left"`
+
+        - `const BetaBrowserScrollDirectionRight BetaBrowserScrollDirection = "right"`
+
+      - `Target BetaBrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+      - `ScrollAmount int64 Optional`
+
+        Scroll-wheel notches (1–10). Default 3.
+
+        minimum: 1, maximum: 10
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Scroll`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserTypeToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserTypeInput`
+
+      Type a literal string at the current focus.
+
+      - `Text string`
+
+        The text to type.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Type`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserKeyToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserKeyInput`
+
+      Press a key or key chord. Use "+" to combine modifiers with a key (e.g. "ctrl+a",
+      "cmd+shift+p") and space to sequence presses (e.g. "Backspace Backspace Delete").
+      Common names like "Return", "Tab", "Escape", "BackSpace" are supported.
+
+      - `Text string`
+
+        The key, chord, or space-separated sequence to press.
+
+      - `Repeat int64 Optional`
+
+        Number of times to repeat. Default 1.
+
+        minimum: 1, maximum: 100
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Key`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserHoldKeyToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserHoldKeyInput`
+
+      Hold a key or key chord down for a duration, then release it. Uses the same key
+      names and "+" chord syntax as the key action.
+
+      - `Duration float64`
+
+        Seconds to hold the key down (maximum 30).
+
+        minimum: 0, maximum: 30
+
+      - `Text string`
+
+        The key or chord to hold.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name HoldKey`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserWaitToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserWaitInput`
+
+      Pause for the given duration.
+
+      - `Duration float64`
+
+        Seconds to wait (maximum 30).
+
+        minimum: 0, maximum: 30
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Wait`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaBrowserJavascriptExecToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaBrowserJavascriptExecInput`
+
+      Execute JavaScript in the page context and return the value of the last
+      expression. The code runs with access to the DOM, `window`, and page variables.
+      Write the expression you want evaluated — do NOT use `return`.
+
+      - `Text string`
+
+        JavaScript to execute in the page context.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name JavascriptExec`
+
+    - `ToolsetName Browser`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Browser Toolset 20260801
 
@@ -14356,6 +18079,148 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Triple Click Input
+
+- `type BetaBrowserTripleClickInput`
+
+  Triple left-click at a viewport coordinate or on an element by reference
+  (typically selects a line or paragraph).
+
+  - `Target BetaBrowserClickTargetUnion`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+    - `type BetaBrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `type BetaBrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `Modifiers string Optional`
+
+    Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Triple Click Tool Use Block
+
+- `type BetaBrowserTripleClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserTripleClickInput`
+
+    Triple left-click at a viewport coordinate or on an element by reference
+    (typically selects a line or paragraph).
+
+    - `Target BetaBrowserClickTargetUnion`
+
+      Where to act: either a viewport coordinate or an element reference.
+
+      - `type BetaBrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+        - `Type Coordinate`
+
+        - `X int64`
+
+          Pixels from the left edge of the viewport.
+
+          minimum: 0
+
+        - `Y int64`
+
+          Pixels from the top edge of the viewport.
+
+          minimum: 0
+
+      - `type BetaBrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+        - `Type Ref`
+
+        - `Ref string`
+
+          An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `Modifiers string Optional`
+
+      Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name TripleClick`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Browser Type Config
 
 - `type BetaBrowserTypeConfig`
@@ -14369,6 +18234,76 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Type Input
+
+- `type BetaBrowserTypeInput`
+
+  Type a literal string at the current focus.
+
+  - `Text string`
+
+    The text to type.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Type Tool Use Block
+
+- `type BetaBrowserTypeToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserTypeInput`
+
+    Type a literal string at the current focus.
+
+    - `Text string`
+
+      The text to type.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Type`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Browser Wait Config
 
@@ -14384,6 +18319,80 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Browser Wait Input
+
+- `type BetaBrowserWaitInput`
+
+  Pause for the given duration.
+
+  - `Duration float64`
+
+    Seconds to wait (maximum 30).
+
+    minimum: 0, maximum: 30
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Wait Tool Use Block
+
+- `type BetaBrowserWaitToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserWaitInput`
+
+    Pause for the given duration.
+
+    - `Duration float64`
+
+      Seconds to wait (maximum 30).
+
+      minimum: 0, maximum: 30
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Wait`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Browser Zoom Config
 
 - `type BetaBrowserZoomConfig`
@@ -14397,6 +18406,84 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Browser Zoom Input
+
+- `type BetaBrowserZoomInput`
+
+  Return a cropped screenshot of the given viewport region, scaled up for closer
+  inspection — useful for small icons, buttons, or text. Coordinates are in the
+  same viewport-pixel space as a full screenshot.
+
+  - `Region []int64`
+
+    [x0, y0, x1, y1] in viewport pixels.
+
+    minItems: 4, maxItems: 4
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Beta Browser Zoom Tool Use Block
+
+- `type BetaBrowserZoomToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaBrowserZoomInput`
+
+    Return a cropped screenshot of the given viewport region, scaled up for closer
+    inspection — useful for small icons, buttons, or text. Coordinates are in the
+    same viewport-pixel space as a full screenshot.
+
+    - `Region []int64`
+
+      [x0, y0, x1, y1] in viewport pixels.
+
+      minItems: 4, maxItems: 4
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Zoom`
+
+  - `ToolsetName Browser`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Cache Control Ephemeral
 
@@ -17562,6 +21649,10 @@ func main() {
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+                  Fastest model for high-volume, real-time tasks
+
                 - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
                   Efficient model for coding and agents
@@ -19700,6 +23791,10 @@ func main() {
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+                  Fastest model for high-volume, real-time tasks
+
                 - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
                   Efficient model for coding and agents
@@ -20089,6 +24184,60 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Cursor Position Input
+
+- `type BetaComputerCursorPositionInput struct{…}`
+
+  Get the current (x, y) pixel coordinate of the cursor.
+
+### Beta Computer Cursor Position Tool Use Block
+
+- `type BetaComputerCursorPositionToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerCursorPositionInput`
+
+    Get the current (x, y) pixel coordinate of the cursor.
+
+  - `Name CursorPosition`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Computer Double Click Config
 
 - `type BetaComputerDoubleClickConfig`
@@ -20102,6 +24251,82 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Double Click Input
+
+- `type BetaComputerDoubleClickInput`
+
+  Double-click the left mouse button at the specified (x, y) pixel coordinate, or
+  the current cursor position if `coordinate` is omitted.
+
+  - `Coordinate []int64 Optional`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `Text string Optional`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Beta Computer Double Click Tool Use Block
+
+- `type BetaComputerDoubleClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerDoubleClickInput`
+
+    Double-click the left mouse button at the specified (x, y) pixel coordinate, or
+    the current cursor position if `coordinate` is omitted.
+
+    - `Coordinate []int64 Optional`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `Text string Optional`
+
+      Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+  - `Name DoubleClick`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Computer Hold Key Config
 
@@ -20117,6 +24342,82 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Hold Key Input
+
+- `type BetaComputerHoldKeyInput`
+
+  Hold down a key or key-combination for a specified duration. Uses the same key
+  syntax as `key`.
+
+  - `Duration int64`
+
+    Duration to hold the key, in seconds.
+
+    maximum: 300
+
+  - `Text string`
+
+    The key or key-combination to hold.
+
+### Beta Computer Hold Key Tool Use Block
+
+- `type BetaComputerHoldKeyToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerHoldKeyInput`
+
+    Hold down a key or key-combination for a specified duration. Uses the same key
+    syntax as `key`.
+
+    - `Duration int64`
+
+      Duration to hold the key, in seconds.
+
+      maximum: 300
+
+    - `Text string`
+
+      The key or key-combination to hold.
+
+  - `Name HoldKey`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Computer Key Config
 
 - `type BetaComputerKeyConfig`
@@ -20130,6 +24431,88 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Key Input
+
+- `type BetaComputerKeyInput`
+
+  Press a key or key-combination on the keyboard. Use "+" to combine modifiers with
+  a key (e.g. "ctrl+s", "alt+Tab", "ctrl+shift+Escape"). Key names are
+  case-insensitive; common names like "Return", "Tab", "Escape", "Up", "Down",
+  "Left", "Right", "Home", "End", "Page_Up", "Page_Down", "Delete", "BackSpace" are
+  supported.
+
+  - `Text string`
+
+    The key or key-combination to press.
+
+  - `Repeat int64 Optional`
+
+    Number of times to repeat the key press. Default is 1.
+
+    minimum: 1, maximum: 100
+
+### Beta Computer Key Tool Use Block
+
+- `type BetaComputerKeyToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerKeyInput`
+
+    Press a key or key-combination on the keyboard. Use "+" to combine modifiers with
+    a key (e.g. "ctrl+s", "alt+Tab", "ctrl+shift+Escape"). Key names are
+    case-insensitive; common names like "Return", "Tab", "Escape", "Up", "Down",
+    "Left", "Right", "Home", "End", "Page_Up", "Page_Down", "Delete", "BackSpace" are
+    supported.
+
+    - `Text string`
+
+      The key or key-combination to press.
+
+    - `Repeat int64 Optional`
+
+      Number of times to repeat the key press. Default is 1.
+
+      minimum: 1, maximum: 100
+
+  - `Name Key`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Computer Left Click Config
 
@@ -20159,6 +24542,168 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Left Click Drag Input
+
+- `type BetaComputerLeftClickDragInput`
+
+  Click and drag the cursor from `start_coordinate` to `coordinate`.
+
+  - `Coordinate []int64`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `StartCoordinate []int64`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `Text string Optional`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Beta Computer Left Click Drag Tool Use Block
+
+- `type BetaComputerLeftClickDragToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerLeftClickDragInput`
+
+    Click and drag the cursor from `start_coordinate` to `coordinate`.
+
+    - `Coordinate []int64`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `StartCoordinate []int64`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `Text string Optional`
+
+      Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+  - `Name LeftClickDrag`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Computer Left Click Input
+
+- `type BetaComputerLeftClickInput`
+
+  Click the left mouse button at the specified (x, y) pixel coordinate, or the
+  current cursor position if `coordinate` is omitted.
+
+  - `Coordinate []int64 Optional`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `Text string Optional`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Beta Computer Left Click Tool Use Block
+
+- `type BetaComputerLeftClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerLeftClickInput`
+
+    Click the left mouse button at the specified (x, y) pixel coordinate, or the
+    current cursor position if `coordinate` is omitted.
+
+    - `Coordinate []int64 Optional`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `Text string Optional`
+
+      Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+  - `Name LeftClick`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Computer Left Mouse Down Config
 
 - `type BetaComputerLeftMouseDownConfig`
@@ -20172,6 +24717,60 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Left Mouse Down Input
+
+- `type BetaComputerLeftMouseDownInput struct{…}`
+
+  Press and hold the left mouse button at the current cursor position.
+
+### Beta Computer Left Mouse Down Tool Use Block
+
+- `type BetaComputerLeftMouseDownToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerLeftMouseDownInput`
+
+    Press and hold the left mouse button at the current cursor position.
+
+  - `Name LeftMouseDown`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Computer Left Mouse Up Config
 
@@ -20187,6 +24786,60 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Left Mouse Up Input
+
+- `type BetaComputerLeftMouseUpInput struct{…}`
+
+  Release the left mouse button.
+
+### Beta Computer Left Mouse Up Tool Use Block
+
+- `type BetaComputerLeftMouseUpToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerLeftMouseUpInput`
+
+    Release the left mouse button.
+
+  - `Name LeftMouseUp`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Computer Middle Click Config
 
 - `type BetaComputerMiddleClickConfig`
@@ -20200,6 +24853,82 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Middle Click Input
+
+- `type BetaComputerMiddleClickInput`
+
+  Click the middle mouse button at the specified (x, y) pixel coordinate, or the
+  current cursor position if `coordinate` is omitted.
+
+  - `Coordinate []int64 Optional`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `Text string Optional`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Beta Computer Middle Click Tool Use Block
+
+- `type BetaComputerMiddleClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerMiddleClickInput`
+
+    Click the middle mouse button at the specified (x, y) pixel coordinate, or the
+    current cursor position if `coordinate` is omitted.
+
+    - `Coordinate []int64 Optional`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `Text string Optional`
+
+      Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+  - `Name MiddleClick`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Computer Mouse Move Config
 
@@ -20215,6 +24944,74 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Mouse Move Input
+
+- `type BetaComputerMouseMoveInput`
+
+  Move the cursor to a specified (x, y) pixel coordinate. Use this ONLY to hover
+  without clicking; otherwise use a click action directly.
+
+  - `Coordinate []int64`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+### Beta Computer Mouse Move Tool Use Block
+
+- `type BetaComputerMouseMoveToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerMouseMoveInput`
+
+    Move the cursor to a specified (x, y) pixel coordinate. Use this ONLY to hover
+    without clicking; otherwise use a click action directly.
+
+    - `Coordinate []int64`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+  - `Name MouseMove`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Computer Right Click Config
 
 - `type BetaComputerRightClickConfig`
@@ -20228,6 +25025,82 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Right Click Input
+
+- `type BetaComputerRightClickInput`
+
+  Click the right mouse button at the specified (x, y) pixel coordinate, or the
+  current cursor position if `coordinate` is omitted.
+
+  - `Coordinate []int64 Optional`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `Text string Optional`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Beta Computer Right Click Tool Use Block
+
+- `type BetaComputerRightClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerRightClickInput`
+
+    Click the right mouse button at the specified (x, y) pixel coordinate, or the
+    current cursor position if `coordinate` is omitted.
+
+    - `Coordinate []int64 Optional`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `Text string Optional`
+
+      Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+  - `Name RightClick`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Computer Screenshot Config
 
@@ -20243,6 +25116,60 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Screenshot Input
+
+- `type BetaComputerScreenshotInput struct{…}`
+
+  Take a screenshot of the screen.
+
+### Beta Computer Screenshot Tool Use Block
+
+- `type BetaComputerScreenshotToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerScreenshotInput`
+
+    Take a screenshot of the screen.
+
+  - `Name Screenshot`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Computer Scroll Config
 
 - `type BetaComputerScrollConfig`
@@ -20256,6 +25183,670 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Scroll Direction
+
+- `type BetaComputerScrollDirection string`
+
+  - `const BetaComputerScrollDirectionUp BetaComputerScrollDirection = "up"`
+
+  - `const BetaComputerScrollDirectionDown BetaComputerScrollDirection = "down"`
+
+  - `const BetaComputerScrollDirectionLeft BetaComputerScrollDirection = "left"`
+
+  - `const BetaComputerScrollDirectionRight BetaComputerScrollDirection = "right"`
+
+### Beta Computer Scroll Input
+
+- `type BetaComputerScrollInput`
+
+  Scroll the screen at the specified (x, y) pixel coordinate, or the current cursor
+  position if `coordinate` is omitted. Do NOT use PageUp/PageDown to scroll.
+
+  - `ScrollAmount int64`
+
+    Number of 'clicks' of the scroll wheel.
+
+  - `ScrollDirection BetaComputerScrollDirection`
+
+    - `const BetaComputerScrollDirectionUp BetaComputerScrollDirection = "up"`
+
+    - `const BetaComputerScrollDirectionDown BetaComputerScrollDirection = "down"`
+
+    - `const BetaComputerScrollDirectionLeft BetaComputerScrollDirection = "left"`
+
+    - `const BetaComputerScrollDirectionRight BetaComputerScrollDirection = "right"`
+
+  - `Coordinate []int64 Optional`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `Text string Optional`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Beta Computer Scroll Tool Use Block
+
+- `type BetaComputerScrollToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerScrollInput`
+
+    Scroll the screen at the specified (x, y) pixel coordinate, or the current cursor
+    position if `coordinate` is omitted. Do NOT use PageUp/PageDown to scroll.
+
+    - `ScrollAmount int64`
+
+      Number of 'clicks' of the scroll wheel.
+
+    - `ScrollDirection BetaComputerScrollDirection`
+
+      - `const BetaComputerScrollDirectionUp BetaComputerScrollDirection = "up"`
+
+      - `const BetaComputerScrollDirectionDown BetaComputerScrollDirection = "down"`
+
+      - `const BetaComputerScrollDirectionLeft BetaComputerScrollDirection = "left"`
+
+      - `const BetaComputerScrollDirectionRight BetaComputerScrollDirection = "right"`
+
+    - `Coordinate []int64 Optional`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `Text string Optional`
+
+      Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+  - `Name Scroll`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Computer Tool Use Block
+
+- `type BetaComputerToolUseBlockUnion interface{…}`
+
+  - `type BetaComputerKeyToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerKeyInput`
+
+      Press a key or key-combination on the keyboard. Use "+" to combine modifiers with
+      a key (e.g. "ctrl+s", "alt+Tab", "ctrl+shift+Escape"). Key names are
+      case-insensitive; common names like "Return", "Tab", "Escape", "Up", "Down",
+      "Left", "Right", "Home", "End", "Page_Up", "Page_Down", "Delete", "BackSpace" are
+      supported.
+
+      - `Text string`
+
+        The key or key-combination to press.
+
+      - `Repeat int64 Optional`
+
+        Number of times to repeat the key press. Default is 1.
+
+        minimum: 1, maximum: 100
+
+    - `Name Key`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `type BetaDirectCaller`
+
+        Tool invocation directly from the model.
+
+        - `Type Direct`
+
+      - `type BetaServerToolCaller`
+
+        Tool invocation generated by a server-side tool.
+
+        - `Type CodeExecution20250825`
+
+        - `ToolID string`
+
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `type BetaServerToolCaller20260120`
+
+        - `Type CodeExecution20260120`
+
+        - `ToolID string`
+
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `type BetaComputerHoldKeyToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerHoldKeyInput`
+
+      Hold down a key or key-combination for a specified duration. Uses the same key
+      syntax as `key`.
+
+      - `Duration int64`
+
+        Duration to hold the key, in seconds.
+
+        maximum: 300
+
+      - `Text string`
+
+        The key or key-combination to hold.
+
+    - `Name HoldKey`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaComputerTypeToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerTypeInput`
+
+      Type a string of text on the keyboard.
+
+      - `Text string`
+
+        The text to type.
+
+    - `Name Type`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaComputerCursorPositionToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerCursorPositionInput`
+
+      Get the current (x, y) pixel coordinate of the cursor.
+
+    - `Name CursorPosition`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaComputerMouseMoveToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerMouseMoveInput`
+
+      Move the cursor to a specified (x, y) pixel coordinate. Use this ONLY to hover
+      without clicking; otherwise use a click action directly.
+
+      - `Coordinate []int64`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+    - `Name MouseMove`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaComputerLeftMouseDownToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerLeftMouseDownInput`
+
+      Press and hold the left mouse button at the current cursor position.
+
+    - `Name LeftMouseDown`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaComputerLeftMouseUpToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerLeftMouseUpInput`
+
+      Release the left mouse button.
+
+    - `Name LeftMouseUp`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaComputerLeftClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerLeftClickInput`
+
+      Click the left mouse button at the specified (x, y) pixel coordinate, or the
+      current cursor position if `coordinate` is omitted.
+
+      - `Coordinate []int64 Optional`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `Text string Optional`
+
+        Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+    - `Name LeftClick`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaComputerLeftClickDragToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerLeftClickDragInput`
+
+      Click and drag the cursor from `start_coordinate` to `coordinate`.
+
+      - `Coordinate []int64`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `StartCoordinate []int64`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `Text string Optional`
+
+        Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+    - `Name LeftClickDrag`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaComputerRightClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerRightClickInput`
+
+      Click the right mouse button at the specified (x, y) pixel coordinate, or the
+      current cursor position if `coordinate` is omitted.
+
+      - `Coordinate []int64 Optional`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `Text string Optional`
+
+        Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+    - `Name RightClick`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaComputerMiddleClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerMiddleClickInput`
+
+      Click the middle mouse button at the specified (x, y) pixel coordinate, or the
+      current cursor position if `coordinate` is omitted.
+
+      - `Coordinate []int64 Optional`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `Text string Optional`
+
+        Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+    - `Name MiddleClick`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaComputerDoubleClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerDoubleClickInput`
+
+      Double-click the left mouse button at the specified (x, y) pixel coordinate, or
+      the current cursor position if `coordinate` is omitted.
+
+      - `Coordinate []int64 Optional`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `Text string Optional`
+
+        Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+    - `Name DoubleClick`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaComputerTripleClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerTripleClickInput`
+
+      Triple-click the left mouse button at the specified (x, y) pixel coordinate, or
+      the current cursor position if `coordinate` is omitted.
+
+      - `Coordinate []int64 Optional`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `Text string Optional`
+
+        Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+    - `Name TripleClick`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaComputerScrollToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerScrollInput`
+
+      Scroll the screen at the specified (x, y) pixel coordinate, or the current cursor
+      position if `coordinate` is omitted. Do NOT use PageUp/PageDown to scroll.
+
+      - `ScrollAmount int64`
+
+        Number of 'clicks' of the scroll wheel.
+
+      - `ScrollDirection BetaComputerScrollDirection`
+
+        - `const BetaComputerScrollDirectionUp BetaComputerScrollDirection = "up"`
+
+        - `const BetaComputerScrollDirectionDown BetaComputerScrollDirection = "down"`
+
+        - `const BetaComputerScrollDirectionLeft BetaComputerScrollDirection = "left"`
+
+        - `const BetaComputerScrollDirectionRight BetaComputerScrollDirection = "right"`
+
+      - `Coordinate []int64 Optional`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `Text string Optional`
+
+        Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+    - `Name Scroll`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaComputerWaitToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerWaitInput`
+
+      Wait for a specified duration.
+
+      - `Duration int64`
+
+        Duration to wait, in seconds.
+
+        maximum: 300
+
+    - `Name Wait`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaComputerScreenshotToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerScreenshotInput`
+
+      Take a screenshot of the screen.
+
+    - `Name Screenshot`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type BetaComputerZoomToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Input BetaComputerZoomInput`
+
+      Take a screenshot of a rectangular region. Region coordinates are in the
+      full-screenshot space (not physical display pixels). The crop is scaled up to
+      fill the image budget so fine details become legible.
+
+      - `Region []int64`
+
+        (x0, y0, x1, y1): The region to capture.
+
+        minItems: 4, maxItems: 4
+
+    - `Name Zoom`
+
+    - `ToolsetName Computer`
+
+    - `Caller BetaToolUseCallerUnion Optional`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
 
 ### Beta Computer Toolset 20260801
 
@@ -20730,6 +26321,82 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Triple Click Input
+
+- `type BetaComputerTripleClickInput`
+
+  Triple-click the left mouse button at the specified (x, y) pixel coordinate, or
+  the current cursor position if `coordinate` is omitted.
+
+  - `Coordinate []int64 Optional`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `Text string Optional`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Beta Computer Triple Click Tool Use Block
+
+- `type BetaComputerTripleClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerTripleClickInput`
+
+    Triple-click the left mouse button at the specified (x, y) pixel coordinate, or
+    the current cursor position if `coordinate` is omitted.
+
+    - `Coordinate []int64 Optional`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `Text string Optional`
+
+      Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+  - `Name TripleClick`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Computer Type Config
 
 - `type BetaComputerTypeConfig`
@@ -20743,6 +26410,68 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Type Input
+
+- `type BetaComputerTypeInput`
+
+  Type a string of text on the keyboard.
+
+  - `Text string`
+
+    The text to type.
+
+### Beta Computer Type Tool Use Block
+
+- `type BetaComputerTypeToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerTypeInput`
+
+    Type a string of text on the keyboard.
+
+    - `Text string`
+
+      The text to type.
+
+  - `Name Type`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Computer Wait Config
 
@@ -20758,6 +26487,72 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Beta Computer Wait Input
+
+- `type BetaComputerWaitInput`
+
+  Wait for a specified duration.
+
+  - `Duration int64`
+
+    Duration to wait, in seconds.
+
+    maximum: 300
+
+### Beta Computer Wait Tool Use Block
+
+- `type BetaComputerWaitToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerWaitInput`
+
+    Wait for a specified duration.
+
+    - `Duration int64`
+
+      Duration to wait, in seconds.
+
+      maximum: 300
+
+  - `Name Wait`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
 ### Beta Computer Zoom Config
 
 - `type BetaComputerZoomConfig`
@@ -20771,6 +26566,76 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Beta Computer Zoom Input
+
+- `type BetaComputerZoomInput`
+
+  Take a screenshot of a rectangular region. Region coordinates are in the
+  full-screenshot space (not physical display pixels). The crop is scaled up to
+  fill the image budget so fine details become legible.
+
+  - `Region []int64`
+
+    (x0, y0, x1, y1): The region to capture.
+
+    minItems: 4, maxItems: 4
+
+### Beta Computer Zoom Tool Use Block
+
+- `type BetaComputerZoomToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Input BetaComputerZoomInput`
+
+    Take a screenshot of a rectangular region. Region coordinates are in the
+    full-screenshot space (not physical display pixels). The crop is scaled up to
+    fill the image budget so fine details become legible.
+
+    - `Region []int64`
+
+      (x0, y0, x1, y1): The region to capture.
+
+      minItems: 4, maxItems: 4
+
+  - `Name Zoom`
+
+  - `ToolsetName Computer`
+
+  - `Caller BetaToolUseCallerUnion Optional`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type BetaDirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type BetaServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type BetaServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
 ### Beta Container
 
@@ -23568,3278 +29433,9 @@ func main() {
 
                   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                  - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
+                  - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
 
-                    Efficient model for coding and agents
-
-                  - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
-
-                    Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-                  - `const ModelClaudeOpus5_5 Model = "claude-opus-5-5"`
-
-                    Powerful intelligence for coding, knowledge work, and long-running agents
-
-                  - `const ModelClaudeMythos5_1 Model = "claude-mythos-5-1"`
-
-                    Our most capable model for cybersecurity and biology research, available through trusted access programs
-
-                  - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
-
-                    Efficient model for coding and agents
-
-                  - `const ModelClaudeFable5 Model = "claude-fable-5"`
-
-                    Next generation of intelligence for the hardest knowledge work and coding problems
-
-                  - `const ModelClaudeMythos5 Model = "claude-mythos-5"`
-
-                    Most capable model for cybersecurity and biology research
-
-                  - `const ModelClaudeOpus5 Model = "claude-opus-5"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `const ModelClaudeSonnet4_6 Model = "claude-sonnet-4-6"`
-
-                    Best combination of speed and intelligence
-
-                  - `const ModelClaudeHaiku4_5 Model = "claude-haiku-4-5"`
-
-                    Fastest model with near-frontier intelligence
-
-                  - `const ModelClaudeHaiku4_5_20251001 Model = "claude-haiku-4-5-20251001"`
-
-                    Fastest model with near-frontier intelligence
-
-                  - `const ModelClaudeOpus4_5 Model = "claude-opus-4-5"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `const ModelClaudeOpus4_5_20251101 Model = "claude-opus-4-5-20251101"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                    **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-                    New class of intelligence, strongest in coding and cybersecurity
-
-                  - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-                    **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-                    High-performance model for agents and coding
-
-                  - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-                    **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-                    High-performance model for agents and coding
-
-                - `Name Advisor`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaAdvisorTool20260301AllowedCallerDirect BetaAdvisorTool20260301AllowedCaller = "direct"`
-
-                  - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20250825 BetaAdvisorTool20260301AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20260120 BetaAdvisorTool20260301AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20260521 BetaAdvisorTool20260301AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `Caching BetaCacheControlEphemeral Optional`
-
-                  Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `MaxTokens int64 Optional`
-
-                  Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
-
-                  minimum: 1024
-
-                - `MaxUses int64 Optional`
-
-                  Maximum number of times the tool can be used in the API request.
-
-                  minimum: 1
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaToolSearchToolBm25_20251119`
-
-                - `Type BetaToolSearchToolBm25_20251119Type`
-
-                  - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
-
-                  - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
-
-                - `Name ToolSearchToolBm25`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaToolSearchToolBm25_20251119AllowedCallerDirect BetaToolSearchToolBm25_20251119AllowedCaller = "direct"`
-
-                  - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20250825 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20260120 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20260521 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaToolSearchToolRegex20251119`
-
-                - `Type BetaToolSearchToolRegex20251119Type`
-
-                  - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex20251119 BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex_20251119"`
-
-                  - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex"`
-
-                - `Name ToolSearchToolRegex`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaToolSearchToolRegex20251119AllowedCallerDirect BetaToolSearchToolRegex20251119AllowedCaller = "direct"`
-
-                  - `const BetaToolSearchToolRegex20251119AllowedCallerCodeExecution20250825 BetaToolSearchToolRegex20251119AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaToolSearchToolRegex20251119AllowedCallerCodeExecution20260120 BetaToolSearchToolRegex20251119AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaToolSearchToolRegex20251119AllowedCallerCodeExecution20260521 BetaToolSearchToolRegex20251119AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaMCPToolset`
-
-                Configuration for a group of tools from an MCP server.
-
-                Allows configuring enabled status and defer_loading for all tools
-                from an MCP server, with optional per-tool overrides.
-
-                - `Type MCPToolset`
-
-                - `MCPServerName string`
-
-                  Name of the MCP server to configure tools for
-
-                  minLength: 1, maxLength: 255
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `Configs map[string, BetaMCPToolConfig] Optional`
-
-                  Configuration overrides for specific tools, keyed by tool name
-
-                  - `DeferLoading bool Optional`
-
-                  - `Enabled bool Optional`
-
-                - `DefaultConfig BetaMCPToolDefaultConfig Optional`
-
-                  Default configuration applied to all tools from this server
-
-                  - `DeferLoading bool Optional`
-
-                  - `Enabled bool Optional`
-
-                - `Tools []BetaMCPToolParamResp Optional`
-
-                  The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
-
-                  - `InputSchema map[string, any]`
-
-                    The tool's input schema as the MCP server lists it, verbatim.
-
-                  - `Name string`
-
-                    The tool's name as the MCP server lists it (not prefixed with the server name).
-
-                    minLength: 1
-
-                  - `Description string Optional`
-
-                    The tool's description as the MCP server lists it.
-
-      - `type BetaResponseToolRemovalBlock`
-
-        An entry of a `compaction` block's `tool_changes`: a tool of the
-        request's `tools` (or an MCP tool or toolset) that the compacted range
-        withdrew. Send it back unchanged.
-
-        - `Type ToolRemoval`
-
-          default: tool_removal
-
-        - `Tool BetaResponseToolRemovalBlockToolUnion`
-
-          A reference to the withdrawn `tools` entry, MCP tool or MCP toolset.
-
-          - `type BetaResponseToolChangeToolReference`
-
-            Reference to a single tool, by the name the model uses to call it, as
-            a `compaction` block's `tool_changes` entry reports it: a tool
-            declared in `tools` or defined by an earlier `tool_addition` block.
-            Send it back unchanged with the block.
-
-          - `type BetaResponseToolChangeMCPToolReference`
-
-            Reference to a single MCP tool, by its server and its name on that
-            server, as a `compaction` block's `tool_changes` entry reports it.
-            Send it back unchanged with the block.
-
-          - `type BetaResponseToolChangeMCPToolsetReference`
-
-            Reference to every tool in the named MCP server's toolset, as a
-            `compaction` block's `tool_changes` entry reports it. Send it back
-            unchanged with the block.
-
-  - `type BetaFallbackBlock`
-
-    Marks the point in `content` where one model's output gives way to the next.
-
-    One block appears per hop where a preceding model actually ran this turn and
-    declined. A turn where no preceding model ran and declined has no such
-    boundary and carries no block — the signal for whether a fallback model
-    served the response is the presence of a `fallback_message` entry in
-    `usage.iterations`, not this block.
-
-    The block is treated like a server-tool content block for streaming: it
-    arrives via the standard `content_block_start` / `content_block_stop`
-    pair and carries no deltas.
-
-    - `Type Fallback`
-
-      default: fallback
-
-    - `From BetaFallbackInfo`
-
-      The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
-
-      - `Model Model`
-
-        The model that will complete your prompt.
-
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-    - `To BetaFallbackInfo`
-
-      The fallback model producing the content that follows this block. Its `model` is always the canonical id.
-
-    - `Trigger BetaFallbackRefusalTrigger`
-
-      What caused the `from` model to hand over at this hop.
-
-      - `Type Refusal`
-
-        default: refusal
-
-      - `Category BetaFallbackRefusalTriggerCategory`
-
-        The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
-
-        - `const BetaFallbackRefusalTriggerCategoryCyber BetaFallbackRefusalTriggerCategory = "cyber"`
-
-          The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
-
-        - `const BetaFallbackRefusalTriggerCategoryBio BetaFallbackRefusalTriggerCategory = "bio"`
-
-          The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
-
-        - `const BetaFallbackRefusalTriggerCategoryFrontierLLM BetaFallbackRefusalTriggerCategory = "frontier_llm"`
-
-          The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
-
-        - `const BetaFallbackRefusalTriggerCategoryReasoningExtraction BetaFallbackRefusalTriggerCategory = "reasoning_extraction"`
-
-          The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
-
-        - `const BetaFallbackRefusalTriggerCategoryGeneralHarms BetaFallbackRefusalTriggerCategory = "general_harms"`
-
-          The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
-
-  - `type BetaMCPToolListingBlock`
-
-    The tool listing the server fetched from an MCP server while producing
-    this response. Send the assistant message back unchanged, this block
-    included, so later requests use this listing instead of asking the MCP
-    server again.
-
-    - `Type MCPToolListing`
-
-      default: mcp_tool_listing
-
-    - `MCPServerName string`
-
-    - `Tools []BetaMCPTool`
-
-      - `InputSchema map[string, any]`
-
-      - `Name string`
-
-      - `Description string Optional`
-
-### Beta Content Block Param
-
-- `type BetaContentBlockParamUnionResp interface{…}`
-
-  - `type BetaTextBlockParamResp`
-
-    - `Type Text`
-
-    - `Text string`
-
-      minLength: 1
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-      - `Type Ephemeral`
-
-      - `TTL BetaCacheControlEphemeralTTL Optional`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-        - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-        - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-    - `Citations []BetaTextCitationParamUnionResp Optional`
-
-      - `type BetaCitationCharLocationParamResp`
-
-        - `Type CharLocation`
-
-        - `CitedText string`
-
-        - `DocumentIndex int64`
-
-          minimum: 0
-
-        - `DocumentTitle string`
-
-          minLength: 1, maxLength: 500
-
-        - `EndCharIndex int64`
-
-        - `StartCharIndex int64`
-
-          minimum: 0
-
-      - `type BetaCitationPageLocationParamResp`
-
-        - `Type PageLocation`
-
-        - `CitedText string`
-
-        - `DocumentIndex int64`
-
-          minimum: 0
-
-        - `DocumentTitle string`
-
-          minLength: 1, maxLength: 500
-
-        - `EndPageNumber int64`
-
-        - `StartPageNumber int64`
-
-          minimum: 1
-
-      - `type BetaCitationContentBlockLocationParamResp`
-
-        - `Type ContentBlockLocation`
-
-        - `CitedText string`
-
-          The full text of the cited block range, concatenated.
-
-          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-        - `DocumentIndex int64`
-
-          minimum: 0
-
-        - `DocumentTitle string`
-
-          minLength: 1, maxLength: 500
-
-        - `EndBlockIndex int64`
-
-          Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-        - `StartBlockIndex int64`
-
-          0-based index of the first cited block in the source's `content` array.
-
-          minimum: 0
-
-      - `type BetaCitationWebSearchResultLocationParamResp`
-
-        - `Type WebSearchResultLocation`
-
-        - `CitedText string`
-
-        - `EncryptedIndex string`
-
-        - `Title string`
-
-          minLength: 1, maxLength: 512
-
-        - `URL string`
-
-          minLength: 1
-
-      - `type BetaCitationSearchResultLocationParamResp`
-
-        - `Type SearchResultLocation`
-
-        - `CitedText string`
-
-          The full text of the cited block range, concatenated.
-
-          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-        - `EndBlockIndex int64`
-
-          Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-        - `SearchResultIndex int64`
-
-          0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-          Counted separately from `document_index`; server-side web search results are not included in this count.
-
-          minimum: 0
-
-        - `Source string`
-
-        - `StartBlockIndex int64`
-
-          0-based index of the first cited block in the source's `content` array.
-
-          minimum: 0
-
-        - `Title string`
-
-  - `type BetaImageBlockParamResp`
-
-    - `Type Image`
-
-    - `Source BetaImageBlockParamSourceUnionResp`
-
-      - `type BetaBase64ImageSource`
-
-        - `Type Base64`
-
-        - `Data string`
-
-          format: byte
-
-        - `MediaType BetaBase64ImageSourceMediaType`
-
-          - `const BetaBase64ImageSourceMediaTypeImageJPEG BetaBase64ImageSourceMediaType = "image/jpeg"`
-
-          - `const BetaBase64ImageSourceMediaTypeImagePNG BetaBase64ImageSourceMediaType = "image/png"`
-
-          - `const BetaBase64ImageSourceMediaTypeImageGIF BetaBase64ImageSourceMediaType = "image/gif"`
-
-          - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
-
-      - `type BetaURLImageSource`
-
-        - `Type URL`
-
-        - `URL string`
-
-      - `type BetaFileImageSource`
-
-        - `Type File`
-
-        - `FileID string`
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-    - `Transformations BetaImageTransformationsParamResp Optional`
-
-      Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
-
-      - `OversizedImage BetaImageTransformationsParamOversizedImage Optional`
-
-        What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
-
-        - `const BetaImageTransformationsParamOversizedImageDownsize BetaImageTransformationsParamOversizedImage = "downsize"`
-
-        - `const BetaImageTransformationsParamOversizedImageError BetaImageTransformationsParamOversizedImage = "error"`
-
-  - `type BetaRequestDocumentBlock`
-
-    - `Type Document`
-
-    - `Source BetaRequestDocumentBlockSourceUnion`
-
-      - `type BetaBase64PDFSource`
-
-        - `Type Base64`
-
-        - `Data string`
-
-          format: byte
-
-        - `MediaType ApplicationPDF`
-
-      - `type BetaPlainTextSource`
-
-        - `Type Text`
-
-        - `Data string`
-
-        - `MediaType TextPlain`
-
-      - `type BetaContentBlockSource`
-
-        - `Type Content`
-
-        - `Content BetaContentBlockSourceContentUnion`
-
-          - `string`
-
-          - `[]BetaContentBlockSourceContentUnion`
-
-            - `type BetaTextBlockParamResp`
-
-            - `type BetaImageBlockParamResp`
-
-      - `type BetaURLPDFSource`
-
-        - `Type URL`
-
-        - `URL string`
-
-      - `type BetaFileDocumentSource`
-
-        - `Type File`
-
-        - `FileID string`
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-    - `Citations BetaCitationsConfigParamResp Optional`
-
-      - `Enabled bool Optional`
-
-    - `Context string Optional`
-
-      minLength: 1
-
-    - `Title string Optional`
-
-      minLength: 1, maxLength: 500
-
-  - `type BetaSearchResultBlockParamResp`
-
-    - `Type SearchResult`
-
-    - `Content []BetaTextBlockParamResp`
-
-      - `Type Text`
-
-      - `Text string`
-
-        minLength: 1
-
-      - `CacheControl BetaCacheControlEphemeral Optional`
-
-        Create a cache control breakpoint at this content block.
-
-      - `Citations []BetaTextCitationParamUnionResp Optional`
-
-    - `Source string`
-
-    - `Title string`
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-    - `Citations BetaCitationsConfigParamResp Optional`
-
-  - `type BetaThinkingBlockParamResp`
-
-    - `Type Thinking`
-
-    - `Signature string`
-
-      The `signature` value of this thinking block, exactly as returned by the API in a previous response. Used to verify that the block was generated by Claude.
-
-      Thinking blocks must be passed back unmodified and in their original order; a modified block results in a 400 `invalid_request_error`.
-
-    - `Thinking string`
-
-      The `thinking` text of this block as returned by the API.
-
-  - `type BetaRedactedThinkingBlockParamResp`
-
-    - `Type RedactedThinking`
-
-    - `Data string`
-
-      The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
-
-  - `type BetaToolUseBlockParamResp`
-
-    - `Type ToolUse`
-
-    - `ID string`
-
-      pattern: ^[a-zA-Z0-9_-]+$
-
-    - `Input map[string, any]`
-
-    - `Name string`
-
-      minLength: 1, maxLength: 200
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-    - `Caller BetaToolUseBlockParamCallerUnionResp Optional`
-
-      - `type BetaDirectCaller`
-
-        Tool invocation directly from the model.
-
-        - `Type Direct`
-
-      - `type BetaServerToolCaller`
-
-        Tool invocation generated by a server-side tool.
-
-        - `Type CodeExecution20250825`
-
-        - `ToolID string`
-
-          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `type BetaServerToolCaller20260120`
-
-        - `Type CodeExecution20260120`
-
-        - `ToolID string`
-
-          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `ToolsetName string Optional`
-
-      For a toolset member tool_use, the toolset family this member belongs to.
-
-      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
-
-  - `type BetaToolResultBlockParamResp`
-
-    - `Type ToolResult`
-
-    - `ToolUseID string`
-
-      pattern: ^[a-zA-Z0-9_-]+$
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-    - `Content []BetaToolResultBlockParamContentUnionResp Optional`
-
-      - `[]BetaToolResultBlockParamContentUnionResp`
-
-        - `type BetaTextBlockParamResp`
-
-        - `type BetaImageBlockParamResp`
-
-        - `type BetaSearchResultBlockParamResp`
-
-        - `type BetaRequestDocumentBlock`
-
-        - `type BetaToolReferenceBlockParamResp`
-
-          Tool reference block that can be included in tool_result content.
-
-          - `Type ToolReference`
-
-          - `ToolName string`
-
-            minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-          - `CacheControl BetaCacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-        - `type BetaBrowserStateBlockParamResp`
-
-          The caller's browser state after a browser toolset member call —
-          the full inventory of open tabs, which tab is active, and any side
-          effects (tabs opened, download state changes) the call produced.
-
-          At most one per `tool_result`, only on a non-error result answering a
-          browser toolset member `tool_use`. The server renders the
-          model-visible text from it; the model never sees the raw fields.
-
-          - `Type BrowserState`
-
-          - `Tabs []BetaBrowserStateTabEntry`
-
-            All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
-
-            maxItems: 100
-
-            - `TabID string`
-
-              The caller-assigned identifier for this tab, unique within the inventory.
-
-              minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-            - `Title string`
-
-              The title of the page the tab is showing. May be empty.
-
-              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-            - `URL string`
-
-              The URL of the page the tab is showing. May be empty.
-
-              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-            - `Active bool Optional`
-
-              Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
-
-          - `CacheControl BetaCacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `StateChanges []BetaBrowserStateChangeUnion Optional`
-
-            Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
-
-            minItems: 1, maxItems: 200
-
-            - `type BetaBrowserStateChangeTabOpened`
-
-              A tab this call's execution opened that remains open at its end —
-              the creation delta of the `tabs` inventory, not an event log.
-
-              Carries only the `tab_id`; the tab's `title` and `url` live on its
-              `tabs` entry, which must include the same `tab_id`. A tab opened
-              during a failed call gets no deferred `tab_opened`; it simply appears
-              in the next result's `tabs` inventory.
-
-              - `Type TabOpened`
-
-              - `TabID string`
-
-                The `tab_id` of the opened tab, present in `tabs`.
-
-                minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-            - `type BetaBrowserStateChangeDownloadStarted`
-
-              A file download that started during this call.
-
-              - `Type DownloadStarted`
-
-              - `DownloadID string`
-
-                The caller-assigned identifier for this download, stable across the state changes reporting it.
-
-                minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-              - `URL string`
-
-                The final post-redirect URL the download was served from.
-
-                maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-            - `type BetaBrowserStateChangeDownloadCompleted`
-
-              A file download that finished during this call, reported with the
-              same `download_id` as its `download_started` — or without a prior
-              `download_started`, when the download finished during the call that
-              started it (at most one state change per `download_id` per result).
-
-              - `Type DownloadCompleted`
-
-              - `DownloadID string`
-
-                The caller-assigned identifier for this download, stable across the state changes reporting it.
-
-                minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-              - `URL string`
-
-                The final post-redirect URL the download was served from.
-
-                maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-              - `Path string Optional`
-
-                Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
-
-                maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-              - `SizeBytes int64 Optional`
-
-                The completed download's size.
-
-                minimum: 0
-
-            - `type BetaBrowserStateChangeDownloadFailed`
-
-              A file download that failed — or was cancelled — during this call.
-
-              - `Type DownloadFailed`
-
-              - `DownloadID string`
-
-                The caller-assigned identifier for this download, stable across the state changes reporting it.
-
-                minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-              - `URL string`
-
-                The final post-redirect URL the download was served from.
-
-                maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-              - `Error string Optional`
-
-                The failure or cancellation detail, when known.
-
-                maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-    - `IsError bool Optional`
-
-    - `ToolsetName string Optional`
-
-      For a toolset member tool_result, the toolset family of the paired tool_use.
-
-      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
-
-  - `type BetaServerToolUseBlockParamResp`
-
-    - `Type ServerToolUse`
-
-    - `ID string`
-
-      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `Input map[string, any]`
-
-    - `Name BetaServerToolUseBlockParamName`
-
-      - `const BetaServerToolUseBlockParamNameAdvisor BetaServerToolUseBlockParamName = "advisor"`
-
-      - `const BetaServerToolUseBlockParamNameWebSearch BetaServerToolUseBlockParamName = "web_search"`
-
-      - `const BetaServerToolUseBlockParamNameWebFetch BetaServerToolUseBlockParamName = "web_fetch"`
-
-      - `const BetaServerToolUseBlockParamNameCodeExecution BetaServerToolUseBlockParamName = "code_execution"`
-
-      - `const BetaServerToolUseBlockParamNameBashCodeExecution BetaServerToolUseBlockParamName = "bash_code_execution"`
-
-      - `const BetaServerToolUseBlockParamNameTextEditorCodeExecution BetaServerToolUseBlockParamName = "text_editor_code_execution"`
-
-      - `const BetaServerToolUseBlockParamNameToolSearchToolRegex BetaServerToolUseBlockParamName = "tool_search_tool_regex"`
-
-      - `const BetaServerToolUseBlockParamNameToolSearchToolBm25 BetaServerToolUseBlockParamName = "tool_search_tool_bm25"`
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-    - `Caller BetaServerToolUseBlockParamCallerUnionResp Optional`
-
-      - `type BetaDirectCaller`
-
-        Tool invocation directly from the model.
-
-      - `type BetaServerToolCaller`
-
-        Tool invocation generated by a server-side tool.
-
-      - `type BetaServerToolCaller20260120`
-
-  - `type BetaWebSearchToolResultBlockParamResp`
-
-    - `Type WebSearchToolResult`
-
-    - `Content BetaWebSearchToolResultBlockParamContentUnionResp`
-
-      - `[]BetaWebSearchResultBlockParamResp`
-
-        - `Type WebSearchResult`
-
-        - `EncryptedContent string`
-
-        - `Title string`
-
-        - `URL string`
-
-        - `PageAge string Optional`
-
-      - `type BetaWebSearchToolRequestError`
-
-        - `Type WebSearchToolResultError`
-
-        - `ErrorCode BetaWebSearchToolResultErrorCode`
-
-          - `const BetaWebSearchToolResultErrorCodeInvalidToolInput BetaWebSearchToolResultErrorCode = "invalid_tool_input"`
-
-          - `const BetaWebSearchToolResultErrorCodeUnavailable BetaWebSearchToolResultErrorCode = "unavailable"`
-
-          - `const BetaWebSearchToolResultErrorCodeMaxUsesExceeded BetaWebSearchToolResultErrorCode = "max_uses_exceeded"`
-
-          - `const BetaWebSearchToolResultErrorCodeTooManyRequests BetaWebSearchToolResultErrorCode = "too_many_requests"`
-
-          - `const BetaWebSearchToolResultErrorCodeQueryTooLong BetaWebSearchToolResultErrorCode = "query_too_long"`
-
-          - `const BetaWebSearchToolResultErrorCodeRequestTooLarge BetaWebSearchToolResultErrorCode = "request_too_large"`
-
-    - `ToolUseID string`
-
-      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-    - `Caller BetaWebSearchToolResultBlockParamCallerUnionResp Optional`
-
-      - `type BetaDirectCaller`
-
-        Tool invocation directly from the model.
-
-      - `type BetaServerToolCaller`
-
-        Tool invocation generated by a server-side tool.
-
-      - `type BetaServerToolCaller20260120`
-
-  - `type BetaWebFetchToolResultBlockParamResp`
-
-    - `Type WebFetchToolResult`
-
-    - `Content BetaWebFetchToolResultBlockParamContentUnionResp`
-
-      - `type BetaWebFetchToolResultErrorBlockParamResp`
-
-        - `Type WebFetchToolResultError`
-
-        - `ErrorCode BetaWebFetchToolResultErrorCode`
-
-          - `const BetaWebFetchToolResultErrorCodeInvalidToolInput BetaWebFetchToolResultErrorCode = "invalid_tool_input"`
-
-          - `const BetaWebFetchToolResultErrorCodeURLTooLong BetaWebFetchToolResultErrorCode = "url_too_long"`
-
-          - `const BetaWebFetchToolResultErrorCodeURLNotAllowed BetaWebFetchToolResultErrorCode = "url_not_allowed"`
-
-          - `const BetaWebFetchToolResultErrorCodeURLNotInPriorContext BetaWebFetchToolResultErrorCode = "url_not_in_prior_context"`
-
-          - `const BetaWebFetchToolResultErrorCodeURLNotAccessible BetaWebFetchToolResultErrorCode = "url_not_accessible"`
-
-          - `const BetaWebFetchToolResultErrorCodeUnsupportedContentType BetaWebFetchToolResultErrorCode = "unsupported_content_type"`
-
-          - `const BetaWebFetchToolResultErrorCodeTooManyRequests BetaWebFetchToolResultErrorCode = "too_many_requests"`
-
-          - `const BetaWebFetchToolResultErrorCodeMaxUsesExceeded BetaWebFetchToolResultErrorCode = "max_uses_exceeded"`
-
-          - `const BetaWebFetchToolResultErrorCodeUnavailable BetaWebFetchToolResultErrorCode = "unavailable"`
-
-          - `const BetaWebFetchToolResultErrorCodeContentTooLarge BetaWebFetchToolResultErrorCode = "content_too_large"`
-
-      - `type BetaWebFetchBlockParamResp`
-
-        - `Type WebFetchResult`
-
-        - `Content BetaRequestDocumentBlock`
-
-        - `URL string`
-
-          Fetched content URL
-
-        - `RetrievedAt string Optional`
-
-          ISO 8601 timestamp when the content was retrieved
-
-    - `ToolUseID string`
-
-      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-    - `Caller BetaWebFetchToolResultBlockParamCallerUnionResp Optional`
-
-      - `type BetaDirectCaller`
-
-        Tool invocation directly from the model.
-
-      - `type BetaServerToolCaller`
-
-        Tool invocation generated by a server-side tool.
-
-      - `type BetaServerToolCaller20260120`
-
-  - `type BetaAdvisorToolResultBlockParamResp`
-
-    - `Type AdvisorToolResult`
-
-    - `Content BetaAdvisorToolResultBlockParamContentUnionResp`
-
-      - `type BetaAdvisorToolResultErrorParamResp`
-
-        - `Type AdvisorToolResultError`
-
-        - `ErrorCode BetaAdvisorToolResultErrorParamErrorCode`
-
-          - `const BetaAdvisorToolResultErrorParamErrorCodeMaxUsesExceeded BetaAdvisorToolResultErrorParamErrorCode = "max_uses_exceeded"`
-
-          - `const BetaAdvisorToolResultErrorParamErrorCodePromptTooLong BetaAdvisorToolResultErrorParamErrorCode = "prompt_too_long"`
-
-          - `const BetaAdvisorToolResultErrorParamErrorCodeTooManyRequests BetaAdvisorToolResultErrorParamErrorCode = "too_many_requests"`
-
-          - `const BetaAdvisorToolResultErrorParamErrorCodeOverloaded BetaAdvisorToolResultErrorParamErrorCode = "overloaded"`
-
-          - `const BetaAdvisorToolResultErrorParamErrorCodeUnavailable BetaAdvisorToolResultErrorParamErrorCode = "unavailable"`
-
-          - `const BetaAdvisorToolResultErrorParamErrorCodeExecutionTimeExceeded BetaAdvisorToolResultErrorParamErrorCode = "execution_time_exceeded"`
-
-          - `const BetaAdvisorToolResultErrorParamErrorCodeModelNotFound BetaAdvisorToolResultErrorParamErrorCode = "model_not_found"`
-
-      - `type BetaAdvisorResultBlockParamResp`
-
-        - `Type AdvisorResult`
-
-        - `Text string`
-
-        - `StopReason string Optional`
-
-      - `type BetaAdvisorRedactedResultBlockParamResp`
-
-        - `Type AdvisorRedactedResult`
-
-        - `EncryptedContent string`
-
-          Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-        - `StopReason string Optional`
-
-    - `ToolUseID string`
-
-      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-  - `type BetaCodeExecutionToolResultBlockParamResp`
-
-    - `Type CodeExecutionToolResult`
-
-    - `Content BetaCodeExecutionToolResultBlockParamContentUnionResp`
-
-      - `type BetaCodeExecutionToolResultErrorParamResp`
-
-        - `Type CodeExecutionToolResultError`
-
-        - `ErrorCode BetaCodeExecutionToolResultErrorCode`
-
-          - `const BetaCodeExecutionToolResultErrorCodeInvalidToolInput BetaCodeExecutionToolResultErrorCode = "invalid_tool_input"`
-
-          - `const BetaCodeExecutionToolResultErrorCodeUnavailable BetaCodeExecutionToolResultErrorCode = "unavailable"`
-
-          - `const BetaCodeExecutionToolResultErrorCodeTooManyRequests BetaCodeExecutionToolResultErrorCode = "too_many_requests"`
-
-          - `const BetaCodeExecutionToolResultErrorCodeExecutionTimeExceeded BetaCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
-
-      - `type BetaCodeExecutionResultBlockParamResp`
-
-        - `Type CodeExecutionResult`
-
-        - `Content []BetaCodeExecutionOutputBlockParamResp`
-
-          - `Type CodeExecutionOutput`
-
-          - `FileID string`
-
-        - `ReturnCode int64`
-
-        - `Stderr string`
-
-        - `Stdout string`
-
-      - `type BetaEncryptedCodeExecutionResultBlockParamResp`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
-
-        - `Type EncryptedCodeExecutionResult`
-
-        - `Content []BetaCodeExecutionOutputBlockParamResp`
-
-          - `Type CodeExecutionOutput`
-
-          - `FileID string`
-
-        - `EncryptedStdout string`
-
-        - `ReturnCode int64`
-
-        - `Stderr string`
-
-    - `ToolUseID string`
-
-      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-  - `type BetaBashCodeExecutionToolResultBlockParamResp`
-
-    - `Type BashCodeExecutionToolResult`
-
-    - `Content BetaBashCodeExecutionToolResultBlockParamContentUnionResp`
-
-      - `type BetaBashCodeExecutionToolResultErrorParamResp`
-
-        - `Type BashCodeExecutionToolResultError`
-
-        - `ErrorCode BetaBashCodeExecutionToolResultErrorParamErrorCode`
-
-          - `const BetaBashCodeExecutionToolResultErrorParamErrorCodeInvalidToolInput BetaBashCodeExecutionToolResultErrorParamErrorCode = "invalid_tool_input"`
-
-          - `const BetaBashCodeExecutionToolResultErrorParamErrorCodeUnavailable BetaBashCodeExecutionToolResultErrorParamErrorCode = "unavailable"`
-
-          - `const BetaBashCodeExecutionToolResultErrorParamErrorCodeTooManyRequests BetaBashCodeExecutionToolResultErrorParamErrorCode = "too_many_requests"`
-
-          - `const BetaBashCodeExecutionToolResultErrorParamErrorCodeExecutionTimeExceeded BetaBashCodeExecutionToolResultErrorParamErrorCode = "execution_time_exceeded"`
-
-          - `const BetaBashCodeExecutionToolResultErrorParamErrorCodeOutputFileTooLarge BetaBashCodeExecutionToolResultErrorParamErrorCode = "output_file_too_large"`
-
-      - `type BetaBashCodeExecutionResultBlockParamResp`
-
-        - `Type BashCodeExecutionResult`
-
-        - `Content []BetaBashCodeExecutionOutputBlockParamResp`
-
-          - `Type BashCodeExecutionOutput`
-
-          - `FileID string`
-
-        - `ReturnCode int64`
-
-        - `Stderr string`
-
-        - `Stdout string`
-
-    - `ToolUseID string`
-
-      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-  - `type BetaTextEditorCodeExecutionToolResultBlockParamResp`
-
-    - `Type TextEditorCodeExecutionToolResult`
-
-    - `Content BetaTextEditorCodeExecutionToolResultBlockParamContentUnionResp`
-
-      - `type BetaTextEditorCodeExecutionToolResultErrorParamResp`
-
-        - `Type TextEditorCodeExecutionToolResultError`
-
-        - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorParamErrorCode`
-
-          - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeInvalidToolInput BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "invalid_tool_input"`
-
-          - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeUnavailable BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "unavailable"`
-
-          - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeTooManyRequests BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "too_many_requests"`
-
-          - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeExecutionTimeExceeded BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "execution_time_exceeded"`
-
-          - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeFileNotFound BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "file_not_found"`
-
-        - `ErrorMessage string Optional`
-
-      - `type BetaTextEditorCodeExecutionViewResultBlockParamResp`
-
-        - `Type TextEditorCodeExecutionViewResult`
-
-        - `Content string`
-
-        - `FileType BetaTextEditorCodeExecutionViewResultBlockParamFileType`
-
-          - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypeText BetaTextEditorCodeExecutionViewResultBlockParamFileType = "text"`
-
-          - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypeImage BetaTextEditorCodeExecutionViewResultBlockParamFileType = "image"`
-
-          - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypePDF BetaTextEditorCodeExecutionViewResultBlockParamFileType = "pdf"`
-
-        - `NumLines int64 Optional`
-
-        - `StartLine int64 Optional`
-
-        - `TotalLines int64 Optional`
-
-      - `type BetaTextEditorCodeExecutionCreateResultBlockParamResp`
-
-        - `Type TextEditorCodeExecutionCreateResult`
-
-        - `IsFileUpdate bool`
-
-      - `type BetaTextEditorCodeExecutionStrReplaceResultBlockParamResp`
-
-        - `Type TextEditorCodeExecutionStrReplaceResult`
-
-        - `Lines []string Optional`
-
-        - `NewLines int64 Optional`
-
-        - `NewStart int64 Optional`
-
-        - `OldLines int64 Optional`
-
-        - `OldStart int64 Optional`
-
-    - `ToolUseID string`
-
-      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-  - `type BetaToolSearchToolResultBlockParamResp`
-
-    - `Type ToolSearchToolResult`
-
-    - `Content BetaToolSearchToolResultBlockParamContentUnionResp`
-
-      - `type BetaToolSearchToolResultErrorParamResp`
-
-        - `Type ToolSearchToolResultError`
-
-        - `ErrorCode BetaToolSearchToolResultErrorParamErrorCode`
-
-          - `const BetaToolSearchToolResultErrorParamErrorCodeInvalidToolInput BetaToolSearchToolResultErrorParamErrorCode = "invalid_tool_input"`
-
-          - `const BetaToolSearchToolResultErrorParamErrorCodeUnavailable BetaToolSearchToolResultErrorParamErrorCode = "unavailable"`
-
-          - `const BetaToolSearchToolResultErrorParamErrorCodeTooManyRequests BetaToolSearchToolResultErrorParamErrorCode = "too_many_requests"`
-
-          - `const BetaToolSearchToolResultErrorParamErrorCodeExecutionTimeExceeded BetaToolSearchToolResultErrorParamErrorCode = "execution_time_exceeded"`
-
-        - `ErrorMessage string Optional`
-
-      - `type BetaToolSearchToolSearchResultBlockParamResp`
-
-        - `Type ToolSearchToolSearchResult`
-
-        - `ToolReferences []BetaToolReferenceBlockParamResp`
-
-          - `Type ToolReference`
-
-          - `ToolName string`
-
-            minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-          - `CacheControl BetaCacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-    - `ToolUseID string`
-
-      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-  - `type BetaMCPToolUseBlockParamResp`
-
-    - `Type MCPToolUse`
-
-    - `ID string`
-
-      pattern: ^[a-zA-Z0-9_-]+$
-
-    - `Input map[string, any]`
-
-    - `Name string`
-
-    - `ServerName string`
-
-      The name of the MCP server
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-  - `type BetaRequestMCPToolResultBlockParamResp`
-
-    - `Type MCPToolResult`
-
-    - `ToolUseID string`
-
-      pattern: ^[a-zA-Z0-9_-]+$
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-    - `Content BetaRequestMCPToolResultBlockParamContentUnionResp Optional`
-
-      - `string`
-
-      - `[]BetaTextBlockParamResp`
-
-        - `Type Text`
-
-        - `Text string`
-
-          minLength: 1
-
-        - `CacheControl BetaCacheControlEphemeral Optional`
-
-          Create a cache control breakpoint at this content block.
-
-        - `Citations []BetaTextCitationParamUnionResp Optional`
-
-    - `IsError bool Optional`
-
-  - `type BetaContainerUploadBlockParamResp`
-
-    A content block that represents a file to be uploaded to the container
-    Files uploaded via this block will be available in the container's input directory.
-
-    - `Type ContainerUpload`
-
-    - `FileID string`
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-  - `type BetaCompactionBlockParamResp`
-
-    A compaction block containing summary of previous context.
-
-    Users should round-trip these blocks from responses to subsequent requests
-    to maintain context across compaction boundaries.
-
-    When content is None, the block represents a failed compaction. The server
-    treats these as no-ops. Empty string content is not allowed.
-
-    - `Type Compaction`
-
-    - `CacheControl BetaCacheControlEphemeral Optional`
-
-      Create a cache control breakpoint at this content block.
-
-    - `Content string Optional`
-
-      Summary of previously compacted content, or null if compaction failed
-
-    - `EncryptedContent string Optional`
-
-      Opaque metadata from prior compaction, to be round-tripped verbatim
-
-    - `Signature string Optional`
-
-      The block's signature as returned, to be sent back verbatim
-
-    - `ToolChanges []BetaCompactionBlockParamToolChangeUnionResp Optional`
-
-      The tool changes of the compacted range, as the server returned them on this block: the `tool_addition` and `tool_removal` entries that take the request's `tools` to the tool set in effect at the end of the range. Send them back unchanged with the block.
-
-      - `type BetaRequestToolAdditionBlock`
-
-        Mid-conversation directive to make a tool available.
-
-        `tool` is a reference to a tool (or MCP toolset) declared in the
-        request's `tools`. Under the `inline-tools-2026-09-15` beta it may
-        instead be a reference to a tool defined earlier in `messages`, or a
-        `tool_definition` object that carries an inline tool definition in
-        `definition` (the same object a `tools` entry holds). An `mcp_toolset`
-        definition also requires the `mcp-client-2026-09-15` beta. The tool is
-        offered to the model from this point in the conversation onward.
-
-        - `Type ToolAddition`
-
-        - `Tool BetaRequestToolAdditionBlockToolUnion`
-
-          - `type BetaToolChangeToolReference`
-
-            Reference to a single tool, by the name the model uses to call it: a
-            tool declared in `tools` or defined by an earlier `tool_addition`
-            block. Does not accept the composed `{server}_{name}` form the server
-            assigns to MCP-resolved tools; use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
-
-            - `Type ToolReference`
-
-            - `Name string`
-
-              pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-          - `type BetaToolChangeMCPToolReference`
-
-            Reference to a single MCP tool by its server and remote name; the
-            same `server_name`/`name` pair `mcp_tool_use` carries.
-
-            - `Type MCPToolReference`
-
-            - `Name string`
-
-            - `ServerName string`
-
-          - `type BetaToolChangeMCPToolsetReference`
-
-            Reference to every tool in the named MCP server's toolset.
-
-            - `Type MCPToolsetReference`
-
-            - `ServerName string`
-
-          - `type BetaToolChangeToolDefinitionParamResp`
-
-            A tool defined by value: `definition` is a `tools` entry (any kind
-            `tools` accepts, an MCP toolset included). An `mcp_toolset` given here
-            also requires the `mcp-client-2026-09-15` beta.
-
-            - `Type ToolDefinition`
-
-            - `Definition BetaToolUnion`
-
-              - `type BetaTool`
-
-                - `Type BetaToolType Optional`
-
-                - `InputSchema BetaToolInputSchema`
-
-                  [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
-
-                  This defines the shape of the `input` that your tool accepts and that the model will produce.
-
-                  - `Type Object`
-
-                  - `Properties map[string, any] Optional`
-
-                  - `Required []string Optional`
-
-                - `Name string`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                  minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaToolAllowedCallerDirect BetaToolAllowedCaller = "direct"`
-
-                  - `const BetaToolAllowedCallerCodeExecution20250825 BetaToolAllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaToolAllowedCallerCodeExecution20260120 BetaToolAllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaToolAllowedCallerCodeExecution20260521 BetaToolAllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `Description string Optional`
-
-                  Description of what this tool does.
-
-                  Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
-
-                - `EagerInputStreaming bool Optional`
-
-                  Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
-
-                - `InputExamples []map[string, any] Optional`
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaToolBash20241022`
-
-                - `Type Bash20241022`
-
-                - `Name Bash`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaToolBash20241022AllowedCallerDirect BetaToolBash20241022AllowedCaller = "direct"`
-
-                  - `const BetaToolBash20241022AllowedCallerCodeExecution20250825 BetaToolBash20241022AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaToolBash20241022AllowedCallerCodeExecution20260120 BetaToolBash20241022AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaToolBash20241022AllowedCallerCodeExecution20260521 BetaToolBash20241022AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `InputExamples []map[string, any] Optional`
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaToolBash20250124`
-
-                - `Type Bash20250124`
-
-                - `Name Bash`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaToolBash20250124AllowedCallerDirect BetaToolBash20250124AllowedCaller = "direct"`
-
-                  - `const BetaToolBash20250124AllowedCallerCodeExecution20250825 BetaToolBash20250124AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaToolBash20250124AllowedCallerCodeExecution20260120 BetaToolBash20250124AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaToolBash20250124AllowedCallerCodeExecution20260521 BetaToolBash20250124AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `InputExamples []map[string, any] Optional`
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaCodeExecutionTool20250522`
-
-                - `Type CodeExecution20250522`
-
-                - `Name CodeExecution`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaCodeExecutionTool20250522AllowedCallerDirect BetaCodeExecutionTool20250522AllowedCaller = "direct"`
-
-                  - `const BetaCodeExecutionTool20250522AllowedCallerCodeExecution20250825 BetaCodeExecutionTool20250522AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaCodeExecutionTool20250522AllowedCallerCodeExecution20260120 BetaCodeExecutionTool20250522AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaCodeExecutionTool20250522AllowedCallerCodeExecution20260521 BetaCodeExecutionTool20250522AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaCodeExecutionTool20250825`
-
-                - `Type CodeExecution20250825`
-
-                - `Name CodeExecution`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaCodeExecutionTool20250825AllowedCallerDirect BetaCodeExecutionTool20250825AllowedCaller = "direct"`
-
-                  - `const BetaCodeExecutionTool20250825AllowedCallerCodeExecution20250825 BetaCodeExecutionTool20250825AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaCodeExecutionTool20250825AllowedCallerCodeExecution20260120 BetaCodeExecutionTool20250825AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaCodeExecutionTool20250825AllowedCallerCodeExecution20260521 BetaCodeExecutionTool20250825AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaCodeExecutionTool20260120`
-
-                Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
-
-                - `Type CodeExecution20260120`
-
-                - `Name CodeExecution`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaCodeExecutionTool20260120AllowedCallerDirect BetaCodeExecutionTool20260120AllowedCaller = "direct"`
-
-                  - `const BetaCodeExecutionTool20260120AllowedCallerCodeExecution20250825 BetaCodeExecutionTool20260120AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaCodeExecutionTool20260120AllowedCallerCodeExecution20260120 BetaCodeExecutionTool20260120AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaCodeExecutionTool20260120AllowedCallerCodeExecution20260521 BetaCodeExecutionTool20260120AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaCodeExecutionTool20260521`
-
-                Code execution tool with REPL state persistence.
-
-                - `Type CodeExecution20260521`
-
-                - `Name CodeExecution`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaCodeExecutionTool20260521AllowedCallerDirect BetaCodeExecutionTool20260521AllowedCaller = "direct"`
-
-                  - `const BetaCodeExecutionTool20260521AllowedCallerCodeExecution20250825 BetaCodeExecutionTool20260521AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaCodeExecutionTool20260521AllowedCallerCodeExecution20260120 BetaCodeExecutionTool20260521AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaCodeExecutionTool20260521AllowedCallerCodeExecution20260521 BetaCodeExecutionTool20260521AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaBrowserToolset20260801`
-
-                The browser toolset: a single `tools[]` entry (carrying no
-                `name`) that declares the browser tool family. The model is served
-                the family's tool with any members disabled via `configs` removed
-                from its schema.
-
-                - `Type BrowserToolset20260801`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `Configs BetaBrowserToolsetConfigs Optional`
-
-                  Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
-
-                  - `Type BetaBrowserTypeConfig Optional`
-
-                    `type`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `CloseTab BetaBrowserCloseTabConfig Optional`
-
-                    `close_tab`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `DoubleClick BetaBrowserDoubleClickConfig Optional`
-
-                    `double_click`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `FileUpload BetaBrowserFileUploadConfig Optional`
-
-                    `file_upload`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `Find BetaBrowserFindConfig Optional`
-
-                    `find`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `FormInput BetaBrowserFormInputConfig Optional`
-
-                    `form_input`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `GetPageText BetaBrowserGetPageTextConfig Optional`
-
-                    `get_page_text`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `HoldKey BetaBrowserHoldKeyConfig Optional`
-
-                    `hold_key`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `Hover BetaBrowserHoverConfig Optional`
-
-                    `hover`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `JavascriptExec BetaBrowserJavascriptExecConfig Optional`
-
-                    `javascript_exec`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `Key BetaBrowserKeyConfig Optional`
-
-                    `key`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `LeftClick BetaBrowserLeftClickConfig Optional`
-
-                    `left_click`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `LeftClickDrag BetaBrowserLeftClickDragConfig Optional`
-
-                    `left_click_drag`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `LeftMouseDown BetaBrowserLeftMouseDownConfig Optional`
-
-                    `left_mouse_down`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `LeftMouseUp BetaBrowserLeftMouseUpConfig Optional`
-
-                    `left_mouse_up`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `ListTabs BetaBrowserListTabsConfig Optional`
-
-                    `list_tabs`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `MiddleClick BetaBrowserMiddleClickConfig Optional`
-
-                    `middle_click`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `MouseMove BetaBrowserMouseMoveConfig Optional`
-
-                    `mouse_move`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `Navigate BetaBrowserNavigateConfig Optional`
-
-                    `navigate`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `NewTab BetaBrowserNewTabConfig Optional`
-
-                    `new_tab`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `ReadConsole BetaBrowserReadConsoleConfig Optional`
-
-                    `read_console`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `ReadNetwork BetaBrowserReadNetworkConfig Optional`
-
-                    `read_network`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `ReadPage BetaBrowserReadPageConfig Optional`
-
-                    `read_page`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `RightClick BetaBrowserRightClickConfig Optional`
-
-                    `right_click`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `Screenshot BetaBrowserScreenshotConfig Optional`
-
-                    `screenshot`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `Scroll BetaBrowserScrollConfig Optional`
-
-                    `scroll`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `ScrollTo BetaBrowserScrollToConfig Optional`
-
-                    `scroll_to`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `SwitchTab BetaBrowserSwitchTabConfig Optional`
-
-                    `switch_tab`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `TripleClick BetaBrowserTripleClickConfig Optional`
-
-                    `triple_click`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `Wait BetaBrowserWaitConfig Optional`
-
-                    `wait`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `Zoom BetaBrowserZoomConfig Optional`
-
-                    `zoom`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-              - `type BetaToolComputerUse20241022`
-
-                - `Type Computer20241022`
-
-                - `DisplayHeightPx int64`
-
-                  The height of the display in pixels.
-
-                  minimum: 1
-
-                - `DisplayWidthPx int64`
-
-                  The width of the display in pixels.
-
-                  minimum: 1
-
-                - `Name Computer`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaToolComputerUse20241022AllowedCallerDirect BetaToolComputerUse20241022AllowedCaller = "direct"`
-
-                  - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20250825 BetaToolComputerUse20241022AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20260120 BetaToolComputerUse20241022AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20260521 BetaToolComputerUse20241022AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `DisplayNumber int64 Optional`
-
-                  The X11 display number (e.g. 0, 1) for the display.
-
-                  minimum: 0
-
-                - `InputExamples []map[string, any] Optional`
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaMemoryTool20250818`
-
-                - `Type Memory20250818`
-
-                - `Name Memory`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaMemoryTool20250818AllowedCallerDirect BetaMemoryTool20250818AllowedCaller = "direct"`
-
-                  - `const BetaMemoryTool20250818AllowedCallerCodeExecution20250825 BetaMemoryTool20250818AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaMemoryTool20250818AllowedCallerCodeExecution20260120 BetaMemoryTool20250818AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaMemoryTool20250818AllowedCallerCodeExecution20260521 BetaMemoryTool20250818AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `InputExamples []map[string, any] Optional`
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaToolComputerUse20250124`
-
-                - `Type Computer20250124`
-
-                - `DisplayHeightPx int64`
-
-                  The height of the display in pixels.
-
-                  minimum: 1
-
-                - `DisplayWidthPx int64`
-
-                  The width of the display in pixels.
-
-                  minimum: 1
-
-                - `Name Computer`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaToolComputerUse20250124AllowedCallerDirect BetaToolComputerUse20250124AllowedCaller = "direct"`
-
-                  - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20250825 BetaToolComputerUse20250124AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20260120 BetaToolComputerUse20250124AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20260521 BetaToolComputerUse20250124AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `DisplayNumber int64 Optional`
-
-                  The X11 display number (e.g. 0, 1) for the display.
-
-                  minimum: 0
-
-                - `InputExamples []map[string, any] Optional`
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaToolTextEditor20241022`
-
-                - `Type TextEditor20241022`
-
-                - `Name StrReplaceEditor`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaToolTextEditor20241022AllowedCallerDirect BetaToolTextEditor20241022AllowedCaller = "direct"`
-
-                  - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20250825 BetaToolTextEditor20241022AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20260120 BetaToolTextEditor20241022AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20260521 BetaToolTextEditor20241022AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `InputExamples []map[string, any] Optional`
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaToolComputerUse20251124`
-
-                - `Type Computer20251124`
-
-                - `DisplayHeightPx int64`
-
-                  The height of the display in pixels.
-
-                  minimum: 1
-
-                - `DisplayWidthPx int64`
-
-                  The width of the display in pixels.
-
-                  minimum: 1
-
-                - `Name Computer`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaToolComputerUse20251124AllowedCallerDirect BetaToolComputerUse20251124AllowedCaller = "direct"`
-
-                  - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20250825 BetaToolComputerUse20251124AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20260120 BetaToolComputerUse20251124AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20260521 BetaToolComputerUse20251124AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `DisplayNumber int64 Optional`
-
-                  The X11 display number (e.g. 0, 1) for the display.
-
-                  minimum: 0
-
-                - `EnableZoom bool Optional`
-
-                  Whether to enable an action to take a zoomed-in screenshot of the screen.
-
-                - `InputExamples []map[string, any] Optional`
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaComputerToolset20260801`
-
-                The computer toolset: a single `tools[]` entry (carrying no
-                `name`) that declares the computer tool family. The model is
-                served the family's tool with any members disabled via `configs`
-                removed from its schema. Every member is enabled by default, zoom
-                included. The single-tool options `display_number` and
-                `enable_zoom` are not fields of a toolset entry — it carries only
-                `type`, `configs`, and `cache_control`; zoom is controlled
-                via `configs.zoom.enabled`.
-
-                - `Type ComputerToolset20260801`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `Configs BetaComputerToolsetConfigs Optional`
-
-                  Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
-
-                  - `Type BetaComputerTypeConfig Optional`
-
-                    `type`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `CursorPosition BetaComputerCursorPositionConfig Optional`
-
-                    `cursor_position`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `DoubleClick BetaComputerDoubleClickConfig Optional`
-
-                    `double_click`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `HoldKey BetaComputerHoldKeyConfig Optional`
-
-                    `hold_key`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `Key BetaComputerKeyConfig Optional`
-
-                    `key`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `LeftClick BetaComputerLeftClickConfig Optional`
-
-                    `left_click`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `LeftClickDrag BetaComputerLeftClickDragConfig Optional`
-
-                    `left_click_drag`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `LeftMouseDown BetaComputerLeftMouseDownConfig Optional`
-
-                    `left_mouse_down`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `LeftMouseUp BetaComputerLeftMouseUpConfig Optional`
-
-                    `left_mouse_up`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `MiddleClick BetaComputerMiddleClickConfig Optional`
-
-                    `middle_click`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `MouseMove BetaComputerMouseMoveConfig Optional`
-
-                    `mouse_move`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `RightClick BetaComputerRightClickConfig Optional`
-
-                    `right_click`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `Screenshot BetaComputerScreenshotConfig Optional`
-
-                    `screenshot`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `Scroll BetaComputerScrollConfig Optional`
-
-                    `scroll`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `TripleClick BetaComputerTripleClickConfig Optional`
-
-                    `triple_click`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `Wait BetaComputerWaitConfig Optional`
-
-                    `wait`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-                  - `Zoom BetaComputerZoomConfig Optional`
-
-                    `zoom`'s config overrides.
-
-                    - `DeferLoading bool Optional`
-
-                      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-                    - `Enabled bool Optional`
-
-                      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-              - `type BetaToolTextEditor20250124`
-
-                - `Type TextEditor20250124`
-
-                - `Name StrReplaceEditor`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaToolTextEditor20250124AllowedCallerDirect BetaToolTextEditor20250124AllowedCaller = "direct"`
-
-                  - `const BetaToolTextEditor20250124AllowedCallerCodeExecution20250825 BetaToolTextEditor20250124AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaToolTextEditor20250124AllowedCallerCodeExecution20260120 BetaToolTextEditor20250124AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaToolTextEditor20250124AllowedCallerCodeExecution20260521 BetaToolTextEditor20250124AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `InputExamples []map[string, any] Optional`
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaToolTextEditor20250429`
-
-                - `Type TextEditor20250429`
-
-                - `Name StrReplaceBasedEditTool`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaToolTextEditor20250429AllowedCallerDirect BetaToolTextEditor20250429AllowedCaller = "direct"`
-
-                  - `const BetaToolTextEditor20250429AllowedCallerCodeExecution20250825 BetaToolTextEditor20250429AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaToolTextEditor20250429AllowedCallerCodeExecution20260120 BetaToolTextEditor20250429AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaToolTextEditor20250429AllowedCallerCodeExecution20260521 BetaToolTextEditor20250429AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `InputExamples []map[string, any] Optional`
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaToolTextEditor20250728`
-
-                - `Type TextEditor20250728`
-
-                - `Name StrReplaceBasedEditTool`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaToolTextEditor20250728AllowedCallerDirect BetaToolTextEditor20250728AllowedCaller = "direct"`
-
-                  - `const BetaToolTextEditor20250728AllowedCallerCodeExecution20250825 BetaToolTextEditor20250728AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaToolTextEditor20250728AllowedCallerCodeExecution20260120 BetaToolTextEditor20250728AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaToolTextEditor20250728AllowedCallerCodeExecution20260521 BetaToolTextEditor20250728AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `InputExamples []map[string, any] Optional`
-
-                - `MaxCharacters int64 Optional`
-
-                  Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
-
-                  minimum: 1
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaWebSearchTool20250305`
-
-                - `Type WebSearch20250305`
-
-                - `Name WebSearch`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaWebSearchTool20250305AllowedCallerDirect BetaWebSearchTool20250305AllowedCaller = "direct"`
-
-                  - `const BetaWebSearchTool20250305AllowedCallerCodeExecution20250825 BetaWebSearchTool20250305AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaWebSearchTool20250305AllowedCallerCodeExecution20260120 BetaWebSearchTool20250305AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaWebSearchTool20250305AllowedCallerCodeExecution20260521 BetaWebSearchTool20250305AllowedCaller = "code_execution_20260521"`
-
-                - `AllowedDomains []string Optional`
-
-                  If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-                - `BlockedDomains []string Optional`
-
-                  If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `MaxUses int64 Optional`
-
-                  Maximum number of times the tool can be used in the API request.
-
-                  minimum: 1
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-                - `UserLocation BetaUserLocation Optional`
-
-                  Parameters for the user's location. Used to provide more relevant search results.
-
-                  - `Type Approximate`
-
-                  - `City string Optional`
-
-                    The city of the user.
-
-                    minLength: 1, maxLength: 255
-
-                  - `Country string Optional`
-
-                    The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-                    minLength: 2, maxLength: 2
-
-                  - `Region string Optional`
-
-                    The region of the user.
-
-                    minLength: 1, maxLength: 255
-
-                  - `Timezone string Optional`
-
-                    The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-                    minLength: 1, maxLength: 255
-
-              - `type BetaWebFetchTool20250910`
-
-                - `Type WebFetch20250910`
-
-                - `Name WebFetch`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaWebFetchTool20250910AllowedCallerDirect BetaWebFetchTool20250910AllowedCaller = "direct"`
-
-                  - `const BetaWebFetchTool20250910AllowedCallerCodeExecution20250825 BetaWebFetchTool20250910AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaWebFetchTool20250910AllowedCallerCodeExecution20260120 BetaWebFetchTool20250910AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaWebFetchTool20250910AllowedCallerCodeExecution20260521 BetaWebFetchTool20250910AllowedCaller = "code_execution_20260521"`
-
-                - `AllowedDomains []string Optional`
-
-                  List of domains to allow fetching from
-
-                - `BlockedDomains []string Optional`
-
-                  List of domains to block fetching from
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `Citations BetaCitationsConfigParamResp Optional`
-
-                  Citations configuration for fetched documents. Citations are disabled by default.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `MaxContentTokens int64 Optional`
-
-                  Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-                  minimum: 1
-
-                - `MaxUses int64 Optional`
-
-                  Maximum number of times the tool can be used in the API request.
-
-                  minimum: 1
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-                - `URLSources BetaWebFetchURLSources Optional`
-
-                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-                  - `ClientToolResults BetaWebFetchURLSourcesClientToolResultsUnion Optional`
-
-                    Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
-
-                    - `type BetaWebFetchURLSourceAll`
-
-                      The `url_sources` variant under which a source contributes in
-                      full: every result of the tool filter's source, or all user input.
-
-                      - `Type All`
-
-                    - `type BetaWebFetchURLSourceNone`
-
-                      The `url_sources` variant under which a source contributes nothing:
-                      no result of the tool filter's source, or no user input.
-
-                      - `Type None`
-
-                    - `type BetaWebFetchURLSourceOnly`
-
-                      The tool filter variant under which only the named tools' results
-                      contribute.
-
-                      - `Type Only`
-
-                      - `Tools []BetaWebFetchURLSourceToolReference`
-
-                        - `Type ToolReference`
-
-                        - `Name string`
-
-                    - `type BetaWebFetchURLSourceExcept`
-
-                      The tool filter variant under which every result but the named
-                      tools' contributes.
-
-                      - `Type Except`
-
-                      - `Tools []BetaWebFetchURLSourceToolReference`
-
-                        - `Type ToolReference`
-
-                        - `Name string`
-
-                  - `ServerToolResults BetaWebFetchURLSourcesServerToolResultsUnion Optional`
-
-                    Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
-
-                    - `type BetaWebFetchURLSourceAll`
-
-                      The `url_sources` variant under which a source contributes in
-                      full: every result of the tool filter's source, or all user input.
-
-                    - `type BetaWebFetchURLSourceNone`
-
-                      The `url_sources` variant under which a source contributes nothing:
-                      no result of the tool filter's source, or no user input.
-
-                    - `type BetaWebFetchURLSourceOnly`
-
-                      The tool filter variant under which only the named tools' results
-                      contribute.
-
-                    - `type BetaWebFetchURLSourceExcept`
-
-                      The tool filter variant under which every result but the named
-                      tools' contributes.
-
-                  - `UserInput BetaWebFetchURLSourcesUserInputUnion Optional`
-
-                    Whether URLs in user messages are fetchable: "all" or "none".
-
-                    - `type BetaWebFetchURLSourceAll`
-
-                      The `url_sources` variant under which a source contributes in
-                      full: every result of the tool filter's source, or all user input.
-
-                    - `type BetaWebFetchURLSourceNone`
-
-                      The `url_sources` variant under which a source contributes nothing:
-                      no result of the tool filter's source, or no user input.
-
-              - `type BetaWebSearchTool20260209`
-
-                - `Type WebSearch20260209`
-
-                - `Name WebSearch`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaWebSearchTool20260209AllowedCallerDirect BetaWebSearchTool20260209AllowedCaller = "direct"`
-
-                  - `const BetaWebSearchTool20260209AllowedCallerCodeExecution20250825 BetaWebSearchTool20260209AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaWebSearchTool20260209AllowedCallerCodeExecution20260120 BetaWebSearchTool20260209AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaWebSearchTool20260209AllowedCallerCodeExecution20260521 BetaWebSearchTool20260209AllowedCaller = "code_execution_20260521"`
-
-                - `AllowedDomains []string Optional`
-
-                  If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-                - `BlockedDomains []string Optional`
-
-                  If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `MaxUses int64 Optional`
-
-                  Maximum number of times the tool can be used in the API request.
-
-                  minimum: 1
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-                - `UserLocation BetaUserLocation Optional`
-
-                  Parameters for the user's location. Used to provide more relevant search results.
-
-              - `type BetaWebFetchTool20260209`
-
-                - `Type WebFetch20260209`
-
-                - `Name WebFetch`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaWebFetchTool20260209AllowedCallerDirect BetaWebFetchTool20260209AllowedCaller = "direct"`
-
-                  - `const BetaWebFetchTool20260209AllowedCallerCodeExecution20250825 BetaWebFetchTool20260209AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaWebFetchTool20260209AllowedCallerCodeExecution20260120 BetaWebFetchTool20260209AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaWebFetchTool20260209AllowedCallerCodeExecution20260521 BetaWebFetchTool20260209AllowedCaller = "code_execution_20260521"`
-
-                - `AllowedDomains []string Optional`
-
-                  List of domains to allow fetching from
-
-                - `BlockedDomains []string Optional`
-
-                  List of domains to block fetching from
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `Citations BetaCitationsConfigParamResp Optional`
-
-                  Citations configuration for fetched documents. Citations are disabled by default.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `MaxContentTokens int64 Optional`
-
-                  Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-                  minimum: 1
-
-                - `MaxUses int64 Optional`
-
-                  Maximum number of times the tool can be used in the API request.
-
-                  minimum: 1
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-                - `URLSources BetaWebFetchURLSources Optional`
-
-                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-              - `type BetaWebFetchTool20260309`
-
-                Web fetch tool with use_cache parameter for bypassing cached content.
-
-                - `Type WebFetch20260309`
-
-                - `Name WebFetch`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaWebFetchTool20260309AllowedCallerDirect BetaWebFetchTool20260309AllowedCaller = "direct"`
-
-                  - `const BetaWebFetchTool20260309AllowedCallerCodeExecution20250825 BetaWebFetchTool20260309AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaWebFetchTool20260309AllowedCallerCodeExecution20260120 BetaWebFetchTool20260309AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaWebFetchTool20260309AllowedCallerCodeExecution20260521 BetaWebFetchTool20260309AllowedCaller = "code_execution_20260521"`
-
-                - `AllowedDomains []string Optional`
-
-                  List of domains to allow fetching from
-
-                - `BlockedDomains []string Optional`
-
-                  List of domains to block fetching from
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `Citations BetaCitationsConfigParamResp Optional`
-
-                  Citations configuration for fetched documents. Citations are disabled by default.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `MaxContentTokens int64 Optional`
-
-                  Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-                  minimum: 1
-
-                - `MaxUses int64 Optional`
-
-                  Maximum number of times the tool can be used in the API request.
-
-                  minimum: 1
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-                - `URLSources BetaWebFetchURLSources Optional`
-
-                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-                - `UseCache bool Optional`
-
-                  Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-              - `type BetaWebSearchTool20260318`
-
-                - `Type WebSearch20260318`
-
-                - `Name WebSearch`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaWebSearchTool20260318AllowedCallerDirect BetaWebSearchTool20260318AllowedCaller = "direct"`
-
-                  - `const BetaWebSearchTool20260318AllowedCallerCodeExecution20250825 BetaWebSearchTool20260318AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaWebSearchTool20260318AllowedCallerCodeExecution20260120 BetaWebSearchTool20260318AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaWebSearchTool20260318AllowedCallerCodeExecution20260521 BetaWebSearchTool20260318AllowedCaller = "code_execution_20260521"`
-
-                - `AllowedDomains []string Optional`
-
-                  If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-                - `BlockedDomains []string Optional`
-
-                  If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `MaxUses int64 Optional`
-
-                  Maximum number of times the tool can be used in the API request.
-
-                  minimum: 1
-
-                - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion Optional`
-
-                  How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-                  - `const BetaWebSearchTool20260318ResponseInclusionFull BetaWebSearchTool20260318ResponseInclusion = "full"`
-
-                  - `const BetaWebSearchTool20260318ResponseInclusionExcluded BetaWebSearchTool20260318ResponseInclusion = "excluded"`
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-                - `UserLocation BetaUserLocation Optional`
-
-                  Parameters for the user's location. Used to provide more relevant search results.
-
-              - `type BetaWebFetchTool20260318`
-
-                - `Type WebFetch20260318`
-
-                - `Name WebFetch`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaWebFetchTool20260318AllowedCallerDirect BetaWebFetchTool20260318AllowedCaller = "direct"`
-
-                  - `const BetaWebFetchTool20260318AllowedCallerCodeExecution20250825 BetaWebFetchTool20260318AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaWebFetchTool20260318AllowedCallerCodeExecution20260120 BetaWebFetchTool20260318AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaWebFetchTool20260318AllowedCallerCodeExecution20260521 BetaWebFetchTool20260318AllowedCaller = "code_execution_20260521"`
-
-                - `AllowedDomains []string Optional`
-
-                  List of domains to allow fetching from
-
-                - `BlockedDomains []string Optional`
-
-                  List of domains to block fetching from
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `Citations BetaCitationsConfigParamResp Optional`
-
-                  Citations configuration for fetched documents. Citations are disabled by default.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `MaxContentTokens int64 Optional`
-
-                  Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-                  minimum: 1
-
-                - `MaxUses int64 Optional`
-
-                  Maximum number of times the tool can be used in the API request.
-
-                  minimum: 1
-
-                - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
-
-                  How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-                  - `const BetaWebFetchTool20260318ResponseInclusionFull BetaWebFetchTool20260318ResponseInclusion = "full"`
-
-                  - `const BetaWebFetchTool20260318ResponseInclusionExcluded BetaWebFetchTool20260318ResponseInclusion = "excluded"`
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-                - `URLSources BetaWebFetchURLSources Optional`
-
-                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-                - `UseCache bool Optional`
-
-                  Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-              - `type BetaAdvisorTool20260301`
-
-                - `Type Advisor20260301`
-
-                - `Model Model`
-
-                  The model that will complete your prompt.
-
-                  See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+                    Fastest model for high-volume, real-time tasks
 
                   - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
@@ -26890,91 +29486,3 @@ func main() {
                     Best combination of speed and intelligence
 
                   - `const ModelClaudeHaiku4_5 Model = "claude-haiku-4-5"`
-
-                    Fastest model with near-frontier intelligence
-
-                  - `const ModelClaudeHaiku4_5_20251001 Model = "claude-haiku-4-5-20251001"`
-
-                    Fastest model with near-frontier intelligence
-
-                  - `const ModelClaudeOpus4_5 Model = "claude-opus-4-5"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `const ModelClaudeOpus4_5_20251101 Model = "claude-opus-4-5-20251101"`
-
-                    Powerful intelligence for long-running agents and coding
-
-                  - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                    **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-                    New class of intelligence, strongest in coding and cybersecurity
-
-                  - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-                    **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-                    High-performance model for agents and coding
-
-                  - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-                    **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-                    High-performance model for agents and coding
-
-                - `Name Advisor`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaAdvisorTool20260301AllowedCallerDirect BetaAdvisorTool20260301AllowedCaller = "direct"`
-
-                  - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20250825 BetaAdvisorTool20260301AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20260120 BetaAdvisorTool20260301AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20260521 BetaAdvisorTool20260301AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `Caching BetaCacheControlEphemeral Optional`
-
-                  Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `MaxTokens int64 Optional`
-
-                  Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
-
-                  minimum: 1024
-
-                - `MaxUses int64 Optional`
-
-                  Maximum number of times the tool can be used in the API request.
-
-                  minimum: 1
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaToolSearchToolBm25_20251119`
-
-                - `Type BetaToolSearchToolBm25_20251119Type`
-
-                  - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
-
-                  - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
-
-                - `Name ToolSearchToolBm25`
-
-                  Name of the tool.

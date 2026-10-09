@@ -17,5 +17,3 @@ Startups backed by the Anthology Fund will gain access to Anthropic products and
 We look forward to working with Menlo in supporting the startup ecosystem and driving responsible AI innovation.
 
 Interested startups can learn more and apply [here](https://menlovc.com/anthology-fund-application/).
-
-Anthropic partners with Menlo Ventures to launch Anthology Fund \ Anthropic

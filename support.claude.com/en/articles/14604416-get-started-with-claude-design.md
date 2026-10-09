@@ -177,5 +177,5 @@ Claude Design is now available in beta. A few things to be aware of:
 * [Set up your design system in Claude Design](https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design)
 * [Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)
 * [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)
-* [Get started with Claude Docs](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs)
+* [Open Claude Desktop with a link](https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link)
 * [Artifacts admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/16994751-artifacts-admin-guide-for-team-and-enterprise-plans)

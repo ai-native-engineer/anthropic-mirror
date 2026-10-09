@@ -2,7 +2,10 @@
 
 You may cancel your Pro or Max plan subscription at any time by following the cancellation instructions for the platform you signed up on. Your cancellation will take effect at the end of your current billing period and you can continue using your paid plan until then.
 
-**Note:** To avoid being charged for your next billing period, cancel your subscription at least 24 hours before your next billing date.
+**Note:**
+
+* To avoid being charged for your next billing period, cancel your subscription at least 24 hours before your next billing date.
+* Monthly API credits included with Max and Team plans aren’t purchased, so they can’t be refunded. They expire at the end of each billing cycle. If you cancel or get a refund for your plan, new monthly credits stop, and credits you already have stay usable until they expire.
 
 ## Cancel your Pro or Max subscription on Claude and Claude Desktop
 
@@ -24,7 +27,7 @@ To cancel your subscription, click on your initials in the top right corner of C
 
 You may cancel your Pro or Max subscription at any time from the platform you signed up on. To avoid being charged for your next billing period, cancel your subscription at least 24 hours before your next billing date.
 
-* [Delete your Claude account](https://support.claude.com/en/articles/9028421-delete-your-claude-account)
+* [How to change your Pro plan from monthly to annual billing](https://support.claude.com/en/articles/10185996-how-to-change-your-pro-plan-from-monthly-to-annual-billing)
 * [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
 * [How do I sign up for the Max plan?](https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan)
 * [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)

@@ -806,7 +806,7 @@ $betaManagedAgentsStreamSessionThreadEvents = $client
   ->threads
   ->events
   ->streamStream(
-  'sthr_011CZkZVWa6oIjw0rgXZpnBt',
+  'sthr_011CZkZVWa6oJjw1rgXZpnBt',
   sessionID: 'sesn_011CZkZAtmR3yMPDzynEDxu7',
   eventDeltas: [BetaManagedAgentsDeltaType::AGENT_MESSAGE],
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
@@ -820,7 +820,7 @@ var_dump($betaManagedAgentsStreamSessionThreadEvents);
 
 ```json
 {
-  "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+  "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
   "content": [
     {
       "text": "Where is my order #1234?",

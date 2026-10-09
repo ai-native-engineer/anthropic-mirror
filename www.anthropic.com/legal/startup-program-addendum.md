@@ -45,5 +45,3 @@ Additional Benefits are available only to Members for use by Members, and only w
 ## 6. General
 
 For clarity, the governing law, venue, modification and all other provisions of the Program Terms apply to this Addendum. Anthropic's [Privacy Policy](https://www.anthropic.com/legal/privacy) describes how Anthropic handles information you provide in connection with the Program. Anthropic may modify this Addendum, at any time without notice or liability.
-
-Claude Startups Additional Benefits Addendum \ Anthropic

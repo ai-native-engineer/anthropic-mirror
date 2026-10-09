@@ -10,6 +10,12 @@
 
 Configuration keys by Claude Desktop release. Each section lists keys added in that release, with the MDM key name (for plist/registry deployment) and the equivalent JSON shape (for local-file or bootstrap remote configuration).
 
+v2.26454.2
+
+2026-10-07
+
+No configuration changes in this release.
+
 v2.26454.0
 
 2026-10-06

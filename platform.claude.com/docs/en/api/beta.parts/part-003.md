@@ -3,6 +3,3524 @@
 
 <!-- chunk-start -->
 
+    - `BetaManagedAgentsWorkspaceArchivedRunError object`
+
+      The deployment's workspace was archived.
+
+      - `type: "workspace_archived_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `BetaManagedAgentsOrganizationDisabledRunError object`
+
+      The deployment's organization is disabled.
+
+      - `type: "organization_disabled_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `BetaManagedAgentsSessionRateLimitedRunError object`
+
+      Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
+
+      - `type: "session_rate_limited_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `BetaManagedAgentsSessionCreationRejectedRunError object`
+
+      The session create request was rejected with a non-retryable validation error.
+
+      - `type: "session_creation_rejected_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `BetaManagedAgentsUnknownRunError object`
+
+      An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
+
+      - `type: "unknown_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `BetaManagedAgentsSelfHostedResourcesUnsupportedRunError object`
+
+      The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+      - `type: "self_hosted_resources_unsupported_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `BetaManagedAgentsMCPEgressBlockedRunError object`
+
+      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+      - `type: "mcp_egress_blocked_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+  - `session_id: string or null`
+
+    Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
+
+  - `trigger_context: BetaManagedAgentsTriggerContext`
+
+    What triggered this run and trigger-specific metadata.
+
+    - `BetaManagedAgentsScheduleTriggerContext object`
+
+      The run was fired by the deployment's cron schedule.
+
+      - `type: "schedule"`
+
+      - `scheduled_at: string`
+
+        The UTC instant at which the cron expression matched in the configured timezone, before jitter is applied. At most one run is recorded per (`deployment_id`, `scheduled_at`) pair.
+
+        format: date-time
+
+    - `BetaManagedAgentsManualTriggerContext object`
+
+      The run was started manually by creating a session directly against the deployment.
+
+      - `type: "manual"`
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/deployment_runs/$DEPLOYMENT_RUN_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "type": "agent",
+    "version": 1
+  },
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "deployment_id": "deployment_id",
+  "error": {
+    "message": "message",
+    "type": "environment_archived_error"
+  },
+  "session_id": "session_id",
+  "trigger_context": {
+    "scheduled_at": "2019-12-27T18:11:19.117Z",
+    "type": "schedule"
+  },
+  "type": "deployment_run"
+}
+```
+
+## Beta › Vaults
+
+### Create Vault
+
+**POST** `/v1/vaults`
+
+Create Vault
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters
+
+- `display_name: string`
+
+  Human-readable name for the vault. 1-255 characters.
+
+  minLength: 1, maxLength: 255
+
+- `metadata: optional map[string]`
+
+  Arbitrary key-value metadata to attach to the vault. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+#### Returns
+
+- `BetaManagedAgentsVault object`
+
+  A vault that stores credentials for use by agents during sessions.
+
+  - `type: "vault"`
+
+  - `id: string`
+
+    Unique identifier for the vault.
+
+  - `archived_at: string or null`
+
+    When the vault was archived. Null if not archived.
+
+    format: date-time
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `display_name: string`
+
+    Human-readable name for the vault.
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata attached to the vault.
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/vaults \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "display_name": "Example vault",
+          "metadata": {
+            "environment": "production"
+          }
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+### List Vaults
+
+**GET** `/v1/vaults`
+
+List Vaults
+
+#### Query parameters
+
+- `include_archived: optional boolean`
+
+  Whether to include archived vaults in the results.
+
+- `limit: optional number`
+
+  Maximum number of vaults to return per page. Defaults to 20, maximum 100.
+
+  format: int32
+
+- `page: optional string`
+
+  Opaque pagination token from a previous `list_vaults` response.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `data: optional array of BetaManagedAgentsVault`
+
+  List of vaults.
+
+  - `type: "vault"`
+
+  - `id: string`
+
+    Unique identifier for the vault.
+
+  - `archived_at: string or null`
+
+    When the vault was archived. Null if not archived.
+
+    format: date-time
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `display_name: string`
+
+    Human-readable name for the vault.
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata attached to the vault.
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+- `next_page: optional string or null`
+
+  Pagination token for the next page, or null if no more results.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/vaults \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "display_name": "Example vault",
+      "metadata": {
+        "environment": "production"
+      },
+      "type": "vault",
+      "updated_at": "2026-03-15T10:00:00Z"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+### Get Vault
+
+**GET** `/v1/vaults/{vault_id}`
+
+Get Vault
+
+#### Path parameters
+
+- `vault_id: string`
+
+  Unique identifier of the vault to retrieve.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsVault object`
+
+  A vault that stores credentials for use by agents during sessions.
+
+  - `type: "vault"`
+
+  - `id: string`
+
+    Unique identifier for the vault.
+
+  - `archived_at: string or null`
+
+    When the vault was archived. Null if not archived.
+
+    format: date-time
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `display_name: string`
+
+    Human-readable name for the vault.
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata attached to the vault.
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/vaults/$VAULT_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+### Update Vault
+
+**POST** `/v1/vaults/{vault_id}`
+
+Update Vault
+
+#### Path parameters
+
+- `vault_id: string`
+
+  Unique identifier of the vault to update.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters
+
+- `display_name: optional string or null`
+
+  Updated human-readable name for the vault. 1-255 characters.
+
+  minLength: 1, maxLength: 255
+
+- `metadata: optional map[string] or null`
+
+  Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
+
+#### Returns
+
+- `BetaManagedAgentsVault object`
+
+  A vault that stores credentials for use by agents during sessions.
+
+  - `type: "vault"`
+
+  - `id: string`
+
+    Unique identifier for the vault.
+
+  - `archived_at: string or null`
+
+    When the vault was archived. Null if not archived.
+
+    format: date-time
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `display_name: string`
+
+    Human-readable name for the vault.
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata attached to the vault.
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/vaults/$VAULT_ID \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "display_name": "Example vault",
+          "metadata": {
+            "environment": "production"
+          }
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+### Delete Vault
+
+**DELETE** `/v1/vaults/{vault_id}`
+
+Delete Vault
+
+#### Path parameters
+
+- `vault_id: string`
+
+  Unique identifier of the vault to delete.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsDeletedVault object`
+
+  Confirmation of a deleted vault.
+
+  - `type: "vault_deleted"`
+
+  - `id: string`
+
+    Unique identifier of the deleted vault.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/vaults/$VAULT_ID \
+    -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "type": "vault_deleted"
+}
+```
+
+### Archive Vault
+
+**POST** `/v1/vaults/{vault_id}/archive`
+
+Archive Vault
+
+#### Path parameters
+
+- `vault_id: string`
+
+  Unique identifier of the vault to archive.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsVault object`
+
+  A vault that stores credentials for use by agents during sessions.
+
+  - `type: "vault"`
+
+  - `id: string`
+
+    Unique identifier for the vault.
+
+  - `archived_at: string or null`
+
+    When the vault was archived. Null if not archived.
+
+    format: date-time
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `display_name: string`
+
+    Human-readable name for the vault.
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata attached to the vault.
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/vaults/$VAULT_ID/archive \
+    -X POST \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+## Beta › Vaults › Credentials
+
+### Create Credential
+
+**POST** `/v1/vaults/{vault_id}/credentials`
+
+Create Credential
+
+#### Path parameters
+
+- `vault_id: string`
+
+  Identifier of the vault to create the credential in.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters
+
+- `auth: BetaManagedAgentsMCPOAuthCreateParams or BetaManagedAgentsStaticBearerCreateParams or BetaManagedAgentsEnvironmentVariableCreateParams`
+
+  Authentication configuration for the credential.
+
+  - `BetaManagedAgentsMCPOAuthCreateParams object`
+
+    Parameters for creating an MCP OAuth credential.
+
+    - `type: "mcp_oauth"`
+
+    - `access_token: string`
+
+      OAuth access token.
+
+      minLength: 1, maxLength: 8192
+
+    - `mcp_server_url: string`
+
+      URL of the MCP server this credential authenticates against.
+
+      minLength: 1, maxLength: 2047
+
+    - `expires_at: optional string or null`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `refresh: optional BetaManagedAgentsMCPOAuthRefreshParams or null`
+
+      Refresh token configuration, if the credential supports token refresh.
+
+      - `client_id: string`
+
+        OAuth client ID.
+
+        minLength: 1, maxLength: 1024
+
+      - `refresh_token: string`
+
+        OAuth refresh token.
+
+        minLength: 1, maxLength: 8192
+
+      - `token_endpoint: string`
+
+        Token endpoint URL used to refresh the access token.
+
+        minLength: 1, maxLength: 2047
+
+      - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneParam or BetaManagedAgentsTokenEndpointAuthBasicParam or BetaManagedAgentsTokenEndpointAuthPostParam`
+
+        - `BetaManagedAgentsTokenEndpointAuthNoneParam object`
+
+          Token endpoint requires no client authentication.
+
+          - `type: "none"`
+
+        - `BetaManagedAgentsTokenEndpointAuthBasicParam object`
+
+          Token endpoint uses HTTP Basic authentication with client credentials.
+
+          - `type: "client_secret_basic"`
+
+          - `client_secret: string`
+
+            OAuth client secret.
+
+            minLength: 1, maxLength: 512
+
+        - `BetaManagedAgentsTokenEndpointAuthPostParam object`
+
+          Token endpoint uses POST body authentication with client credentials.
+
+          - `type: "client_secret_post"`
+
+          - `client_secret: string`
+
+            OAuth client secret.
+
+            minLength: 1, maxLength: 512
+
+      - `resource: optional string or null`
+
+        OAuth resource indicator.
+
+        minLength: 1, maxLength: 2047
+
+      - `scope: optional string or null`
+
+        OAuth scope for the refresh request.
+
+        minLength: 1, maxLength: 8192
+
+  - `BetaManagedAgentsStaticBearerCreateParams object`
+
+    Parameters for creating a static bearer token credential.
+
+    - `type: "static_bearer"`
+
+    - `token: string`
+
+      Static bearer token value.
+
+      minLength: 1, maxLength: 8192
+
+    - `mcp_server_url: string`
+
+      URL of the MCP server this credential authenticates against.
+
+      minLength: 1, maxLength: 2047
+
+  - `BetaManagedAgentsEnvironmentVariableCreateParams object`
+
+    Parameters for creating an environment variable credential.
+
+    - `type: "environment_variable"`
+
+    - `networking: BetaManagedAgentsCredentialNetworkingParams`
+
+      Outbound hosts the secret value is substituted on.
+
+      - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams object`
+
+        Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+        - `type: "unrestricted"`
+
+      - `BetaManagedAgentsLimitedCredentialNetworkingParams object`
+
+        Substitute the secret only on requests to the listed hosts.
+
+        - `type: "limited"`
+
+        - `allowed_hosts: array of string`
+
+          Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+    - `secret_name: string`
+
+      Name of the environment variable. Immutable after create.
+
+      minLength: 1, maxLength: 255
+
+    - `secret_value: string`
+
+      Secret value. Write-only; never returned in responses.
+
+      minLength: 1, maxLength: 4096
+
+    - `injection_location: optional BetaManagedAgentsInjectionLocationParams`
+
+      Where in the outbound request the secret value may be substituted.
+
+      - `body: optional boolean`
+
+        Substitute when the placeholder appears in the request body.
+
+      - `header: optional boolean`
+
+        Substitute when the placeholder appears in a request header value.
+
+- `display_name: optional string or null`
+
+  Human-readable name for the credential. Up to 255 characters.
+
+  maxLength: 255
+
+- `metadata: optional map[string]`
+
+  Arbitrary key-value metadata to attach to the credential. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+#### Returns
+
+- `BetaManagedAgentsCredential object`
+
+  A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `type: "vault_credential"`
+
+  - `id: string`
+
+    Unique identifier for the credential.
+
+  - `archived_at: string or null`
+
+    When the credential was archived. Null if not archived.
+
+    format: date-time
+
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+    Authentication configuration for this credential.
+
+    - `BetaManagedAgentsMCPOAuthAuthResponse object`
+
+      OAuth credential details for an MCP server.
+
+      - `type: "mcp_oauth"`
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `expires_at: optional string or null`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
+
+        Refresh token configuration, if the credential supports token refresh.
+
+        - `client_id: string`
+
+          OAuth client ID.
+
+        - `token_endpoint: string`
+
+          Token endpoint URL used to refresh the access token.
+
+        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+          - `BetaManagedAgentsTokenEndpointAuthNoneResponse object`
+
+            Token endpoint requires no client authentication.
+
+            - `type: "none"`
+
+          - `BetaManagedAgentsTokenEndpointAuthBasicResponse object`
+
+            Token endpoint uses HTTP Basic authentication with client credentials.
+
+            - `type: "client_secret_basic"`
+
+          - `BetaManagedAgentsTokenEndpointAuthPostResponse object`
+
+            Token endpoint uses POST body authentication with client credentials.
+
+            - `type: "client_secret_post"`
+
+        - `resource: optional string or null`
+
+          OAuth resource indicator.
+
+        - `scope: optional string or null`
+
+          OAuth scope for the refresh request.
+
+    - `BetaManagedAgentsStaticBearerAuthResponse object`
+
+      Static bearer token credential details for an MCP server.
+
+      - `type: "static_bearer"`
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse object`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `type: "environment_variable"`
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse object`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse object`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `type: "limited"`
+
+          - `allowed_hosts: array of string`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata attached to the credential.
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `vault_id: string`
+
+    Identifier of the vault this credential belongs to.
+
+  - `display_name: optional string or null`
+
+    Human-readable name for the credential.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "auth": {
+            "token": "bearer_exampletoken",
+            "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+            "type": "static_bearer"
+          },
+          "display_name": "Example credential",
+          "metadata": {
+            "environment": "production"
+          }
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+### List Credentials
+
+**GET** `/v1/vaults/{vault_id}/credentials`
+
+List Credentials
+
+#### Path parameters
+
+- `vault_id: string`
+
+  Identifier of the vault to list credentials for.
+
+#### Query parameters
+
+- `include_archived: optional boolean`
+
+  Whether to include archived credentials in the results.
+
+- `limit: optional number`
+
+  Maximum number of credentials to return per page. Defaults to 20, maximum 100.
+
+  format: int32
+
+- `page: optional string`
+
+  Opaque pagination token from a previous `list_credentials` response.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `data: optional array of BetaManagedAgentsCredential`
+
+  List of credentials.
+
+  - `type: "vault_credential"`
+
+  - `id: string`
+
+    Unique identifier for the credential.
+
+  - `archived_at: string or null`
+
+    When the credential was archived. Null if not archived.
+
+    format: date-time
+
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+    Authentication configuration for this credential.
+
+    - `BetaManagedAgentsMCPOAuthAuthResponse object`
+
+      OAuth credential details for an MCP server.
+
+      - `type: "mcp_oauth"`
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `expires_at: optional string or null`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
+
+        Refresh token configuration, if the credential supports token refresh.
+
+        - `client_id: string`
+
+          OAuth client ID.
+
+        - `token_endpoint: string`
+
+          Token endpoint URL used to refresh the access token.
+
+        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+          - `BetaManagedAgentsTokenEndpointAuthNoneResponse object`
+
+            Token endpoint requires no client authentication.
+
+            - `type: "none"`
+
+          - `BetaManagedAgentsTokenEndpointAuthBasicResponse object`
+
+            Token endpoint uses HTTP Basic authentication with client credentials.
+
+            - `type: "client_secret_basic"`
+
+          - `BetaManagedAgentsTokenEndpointAuthPostResponse object`
+
+            Token endpoint uses POST body authentication with client credentials.
+
+            - `type: "client_secret_post"`
+
+        - `resource: optional string or null`
+
+          OAuth resource indicator.
+
+        - `scope: optional string or null`
+
+          OAuth scope for the refresh request.
+
+    - `BetaManagedAgentsStaticBearerAuthResponse object`
+
+      Static bearer token credential details for an MCP server.
+
+      - `type: "static_bearer"`
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse object`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `type: "environment_variable"`
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse object`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse object`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `type: "limited"`
+
+          - `allowed_hosts: array of string`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata attached to the credential.
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `vault_id: string`
+
+    Identifier of the vault this credential belongs to.
+
+  - `display_name: optional string or null`
+
+    Human-readable name for the credential.
+
+- `next_page: optional string or null`
+
+  Pagination token for the next page, or null if no more results.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
+      "archived_at": null,
+      "auth": {
+        "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+        "type": "static_bearer"
+      },
+      "created_at": "2026-03-15T10:00:00Z",
+      "metadata": {
+        "environment": "production"
+      },
+      "type": "vault_credential",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+      "display_name": "Example credential"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+### Get Credential
+
+**GET** `/v1/vaults/{vault_id}/credentials/{credential_id}`
+
+Get Credential
+
+#### Path parameters
+
+- `vault_id: string`
+
+  Identifier of the vault containing the credential.
+
+- `credential_id: string`
+
+  Unique identifier of the credential to retrieve.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsCredential object`
+
+  A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `type: "vault_credential"`
+
+  - `id: string`
+
+    Unique identifier for the credential.
+
+  - `archived_at: string or null`
+
+    When the credential was archived. Null if not archived.
+
+    format: date-time
+
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+    Authentication configuration for this credential.
+
+    - `BetaManagedAgentsMCPOAuthAuthResponse object`
+
+      OAuth credential details for an MCP server.
+
+      - `type: "mcp_oauth"`
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `expires_at: optional string or null`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
+
+        Refresh token configuration, if the credential supports token refresh.
+
+        - `client_id: string`
+
+          OAuth client ID.
+
+        - `token_endpoint: string`
+
+          Token endpoint URL used to refresh the access token.
+
+        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+          - `BetaManagedAgentsTokenEndpointAuthNoneResponse object`
+
+            Token endpoint requires no client authentication.
+
+            - `type: "none"`
+
+          - `BetaManagedAgentsTokenEndpointAuthBasicResponse object`
+
+            Token endpoint uses HTTP Basic authentication with client credentials.
+
+            - `type: "client_secret_basic"`
+
+          - `BetaManagedAgentsTokenEndpointAuthPostResponse object`
+
+            Token endpoint uses POST body authentication with client credentials.
+
+            - `type: "client_secret_post"`
+
+        - `resource: optional string or null`
+
+          OAuth resource indicator.
+
+        - `scope: optional string or null`
+
+          OAuth scope for the refresh request.
+
+    - `BetaManagedAgentsStaticBearerAuthResponse object`
+
+      Static bearer token credential details for an MCP server.
+
+      - `type: "static_bearer"`
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse object`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `type: "environment_variable"`
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse object`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse object`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `type: "limited"`
+
+          - `allowed_hosts: array of string`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata attached to the credential.
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `vault_id: string`
+
+    Identifier of the vault this credential belongs to.
+
+  - `display_name: optional string or null`
+
+    Human-readable name for the credential.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+### Update Credential
+
+**POST** `/v1/vaults/{vault_id}/credentials/{credential_id}`
+
+Update Credential
+
+#### Path parameters
+
+- `vault_id: string`
+
+  Identifier of the vault containing the credential.
+
+- `credential_id: string`
+
+  Unique identifier of the credential to update.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Body parameters
+
+- `auth: optional BetaManagedAgentsMCPOAuthUpdateParams or BetaManagedAgentsStaticBearerUpdateParams or BetaManagedAgentsEnvironmentVariableUpdateParams`
+
+  Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
+
+  - `BetaManagedAgentsMCPOAuthUpdateParams object`
+
+    Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
+
+    - `type: "mcp_oauth"`
+
+    - `access_token: optional string or null`
+
+      Updated OAuth access token.
+
+      minLength: 1, maxLength: 8192
+
+    - `expires_at: optional string or null`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `refresh: optional BetaManagedAgentsMCPOAuthRefreshUpdateParams or null`
+
+      Updated refresh token configuration.
+
+      - `refresh_token: optional string or null`
+
+        Updated OAuth refresh token.
+
+        minLength: 1, maxLength: 8192
+
+      - `scope: optional string or null`
+
+        Updated OAuth scope for the refresh request.
+
+        maxLength: 8192
+
+      - `token_endpoint_auth: optional BetaManagedAgentsTokenEndpointAuthBasicUpdateParam or BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
+
+        - `BetaManagedAgentsTokenEndpointAuthBasicUpdateParam object`
+
+          Updated HTTP Basic authentication parameters for the token endpoint.
+
+          - `type: "client_secret_basic"`
+
+          - `client_secret: optional string or null`
+
+            Updated OAuth client secret.
+
+            minLength: 1, maxLength: 512
+
+        - `BetaManagedAgentsTokenEndpointAuthPostUpdateParam object`
+
+          Updated POST body authentication parameters for the token endpoint.
+
+          - `type: "client_secret_post"`
+
+          - `client_secret: optional string or null`
+
+            Updated OAuth client secret.
+
+            minLength: 1, maxLength: 512
+
+  - `BetaManagedAgentsStaticBearerUpdateParams object`
+
+    Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
+
+    - `type: "static_bearer"`
+
+    - `token: optional string or null`
+
+      Updated static bearer token value.
+
+      minLength: 1, maxLength: 8192
+
+  - `BetaManagedAgentsEnvironmentVariableUpdateParams object`
+
+    Parameters for updating an environment variable credential. `secret_name` is immutable.
+
+    - `type: "environment_variable"`
+
+    - `injection_location: optional BetaManagedAgentsInjectionLocationUpdateParams`
+
+      Updated injection location.
+
+      - `body: optional boolean`
+
+        Substitute when the placeholder appears in the request body.
+
+      - `header: optional boolean`
+
+        Substitute when the placeholder appears in a request header value.
+
+    - `networking: optional BetaManagedAgentsCredentialNetworkingParams or null`
+
+      Updated networking scope. Full replacement.
+
+      - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams object`
+
+        Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+        - `type: "unrestricted"`
+
+      - `BetaManagedAgentsLimitedCredentialNetworkingParams object`
+
+        Substitute the secret only on requests to the listed hosts.
+
+        - `type: "limited"`
+
+        - `allowed_hosts: array of string`
+
+          Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+    - `secret_value: optional string or null`
+
+      Updated secret value.
+
+      minLength: 1, maxLength: 4096
+
+- `display_name: optional string or null`
+
+  Updated human-readable name for the credential. 1-255 characters.
+
+  minLength: 1, maxLength: 255
+
+- `metadata: optional map[string] or null`
+
+  Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
+
+#### Returns
+
+- `BetaManagedAgentsCredential object`
+
+  A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `type: "vault_credential"`
+
+  - `id: string`
+
+    Unique identifier for the credential.
+
+  - `archived_at: string or null`
+
+    When the credential was archived. Null if not archived.
+
+    format: date-time
+
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+    Authentication configuration for this credential.
+
+    - `BetaManagedAgentsMCPOAuthAuthResponse object`
+
+      OAuth credential details for an MCP server.
+
+      - `type: "mcp_oauth"`
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `expires_at: optional string or null`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
+
+        Refresh token configuration, if the credential supports token refresh.
+
+        - `client_id: string`
+
+          OAuth client ID.
+
+        - `token_endpoint: string`
+
+          Token endpoint URL used to refresh the access token.
+
+        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+          - `BetaManagedAgentsTokenEndpointAuthNoneResponse object`
+
+            Token endpoint requires no client authentication.
+
+            - `type: "none"`
+
+          - `BetaManagedAgentsTokenEndpointAuthBasicResponse object`
+
+            Token endpoint uses HTTP Basic authentication with client credentials.
+
+            - `type: "client_secret_basic"`
+
+          - `BetaManagedAgentsTokenEndpointAuthPostResponse object`
+
+            Token endpoint uses POST body authentication with client credentials.
+
+            - `type: "client_secret_post"`
+
+        - `resource: optional string or null`
+
+          OAuth resource indicator.
+
+        - `scope: optional string or null`
+
+          OAuth scope for the refresh request.
+
+    - `BetaManagedAgentsStaticBearerAuthResponse object`
+
+      Static bearer token credential details for an MCP server.
+
+      - `type: "static_bearer"`
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse object`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `type: "environment_variable"`
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse object`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse object`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `type: "limited"`
+
+          - `allowed_hosts: array of string`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata attached to the credential.
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `vault_id: string`
+
+    Identifier of the vault this credential belongs to.
+
+  - `display_name: optional string or null`
+
+    Human-readable name for the credential.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -d '{
+          "display_name": "Example credential",
+          "metadata": {
+            "environment": "production"
+          }
+        }'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+### Delete Credential
+
+**DELETE** `/v1/vaults/{vault_id}/credentials/{credential_id}`
+
+Delete Credential
+
+#### Path parameters
+
+- `vault_id: string`
+
+  Identifier of the vault containing the credential.
+
+- `credential_id: string`
+
+  Unique identifier of the credential to delete.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsDeletedCredential object`
+
+  Confirmation of a deleted credential.
+
+  - `type: "vault_credential_deleted"`
+
+  - `id: string`
+
+    Unique identifier of the deleted credential.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID \
+    -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
+  "type": "vault_credential_deleted"
+}
+```
+
+### Archive Credential
+
+**POST** `/v1/vaults/{vault_id}/credentials/{credential_id}/archive`
+
+Archive Credential
+
+#### Path parameters
+
+- `vault_id: string`
+
+  Identifier of the vault containing the credential.
+
+- `credential_id: string`
+
+  Unique identifier of the credential to archive.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsCredential object`
+
+  A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `type: "vault_credential"`
+
+  - `id: string`
+
+    Unique identifier for the credential.
+
+  - `archived_at: string or null`
+
+    When the credential was archived. Null if not archived.
+
+    format: date-time
+
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+    Authentication configuration for this credential.
+
+    - `BetaManagedAgentsMCPOAuthAuthResponse object`
+
+      OAuth credential details for an MCP server.
+
+      - `type: "mcp_oauth"`
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `expires_at: optional string or null`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
+
+        Refresh token configuration, if the credential supports token refresh.
+
+        - `client_id: string`
+
+          OAuth client ID.
+
+        - `token_endpoint: string`
+
+          Token endpoint URL used to refresh the access token.
+
+        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+          - `BetaManagedAgentsTokenEndpointAuthNoneResponse object`
+
+            Token endpoint requires no client authentication.
+
+            - `type: "none"`
+
+          - `BetaManagedAgentsTokenEndpointAuthBasicResponse object`
+
+            Token endpoint uses HTTP Basic authentication with client credentials.
+
+            - `type: "client_secret_basic"`
+
+          - `BetaManagedAgentsTokenEndpointAuthPostResponse object`
+
+            Token endpoint uses POST body authentication with client credentials.
+
+            - `type: "client_secret_post"`
+
+        - `resource: optional string or null`
+
+          OAuth resource indicator.
+
+        - `scope: optional string or null`
+
+          OAuth scope for the refresh request.
+
+    - `BetaManagedAgentsStaticBearerAuthResponse object`
+
+      Static bearer token credential details for an MCP server.
+
+      - `type: "static_bearer"`
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse object`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `type: "environment_variable"`
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse object`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse object`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `type: "limited"`
+
+          - `allowed_hosts: array of string`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata attached to the credential.
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `vault_id: string`
+
+    Identifier of the vault this credential belongs to.
+
+  - `display_name: optional string or null`
+
+    Human-readable name for the credential.
+
+#### Example
+
+```bash
+curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/archive \
+    -X POST \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+### Validate Credential
+
+**POST** `/v1/vaults/{vault_id}/credentials/{credential_id}/mcp_oauth_validate`
+
+Validate Credential
+
+#### Path parameters
+
+- `vault_id: string`
+
+  Identifier of the vault containing the credential.
+
+- `credential_id: string`
+
+  Unique identifier of the credential to validate.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
+
+- `"anthropic-workspace-id": optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsCredentialValidation object`
+
+  Result of live-probing a credential against its configured MCP server.
+
+  - `type: "vault_credential_validation"`
+
+  - `credential_id: string`
+
+    Unique identifier of the credential that was validated.
+
+  - `has_refresh_token: boolean`
+
+    Whether the credential has a refresh token configured.
+
+  - `mcp_probe: BetaManagedAgentsMCPProbe or null`
+
+    Details of the failing MCP probe step. Null when the probe succeeded.
+
+    - `http_response: BetaManagedAgentsRefreshHTTPResponse or null`
+
+      The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
+
+      - `body: string`
+
         Response body. May be truncated and has sensitive values scrubbed.
 
       - `body_truncated: boolean`
@@ -91,7 +3609,7 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/mc
 
 ```json
 {
-  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "credential_id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "has_refresh_token": true,
   "mcp_probe": {
     "http_response": {
@@ -15319,7 +18837,7 @@ manage rules whose `oauth_scope` is `workspace:developer` or
 
   - `target: BetaServiceAccountTarget`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
     - `type: "service_account"`
 
@@ -15643,7 +19161,7 @@ unless `include_archived=true`.
 
   - `target: BetaServiceAccountTarget`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
     - `type: "service_account"`
 
@@ -15957,7 +19475,7 @@ Retrieve a federation rule by its ID (`fdrl_...`).
 
   - `target: BetaServiceAccountTarget`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
     - `type: "service_account"`
 
@@ -16356,7 +19874,7 @@ Console session.
 
   - `target: BetaServiceAccountTarget`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
     - `type: "service_account"`
 
@@ -16671,7 +20189,7 @@ other scopes require a Console session.
 
   - `target: BetaServiceAccountTarget`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
     - `type: "service_account"`
 
@@ -27787,7 +31305,7 @@ key with the `read:analytics` scope.
 
 - `data_refreshed_at: string or null`
 
-  RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case every bucket's `results` list is empty. Buckets beyond this watermark are incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
+  RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case every bucket's `results` list is empty. Buckets beyond this watermark are incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours. Values can be revised as late events arrive and reconciliation runs, until about 7 days after the end of the calendar month the usage falls in; for example, values for October 1 can change until about November 7.
 
   format: date-time
 
@@ -28206,7 +31724,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
 - `data_refreshed_at: string or null`
 
-  RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case `data` is empty. Data beyond this watermark is incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
+  RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case `data` is empty. Data beyond this watermark is incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours. Values can be revised as late events arrive and reconciliation runs, until about 7 days after the end of the calendar month the usage falls in; for example, values for October 1 can change until about November 7.
 
   format: date-time
 
@@ -28575,7 +32093,7 @@ Requires an API key with the `read:analytics` scope.
 
 - `data_refreshed_at: string or null`
 
-  RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case every bucket's `results` list is empty. Buckets beyond this watermark are incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
+  RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case every bucket's `results` list is empty. Buckets beyond this watermark are incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours. Values can be revised as late events arrive and reconciliation runs, until about 7 days after the end of the calendar month the usage falls in; for example, values for October 1 can change until about November 7.
 
   format: date-time
 
@@ -28987,7 +32505,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
 - `data_refreshed_at: string or null`
 
-  RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case `data` is empty. Data beyond this watermark is incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
+  RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case `data` is empty. Data beyond this watermark is incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours. Values can be revised as late events arrive and reconciliation runs, until about 7 days after the end of the calendar month the usage falls in; for example, values for October 1 can change until about November 7.
 
   format: date-time
 
@@ -29066,6 +32584,114 @@ in claude.ai. A Claude Console organization sets `organization` and
 `workspace` limits, which are monthly and always carry an amount. Setting those
 limits is in an early access preview. To request access, contact your
 Anthropic account team.
+
+#### Headers
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `string`
+
+  - `"message-batches-2024-09-24"`
+
+  - `"prompt-caching-2024-07-31"`
+
+  - `"computer-use-2024-10-22"`
+
+  - `"computer-use-2025-01-24"`
+
+  - `"pdfs-2024-09-25"`
+
+  - `"token-counting-2024-11-01"`
+
+  - `"token-efficient-tools-2025-02-19"`
+
+  - `"output-128k-2025-02-19"`
+
+  - `"files-api-2025-04-14"`
+
+  - `"mcp-client-2025-04-04"`
+
+  - `"mcp-client-2025-11-20"`
+
+  - `"dev-full-thinking-2025-05-14"`
+
+  - `"interleaved-thinking-2025-05-14"`
+
+  - `"code-execution-2025-05-22"`
+
+  - `"extended-cache-ttl-2025-04-11"`
+
+  - `"context-1m-2025-08-07"`
+
+  - `"context-management-2025-06-27"`
+
+  - `"model-context-window-exceeded-2025-08-26"`
+
+  - `"skills-2025-10-02"`
+
+  - `"fast-mode-2026-02-01"`
+
+  - `"output-300k-2026-03-24"`
+
+  - `"user-profiles-2026-03-24"`
+
+  - `"user-profiles-2026-08-18"`
+
+  - `"user-profiles-2026-09-04"`
+
+  - `"advisor-tool-2026-03-01"`
+
+  - `"managed-agents-2026-04-01"`
+
+  - `"cache-diagnosis-2026-04-07"`
+
+  - `"dreaming-2026-04-21"`
+
+  - `"thinking-token-count-2026-05-13"`
+
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"server-side-fallback-2026-07-01"`
+
+  - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
+
+  - `"mid-conversation-tool-changes-2026-07-01"`
+
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
+  - `"mid-conversation-output-config-2026-07-01"`
+
+  - `"thinking-binding-controls-2026-08-01"`
+
+  - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
+  - `"ce-plugins-2026-09-01"`
+
+  - `"spend-limit-reads-2026-09-26"`
 
 #### Body parameters
 
@@ -29490,7 +33116,7 @@ is not creation order.
 
   Return only limits with these scope types. A Claude Console organization has `organization` and `workspace` limits; a Claude Enterprise organization has `organization`, `seat_tier`, `rbac_group`, `organization_service` and `user` limits. Omit for all.
 
-  maxItems: 6
+  maxItems: 100
 
   - `"organization"`
 
@@ -35769,1799 +39395,3 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
   ID of the Plugin (prefixed `plugin_`).
 
 - `target: string`
-
-  The target whose own setting is removed: the literal `organization` for the Plugin's organization-wide setting, or an RBAC Group's ID (prefixed `rbac_group_`) for that group's own setting. Removing the `organization` setting returns the Plugin to its marketplace's default.
-
-#### Headers
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
-
-  - `string`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-  - `"spend-limit-reads-2026-09-26"`
-
-#### Returns
-
-- `BetaDeletedPluginInstallationSetting object`
-
-  Confirmation that one target's installation setting was removed, naming
-  the Plugin and the target in place of an ID.
-
-  - `type: "plugin_installation_setting_deleted"`
-
-    Always `plugin_installation_setting_deleted`.
-
-    default: plugin_installation_setting_deleted
-
-  - `plugin_id: string`
-
-    The Plugin's ID.
-
-  - `target: BetaPluginTargetOrganization or BetaPluginTargetRBACGroup or BetaPluginTargetOrganizationMember`
-
-    Whose setting was removed.
-
-    - `BetaPluginTargetOrganization object`
-
-      - `type: "organization"`
-
-        Every member of the organization.
-
-        default: organization
-
-    - `BetaPluginTargetRBACGroup object`
-
-      - `type: "rbac_group"`
-
-        An RBAC Group.
-
-        default: rbac_group
-
-      - `rbac_group_id: string`
-
-        The RBAC Group's ID.
-
-    - `BetaPluginTargetOrganizationMember object`
-
-      - `type: "organization_member"`
-
-        One member of the organization.
-
-        default: organization_member
-
-      - `user_id: string`
-
-        The member's User ID.
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/organizations/plugins/$PLUGIN_ID/installation_settings/$TARGET \
-    -X DELETE \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-plugins-2026-09-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
-  "target": {
-    "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
-    "type": "rbac_group"
-  },
-  "type": "plugin_installation_setting_deleted"
-}
-```
-
-## Beta › Organization › Plugins › Shares
-
-### List Plugin Shares
-
-**GET** `/v1/organizations/plugins/{plugin_id}/shares`
-
-List the shares the owner of a member-owned Plugin has given — to every member of
-the organization, to an RBAC Group, or to one member — most recently granted first.
-
-Shares are read-only in this API: members give and withdraw them in claude.ai, and
-who gave a share is recorded on the Compliance API activity feed rather than on the
-share. An organization-owned Plugin has installation settings instead, so this path
-returns 404 for one.
-
-**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
-
-Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
-
-#### Path parameters
-
-- `plugin_id: string`
-
-  ID of the Plugin (prefixed `plugin_`).
-
-#### Query parameters
-
-- `limit: optional number`
-
-  Number of items to return per page.
-
-  Defaults to `20`. Ranges from `1` to `100`.
-
-  default: 20, minimum: 1, maximum: 100
-
-- `organization_id: optional string`
-
-  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
-
-- `page: optional string`
-
-  Optionally set to the `next_page` token from the previous response.
-
-  maxLength: 2048
-
-- `target_type: optional "organization" or "organization_member" or "rbac_group"`
-
-  Only shares with this kind of target: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
-
-  - `"organization"`
-
-  - `"organization_member"`
-
-  - `"rbac_group"`
-
-#### Headers
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
-
-  - `string`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-  - `"spend-limit-reads-2026-09-26"`
-
-#### Returns
-
-- `data: array of BetaPluginShare`
-
-  - `type: "plugin_share"`
-
-    Always `plugin_share`.
-
-    default: plugin_share
-
-  - `granted_at: string`
-
-    When the share was given; a share whose role is later changed in claude.ai is re-granted and carries the time of that change.
-
-    format: date-time
-
-  - `plugin_id: string`
-
-    The Plugin's ID.
-
-  - `target: BetaPluginTargetOrganization or BetaPluginTargetRBACGroup or BetaPluginTargetOrganizationMember`
-
-    Who the Plugin is shared with: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
-
-    - `BetaPluginTargetOrganization object`
-
-      - `type: "organization"`
-
-        Every member of the organization.
-
-        default: organization
-
-    - `BetaPluginTargetRBACGroup object`
-
-      - `type: "rbac_group"`
-
-        An RBAC Group.
-
-        default: rbac_group
-
-      - `rbac_group_id: string`
-
-        The RBAC Group's ID.
-
-    - `BetaPluginTargetOrganizationMember object`
-
-      - `type: "organization_member"`
-
-        One member of the organization.
-
-        default: organization_member
-
-      - `user_id: string`
-
-        The member's User ID.
-
-- `next_page: string or null`
-
-  Token to provide in as `page` in the subsequent request to retrieve the next page of data.
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/organizations/plugins/$PLUGIN_ID/shares \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-plugins-2026-09-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "granted_at": "2026-03-14T09:26:53.589793Z",
-      "plugin_id": "plugin_01JyHfbRkZvD1gW7oTqXc3Ne",
-      "target": {
-        "type": "organization"
-      },
-      "type": "plugin_share"
-    }
-  ],
-  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
-}
-```
-
-## Beta › Organization › Plugin Marketplaces
-
-### List Plugin Marketplaces
-
-**GET** `/v1/organizations/plugin_marketplaces`
-
-List the plugin marketplaces Plugins live in, newest first: the organization's own
-and its members' personal ones.
-
-Plugin marketplaces are created, connected to a repository and deleted in
-claude.ai, not through this API. The organization's library marketplace, the
-organization-owned `manual` marketplace that uploads go to when no marketplace is
-named, is created the first time something is put in it and is listed from then on.
-
-**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
-
-Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
-
-#### Query parameters
-
-- `limit: optional number`
-
-  Number of items to return per page.
-
-  Defaults to `20`. Ranges from `1` to `1000`.
-
-  default: 20, minimum: 1, maximum: 1000
-
-- `organization_id: optional string`
-
-  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
-
-- `owner_type: optional "organization" or "user"`
-
-  `organization` for the organization's plugin marketplaces, `user` for members' personal plugin marketplaces.
-
-  - `"organization"`
-
-  - `"user"`
-
-- `page: optional string`
-
-  Optionally set to the `next_page` token from the previous response.
-
-  maxLength: 2048
-
-- `source: optional "directory" or "github" or "gitlab" or 2 more`
-
-  Only plugin marketplaces with this `source`: `manual` for those whose Plugins are uploaded; `github`, `gitlab` or `public_git` for those synchronized from a Git repository. `directory` (Anthropic's catalog) is never listed here.
-
-  - `"directory"`
-
-  - `"github"`
-
-  - `"gitlab"`
-
-  - `"manual"`
-
-  - `"public_git"`
-
-#### Headers
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
-
-  - `string`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-  - `"spend-limit-reads-2026-09-26"`
-
-#### Returns
-
-- `data: array of BetaPluginMarketplace`
-
-  - `type: "plugin_marketplace"`
-
-    Always `plugin_marketplace`.
-
-    default: plugin_marketplace
-
-  - `id: string`
-
-    The plugin marketplace's ID, prefixed `marketplace_`.
-
-  - `created_at: string`
-
-    RFC 3339.
-
-    format: date-time
-
-  - `default_installation_preference: "auto_install" or "available" or "not_available" or "required" or null`
-
-    Organization plugin marketplace: the organization-wide setting every Plugin in it with no setting of its own gets. Null for a member's personal plugin marketplace. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
-
-    - `"auto_install"`
-
-    - `"available"`
-
-    - `"not_available"`
-
-    - `"required"`
-
-  - `last_sync_ended_at: string or null`
-
-    RFC 3339. When the most recent synchronization attempt to finish did so, whatever its outcome; for a repository plugin marketplace no synchronization has run on yet, when it was created. Null for a plugin marketplace that is not synchronized from a repository.
-
-    format: date-time
-
-  - `last_sync_read_sha: string or null`
-
-    The commit the last synchronization attempt that reached the repository read, whether or not its content was then accepted (see `sync_status`); an attempt that ends `failed_auth` or `failed_transient` leaves it unchanged. Null until an attempt has first read the repository, and for a plugin marketplace that is not synchronized from a repository.
-
-  - `name: string`
-
-    Fixed for the plugin marketplace's lifetime.
-
-  - `owner: BetaPluginOwnerOrganization or BetaPluginOwnerUser`
-
-    The organization, or the member whose personal plugin marketplace it is.
-
-    - `BetaPluginOwnerOrganization object`
-
-      - `type: "organization"`
-
-        The Plugin lives in a plugin marketplace the organization owns.
-
-        default: organization
-
-    - `BetaPluginOwnerUser object`
-
-      - `type: "user"`
-
-        The Plugin lives in one member's personal plugin marketplace.
-
-        default: user
-
-      - `user_id: string`
-
-        The member's User ID.
-
-  - `source: "directory" or "github" or "gitlab" or 2 more`
-
-    Where the plugin marketplace's Plugins come from: `manual` when they are uploaded; `github`, `gitlab` or `public_git` when they are synchronized from the Git repository the owner connected, into which nothing can be uploaded; `directory` is Anthropic's own catalog, which this API does not list. A value this API does not yet name is returned as stored.
-
-    - `"directory"`
-
-    - `"github"`
-
-    - `"gitlab"`
-
-    - `"manual"`
-
-    - `"public_git"`
-
-  - `sync_status: "failed_auth" or "failed_content" or "failed_limits" or 3 more or null`
-
-    Outcome of the plugin marketplace's most recent synchronization: one of `success`, `in_progress`, `failed_content`, `failed_transient`, `failed_auth`, `failed_limits`; a value this API does not yet name is returned as stored. Null until a synchronization is first attempted — so always for a `manual` plugin marketplace.
-
-    - `"failed_auth"`
-
-    - `"failed_content"`
-
-    - `"failed_limits"`
-
-    - `"failed_transient"`
-
-    - `"in_progress"`
-
-    - `"success"`
-
-- `next_page: string or null`
-
-  Token to provide in as `page` in the subsequent request to retrieve the next page of data.
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/organizations/plugin_marketplaces \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-plugins-2026-09-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
-      "created_at": "2026-03-14T09:26:53.589793Z",
-      "default_installation_preference": "available",
-      "last_sync_ended_at": "2026-03-14T09:26:53.589793Z",
-      "last_sync_read_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
-      "name": "engineering-tools",
-      "owner": {
-        "type": "organization"
-      },
-      "source": "github",
-      "sync_status": "success",
-      "type": "plugin_marketplace"
-    }
-  ],
-  "next_page": "page_MjAyNi0wOS0xNlQxNDowNTowOVo"
-}
-```
-
-### Get Plugin Marketplace
-
-**GET** `/v1/organizations/plugin_marketplaces/{marketplace_id}`
-
-Retrieve a plugin marketplace by ID.
-
-**Accepted credentials:** an Admin API key with the `read:plugins` or `read:org_audit` scope, or a Compliance Access Key with the `read:compliance_org_data` scope.
-
-Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
-
-#### Path parameters
-
-- `marketplace_id: string`
-
-  ID of the plugin marketplace (prefixed `marketplace_`).
-
-#### Query parameters
-
-- `organization_id: optional string`
-
-  For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
-
-#### Headers
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
-
-  - `string`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-  - `"spend-limit-reads-2026-09-26"`
-
-#### Returns
-
-- `BetaPluginMarketplace object`
-
-  - `type: "plugin_marketplace"`
-
-    Always `plugin_marketplace`.
-
-    default: plugin_marketplace
-
-  - `id: string`
-
-    The plugin marketplace's ID, prefixed `marketplace_`.
-
-  - `created_at: string`
-
-    RFC 3339.
-
-    format: date-time
-
-  - `default_installation_preference: "auto_install" or "available" or "not_available" or "required" or null`
-
-    Organization plugin marketplace: the organization-wide setting every Plugin in it with no setting of its own gets. Null for a member's personal plugin marketplace. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
-
-    - `"auto_install"`
-
-    - `"available"`
-
-    - `"not_available"`
-
-    - `"required"`
-
-  - `last_sync_ended_at: string or null`
-
-    RFC 3339. When the most recent synchronization attempt to finish did so, whatever its outcome; for a repository plugin marketplace no synchronization has run on yet, when it was created. Null for a plugin marketplace that is not synchronized from a repository.
-
-    format: date-time
-
-  - `last_sync_read_sha: string or null`
-
-    The commit the last synchronization attempt that reached the repository read, whether or not its content was then accepted (see `sync_status`); an attempt that ends `failed_auth` or `failed_transient` leaves it unchanged. Null until an attempt has first read the repository, and for a plugin marketplace that is not synchronized from a repository.
-
-  - `name: string`
-
-    Fixed for the plugin marketplace's lifetime.
-
-  - `owner: BetaPluginOwnerOrganization or BetaPluginOwnerUser`
-
-    The organization, or the member whose personal plugin marketplace it is.
-
-    - `BetaPluginOwnerOrganization object`
-
-      - `type: "organization"`
-
-        The Plugin lives in a plugin marketplace the organization owns.
-
-        default: organization
-
-    - `BetaPluginOwnerUser object`
-
-      - `type: "user"`
-
-        The Plugin lives in one member's personal plugin marketplace.
-
-        default: user
-
-      - `user_id: string`
-
-        The member's User ID.
-
-  - `source: "directory" or "github" or "gitlab" or 2 more`
-
-    Where the plugin marketplace's Plugins come from: `manual` when they are uploaded; `github`, `gitlab` or `public_git` when they are synchronized from the Git repository the owner connected, into which nothing can be uploaded; `directory` is Anthropic's own catalog, which this API does not list. A value this API does not yet name is returned as stored.
-
-    - `"directory"`
-
-    - `"github"`
-
-    - `"gitlab"`
-
-    - `"manual"`
-
-    - `"public_git"`
-
-  - `sync_status: "failed_auth" or "failed_content" or "failed_limits" or 3 more or null`
-
-    Outcome of the plugin marketplace's most recent synchronization: one of `success`, `in_progress`, `failed_content`, `failed_transient`, `failed_auth`, `failed_limits`; a value this API does not yet name is returned as stored. Null until a synchronization is first attempted — so always for a `manual` plugin marketplace.
-
-    - `"failed_auth"`
-
-    - `"failed_content"`
-
-    - `"failed_limits"`
-
-    - `"failed_transient"`
-
-    - `"in_progress"`
-
-    - `"success"`
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/organizations/plugin_marketplaces/$MARKETPLACE_ID \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-plugins-2026-09-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
-  "created_at": "2026-03-14T09:26:53.589793Z",
-  "default_installation_preference": "available",
-  "last_sync_ended_at": "2026-03-14T09:26:53.589793Z",
-  "last_sync_read_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
-  "name": "engineering-tools",
-  "owner": {
-    "type": "organization"
-  },
-  "source": "github",
-  "sync_status": "success",
-  "type": "plugin_marketplace"
-}
-```
-
-### Update Plugin Marketplace
-
-**POST** `/v1/organizations/plugin_marketplaces/{marketplace_id}`
-
-Set the default installation setting of one of the organization's own plugin
-marketplaces. Every Plugin in it without a setting of its own gets this default as
-its organization-wide setting, including Plugins added later.
-
-Pass it as `default_installation_preference`. A member's personal marketplace
-cannot be updated here (403).
-
-**Accepted credentials:** an Admin API key with the `write:plugins` scope.
-
-Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
-
-#### Path parameters
-
-- `marketplace_id: string`
-
-  ID of the plugin marketplace (prefixed `marketplace_`).
-
-#### Headers
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
-
-  - `string`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-  - `"spend-limit-reads-2026-09-26"`
-
-#### Body parameters
-
-- `default_installation_preference: "auto_install" or "available" or "not_available" or "required"`
-
-  The organization-wide installation setting every Plugin in the marketplace without one of its own gets: one of `required`, `auto_install`, `available`, `not_available`. Once set it can be changed but not removed.
-
-  - `"auto_install"`
-
-  - `"available"`
-
-  - `"not_available"`
-
-  - `"required"`
-
-#### Returns
-
-- `BetaPluginMarketplace object`
-
-  - `type: "plugin_marketplace"`
-
-    Always `plugin_marketplace`.
-
-    default: plugin_marketplace
-
-  - `id: string`
-
-    The plugin marketplace's ID, prefixed `marketplace_`.
-
-  - `created_at: string`
-
-    RFC 3339.
-
-    format: date-time
-
-  - `default_installation_preference: "auto_install" or "available" or "not_available" or "required" or null`
-
-    Organization plugin marketplace: the organization-wide setting every Plugin in it with no setting of its own gets. Null for a member's personal plugin marketplace. One of `required`, `auto_install`, `available`, `not_available`; a value this API does not yet name is returned as stored.
-
-    - `"auto_install"`
-
-    - `"available"`
-
-    - `"not_available"`
-
-    - `"required"`
-
-  - `last_sync_ended_at: string or null`
-
-    RFC 3339. When the most recent synchronization attempt to finish did so, whatever its outcome; for a repository plugin marketplace no synchronization has run on yet, when it was created. Null for a plugin marketplace that is not synchronized from a repository.
-
-    format: date-time
-
-  - `last_sync_read_sha: string or null`
-
-    The commit the last synchronization attempt that reached the repository read, whether or not its content was then accepted (see `sync_status`); an attempt that ends `failed_auth` or `failed_transient` leaves it unchanged. Null until an attempt has first read the repository, and for a plugin marketplace that is not synchronized from a repository.
-
-  - `name: string`
-
-    Fixed for the plugin marketplace's lifetime.
-
-  - `owner: BetaPluginOwnerOrganization or BetaPluginOwnerUser`
-
-    The organization, or the member whose personal plugin marketplace it is.
-
-    - `BetaPluginOwnerOrganization object`
-
-      - `type: "organization"`
-
-        The Plugin lives in a plugin marketplace the organization owns.
-
-        default: organization
-
-    - `BetaPluginOwnerUser object`
-
-      - `type: "user"`
-
-        The Plugin lives in one member's personal plugin marketplace.
-
-        default: user
-
-      - `user_id: string`
-
-        The member's User ID.
-
-  - `source: "directory" or "github" or "gitlab" or 2 more`
-
-    Where the plugin marketplace's Plugins come from: `manual` when they are uploaded; `github`, `gitlab` or `public_git` when they are synchronized from the Git repository the owner connected, into which nothing can be uploaded; `directory` is Anthropic's own catalog, which this API does not list. A value this API does not yet name is returned as stored.
-
-    - `"directory"`
-
-    - `"github"`
-
-    - `"gitlab"`
-
-    - `"manual"`
-
-    - `"public_git"`
-
-  - `sync_status: "failed_auth" or "failed_content" or "failed_limits" or 3 more or null`
-
-    Outcome of the plugin marketplace's most recent synchronization: one of `success`, `in_progress`, `failed_content`, `failed_transient`, `failed_auth`, `failed_limits`; a value this API does not yet name is returned as stored. Null until a synchronization is first attempted — so always for a `manual` plugin marketplace.
-
-    - `"failed_auth"`
-
-    - `"failed_content"`
-
-    - `"failed_limits"`
-
-    - `"failed_transient"`
-
-    - `"in_progress"`
-
-    - `"success"`
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/organizations/plugin_marketplaces/$MARKETPLACE_ID \
-    -H 'Content-Type: application/json' \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-plugins-2026-09-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -d '{
-          "default_installation_preference": "available"
-        }'
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "marketplace_01HxQ3v9KpZ2mTn8RwLc4Ys7",
-  "created_at": "2026-03-14T09:26:53.589793Z",
-  "default_installation_preference": "available",
-  "last_sync_ended_at": "2026-03-14T09:26:53.589793Z",
-  "last_sync_read_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
-  "name": "engineering-tools",
-  "owner": {
-    "type": "organization"
-  },
-  "source": "github",
-  "sync_status": "success",
-  "type": "plugin_marketplace"
-}
-```
-
-### Validate Plugin Marketplace Repository
-
-**POST** `/v1/organizations/plugin_marketplaces/validate_repository`
-
-Check whether a plugin marketplace held in a public GitHub repository would
-synchronize into claude.ai, without connecting or storing it.
-
-To check a `.zip` of the marketplace directory instead, use Validate Plugin Marketplace Archive.
-
-The report says whether `marketplace.json` is well-formed, which plugins a
-synchronization would skip and why, and which plugins would synchronize only in
-part, with some files left out. A repository that is missing, private, or has no such branch or commit is reported, not refused: the response is a report with `valid: false`. Plugin sources outside the marketplace
-are fetched anonymously from GitHub, so a private one is reported as not found; a
-source on any other host is not fetched here, and the report notes that it will be
-checked when the marketplace actually synchronizes.
-
-Nothing is recorded on the Compliance API activity feed.
-
-For a worked example, see [Validate marketplace content](https://platform.claude.com/docs/en/manage-claude/plugins-api#validate-marketplace-content)
-in the Plugins API guide.
-
-**Accepted credentials:** an Admin API key with the `read:plugins` or `write:plugins` scope; `read:org_audit` and `read:compliance_org_data` do not grant it.
-
-Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
-
-#### Headers
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
-
-  - `string`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-  - `"spend-limit-reads-2026-09-26"`
-
-#### Body parameters
-
-- `repository_url: string`
-
-  The `https://` URL of a public repository on github.com that holds the marketplace. Any other host, a URL with credentials in it, or one that does not name a repository is a 400.
-
-  minLength: 1
-
-- `ref: optional string or null`
-
-  The branch to validate the tip of, or the full 40-character SHA of the commit to validate. When omitted, the branch a synchronization would read (usually the repository's default branch); if that is not the default branch, the report's `ref` says which branch was read. An empty string, or a value that is neither a branch name nor a 40-character SHA, is a 400.
-
-  minLength: 1
-
-#### Returns
-
-- `BetaPluginMarketplaceValidationReport object`
-
-  The outcome of validating plugin marketplace content: a report, not a
-  stored object, so nothing in it can be retrieved afterwards.
-
-  - `type: "plugin_marketplace_validation_report"`
-
-    Always `plugin_marketplace_validation_report`.
-
-    default: plugin_marketplace_validation_report
-
-  - `commit_sha: string or null`
-
-    The full SHA of the commit that was validated: for a repository, the commit that was read; for an uploaded archive, the commit recorded in the archive's comment (as a Git host's download writes it; not verified), else null.
-
-  - `manifest_error: string or null`
-
-    Set when nothing could be validated: the repository or archive could not be read, or marketplace.json is missing, malformed or over a limit. Null otherwise.
-
-  - `manifest_error_code: string or null`
-
-    A stable identifier for `manifest_error`; null when that is.
-
-  - `plugin_errors: array of BetaPluginMarketplaceValidationPluginError`
-
-    One entry per plugin a synchronization would skip entirely, keyed by the plugin's name in marketplace.json.
-
-    - `error: string`
-
-      Why the plugin would be skipped by a synchronization.
-
-    - `error_code: string`
-
-      A stable identifier for the reason — the value to branch on.
-
-    - `name: string`
-
-      The plugin's name, as its entry in marketplace.json declares it.
-
-  - `plugin_warnings: array of BetaPluginMarketplaceValidationPluginWarnings`
-
-    One entry per plugin that would synchronize with some of its contents left out, keyed by the plugin's name in marketplace.json.
-
-    - `name: string`
-
-      The plugin's name, as its entry in marketplace.json declares it.
-
-    - `warnings: array of BetaPluginMarketplaceValidationPluginWarning`
-
-      The parts of the plugin a synchronization would leave out.
-
-      - `error_code: string`
-
-        A stable identifier for the kind of warning.
-
-      - `message: string`
-
-        What would be left out, and why.
-
-  - `ref: string or null`
-
-    For a repository, the branch that was read by name: the one requested, or else the branch a synchronization of this repository is set to read. Null when no branch is named or set and the repository's default branch was read, for a request by commit SHA, and for an uploaded archive.
-
-  - `total_plugin_count: number`
-
-    How many plugins marketplace.json declares; 0 when it could not be read.
-
-  - `valid: boolean`
-
-    True when marketplace.json is well-formed and no plugin would be skipped; warnings never make it false.
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/organizations/plugin_marketplaces/validate_repository \
-    -H 'Content-Type: application/json' \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-plugins-2026-09-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -d '{
-          "repository_url": "https://github.com/example-org/example-marketplace",
-          "ref": "main"
-        }'
-```
-
-##### Response (200)
-
-```json
-{
-  "commit_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
-  "manifest_error": "manifest_error",
-  "manifest_error_code": "marketplace_sync_manifest_not_found",
-  "plugin_errors": [
-    {
-      "error": "error",
-      "error_code": "marketplace_sync_plugin_missing_manifest",
-      "name": "name"
-    }
-  ],
-  "plugin_warnings": [
-    {
-      "name": "name",
-      "warnings": [
-        {
-          "error_code": "marketplace_sync_zipball_symlink_dangling",
-          "message": "message"
-        }
-      ]
-    }
-  ],
-  "ref": "main",
-  "total_plugin_count": 0,
-  "type": "plugin_marketplace_validation_report",
-  "valid": false
-}
-```
-
-### Validate Plugin Marketplace Archive
-
-**POST** `/v1/organizations/plugin_marketplaces/validate_archive`
-
-Check whether a plugin marketplace, uploaded as a `.zip` of the marketplace
-directory, would synchronize into claude.ai, without connecting or storing it.
-
-To check a public GitHub repository instead, use Validate Plugin Marketplace Repository.
-
-The report says whether `marketplace.json` is well-formed, which plugins a
-synchronization would skip and why, and which plugins would synchronize only in
-part, with some files left out. An archive that cannot be read as a marketplace is reported, not refused: the response is a report with `valid: false`. Plugin sources outside the marketplace
-are fetched anonymously from GitHub, so a private one is reported as not found; a
-source on any other host is not fetched here, and the report notes that it will be
-checked when the marketplace actually synchronizes.
-
-Nothing is recorded on the Compliance API activity feed.
-
-For a worked example, see [Validate marketplace content](https://platform.claude.com/docs/en/manage-claude/plugins-api#validate-marketplace-content)
-in the Plugins API guide.
-
-**Accepted credentials:** an Admin API key with the `read:plugins` or `write:plugins` scope; `read:org_audit` and `read:compliance_org_data` do not grant it.
-
-Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`, exactly as if the endpoint did not exist. The Plugins API is in beta and is available to Claude Enterprise organizations only. It is not available to Claude Platform (Claude Console) organizations, or to organizations with HIPAA readiness enabled.
-
-#### Headers
-
-- `"anthropic-beta": optional array of AnthropicBeta`
-
-  This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
-
-  - `string`
-
-  - `"message-batches-2024-09-24"`
-
-  - `"prompt-caching-2024-07-31"`
-
-  - `"computer-use-2024-10-22"`
-
-  - `"computer-use-2025-01-24"`
-
-  - `"pdfs-2024-09-25"`
-
-  - `"token-counting-2024-11-01"`
-
-  - `"token-efficient-tools-2025-02-19"`
-
-  - `"output-128k-2025-02-19"`
-
-  - `"files-api-2025-04-14"`
-
-  - `"mcp-client-2025-04-04"`
-
-  - `"mcp-client-2025-11-20"`
-
-  - `"dev-full-thinking-2025-05-14"`
-
-  - `"interleaved-thinking-2025-05-14"`
-
-  - `"code-execution-2025-05-22"`
-
-  - `"extended-cache-ttl-2025-04-11"`
-
-  - `"context-1m-2025-08-07"`
-
-  - `"context-management-2025-06-27"`
-
-  - `"model-context-window-exceeded-2025-08-26"`
-
-  - `"skills-2025-10-02"`
-
-  - `"fast-mode-2026-02-01"`
-
-  - `"output-300k-2026-03-24"`
-
-  - `"user-profiles-2026-03-24"`
-
-  - `"user-profiles-2026-08-18"`
-
-  - `"user-profiles-2026-09-04"`
-
-  - `"advisor-tool-2026-03-01"`
-
-  - `"managed-agents-2026-04-01"`
-
-  - `"cache-diagnosis-2026-04-07"`
-
-  - `"dreaming-2026-04-21"`
-
-  - `"thinking-token-count-2026-05-13"`
-
-  - `"server-side-fallback-2026-06-01"`
-
-  - `"server-side-fallback-2026-07-01"`
-
-  - `"fallback-credit-2026-06-01"`
-
-  - `"fallback-credit-2026-07-01"`
-
-  - `"agent-memory-2026-07-22"`
-
-  - `"mid-conversation-tool-changes-2026-07-01"`
-
-  - `"compact-2026-01-12"`
-
-  - `"computer-use-2025-11-24"`
-
-  - `"mcp-tunnels-2026-06-22"`
-
-  - `"structured-outputs-2025-11-13"`
-
-  - `"task-budgets-2026-03-13"`
-
-  - `"thinking-display-updates-2026-08-18"`
-
-  - `"ce-user-management-2026-07-13"`
-
-  - `"mid-conversation-output-config-2026-07-01"`
-
-  - `"thinking-binding-controls-2026-08-01"`
-
-  - `"mid-conversation-system-clear-at-2026-08-21"`
-
-  - `"compact-2026-09-04"`
-
-  - `"inline-tools-2026-09-15"`
-
-  - `"mcp-client-2026-09-15"`
-
-  - `"ce-plugins-2026-09-01"`
-
-  - `"spend-limit-reads-2026-09-26"`
-
-#### Body parameters (form-data)
-
-- `archive: string`
-
-  A .zip of the marketplace directory (its contents at the root, or wrapped in one folder as a Git host's download produces), sent as a file part with a filename; DEFLATE- or STORE-compressed, at most 32 MB. A part sent without a filename, a second archive part, or any other form field is a 400; a larger archive is a 413.
-
-  format: binary
-
-#### Returns
-
-- `BetaPluginMarketplaceValidationReport object`
-
-  The outcome of validating plugin marketplace content: a report, not a
-  stored object, so nothing in it can be retrieved afterwards.
-
-  - `type: "plugin_marketplace_validation_report"`
-
-    Always `plugin_marketplace_validation_report`.
-
-    default: plugin_marketplace_validation_report
-
-  - `commit_sha: string or null`
-
-    The full SHA of the commit that was validated: for a repository, the commit that was read; for an uploaded archive, the commit recorded in the archive's comment (as a Git host's download writes it; not verified), else null.
-
-  - `manifest_error: string or null`
-
-    Set when nothing could be validated: the repository or archive could not be read, or marketplace.json is missing, malformed or over a limit. Null otherwise.
-
-  - `manifest_error_code: string or null`
-
-    A stable identifier for `manifest_error`; null when that is.
-
-  - `plugin_errors: array of BetaPluginMarketplaceValidationPluginError`
-
-    One entry per plugin a synchronization would skip entirely, keyed by the plugin's name in marketplace.json.
-
-    - `error: string`
-
-      Why the plugin would be skipped by a synchronization.
-
-    - `error_code: string`
-
-      A stable identifier for the reason — the value to branch on.
-
-    - `name: string`
-
-      The plugin's name, as its entry in marketplace.json declares it.
-
-  - `plugin_warnings: array of BetaPluginMarketplaceValidationPluginWarnings`
-
-    One entry per plugin that would synchronize with some of its contents left out, keyed by the plugin's name in marketplace.json.
-
-    - `name: string`
-
-      The plugin's name, as its entry in marketplace.json declares it.
-
-    - `warnings: array of BetaPluginMarketplaceValidationPluginWarning`
-
-      The parts of the plugin a synchronization would leave out.
-
-      - `error_code: string`
-
-        A stable identifier for the kind of warning.
-
-      - `message: string`
-
-        What would be left out, and why.
-
-  - `ref: string or null`
-
-    For a repository, the branch that was read by name: the one requested, or else the branch a synchronization of this repository is set to read. Null when no branch is named or set and the repository's default branch was read, for a request by commit SHA, and for an uploaded archive.
-
-  - `total_plugin_count: number`
-
-    How many plugins marketplace.json declares; 0 when it could not be read.
-
-  - `valid: boolean`
-
-    True when marketplace.json is well-formed and no plugin would be skipped; warnings never make it false.
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/organizations/plugin_marketplaces/validate_archive \
-    -H 'Content-Type: multipart/form-data' \
-    -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-plugins-2026-09-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
-    -F 'archive=@/path/to/archive'
-```
-
-##### Response (200)
-
-```json
-{
-  "commit_sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
-  "manifest_error": "manifest_error",
-  "manifest_error_code": "marketplace_sync_manifest_not_found",
-  "plugin_errors": [
-    {
-      "error": "error",
-      "error_code": "marketplace_sync_plugin_missing_manifest",
-      "name": "name"
-    }
-  ],
-  "plugin_warnings": [
-    {
-      "name": "name",
-      "warnings": [
-        {
-          "error_code": "marketplace_sync_zipball_symlink_dangling",
-          "message": "message"
-        }
-      ]
-    }
-  ],
-  "ref": "main",
-  "total_plugin_count": 0,
-  "type": "plugin_marketplace_validation_report",
-  "valid": false
-}
-```

@@ -67,6 +67,7 @@ When you reach your usage limits, you can select from a few options based on you
 * If you're on the Max 5x plan, consider upgrading to the Max 20x plan if you consistently hit limits.
 * **[Enable usage credits](https://support.claude.com/en/articles/12429409-)** to continue using Claude with your Max plan after hitting the included usage limit.
 * Switch to a Claude Console account and **[purchase API usage credits](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage)** for intensive coding sprints.
+* Monthly API credits included with Max plans can’t be used in Claude Code or the Claude apps, including for extra usage. Learn more about **[monthly API credits for Max and Team plans](https://support.claude.com/en/articles/17154008)**.
 * Wait until your usage limits reset.
 
 For more details on efficient usage, refer to our **[Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)**.
@@ -122,8 +123,8 @@ Auto-reload functionality is managed within your Claude Console account, not thr
 * Auto-reload is an independent Claude Console feature.
 * To maintain your Pro or Max plan budget, simply decline API credit options when offered.
 
-* [What is the Pro plan?](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)
-* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
+* [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
 * [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
-* [Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)
 * [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)
+* [Understanding your Pro or Max plan invoices](https://support.claude.com/en/articles/16607638-understanding-your-pro-or-max-plan-invoices)
+* [Monthly API credits for Max and Team plans](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans)

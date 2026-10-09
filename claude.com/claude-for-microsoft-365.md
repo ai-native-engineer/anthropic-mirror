@@ -28,7 +28,7 @@ Triage your inbox in one prompt, draft replies that wait for you to send, and fi
 
 ## How teams use Claude for Microsoft 365
 
-[![](https://assets.claude.com/062636c191ab44665046dbfd4da77b0de8bfea85.png)](https://assets.claude.com/d05f92ffebe7e9b6b3922904d6b4bb51800ebaeb.webm)
+![](https://assets.claude.com/062636c191ab44665046dbfd4da77b0de8bfea85.png)
 
 ### Turn an email into a deliverable
 
@@ -209,3 +209,5 @@ No. Drafts and calendar invites open in Outlook's native compose form and wait f
 ## Get started with Claude for Microsoft 365
 
 [Install for Microsoft 365 (opens in new tab)](https://marketplace.microsoft.com/en-us/product/office/WA200010725?tab=Overview)[Install for Outlook (opens in new tab)](https://marketplace.microsoft.com/en-us/product/office/WA200010724?tab=Overview)
+
+Claude for Microsoft 365 | Claude by Anthropic

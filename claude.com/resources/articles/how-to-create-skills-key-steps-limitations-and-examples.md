@@ -587,5 +587,3 @@ Claude Code](https://claude.com/resources/articles/claude-code-guide-for-startup
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
 
 Please provide your email address if you'd like to receive our monthly developer newsletter. You can unsubscribe at any time.
-
-How to create Skills for Claude: steps and examples | Claude by Anthropic

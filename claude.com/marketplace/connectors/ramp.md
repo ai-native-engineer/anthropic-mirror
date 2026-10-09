@@ -2,7 +2,7 @@
 
 Connector URL`https://ramp-mcp-remote.ramp.com/mcp`
 
-More[Documentation (opens in new tab)](https://docs.ramp.com/developer-api/v1/guides/ramp-mcp-remote)[Support (opens in new tab)](mailto:developer-support@ramp.com)[Privacy policy (opens in new tab)](https://ramp.com/legal/privacy-policy)
+More[Documentation (opens in new tab)](https://docs.ramp.com/developer-api/v1/guides/ramp-mcp-remote)[Support (opens in new tab)](https://docs.ramp.com/developer-api/v1/debugging)[Privacy policy (opens in new tab)](https://ramp.com/legal/privacy-policy)
 
 Enables secure, read-only access to Ramp data for customer-defined logic. Supports loading and querying transactions, reimbursements, bills, purchase orders, cards, vendors, and more, enabling dynamic data fetching and analysis via Claude.
 
@@ -72,14 +72,18 @@ Live crypto, stock, gold & oil trading data from Hyperliquid: see what the best 
 
 ### [SuperBooks](https://claude.com/marketplace/connectors/superbooks)
 
+Anthropic verifiedTrending
+
 Financial OS for small businesses
 
 [Add SuperBooks in Claude (opens in new tab)](https://claude.ai/directory/f80d20ad-23dc-46d7-bca4-0057424eb163 "Add in Claude")
 
-![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
+![](https://www.google.com/s2/favicons?domain=paperoffice.ai&sz=96)
 
-### [Intuit QuickBooks](https://claude.com/marketplace/connectors/quickbooks)
+### [PaperOffice](https://claude.com/marketplace/connectors/paperoffice)
 
-Business Finances made simple
+Anthropic verifiedNew
 
-[Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
+Built for companies. Ready for AI agents. The headless DMS for Claude: search, read, extract, approve, send for signing and archive documents in your own account, with your permissions.
+
+[Add PaperOffice in Claude (opens in new tab)](https://claude.ai/directory/7fc51aa2-cf7e-4429-9ed8-623b92395e60 "Add in Claude")

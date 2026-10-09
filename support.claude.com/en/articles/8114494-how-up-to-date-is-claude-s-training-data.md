@@ -2,6 +2,7 @@
 
 While we're constantly updating Claude's data, each model has a knowledge cutoff:
 
+* Claude Haiku 5.5 was trained on data up until June 2026.
 * Claude Sonnet 5.5 was trained on data up until June 2026.
 * Claude Opus 5.5 was trained on data up until June 2026.
 * Claude Fable 5.1 was trained on data up until June 2026.
@@ -22,5 +23,5 @@ You can refer to **[Models overview](https://docs.claude.com/en/docs/about-claud
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
 * [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
-* [Why Claude switched models in your conversation with Fable 5 or Fable 5.1](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1)
 * [How Claude marks AI-generated content](https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content)
+* [Why Claude switched models in your conversation with Sonnet 5.5](https://support.claude.com/en/articles/17161993-why-claude-switched-models-in-your-conversation-with-sonnet-5-5)

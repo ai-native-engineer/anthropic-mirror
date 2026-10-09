@@ -39,7 +39,7 @@ Create Agent
 
 - `multiagent?:optional BetaManagedAgentsMultiagentParams`
 
-  Multiagent orchestration configuration. Currently supports the `coordinator` topology with a roster of 1-20 agents.
+  Multiagent orchestration configuration.
 
 - `skills?:optional list<BetaManagedAgentsSkillParams>`
 
@@ -203,7 +203,7 @@ var_dump($betaManagedAgentsAgent);
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -390,7 +390,7 @@ var_dump($page);
           "version": "1"
         },
         {
-          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
           "type": "custom",
           "version": "2"
         }
@@ -563,7 +563,7 @@ var_dump($betaManagedAgentsAgent);
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -807,7 +807,7 @@ var_dump($betaManagedAgentsAgent);
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -972,7 +972,7 @@ var_dump($betaManagedAgentsAgent);
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -1161,6 +1161,10 @@ var_dump($betaManagedAgentsAgent);
 
       Permission policy for tool execution.
 
+    - `?BetaManagedAgentsWebFetchURLSources urlSources`
+
+      Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
     - `?list<string> allowedDomains`
 
     - `?list<string> blockedDomains`
@@ -1314,6 +1318,10 @@ var_dump($betaManagedAgentsAgent);
     - `?PermissionPolicy permissionPolicy`
 
       Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
+
+    - `?BetaManagedAgentsWebFetchURLSourcesParams urlSources`
+
+      Which sources contribute URLs the tool may fetch. Omit to allow every source.
 
   - `class BetaManagedAgentsWebSearchToolConfigParams`
 
@@ -1847,6 +1855,10 @@ var_dump($betaManagedAgentsAgent);
 
 - `enum BetaManagedAgentsModel`
 
+  - `"claude-haiku-5-5"`
+
+    Fastest model for high-volume, real-time tasks
+
   - `"claude-sonnet-5-5"`
 
     Efficient model for coding and agents
@@ -2125,6 +2137,10 @@ var_dump($betaManagedAgentsAgent);
 
     Permission policy for tool execution.
 
+  - `?BetaManagedAgentsWebFetchURLSources urlSources`
+
+    Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
   - `?list<string> allowedDomains`
 
   - `?list<string> blockedDomains`
@@ -2160,6 +2176,190 @@ var_dump($betaManagedAgentsAgent);
   - `?PermissionPolicy permissionPolicy`
 
     Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
+
+  - `?BetaManagedAgentsWebFetchURLSourcesParams urlSources`
+
+    Which sources contribute URLs the tool may fetch. Omit to allow every source.
+
+### Beta Managed Agents Web Fetch URL Source All
+
+- `class BetaManagedAgentsWebFetchURLSourceAll`
+
+  - `"all" type`
+
+### Beta Managed Agents Web Fetch URL Source Except
+
+- `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+  - `"except" type`
+
+  - `list<BetaManagedAgentsWebFetchURLSourceToolReference> tools`
+
+    The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+### Beta Managed Agents Web Fetch URL Source None
+
+- `class BetaManagedAgentsWebFetchURLSourceNone`
+
+  - `"none" type`
+
+### Beta Managed Agents Web Fetch URL Source Only
+
+- `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+  - `"only" type`
+
+  - `list<BetaManagedAgentsWebFetchURLSourceToolReference> tools`
+
+    The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+### Beta Managed Agents Web Fetch URL Source Shorthand
+
+- `enum BetaManagedAgentsWebFetchURLSourceShorthand`
+
+  - `"all"`
+
+  - `"none"`
+
+### Beta Managed Agents Web Fetch URL Source Tool Filter
+
+- `class BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+  - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+    - `"all" type`
+
+  - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+    - `"none" type`
+
+  - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+    - `"only" type`
+
+    - `list<BetaManagedAgentsWebFetchURLSourceToolReference> tools`
+
+      The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+  - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+    - `"except" type`
+
+    - `list<BetaManagedAgentsWebFetchURLSourceToolReference> tools`
+
+      The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+### Beta Managed Agents Web Fetch URL Source Tool Filter Params
+
+- `class BetaManagedAgentsWebFetchURLSourceToolFilterParams`
+
+  - `enum BetaManagedAgentsWebFetchURLSourceShorthand`
+
+    - `"all"`
+
+    - `"none"`
+
+  - `class BetaManagedAgentsWebFetchURLSourceToolFilter`
+
+    - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+      - `"all" type`
+
+    - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+      - `"none" type`
+
+    - `class BetaManagedAgentsWebFetchURLSourceOnly`
+
+      - `"only" type`
+
+      - `list<BetaManagedAgentsWebFetchURLSourceToolReference> tools`
+
+        The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+    - `class BetaManagedAgentsWebFetchURLSourceExcept`
+
+      - `"except" type`
+
+      - `list<BetaManagedAgentsWebFetchURLSourceToolReference> tools`
+
+        The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+### Beta Managed Agents Web Fetch URL Source Tool Reference
+
+- `class BetaManagedAgentsWebFetchURLSourceToolReference`
+
+  - `"tool_reference" type`
+
+    Must be "tool_reference".
+
+  - `string name`
+
+    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+### Beta Managed Agents Web Fetch URL Source User Input
+
+- `class BetaManagedAgentsWebFetchURLSourceUserInput`
+
+  - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+    - `"all" type`
+
+  - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+    - `"none" type`
+
+### Beta Managed Agents Web Fetch URL Source User Input Params
+
+- `class BetaManagedAgentsWebFetchURLSourceUserInputParams`
+
+  - `enum BetaManagedAgentsWebFetchURLSourceShorthand`
+
+    - `"all"`
+
+    - `"none"`
+
+  - `class BetaManagedAgentsWebFetchURLSourceUserInput`
+
+    - `class BetaManagedAgentsWebFetchURLSourceAll`
+
+      - `"all" type`
+
+    - `class BetaManagedAgentsWebFetchURLSourceNone`
+
+      - `"none" type`
+
+### Beta Managed Agents Web Fetch URL Sources
+
+- `class BetaManagedAgentsWebFetchURLSources`
+
+  - `?BetaManagedAgentsWebFetchURLSourceToolFilter clientToolResults`
+
+    Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+  - `?BetaManagedAgentsWebFetchURLSourceToolFilter serverToolResults`
+
+    Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+  - `?BetaManagedAgentsWebFetchURLSourceUserInput userInput`
+
+    Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+### Beta Managed Agents Web Fetch URL Sources Params
+
+- `class BetaManagedAgentsWebFetchURLSourcesParams`
+
+  - `?BetaManagedAgentsWebFetchURLSourceToolFilterParams clientToolResults`
+
+    Which custom tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be a custom tool in the same tools array.
+
+  - `?BetaManagedAgentsWebFetchURLSourceToolFilterParams serverToolResults`
+
+    Which of the web_search and web_fetch tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be "web_search" or "web_fetch".
+
+  - `?BetaManagedAgentsWebFetchURLSourceUserInputParams userInput`
+
+    Whether URLs in the text of user messages may be fetched: "all" (the default) or "none".
 
 ### Beta Managed Agents Web Search Tool Config
 
@@ -2391,7 +2591,7 @@ var_dump($page);
           "version": "1"
         },
         {
-          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
           "type": "custom",
           "version": "2"
         }

@@ -23,5 +23,3 @@
 ## Transform how your organization operates with Claude
 
 [Try Claude (opens in new tab)](https://claude.ai)[Contact sales](https://claude.com/contact-sales)
-
-Scaling development with remote agents: Best practices and deep dive with Augment Code | Claude by Anthropic

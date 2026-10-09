@@ -18,7 +18,7 @@ Featured resource 1 of 5: Working with Claude Fable 5 in Claude Cowork
 
 Advanced filters
 
-Showing 11 of 223 resources
+Showing 11 of 213 resources
 
 [WebinarUpcoming | Oct 15, 2026
 
@@ -26,51 +26,35 @@ Showing 11 of 223 resources
 
 We open on an incident. An alert fires in a Slack channel and, without anyone typing a prompt, Claude reads the logs, repos and…
 
-Claude Tag](https://claude.com/resources/webinars/claude-tag-on-call-a-new-teammate-in-your-incident-channel)[WebinarUpcoming | Multiple dates
+Claude Tag](https://claude.com/resources/webinars/claude-tag-on-call-a-new-teammate-in-your-incident-channel)[WebinarUpcoming | Oct 13, 2026
 
-### Claude Code: Foundations
+### Measuring AI Fluency at Your Organization
 
-New to Claude Code? You’re in the right place. Join Anthropic's Claude Code specialist team for a hands-on introduction to…
+Seat counts don't show if AI is working. Kristen Swanson shares how to measure AI Fluency beyond usage, without a huge lift.](https://claude.com/resources/webinars/measuring-ai-fluency-at-your-organization)[Guide49 min read
 
-Claude Code](https://claude.com/resources/webinars/claude-code-foundations-series)[WebinarUpcoming | Multiple dates
+### The AI investment firm
 
-### Claude Code: Advanced
+We draw from our work with investment firms to outline best practices for AI adoption, and the work Claude takes on for each team.](https://claude.com/resources/guides/the-ai-investment-firm)[ArticleOct 7, 2026
 
-You already use Claude Code every day. This is the session that turns you into the person your team asks how you did that. In 90…
+### Automating eval design and hillclimbing with Claude
 
-Claude Code](https://claude.com/resources/webinars/claude-code-workshop-advanced)[WebinarUpcoming | Multiple dates
+Principles for designing evals and hillclimbing against them without fooling yourself, and how the claude-api skill's build-eval and hillclimb commands put them to work.
 
-### Configuring Claude: Guidance for Enterprise Admins
+Claude Platform
 
-You’ve signed up for Claude Enterprise! Now let’s get the right setup and ensure your users have everything they need on day…
+(opens in new tab)](https://claude.dev/blog/automating-eval-design-and-hillclimbing/)[ArticleOct 6, 2026
 
-Claude Enterprise](https://claude.com/resources/webinars/configuring-claude-guidance-for-enterprise-admins)[WebinarUpcoming | Multiple dates
+### Claude Code in the cloud: a field guide to cloud sessions
 
-### Controlling Cost and Maximizing Value: Guidance for Enterprise Admins
+What changes when Claude Code runs on its own machine, the workflows where that pays off, and how to connect GitHub on the first try.
 
-Join Anthropic for a practical session on Claude Enterprise cost controls and value realization. In 45 minutes we'll walk…
+Claude Code
 
-Claude Enterprise](https://claude.com/resources/webinars/controlling-cost-and-maximizing-value-guidance-for-enterprise-admins)[WebinarUpcoming | Multiple dates
-
-### Building your first workflow with Cowork
-
-Join Anthropic's Customer Success Team for a step-by-step guide to launching your first workflow with Cowork. Ideal for brand…
-
-Claude Cowork](https://claude.com/resources/webinars/recurring-building-your-first-workflow-with-cowork)[WebinarUpcoming | Multiple dates
-
-### Virtual Claude Code Workshop
-
-This Claude Code workshop, presented with Tenex, is a 1.5 hour product experience for engineers who ship in codebases they did…
-
-Claude Code](https://claude.com/resources/webinars/recurring-virtual-claude-code-workshop)[WebinarUpcoming | Multiple dates
-
-### Virtual Claude Workshop
-
-This Claude Workshop, presented with Tenex, is a 1.5 hour product experience for business leaders who live in documents,…
-
-Claude apps](https://claude.com/resources/webinars/recurring-virtual-claude-workshop)[ArticleOct 5, 2026
+(opens in new tab)](https://claude.dev/blog/claude-code-in-the-cloud/)[ArticleOct 5, 2026
 
 ### How Cresta turned CX expertise into an agent builder on the Claude Agent SDK
+
+See how Cresta built Conductor, an agent that builds other agents, on the Claude Agent SDK, and how the team evaluates it with every new Claude model.
 
 Claude Platform](https://claude.com/resources/articles/how-cresta-turned-cx-expertise-into-an-agent-builder-on-the-claude-agent-sdk)[WebinarOn demand
 
@@ -78,12 +62,31 @@ Claude Platform](https://claude.com/resources/articles/how-cresta-turned-cx-expe
 
 Teams running Claude Code at scale eventually get the same two questions. What is this costing us, and are the results worth the…
 
-Claude Code](https://claude.com/resources/webinars/how-to-control-costs-and-show-roi-for-claude-code-on-google-cloud-emea-rebroadcast)[WebinarOct 1, 2026
+Claude Code](https://claude.com/resources/webinars/how-to-control-costs-and-show-roi-for-claude-code-on-google-cloud-emea-rebroadcast)[ArticleOct 1, 2026
+
+### Getting started with Claude Code mods
+
+Claude Code
+
+(opens in new tab)](https://claude.dev/blog/getting-started-with-claude-code-mods/)[WebinarOn demand
 
 ### Enterprise Transformation with Claude on AWS: Paths to Production
 
 There's no single path to running Claude on AWS. What you build depends on what your compliance team needs, what your engineers…
 
-Claude PlatformClaude Enterprise](https://claude.com/resources/webinars/enterprise-transformation-with-claude-on-aws-paths-to-production-apac-rebroadcast)
+Claude PlatformClaude Enterprise](https://claude.com/resources/webinars/enterprise-transformation-with-claude-on-aws-paths-to-production-emea-rebroadcast)[ArticleSep 30, 2026
+
+### How Anthropic's sales team rebuilt inbound with Claude Managed Agents
+
+Carl Johnson, a sales development leader at Anthropic, shares how a Claude-powered buying agent now answers most inbound customers, and how that changed the way our sales team works.
+
+Claude Platform](https://claude.com/resources/articles/how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents)[ArticleSep 29, 2026
+
+### Agents you can coach: how Asana builds human-agent teams with Claude
+
+Arnab Bose, Chief Product Officer at Asana, on how Asana runs AI agents as teammates with scoped roles, shared memory, and work that everyone can see.
+‍
+
+Claude Platform](https://claude.com/resources/articles/agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude)
 
 View more

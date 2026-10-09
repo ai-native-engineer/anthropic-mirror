@@ -57,7 +57,7 @@ $betaManagedAgentsDeletedCredential = $client
   ->vaults
   ->credentials
   ->delete(
-  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  'vcrd_011CZkZEMt8gZan2iYPQfSkw',
   vaultID: 'vlt_011CZkZDLs7fYzm1hXNPeRjv',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
   workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
@@ -70,7 +70,7 @@ var_dump($betaManagedAgentsDeletedCredential);
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "type": "vault_credential_deleted"
 }
 ```

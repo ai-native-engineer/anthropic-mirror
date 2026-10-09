@@ -3,6 +3,1249 @@
 
 <!-- chunk-start -->
 
+      - `required string Description`
+
+      - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
+
+        JSON Schema for custom tool input parameters.
+
+        - `JsonElement Type = "object"`
+
+        - `IReadOnlyDictionary<string, JsonElement>? Properties`
+
+        - `IReadOnlyList<string>? Required`
+
+      - `required string Name`
+
+  - `required DateTimeOffset UpdatedAt`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `required int Version`
+
+    The agent's current version. Starts at 1 and increments when the agent is modified.
+
+    format: int32
+
+#### Example
+
+```csharp
+VersionListParams parameters = new()
+{
+    AgentID = "agent_011CZkYpogX7uDKUyvBTophP"
+};
+
+var page = await client.Beta.Agents.Versions.List(parameters);
+await foreach (var item in page.Paginate())
+{
+    Console.WriteLine(item);
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "agent_011CZkYpogX7uDKUyvBTophP",
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "description": "A general-purpose starter agent.",
+      "mcp_servers": [
+        {
+          "name": "example-mcp",
+          "type": "url",
+          "url": "https://example-server.modelcontextprotocol.io/sse"
+        }
+      ],
+      "metadata": {
+        "foo": "bar"
+      },
+      "model": {
+        "id": "claude-opus-5",
+        "effort": {
+          "type": "low"
+        },
+        "inference_geo": "inference_geo",
+        "speed": "standard"
+      },
+      "multiagent": {
+        "agents": [
+          {
+            "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+            "type": "agent",
+            "version": 1
+          }
+        ],
+        "type": "coordinator"
+      },
+      "name": "My First Agent",
+      "skills": [
+        {
+          "skill_id": "xlsx",
+          "type": "anthropic",
+          "version": "1"
+        },
+        {
+          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
+          "type": "custom",
+          "version": "2"
+        }
+      ],
+      "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
+      "tools": [
+        {
+          "configs": [
+            {
+              "enabled": true,
+              "name": "bash",
+              "permission_policy": {
+                "type": "always_allow"
+              },
+              "type": "bash"
+            }
+          ],
+          "default_config": {
+            "enabled": true,
+            "permission_policy": {
+              "type": "always_ask"
+            }
+          },
+          "type": "agent_toolset_20260401"
+        }
+      ],
+      "type": "agent",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "version": 1
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Beta › Environments
+
+### Create Environment
+
+`BetaEnvironment Beta.Environments.Create(parameters, cancellationToken = default)`
+
+**POST** `/v1/environments`
+
+Create a new environment with the specified configuration.
+
+#### Parameters
+
+- `EnvironmentCreateParams parameters`
+
+  - `required string name`
+
+    Human-readable name for the environment
+
+    minLength: 1, maxLength: 256
+
+  - `Config? config`
+
+    Environment configuration
+
+    - `class BetaCloudConfigParams`
+
+      Request params for `cloud` environment configuration.
+
+      Fields default to null; on update, omitted fields preserve the
+      existing value.
+
+      - `JsonElement Type = "cloud"`
+
+        Environment type
+
+      - `Networking? Networking`
+
+        Network configuration policy. Omit on update to preserve the existing value.
+
+        - `class BetaUnrestrictedNetwork`
+
+          Unrestricted network access.
+
+          - `JsonElement Type = "unrestricted"`
+
+            Network policy type
+
+        - `class BetaLimitedNetworkParams`
+
+          Limited network request params.
+
+          Fields default to null; on update, omitted fields preserve the
+          existing value.
+
+          - `JsonElement Type = "limited"`
+
+            Network policy type
+
+          - `bool? AllowMcpServers`
+
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array. Defaults to `false`.
+
+          - `bool? AllowPackageManagers`
+
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array. Defaults to `false` on creation. Must be `true` when `packages` are specified.
+
+          - `IReadOnlyList<string>? AllowedHosts`
+
+            Specifies domains the container can reach.
+
+      - `BetaPackagesParams? Packages`
+
+        Package manager configuration. Under `limited` networking, requires `networking.allow_package_managers` to be `true`. Omit on update to preserve the existing value.
+
+        - `Type Type`
+
+          Package configuration type
+
+        - `IReadOnlyList<string>? Apt`
+
+          Ubuntu/Debian packages to install
+
+        - `IReadOnlyList<string>? Cargo`
+
+          Rust packages to install
+
+        - `IReadOnlyList<string>? Gem`
+
+          Ruby packages to install
+
+        - `IReadOnlyList<string>? Go`
+
+          Go packages to install
+
+        - `IReadOnlyList<string>? Npm`
+
+          Node.js packages to install
+
+        - `IReadOnlyList<string>? Pip`
+
+          Python packages to install
+
+    - `class BetaSelfHostedConfigParams`
+
+      Request params for `self_hosted` environment configuration.
+
+      - `JsonElement Type = "self_hosted"`
+
+        Environment type
+
+  - `string? description`
+
+    Optional description of the environment
+
+    maxLength: 1024
+
+  - `IReadOnlyDictionary<string, string> metadata`
+
+    User-provided metadata key-value pairs
+
+  - `Scope? scope`
+
+    The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. API organizations support only 'organization'; 'account' is rejected. If not specified, defaults based on organization type.
+
+    - `Organization("organization")`
+
+    - `Account("account")`
+
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
+  - `string workspaceID` (header parameter)
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaEnvironment`
+
+  Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonElement Type = "environment"`
+
+    The type of object (always 'environment')
+
+  - `required string ID`
+
+    Environment identifier (e.g., 'env_...')
+
+  - `required string? ArchivedAt`
+
+    RFC 3339 timestamp when environment was archived, or null if not archived
+
+  - `required Config Config`
+
+    Environment configuration (either Anthropic Cloud or self-hosted)
+
+    - `class BetaCloudConfig`
+
+      `cloud` environment configuration.
+
+      - `JsonElement Type = "cloud"`
+
+        Environment type
+
+      - `required Networking Networking`
+
+        Network configuration policy.
+
+        - `class BetaUnrestrictedNetwork`
+
+          Unrestricted network access.
+
+          - `JsonElement Type = "unrestricted"`
+
+            Network policy type
+
+        - `class BetaLimitedNetwork`
+
+          Limited network access.
+
+          - `JsonElement Type = "limited"`
+
+            Network policy type
+
+          - `required bool AllowMcpServers`
+
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
+
+          - `required bool AllowPackageManagers`
+
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
+
+          - `required IReadOnlyList<string> AllowedHosts`
+
+            Specifies domains the container can reach.
+
+      - `required BetaPackages Packages`
+
+        Package manager configuration.
+
+        - `Type Type`
+
+          Package configuration type
+
+        - `required IReadOnlyList<string> Apt`
+
+          Ubuntu/Debian packages to install
+
+        - `required IReadOnlyList<string> Cargo`
+
+          Rust packages to install
+
+        - `required IReadOnlyList<string> Gem`
+
+          Ruby packages to install
+
+        - `required IReadOnlyList<string> Go`
+
+          Go packages to install
+
+        - `required IReadOnlyList<string> Npm`
+
+          Node.js packages to install
+
+        - `required IReadOnlyList<string> Pip`
+
+          Python packages to install
+
+    - `class BetaSelfHostedConfig`
+
+      Configuration for self-hosted environments.
+
+      - `JsonElement Type = "self_hosted"`
+
+        Environment type
+
+  - `required string CreatedAt`
+
+    RFC 3339 timestamp when environment was created
+
+  - `required string? Description`
+
+    User-provided description for the environment; null when unset
+
+  - `required IReadOnlyDictionary<string, string> Metadata`
+
+    User-provided metadata key-value pairs
+
+  - `required string Name`
+
+    Human-readable name for the environment
+
+  - `required string UpdatedAt`
+
+    RFC 3339 timestamp when environment was last updated
+
+  - `Scope Scope`
+
+    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
+    - `Organization("organization")`
+
+    - `Account("account")`
+
+#### Example
+
+```csharp
+EnvironmentCreateParams parameters = new() { Name = "python-data-analysis" };
+
+var betaEnvironment = await client.Beta.Environments.Create(parameters);
+
+Console.WriteLine(betaEnvironment);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "archived_at": null,
+  "config": {
+    "networking": {
+      "allow_mcp_servers": false,
+      "allow_package_managers": true,
+      "allowed_hosts": [
+        "api.example.com"
+      ],
+      "type": "limited"
+    },
+    "packages": {
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
+      "type": "packages"
+    },
+    "type": "cloud"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Python environment with data-analysis packages.",
+  "metadata": {},
+  "name": "python-data-analysis",
+  "type": "environment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "scope": "organization"
+}
+```
+
+### List Environments
+
+`EnvironmentListPage Beta.Environments.List(parameters, cancellationToken = default)`
+
+**GET** `/v1/environments`
+
+List environments with pagination support.
+
+#### Parameters
+
+- `EnvironmentListParams parameters`
+
+  - `bool includeArchived` (query parameter)
+
+    Include archived environments in the response
+
+  - `long limit` (query parameter)
+
+    Maximum number of environments to return
+
+    minimum: 1, maximum: 1000
+
+  - `string? page` (query parameter)
+
+    Opaque cursor from previous response for pagination. Pass the `next_page` value from the previous response.
+
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
+  - `string workspaceID` (header parameter)
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaEnvironment`
+
+  Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonElement Type = "environment"`
+
+    The type of object (always 'environment')
+
+  - `required string ID`
+
+    Environment identifier (e.g., 'env_...')
+
+  - `required string? ArchivedAt`
+
+    RFC 3339 timestamp when environment was archived, or null if not archived
+
+  - `required Config Config`
+
+    Environment configuration (either Anthropic Cloud or self-hosted)
+
+    - `class BetaCloudConfig`
+
+      `cloud` environment configuration.
+
+      - `JsonElement Type = "cloud"`
+
+        Environment type
+
+      - `required Networking Networking`
+
+        Network configuration policy.
+
+        - `class BetaUnrestrictedNetwork`
+
+          Unrestricted network access.
+
+          - `JsonElement Type = "unrestricted"`
+
+            Network policy type
+
+        - `class BetaLimitedNetwork`
+
+          Limited network access.
+
+          - `JsonElement Type = "limited"`
+
+            Network policy type
+
+          - `required bool AllowMcpServers`
+
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
+
+          - `required bool AllowPackageManagers`
+
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
+
+          - `required IReadOnlyList<string> AllowedHosts`
+
+            Specifies domains the container can reach.
+
+      - `required BetaPackages Packages`
+
+        Package manager configuration.
+
+        - `Type Type`
+
+          Package configuration type
+
+        - `required IReadOnlyList<string> Apt`
+
+          Ubuntu/Debian packages to install
+
+        - `required IReadOnlyList<string> Cargo`
+
+          Rust packages to install
+
+        - `required IReadOnlyList<string> Gem`
+
+          Ruby packages to install
+
+        - `required IReadOnlyList<string> Go`
+
+          Go packages to install
+
+        - `required IReadOnlyList<string> Npm`
+
+          Node.js packages to install
+
+        - `required IReadOnlyList<string> Pip`
+
+          Python packages to install
+
+    - `class BetaSelfHostedConfig`
+
+      Configuration for self-hosted environments.
+
+      - `JsonElement Type = "self_hosted"`
+
+        Environment type
+
+  - `required string CreatedAt`
+
+    RFC 3339 timestamp when environment was created
+
+  - `required string? Description`
+
+    User-provided description for the environment; null when unset
+
+  - `required IReadOnlyDictionary<string, string> Metadata`
+
+    User-provided metadata key-value pairs
+
+  - `required string Name`
+
+    Human-readable name for the environment
+
+  - `required string UpdatedAt`
+
+    RFC 3339 timestamp when environment was last updated
+
+  - `Scope Scope`
+
+    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
+    - `Organization("organization")`
+
+    - `Account("account")`
+
+#### Example
+
+```csharp
+EnvironmentListParams parameters = new();
+
+var page = await client.Beta.Environments.List(parameters);
+await foreach (var item in page.Paginate())
+{
+    Console.WriteLine(item);
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+      "archived_at": null,
+      "config": {
+        "networking": {
+          "allow_mcp_servers": false,
+          "allow_package_managers": true,
+          "allowed_hosts": [
+            "api.example.com"
+          ],
+          "type": "limited"
+        },
+        "packages": {
+          "apt": [
+            "string"
+          ],
+          "cargo": [
+            "string"
+          ],
+          "gem": [
+            "string"
+          ],
+          "go": [
+            "string"
+          ],
+          "npm": [
+            "string"
+          ],
+          "pip": [
+            "pandas",
+            "numpy"
+          ],
+          "type": "packages"
+        },
+        "type": "cloud"
+      },
+      "created_at": "2026-03-15T10:00:00Z",
+      "description": "Python environment with data-analysis packages.",
+      "metadata": {},
+      "name": "python-data-analysis",
+      "type": "environment",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "scope": "organization"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+### Get Environment
+
+`BetaEnvironment Beta.Environments.Retrieve(parameters, cancellationToken = default)`
+
+**GET** `/v1/environments/{environment_id}`
+
+Retrieve a specific environment by ID.
+
+#### Parameters
+
+- `EnvironmentRetrieveParams parameters`
+
+  - `required string environmentID` (path parameter)
+
+  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
+    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
+
+    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
+
+  - `string workspaceID` (header parameter)
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaEnvironment`
+
+  Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonElement Type = "environment"`
+
+    The type of object (always 'environment')
+
+  - `required string ID`
+
+    Environment identifier (e.g., 'env_...')
+
+  - `required string? ArchivedAt`
+
+    RFC 3339 timestamp when environment was archived, or null if not archived
+
+  - `required Config Config`
+
+    Environment configuration (either Anthropic Cloud or self-hosted)
+
+    - `class BetaCloudConfig`
+
+      `cloud` environment configuration.
+
+      - `JsonElement Type = "cloud"`
+
+        Environment type
+
+      - `required Networking Networking`
+
+        Network configuration policy.
+
+        - `class BetaUnrestrictedNetwork`
+
+          Unrestricted network access.
+
+          - `JsonElement Type = "unrestricted"`
+
+            Network policy type
+
+        - `class BetaLimitedNetwork`
+
+          Limited network access.
+
+          - `JsonElement Type = "limited"`
+
+            Network policy type
+
+          - `required bool AllowMcpServers`
+
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
+
+          - `required bool AllowPackageManagers`
+
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
+
+          - `required IReadOnlyList<string> AllowedHosts`
+
+            Specifies domains the container can reach.
+
+      - `required BetaPackages Packages`
+
+        Package manager configuration.
+
+        - `Type Type`
+
+          Package configuration type
+
+        - `required IReadOnlyList<string> Apt`
+
+          Ubuntu/Debian packages to install
+
+        - `required IReadOnlyList<string> Cargo`
+
+          Rust packages to install
+
+        - `required IReadOnlyList<string> Gem`
+
+          Ruby packages to install
+
+        - `required IReadOnlyList<string> Go`
+
+          Go packages to install
+
+        - `required IReadOnlyList<string> Npm`
+
+          Node.js packages to install
+
+        - `required IReadOnlyList<string> Pip`
+
+          Python packages to install
+
+    - `class BetaSelfHostedConfig`
+
+      Configuration for self-hosted environments.
+
+      - `JsonElement Type = "self_hosted"`
+
+        Environment type
+
+  - `required string CreatedAt`
+
+    RFC 3339 timestamp when environment was created
+
+  - `required string? Description`
+
+    User-provided description for the environment; null when unset
+
+  - `required IReadOnlyDictionary<string, string> Metadata`
+
+    User-provided metadata key-value pairs
+
+  - `required string Name`
+
+    Human-readable name for the environment
+
+  - `required string UpdatedAt`
+
+    RFC 3339 timestamp when environment was last updated
+
+  - `Scope Scope`
+
+    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
+    - `Organization("organization")`
+
+    - `Account("account")`
+
+#### Example
+
+```csharp
+EnvironmentRetrieveParams parameters = new()
+{
+    EnvironmentID = "env_011CZkZ9X2dpNyB7HsEFoRfW"
+};
+
+var betaEnvironment = await client.Beta.Environments.Retrieve(parameters);
+
+Console.WriteLine(betaEnvironment);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "archived_at": null,
+  "config": {
+    "networking": {
+      "allow_mcp_servers": false,
+      "allow_package_managers": true,
+      "allowed_hosts": [
+        "api.example.com"
+      ],
+      "type": "limited"
+    },
+    "packages": {
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
+      "type": "packages"
+    },
+    "type": "cloud"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Python environment with data-analysis packages.",
+  "metadata": {},
+  "name": "python-data-analysis",
+  "type": "environment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "scope": "organization"
+}
+```
+
+### Update Environment
+
+`BetaEnvironment Beta.Environments.Update(parameters, cancellationToken = default)`
+
+**POST** `/v1/environments/{environment_id}`
+
+Update an existing environment's configuration.
+
+#### Parameters
+
+- `EnvironmentUpdateParams parameters`
+
+  - `required string environmentID` (path parameter)
+
+  - `Config? config`
+
+    Updated environment configuration
+
+    - `class BetaCloudConfigParams`
+
+      Request params for `cloud` environment configuration.
+
+      Fields default to null; on update, omitted fields preserve the
+      existing value.
+
+      - `JsonElement Type = "cloud"`
+
+        Environment type
+
+      - `Networking? Networking`
+
+        Network configuration policy. Omit on update to preserve the existing value.
+
+        - `class BetaUnrestrictedNetwork`
+
+          Unrestricted network access.
+
+          - `JsonElement Type = "unrestricted"`
+
+            Network policy type
+
+        - `class BetaLimitedNetworkParams`
+
+          Limited network request params.
+
           Fields default to null; on update, omitted fields preserve the
           existing value.
 
@@ -2813,6 +4056,10 @@ Create Session
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+            Fastest model for high-volume, real-time tasks
+
           - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
             Efficient model for coding and agents
@@ -2890,6 +4137,10 @@ Create Session
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+              Fastest model for high-volume, real-time tasks
 
             - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -3318,6 +4569,102 @@ Create Session
                 - `class BetaManagedAgentsAutoPolicy`
 
                   The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `BetaManagedAgentsWebFetchUrlSourcesParams? UrlSources`
+
+                Which sources contribute URLs the tool may fetch. Omit to allow every source.
+
+                - `BetaManagedAgentsWebFetchUrlSourceToolFilterParams? ClientToolResults`
+
+                  Which custom tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be a custom tool in the same tools array.
+
+                  - `enum BetaManagedAgentsWebFetchUrlSourceShorthand`
+
+                    String form of a url_sources value that has no field other than its type: "all" means {"type": "all"} and "none" means {"type": "none"}.
+
+                    - `All("all")`
+
+                    - `None("none")`
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceToolFilter: union`
+
+                    Which tools' results contribute URLs that may be fetched.
+
+                    - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                      Every URL from this source may be fetched. This is the default.
+
+                      - `JsonElement Type = "all"`
+
+                    - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                      This source contributes no URLs that may be fetched.
+
+                      - `JsonElement Type = "none"`
+
+                    - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                      Only the named tools' results contribute URLs that may be fetched.
+
+                      - `JsonElement Type = "only"`
+
+                      - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                        The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                        - `JsonElement Type = "tool_reference"`
+
+                          Must be "tool_reference".
+
+                        - `required string Name`
+
+                          Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                          minLength: 1, maxLength: 128
+
+                    - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                      Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                      - `JsonElement Type = "except"`
+
+                      - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                        The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                        - `JsonElement Type = "tool_reference"`
+
+                          Must be "tool_reference".
+
+                        - `required string Name`
+
+                          Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                          minLength: 1, maxLength: 128
+
+                - `BetaManagedAgentsWebFetchUrlSourceToolFilterParams? ServerToolResults`
+
+                  Which of the web_search and web_fetch tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be "web_search" or "web_fetch".
+
+                - `BetaManagedAgentsWebFetchUrlSourceUserInputParams? UserInput`
+
+                  Whether URLs in the text of user messages may be fetched: "all" (the default) or "none".
+
+                  - `enum BetaManagedAgentsWebFetchUrlSourceShorthand`
+
+                    String form of a url_sources value that has no field other than its type: "all" means {"type": "all"} and "none" means {"type": "none"}.
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceUserInput: union`
+
+                    Whether URLs in the text of user messages may be fetched.
+
+                    - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                      Every URL from this source may be fetched. This is the default.
+
+                    - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                      This source contributes no URLs that may be fetched.
 
             - `class BetaManagedAgentsWebSearchToolConfigParams`
 
@@ -3979,6 +5326,10 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+          Fastest model for high-volume, real-time tasks
+
         - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
           Efficient model for coding and agents
@@ -4346,6 +5697,82 @@ Create Session
                     - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+                    Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                    - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+                      Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                        - `JsonElement Type = "all"`
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                        This source contributes no URLs that may be fetched.
+
+                        - `JsonElement Type = "none"`
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                        Only the named tools' results contribute URLs that may be fetched.
+
+                        - `JsonElement Type = "only"`
+
+                        - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                          The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                          - `JsonElement Type = "tool_reference"`
+
+                            Must be "tool_reference".
+
+                          - `required string Name`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                        Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                        - `JsonElement Type = "except"`
+
+                        - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                          The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                          - `JsonElement Type = "tool_reference"`
+
+                            Must be "tool_reference".
+
+                          - `required string Name`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                    - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+                      Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                    - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+                      Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                        This source contributes no URLs that may be fetched.
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -4936,7 +6363,7 @@ Console.WriteLine(betaManagedAgentsSession);
         "version": "1"
       },
       {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
         "type": "custom",
         "version": "2"
       }
@@ -4983,7 +6410,7 @@ Console.WriteLine(betaManagedAgentsSession);
       "description": "Produce a 2-page summary as summary.md",
       "explanation": "All five sections present with inline citations.",
       "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVmjxP",
       "result": "satisfied",
       "type": "outcome_evaluation"
     }
@@ -4998,7 +6425,7 @@ Console.WriteLine(betaManagedAgentsSession);
       "updated_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
       "created_at": "2026-03-15T10:00:00Z",
       "mount_path": "/workspace/example-repo",
       "type": "github_repository",
@@ -5286,6 +6713,10 @@ List Sessions
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+          Fastest model for high-volume, real-time tasks
 
         - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -5654,6 +7085,82 @@ List Sessions
                     - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+                    Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                    - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+                      Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                        - `JsonElement Type = "all"`
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                        This source contributes no URLs that may be fetched.
+
+                        - `JsonElement Type = "none"`
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                        Only the named tools' results contribute URLs that may be fetched.
+
+                        - `JsonElement Type = "only"`
+
+                        - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                          The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                          - `JsonElement Type = "tool_reference"`
+
+                            Must be "tool_reference".
+
+                          - `required string Name`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                        Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                        - `JsonElement Type = "except"`
+
+                        - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                          The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                          - `JsonElement Type = "tool_reference"`
+
+                            Must be "tool_reference".
+
+                          - `required string Name`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                    - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+                      Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                    - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+                      Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                        This source contributes no URLs that may be fetched.
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -6244,7 +7751,7 @@ await foreach (var item in page.Paginate())
             "version": "1"
           },
           {
-            "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+            "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
             "type": "custom",
             "version": "2"
           }
@@ -6291,7 +7798,7 @@ await foreach (var item in page.Paginate())
           "description": "Produce a 2-page summary as summary.md",
           "explanation": "All five sections present with inline citations.",
           "iteration": 0,
-          "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+          "outcome_id": "outc_011CZkZRSw2kEfs6ncTVmjxP",
           "result": "satisfied",
           "type": "outcome_evaluation"
         }
@@ -6306,7 +7813,7 @@ await foreach (var item in page.Paginate())
           "updated_at": "2026-03-15T10:00:00Z"
         },
         {
-          "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+          "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
           "created_at": "2026-03-15T10:00:00Z",
           "mount_path": "/workspace/example-repo",
           "type": "github_repository",
@@ -6516,6 +8023,10 @@ Get Session
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+          Fastest model for high-volume, real-time tasks
 
         - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -6884,6 +8395,82 @@ Get Session
                     - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+                    Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                    - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+                      Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                        - `JsonElement Type = "all"`
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                        This source contributes no URLs that may be fetched.
+
+                        - `JsonElement Type = "none"`
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                        Only the named tools' results contribute URLs that may be fetched.
+
+                        - `JsonElement Type = "only"`
+
+                        - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                          The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                          - `JsonElement Type = "tool_reference"`
+
+                            Must be "tool_reference".
+
+                          - `required string Name`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                        Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                        - `JsonElement Type = "except"`
+
+                        - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                          The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                          - `JsonElement Type = "tool_reference"`
+
+                            Must be "tool_reference".
+
+                          - `required string Name`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                    - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+                      Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                    - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+                      Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                        This source contributes no URLs that may be fetched.
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -7473,7 +9060,7 @@ Console.WriteLine(betaManagedAgentsSession);
         "version": "1"
       },
       {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
         "type": "custom",
         "version": "2"
       }
@@ -7520,7 +9107,7 @@ Console.WriteLine(betaManagedAgentsSession);
       "description": "Produce a 2-page summary as summary.md",
       "explanation": "All five sections present with inline citations.",
       "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVmjxP",
       "result": "satisfied",
       "type": "outcome_evaluation"
     }
@@ -7535,7 +9122,7 @@ Console.WriteLine(betaManagedAgentsSession);
       "updated_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
       "created_at": "2026-03-15T10:00:00Z",
       "mount_path": "/workspace/example-repo",
       "type": "github_repository",
@@ -7763,6 +9350,10 @@ Update Session
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+          Fastest model for high-volume, real-time tasks
 
         - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -8131,6 +9722,82 @@ Update Session
                     - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+                    Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                    - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+                      Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                        - `JsonElement Type = "all"`
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                        This source contributes no URLs that may be fetched.
+
+                        - `JsonElement Type = "none"`
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                        Only the named tools' results contribute URLs that may be fetched.
+
+                        - `JsonElement Type = "only"`
+
+                        - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                          The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                          - `JsonElement Type = "tool_reference"`
+
+                            Must be "tool_reference".
+
+                          - `required string Name`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                        Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                        - `JsonElement Type = "except"`
+
+                        - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                          The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                          - `JsonElement Type = "tool_reference"`
+
+                            Must be "tool_reference".
+
+                          - `required string Name`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                    - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+                      Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                    - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+                      Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                        This source contributes no URLs that may be fetched.
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -8720,7 +10387,7 @@ Console.WriteLine(betaManagedAgentsSession);
         "version": "1"
       },
       {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
         "type": "custom",
         "version": "2"
       }
@@ -8767,7 +10434,7 @@ Console.WriteLine(betaManagedAgentsSession);
       "description": "Produce a 2-page summary as summary.md",
       "explanation": "All five sections present with inline citations.",
       "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVmjxP",
       "result": "satisfied",
       "type": "outcome_evaluation"
     }
@@ -8782,7 +10449,7 @@ Console.WriteLine(betaManagedAgentsSession);
       "updated_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
       "created_at": "2026-03-15T10:00:00Z",
       "mount_path": "/workspace/example-repo",
       "type": "github_repository",
@@ -9144,6 +10811,10 @@ Archive Session
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+          Fastest model for high-volume, real-time tasks
 
         - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -9512,6 +11183,82 @@ Archive Session
                     - `class BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+                    Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                    - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+                      Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                        - `JsonElement Type = "all"`
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                        This source contributes no URLs that may be fetched.
+
+                        - `JsonElement Type = "none"`
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                        Only the named tools' results contribute URLs that may be fetched.
+
+                        - `JsonElement Type = "only"`
+
+                        - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                          The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                          - `JsonElement Type = "tool_reference"`
+
+                            Must be "tool_reference".
+
+                          - `required string Name`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                        Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                        - `JsonElement Type = "except"`
+
+                        - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                          The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                          - `JsonElement Type = "tool_reference"`
+
+                            Must be "tool_reference".
+
+                          - `required string Name`
+
+                            Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                            minLength: 1, maxLength: 128
+
+                    - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+                      Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                    - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+                      Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                        Every URL from this source may be fetched. This is the default.
+
+                      - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                        This source contributes no URLs that may be fetched.
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -10101,7 +11848,7 @@ Console.WriteLine(betaManagedAgentsSession);
         "version": "1"
       },
       {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
         "type": "custom",
         "version": "2"
       }
@@ -10148,7 +11895,7 @@ Console.WriteLine(betaManagedAgentsSession);
       "description": "Produce a 2-page summary as summary.md",
       "explanation": "All five sections present with inline citations.",
       "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVmjxP",
       "result": "satisfied",
       "type": "outcome_evaluation"
     }
@@ -10163,7 +11910,7 @@ Console.WriteLine(betaManagedAgentsSession);
       "updated_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
       "created_at": "2026-03-15T10:00:00Z",
       "mount_path": "/workspace/example-repo",
       "type": "github_repository",
@@ -11680,7 +13427,7 @@ List Events
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent`
 
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+    Emitted when a child thread is created. Written to the parent thread's output stream so clients observing the session see child creation.
 
     - `required Type Type`
 
@@ -12156,6 +13903,10 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+            Fastest model for high-volume, real-time tasks
+
           - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
             Efficient model for coding and agents
@@ -12524,6 +14275,82 @@ List Events
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
+                    - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+                      Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                      - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+                        Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                          - `JsonElement Type = "all"`
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                          This source contributes no URLs that may be fetched.
+
+                          - `JsonElement Type = "none"`
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                          Only the named tools' results contribute URLs that may be fetched.
+
+                          - `JsonElement Type = "only"`
+
+                          - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                            The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                            - `JsonElement Type = "tool_reference"`
+
+                              Must be "tool_reference".
+
+                            - `required string Name`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                          Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                          - `JsonElement Type = "except"`
+
+                          - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                            The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                            - `JsonElement Type = "tool_reference"`
+
+                              Must be "tool_reference".
+
+                            - `required string Name`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                      - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+                        Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                      - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+                        Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                          This source contributes no URLs that may be fetched.
+
                     - `IReadOnlyList<string> AllowedDomains`
 
                     - `IReadOnlyList<string> BlockedDomains`
@@ -12885,7 +14712,7 @@ await foreach (var item in page.Paginate())
 {
   "data": [
     {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
       "content": [
         {
           "text": "Where is my order #1234?",
@@ -12896,7 +14723,7 @@ await foreach (var item in page.Paginate())
       "processed_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
+      "id": "sevt_011CZkZHPq1jCdq5mbRTjiVn",
       "content": [
         {
           "text": "Let me look up order #1234 for you.",
@@ -13877,7 +15704,7 @@ Console.WriteLine(betaManagedAgentsSendSessionEvents);
 {
   "data": [
     {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
       "content": [
         {
           "text": "Where is my order #1234?",
@@ -15257,7 +17084,7 @@ Stream Events
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent`
 
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+    Emitted when a child thread is created. Written to the parent thread's output stream so clients observing the session see child creation.
 
     - `required Type Type`
 
@@ -15733,6 +17560,10 @@ Stream Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+            Fastest model for high-volume, real-time tasks
+
           - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
             Efficient model for coding and agents
@@ -16100,6 +17931,82 @@ Stream Events
                       - `class BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                    - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+                      Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                      - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+                        Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                          - `JsonElement Type = "all"`
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                          This source contributes no URLs that may be fetched.
+
+                          - `JsonElement Type = "none"`
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                          Only the named tools' results contribute URLs that may be fetched.
+
+                          - `JsonElement Type = "only"`
+
+                          - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                            The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                            - `JsonElement Type = "tool_reference"`
+
+                              Must be "tool_reference".
+
+                            - `required string Name`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                          Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                          - `JsonElement Type = "except"`
+
+                          - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                            The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                            - `JsonElement Type = "tool_reference"`
+
+                              Must be "tool_reference".
+
+                            - `required string Name`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                      - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+                        Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                      - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+                        Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                          This source contributes no URLs that may be fetched.
 
                     - `IReadOnlyList<string> AllowedDomains`
 
@@ -16509,7 +18416,7 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
 ```json
 {
-  "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+  "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
   "content": [
     {
       "text": "Where is my order #1234?",
@@ -16984,7 +18891,7 @@ await foreach (var item in page.Paginate())
       "updated_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
       "created_at": "2026-03-15T10:00:00Z",
       "mount_path": "/workspace/example-repo",
       "type": "github_repository",
@@ -17252,7 +19159,7 @@ Console.WriteLine(resource);
 
 ```json
 {
-  "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+  "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
   "created_at": "2026-03-15T10:00:00Z",
   "mount_path": "/workspace/example-repo",
   "type": "github_repository",
@@ -17524,7 +19431,7 @@ Console.WriteLine(resource);
 
 ```json
 {
-  "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+  "id": "sesrsc_011CZkZCKr6eXym1gWMPdQiu",
   "created_at": "2026-03-15T10:00:00Z",
   "mount_path": "/workspace/example-repo",
   "type": "github_repository",
@@ -17836,7 +19743,7 @@ List Session Threads
 
 - `class BetaManagedAgentsSessionThread`
 
-  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
+  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads.
 
   - `required Type Type`
 
@@ -17875,6 +19782,10 @@ List Session Threads
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+            Fastest model for high-volume, real-time tasks
 
           - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -18211,6 +20122,82 @@ List Session Threads
                 - `class BetaManagedAgentsAutoPolicy`
 
                   The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+                Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+                  Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                    - `JsonElement Type = "all"`
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                    This source contributes no URLs that may be fetched.
+
+                    - `JsonElement Type = "none"`
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                    Only the named tools' results contribute URLs that may be fetched.
+
+                    - `JsonElement Type = "only"`
+
+                    - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                      The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                      - `JsonElement Type = "tool_reference"`
+
+                        Must be "tool_reference".
+
+                      - `required string Name`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                    Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                    - `JsonElement Type = "except"`
+
+                    - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                      The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                      - `JsonElement Type = "tool_reference"`
+
+                        Must be "tool_reference".
+
+                      - `required string Name`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+                  Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+                  Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                    This source contributes no URLs that may be fetched.
 
               - `IReadOnlyList<string> AllowedDomains`
 
@@ -18539,7 +20526,7 @@ await foreach (var item in page.Paginate())
 {
   "data": [
     {
-      "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+      "id": "sthr_011CZkZVWa6oJjw1rgXZpnBt",
       "agent": {
         "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
         "description": "A focused research subagent.",
@@ -18757,7 +20744,7 @@ Get Session Thread
 
 - `class BetaManagedAgentsSessionThread`
 
-  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
+  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads.
 
   - `required Type Type`
 
@@ -18796,6 +20783,10 @@ Get Session Thread
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+            Fastest model for high-volume, real-time tasks
 
           - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -19132,6 +21123,82 @@ Get Session Thread
                 - `class BetaManagedAgentsAutoPolicy`
 
                   The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+                Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+                  Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                    - `JsonElement Type = "all"`
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                    This source contributes no URLs that may be fetched.
+
+                    - `JsonElement Type = "none"`
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                    Only the named tools' results contribute URLs that may be fetched.
+
+                    - `JsonElement Type = "only"`
+
+                    - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                      The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                      - `JsonElement Type = "tool_reference"`
+
+                        Must be "tool_reference".
+
+                      - `required string Name`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                    Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                    - `JsonElement Type = "except"`
+
+                    - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                      The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                      - `JsonElement Type = "tool_reference"`
+
+                        Must be "tool_reference".
+
+                      - `required string Name`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+                  Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+                  Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                    This source contributes no URLs that may be fetched.
 
               - `IReadOnlyList<string> AllowedDomains`
 
@@ -19445,7 +21512,7 @@ Get Session Thread
 ThreadRetrieveParams parameters = new()
 {
     SessionID = "sesn_011CZkZAtmR3yMPDzynEDxu7",
-    ThreadID = "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+    ThreadID = "sthr_011CZkZVWa6oJjw1rgXZpnBt",
 };
 
 var betaManagedAgentsSessionThread = await client.Beta.Sessions.Threads.Retrieve(parameters);
@@ -19457,7 +21524,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
 ```json
 {
-  "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "id": "sthr_011CZkZVWa6oJjw1rgXZpnBt",
   "agent": {
     "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
     "description": "A focused research subagent.",
@@ -19672,7 +21739,7 @@ Archive Session Thread
 
 - `class BetaManagedAgentsSessionThread`
 
-  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
+  An execution thread within a `session`. Each session has one primary thread plus zero or more child threads.
 
   - `required Type Type`
 
@@ -19711,6 +21778,10 @@ Archive Session Thread
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+            Fastest model for high-volume, real-time tasks
 
           - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -20048,6 +22119,82 @@ Archive Session Thread
 
                   The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
+              - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+                Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+                  Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                    - `JsonElement Type = "all"`
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                    This source contributes no URLs that may be fetched.
+
+                    - `JsonElement Type = "none"`
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                    Only the named tools' results contribute URLs that may be fetched.
+
+                    - `JsonElement Type = "only"`
+
+                    - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                      The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                      - `JsonElement Type = "tool_reference"`
+
+                        Must be "tool_reference".
+
+                      - `required string Name`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                    Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                    - `JsonElement Type = "except"`
+
+                    - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                      The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                      - `JsonElement Type = "tool_reference"`
+
+                        Must be "tool_reference".
+
+                      - `required string Name`
+
+                        Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                        minLength: 1, maxLength: 128
+
+                - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+                  Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+                  Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                    Every URL from this source may be fetched. This is the default.
+
+                  - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                    This source contributes no URLs that may be fetched.
+
               - `IReadOnlyList<string> AllowedDomains`
 
               - `IReadOnlyList<string> BlockedDomains`
@@ -20360,7 +22507,7 @@ Archive Session Thread
 ThreadArchiveParams parameters = new()
 {
     SessionID = "sesn_011CZkZAtmR3yMPDzynEDxu7",
-    ThreadID = "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+    ThreadID = "sthr_011CZkZVWa6oJjw1rgXZpnBt",
 };
 
 var betaManagedAgentsSessionThread = await client.Beta.Sessions.Threads.Archive(parameters);
@@ -20372,7 +22519,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
 ```json
 {
-  "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "id": "sthr_011CZkZVWa6oJjw1rgXZpnBt",
   "agent": {
     "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
     "description": "A focused research subagent.",
@@ -21825,7 +23972,7 @@ List Session Thread Events
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent`
 
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+    Emitted when a child thread is created. Written to the parent thread's output stream so clients observing the session see child creation.
 
     - `required Type Type`
 
@@ -22301,6 +24448,10 @@ List Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+            Fastest model for high-volume, real-time tasks
+
           - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
             Efficient model for coding and agents
@@ -22669,6 +24820,82 @@ List Session Thread Events
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
+                    - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+                      Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                      - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+                        Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                          - `JsonElement Type = "all"`
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                          This source contributes no URLs that may be fetched.
+
+                          - `JsonElement Type = "none"`
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                          Only the named tools' results contribute URLs that may be fetched.
+
+                          - `JsonElement Type = "only"`
+
+                          - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                            The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                            - `JsonElement Type = "tool_reference"`
+
+                              Must be "tool_reference".
+
+                            - `required string Name`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                          Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                          - `JsonElement Type = "except"`
+
+                          - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                            The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                            - `JsonElement Type = "tool_reference"`
+
+                              Must be "tool_reference".
+
+                            - `required string Name`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                      - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+                        Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                      - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+                        Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                          This source contributes no URLs that may be fetched.
+
                     - `IReadOnlyList<string> AllowedDomains`
 
                     - `IReadOnlyList<string> BlockedDomains`
@@ -23015,7 +25242,7 @@ List Session Thread Events
 EventListParams parameters = new()
 {
     SessionID = "sesn_011CZkZAtmR3yMPDzynEDxu7",
-    ThreadID = "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+    ThreadID = "sthr_011CZkZVWa6oJjw1rgXZpnBt",
 };
 
 var page = await client.Beta.Sessions.Threads.Events.List(parameters);
@@ -23031,7 +25258,7 @@ await foreach (var item in page.Paginate())
 {
   "data": [
     {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
       "content": [
         {
           "text": "Where is my order #1234?",
@@ -23042,7 +25269,7 @@ await foreach (var item in page.Paginate())
       "processed_at": "2026-03-15T10:00:00Z"
     },
     {
-      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
+      "id": "sevt_011CZkZHPq1jCdq5mbRTjiVn",
       "content": [
         {
           "text": "Let me look up order #1234 for you.",
@@ -24425,7 +26652,7 @@ Stream Session Thread Events
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent`
 
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+    Emitted when a child thread is created. Written to the parent thread's output stream so clients observing the session see child creation.
 
     - `required Type Type`
 
@@ -24901,6 +27128,10 @@ Stream Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+            Fastest model for high-volume, real-time tasks
+
           - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
             Efficient model for coding and agents
@@ -25268,6 +27499,82 @@ Stream Session Thread Events
                       - `class BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                    - `required BetaManagedAgentsWebFetchUrlSources? UrlSources`
+
+                      Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                      - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ClientToolResults`
+
+                        Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                          - `JsonElement Type = "all"`
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                          This source contributes no URLs that may be fetched.
+
+                          - `JsonElement Type = "none"`
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceOnly`
+
+                          Only the named tools' results contribute URLs that may be fetched.
+
+                          - `JsonElement Type = "only"`
+
+                          - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                            The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                            - `JsonElement Type = "tool_reference"`
+
+                              Must be "tool_reference".
+
+                            - `required string Name`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceExcept`
+
+                          Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                          - `JsonElement Type = "except"`
+
+                          - `required IReadOnlyList<BetaManagedAgentsWebFetchUrlSourceToolReference> Tools`
+
+                            The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                            - `JsonElement Type = "tool_reference"`
+
+                              Must be "tool_reference".
+
+                            - `required string Name`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                      - `required BetaManagedAgentsWebFetchUrlSourceToolFilter? ServerToolResults`
+
+                        Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                      - `required BetaManagedAgentsWebFetchUrlSourceUserInput? UserInput`
+
+                        Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                        - `class BetaManagedAgentsWebFetchUrlSourceNone`
+
+                          This source contributes no URLs that may be fetched.
 
                     - `IReadOnlyList<string> AllowedDomains`
 
@@ -25665,7 +27972,7 @@ Stream Session Thread Events
 EventStreamParams parameters = new()
 {
     SessionID = "sesn_011CZkZAtmR3yMPDzynEDxu7",
-    ThreadID = "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+    ThreadID = "sthr_011CZkZVWa6oJjw1rgXZpnBt",
 };
 
 await foreach (var betaManagedAgentsStreamSessionThreadEvents in client.Beta.Sessions.Threads.Events.StreamStreaming(parameters))
@@ -25678,7 +27985,7 @@ await foreach (var betaManagedAgentsStreamSessionThreadEvents in client.Beta.Ses
 
 ```json
 {
-  "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+  "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
   "content": [
     {
       "text": "Where is my order #1234?",
@@ -32168,2872 +34475,3 @@ List Deployment Runs
       - `required Type Type`
 
       - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsAgentArchivedRunError`
-
-      The deployment's agent was archived.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsEnvironmentNotFoundRunError`
-
-      The deployment's environment no longer exists.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsVaultNotFoundRunError`
-
-      A vault referenced by the deployment no longer exists.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsVaultArchivedRunError`
-
-      A vault referenced by the deployment is archived.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsFileNotFoundRunError`
-
-      A file resource referenced by the deployment no longer exists.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsMemoryStoreArchivedRunError`
-
-      A memory store referenced by the deployment is archived.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsSkillNotFoundRunError`
-
-      A skill referenced by the deployment's agent no longer exists.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsSessionResourceNotFoundRunError`
-
-      A referenced resource no longer exists and its kind was not reported.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsWorkspaceArchivedRunError`
-
-      The deployment's workspace was archived.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsOrganizationDisabledRunError`
-
-      The deployment's organization is disabled.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsSessionRateLimitedRunError`
-
-      Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsSessionCreationRejectedRunError`
-
-      The session create request was rejected with a non-retryable validation error.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsUnknownRunError`
-
-      An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsSelfHostedResourcesUnsupportedRunError`
-
-      The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsMcpEgressBlockedRunError`
-
-      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-  - `required string? SessionID`
-
-    Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
-
-  - `required BetaManagedAgentsTriggerContext TriggerContext`
-
-    What triggered this run and trigger-specific metadata.
-
-    - `class BetaManagedAgentsScheduleTriggerContext`
-
-      The run was fired by the deployment's cron schedule.
-
-      - `required Type Type`
-
-      - `required DateTimeOffset ScheduledAt`
-
-        The UTC instant at which the cron expression matched in the configured timezone, before jitter is applied. At most one run is recorded per (`deployment_id`, `scheduled_at`) pair.
-
-        format: date-time
-
-    - `class BetaManagedAgentsManualTriggerContext`
-
-      The run was started manually by creating a session directly against the deployment.
-
-      - `required Type Type`
-
-#### Example
-
-```csharp
-DeploymentRunListParams parameters = new();
-
-var page = await client.Beta.DeploymentRuns.List(parameters);
-await foreach (var item in page.Paginate())
-{
-    Console.WriteLine(item);
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "agent": {
-        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-        "type": "agent",
-        "version": 1
-      },
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "deployment_id": "deployment_id",
-      "error": {
-        "message": "message",
-        "type": "environment_archived_error"
-      },
-      "session_id": "session_id",
-      "trigger_context": {
-        "scheduled_at": "2019-12-27T18:11:19.117Z",
-        "type": "schedule"
-      },
-      "type": "deployment_run"
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-### Get Deployment Run
-
-`BetaManagedAgentsDeploymentRun Beta.DeploymentRuns.Retrieve(parameters, cancellationToken = default)`
-
-**GET** `/v1/deployment_runs/{deployment_run_id}`
-
-Get Deployment Run
-
-#### Parameters
-
-- `DeploymentRunRetrieveParams parameters`
-
-  - `required string deploymentRunID` (path parameter)
-
-    Unique identifier of the deployment run.
-
-  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
-
-    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
-
-  - `string workspaceID` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsDeploymentRun`
-
-  A persistent, append-only record of a single deployment execution. Records session creation success or failure — no session lifecycle tracking.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier for this run (`drun_...`).
-
-  - `required BetaManagedAgentsAgentReference Agent`
-
-    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
-
-    - `required Type Type`
-
-    - `required string ID`
-
-    - `required int Version`
-
-      format: int32
-
-  - `required DateTimeOffset CreatedAt`
-
-    Time this run record was persisted.
-
-    format: date-time
-
-  - `required string DeploymentID`
-
-    ID of the deployment that produced this run.
-
-  - `required Error? Error`
-
-    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
-
-    - `class BetaManagedAgentsEnvironmentArchivedRunError`
-
-      The deployment's environment was archived.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsAgentArchivedRunError`
-
-      The deployment's agent was archived.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsEnvironmentNotFoundRunError`
-
-      The deployment's environment no longer exists.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsVaultNotFoundRunError`
-
-      A vault referenced by the deployment no longer exists.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsVaultArchivedRunError`
-
-      A vault referenced by the deployment is archived.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsFileNotFoundRunError`
-
-      A file resource referenced by the deployment no longer exists.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsMemoryStoreArchivedRunError`
-
-      A memory store referenced by the deployment is archived.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsSkillNotFoundRunError`
-
-      A skill referenced by the deployment's agent no longer exists.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsSessionResourceNotFoundRunError`
-
-      A referenced resource no longer exists and its kind was not reported.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsWorkspaceArchivedRunError`
-
-      The deployment's workspace was archived.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsOrganizationDisabledRunError`
-
-      The deployment's organization is disabled.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsSessionRateLimitedRunError`
-
-      Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsSessionCreationRejectedRunError`
-
-      The session create request was rejected with a non-retryable validation error.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsUnknownRunError`
-
-      An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsSelfHostedResourcesUnsupportedRunError`
-
-      The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-    - `class BetaManagedAgentsMcpEgressBlockedRunError`
-
-      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-      - `required Type Type`
-
-      - `required string Message`
-
-        Human-readable error description.
-
-  - `required string? SessionID`
-
-    Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
-
-  - `required BetaManagedAgentsTriggerContext TriggerContext`
-
-    What triggered this run and trigger-specific metadata.
-
-    - `class BetaManagedAgentsScheduleTriggerContext`
-
-      The run was fired by the deployment's cron schedule.
-
-      - `required Type Type`
-
-      - `required DateTimeOffset ScheduledAt`
-
-        The UTC instant at which the cron expression matched in the configured timezone, before jitter is applied. At most one run is recorded per (`deployment_id`, `scheduled_at`) pair.
-
-        format: date-time
-
-    - `class BetaManagedAgentsManualTriggerContext`
-
-      The run was started manually by creating a session directly against the deployment.
-
-      - `required Type Type`
-
-#### Example
-
-```csharp
-DeploymentRunRetrieveParams parameters = new()
-{
-    DeploymentRunID = "deployment_run_id"
-};
-
-var betaManagedAgentsDeploymentRun = await client.Beta.DeploymentRuns.Retrieve(parameters);
-
-Console.WriteLine(betaManagedAgentsDeploymentRun);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-    "type": "agent",
-    "version": 1
-  },
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "deployment_id": "deployment_id",
-  "error": {
-    "message": "message",
-    "type": "environment_archived_error"
-  },
-  "session_id": "session_id",
-  "trigger_context": {
-    "scheduled_at": "2019-12-27T18:11:19.117Z",
-    "type": "schedule"
-  },
-  "type": "deployment_run"
-}
-```
-
-## Beta › Vaults
-
-### Create Vault
-
-`BetaManagedAgentsVault Beta.Vaults.Create(parameters, cancellationToken = default)`
-
-**POST** `/v1/vaults`
-
-Create Vault
-
-#### Parameters
-
-- `VaultCreateParams parameters`
-
-  - `required string displayName`
-
-    Human-readable name for the vault. 1-255 characters.
-
-    minLength: 1, maxLength: 255
-
-  - `IReadOnlyDictionary<string, string> metadata`
-
-    Arbitrary key-value metadata to attach to the vault. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
-
-  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
-
-    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
-
-  - `string workspaceID` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsVault`
-
-  A vault that stores credentials for use by agents during sessions.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier for the vault.
-
-  - `required DateTimeOffset? ArchivedAt`
-
-    When the vault was archived. Null if not archived.
-
-    format: date-time
-
-  - `required DateTimeOffset CreatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required string DisplayName`
-
-    Human-readable name for the vault.
-
-  - `required IReadOnlyDictionary<string, string> Metadata`
-
-    Arbitrary key-value metadata attached to the vault.
-
-  - `required DateTimeOffset UpdatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-#### Example
-
-```csharp
-VaultCreateParams parameters = new() { DisplayName = "Example vault" };
-
-var betaManagedAgentsVault = await client.Beta.Vaults.Create(parameters);
-
-Console.WriteLine(betaManagedAgentsVault);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "display_name": "Example vault",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault",
-  "updated_at": "2026-03-15T10:00:00Z"
-}
-```
-
-### List Vaults
-
-`VaultListPage Beta.Vaults.List(parameters, cancellationToken = default)`
-
-**GET** `/v1/vaults`
-
-List Vaults
-
-#### Parameters
-
-- `VaultListParams parameters`
-
-  - `bool includeArchived` (query parameter)
-
-    Whether to include archived vaults in the results.
-
-  - `int limit` (query parameter)
-
-    Maximum number of vaults to return per page. Defaults to 20, maximum 100.
-
-    format: int32
-
-  - `string page` (query parameter)
-
-    Opaque pagination token from a previous `list_vaults` response.
-
-  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
-
-    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
-
-  - `string workspaceID` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsVault`
-
-  A vault that stores credentials for use by agents during sessions.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier for the vault.
-
-  - `required DateTimeOffset? ArchivedAt`
-
-    When the vault was archived. Null if not archived.
-
-    format: date-time
-
-  - `required DateTimeOffset CreatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required string DisplayName`
-
-    Human-readable name for the vault.
-
-  - `required IReadOnlyDictionary<string, string> Metadata`
-
-    Arbitrary key-value metadata attached to the vault.
-
-  - `required DateTimeOffset UpdatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-#### Example
-
-```csharp
-VaultListParams parameters = new();
-
-var page = await client.Beta.Vaults.List(parameters);
-await foreach (var item in page.Paginate())
-{
-    Console.WriteLine(item);
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-      "archived_at": null,
-      "created_at": "2026-03-15T10:00:00Z",
-      "display_name": "Example vault",
-      "metadata": {
-        "environment": "production"
-      },
-      "type": "vault",
-      "updated_at": "2026-03-15T10:00:00Z"
-    }
-  ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-### Get Vault
-
-`BetaManagedAgentsVault Beta.Vaults.Retrieve(parameters, cancellationToken = default)`
-
-**GET** `/v1/vaults/{vault_id}`
-
-Get Vault
-
-#### Parameters
-
-- `VaultRetrieveParams parameters`
-
-  - `required string vaultID` (path parameter)
-
-    Unique identifier of the vault to retrieve.
-
-  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
-
-    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
-
-  - `string workspaceID` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsVault`
-
-  A vault that stores credentials for use by agents during sessions.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier for the vault.
-
-  - `required DateTimeOffset? ArchivedAt`
-
-    When the vault was archived. Null if not archived.
-
-    format: date-time
-
-  - `required DateTimeOffset CreatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required string DisplayName`
-
-    Human-readable name for the vault.
-
-  - `required IReadOnlyDictionary<string, string> Metadata`
-
-    Arbitrary key-value metadata attached to the vault.
-
-  - `required DateTimeOffset UpdatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-#### Example
-
-```csharp
-VaultRetrieveParams parameters = new()
-{
-    VaultID = "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-};
-
-var betaManagedAgentsVault = await client.Beta.Vaults.Retrieve(parameters);
-
-Console.WriteLine(betaManagedAgentsVault);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "display_name": "Example vault",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault",
-  "updated_at": "2026-03-15T10:00:00Z"
-}
-```
-
-### Update Vault
-
-`BetaManagedAgentsVault Beta.Vaults.Update(parameters, cancellationToken = default)`
-
-**POST** `/v1/vaults/{vault_id}`
-
-Update Vault
-
-#### Parameters
-
-- `VaultUpdateParams parameters`
-
-  - `required string vaultID` (path parameter)
-
-    Unique identifier of the vault to update.
-
-  - `string? displayName`
-
-    Updated human-readable name for the vault. 1-255 characters.
-
-    minLength: 1, maxLength: 255
-
-  - `IReadOnlyDictionary<string, string>? metadata`
-
-    Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
-
-  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
-
-    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
-
-  - `string workspaceID` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsVault`
-
-  A vault that stores credentials for use by agents during sessions.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier for the vault.
-
-  - `required DateTimeOffset? ArchivedAt`
-
-    When the vault was archived. Null if not archived.
-
-    format: date-time
-
-  - `required DateTimeOffset CreatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required string DisplayName`
-
-    Human-readable name for the vault.
-
-  - `required IReadOnlyDictionary<string, string> Metadata`
-
-    Arbitrary key-value metadata attached to the vault.
-
-  - `required DateTimeOffset UpdatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-#### Example
-
-```csharp
-VaultUpdateParams parameters = new()
-{
-    VaultID = "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-};
-
-var betaManagedAgentsVault = await client.Beta.Vaults.Update(parameters);
-
-Console.WriteLine(betaManagedAgentsVault);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "display_name": "Example vault",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault",
-  "updated_at": "2026-03-15T10:00:00Z"
-}
-```
-
-### Delete Vault
-
-`BetaManagedAgentsDeletedVault Beta.Vaults.Delete(parameters, cancellationToken = default)`
-
-**DELETE** `/v1/vaults/{vault_id}`
-
-Delete Vault
-
-#### Parameters
-
-- `VaultDeleteParams parameters`
-
-  - `required string vaultID` (path parameter)
-
-    Unique identifier of the vault to delete.
-
-  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
-
-    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
-
-  - `string workspaceID` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsDeletedVault`
-
-  Confirmation of a deleted vault.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier of the deleted vault.
-
-#### Example
-
-```csharp
-VaultDeleteParams parameters = new()
-{
-    VaultID = "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-};
-
-var betaManagedAgentsDeletedVault = await client.Beta.Vaults.Delete(parameters);
-
-Console.WriteLine(betaManagedAgentsDeletedVault);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "type": "vault_deleted"
-}
-```
-
-### Archive Vault
-
-`BetaManagedAgentsVault Beta.Vaults.Archive(parameters, cancellationToken = default)`
-
-**POST** `/v1/vaults/{vault_id}/archive`
-
-Archive Vault
-
-#### Parameters
-
-- `VaultArchiveParams parameters`
-
-  - `required string vaultID` (path parameter)
-
-    Unique identifier of the vault to archive.
-
-  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
-
-    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
-
-  - `string workspaceID` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsVault`
-
-  A vault that stores credentials for use by agents during sessions.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier for the vault.
-
-  - `required DateTimeOffset? ArchivedAt`
-
-    When the vault was archived. Null if not archived.
-
-    format: date-time
-
-  - `required DateTimeOffset CreatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required string DisplayName`
-
-    Human-readable name for the vault.
-
-  - `required IReadOnlyDictionary<string, string> Metadata`
-
-    Arbitrary key-value metadata attached to the vault.
-
-  - `required DateTimeOffset UpdatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-#### Example
-
-```csharp
-VaultArchiveParams parameters = new()
-{
-    VaultID = "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-};
-
-var betaManagedAgentsVault = await client.Beta.Vaults.Archive(parameters);
-
-Console.WriteLine(betaManagedAgentsVault);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "display_name": "Example vault",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault",
-  "updated_at": "2026-03-15T10:00:00Z"
-}
-```
-
-## Beta › Vaults › Credentials
-
-### Create Credential
-
-`BetaManagedAgentsCredential Beta.Vaults.Credentials.Create(parameters, cancellationToken = default)`
-
-**POST** `/v1/vaults/{vault_id}/credentials`
-
-Create Credential
-
-#### Parameters
-
-- `CredentialCreateParams parameters`
-
-  - `required string vaultID` (path parameter)
-
-    Identifier of the vault to create the credential in.
-
-  - `required Auth auth`
-
-    Authentication configuration for the credential.
-
-    - `class BetaManagedAgentsMcpOAuthCreateParams`
-
-      Parameters for creating an MCP OAuth credential.
-
-      - `required Type Type`
-
-      - `required string AccessToken`
-
-        OAuth access token.
-
-        minLength: 1, maxLength: 8192
-
-      - `required string McpServerUrl`
-
-        URL of the MCP server this credential authenticates against.
-
-        minLength: 1, maxLength: 2047
-
-      - `DateTimeOffset? ExpiresAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `BetaManagedAgentsMcpOAuthRefreshParams? Refresh`
-
-        Refresh token configuration, if the credential supports token refresh.
-
-        - `required string ClientID`
-
-          OAuth client ID.
-
-          minLength: 1, maxLength: 1024
-
-        - `required string RefreshToken`
-
-          OAuth refresh token.
-
-          minLength: 1, maxLength: 8192
-
-        - `required string TokenEndpoint`
-
-          Token endpoint URL used to refresh the access token.
-
-          minLength: 1, maxLength: 2047
-
-        - `required TokenEndpointAuth TokenEndpointAuth`
-
-          - `class BetaManagedAgentsTokenEndpointAuthNoneParam`
-
-            Token endpoint requires no client authentication.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsTokenEndpointAuthBasicParam`
-
-            Token endpoint uses HTTP Basic authentication with client credentials.
-
-            - `required Type Type`
-
-            - `required string ClientSecret`
-
-              OAuth client secret.
-
-              minLength: 1, maxLength: 512
-
-          - `class BetaManagedAgentsTokenEndpointAuthPostParam`
-
-            Token endpoint uses POST body authentication with client credentials.
-
-            - `required Type Type`
-
-            - `required string ClientSecret`
-
-              OAuth client secret.
-
-              minLength: 1, maxLength: 512
-
-        - `string? Resource`
-
-          OAuth resource indicator.
-
-          minLength: 1, maxLength: 2047
-
-        - `string? Scope`
-
-          OAuth scope for the refresh request.
-
-          minLength: 1, maxLength: 8192
-
-    - `class BetaManagedAgentsStaticBearerCreateParams`
-
-      Parameters for creating a static bearer token credential.
-
-      - `required Type Type`
-
-      - `required string Token`
-
-        Static bearer token value.
-
-        minLength: 1, maxLength: 8192
-
-      - `required string McpServerUrl`
-
-        URL of the MCP server this credential authenticates against.
-
-        minLength: 1, maxLength: 2047
-
-    - `class BetaManagedAgentsEnvironmentVariableCreateParams`
-
-      Parameters for creating an environment variable credential.
-
-      - `required Type Type`
-
-      - `required BetaManagedAgentsCredentialNetworkingParams Networking`
-
-        Outbound hosts the secret value is substituted on.
-
-        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
-
-          Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
-
-          - `required Type Type`
-
-        - `class BetaManagedAgentsLimitedCredentialNetworkingParams`
-
-          Substitute the secret only on requests to the listed hosts.
-
-          - `required Type Type`
-
-          - `required IReadOnlyList<string> AllowedHosts`
-
-            Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
-
-      - `required string SecretName`
-
-        Name of the environment variable. Immutable after create.
-
-        minLength: 1, maxLength: 255
-
-      - `required string SecretValue`
-
-        Secret value. Write-only; never returned in responses.
-
-        minLength: 1, maxLength: 4096
-
-      - `BetaManagedAgentsInjectionLocationParams InjectionLocation`
-
-        Where in the outbound request the secret value may be substituted.
-
-        - `bool Body`
-
-          Substitute when the placeholder appears in the request body.
-
-        - `bool Header`
-
-          Substitute when the placeholder appears in a request header value.
-
-  - `string? displayName`
-
-    Human-readable name for the credential. Up to 255 characters.
-
-    maxLength: 255
-
-  - `IReadOnlyDictionary<string, string> metadata`
-
-    Arbitrary key-value metadata to attach to the credential. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
-
-  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
-
-    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
-
-  - `string workspaceID` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsCredential`
-
-  A credential stored in a vault. Sensitive fields are never returned in responses.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier for the credential.
-
-  - `required DateTimeOffset? ArchivedAt`
-
-    When the credential was archived. Null if not archived.
-
-    format: date-time
-
-  - `required Auth Auth`
-
-    Authentication configuration for this credential.
-
-    - `class BetaManagedAgentsMcpOAuthAuthResponse`
-
-      OAuth credential details for an MCP server.
-
-      - `required Type Type`
-
-      - `required string McpServerUrl`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `DateTimeOffset? ExpiresAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `BetaManagedAgentsMcpOAuthRefreshResponse? Refresh`
-
-        Refresh token configuration, if the credential supports token refresh.
-
-        - `required string ClientID`
-
-          OAuth client ID.
-
-        - `required string TokenEndpoint`
-
-          Token endpoint URL used to refresh the access token.
-
-        - `required TokenEndpointAuth TokenEndpointAuth`
-
-          - `class BetaManagedAgentsTokenEndpointAuthNoneResponse`
-
-            Token endpoint requires no client authentication.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsTokenEndpointAuthBasicResponse`
-
-            Token endpoint uses HTTP Basic authentication with client credentials.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-            Token endpoint uses POST body authentication with client credentials.
-
-            - `required Type Type`
-
-        - `string? Resource`
-
-          OAuth resource indicator.
-
-        - `string? Scope`
-
-          OAuth scope for the refresh request.
-
-    - `class BetaManagedAgentsStaticBearerAuthResponse`
-
-      Static bearer token credential details for an MCP server.
-
-      - `required Type Type`
-
-      - `required string McpServerUrl`
-
-        URL of the MCP server this credential authenticates against.
-
-    - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
-
-      Environment variable credential details. The secret value is never returned.
-
-      - `required Type Type`
-
-      - `required BetaManagedAgentsInjectionLocationResponse InjectionLocation`
-
-        Where in the outbound request the secret value is substituted.
-
-        - `required bool Body`
-
-          Whether the placeholder is substituted in the request body.
-
-        - `required bool Header`
-
-          Whether the placeholder is substituted in request header values.
-
-      - `required Networking Networking`
-
-        Outbound hosts the secret value is substituted on.
-
-        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
-
-          The secret is substituted on any host the session's Environment network policy permits egress to.
-
-          - `required Type Type`
-
-        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-          The secret is substituted only on requests to the listed hosts.
-
-          - `required Type Type`
-
-          - `required IReadOnlyList<string> AllowedHosts`
-
-            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-      - `required string SecretName`
-
-        Name of the environment variable.
-
-  - `required DateTimeOffset CreatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required IReadOnlyDictionary<string, string> Metadata`
-
-    Arbitrary key-value metadata attached to the credential.
-
-  - `required DateTimeOffset UpdatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required string VaultID`
-
-    Identifier of the vault this credential belongs to.
-
-  - `string? DisplayName`
-
-    Human-readable name for the credential.
-
-#### Example
-
-```csharp
-CredentialCreateParams parameters = new()
-{
-    VaultID = "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-    Auth = new BetaManagedAgentsStaticBearerCreateParams()
-    {
-        Token = "bearer_exampletoken",
-        McpServerUrl = "https://example-server.modelcontextprotocol.io/sse",
-        Type = Type.StaticBearer,
-    },
-};
-
-var betaManagedAgentsCredential = await client.Beta.Vaults.Credentials.Create(parameters);
-
-Console.WriteLine(betaManagedAgentsCredential);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "archived_at": null,
-  "auth": {
-    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
-    "type": "static_bearer"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault_credential",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "display_name": "Example credential"
-}
-```
-
-### List Credentials
-
-`CredentialListPage Beta.Vaults.Credentials.List(parameters, cancellationToken = default)`
-
-**GET** `/v1/vaults/{vault_id}/credentials`
-
-List Credentials
-
-#### Parameters
-
-- `CredentialListParams parameters`
-
-  - `required string vaultID` (path parameter)
-
-    Identifier of the vault to list credentials for.
-
-  - `bool includeArchived` (query parameter)
-
-    Whether to include archived credentials in the results.
-
-  - `int limit` (query parameter)
-
-    Maximum number of credentials to return per page. Defaults to 20, maximum 100.
-
-    format: int32
-
-  - `string page` (query parameter)
-
-    Opaque pagination token from a previous `list_credentials` response.
-
-  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
-
-    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
-
-  - `string workspaceID` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsCredential`
-
-  A credential stored in a vault. Sensitive fields are never returned in responses.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier for the credential.
-
-  - `required DateTimeOffset? ArchivedAt`
-
-    When the credential was archived. Null if not archived.
-
-    format: date-time
-
-  - `required Auth Auth`
-
-    Authentication configuration for this credential.
-
-    - `class BetaManagedAgentsMcpOAuthAuthResponse`
-
-      OAuth credential details for an MCP server.
-
-      - `required Type Type`
-
-      - `required string McpServerUrl`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `DateTimeOffset? ExpiresAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `BetaManagedAgentsMcpOAuthRefreshResponse? Refresh`
-
-        Refresh token configuration, if the credential supports token refresh.
-
-        - `required string ClientID`
-
-          OAuth client ID.
-
-        - `required string TokenEndpoint`
-
-          Token endpoint URL used to refresh the access token.
-
-        - `required TokenEndpointAuth TokenEndpointAuth`
-
-          - `class BetaManagedAgentsTokenEndpointAuthNoneResponse`
-
-            Token endpoint requires no client authentication.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsTokenEndpointAuthBasicResponse`
-
-            Token endpoint uses HTTP Basic authentication with client credentials.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-            Token endpoint uses POST body authentication with client credentials.
-
-            - `required Type Type`
-
-        - `string? Resource`
-
-          OAuth resource indicator.
-
-        - `string? Scope`
-
-          OAuth scope for the refresh request.
-
-    - `class BetaManagedAgentsStaticBearerAuthResponse`
-
-      Static bearer token credential details for an MCP server.
-
-      - `required Type Type`
-
-      - `required string McpServerUrl`
-
-        URL of the MCP server this credential authenticates against.
-
-    - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
-
-      Environment variable credential details. The secret value is never returned.
-
-      - `required Type Type`
-
-      - `required BetaManagedAgentsInjectionLocationResponse InjectionLocation`
-
-        Where in the outbound request the secret value is substituted.
-
-        - `required bool Body`
-
-          Whether the placeholder is substituted in the request body.
-
-        - `required bool Header`
-
-          Whether the placeholder is substituted in request header values.
-
-      - `required Networking Networking`
-
-        Outbound hosts the secret value is substituted on.
-
-        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
-
-          The secret is substituted on any host the session's Environment network policy permits egress to.
-
-          - `required Type Type`
-
-        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-          The secret is substituted only on requests to the listed hosts.
-
-          - `required Type Type`
-
-          - `required IReadOnlyList<string> AllowedHosts`
-
-            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-      - `required string SecretName`
-
-        Name of the environment variable.
-
-  - `required DateTimeOffset CreatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required IReadOnlyDictionary<string, string> Metadata`
-
-    Arbitrary key-value metadata attached to the credential.
-
-  - `required DateTimeOffset UpdatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required string VaultID`
-
-    Identifier of the vault this credential belongs to.
-
-  - `string? DisplayName`
-
-    Human-readable name for the credential.
-
-#### Example
-
-```csharp
-CredentialListParams parameters = new()
-{
-    VaultID = "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-};
-
-var page = await client.Beta.Vaults.Credentials.List(parameters);
-await foreach (var item in page.Paginate())
-{
-    Console.WriteLine(item);
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-      "archived_at": null,
-      "auth": {
-        "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
-        "type": "static_bearer"
-      },
-      "created_at": "2026-03-15T10:00:00Z",
-      "metadata": {
-        "environment": "production"
-      },
-      "type": "vault_credential",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-      "display_name": "Example credential"
-    }
-  ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-### Get Credential
-
-`BetaManagedAgentsCredential Beta.Vaults.Credentials.Retrieve(parameters, cancellationToken = default)`
-
-**GET** `/v1/vaults/{vault_id}/credentials/{credential_id}`
-
-Get Credential
-
-#### Parameters
-
-- `CredentialRetrieveParams parameters`
-
-  - `required string vaultID` (path parameter)
-
-    Identifier of the vault containing the credential.
-
-  - `required string credentialID` (path parameter)
-
-    Unique identifier of the credential to retrieve.
-
-  - `IReadOnlyList<AnthropicBeta> betas` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-    - `CEPlugins2026_09_01("ce-plugins-2026-09-01")`
-
-    - `SpendLimitReads2026_09_26("spend-limit-reads-2026-09-26")`
-
-  - `string workspaceID` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsCredential`
-
-  A credential stored in a vault. Sensitive fields are never returned in responses.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier for the credential.
-
-  - `required DateTimeOffset? ArchivedAt`
-
-    When the credential was archived. Null if not archived.
-
-    format: date-time
-
-  - `required Auth Auth`
-
-    Authentication configuration for this credential.
-
-    - `class BetaManagedAgentsMcpOAuthAuthResponse`
-
-      OAuth credential details for an MCP server.
-
-      - `required Type Type`
-
-      - `required string McpServerUrl`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `DateTimeOffset? ExpiresAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `BetaManagedAgentsMcpOAuthRefreshResponse? Refresh`
-
-        Refresh token configuration, if the credential supports token refresh.
-
-        - `required string ClientID`
-
-          OAuth client ID.
-
-        - `required string TokenEndpoint`
-
-          Token endpoint URL used to refresh the access token.
-
-        - `required TokenEndpointAuth TokenEndpointAuth`
-
-          - `class BetaManagedAgentsTokenEndpointAuthNoneResponse`
-
-            Token endpoint requires no client authentication.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsTokenEndpointAuthBasicResponse`
-
-            Token endpoint uses HTTP Basic authentication with client credentials.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-            Token endpoint uses POST body authentication with client credentials.
-
-            - `required Type Type`
-
-        - `string? Resource`
-
-          OAuth resource indicator.
-
-        - `string? Scope`
-
-          OAuth scope for the refresh request.
-
-    - `class BetaManagedAgentsStaticBearerAuthResponse`
-
-      Static bearer token credential details for an MCP server.
-
-      - `required Type Type`
-
-      - `required string McpServerUrl`
-
-        URL of the MCP server this credential authenticates against.
-
-    - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
-
-      Environment variable credential details. The secret value is never returned.
-
-      - `required Type Type`
-
-      - `required BetaManagedAgentsInjectionLocationResponse InjectionLocation`
-
-        Where in the outbound request the secret value is substituted.
-
-        - `required bool Body`
-
-          Whether the placeholder is substituted in the request body.
-
-        - `required bool Header`
-
-          Whether the placeholder is substituted in request header values.
-
-      - `required Networking Networking`
-
-        Outbound hosts the secret value is substituted on.
-
-        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
-
-          The secret is substituted on any host the session's Environment network policy permits egress to.
-
-          - `required Type Type`
-
-        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-          The secret is substituted only on requests to the listed hosts.
-
-          - `required Type Type`
-
-          - `required IReadOnlyList<string> AllowedHosts`
-
-            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-      - `required string SecretName`
-
-        Name of the environment variable.
-
-  - `required DateTimeOffset CreatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required IReadOnlyDictionary<string, string> Metadata`
-
-    Arbitrary key-value metadata attached to the credential.
-
-  - `required DateTimeOffset UpdatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required string VaultID`

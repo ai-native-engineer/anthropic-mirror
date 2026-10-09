@@ -454,15 +454,15 @@ The Models API response can be used to determine which models are available for 
 
 - `params BetaModelListParams`
 
-  - `AfterID param.Field[string] Optional` (query parameter)
+  - `AfterID param.Opt[string] Optional` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `BeforeID param.Field[string] Optional` (query parameter)
+  - `BeforeID param.Opt[string] Optional` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -470,7 +470,7 @@ The Models API response can be used to determine which models are available for 
 
     minimum: 1, maximum: 1000
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -574,7 +574,7 @@ The Models API response can be used to determine which models are available for 
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -618,7 +618,7 @@ The Models API response can be used to determine which models are available for 
 
     - `CodeExecution BetaCapabilitySupport`
 
-      Whether the model supports code execution tools.
+      Whether code that the model runs in the code execution tool can call the request's other tools, as in programmatic tool calling and dynamic filtering for web search and web fetch. Support for the code execution tool itself is in `server_tools.code_execution`.
 
     - `Compaction BetaCompactionCapability`
 
@@ -688,6 +688,22 @@ The Models API response can be used to determine which models are available for 
 
       Whether the model accepts PDF content blocks.
 
+    - `ServerTools BetaServerToolsCapability`
+
+      Whether this model supports the web search and code execution server tools. `supported` is true when the model supports at least one of the tools. A supported tool can still be rejected for your organization, for example when an admin has turned web search off.
+
+      - `CodeExecution BetaCapabilitySupport`
+
+        Whether the model supports the code execution tool: true when the model supports at least one version of the tool, not necessarily every version.
+
+      - `Supported bool`
+
+        Whether this capability is supported by the model.
+
+      - `WebSearch BetaCapabilitySupport`
+
+        Whether the model supports the web search tool: true when the model supports at least one version of the tool, not necessarily every version.
+
     - `StructuredOutputs BetaCapabilitySupport`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
@@ -706,11 +722,15 @@ The Models API response can be used to determine which models are available for 
 
         - `Adaptive BetaCapabilitySupport`
 
-          Whether the model supports thinking with type 'adaptive' (auto).
+          Whether the model accepts thinking with type 'adaptive' (the model decides whether and how much to think).
+
+        - `Disabled BetaCapabilitySupport`
+
+          Whether the model accepts thinking with type 'disabled' (thinking turned off). False exactly when a request that sends it gets a 400 from this model. True on a model that does not support thinking.
 
         - `Enabled BetaCapabilitySupport`
 
-          Whether the model supports thinking with type 'enabled'.
+          Whether the model accepts thinking with type 'enabled' (extended thinking with a caller-set `budget_tokens`).
 
   - `CreatedAt Time`
 
@@ -831,6 +851,15 @@ func main() {
         "pdf_input": {
           "supported": true
         },
+        "server_tools": {
+          "code_execution": {
+            "supported": true
+          },
+          "supported": true,
+          "web_search": {
+            "supported": true
+          }
+        },
         "structured_outputs": {
           "supported": true
         },
@@ -838,6 +867,9 @@ func main() {
           "supported": true,
           "types": {
             "adaptive": {
+              "supported": true
+            },
+            "disabled": {
               "supported": true
             },
             "enabled": {
@@ -878,7 +910,7 @@ The Models API response can be used to determine information about a specific mo
 
 - `query BetaModelGetParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -982,7 +1014,7 @@ The Models API response can be used to determine information about a specific mo
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1026,7 +1058,7 @@ The Models API response can be used to determine information about a specific mo
 
     - `CodeExecution BetaCapabilitySupport`
 
-      Whether the model supports code execution tools.
+      Whether code that the model runs in the code execution tool can call the request's other tools, as in programmatic tool calling and dynamic filtering for web search and web fetch. Support for the code execution tool itself is in `server_tools.code_execution`.
 
     - `Compaction BetaCompactionCapability`
 
@@ -1096,6 +1128,22 @@ The Models API response can be used to determine information about a specific mo
 
       Whether the model accepts PDF content blocks.
 
+    - `ServerTools BetaServerToolsCapability`
+
+      Whether this model supports the web search and code execution server tools. `supported` is true when the model supports at least one of the tools. A supported tool can still be rejected for your organization, for example when an admin has turned web search off.
+
+      - `CodeExecution BetaCapabilitySupport`
+
+        Whether the model supports the code execution tool: true when the model supports at least one version of the tool, not necessarily every version.
+
+      - `Supported bool`
+
+        Whether this capability is supported by the model.
+
+      - `WebSearch BetaCapabilitySupport`
+
+        Whether the model supports the web search tool: true when the model supports at least one version of the tool, not necessarily every version.
+
     - `StructuredOutputs BetaCapabilitySupport`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
@@ -1114,11 +1162,15 @@ The Models API response can be used to determine information about a specific mo
 
         - `Adaptive BetaCapabilitySupport`
 
-          Whether the model supports thinking with type 'adaptive' (auto).
+          Whether the model accepts thinking with type 'adaptive' (the model decides whether and how much to think).
+
+        - `Disabled BetaCapabilitySupport`
+
+          Whether the model accepts thinking with type 'disabled' (thinking turned off). False exactly when a request that sends it gets a 400 from this model. True on a model that does not support thinking.
 
         - `Enabled BetaCapabilitySupport`
 
-          Whether the model supports thinking with type 'enabled'.
+          Whether the model accepts thinking with type 'enabled' (extended thinking with a caller-set `budget_tokens`).
 
   - `CreatedAt Time`
 
@@ -1241,6 +1293,15 @@ func main() {
     "pdf_input": {
       "supported": true
     },
+    "server_tools": {
+      "code_execution": {
+        "supported": true
+      },
+      "supported": true,
+      "web_search": {
+        "supported": true
+      }
+    },
     "structured_outputs": {
       "supported": true
     },
@@ -1248,6 +1309,9 @@ func main() {
       "supported": true,
       "types": {
         "adaptive": {
+          "supported": true
+        },
+        "disabled": {
           "supported": true
         },
         "enabled": {
@@ -1283,7 +1347,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `params BetaMessageNewParams`
 
-  - `MaxTokens param.Field[int64]`
+  - `MaxTokens int64`
 
     The maximum number of tokens to generate before stopping.
 
@@ -1295,7 +1359,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     minimum: 0
 
-  - `Messages param.Field[[]BetaMessageParamResp]`
+  - `Messages []BetaMessageParam`
 
     Input messages.
 
@@ -4250,6 +4314,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                        - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+                          Fastest model for high-volume, real-time tasks
+
                         - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
                           Efficient model for coding and agents
@@ -4667,23 +4735,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `const BetaSystemMessageOutputConfigEffortMax BetaSystemMessageOutputConfigEffort = "max"`
 
-  - `Model param.Field[Model]`
+  - `Model Model`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-  - `CacheControl param.Field[BetaCacheControlEphemeral] Optional`
+  - `CacheControl BetaCacheControlEphemeralParam Optional`
 
     Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
-  - `Compaction param.Field[BetaCompactionConfig] Optional`
+  - `Compaction BetaCompactionConfigParam Optional`
 
     Compaction configuration.
 
     When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
 
-  - `Container param.Field[BetaMessageNewParamsContainerUnion] Optional`
+  - `Container BetaMessageNewParamsContainerUnion Optional`
 
     Container identifier for reuse across requests.
 
@@ -4723,17 +4791,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `string`
 
-  - `ContextManagement param.Field[BetaContextManagementConfig] Optional`
+  - `ContextManagement BetaContextManagementConfigParam Optional`
 
     Context management configuration.
 
     This allows you to control how Claude manages context across multiple requests, such as whether to clear function results or not.
 
-  - `Diagnostics param.Field[BetaDiagnosticsParamResp] Optional`
+  - `Diagnostics BetaDiagnosticsParam Optional`
 
     Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
 
-  - `FallbackCreditToken param.Field[BetaMessageNewParamsFallbackCreditTokenUnion] Optional`
+  - `FallbackCreditToken BetaMessageNewParamsFallbackCreditTokenUnion Optional`
 
     The `fallback_credit_token` from a prior refusal's `stop_details`.
 
@@ -4782,15 +4850,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `const BetaFallbackCreditTokenParamModeBestEffort BetaFallbackCreditTokenParamMode = "best_effort"`
 
-  - `Fallbacks param.Field[BetaFallbacksParamUnionResp] Optional`
+  - `Fallbacks BetaFallbacksParamUnion Optional`
 
     Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on. The string "default" requests the requested model's server-defined default fallback configuration.
 
-  - `InferenceGeo param.Field[string] Optional`
+  - `InferenceGeo param.Opt[string] Optional`
 
     Specifies the geographic region for inference processing. If not specified, the workspace's `default_inference_geo` is used.
 
-  - `MCPServers param.Field[[]BetaRequestMCPServerURLDefinition] Optional`
+  - `MCPServers []BetaRequestMCPServerURLDefinitionParam Optional`
 
     MCP servers to be utilized in this request
 
@@ -4810,15 +4878,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Enabled bool Optional`
 
-  - `Metadata param.Field[BetaMetadata] Optional`
+  - `Metadata BetaMetadataParam Optional`
 
     An object describing metadata about the request.
 
-  - `OutputConfig param.Field[BetaOutputConfig] Optional`
+  - `OutputConfig BetaOutputConfigParam Optional`
 
     Configuration options for the model's output, such as the output format.
 
-  - `ServiceTier param.Field[BetaMessageNewParamsServiceTier] Optional`
+  - `ServiceTier BetaMessageNewParamsServiceTier Optional`
 
     Determines whether to use priority capacity (if available) or standard capacity for this request.
 
@@ -4828,7 +4896,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `const BetaMessageNewParamsServiceTierStandardOnly BetaMessageNewParamsServiceTier = "standard_only"`
 
-  - `Speed param.Field[BetaMessageNewParamsSpeed] Optional`
+  - `Speed BetaMessageNewParamsSpeed Optional`
 
     The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
@@ -4836,7 +4904,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `const BetaMessageNewParamsSpeedFast BetaMessageNewParamsSpeed = "fast"`
 
-  - `StopSequences param.Field[[]string] Optional`
+  - `StopSequences []string Optional`
 
     Custom text sequences that will cause the model to stop generating.
 
@@ -4844,7 +4912,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     If you want the model to stop generating when it encounters custom strings of text, you can use the `stop_sequences` parameter. If the model encounters one of the custom sequences, the response `stop_reason` value will be `"stop_sequence"` and the response `stop_sequence` value will contain the matched stop sequence.
 
-  - `System param.Field[[]BetaTextBlockParamResp] Optional`
+  - `System []BetaTextBlockParam Optional`
 
     System prompt.
 
@@ -4864,7 +4932,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Citations []BetaTextCitationParamUnionResp Optional`
 
-  - `Thinking param.Field[BetaThinkingConfigParamUnionResp] Optional`
+  - `Thinking BetaThinkingConfigParamUnion Optional`
 
     Configuration for enabling Claude's extended thinking.
 
@@ -4872,11 +4940,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-  - `ToolChoice param.Field[BetaToolChoiceUnion] Optional`
+  - `ToolChoice BetaToolChoiceUnionParam Optional`
 
     How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
-  - `Tools param.Field[[]BetaToolUnion] Optional`
+  - `Tools []BetaToolUnionParam Optional`
 
     Definitions of tools that the model may use.
 
@@ -5021,7 +5089,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -5125,17 +5193,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `UserProfileID param.Field[string] Optional` (header parameter)
+  - `UserProfileID param.Opt[string] Optional` (header parameter)
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
-  - `OutputFormat param.Field[BetaJSONOutputFormat] Optional`
+  - `OutputFormat BetaJSONOutputFormatParam Optional`
 
     **Deprecated**
 
@@ -5143,7 +5211,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
 
-  - `Temperature param.Field[float64] Optional`
+  - `Temperature param.Opt[float64] Optional`
 
     **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
@@ -5155,7 +5223,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     minimum: 0, maximum: 1
 
-  - `TopK param.Field[int64] Optional`
+  - `TopK param.Opt[int64] Optional`
 
     **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not accept top_k; any value will be rejected with a 400 error.
 
@@ -5167,7 +5235,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     minimum: 0
 
-  - `TopP param.Field[float64] Optional`
+  - `TopP param.Opt[float64] Optional`
 
     **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting top_p. A value >= 0.99 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
@@ -7912,6 +7980,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                    - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+                      Fastest model for high-volume, real-time tasks
+
                     - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
                       Efficient model for coding and agents
@@ -9425,7 +9497,7 @@ func main() {
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-sonnet-5-5",
+        "model": "claude-haiku-5-5",
         "output_tokens": 0,
         "type": "message"
       }
@@ -9467,7 +9539,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 - `params BetaMessageCountTokensParams`
 
-  - `Messages param.Field[[]BetaMessageParamResp]`
+  - `Messages []BetaMessageParam`
 
     Input messages.
 
@@ -12422,6 +12494,10 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                        - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+                          Fastest model for high-volume, real-time tasks
+
                         - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
                           Efficient model for coding and agents
@@ -12839,29 +12915,29 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaSystemMessageOutputConfigEffortMax BetaSystemMessageOutputConfigEffort = "max"`
 
-  - `Model param.Field[Model]`
+  - `Model Model`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-  - `CacheControl param.Field[BetaCacheControlEphemeral] Optional`
+  - `CacheControl BetaCacheControlEphemeralParam Optional`
 
     Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
-  - `Compaction param.Field[BetaCompactionConfig] Optional`
+  - `Compaction BetaCompactionConfigParam Optional`
 
     Compaction configuration.
 
     When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
 
-  - `ContextManagement param.Field[BetaContextManagementConfig] Optional`
+  - `ContextManagement BetaContextManagementConfigParam Optional`
 
     Context management configuration.
 
     This allows you to control how Claude manages context across multiple requests, such as whether to clear function results or not.
 
-  - `MCPServers param.Field[[]BetaRequestMCPServerURLDefinition] Optional`
+  - `MCPServers []BetaRequestMCPServerURLDefinitionParam Optional`
 
     MCP servers to be utilized in this request
 
@@ -12881,11 +12957,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `Enabled bool Optional`
 
-  - `OutputConfig param.Field[BetaOutputConfig] Optional`
+  - `OutputConfig BetaOutputConfigParam Optional`
 
     Configuration options for the model's output, such as the output format.
 
-  - `Speed param.Field[BetaMessageCountTokensParamsSpeed] Optional`
+  - `Speed BetaMessageCountTokensParamsSpeed Optional`
 
     The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
@@ -12893,7 +12969,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `const BetaMessageCountTokensParamsSpeedFast BetaMessageCountTokensParamsSpeed = "fast"`
 
-  - `System param.Field[BetaMessageCountTokensParamsSystemUnion] Optional`
+  - `System BetaMessageCountTokensParamsSystemUnion Optional`
 
     System prompt.
 
@@ -12915,7 +12991,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `Citations []BetaTextCitationParamUnionResp Optional`
 
-  - `Thinking param.Field[BetaThinkingConfigParamUnionResp] Optional`
+  - `Thinking BetaThinkingConfigParamUnion Optional`
 
     Configuration for enabling Claude's extended thinking.
 
@@ -12923,11 +12999,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-  - `ToolChoice param.Field[BetaToolChoiceUnion] Optional`
+  - `ToolChoice BetaToolChoiceUnionParam Optional`
 
     How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
-  - `Tools param.Field[[]BetaMessageCountTokensParamsToolUnion] Optional`
+  - `Tools []BetaMessageCountTokensParamsToolUnion Optional`
 
     Definitions of tools that the model may use.
 
@@ -13072,7 +13148,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -13176,17 +13252,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `UserProfileID param.Field[string] Optional` (header parameter)
+  - `UserProfileID param.Opt[string] Optional` (header parameter)
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
-  - `OutputFormat param.Field[BetaJSONOutputFormat] Optional`
+  - `OutputFormat BetaJSONOutputFormatParam Optional`
 
     **Deprecated**
 
@@ -13274,7 +13350,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `params BetaMessageBatchNewParams`
 
-  - `Requests param.Field[[]BetaMessageBatchNewParamsRequest]`
+  - `Requests []BetaMessageBatchNewParamsRequest`
 
     List of requests for prompt completion. Each is an individual request to create a Message.
 
@@ -16261,6 +16337,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                            - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+                              Fastest model for high-volume, real-time tasks
+
                             - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
                               Efficient model for coding and agents
@@ -17390,7 +17470,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         minimum: 0, maximum: 1
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -17494,11 +17574,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `UserProfileID param.Field[string] Optional` (header parameter)
+  - `UserProfileID param.Opt[string] Optional` (header parameter)
 
     The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -17696,7 +17776,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `query BetaMessageBatchGetParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -17800,7 +17880,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -17982,15 +18062,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `params BetaMessageBatchListParams`
 
-  - `AfterID param.Field[string] Optional` (query parameter)
+  - `AfterID param.Opt[string] Optional` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `BeforeID param.Field[string] Optional` (query parameter)
+  - `BeforeID param.Opt[string] Optional` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -17998,7 +18078,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     minimum: 1, maximum: 1000
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -18102,7 +18182,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -18293,7 +18373,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `body BetaMessageBatchCancelParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -18397,7 +18477,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -18585,7 +18665,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `body BetaMessageBatchDeleteParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -18689,7 +18769,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -18769,7 +18849,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `query BetaMessageBatchResultsParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -18873,7 +18953,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -21634,6 +21714,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                          - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+                            Fastest model for high-volume, real-time tasks
+
                           - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
                             Efficient model for coding and agents
@@ -22893,7 +22977,7 @@ Create Agent
 
 - `params BetaAgentNewParams`
 
-  - `Model param.Field[BetaManagedAgentsModelConfigParamsResp]`
+  - `Model BetaManagedAgentsModelConfigParams`
 
     Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control
 
@@ -22906,6 +22990,10 @@ Create Agent
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `const BetaManagedAgentsModelClaudeHaiku5_5 BetaManagedAgentsModel = "claude-haiku-5-5"`
+
+          Fastest model for high-volume, real-time tasks
 
         - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
 
@@ -23043,19 +23131,19 @@ Create Agent
 
         - `const BetaManagedAgentsModelConfigParamsSpeedFast BetaManagedAgentsModelConfigParamsSpeed = "fast"`
 
-  - `Name param.Field[string]`
+  - `Name string`
 
     Human-readable name for the agent.
 
     minLength: 1, maxLength: 256
 
-  - `Description param.Field[string] Optional`
+  - `Description param.Opt[string] Optional`
 
     Description of what the agent does.
 
     maxLength: 2048
 
-  - `MCPServers param.Field[[]BetaManagedAgentsURLMCPServerParamsResp] Optional`
+  - `MCPServers []BetaManagedAgentsURLMCPServerParams Optional`
 
     MCP servers this agent connects to. Maximum 20. Names must be unique within the array. Every server must be referenced by an `mcp_toolset` in `tools`; unreferenced servers are rejected. See the [MCP connector guide](https://platform.claude.com/docs/en/managed-agents/mcp-connector).
 
@@ -23073,15 +23161,15 @@ Create Agent
 
       maxLength: 2048
 
-  - `Metadata param.Field[map[string, string]] Optional`
+  - `Metadata map[string, string] Optional`
 
     Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
 
-  - `Multiagent param.Field[BetaManagedAgentsMultiagentParamsResp] Optional`
+  - `Multiagent BetaManagedAgentsMultiagentParams Optional`
 
-    Multiagent orchestration configuration. Currently supports the `coordinator` topology with a roster of 1-20 agents.
+    Multiagent orchestration configuration.
 
-  - `Skills param.Field[[]BetaManagedAgentsSkillParamsUnionResp] Optional`
+  - `Skills []BetaManagedAgentsSkillParamsUnion Optional`
 
     Skills available to the agent.
 
@@ -23121,13 +23209,13 @@ Create Agent
 
         minLength: 1, maxLength: 64
 
-  - `System param.Field[string] Optional`
+  - `System param.Opt[string] Optional`
 
     System prompt for the agent.
 
     maxLength: 100000
 
-  - `Tools param.Field[[]BetaAgentNewParamsToolUnion] Optional`
+  - `Tools []BetaAgentNewParamsToolUnion Optional`
 
     Tool configurations available to the agent. Maximum of 256 tools across all toolsets allowed.
 
@@ -23371,6 +23459,102 @@ Create Agent
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
+          - `URLSources BetaManagedAgentsWebFetchURLSourcesParamsResp Optional`
+
+            Which sources contribute URLs the tool may fetch. Omit to allow every source.
+
+            - `ClientToolResults BetaManagedAgentsWebFetchURLSourceToolFilterParamsUnionResp Optional`
+
+              Which custom tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be a custom tool in the same tools array.
+
+              - `type BetaManagedAgentsWebFetchURLSourceShorthand string`
+
+                String form of a url_sources value that has no field other than its type: "all" means {"type": "all"} and "none" means {"type": "none"}.
+
+                - `const BetaManagedAgentsWebFetchURLSourceShorthandAll BetaManagedAgentsWebFetchURLSourceShorthand = "all"`
+
+                - `const BetaManagedAgentsWebFetchURLSourceShorthandNone BetaManagedAgentsWebFetchURLSourceShorthand = "none"`
+
+              - `type BetaManagedAgentsWebFetchURLSourceToolFilterUnion interface{…}`
+
+                Which tools' results contribute URLs that may be fetched.
+
+                - `type BetaManagedAgentsWebFetchURLSourceAll`
+
+                  Every URL from this source may be fetched. This is the default.
+
+                  - `Type All`
+
+                - `type BetaManagedAgentsWebFetchURLSourceNone`
+
+                  This source contributes no URLs that may be fetched.
+
+                  - `Type None`
+
+                - `type BetaManagedAgentsWebFetchURLSourceOnly`
+
+                  Only the named tools' results contribute URLs that may be fetched.
+
+                  - `Type Only`
+
+                  - `Tools []BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                    The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                    - `Type ToolReference`
+
+                      Must be "tool_reference".
+
+                    - `Name string`
+
+                      Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                      minLength: 1, maxLength: 128
+
+                - `type BetaManagedAgentsWebFetchURLSourceExcept`
+
+                  Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                  - `Type Except`
+
+                  - `Tools []BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                    The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                    - `Type ToolReference`
+
+                      Must be "tool_reference".
+
+                    - `Name string`
+
+                      Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                      minLength: 1, maxLength: 128
+
+            - `ServerToolResults BetaManagedAgentsWebFetchURLSourceToolFilterParamsUnionResp Optional`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched: "all" (the default), "none", or an only or except list. Each name in a list must be "web_search" or "web_fetch".
+
+            - `UserInput BetaManagedAgentsWebFetchURLSourceUserInputParamsUnionResp Optional`
+
+              Whether URLs in the text of user messages may be fetched: "all" (the default) or "none".
+
+              - `type BetaManagedAgentsWebFetchURLSourceShorthand string`
+
+                String form of a url_sources value that has no field other than its type: "all" means {"type": "all"} and "none" means {"type": "none"}.
+
+              - `type BetaManagedAgentsWebFetchURLSourceUserInputUnion interface{…}`
+
+                Whether URLs in the text of user messages may be fetched.
+
+                - `type BetaManagedAgentsWebFetchURLSourceAll`
+
+                  Every URL from this source may be fetched. This is the default.
+
+                - `type BetaManagedAgentsWebFetchURLSourceNone`
+
+                  This source contributes no URLs that may be fetched.
+
         - `type BetaManagedAgentsWebSearchToolConfigParamsResp`
 
           Configuration override for the web_search tool.
@@ -23557,7 +23741,7 @@ Create Agent
 
         minLength: 1, maxLength: 128
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -23661,7 +23845,7 @@ Create Agent
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -23710,6 +23894,10 @@ Create Agent
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `const BetaManagedAgentsModelClaudeHaiku5_5 BetaManagedAgentsModel = "claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
 
       - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
 
@@ -24078,6 +24266,82 @@ Create Agent
             - `type BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `URLSources BetaManagedAgentsWebFetchURLSources`
+
+            Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+            - `ClientToolResults BetaManagedAgentsWebFetchURLSourceToolFilterUnion`
+
+              Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+              - `type BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `Type All`
+
+              - `type BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `Type None`
+
+              - `type BetaManagedAgentsWebFetchURLSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `Type Only`
+
+                - `Tools []BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `Type ToolReference`
+
+                    Must be "tool_reference".
+
+                  - `Name string`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `type BetaManagedAgentsWebFetchURLSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `Type Except`
+
+                - `Tools []BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `Type ToolReference`
+
+                    Must be "tool_reference".
+
+                  - `Name string`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+            - `ServerToolResults BetaManagedAgentsWebFetchURLSourceToolFilterUnion`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+            - `UserInput BetaManagedAgentsWebFetchURLSourceUserInputUnion`
+
+              Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+              - `type BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `type BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
 
           - `AllowedDomains []string Optional`
 
@@ -24325,7 +24589,7 @@ func main() {
       "version": "1"
     },
     {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
       "type": "custom",
       "version": "2"
     }
@@ -24370,33 +24634,33 @@ List Agents
 
 - `params BetaAgentListParams`
 
-  - `CreatedAtGte param.Field[Time] Optional` (query parameter)
+  - `CreatedAtGte param.Opt[Time] Optional` (query parameter)
 
     Return agents created at or after this time (inclusive).
 
     format: date-time
 
-  - `CreatedAtLte param.Field[Time] Optional` (query parameter)
+  - `CreatedAtLte param.Opt[Time] Optional` (query parameter)
 
     Return agents created at or before this time (inclusive).
 
     format: date-time
 
-  - `IncludeArchived param.Field[bool] Optional` (query parameter)
+  - `IncludeArchived param.Opt[bool] Optional` (query parameter)
 
     Include archived agents in results. Defaults to false.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum results per page. Default 20, maximum 100.
 
     format: int32
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque pagination cursor from a previous response.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -24500,7 +24764,7 @@ List Agents
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -24549,6 +24813,10 @@ List Agents
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `const BetaManagedAgentsModelClaudeHaiku5_5 BetaManagedAgentsModel = "claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
 
       - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
 
@@ -24917,6 +25185,82 @@ List Agents
             - `type BetaManagedAgentsAutoPolicy`
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `URLSources BetaManagedAgentsWebFetchURLSources`
+
+            Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+            - `ClientToolResults BetaManagedAgentsWebFetchURLSourceToolFilterUnion`
+
+              Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+              - `type BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `Type All`
+
+              - `type BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `Type None`
+
+              - `type BetaManagedAgentsWebFetchURLSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `Type Only`
+
+                - `Tools []BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `Type ToolReference`
+
+                    Must be "tool_reference".
+
+                  - `Name string`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `type BetaManagedAgentsWebFetchURLSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `Type Except`
+
+                - `Tools []BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `Type ToolReference`
+
+                    Must be "tool_reference".
+
+                  - `Name string`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+            - `ServerToolResults BetaManagedAgentsWebFetchURLSourceToolFilterUnion`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+            - `UserInput BetaManagedAgentsWebFetchURLSourceUserInputUnion`
+
+              Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+              - `type BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `type BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
 
           - `AllowedDomains []string Optional`
 
@@ -25161,7 +25505,7 @@ func main() {
           "version": "1"
         },
         {
-          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTmx",
           "type": "custom",
           "version": "2"
         }
@@ -25213,13 +25557,13 @@ Get Agent
 
 - `params BetaAgentGetParams`
 
-  - `Version param.Field[int64] Optional` (query parameter)
+  - `Version param.Opt[int64] Optional` (query parameter)
 
     Agent version. Omit for the most recent version. Must be at least 1 if specified.
 
     format: int32
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -25323,7 +25667,7 @@ Get Agent
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -25372,6 +25716,10 @@ Get Agent
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `const BetaManagedAgentsModelClaudeHaiku5_5 BetaManagedAgentsModel = "claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
 
       - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
 
@@ -25741,6 +26089,82 @@ Get Agent
 
               The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
+          - `URLSources BetaManagedAgentsWebFetchURLSources`
+
+            Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+            - `ClientToolResults BetaManagedAgentsWebFetchURLSourceToolFilterUnion`
+
+              Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+              - `type BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+                - `Type All`
+
+              - `type BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
+                - `Type None`
+
+              - `type BetaManagedAgentsWebFetchURLSourceOnly`
+
+                Only the named tools' results contribute URLs that may be fetched.
+
+                - `Type Only`
+
+                - `Tools []BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                  The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                  - `Type ToolReference`
+
+                    Must be "tool_reference".
+
+                  - `Name string`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+              - `type BetaManagedAgentsWebFetchURLSourceExcept`
+
+                Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                - `Type Except`
+
+                - `Tools []BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                  The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                  - `Type ToolReference`
+
+                    Must be "tool_reference".
+
+                  - `Name string`
+
+                    Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                    minLength: 1, maxLength: 128
+
+            - `ServerToolResults BetaManagedAgentsWebFetchURLSourceToolFilterUnion`
+
+              Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+            - `UserInput BetaManagedAgentsWebFetchURLSourceUserInputUnion`
+
+              Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+              - `type BetaManagedAgentsWebFetchURLSourceAll`
+
+                Every URL from this source may be fetched. This is the default.
+
+              - `type BetaManagedAgentsWebFetchURLSourceNone`
+
+                This source contributes no URLs that may be fetched.
+
           - `AllowedDomains []string Optional`
 
           - `BlockedDomains []string Optional`
@@ -25968,457 +26392,3 @@ func main() {
     "inference_geo": "inference_geo",
     "speed": "standard"
   },
-  "multiagent": {
-    "agents": [
-      {
-        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-        "type": "agent",
-        "version": 1
-      }
-    ],
-    "type": "coordinator"
-  },
-  "name": "My First Agent",
-  "skills": [
-    {
-      "skill_id": "xlsx",
-      "type": "anthropic",
-      "version": "1"
-    },
-    {
-      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
-      "type": "custom",
-      "version": "2"
-    }
-  ],
-  "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
-  "tools": [
-    {
-      "configs": [
-        {
-          "enabled": true,
-          "name": "bash",
-          "permission_policy": {
-            "type": "always_allow"
-          },
-          "type": "bash"
-        }
-      ],
-      "default_config": {
-        "enabled": true,
-        "permission_policy": {
-          "type": "always_ask"
-        }
-      },
-      "type": "agent_toolset_20260401"
-    }
-  ],
-  "type": "agent",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "version": 1
-}
-```
-
-### Update Agent
-
-`client.Beta.Agents.Update(ctx, agentID, params) (*BetaManagedAgentsAgent, error)`
-
-**POST** `/v1/agents/{agent_id}`
-
-Update Agent
-
-#### Parameters
-
-- `agentID string` (path parameter)
-
-  Unique identifier of the agent to update.
-
-- `params BetaAgentUpdateParams`
-
-  - `Description param.Field[string] Optional`
-
-    Description. Omit to preserve; send empty string or null to clear.
-
-    maxLength: 2048
-
-  - `MCPServers param.Field[[]BetaManagedAgentsURLMCPServerParamsResp] Optional`
-
-    MCP servers. Full replacement. Omit to preserve; send empty array or `null` to clear. Names must be unique. Maximum 20. Every server must be referenced by an `mcp_toolset` in the agent's resulting `tools`; unreferenced servers are rejected. See the [MCP connector guide](https://platform.claude.com/docs/en/managed-agents/mcp-connector).
-
-    - `Type BetaManagedAgentsURLMCPServerParamsType`
-
-    - `Name string`
-
-      Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
-
-      minLength: 1, maxLength: 255
-
-    - `URL string`
-
-      Endpoint URL for the MCP server.
-
-      maxLength: 2048
-
-  - `Metadata param.Field[map[string, string]] Optional`
-
-    Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
-
-  - `Model param.Field[BetaManagedAgentsModelConfigParamsResp] Optional`
-
-    Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
-
-    - `type BetaManagedAgentsModelConfigParamsResp`
-
-      An object that defines additional configuration control over model use
-
-      - `ID BetaManagedAgentsModel`
-
-        The model that will power your agent.
-
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
-
-          Efficient model for coding and agents
-
-        - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
-
-          Powerful intelligence for coding, knowledge work, and long-running agents
-
-        - `const BetaManagedAgentsModelClaudeFable5_1 BetaManagedAgentsModel = "claude-fable-5-1"`
-
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-        - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
-
-          Efficient model for coding and agents
-
-        - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
-
-          Next generation of intelligence for the hardest knowledge work and coding problems
-
-        - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
-
-          Best combination of speed and intelligence
-
-        - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
-
-          Fastest model with near-frontier intelligence
-
-        - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
-
-          Fastest model with near-frontier intelligence
-
-        - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
-
-          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-          High-performance model for agents and coding
-
-        - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
-
-          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-          High-performance model for agents and coding
-
-      - `Effort BetaManagedAgentsModelConfigParamsEffortUnionResp Optional`
-
-        How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
-
-        - `string`
-
-          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelLow BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "low"`
-
-            Low effort. Favors latency over reasoning depth.
-
-          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelMedium BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "medium"`
-
-            Medium effort. Balances latency and reasoning depth.
-
-          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelHigh BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "high"`
-
-            High effort. Favors reasoning depth.
-
-          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelXhigh BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "xhigh"`
-
-            Extra-high effort. Not all models accept this level.
-
-          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelMax BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "max"`
-
-            Maximum effort. Favors reasoning depth over latency.
-
-        - `type BetaManagedAgentsEffortLow`
-
-          Low effort. Favors latency over reasoning depth.
-
-          - `Type BetaManagedAgentsEffortLowType`
-
-        - `type BetaManagedAgentsEffortMedium`
-
-          Medium effort. Balances latency and reasoning depth.
-
-          - `Type BetaManagedAgentsEffortMediumType`
-
-        - `type BetaManagedAgentsEffortHigh`
-
-          High effort. Favors reasoning depth.
-
-          - `Type BetaManagedAgentsEffortHighType`
-
-        - `type BetaManagedAgentsEffortXhigh`
-
-          Extra-high effort. Not all models accept this level.
-
-          - `Type BetaManagedAgentsEffortXhighType`
-
-        - `type BetaManagedAgentsEffortMax`
-
-          Maximum effort. Favors reasoning depth over latency.
-
-          - `Type BetaManagedAgentsEffortMaxType`
-
-      - `InferenceGeo string Optional`
-
-        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo. On update, `model` is whole-object replacement — omitting inference_geo clears it.
-
-      - `Speed BetaManagedAgentsModelConfigParamsSpeed Optional`
-
-        Inference speed mode. Defaults to `standard`.
-
-        - `const BetaManagedAgentsModelConfigParamsSpeedStandard BetaManagedAgentsModelConfigParamsSpeed = "standard"`
-
-        - `const BetaManagedAgentsModelConfigParamsSpeedFast BetaManagedAgentsModelConfigParamsSpeed = "fast"`
-
-  - `Multiagent param.Field[BetaManagedAgentsMultiagentParamsResp] Optional`
-
-    Multiagent orchestration configuration. Full replacement. Omit to preserve; send null to clear.
-
-  - `Name param.Field[string] Optional`
-
-    Human-readable name. Must be non-empty. Omit to preserve. Cannot be cleared.
-
-    maxLength: 256
-
-  - `Skills param.Field[[]BetaManagedAgentsSkillParamsUnionResp] Optional`
-
-    Skills. Full replacement. Omit to preserve; send empty array or null to clear.
-
-    - `type BetaManagedAgentsAnthropicSkillParamsResp`
-
-      An Anthropic-managed skill.
-
-      - `Type BetaManagedAgentsAnthropicSkillParamsType`
-
-      - `SkillID string`
-
-        Identifier of the Anthropic skill (e.g., "xlsx").
-
-        minLength: 1, maxLength: 64
-
-      - `Version string Optional`
-
-        Version to pin. Defaults to latest if omitted.
-
-        minLength: 1, maxLength: 64
-
-    - `type BetaManagedAgentsCustomSkillParamsResp`
-
-      A user-created custom skill.
-
-      - `Type BetaManagedAgentsCustomSkillParamsType`
-
-      - `SkillID string`
-
-        Tagged ID of the custom skill (e.g., "skill_01XJ5...").
-
-        minLength: 1, maxLength: 64
-
-      - `Version string Optional`
-
-        Version to pin. Defaults to latest if omitted.
-
-        minLength: 1, maxLength: 64
-
-  - `System param.Field[string] Optional`
-
-    System prompt. Omit to preserve; send empty string or null to clear.
-
-    maxLength: 100000
-
-  - `Tools param.Field[[]BetaAgentUpdateParamsToolUnion] Optional`
-
-    Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 256 tools across all toolsets allowed.
-
-    - `type BetaManagedAgentsAgentToolset20260401ParamsResp`
-
-      Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
-
-      - `Type BetaManagedAgentsAgentToolset20260401ParamsType`
-
-      - `Configs []BetaManagedAgentsAgentToolConfigParamsUnionResp Optional`
-
-        Per-tool configuration overrides.
-
-        - `type BetaManagedAgentsBashToolConfigParamsResp`
-
-          Configuration override for the bash tool.
-
-          - `Type BetaManagedAgentsBashToolConfigParamsType Optional`
-
-          - `Name Bash`
-
-            Must be "bash".
-
-          - `Enabled bool Optional`
-
-            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
-
-          - `PermissionPolicy BetaManagedAgentsBashToolConfigParamsPermissionPolicyUnionResp Optional`
-
-            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
-
-            - `type BetaManagedAgentsAlwaysAllowPolicy`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-            - `type BetaManagedAgentsAlwaysAskPolicy`
-
-              Tool calls require user confirmation before execution.
-
-              - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-            - `type BetaManagedAgentsAutoPolicy`
-
-              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-              - `Type Auto`
-
-        - `type BetaManagedAgentsEditToolConfigParamsResp`
-
-          Configuration override for the edit tool.
-
-          - `Type BetaManagedAgentsEditToolConfigParamsType Optional`
-
-          - `Name Edit`
-
-            Must be "edit".
-
-          - `Enabled bool Optional`
-
-            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
-
-          - `PermissionPolicy BetaManagedAgentsEditToolConfigParamsPermissionPolicyUnionResp Optional`
-
-            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
-
-            - `type BetaManagedAgentsAlwaysAllowPolicy`
-
-              Tool calls are automatically approved without user confirmation.
-
-            - `type BetaManagedAgentsAlwaysAskPolicy`
-
-              Tool calls require user confirmation before execution.
-
-            - `type BetaManagedAgentsAutoPolicy`
-
-              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-        - `type BetaManagedAgentsReadToolConfigParamsResp`
-
-          Configuration override for the read tool.
-
-          - `Type BetaManagedAgentsReadToolConfigParamsType Optional`
-
-          - `Name Read`
-
-            Must be "read".
-
-          - `Enabled bool Optional`
-
-            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
-
-          - `PermissionPolicy BetaManagedAgentsReadToolConfigParamsPermissionPolicyUnionResp Optional`
-
-            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
-
-            - `type BetaManagedAgentsAlwaysAllowPolicy`
-
-              Tool calls are automatically approved without user confirmation.
-
-            - `type BetaManagedAgentsAlwaysAskPolicy`
-
-              Tool calls require user confirmation before execution.
-
-            - `type BetaManagedAgentsAutoPolicy`
-
-              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-        - `type BetaManagedAgentsWriteToolConfigParamsResp`
-
-          Configuration override for the write tool.
-
-          - `Type BetaManagedAgentsWriteToolConfigParamsType Optional`
-
-          - `Name Write`
-
-            Must be "write".
-
-          - `Enabled bool Optional`
-
-            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
-
-          - `PermissionPolicy BetaManagedAgentsWriteToolConfigParamsPermissionPolicyUnionResp Optional`
-
-            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
-
-            - `type BetaManagedAgentsAlwaysAllowPolicy`
-
-              Tool calls are automatically approved without user confirmation.
-
-            - `type BetaManagedAgentsAlwaysAskPolicy`
-
-              Tool calls require user confirmation before execution.
-
-            - `type BetaManagedAgentsAutoPolicy`
-
-              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-        - `type BetaManagedAgentsGlobToolConfigParamsResp`
-
-          Configuration override for the glob tool.
-
-          - `Type BetaManagedAgentsGlobToolConfigParamsType Optional`
-
-          - `Name Glob`
-
-            Must be "glob".
-
-          - `Enabled bool Optional`
-
-            Whether this tool is enabled and available to Claude. Overrides the default_config setting.

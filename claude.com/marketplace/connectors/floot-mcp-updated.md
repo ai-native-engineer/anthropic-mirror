@@ -43,6 +43,16 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
+![](https://raw.githubusercontent.com/grafana/ai-marketplace/12be5634a492f73c189d466c5449d09b853ad7a4/plugins/grafana-cloud-mcp/assets/logo.svg)
+
+### [Grafana Cloud](https://claude.com/marketplace/connectors/grafana-cloud)
+
+Anthropic verifiedNew
+
+Query metrics, logs, and traces and manage dashboards and alerts
+
+[Add Grafana Cloud in Claude (opens in new tab)](https://claude.ai/directory/3392c633-e335-4638-bda7-5b259808c3f7 "Add in Claude")
+
 ![](https://assets.claude.com/e476a6c2c2f961f5f2120482f37b1daafc1506d9.jpg?w=128&fit=max&auto=format)
 
 ### [Canva](https://claude.com/marketplace/connectors/canva)
@@ -82,11 +92,3 @@ Design, combine, and edit with Adobe pro tools
 Manage databases, authentication, and storage
 
 [Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
-
-![](https://assets.claude.com/e64f9962a277a8943b084a17b6a9386a7eb95a61.svg?w=128&fit=max&auto=format)
-
-### [Miro](https://claude.com/marketplace/connectors/miro)
-
-Access and create new content on Miro boards
-
-[Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")

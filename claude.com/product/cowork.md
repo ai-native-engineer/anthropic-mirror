@@ -20,7 +20,7 @@ Claude Cowork completes tasks you can steer from anywhere. Give it a goal, and i
 
 Works with a paid plan. Rolling out on web, mobile (beta). Not on a paid plan? [Upgrade now](https://claude.com/pricing)
 
-[![](https://assets.claude.com/cbbb6f18eb5d177985a9709402ed42d976f5d12c.png)](https://assets.claude.com/0d948b3a3dbf8e9669c90f8a669af1be99dd2fa0.webm)
+![](https://assets.claude.com/cbbb6f18eb5d177985a9709402ed42d976f5d12c.png)
 
 ## Core capabilities
 

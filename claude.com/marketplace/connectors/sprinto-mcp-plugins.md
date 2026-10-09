@@ -79,10 +79,12 @@ Browser automation, web scraping, web search and fetch via a cloud browser agent
 
 [Add TinyFish in Claude (opens in new tab)](https://claude.ai/directory/e2dfb699-dcb9-4124-b190-9bb1f400adb4 "Add in Claude")
 
-![](https://neon.com/brand/neon-logomark-light-color.svg)
+![](https://www.google.com/s2/favicons?domain=meltwater.com&sz=96)
 
-### [Neon](https://claude.com/marketplace/connectors/neon)
+### [Meltwater](https://claude.com/marketplace/connectors/meltwater)
 
-Postgres, Object Storage, Managed Better Auth, and more
+Search and analyze billions of news articles and social posts
 
-[Add Neon in Claude (opens in new tab)](https://claude.ai/directory/33e1b084-f45e-4fa3-951a-b08ad61101c9 "Add in Claude")
+[Add Meltwater in Claude (opens in new tab)](https://claude.ai/directory/5b4799b6-3c67-40b9-90e0-539888c1c13a "Add in Claude")
+
+Sprinto MCP connector | Claude by Anthropic

@@ -7,7 +7,7 @@ You can programmatically verify your connection to the Claude API by following t
 3. **Verify request success:** Check if your test request is successful. This can include examining the response status code, response body, and any error messages.
 
 * [How can I access the Claude API?](https://support.claude.com/en/articles/8114521-how-can-i-access-the-claude-api)
-* [How do I use the playground?](https://support.claude.com/en/articles/8606378-how-do-i-use-the-playground)
 * [How do I pay for my Claude API usage?](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage)
+* [How can I get higher rate limits on the Claude API?](https://support.claude.com/en/articles/10366389-how-can-i-get-higher-rate-limits-on-the-claude-api)
 * [Manage API key environment variables in Claude Code](https://support.claude.com/en/articles/12304248-manage-api-key-environment-variables-in-claude-code)
 * [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)

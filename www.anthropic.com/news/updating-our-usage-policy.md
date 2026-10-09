@@ -39,5 +39,3 @@ Our Acceptable Use Policy has always prohibited gathering information on an indi
 In addition, our updated policy makes clear that our products cannot be used to analyze or identify specific content to censor on behalf of a government organization. This applies to all countries where our products are permitted for use.
 
 You can view our updated policy in full [here](https://www.anthropic.com/legal/aup).
-
-Updating our Usage Policy \ Anthropic

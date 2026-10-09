@@ -1,18 +1,8 @@
 <!-- source: https://claude.com/docs/government/overview -->
 
-> ## Documentation Index
->
-> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
->
-> Use this file to discover all available pages before exploring further.
-
-[Skip to main content](#content-area)
-
 > **Who this guide is for:** Administrators who set up and manage Claude for Government for their agency.
 
 > **Find your section:**
->
->
 > | If you are… | Start with |
 > | --- | --- |
 > | A tenant administrator | [Tenant administration](https://claude.com/docs/government/tenant-admin/overview) |

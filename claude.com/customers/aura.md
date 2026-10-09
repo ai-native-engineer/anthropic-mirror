@@ -81,12 +81,12 @@ Aura aims to revolutionize how organizations access Organizational Decision Inte
 
 They're already expanding their impact, launching APIs with major high-frequency trading hedge funds and developing new sentiment analysis capabilities. By combining their deep understanding of workforce dynamics with Claude's capabilities in Amazon Bedrock, Aura continues to transform how organizations understand and act on Organizational Decision Intelligence.
 
-[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
+[![Zendesk](https://assets.claude.com/eb4ae3eeaffc7fb16618696c1baa3ef6c6224977.svg)
+
+### Zendesk built custom agents on Claude and reached 1 million agent executions in 7 weeks](https://claude.com/customers/zendesk)[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
 ### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
 ### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
-
-### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)

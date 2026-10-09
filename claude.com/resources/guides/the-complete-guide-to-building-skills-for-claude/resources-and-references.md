@@ -162,5 +162,3 @@ These repositories stay up-to-date and include additional examples beyond what's
 Take it with you or get in touch with us.
 
 [Download now (opens in new tab)](https://assets.claude.com/3678ba816db40b2e13bd5f00af201fc9e4b95b12.pdf?dl=)[Contact sales](https://claude.com/contact-sales)
-
-Resources and references - The complete guide to building Skills for Claude | Claude by Anthropic

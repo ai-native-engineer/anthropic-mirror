@@ -22,7 +22,7 @@ compliance activities that can be filtered by various criteria.
 
 ### Query parameters
 
-- `activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 514 more`
+- `activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 516 more`
 
   Filter activities by type. See the response `data` schema for the additional fields each type returns. Cannot be combined with `exclude_activity_types[]`.
 
@@ -552,7 +552,7 @@ compliance activities that can be filtered by various criteria.
 
   - `"claude_plugin_downloaded"`
 
-    The archive of the plugin version a member was served was downloaded to install or update the plugin in one of the member's Claude apps (Claude in the browser, the Claude desktop app, Claude Code, or a cloud session).
+    The archive of the plugin version a member was served was downloaded to install or update the plugin in one of the member's Claude apps (Claude in the browser, the Claude desktop app, Claude Code, or a cloud session). Recorded when the member explicitly installs, updates or downloads the plugin (user_action), and when a fetch creates the member's install record for the plugin — its first delivery to them, whether a background sync of a plugin distributed to them or their own first install, which then carries both records (first_delivery). A plugin the member enabled in Claude is on the feed as claude_plugin_enabled and its later delivery by a client's background sync is not recorded again; nor are re-syncs, or fetches that only display the plugin's files in the browser.
 
   - `"claude_plugin_enabled"`
 
@@ -1061,6 +1061,14 @@ compliance activities that can be filtered by various criteria.
   - `"org_capability_grant_removed"`
 
     A capability grant was removed from a workspace or role.
+
+  - `"org_chat_cowork_unified_disabled"`
+
+    The organization's setting for the unified Chat and Cowork experience was turned off.
+
+  - `"org_chat_cowork_unified_enabled"`
+
+    The organization's setting for the unified Chat and Cowork experience was turned on.
 
   - `"org_claude_code_data_sharing_disabled"`
 
@@ -2149,7 +2157,7 @@ compliance activities that can be filtered by various criteria.
 
     format: date-time
 
-- `exclude_activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 514 more`
+- `exclude_activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 516 more`
 
   Exclude activities of these types. Cannot be combined with `activity_types[]`.
 
@@ -2679,7 +2687,7 @@ compliance activities that can be filtered by various criteria.
 
   - `"claude_plugin_downloaded"`
 
-    The archive of the plugin version a member was served was downloaded to install or update the plugin in one of the member's Claude apps (Claude in the browser, the Claude desktop app, Claude Code, or a cloud session).
+    The archive of the plugin version a member was served was downloaded to install or update the plugin in one of the member's Claude apps (Claude in the browser, the Claude desktop app, Claude Code, or a cloud session). Recorded when the member explicitly installs, updates or downloads the plugin (user_action), and when a fetch creates the member's install record for the plugin — its first delivery to them, whether a background sync of a plugin distributed to them or their own first install, which then carries both records (first_delivery). A plugin the member enabled in Claude is on the feed as claude_plugin_enabled and its later delivery by a client's background sync is not recorded again; nor are re-syncs, or fetches that only display the plugin's files in the browser.
 
   - `"claude_plugin_enabled"`
 
@@ -3188,6 +3196,14 @@ compliance activities that can be filtered by various criteria.
   - `"org_capability_grant_removed"`
 
     A capability grant was removed from a workspace or role.
+
+  - `"org_chat_cowork_unified_disabled"`
+
+    The organization's setting for the unified Chat and Cowork experience was turned off.
+
+  - `"org_chat_cowork_unified_enabled"`
+
+    The organization's setting for the unified Chat and Cowork experience was turned on.
 
   - `"org_claude_code_data_sharing_disabled"`
 
@@ -4268,7 +4284,7 @@ compliance activities that can be filtered by various criteria.
 
 ### Returns
 
-- `data: optional array of AbuseDecisionReceived or AccountDeleted or AdminAPIKeyCreated or 514 more`
+- `data: optional array of AbuseDecisionReceived or AccountDeleted or AdminAPIKeyCreated or 516 more`
 
   List of activity records. Each element's `type` field identifies which activity it is and which additional fields are present.
 
@@ -33700,7 +33716,7 @@ compliance activities that can be filtered by various criteria.
 
   - `ClaudePluginDownloaded object`
 
-    The archive of the plugin version a member was served was downloaded to install or update the plugin in one of the member's Claude apps (Claude in the browser, the Claude desktop app, Claude Code, or a cloud session).
+    The archive of the plugin version a member was served was downloaded to install or update the plugin in one of the member's Claude apps (Claude in the browser, the Claude desktop app, Claude Code, or a cloud session). Recorded when the member explicitly installs, updates or downloads the plugin (user_action), and when a fetch creates the member's install record for the plugin — its first delivery to them, whether a background sync of a plugin distributed to them or their own first install, which then carries both records (first_delivery). A plugin the member enabled in Claude is on the feed as claude_plugin_enabled and its later delivery by a client's background sync is not recorded again; nor are re-syncs, or fetches that only display the plugin's files in the browser.
 
     - `type: optional "claude_plugin_downloaded"`
 
@@ -33941,6 +33957,16 @@ compliance activities that can be filtered by various criteria.
     - `plugin_version_id: optional string or null`
 
       The version whose archive was downloaded; unset for a plugin that predates version records.
+
+    - `reason: optional "first_delivery" or "unspecified" or "user_action" or null`
+
+      Why this download was recorded: the member's explicit action, or the archive's first delivery to them.
+
+      - `"first_delivery"`
+
+      - `"unspecified"`
+
+      - `"user_action"`
 
   - `ClaudeProjectSyncSourceCreated object`
 
@@ -40450,100 +40476,3 @@ compliance activities that can be filtered by various criteria.
         - `user_agent: string`
 
       - `ServiceAccountActor object`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-      - `ScimDirectorySyncActor object`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `type: optional "azure"`
-
-              default: azure
-
-            - `subscription_id: string`
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-            - `project_number: string`
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `type: optional "oidc"`
-
-              default: oidc

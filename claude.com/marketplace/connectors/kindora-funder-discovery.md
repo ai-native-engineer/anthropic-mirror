@@ -61,10 +61,10 @@ Research nonprofits and funders using Candid's data
 
 [Add Candid in Claude (opens in new tab)](https://claude.ai/directory/875faf93-08c4-469c-980f-6f79f70f10d3 "Add in Claude")
 
-![](https://jotform.com/assets/img/portal/jotformAppsLogo.png)
+![](https://assets.claude.com/02447ea067dc2624af0c1eb2a51df059d6242b4c.png?w=128&fit=max&auto=format)
 
-### [Jotform Apps](https://claude.com/marketplace/connectors/jotform-apps)
+### [Granted](https://claude.com/marketplace/connectors/granted)
 
-Build and manage no-code apps
+Discover every grant opportunity in existence.
 
-[Add Jotform Apps in Claude (opens in new tab)](https://claude.ai/directory/47f4bce8-bac1-4872-be7e-b296a1e6f707 "Add in Claude")
+[Add Granted in Claude (opens in new tab)](https://claude.ai/directory/59156499-2b9f-42b9-8438-8994d7ce5dad "Add in Claude")

@@ -8,7 +8,7 @@ Describe a visual and Claude builds a first version, on brand. Refine, share, or
 
 [Start designing](https://claude.ai/artifacts)
 
-[![](https://assets.claude.com/968178549b079d4e7c5a6b3b57463528f1fcb526.png)](https://assets.claude.com/f0dd16266306d6e9526aebb58f38a4f46f2c4942.webm)
+![](https://assets.claude.com/968178549b079d4e7c5a6b3b57463528f1fcb526.png)
 
 Now you can use Claude Design from inside any conversation with Claude.
 

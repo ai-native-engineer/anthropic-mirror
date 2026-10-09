@@ -11,8 +11,21 @@ Custom data retention controls allow organizations to manage how long Claude sto
 Data retention is based on the last observed activity:
 
 * **For chats:** Retention period starts from the time of the last message in the conversation.
-* **For projects:** Retention period starts from the time the project was last updated (this includes chat creation or project knowledge base modifications).
+* **For projects:**
 
+  + These actions reset the retention period:
+
+    - Sending a message in an existing chat in the project
+    - Creating a new chat in the project
+    - Editing the project's knowledge files, instructions, or sharing settings
+    - Starting a Claude Cowork session in the cloud from the project, or moving a cloud session into the project (this resets the period once, when the session starts or is moved)
+    - Connecting or disconnecting a local folder for Cowork
+    - Editing the project's knowledge files from a Cowork session
+  + These actions don't reset the retention period:
+
+    - Viewing a project or opening a chat in it
+    - Starting a *local* Cowork session
+    - Other work in a Cowork session, whether it runs in the cloud or on your computer
   + Project retention always takes precedence over chat retention for chats inside a project. This applies even if you haven’t set a custom project retention period: by default, projects are retained indefinitely, so chats inside projects are not deleted by your chat retention period.
 
 The minimum retention period is 30 days, and each month is counted as 30 days. For example, a three-month retention period equals 90 days.
@@ -51,8 +64,8 @@ If a conversation’s last message is at 3PM UTC on March 1 with a 30-day retent
 
 All retention-related actions and changes are automatically tracked in **[audit logs](https://support.claude.com/en/articles/9970975-how-to-access-audit-logs)**. You can access these logs to monitor changes to retention settings and data deletion events.
 
-* [Can you delete data that I sent via Team and Enterprise plans?](https://support.claude.com/en/articles/9796617-can-you-delete-data-that-i-sent-via-team-and-enterprise-plans)
-* [Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context)
 * [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
+* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
+* [Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)
 * [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
-* [Turn on data retention for a Workspace in a zero data retention organization](https://support.claude.com/en/articles/16824617-turn-on-data-retention-for-a-workspace-in-a-zero-data-retention-organization)
+* [Use Claude Code (local mode) and Claude Cowork (local mode) on a HIPAA-ready Enterprise plan](https://support.claude.com/en/articles/17318731-use-claude-code-local-mode-and-claude-cowork-local-mode-on-a-hipaa-ready-enterprise-plan)

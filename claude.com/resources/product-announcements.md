@@ -18,9 +18,15 @@ Featured resource 1 of 5: Claude Cowork is coming to mobile and web
 
 Advanced filters
 
-Showing 11 of 147 resources
+Showing 11 of 149 resources
 
-[ArticleOct 6, 2026
+[ArticleOct 7, 2026
+
+### Claude Haiku 5.5
+
+Introducing Claude Haiku 5.5: the cheapest, fastest, and most capable small model we’ve ever released.
+
+(opens in new tab)](https://www.anthropic.com/claude-haiku-5-5)[ArticleOct 6, 2026
 
 ### Claude now works with Google Docs, Sheets, and Slides
 
@@ -28,7 +34,13 @@ Teams that run on Google Workspace can now bring Claude into their files or work
 
 Claude Enterprise](https://claude.com/resources/articles/claude-now-works-in-google-docs-sheets-and-slides)[ArticleOct 6, 2026
 
-### We’re expanding the Claude Startups program to help founders build](https://claude.com/resources/articles/were-expanding-the-claude-startups-program-to-help-founders-build)[Video2 min watch
+### We’re expanding the Claude Startups program to help founders build](https://claude.com/resources/articles/were-expanding-the-claude-startups-program-to-help-founders-build)[ArticleOct 6, 2026
+
+### Expanding the Cyber Verification Program
+
+We’re launching a new, expanded version of our Cyber Verification Program (CVP), which makes advanced cyber capabilities and reduced blocking classifiers available to qualifying security professionals.
+
+(opens in new tab)](https://www.anthropic.com/news/cyber-verification-program)[Video2 min watch
 
 ### How an Anthropic designer uses Claude Slides
 
@@ -84,7 +96,9 @@ _(자막 없음)_
 </details>
 
 
-### Giving companies more control over their AI agents, with NVIDIA
+### A new approach to agent security with Claude Managed Agents and NVIDIA
+
+Note: This blog has been updated from its original version to include additional technical details on Claude Managed Agents.
 
 Claude Platform](https://claude.com/resources/articles/giving-companies-more-control-over-their-ai-agents-with-nvidia)[WebinarOn demand
 
@@ -92,20 +106,6 @@ Claude Platform](https://claude.com/resources/articles/giving-companies-more-con
 
 Claude Opus 5.5 is now available, and it’s our most capable Opus model for everyday work. It communicates more naturally and it…
 
-Claude apps](https://claude.com/resources/webinars/opus-5-5-for-work)[ArticleSep 25, 2026
-
-### Build plugins for Claude
-
-You can now submit plugins to the Claude directory through a new developer portal, track them through review, and see usage analytics once they’re live.
-
-Claude apps](https://claude.com/resources/articles/build-plugins-for-claude)[ArticleSep 24, 2026
-
-### Claude Tag now supports personal connectors in channels
-
-Claude Tag can now use your connectors for requests you make in a channel. Nobody else can use them, and you're in control of how to present the output.
-
-Claude Tag](https://claude.com/resources/articles/claude-tag-now-supports-personal-connectors-in-channels)
+Claude apps](https://claude.com/resources/webinars/opus-5-5-for-work)
 
 View more
-
-Product announcements | Claude by Anthropic

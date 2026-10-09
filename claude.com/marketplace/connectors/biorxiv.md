@@ -51,14 +51,6 @@ Access ClinicalTrials.gov data
 
 [Add Clinical Trials in Claude (opens in new tab)](https://claude.ai/directory/c1754944-3ad1-49ab-bec5-9aeae3a6a9a3 "Add in Claude")
 
-![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/chembl.png)
-
-### [ChEMBL](https://claude.com/marketplace/connectors/chembl)
-
-Access the ChEMBL Database
-
-[Add ChEMBL in Claude (opens in new tab)](https://claude.ai/directory/711ccc94-754b-4659-903d-d61b29dd781e "Add in Claude")
-
 ![](https://assets.claude.com/f4e416e3635b80335fd10dbd602a88caa4be89ab.jpg?w=128&fit=max&auto=format)
 
 ### [Wiley Scholar Gateway](https://claude.com/marketplace/connectors/scholar-gateway)
@@ -66,3 +58,11 @@ Access the ChEMBL Database
 Enhance responses with scholarly research and citations
 
 [Add Wiley Scholar Gateway in Claude (opens in new tab)](https://claude.ai/directory/ff091334-0f12-4d0e-a973-c00467dd3818 "Add in Claude")
+
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/chembl.png)
+
+### [ChEMBL](https://claude.com/marketplace/connectors/chembl)
+
+Access the ChEMBL Database
+
+[Add ChEMBL in Claude (opens in new tab)](https://claude.ai/directory/711ccc94-754b-4659-903d-d61b29dd781e "Add in Claude")

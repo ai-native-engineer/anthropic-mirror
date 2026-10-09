@@ -26,5 +26,3 @@ For regulated industries—including healthcare, finance, and government — thi
 If you're a CISO or security leader, Parts I and II give you the threat landscape and compliance context you need, while Parts III, IV, and V are implementation guidance for your architects and engineers.
 
 We hope you find these patterns and best practices useful for your own organizations. This guide reflects Anthropic's current thinking on agent security architecture; it's offered as a framework for your own evaluation, not as legal, compliance, or security assurance for any particular environment.
-
-Building for the next threat landscape - Zero Trust for AI agents | Claude by Anthropic

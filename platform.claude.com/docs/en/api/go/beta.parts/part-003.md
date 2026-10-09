@@ -3,31 +3,1447 @@
 
 <!-- chunk-start -->
 
-  - `CreatedAtLte param.Field[Time] Optional` (query parameter)
+    - `StopDetails BetaManagedAgentsSessionRefusalStopDetails`
 
-    Return deployments created at or before this time (inclusive).
+      Structured information about why the thread stopped. `null` when there is nothing more to report.
 
-    format: date-time
+    - `StopReason BetaManagedAgentsSessionThreadStatusIdleEventStopReasonUnion`
 
-  - `IncludeArchived param.Field[bool] Optional` (query parameter)
+      - `type BetaManagedAgentsSessionEndTurn`
 
-    When true, includes archived deployments. Default: false (exclude archived).
+        The agent completed its turn naturally and is ready for the next user message.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+      - `type BetaManagedAgentsSessionRequiresAction`
 
-    Maximum results per page. Default 20, maximum 100.
+        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-    format: int32
+      - `type BetaManagedAgentsSessionRetriesExhausted`
 
-  - `Page param.Field[string] Optional` (query parameter)
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
-    Opaque pagination cursor.
+      - `type BetaManagedAgentsSessionBudgetReached`
 
-  - `Status param.Field[BetaManagedAgentsDeploymentStatus] Optional` (query parameter)
+        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
-    Filter by status: `active` or `paused`. Omit for both. To include archived deployments, use `include_archived` instead; the two cannot be combined.
+      - `type BetaManagedAgentsSessionRefusal`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+        The turn ended because the model's response was refused, for example by a safety classifier.
+
+  - `type BetaManagedAgentsSessionThreadStatusTerminatedEvent`
+
+    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `Type BetaManagedAgentsSessionThreadStatusTerminatedEventType`
+
+    - `ID string`
+
+      Unique identifier for this event.
+
+    - `AgentName string`
+
+      Name of the agent the thread runs.
+
+    - `ProcessedAt Time`
+
+      Timestamp of the status transition.
+
+      format: date-time
+
+    - `SessionThreadID string`
+
+      Public sthr_ ID of the thread that terminated.
+
+  - `type BetaManagedAgentsUserToolResultEvent`
+
+    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+    - `Type BetaManagedAgentsUserToolResultEventType`
+
+    - `ID string`
+
+      Unique identifier for this event.
+
+    - `ToolUseID string`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `Content []BetaManagedAgentsUserToolResultEventContentUnion Optional`
+
+      The result content returned by the tool.
+
+      - `type BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `type BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `type BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `type BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `IsError bool Optional`
+
+      Whether the tool execution resulted in an error.
+
+    - `ProcessedAt Time Optional`
+
+      Timestamp when this result was processed.
+
+      format: date-time
+
+    - `SessionThreadID string Optional`
+
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
+
+  - `type BetaManagedAgentsSessionThreadStatusRescheduledEvent`
+
+    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `Type BetaManagedAgentsSessionThreadStatusRescheduledEventType`
+
+    - `ID string`
+
+      Unique identifier for this event.
+
+    - `AgentName string`
+
+      Name of the agent the thread runs.
+
+    - `ProcessedAt Time`
+
+      Timestamp of the status transition.
+
+      format: date-time
+
+    - `SessionThreadID string`
+
+      Public sthr_ ID of the thread that is retrying.
+
+  - `type BetaManagedAgentsSessionUpdatedEvent`
+
+    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+    - `Type BetaManagedAgentsSessionUpdatedEventType`
+
+    - `ID string`
+
+      Unique identifier for this event.
+
+    - `ProcessedAt Time`
+
+      Timestamp when the update was applied.
+
+      format: date-time
+
+    - `Agent BetaManagedAgentsSessionAgent Optional`
+
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
+
+      - `Type BetaManagedAgentsSessionAgentType`
+
+      - `ID string`
+
+      - `Description string`
+
+      - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
+
+        - `Type BetaManagedAgentsMCPServerURLDefinitionType`
+
+        - `Name string`
+
+        - `URL string`
+
+      - `Model BetaManagedAgentsModelConfig`
+
+        Model identifier and configuration.
+
+        - `ID BetaManagedAgentsModel`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const BetaManagedAgentsModelClaudeHaiku5_5 BetaManagedAgentsModel = "claude-haiku-5-5"`
+
+            Fastest model for high-volume, real-time tasks
+
+          - `const BetaManagedAgentsModelClaudeSonnet5_5 BetaManagedAgentsModel = "claude-sonnet-5-5"`
+
+            Efficient model for coding and agents
+
+          - `const BetaManagedAgentsModelClaudeOpus5_5 BetaManagedAgentsModel = "claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
+
+          - `const BetaManagedAgentsModelClaudeFable5_1 BetaManagedAgentsModel = "claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+            Efficient model for coding and agents
+
+          - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
+
+            Best combination of speed and intelligence
+
+          - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
+
+            Fastest model with near-frontier intelligence
+
+          - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
+
+            Fastest model with near-frontier intelligence
+
+          - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            High-performance model for agents and coding
+
+          - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            High-performance model for agents and coding
+
+        - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
+
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
+
+          - `type BetaManagedAgentsEffortLow`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type BetaManagedAgentsEffortLowType`
+
+          - `type BetaManagedAgentsEffortMedium`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type BetaManagedAgentsEffortMediumType`
+
+          - `type BetaManagedAgentsEffortHigh`
+
+            High effort. Favors reasoning depth.
+
+            - `Type BetaManagedAgentsEffortHighType`
+
+          - `type BetaManagedAgentsEffortXhigh`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type BetaManagedAgentsEffortXhighType`
+
+          - `type BetaManagedAgentsEffortMax`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type BetaManagedAgentsEffortMaxType`
+
+        - `InferenceGeo string Optional`
+
+          Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
+        - `Speed BetaManagedAgentsModelConfigSpeed Optional`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
+
+          - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
+
+          - `const BetaManagedAgentsModelConfigSpeedFast BetaManagedAgentsModelConfigSpeed = "fast"`
+
+      - `Multiagent BetaManagedAgentsSessionMultiagentCoordinator`
+
+        Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
+
+        - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
+
+        - `Agents []BetaManagedAgentsSessionMultiagentCoordinatorAgentUnion`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+
+          - `type BetaManagedAgentsSessionThreadAgent`
+
+            Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
+
+            - `Type BetaManagedAgentsSessionThreadAgentType`
+
+            - `ID string`
+
+            - `Description string`
+
+            - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
+
+              - `Type BetaManagedAgentsMCPServerURLDefinitionType`
+
+              - `Name string`
+
+              - `URL string`
+
+            - `Model BetaManagedAgentsModelConfig`
+
+              Model identifier and configuration.
+
+            - `Name string`
+
+            - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
+
+              - `type BetaManagedAgentsAnthropicSkill`
+
+                A resolved Anthropic-managed skill.
+
+                - `Type BetaManagedAgentsAnthropicSkillType`
+
+                - `SkillID string`
+
+                - `Version string`
+
+              - `type BetaManagedAgentsCustomSkill`
+
+                A resolved user-created custom skill.
+
+                - `Type BetaManagedAgentsCustomSkillType`
+
+                - `SkillID string`
+
+                - `Version string`
+
+            - `System string`
+
+            - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
+
+              - `type BetaManagedAgentsAgentToolset20260401`
+
+                - `Type BetaManagedAgentsAgentToolset20260401Type`
+
+                - `Configs []BetaManagedAgentsAgentToolConfigUnion`
+
+                  - `type BetaManagedAgentsBashToolConfig`
+
+                    Configuration for the bash tool.
+
+                    - `Type Bash`
+
+                    - `Enabled bool`
+
+                    - `Name Bash`
+
+                    - `PermissionPolicy BetaManagedAgentsBashToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                        - `Type BetaManagedAgentsAlwaysAllowPolicyType`
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                        - `Type BetaManagedAgentsAlwaysAskPolicyType`
+
+                      - `type BetaManagedAgentsAutoPolicy`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                        - `Type Auto`
+
+                  - `type BetaManagedAgentsEditToolConfig`
+
+                    Configuration for the edit tool.
+
+                    - `Type Edit`
+
+                    - `Enabled bool`
+
+                    - `Name Edit`
+
+                    - `PermissionPolicy BetaManagedAgentsEditToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                      - `type BetaManagedAgentsAutoPolicy`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `type BetaManagedAgentsReadToolConfig`
+
+                    Configuration for the read tool.
+
+                    - `Type Read`
+
+                    - `Enabled bool`
+
+                    - `Name Read`
+
+                    - `PermissionPolicy BetaManagedAgentsReadToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                      - `type BetaManagedAgentsAutoPolicy`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `type BetaManagedAgentsWriteToolConfig`
+
+                    Configuration for the write tool.
+
+                    - `Type Write`
+
+                    - `Enabled bool`
+
+                    - `Name Write`
+
+                    - `PermissionPolicy BetaManagedAgentsWriteToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                      - `type BetaManagedAgentsAutoPolicy`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `type BetaManagedAgentsGlobToolConfig`
+
+                    Configuration for the glob tool.
+
+                    - `Type Glob`
+
+                    - `Enabled bool`
+
+                    - `Name Glob`
+
+                    - `PermissionPolicy BetaManagedAgentsGlobToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                      - `type BetaManagedAgentsAutoPolicy`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `type BetaManagedAgentsGrepToolConfig`
+
+                    Configuration for the grep tool.
+
+                    - `Type Grep`
+
+                    - `Enabled bool`
+
+                    - `Name Grep`
+
+                    - `PermissionPolicy BetaManagedAgentsGrepToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                      - `type BetaManagedAgentsAutoPolicy`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `type BetaManagedAgentsWebFetchToolConfig`
+
+                    Configuration for the web_fetch tool.
+
+                    - `Type WebFetch`
+
+                    - `Enabled bool`
+
+                    - `Name WebFetch`
+
+                    - `PermissionPolicy BetaManagedAgentsWebFetchToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                      - `type BetaManagedAgentsAutoPolicy`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                    - `URLSources BetaManagedAgentsWebFetchURLSources`
+
+                      Which sources contribute URLs the tool may fetch, always in the object form. Null when not set, which allows every source.
+
+                      - `ClientToolResults BetaManagedAgentsWebFetchURLSourceToolFilterUnion`
+
+                        Which custom tools' results contribute URLs that may be fetched. Null when not set, which allows every custom tool's results.
+
+                        - `type BetaManagedAgentsWebFetchURLSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                          - `Type All`
+
+                        - `type BetaManagedAgentsWebFetchURLSourceNone`
+
+                          This source contributes no URLs that may be fetched.
+
+                          - `Type None`
+
+                        - `type BetaManagedAgentsWebFetchURLSourceOnly`
+
+                          Only the named tools' results contribute URLs that may be fetched.
+
+                          - `Type Only`
+
+                          - `Tools []BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                            The tools whose results contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "none" to allow no tool's results.
+
+                            - `Type ToolReference`
+
+                              Must be "tool_reference".
+
+                            - `Name string`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                        - `type BetaManagedAgentsWebFetchURLSourceExcept`
+
+                          Every tool's results contribute URLs that may be fetched, except the named tools' results.
+
+                          - `Type Except`
+
+                          - `Tools []BetaManagedAgentsWebFetchURLSourceToolReference`
+
+                            The tools whose results do not contribute. Between 1 and 128 entries, each with a different name. An empty list is rejected; use "all" to leave out no tool's results.
+
+                            - `Type ToolReference`
+
+                              Must be "tool_reference".
+
+                            - `Name string`
+
+                              Name of the tool. Compared exactly, so upper and lower case letters are different.
+
+                              minLength: 1, maxLength: 128
+
+                      - `ServerToolResults BetaManagedAgentsWebFetchURLSourceToolFilterUnion`
+
+                        Which of the web_search and web_fetch tools' results contribute URLs that may be fetched. Null when not set, which allows both.
+
+                      - `UserInput BetaManagedAgentsWebFetchURLSourceUserInputUnion`
+
+                        Whether URLs in the text of user messages may be fetched. Null when not set, which allows them.
+
+                        - `type BetaManagedAgentsWebFetchURLSourceAll`
+
+                          Every URL from this source may be fetched. This is the default.
+
+                        - `type BetaManagedAgentsWebFetchURLSourceNone`
+
+                          This source contributes no URLs that may be fetched.
+
+                    - `AllowedDomains []string Optional`
+
+                    - `BlockedDomains []string Optional`
+
+                    - `MaxContentTokens int64 Optional`
+
+                      format: int32
+
+                  - `type BetaManagedAgentsWebSearchToolConfig`
+
+                    Configuration for the web_search tool.
+
+                    - `Type WebSearch`
+
+                    - `Enabled bool`
+
+                    - `Name WebSearch`
+
+                    - `PermissionPolicy BetaManagedAgentsWebSearchToolConfigPermissionPolicyUnion`
+
+                      Permission policy for tool execution.
+
+                      - `type BetaManagedAgentsAlwaysAllowPolicy`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `type BetaManagedAgentsAlwaysAskPolicy`
+
+                        Tool calls require user confirmation before execution.
+
+                      - `type BetaManagedAgentsAutoPolicy`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                    - `AllowedDomains []string Optional`
+
+                    - `BlockedDomains []string Optional`
+
+                    - `UserLocation BetaManagedAgentsUserLocation Optional`
+
+                      Approximate user location for search result localization.
+
+                      - `Type Approximate`
+
+                        Location precision. Only "approximate" is supported.
+
+                      - `City string Optional`
+
+                        City name.
+
+                        minLength: 1, maxLength: 255
+
+                      - `Country string Optional`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `Region string Optional`
+
+                        Region or state name.
+
+                        minLength: 1, maxLength: 255
+
+                      - `Timezone string Optional`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                        minLength: 1, maxLength: 255
+
+                - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
+
+                  Resolved default configuration for agent tools.
+
+                  - `Enabled bool`
+
+                  - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
+
+                    Permission policy for tool execution.
+
+                    - `type BetaManagedAgentsAlwaysAllowPolicy`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `type BetaManagedAgentsAlwaysAskPolicy`
+
+                      Tool calls require user confirmation before execution.
+
+                    - `type BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `type BetaManagedAgentsMCPToolset`
+
+                - `Type BetaManagedAgentsMCPToolsetType`
+
+                - `Configs []BetaManagedAgentsMCPToolConfig`
+
+                  - `Enabled bool`
+
+                  - `Name string`
+
+                  - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
+
+                    Permission policy for tool execution.
+
+                    - `type BetaManagedAgentsAlwaysAllowPolicy`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `type BetaManagedAgentsAlwaysAskPolicy`
+
+                      Tool calls require user confirmation before execution.
+
+                    - `type BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
+
+                  Resolved default configuration for all tools from an MCP server.
+
+                  - `Enabled bool`
+
+                  - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
+
+                    Permission policy for tool execution.
+
+                    - `type BetaManagedAgentsAlwaysAllowPolicy`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `type BetaManagedAgentsAlwaysAskPolicy`
+
+                      Tool calls require user confirmation before execution.
+
+                    - `type BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `MCPServerName string`
+
+              - `type BetaManagedAgentsCustomTool`
+
+                A custom tool as returned in API responses.
+
+                - `Type BetaManagedAgentsCustomToolType`
+
+                - `Description string`
+
+                - `InputSchema BetaManagedAgentsCustomToolInputSchema`
+
+                  JSON Schema for custom tool input parameters.
+
+                  - `Type Object`
+
+                  - `Properties map[string, any] Optional`
+
+                  - `Required []string Optional`
+
+                - `Name string`
+
+            - `Version int64`
+
+              format: int32
+
+          - `type BetaManagedAgentsAdvisor`
+
+            Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+            - `Type BetaManagedAgentsAdvisorType`
+
+            - `Model string`
+
+              The advisor model id.
+
+      - `Name string`
+
+      - `Skills []BetaManagedAgentsSessionAgentSkillUnion`
+
+        - `type BetaManagedAgentsAnthropicSkill`
+
+          A resolved Anthropic-managed skill.
+
+        - `type BetaManagedAgentsCustomSkill`
+
+          A resolved user-created custom skill.
+
+      - `System string`
+
+      - `Tools []BetaManagedAgentsSessionAgentToolUnion`
+
+        - `type BetaManagedAgentsAgentToolset20260401`
+
+        - `type BetaManagedAgentsMCPToolset`
+
+        - `type BetaManagedAgentsCustomTool`
+
+          A custom tool as returned in API responses.
+
+      - `Version int64`
+
+        format: int32
+
+    - `Budget BetaManagedAgentsBudgetLimit Optional`
+
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
+
+      - `Type BetaManagedAgentsBudgetLimitType`
+
+      - `MaxListCost BetaMonetaryAmount`
+
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
+
+        - `Amount string`
+
+          Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+        - `Currency BetaCurrency`
+
+          Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+    - `Metadata map[string, string] Optional`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `Title string Optional`
+
+      The session's new title. Present only when the update changed it.
+
+  - `type BetaManagedAgentsStartEvent`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `Type BetaManagedAgentsStartEventType`
+
+    - `Event BetaManagedAgentsStartEventPreviewUnion`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `type BetaManagedAgentsAgentMessagePreview`
+
+        - `Type BetaManagedAgentsAgentMessagePreviewType`
+
+        - `ID string`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+      - `type BetaManagedAgentsAgentThinkingPreview`
+
+        - `Type BetaManagedAgentsAgentThinkingPreviewType`
+
+        - `ID string`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+  - `type BetaManagedAgentsDeltaEvent`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `Type BetaManagedAgentsDeltaEventType`
+
+    - `Delta BetaManagedAgentsDeltaContent`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `Type BetaManagedAgentsDeltaContentType`
+
+      - `Content BetaManagedAgentsTextBlock`
+
+        A partial element of the content array at index, typed like the element itself — the same shape the buffered agent.message carries in content.
+
+      - `Index int64 Optional`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `EventID string`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+  - `type BetaManagedAgentsSystemMessageEvent`
+
+    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `Type BetaManagedAgentsSystemMessageEventType`
+
+    - `ID string`
+
+      Unique identifier for this event.
+
+    - `Content []BetaManagedAgentsSystemContentBlock`
+
+      System content blocks. Text-only.
+
+      - `Type BetaManagedAgentsSystemContentBlockType`
+
+      - `Text string`
+
+        The text content.
+
+        minLength: 1
+
+    - `ProcessedAt Time Optional`
+
+      Timestamp when this system message was processed.
+
+      format: date-time
+
+  - `type BetaManagedAgentsSessionUsageEvent`
+
+    Periodic snapshot of the session's cumulative usage and tracked list cost.
+
+    - `Type BetaManagedAgentsSessionUsageEventType`
+
+    - `ID string`
+
+      Unique identifier for this event.
+
+    - `ProcessedAt Time`
+
+      Timestamp when the snapshot was taken.
+
+      format: date-time
+
+    - `Usage BetaManagedAgentsSessionUsageSnapshot`
+
+      The session's cumulative usage at the snapshot time.
+
+      - `ActiveSeconds float64 Optional`
+
+        Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
+
+        format: double
+
+      - `CacheCreation BetaManagedAgentsCacheCreationUsage Optional`
+
+        Tokens used to create prompt cache entries, broken down by cache TTL.
+
+        - `Ephemeral1hInputTokens int64 Optional`
+
+          Tokens used to create 1-hour ephemeral cache entries.
+
+          format: int32
+
+        - `Ephemeral5mInputTokens int64 Optional`
+
+          Tokens used to create 5-minute ephemeral cache entries.
+
+          format: int32
+
+      - `CacheReadInputTokens int64 Optional`
+
+        Total tokens read from prompt cache.
+
+        format: int32
+
+      - `InputTokens int64 Optional`
+
+        Total input tokens consumed across all turns.
+
+        format: int32
+
+      - `ListCost BetaMonetaryAmount Optional`
+
+        Cumulative list cost of the session across all turns, priced at public list rates.
+
+      - `OutputTokens int64 Optional`
+
+        Total output tokens generated across all turns.
+
+        format: int32
+
+      - `ServerToolUse BetaManagedAgentsServerToolUsage Optional`
+
+        Cumulative server-executed tool usage across all turns.
+
+        - `WebFetchRequests int64 Optional`
+
+          Number of server-executed web fetch requests.
+
+          format: int32
+
+        - `WebSearchRequests int64 Optional`
+
+          Number of server-executed web search requests.
+
+          format: int32
+
+    - `Budget BetaManagedAgentsBudgetLimit Optional`
+
+      The session's configured budget at the snapshot time, or null when the session has no budget.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	stream := client.Beta.Sessions.Threads.Events.StreamEvents(
+		context.TODO(),
+		"sthr_011CZkZVWa6oJjw1rgXZpnBt",
+		anthropic.BetaSessionThreadEventStreamParams{
+			SessionID: "sesn_011CZkZAtmR3yMPDzynEDxu7",
+		},
+	)
+	for stream.Next() {
+		fmt.Printf("%+v\n", stream.Current())
+	}
+	err := stream.Err()
+	if err != nil {
+		panic(err.Error())
+	}
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "sevt_011CZkZGPp1iBcp4kaQSihUm",
+  "content": [
+    {
+      "text": "Where is my order #1234?",
+      "type": "text"
+    }
+  ],
+  "type": "user.message",
+  "processed_at": "2026-03-15T10:00:00Z"
+}
+```
+
+## Beta › Deployments
+
+### Create Deployment
+
+`client.Beta.Deployments.New(ctx, params) (*BetaManagedAgentsDeployment, error)`
+
+**POST** `/v1/deployments`
+
+Create Deployment
+
+#### Parameters
+
+- `params BetaDeploymentNewParams`
+
+  - `Agent BetaDeploymentNewParamsAgentUnion`
+
+    Agent to deploy. Accepts the `agent` ID string, which pins the latest version, or an `agent` object with both id and version specified. The agent must exist and not be archived.
+
+    - `string`
+
+    - `type BetaManagedAgentsAgentParamsResp`
+
+      Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
+
+      - `Type BetaManagedAgentsAgentParamsType`
+
+      - `ID string`
+
+        The `agent` ID.
+
+        minLength: 1, maxLength: 128
+
+      - `Version int64 Optional`
+
+        The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+        format: int32
+
+  - `EnvironmentID string`
+
+    ID of the `environment` defining the container configuration for sessions created from this deployment.
+
+    minLength: 1, maxLength: 128
+
+  - `InitialEvents []BetaManagedAgentsDeploymentInitialEventParamsUnion`
+
+    Events to send to each session immediately after creation. At least 1, maximum 50.
+
+    - `type BetaManagedAgentsUserMessageEventParams`
+
+      Parameters for sending a user message to the session.
+
+      - `Type BetaManagedAgentsUserMessageEventParamsType`
+
+      - `Content []BetaManagedAgentsUserMessageEventParamsContentUnionResp`
+
+        Array of content blocks for the user message.
+
+        - `type BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `Type BetaManagedAgentsTextBlockType`
+
+          - `Text string`
+
+            The text content.
+
+            minLength: 1
+
+        - `type BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `Type BetaManagedAgentsImageBlockType`
+
+          - `Source BetaManagedAgentsImageBlockSourceUnion`
+
+            The source of the image data.
+
+            - `type BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `Type BetaManagedAgentsBase64ImageSourceType`
+
+              - `Data string`
+
+                Base64-encoded image data.
+
+                minLength: 1
+
+              - `MediaType string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+                minLength: 1
+
+            - `type BetaManagedAgentsURLImageSource`
+
+              Image referenced by URL.
+
+              - `Type BetaManagedAgentsURLImageSourceType`
+
+              - `URL string`
+
+                URL of the image to fetch.
+
+                minLength: 1
+
+            - `type BetaManagedAgentsFileImageSource`
+
+              Image referenced by file ID.
+
+              - `Type BetaManagedAgentsFileImageSourceType`
+
+              - `FileID string`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+        - `type BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `Type BetaManagedAgentsDocumentBlockType`
+
+          - `Source BetaManagedAgentsDocumentBlockSourceUnion`
+
+            The source of the document data.
+
+            - `type BetaManagedAgentsBase64DocumentSource`
+
+              Base64-encoded document data.
+
+              - `Type BetaManagedAgentsBase64DocumentSourceType`
+
+              - `Data string`
+
+                Base64-encoded document data.
+
+                minLength: 1
+
+              - `MediaType string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+                minLength: 1
+
+            - `type BetaManagedAgentsPlainTextDocumentSource`
+
+              Plain text document content.
+
+              - `Type BetaManagedAgentsPlainTextDocumentSourceType`
+
+              - `Data string`
+
+                The plain text content.
+
+                minLength: 1
+
+              - `MediaType BetaManagedAgentsPlainTextDocumentSourceMediaType`
+
+                MIME type of the text content. Must be "text/plain".
+
+            - `type BetaManagedAgentsURLDocumentSource`
+
+              Document referenced by URL.
+
+              - `Type BetaManagedAgentsURLDocumentSourceType`
+
+              - `URL string`
+
+                URL of the document to fetch.
+
+                minLength: 1
+
+            - `type BetaManagedAgentsFileDocumentSource`
+
+              Document referenced by file ID.
+
+              - `Type BetaManagedAgentsFileDocumentSourceType`
+
+              - `FileID string`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+          - `Context string Optional`
+
+            Additional context about the document for the model.
+
+          - `Title string Optional`
+
+            The title of the document.
+
+        - `type BetaManagedAgentsRedactedBlockParam`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `Type BetaManagedAgentsRedactedBlockType`
+
+    - `type BetaManagedAgentsUserDefineOutcomeEventParams`
+
+      Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+      - `Type BetaManagedAgentsUserDefineOutcomeEventParamsType`
+
+      - `Description string`
+
+        What the agent should produce. This is the task specification.
+
+      - `Rubric BetaManagedAgentsUserDefineOutcomeEventParamsRubricUnionResp`
+
+        How to grade the outcome. Text or file reference.
+
+        - `type BetaManagedAgentsFileRubricParams`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `Type BetaManagedAgentsFileRubricParamsType`
+
+          - `FileID string`
+
+            ID of the rubric file.
+
+        - `type BetaManagedAgentsTextRubricParams`
+
+          Rubric content provided inline as text.
+
+          - `Type BetaManagedAgentsTextRubricParamsType`
+
+          - `Content string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
+
+            maxLength: 262144
+
+      - `MaxIterations int64 Optional`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+        format: int32
+
+    - `type BetaManagedAgentsSystemMessageEventParamsResp`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
+
+      - `Type BetaManagedAgentsSystemMessageEventParamsType`
+
+      - `Content []BetaManagedAgentsSystemContentBlock`
+
+        System content blocks to append. Text-only.
+
+        - `Type BetaManagedAgentsSystemContentBlockType`
+
+        - `Text string`
+
+          The text content.
+
+          minLength: 1
+
+  - `Name string`
+
+    Human-readable name for the deployment.
+
+    minLength: 1, maxLength: 256
+
+  - `Budget BetaManagedAgentsBudgetLimitParam Optional`
+
+    Enforced spend ceiling stamped onto each session created from this deployment, copied at session-creation time. Omit to leave sessions uncapped. The deployment agent's model must have a public list price, or the request is rejected; a multiagent roster is re-validated in full when each fire copies the cap, which fails closed the same way.
+
+  - `Description param.Opt[string] Optional`
+
+    Description of what the deployment does.
+
+    maxLength: 2048
+
+  - `Metadata map[string, string] Optional`
+
+    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+  - `Resources []BetaDeploymentNewParamsResourceUnion Optional`
+
+    Resources (e.g. repositories, files) to mount into each session's container. Maximum 500.
+
+    - `type BetaManagedAgentsGitHubRepositoryResourceParamsResp`
+
+      Mount a GitHub repository into the session's container.
+
+      - `Type BetaManagedAgentsGitHubRepositoryResourceParamsType`
+
+      - `URL string`
+
+        Github URL of the repository
+
+        minLength: 1, maxLength: 2048
+
+      - `AuthorizationToken string Optional`
+
+        GitHub authorization token used to clone the repository. Required for private repositories; optional for public ones.
+
+        minLength: 1, maxLength: 4096
+
+      - `Checkout BetaManagedAgentsGitHubRepositoryResourceParamsCheckoutUnionResp Optional`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `type BetaManagedAgentsBranchCheckout`
+
+          - `Type BetaManagedAgentsBranchCheckoutType`
+
+          - `Name string`
+
+            Branch name to check out.
+
+            minLength: 1, maxLength: 255
+
+        - `type BetaManagedAgentsCommitCheckout`
+
+          - `Type BetaManagedAgentsCommitCheckoutType`
+
+          - `Sha string`
+
+            Full commit SHA to check out.
+
+            minLength: 7, maxLength: 64
+
+      - `MountPath string Optional`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+        minLength: 1, maxLength: 4096
+
+    - `type BetaManagedAgentsFileResourceParamsResp`
+
+      Mount a file uploaded via the Files API into the session.
+
+      - `Type BetaManagedAgentsFileResourceParamsType`
+
+      - `FileID string`
+
+        ID of a previously uploaded file.
+
+        minLength: 1, maxLength: 128
+
+      - `MountPath string Optional`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+        minLength: 1, maxLength: 4096
+
+    - `type BetaManagedAgentsMemoryStoreResourceParamResp`
+
+      Parameters for attaching a memory store to an agent session.
+
+      - `Type BetaManagedAgentsMemoryStoreResourceParamType`
+
+      - `MemoryStoreID string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `Access BetaManagedAgentsMemoryStoreResourceParamAccess Optional`
+
+        Access mode for the mounted store. Defaults to read_write. read_only mounts the store as a read-only filesystem.
+
+        - `const BetaManagedAgentsMemoryStoreResourceParamAccessReadWrite BetaManagedAgentsMemoryStoreResourceParamAccess = "read_write"`
+
+        - `const BetaManagedAgentsMemoryStoreResourceParamAccessReadOnly BetaManagedAgentsMemoryStoreResourceParamAccess = "read_only"`
+
+      - `Instructions string Optional`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+        maxLength: 4096
+
+  - `Schedule BetaManagedAgentsScheduleParams Optional`
+
+    Optional recurring cron schedule. When present, the deployment fires automatically. Both expression and timezone are required when schedule is set.
+
+  - `VaultIDs []string Optional`
+
+    Vault IDs for stored credentials the agent can use during sessions created from this deployment. Maximum 50.
+
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -131,7 +1547,792 @@
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `type BetaManagedAgentsDeployment`
+
+  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `Type BetaManagedAgentsDeploymentType`
+
+  - `ID string`
+
+    Unique identifier for this deployment.
+
+  - `Agent BetaManagedAgentsAgentReference`
+
+    Reference to the agent this deployment runs, resolved to a concrete version.
+
+    - `Type BetaManagedAgentsAgentReferenceType`
+
+    - `ID string`
+
+    - `Version int64`
+
+      format: int32
+
+  - `ArchivedAt Time`
+
+    Time the deployment was archived. Null if not archived.
+
+    format: date-time
+
+  - `CreatedAt Time`
+
+    Time the deployment was created.
+
+    format: date-time
+
+  - `Description string`
+
+    Description of what the deployment does.
+
+  - `EnvironmentID string`
+
+    ID of the `environment` where sessions run.
+
+  - `InitialEvents []BetaManagedAgentsDeploymentInitialEventUnion`
+
+    Events sent to each session immediately after creation.
+
+    - `type BetaManagedAgentsDeploymentUserMessageEvent`
+
+      A user message sent to the session.
+
+      - `Type BetaManagedAgentsDeploymentUserMessageEventType`
+
+      - `Content []BetaManagedAgentsDeploymentUserMessageEventContentUnion`
+
+        Array of content blocks for the user message.
+
+        - `type BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `Type BetaManagedAgentsTextBlockType`
+
+          - `Text string`
+
+            The text content.
+
+            minLength: 1
+
+        - `type BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `Type BetaManagedAgentsImageBlockType`
+
+          - `Source BetaManagedAgentsImageBlockSourceUnion`
+
+            The source of the image data.
+
+            - `type BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `Type BetaManagedAgentsBase64ImageSourceType`
+
+              - `Data string`
+
+                Base64-encoded image data.
+
+                minLength: 1
+
+              - `MediaType string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+                minLength: 1
+
+            - `type BetaManagedAgentsURLImageSource`
+
+              Image referenced by URL.
+
+              - `Type BetaManagedAgentsURLImageSourceType`
+
+              - `URL string`
+
+                URL of the image to fetch.
+
+                minLength: 1
+
+            - `type BetaManagedAgentsFileImageSource`
+
+              Image referenced by file ID.
+
+              - `Type BetaManagedAgentsFileImageSourceType`
+
+              - `FileID string`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+        - `type BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `Type BetaManagedAgentsDocumentBlockType`
+
+          - `Source BetaManagedAgentsDocumentBlockSourceUnion`
+
+            The source of the document data.
+
+            - `type BetaManagedAgentsBase64DocumentSource`
+
+              Base64-encoded document data.
+
+              - `Type BetaManagedAgentsBase64DocumentSourceType`
+
+              - `Data string`
+
+                Base64-encoded document data.
+
+                minLength: 1
+
+              - `MediaType string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+                minLength: 1
+
+            - `type BetaManagedAgentsPlainTextDocumentSource`
+
+              Plain text document content.
+
+              - `Type BetaManagedAgentsPlainTextDocumentSourceType`
+
+              - `Data string`
+
+                The plain text content.
+
+                minLength: 1
+
+              - `MediaType BetaManagedAgentsPlainTextDocumentSourceMediaType`
+
+                MIME type of the text content. Must be "text/plain".
+
+            - `type BetaManagedAgentsURLDocumentSource`
+
+              Document referenced by URL.
+
+              - `Type BetaManagedAgentsURLDocumentSourceType`
+
+              - `URL string`
+
+                URL of the document to fetch.
+
+                minLength: 1
+
+            - `type BetaManagedAgentsFileDocumentSource`
+
+              Document referenced by file ID.
+
+              - `Type BetaManagedAgentsFileDocumentSourceType`
+
+              - `FileID string`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+          - `Context string Optional`
+
+            Additional context about the document for the model.
+
+          - `Title string Optional`
+
+            The title of the document.
+
+        - `type BetaManagedAgentsRedactedBlockParam`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `Type BetaManagedAgentsRedactedBlockType`
+
+    - `type BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+
+      An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `Type BetaManagedAgentsDeploymentUserDefineOutcomeEventType`
+
+      - `Description string`
+
+        What the agent should produce. This is the task specification.
+
+      - `Rubric BetaManagedAgentsDeploymentUserDefineOutcomeEventRubricUnion`
+
+        How to grade the outcome. Text or file reference.
+
+        - `type BetaManagedAgentsFileRubric`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `Type BetaManagedAgentsFileRubricType`
+
+          - `FileID string`
+
+            ID of the rubric file.
+
+        - `type BetaManagedAgentsTextRubric`
+
+          Rubric content provided inline as text.
+
+          - `Type BetaManagedAgentsTextRubricType`
+
+          - `Content string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+      - `MaxIterations int64 Optional`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+        format: int32
+
+    - `type BetaManagedAgentsDeploymentSystemMessageEvent`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
+
+      - `Type BetaManagedAgentsDeploymentSystemMessageEventType`
+
+      - `Content []BetaManagedAgentsSystemContentBlock`
+
+        System content blocks to append. Text-only.
+
+        - `Type BetaManagedAgentsSystemContentBlockType`
+
+        - `Text string`
+
+          The text content.
+
+          minLength: 1
+
+  - `Metadata map[string, string]`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `Name string`
+
+    Human-readable name.
+
+  - `PausedReason BetaManagedAgentsDeploymentPausedReasonUnion`
+
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
+
+    - `type BetaManagedAgentsManualDeploymentPausedReason`
+
+      The caller invoked the pause endpoint on the deployment.
+
+      - `Type BetaManagedAgentsManualDeploymentPausedReasonType`
+
+    - `type BetaManagedAgentsErrorDeploymentPausedReason`
+
+      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `Type BetaManagedAgentsErrorDeploymentPausedReasonType`
+
+      - `Error BetaManagedAgentsDeploymentPausedReasonErrorUnion`
+
+        The failed run's error.
+
+        - `type BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+
+          The deployment's environment was archived.
+
+          - `Type BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonErrorType`
+
+        - `type BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+
+          The deployment's agent was archived.
+
+          - `Type BetaManagedAgentsAgentArchivedDeploymentPausedReasonErrorType`
+
+        - `type BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+
+          The deployment's environment no longer exists.
+
+          - `Type BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonErrorType`
+
+        - `type BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+
+          A vault referenced by the deployment no longer exists.
+
+          - `Type BetaManagedAgentsVaultNotFoundDeploymentPausedReasonErrorType`
+
+        - `type BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+
+          A file resource referenced by the deployment no longer exists.
+
+          - `Type BetaManagedAgentsFileNotFoundDeploymentPausedReasonErrorType`
+
+        - `type BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+
+          A referenced resource no longer exists and its kind was not reported.
+
+          - `Type BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonErrorType`
+
+        - `type BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+
+          The deployment's workspace was archived.
+
+          - `Type BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonErrorType`
+
+        - `type BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+
+          The deployment's organization is disabled.
+
+          - `Type BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonErrorType`
+
+        - `type BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+
+          A memory store referenced by the deployment is archived.
+
+          - `Type BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonErrorType`
+
+        - `type BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+
+          A skill referenced by the deployment's agent no longer exists.
+
+          - `Type BetaManagedAgentsSkillNotFoundDeploymentPausedReasonErrorType`
+
+        - `type BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+
+          A vault referenced by the deployment is archived.
+
+          - `Type BetaManagedAgentsVaultArchivedDeploymentPausedReasonErrorType`
+
+        - `type BetaManagedAgentsUnknownDeploymentPausedReasonError`
+
+          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+          - `Type BetaManagedAgentsUnknownDeploymentPausedReasonErrorType`
+
+        - `type BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+          The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+          - `Type BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonErrorType`
+
+        - `type BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+
+          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+          - `Type BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonErrorType`
+
+  - `Resources []BetaManagedAgentsSessionResourceConfigUnion`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+    - `type BetaManagedAgentsGitHubRepositoryResourceConfig`
+
+      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+      - `Type BetaManagedAgentsGitHubRepositoryResourceConfigType`
+
+      - `URL string`
+
+        Github URL of the repository
+
+      - `Checkout BetaManagedAgentsGitHubRepositoryResourceConfigCheckoutUnion Optional`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `type BetaManagedAgentsBranchCheckout`
+
+          - `Type BetaManagedAgentsBranchCheckoutType`
+
+          - `Name string`
+
+            Branch name to check out.
+
+            minLength: 1, maxLength: 255
+
+        - `type BetaManagedAgentsCommitCheckout`
+
+          - `Type BetaManagedAgentsCommitCheckoutType`
+
+          - `Sha string`
+
+            Full commit SHA to check out.
+
+            minLength: 7, maxLength: 64
+
+      - `MountPath string Optional`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `type BetaManagedAgentsFileResourceConfig`
+
+      A file mounted into each session's container.
+
+      - `Type BetaManagedAgentsFileResourceConfigType`
+
+      - `FileID string`
+
+        ID of a previously uploaded file.
+
+      - `MountPath string Optional`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `type BetaManagedAgentsMemoryStoreResourceConfig`
+
+      A memory store attached to each session created from this deployment.
+
+      - `Type BetaManagedAgentsMemoryStoreResourceConfigType`
+
+      - `MemoryStoreID string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `Access BetaManagedAgentsMemoryStoreResourceConfigAccess Optional`
+
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
+
+        - `const BetaManagedAgentsMemoryStoreResourceConfigAccessReadWrite BetaManagedAgentsMemoryStoreResourceConfigAccess = "read_write"`
+
+        - `const BetaManagedAgentsMemoryStoreResourceConfigAccessReadOnly BetaManagedAgentsMemoryStoreResourceConfigAccess = "read_only"`
+
+      - `Instructions string Optional`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `Schedule BetaManagedAgentsSchedule`
+
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
+
+    - `Type BetaManagedAgentsScheduleType`
+
+    - `Expression string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+      minLength: 1, maxLength: 256
+
+    - `Timezone string`
+
+      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+      minLength: 1
+
+    - `LastRunAt Time Optional`
+
+      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
+
+      format: date-time
+
+    - `UpcomingRunsAt []Time Optional`
+
+      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+  - `Status BetaManagedAgentsDeploymentStatus`
+
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
+
+    - `const BetaManagedAgentsDeploymentStatusActive BetaManagedAgentsDeploymentStatus = "active"`
+
+      The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
+
+    - `const BetaManagedAgentsDeploymentStatusPaused BetaManagedAgentsDeploymentStatus = "paused"`
+
+      The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
+
+  - `UpdatedAt Time`
+
+    Time the deployment was last updated.
+
+    format: date-time
+
+  - `VaultIDs []string`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+  - `Budget BetaManagedAgentsBudgetLimit Optional`
+
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
+
+    - `Type BetaManagedAgentsBudgetLimitType`
+
+    - `MaxListCost BetaMonetaryAmount`
+
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
+
+      - `Amount string`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `Currency BetaCurrency`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsDeployment, err := client.Beta.Deployments.New(context.TODO(), anthropic.BetaDeploymentNewParams{
+		Agent: anthropic.BetaDeploymentNewParamsAgentUnion{
+			OfString: anthropic.String("string"),
+		},
+		EnvironmentID: "x",
+		InitialEvents: []anthropic.BetaManagedAgentsDeploymentInitialEventParamsUnion{anthropic.BetaManagedAgentsDeploymentInitialEventParamsUnion{
+			OfUserMessage: &anthropic.BetaManagedAgentsUserMessageEventParams{
+				Content: []anthropic.BetaManagedAgentsUserMessageEventParamsContentUnion{anthropic.BetaManagedAgentsUserMessageEventParamsContentUnion{
+					OfText: &anthropic.BetaManagedAgentsTextBlockParam{
+						Text: "Where is my order #1234?",
+						Type: anthropic.BetaManagedAgentsTextBlockTypeText,
+					},
+				}},
+				Type: anthropic.BetaManagedAgentsUserMessageEventParamsTypeUserMessage,
+			},
+		}},
+		Name: "x",
+	})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsDeployment.ID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Compile yesterday's orders into report.md.",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {},
+  "name": "Daily order report",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
+    "type": "cron",
+    "last_run_at": "2026-03-16T16:00:09Z",
+    "upcoming_runs_at": [
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "budget": {
+    "max_list_cost": {
+      "amount": "2500",
+      "currency": "USD"
+    },
+    "type": "limit"
+  }
+}
+```
+
+### List Deployments
+
+`client.Beta.Deployments.List(ctx, params) (*PageCursor[BetaManagedAgentsDeployment], error)`
+
+**GET** `/v1/deployments`
+
+List Deployments
+
+#### Parameters
+
+- `params BetaDeploymentListParams`
+
+  - `AgentID param.Opt[string] Optional` (query parameter)
+
+    Filter by agent ID.
+
+  - `CreatedAtGte param.Opt[Time] Optional` (query parameter)
+
+    Return deployments created at or after this time (inclusive).
+
+    format: date-time
+
+  - `CreatedAtLte param.Opt[Time] Optional` (query parameter)
+
+    Return deployments created at or before this time (inclusive).
+
+    format: date-time
+
+  - `IncludeArchived param.Opt[bool] Optional` (query parameter)
+
+    When true, includes archived deployments. Default: false (exclude archived).
+
+  - `Limit param.Opt[int64] Optional` (query parameter)
+
+    Maximum results per page. Default 20, maximum 100.
+
+    format: int32
+
+  - `Page param.Opt[string] Optional` (query parameter)
+
+    Opaque pagination cursor.
+
+  - `Status BetaManagedAgentsDeploymentStatus Optional` (query parameter)
+
+    Filter by status: `active` or `paused`. Omit for both. To include archived deployments, use `include_archived` instead; the two cannot be combined.
+
+  - `Betas []AnthropicBeta Optional` (header parameter)
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
+
+    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
+
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -770,7 +2971,7 @@ Get Deployment
 
 - `query BetaDeploymentGetParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -874,7 +3075,7 @@ Get Deployment
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -1512,7 +3713,7 @@ Update Deployment
 
 - `params BetaDeploymentUpdateParams`
 
-  - `Agent param.Field[BetaDeploymentUpdateParamsAgentUnion] Optional`
+  - `Agent BetaDeploymentUpdateParamsAgentUnion Optional`
 
     Agent to deploy. Accepts the `agent` ID string, which re-pins to the latest version, or an `agent` object with both id and version specified. Omit to preserve. Cannot be cleared.
 
@@ -1536,23 +3737,23 @@ Update Deployment
 
         format: int32
 
-  - `Budget param.Field[BetaManagedAgentsBudgetLimit] Optional`
+  - `Budget BetaManagedAgentsBudgetLimitParam Optional`
 
     Spend ceiling for future sessions. Full replacement. Omit to preserve; send null to clear (sessions created afterwards are uncapped). The deployment agent's model must have a public list price, or the request is rejected; a multiagent roster is re-validated in full when each fire copies the cap, which fails closed the same way.
 
-  - `Description param.Field[string] Optional`
+  - `Description param.Opt[string] Optional`
 
     Description. Omit to preserve; send empty string or null to clear.
 
     maxLength: 2048
 
-  - `EnvironmentID param.Field[string] Optional`
+  - `EnvironmentID param.Opt[string] Optional`
 
     ID of the `environment` where sessions run. Omit to preserve. Cannot be cleared.
 
     maxLength: 128
 
-  - `InitialEvents param.Field[[]BetaManagedAgentsDeploymentInitialEventParamsUnionResp] Optional`
+  - `InitialEvents []BetaManagedAgentsDeploymentInitialEventParamsUnion Optional`
 
     Initial events. Full replacement. Omit to preserve. Cannot be cleared. At least 1, maximum 50.
 
@@ -1772,17 +3973,17 @@ Update Deployment
 
           minLength: 1
 
-  - `Metadata param.Field[map[string, string]] Optional`
+  - `Metadata map[string, string] Optional`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
 
-  - `Name param.Field[string] Optional`
+  - `Name param.Opt[string] Optional`
 
     Human-readable name. Must be non-empty. Omit to preserve. Cannot be cleared.
 
     maxLength: 256
 
-  - `Resources param.Field[[]BetaDeploymentUpdateParamsResourceUnion] Optional`
+  - `Resources []BetaDeploymentUpdateParamsResourceUnion Optional`
 
     Session resources. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 500.
 
@@ -1876,15 +4077,15 @@ Update Deployment
 
         maxLength: 4096
 
-  - `Schedule param.Field[BetaManagedAgentsScheduleParamsResp] Optional`
+  - `Schedule BetaManagedAgentsScheduleParams Optional`
 
     Cron schedule. Full replacement. Omit to preserve; send null to clear (revert to manual-only).
 
-  - `VaultIDs param.Field[[]string] Optional`
+  - `VaultIDs []string Optional`
 
     Vault IDs. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 50.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -1988,7 +4189,7 @@ Update Deployment
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -2626,7 +4827,7 @@ Archive Deployment
 
 - `body BetaDeploymentArchiveParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -2730,7 +4931,7 @@ Archive Deployment
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -3368,7 +5569,7 @@ Run Deployment Now
 
 - `body BetaDeploymentRunParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -3472,7 +5673,7 @@ Run Deployment Now
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -3772,7 +5973,7 @@ Pause Deployment
 
 - `body BetaDeploymentPauseParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -3876,7 +6077,7 @@ Pause Deployment
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -4514,7 +6715,7 @@ Unpause Deployment
 
 - `body BetaDeploymentUnpauseParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -4618,7 +6819,7 @@ Unpause Deployment
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -5254,53 +7455,53 @@ List Deployment Runs
 
 - `params BetaDeploymentRunListParams`
 
-  - `CreatedAtGt param.Field[Time] Optional` (query parameter)
+  - `CreatedAtGt param.Opt[Time] Optional` (query parameter)
 
     Return runs created strictly after this time (exclusive).
 
     format: date-time
 
-  - `CreatedAtGte param.Field[Time] Optional` (query parameter)
+  - `CreatedAtGte param.Opt[Time] Optional` (query parameter)
 
     Return runs created at or after this time (inclusive).
 
     format: date-time
 
-  - `CreatedAtLt param.Field[Time] Optional` (query parameter)
+  - `CreatedAtLt param.Opt[Time] Optional` (query parameter)
 
     Return runs created strictly before this time (exclusive).
 
     format: date-time
 
-  - `CreatedAtLte param.Field[Time] Optional` (query parameter)
+  - `CreatedAtLte param.Opt[Time] Optional` (query parameter)
 
     Return runs created at or before this time (inclusive).
 
     format: date-time
 
-  - `DeploymentID param.Field[string] Optional` (query parameter)
+  - `DeploymentID param.Opt[string] Optional` (query parameter)
 
     Filter to a specific deployment. Omit to list across all deployments in the workspace. Filtering by a non-existent `deployment_id` returns 200 with empty data.
 
-  - `HasError param.Field[bool] Optional` (query parameter)
+  - `HasError param.Opt[bool] Optional` (query parameter)
 
     Filter: true for runs with non-null `error`, false for runs with non-null `session_id`. Omit for all.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum results per page. Default 20, maximum 1000.
 
     format: int32
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque pagination cursor. Pass `next_page` from the previous response. Invalid or expired cursors return 400.
 
-  - `TriggerType param.Field[BetaManagedAgentsTriggerType] Optional` (query parameter)
+  - `TriggerType BetaManagedAgentsTriggerType Optional` (query parameter)
 
     Filter runs by what triggered them. Omit to return all runs.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -5404,7 +7605,7 @@ List Deployment Runs
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -5705,7 +7906,7 @@ Get Deployment Run
 
 - `query BetaDeploymentRunGetParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -5809,7 +8010,7 @@ Get Deployment Run
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -6107,17 +8308,17 @@ Create Vault
 
 - `params BetaVaultNewParams`
 
-  - `DisplayName param.Field[string]`
+  - `DisplayName string`
 
     Human-readable name for the vault. 1-255 characters.
 
     minLength: 1, maxLength: 255
 
-  - `Metadata param.Field[map[string, string]] Optional`
+  - `Metadata map[string, string] Optional`
 
     Arbitrary key-value metadata to attach to the vault. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -6221,7 +8422,7 @@ Create Vault
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -6320,21 +8521,21 @@ List Vaults
 
 - `params BetaVaultListParams`
 
-  - `IncludeArchived param.Field[bool] Optional` (query parameter)
+  - `IncludeArchived param.Opt[bool] Optional` (query parameter)
 
     Whether to include archived vaults in the results.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum number of vaults to return per page. Defaults to 20, maximum 100.
 
     format: int32
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque pagination token from a previous `list_vaults` response.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -6438,7 +8639,7 @@ List Vaults
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -6544,7 +8745,7 @@ Get Vault
 
 - `query BetaVaultGetParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -6648,7 +8849,7 @@ Get Vault
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -6753,17 +8954,17 @@ Update Vault
 
 - `params BetaVaultUpdateParams`
 
-  - `DisplayName param.Field[string] Optional`
+  - `DisplayName param.Opt[string] Optional`
 
     Updated human-readable name for the vault. 1-255 characters.
 
     minLength: 1, maxLength: 255
 
-  - `Metadata param.Field[map[string, string]] Optional`
+  - `Metadata map[string, string] Optional`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -6867,7 +9068,7 @@ Update Vault
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -6972,7 +9173,7 @@ Delete Vault
 
 - `body BetaVaultDeleteParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -7076,7 +9277,7 @@ Delete Vault
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -7148,7 +9349,7 @@ Archive Vault
 
 - `body BetaVaultArchiveParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -7252,7 +9453,7 @@ Archive Vault
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -7359,7 +9560,7 @@ Create Credential
 
 - `params BetaVaultCredentialNewParams`
 
-  - `Auth param.Field[BetaVaultCredentialNewParamsAuthUnion]`
+  - `Auth BetaVaultCredentialNewParamsAuthUnion`
 
     Authentication configuration for the credential.
 
@@ -7521,17 +9722,17 @@ Create Credential
 
           Substitute when the placeholder appears in a request header value.
 
-  - `DisplayName param.Field[string] Optional`
+  - `DisplayName param.Opt[string] Optional`
 
     Human-readable name for the credential. Up to 255 characters.
 
     maxLength: 255
 
-  - `Metadata param.Field[map[string, string]] Optional`
+  - `Metadata map[string, string] Optional`
 
     Arbitrary key-value metadata to attach to the credential. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -7635,7 +9836,7 @@ Create Credential
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -7836,7 +10037,7 @@ func main() {
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -7869,21 +10070,21 @@ List Credentials
 
 - `params BetaVaultCredentialListParams`
 
-  - `IncludeArchived param.Field[bool] Optional` (query parameter)
+  - `IncludeArchived param.Opt[bool] Optional` (query parameter)
 
     Whether to include archived credentials in the results.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum number of credentials to return per page. Defaults to 20, maximum 100.
 
     format: int32
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque pagination token from a previous `list_credentials` response.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -7987,7 +10188,7 @@ List Credentials
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -8182,7 +10383,7 @@ func main() {
 {
   "data": [
     {
-      "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+      "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
       "archived_at": null,
       "auth": {
         "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -8218,11 +10419,11 @@ Get Credential
 
 - `params BetaVaultCredentialGetParams`
 
-  - `VaultID param.Field[string]` (path parameter)
+  - `VaultID string` (path parameter)
 
     Identifier of the vault containing the credential.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -8326,7 +10527,7 @@ Get Credential
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -8505,7 +10706,7 @@ func main() {
 	)
 	betaManagedAgentsCredential, err := client.Beta.Vaults.Credentials.Get(
 		context.TODO(),
-		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		"vcrd_011CZkZEMt8gZan2iYPQfSkw",
 		anthropic.BetaVaultCredentialGetParams{
 			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
 		},
@@ -8521,7 +10722,7 @@ func main() {
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -8554,11 +10755,11 @@ Update Credential
 
 - `params BetaVaultCredentialUpdateParams`
 
-  - `VaultID param.Field[string]` (path parameter)
+  - `VaultID string` (path parameter)
 
     Identifier of the vault containing the credential.
 
-  - `Auth param.Field[BetaVaultCredentialUpdateParamsAuthUnion] Optional`
+  - `Auth BetaVaultCredentialUpdateParamsAuthUnion Optional`
 
     Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
 
@@ -8678,17 +10879,17 @@ Update Credential
 
         minLength: 1, maxLength: 4096
 
-  - `DisplayName param.Field[string] Optional`
+  - `DisplayName param.Opt[string] Optional`
 
     Updated human-readable name for the credential. 1-255 characters.
 
     minLength: 1, maxLength: 255
 
-  - `Metadata param.Field[map[string, string]] Optional`
+  - `Metadata map[string, string] Optional`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -8792,7 +10993,7 @@ Update Credential
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -8971,7 +11172,7 @@ func main() {
 	)
 	betaManagedAgentsCredential, err := client.Beta.Vaults.Credentials.Update(
 		context.TODO(),
-		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		"vcrd_011CZkZEMt8gZan2iYPQfSkw",
 		anthropic.BetaVaultCredentialUpdateParams{
 			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
 		},
@@ -8987,7 +11188,7 @@ func main() {
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -9020,11 +11221,11 @@ Delete Credential
 
 - `params BetaVaultCredentialDeleteParams`
 
-  - `VaultID param.Field[string]` (path parameter)
+  - `VaultID string` (path parameter)
 
     Identifier of the vault containing the credential.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -9128,7 +11329,7 @@ Delete Credential
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -9165,7 +11366,7 @@ func main() {
 	)
 	betaManagedAgentsDeletedCredential, err := client.Beta.Vaults.Credentials.Delete(
 		context.TODO(),
-		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		"vcrd_011CZkZEMt8gZan2iYPQfSkw",
 		anthropic.BetaVaultCredentialDeleteParams{
 			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
 		},
@@ -9181,7 +11382,7 @@ func main() {
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "type": "vault_credential_deleted"
 }
 ```
@@ -9202,11 +11403,11 @@ Archive Credential
 
 - `params BetaVaultCredentialArchiveParams`
 
-  - `VaultID param.Field[string]` (path parameter)
+  - `VaultID string` (path parameter)
 
     Identifier of the vault containing the credential.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -9310,7 +11511,7 @@ Archive Credential
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -9489,7 +11690,7 @@ func main() {
 	)
 	betaManagedAgentsCredential, err := client.Beta.Vaults.Credentials.Archive(
 		context.TODO(),
-		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		"vcrd_011CZkZEMt8gZan2iYPQfSkw",
 		anthropic.BetaVaultCredentialArchiveParams{
 			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
 		},
@@ -9505,7 +11706,7 @@ func main() {
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -9538,11 +11739,11 @@ Validate Credential
 
 - `params BetaVaultCredentialMCPOAuthValidateParams`
 
-  - `VaultID param.Field[string]` (path parameter)
+  - `VaultID string` (path parameter)
 
     Identifier of the vault containing the credential.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -9646,7 +11847,7 @@ Validate Credential
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -9771,7 +11972,7 @@ func main() {
 	)
 	betaManagedAgentsCredentialValidation, err := client.Beta.Vaults.Credentials.MCPOAuthValidate(
 		context.TODO(),
-		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		"vcrd_011CZkZEMt8gZan2iYPQfSkw",
 		anthropic.BetaVaultCredentialMCPOAuthValidateParams{
 			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
 		},
@@ -9787,7 +11988,7 @@ func main() {
 
 ```json
 {
-  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "credential_id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "has_refresh_token": true,
   "mcp_probe": {
     "http_response": {
@@ -9828,23 +12029,23 @@ Create a memory store
 
 - `params BetaMemoryStoreNewParams`
 
-  - `Name param.Field[string]`
+  - `Name string`
 
     Human-readable name for the store. Required; 1–255 characters; no control characters. The mount-path slug under `/mnt/memory/` is derived from this name (lowercased, non-alphanumeric runs collapsed to a hyphen). Names need not be unique within a workspace.
 
     minLength: 1, maxLength: 255
 
-  - `Description param.Field[string] Optional`
+  - `Description param.Opt[string] Optional`
 
     Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent.
 
     maxLength: 1024
 
-  - `Metadata param.Field[map[string, string]] Optional`
+  - `Metadata map[string, string] Optional`
 
     Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Not visible to the agent.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -9948,7 +12149,7 @@ Create a memory store
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -10052,33 +12253,33 @@ List memory stores
 
 - `params BetaMemoryStoreListParams`
 
-  - `CreatedAtGte param.Field[Time] Optional` (query parameter)
+  - `CreatedAtGte param.Opt[Time] Optional` (query parameter)
 
     Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
 
     format: date-time
 
-  - `CreatedAtLte param.Field[Time] Optional` (query parameter)
+  - `CreatedAtLte param.Opt[Time] Optional` (query parameter)
 
     Return only stores whose `created_at` is at or before this time (inclusive). Sent on the wire as `created_at[lte]`.
 
     format: date-time
 
-  - `IncludeArchived param.Field[bool] Optional` (query parameter)
+  - `IncludeArchived param.Opt[bool] Optional` (query parameter)
 
     When `true`, archived stores are included in the results. Defaults to `false` (archived stores are excluded).
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum number of stores to return per page. Must be between 1 and 100. Defaults to 20 when omitted.
 
     format: int32
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -10182,7 +12383,7 @@ List memory stores
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -10291,7 +12492,7 @@ Retrieve a memory store
 
 - `query BetaMemoryStoreGetParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -10395,7 +12596,7 @@ Retrieve a memory store
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -10505,23 +12706,23 @@ Update a memory store
 
 - `params BetaMemoryStoreUpdateParams`
 
-  - `Description param.Field[string] Optional`
+  - `Description param.Opt[string] Optional`
 
     New description for the store, up to 1024 characters. Pass an empty string to clear it.
 
     maxLength: 1024
 
-  - `Metadata param.Field[map[string, string]] Optional`
+  - `Metadata map[string, string] Optional`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
 
-  - `Name param.Field[string] Optional`
+  - `Name param.Opt[string] Optional`
 
     New human-readable name for the store. 1–255 characters; no control characters. Renaming changes the slug used for the store's `mount_path` in sessions created after the update.
 
     minLength: 1, maxLength: 255
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -10625,7 +12826,7 @@ Update a memory store
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -10735,7 +12936,7 @@ Delete a memory store
 
 - `body BetaMemoryStoreDeleteParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -10839,7 +13040,7 @@ Delete a memory store
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -10911,7 +13112,7 @@ Archive a memory store
 
 - `body BetaMemoryStoreArchiveParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -11015,7 +13216,7 @@ Archive a memory store
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -11127,21 +13328,21 @@ Create a memory
 
 - `params BetaMemoryStoreMemoryNewParams`
 
-  - `Content param.Field[string]`
+  - `Content param.Opt[string]`
 
     UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
 
-  - `Path param.Field[string]`
+  - `Path string`
 
     Hierarchical path for the new memory, e.g. `/projects/foo/notes.md`. Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, or the Unicode line and paragraph separators (U+2028, U+2029), and must be NFC-normalized. Paths are case-sensitive.
 
     minLength: 2, maxLength: 1024
 
-  - `View param.Field[BetaManagedAgentsMemoryView] Optional` (query parameter)
+  - `View BetaManagedAgentsMemoryView Optional` (query parameter)
 
     Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -11245,7 +13446,7 @@ Create a memory
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -11366,31 +13567,31 @@ List memories
 
 - `params BetaMemoryStoreMemoryListParams`
 
-  - `Depth param.Field[int64] Optional` (query parameter)
+  - `Depth param.Opt[int64] Optional` (query parameter)
 
     `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
 
     format: int32
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
 
     format: int32
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
 
-  - `PathPrefix param.Field[string] Optional` (query parameter)
+  - `PathPrefix param.Opt[string] Optional` (query parameter)
 
     Optional path prefix filter. Must end with `/` (segment-aligned), e.g., `/notes/`. This value appears in request URLs. Do not include secrets or personally identifiable information.
 
-  - `View param.Field[BetaManagedAgentsMemoryView] Optional` (query parameter)
+  - `View BetaManagedAgentsMemoryView Optional` (query parameter)
 
     Which projection of each `memory` to return. Defaults to `basic` (content omitted). `full` populates `content` on each item and caps `limit` at 20; use this as the bulk-read path for export and sync.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -11494,7 +13695,7 @@ List memories
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -11631,15 +13832,15 @@ Retrieve a memory
 
 - `params BetaMemoryStoreMemoryGetParams`
 
-  - `MemoryStoreID param.Field[string]` (path parameter)
+  - `MemoryStoreID string` (path parameter)
 
     The ID of the memory store that holds the memory (`memstore_...`).
 
-  - `View param.Field[BetaManagedAgentsMemoryView] Optional` (query parameter)
+  - `View BetaManagedAgentsMemoryView Optional` (query parameter)
 
     Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -11743,7 +13944,7 @@ Retrieve a memory
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -11863,29 +14064,29 @@ Update a memory
 
 - `params BetaMemoryStoreMemoryUpdateParams`
 
-  - `MemoryStoreID param.Field[string]` (path parameter)
+  - `MemoryStoreID string` (path parameter)
 
     The ID of the memory store that holds the memory (`memstore_...`).
 
-  - `View param.Field[BetaManagedAgentsMemoryView] Optional` (query parameter)
+  - `View BetaManagedAgentsMemoryView Optional` (query parameter)
 
     Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
-  - `Content param.Field[string] Optional`
+  - `Content param.Opt[string] Optional`
 
     New UTF-8 text content for the memory. Maximum 100 kB (102,400 bytes). Omit to leave the content unchanged (e.g., for a rename-only update).
 
-  - `Path param.Field[string] Optional`
+  - `Path param.Opt[string] Optional`
 
     New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, or the Unicode line and paragraph separators (U+2028, U+2029), and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
 
     minLength: 2, maxLength: 1024
 
-  - `Precondition param.Field[BetaManagedAgentsPrecondition] Optional`
+  - `Precondition BetaManagedAgentsPreconditionParam Optional`
 
     Optional optimistic-concurrency precondition. When supplied, the update applies only if the memory's current state matches; on mismatch the request returns `memory_precondition_failed_error` (HTTP 409). When omitted, the update is unconditional.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -11989,7 +14190,7 @@ Update a memory
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -12109,17 +14310,17 @@ Delete a memory
 
 - `params BetaMemoryStoreMemoryDeleteParams`
 
-  - `MemoryStoreID param.Field[string]` (path parameter)
+  - `MemoryStoreID string` (path parameter)
 
     The ID of the memory store that holds the memory (`memstore_...`).
 
-  - `ExpectedContentSha256 param.Field[string] Optional` (query parameter)
+  - `ExpectedContentSha256 param.Opt[string] Optional` (query parameter)
 
     Delete the memory only if its current `content_sha256` equals this value, given as 64 lowercase hexadecimal characters. Omit it to delete unconditionally.
 
     If the hashes differ, the request fails with HTTP status 409 and nothing is deleted.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -12223,7 +14424,7 @@ Delete a memory
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -12299,55 +14500,55 @@ List memory versions
 
 - `params BetaMemoryStoreMemoryVersionListParams`
 
-  - `APIKeyID param.Field[string] Optional` (query parameter)
+  - `APIKeyID param.Opt[string] Optional` (query parameter)
 
     Return only versions written with the API key that has this ID.
 
-  - `CreatedAtGte param.Field[Time] Optional` (query parameter)
+  - `CreatedAtGte param.Opt[Time] Optional` (query parameter)
 
     Return versions created at or after this time (inclusive).
 
     format: date-time
 
-  - `CreatedAtLte param.Field[Time] Optional` (query parameter)
+  - `CreatedAtLte param.Opt[Time] Optional` (query parameter)
 
     Return versions created at or before this time (inclusive).
 
     format: date-time
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     The maximum number of versions to return per page. Defaults to 20.
 
     format: int32
 
-  - `MemoryID param.Field[string] Optional` (query parameter)
+  - `MemoryID param.Opt[string] Optional` (query parameter)
 
     Return only versions of the memory with this ID (`mem_...`).
 
     The filter still works after the memory is deleted. The results then include the version whose `operation` is `deleted`.
 
-  - `Operation param.Field[BetaManagedAgentsMemoryVersionOperation] Optional` (query parameter)
+  - `Operation BetaManagedAgentsMemoryVersionOperation Optional` (query parameter)
 
     Return only versions that record this kind of change.
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     The `next_page` value from a previous response, to get the next page. Omit it to get the first page.
 
-  - `ServiceAccountID param.Field[string] Optional` (query parameter)
+  - `ServiceAccountID param.Opt[string] Optional` (query parameter)
 
     Return only versions written by the service account with this ID (`svac_...`).
 
-  - `SessionID param.Field[string] Optional` (query parameter)
+  - `SessionID param.Opt[string] Optional` (query parameter)
 
     Return only versions written by the session with this ID.
 
-  - `View param.Field[BetaManagedAgentsMemoryView] Optional` (query parameter)
+  - `View BetaManagedAgentsMemoryView Optional` (query parameter)
 
     Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -12451,7 +14652,7 @@ List memory versions
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -12655,15 +14856,15 @@ Retrieve a memory version
 
 - `params BetaMemoryStoreMemoryVersionGetParams`
 
-  - `MemoryStoreID param.Field[string]` (path parameter)
+  - `MemoryStoreID string` (path parameter)
 
     The ID of the memory store that holds the version (`memstore_...`).
 
-  - `View param.Field[BetaManagedAgentsMemoryView] Optional` (query parameter)
+  - `View BetaManagedAgentsMemoryView Optional` (query parameter)
 
     Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -12767,7 +14968,7 @@ Retrieve a memory version
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -12968,11 +15169,11 @@ Redact a memory version
 
 - `params BetaMemoryStoreMemoryVersionRedactParams`
 
-  - `MemoryStoreID param.Field[string]` (path parameter)
+  - `MemoryStoreID string` (path parameter)
 
     The ID of the memory store that holds the version (`memstore_...`).
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -13076,7 +15277,7 @@ Redact a memory version
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -13275,19 +15476,19 @@ Upload File
 
 - `params BetaFileUploadParams`
 
-  - `File param.Field[Reader]`
+  - `File Reader`
 
     The file to upload. Only the final path component of the part's `filename` is kept; an absent or empty `filename` is replaced with `unnamed` plus the extension for the file's stored `mime_type`, when known.
 
     format: binary
 
-  - `ExpiresInSeconds param.Field[int64] Optional`
+  - `ExpiresInSeconds param.Opt[int64] Optional`
 
     Seconds from upload until the file expires and its bytes become permanently unavailable. Must be between 3600 (one hour) and 7776000 (ninety days).
 
     minimum: 3600, maximum: 7776000
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -13391,7 +15592,7 @@ Upload File
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -13521,11 +15722,11 @@ List Files
 
 - `params BetaFileListParams`
 
-  - `IDs param.Field[[]string] Optional` (query parameter)
+  - `IDs []string Optional` (query parameter)
 
     Restrict the result set to Files whose `id` is in this list. At most 100 entries (after de-duplication). Mutually exclusive with `page` and `limit`. When supplied, the response is always a single page (`next_page` is null). IDs that do not resolve to a visible File — including deleted Files — are silently omitted.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -13533,15 +15734,15 @@ List Files
 
     minimum: 1, maximum: 1000
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque page cursor returned in a prior list response's `next_page`. Prefixed `page_`.
 
-  - `ScopeID param.Field[string] Optional` (query parameter)
+  - `ScopeID param.Opt[string] Optional` (query parameter)
 
     Filter by scope ID. Only returns files associated with the specified scope (e.g., a session ID).
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -13645,7 +15846,7 @@ List Files
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -13780,7 +15981,7 @@ Download File
 
 - `query BetaFileDownloadParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -13884,7 +16085,7 @@ Download File
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -13939,7 +16140,7 @@ Get File Metadata
 
 - `query BetaFileGetMetadataParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -14043,7 +16244,7 @@ Get File Metadata
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -14177,7 +16378,7 @@ Delete File
 
 - `body BetaFileDeleteParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -14281,7 +16482,7 @@ Delete File
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -14355,19 +16556,19 @@ Create Skill
 
 - `params BetaSkillNewParams`
 
-  - `Files param.Field[[]Reader]`
+  - `Files []Reader`
 
     Files to upload for the skill.
 
     All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
 
-  - `DisplayName param.Field[string] Optional`
+  - `DisplayName param.Opt[string] Optional`
 
     Human-readable, single-line label for the Skill. Maximum 255 characters.
     Always set: derived from the SKILL.md frontmatter `name` when omitted at
     creation. Not unique.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -14471,7 +16672,7 @@ Create Skill
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -14604,7 +16805,7 @@ List Skills
 
 - `params BetaSkillListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of results to return per page.
 
@@ -14612,13 +16813,13 @@ List Skills
 
     minimum: 1, maximum: 1000
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Pagination token for fetching a specific page of results.
 
     Pass the value from a previous response's `next_page` field to get the next page of results.
 
-  - `Source param.Field[string] Optional` (query parameter)
+  - `Source param.Opt[string] Optional` (query parameter)
 
     Filter skills by source.
 
@@ -14627,7 +16828,7 @@ List Skills
     * `"custom"`: only return user-created skills
     * `"anthropic"`: only return Anthropic-created skills
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -14731,7 +16932,7 @@ List Skills
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -14871,7 +17072,7 @@ Get Skill
 
 - `query BetaSkillGetParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -14975,7 +17176,7 @@ Get Skill
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -15114,7 +17315,7 @@ Delete Skill
 
 - `body BetaSkillDeleteParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -15218,7 +17419,7 @@ Delete Skill
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -15300,13 +17501,13 @@ Create Skill Version
 
 - `params BetaSkillVersionNewParams`
 
-  - `Files param.Field[[]Reader]`
+  - `Files []Reader`
 
     Files to upload for the skill.
 
     All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -15410,7 +17611,7 @@ Create Skill Version
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -15522,7 +17723,7 @@ List Skill Versions
 
 - `params BetaSkillVersionListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of results to return per page.
 
@@ -15530,11 +17731,11 @@ List Skill Versions
 
     minimum: 1, maximum: 1000
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Optionally set to the `next_page` token from the previous response.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -15638,7 +17839,7 @@ List Skill Versions
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -15751,13 +17952,13 @@ Download a skill version's content as a zip archive.
 
 - `params BetaSkillVersionDownloadParams`
 
-  - `SkillID param.Field[string]` (path parameter)
+  - `SkillID string` (path parameter)
 
     Unique identifier for the skill.
 
     The format and length of IDs may change over time.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -15861,7 +18062,7 @@ Download a skill version's content as a zip archive.
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -15920,13 +18121,13 @@ Get Skill Version
 
 - `params BetaSkillVersionGetParams`
 
-  - `SkillID param.Field[string]` (path parameter)
+  - `SkillID string` (path parameter)
 
     Unique identifier for the skill.
 
     The format and length of IDs may change over time.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -16030,7 +18231,7 @@ Get Skill Version
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -16140,13 +18341,13 @@ Delete Skill Version
 
 - `params BetaSkillVersionDeleteParams`
 
-  - `SkillID param.Field[string]` (path parameter)
+  - `SkillID string` (path parameter)
 
     Unique identifier for the skill.
 
     The format and length of IDs may change over time.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -16250,7 +18451,7 @@ Delete Skill Version
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -16327,7 +18528,7 @@ Create User Profile
 
 - `params BetaUserProfileNewParams`
 
-  - `AccessType param.Field[BetaUserProfileNewParamsAccessType] Optional`
+  - `AccessType BetaUserProfileNewParamsAccessType Optional`
 
     How the platform uses the API for this entity. `application` (default): the profile represents an individual end-user of the platform's product. `passthrough`: the profile identifies a company the platform resells Claude access to.
 
@@ -16339,33 +18540,33 @@ Create User Profile
 
       The user profile represents a company that the platform resells Claude access to.
 
-  - `ExternalID param.Field[string] Optional`
+  - `ExternalID param.Opt[string] Optional`
 
     Platform's own identifier for this user. Not enforced unique. Maximum 255 characters. Accepted under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` send `external_user_details.reference_id` instead.
 
     minLength: 1, maxLength: 255
 
-  - `ExternalUserDetails param.Field[BetaUserProfileExternalUserDetailsParamsResp] Optional`
+  - `ExternalUserDetails BetaUserProfileExternalUserDetailsParams Optional`
 
     Details about the entity this profile represents, as the platform states them. Every field is optional. Accepted under the `user-profiles-2026-09-04` beta header only.
 
-  - `ExternalUserOnboardedAt param.Field[Time] Optional`
+  - `ExternalUserOnboardedAt param.Opt[Time] Optional`
 
     When the entity this profile represents opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future. Optional. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
 
     format: date-time
 
-  - `Metadata param.Field[map[string, string]] Optional`
+  - `Metadata map[string, string] Optional`
 
     Free-form key-value data to attach to this user profile. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters. Values must be non-empty strings.
 
-  - `Name param.Field[string] Optional`
+  - `Name param.Opt[string] Optional`
 
     Optional for all profiles. Real-world name of the entity this profile represents (company or individual); for a company the platform resells Claude access to (`access_type` `passthrough`), that company's name where known. Maximum 255 characters.
 
     minLength: 1, maxLength: 255
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -16469,7 +18670,7 @@ Create User Profile
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -16668,13 +18869,13 @@ List User Profiles
 
 - `params BetaUserProfileListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     The maximum number of user profiles to return, from 1 to 100. Defaults to 20.
 
     format: int32
 
-  - `Order param.Field[BetaUserProfileListParamsOrder] Optional` (query parameter)
+  - `Order BetaUserProfileListParamsOrder Optional` (query parameter)
 
     The sort direction, applied to the field that `order_by` selects. Defaults to `desc`.
 
@@ -16686,7 +18887,7 @@ List User Profiles
 
       Newest first when `order_by` is `created_at`, or names in descending order when `order_by` is `name`. This is the default.
 
-  - `OrderBy param.Field[BetaUserProfileListParamsOrderBy] Optional` (query parameter)
+  - `OrderBy BetaUserProfileListParamsOrderBy Optional` (query parameter)
 
     The field to sort user profiles by, in the direction that `order` sets. Defaults to `created_at`.
 
@@ -16698,13 +18899,13 @@ List User Profiles
 
       Sort by `name`, ignoring the case of ASCII letters. Profiles without a name come last in either direction.
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     The cursor for the page to return, taken from `next_page` in a previous response.
 
     Leave it out to get the first page.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -16808,7 +19009,7 @@ List User Profiles
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -17016,7 +19217,7 @@ Get User Profile
 
 - `query BetaUserProfileGetParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -17120,7 +19321,7 @@ Get User Profile
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -17327,7 +19528,7 @@ Update User Profile
 
 - `params BetaUserProfileUpdateParams`
 
-  - `AccessType param.Field[BetaUserProfileUpdateParamsAccessType] Optional`
+  - `AccessType BetaUserProfileUpdateParamsAccessType Optional`
 
     If present, replaces the stored access type. Omit to leave unchanged.
 
@@ -17339,33 +19540,33 @@ Update User Profile
 
       The user profile represents a company that the platform resells Claude access to.
 
-  - `ExternalID param.Field[string] Optional`
+  - `ExternalID param.Opt[string] Optional`
 
     If present, replaces the stored external_id. Omit to leave unchanged. Maximum 255 characters. Accepted under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` send `external_user_details.reference_id` instead.
 
     minLength: 1, maxLength: 255
 
-  - `ExternalUserDetails param.Field[BetaUserProfileExternalUserDetailsParamsResp] Optional`
+  - `ExternalUserDetails BetaUserProfileExternalUserDetailsParams Optional`
 
     Details about the entity this profile represents, as the platform states them. Each field sent replaces the stored value; omit a field to leave it unchanged. Once set, a value cannot be cleared and `null` is rejected. Accepted under the `user-profiles-2026-09-04` beta header only.
 
-  - `ExternalUserOnboardedAt param.Field[Time] Optional`
+  - `ExternalUserOnboardedAt param.Opt[Time] Optional`
 
     If present, replaces the stored account creation time. Omit to leave unchanged; once set, the value cannot be cleared and `null` is rejected. Must be a complete RFC 3339 timestamp no more than 1 minute in the future. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
 
     format: date-time
 
-  - `Metadata param.Field[map[string, string]] Optional`
+  - `Metadata map[string, string] Optional`
 
     Key-value pairs to merge into the stored metadata. Keys provided overwrite existing values. To remove a key, set its value to an empty string. Keys not provided are left unchanged. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters.
 
-  - `Name param.Field[string] Optional`
+  - `Name param.Opt[string] Optional`
 
     If present, replaces the stored name. Omit to leave unchanged. Maximum 255 characters.
 
     minLength: 1, maxLength: 255
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -17469,7 +19670,7 @@ Update User Profile
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -17676,7 +19877,7 @@ Create Enrollment URL
 
 - `body BetaUserProfileNewEnrollmentURLParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -17780,7 +19981,7 @@ Create Enrollment URL
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -17863,7 +20064,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
 - `params BetaDreamNewParams`
 
-  - `Inputs param.Field[[]BetaDreamInputUnion]`
+  - `Inputs []BetaDreamInputUnionParam`
 
     The memory store and sessions for the dream to read, as exactly one `memory_store` entry and exactly one `sessions` entry.
 
@@ -17897,7 +20098,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
         The [limits table in the Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#limits) lists all the limits on a dream.
 
-  - `Model param.Field[BetaDreamNewParamsModelUnion]`
+  - `Model BetaDreamNewParamsModelUnion`
 
     The model that runs a dream, given as a model ID or as an object with `id` and `speed`.
 
@@ -17931,7 +20132,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
         - `const BetaDreamModelConfigParamSpeedFast BetaDreamModelConfigParamSpeed = "fast"`
 
-  - `Instructions param.Field[string] Optional`
+  - `Instructions param.Opt[string] Optional`
 
     Guidance that steers how the dream reads the sessions and organizes the output memory store, from 1 to 4,096 characters.
 
@@ -17939,11 +20140,11 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     minLength: 1, maxLength: 4096
 
-  - `OutputBehavior param.Field[BetaOutputBehaviorUnion] Optional`
+  - `OutputBehavior BetaOutputBehaviorUnionParam Optional`
 
     Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -18047,7 +20248,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -18372,35 +20573,35 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
 - `params BetaDreamListParams`
 
-  - `CreatedAtGt param.Field[Time] Optional` (query parameter)
+  - `CreatedAtGt param.Opt[Time] Optional` (query parameter)
 
     Return only dreams created after this time (exclusive), in RFC 3339.
 
     format: date-time
 
-  - `CreatedAtLt param.Field[Time] Optional` (query parameter)
+  - `CreatedAtLt param.Opt[Time] Optional` (query parameter)
 
     Return only dreams created before this time (exclusive), in RFC 3339.
 
     format: date-time
 
-  - `IncludeArchived param.Field[bool] Optional` (query parameter)
+  - `IncludeArchived param.Opt[bool] Optional` (query parameter)
 
     Whether to include archived dreams. Defaults to `false`.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     The maximum number of dreams to return, from 1 to 100. Defaults to 20.
 
     format: int32
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     The cursor for the page to return, taken from `next_page` in a previous response.
 
     Leave it out to get the first page.
 
-  - `Statuses param.Field[[]BetaDreamStatus] Optional` (query parameter)
+  - `Statuses []BetaDreamStatus Optional` (query parameter)
 
     Return only dreams that have one of these statuses.
 
@@ -18434,7 +20635,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
       If `outputs` references a memory store, that memory store keeps what the dream wrote. `usage` can keep changing after the cancel.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -18538,7 +20739,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -18862,7 +21063,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
 - `query BetaDreamGetParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -18966,7 +21167,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -19289,7 +21490,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
 - `body BetaDreamCancelParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -19393,7 +21594,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -19716,7 +21917,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
 - `body BetaDreamArchiveParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -19820,7 +22021,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -20139,13 +22340,13 @@ Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
 
 - `params BetaTunnelNewParams`
 
-  - `DisplayName param.Field[string] Optional`
+  - `DisplayName param.Opt[string] Optional`
 
     Optional human-readable name for the tunnel (1-255 characters).
 
     minLength: 1, maxLength: 255
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -20249,7 +22450,7 @@ Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -20343,7 +22544,7 @@ Fetches a tunnel by ID.
 
 - `query BetaTunnelGetParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -20447,7 +22648,7 @@ Fetches a tunnel by ID.
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -20541,21 +22742,21 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
 
 - `params BetaTunnelListParams`
 
-  - `IncludeArchived param.Field[bool] Optional` (query parameter)
+  - `IncludeArchived param.Opt[bool] Optional` (query parameter)
 
     Whether to include archived tunnels in the results. Defaults to false.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum number of tunnels to return per page. Defaults to 20, maximum 1000.
 
     format: int32
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque pagination cursor from a previous `list_tunnels` response.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -20659,7 +22860,7 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -20758,7 +22959,7 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
 
 - `body BetaTunnelArchiveParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -20862,7 +23063,7 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -20960,7 +23161,7 @@ Reveals a tunnel's connector token. The value is fetched live on each call; Anth
 
 - `body BetaTunnelRevealTokenParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -21064,7 +23265,7 @@ Reveals a tunnel's connector token. The value is fetched live on each call; Anth
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -21143,13 +23344,13 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
 - `params BetaTunnelRotateTokenParams`
 
-  - `Reason param.Field[string] Optional`
+  - `Reason param.Opt[string] Optional`
 
     Optional free-text reason for the rotation, recorded for audit.
 
     maxLength: 1024
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -21253,7 +23454,7 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -21334,13 +23535,13 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
 - `params BetaTunnelCertificateNewParams`
 
-  - `CACertificatePEM param.Field[string]`
+  - `CACertificatePEM string`
 
     PEM-encoded X.509 CA certificate. Must contain exactly one certificate and no private-key material. Maximum 8KB.
 
     maxLength: 8192
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -21444,7 +23645,7 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -21551,11 +23752,11 @@ Fetches a tunnel certificate by ID.
 
 - `params BetaTunnelCertificateGetParams`
 
-  - `TunnelID param.Field[string]` (path parameter)
+  - `TunnelID string` (path parameter)
 
     ID of the tunnel (`tnl_...`).
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -21659,7 +23860,7 @@ Fetches a tunnel certificate by ID.
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -21766,21 +23967,21 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
 - `params BetaTunnelCertificateListParams`
 
-  - `IncludeArchived param.Field[bool] Optional` (query parameter)
+  - `IncludeArchived param.Opt[bool] Optional` (query parameter)
 
     Whether to include archived certificates in the results. Defaults to false.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum number of certificates to return per page. Defaults to 20, maximum 1000.
 
     format: int32
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque pagination cursor from a previous `list_tunnel_certificates` response.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -21884,7 +24085,7 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -21994,11 +24195,11 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 
 - `params BetaTunnelCertificateArchiveParams`
 
-  - `TunnelID param.Field[string]` (path parameter)
+  - `TunnelID string` (path parameter)
 
     ID of the tunnel (`tnl_...`).
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -22102,7 +24303,7 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -22272,19 +24473,19 @@ List API Keys
 
 - `query BetaOrganizationAPIKeyListParams`
 
-  - `AfterID param.Field[string] Optional` (query parameter)
+  - `AfterID param.Opt[string] Optional` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `BeforeID param.Field[string] Optional` (query parameter)
+  - `BeforeID param.Opt[string] Optional` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `CreatedByUserID param.Field[string] Optional` (query parameter)
+  - `CreatedByUserID param.Opt[string] Optional` (query parameter)
 
     Filter by the ID of the User who created the object.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -22292,7 +24493,7 @@ List API Keys
 
     minimum: 1, maximum: 1000
 
-  - `Status param.Field[BetaOrganizationAPIKeyListParamsStatus] Optional` (query parameter)
+  - `Status BetaOrganizationAPIKeyListParamsStatus Optional` (query parameter)
 
     Filter by API key status.
 
@@ -22304,7 +24505,7 @@ List API Keys
 
     - `const BetaOrganizationAPIKeyListParamsStatusInactive BetaOrganizationAPIKeyListParamsStatus = "inactive"`
 
-  - `WorkspaceID param.Field[string] Optional` (query parameter)
+  - `WorkspaceID param.Opt[string] Optional` (query parameter)
 
     Filter by Workspace ID.
 
@@ -22697,13 +24898,13 @@ Update API Key
 
 - `body BetaOrganizationAPIKeyUpdateParams`
 
-  - `Name param.Field[string] Optional`
+  - `Name param.Opt[string] Optional`
 
     Name of the API key.
 
     minLength: 1, maxLength: 500
 
-  - `Status param.Field[BetaOrganizationAPIKeyUpdateParamsStatus] Optional`
+  - `Status BetaOrganizationAPIKeyUpdateParamsStatus Optional`
 
     Status of the API key.
 
@@ -22907,7 +25108,7 @@ Create an external key config owned by the caller's organization.
 
 - `body BetaOrganizationExternalKeyNewParams`
 
-  - `ProviderConfig param.Field[BetaOrganizationExternalKeyNewParamsProviderConfigUnion]`
+  - `ProviderConfig BetaOrganizationExternalKeyNewParamsProviderConfigUnion`
 
     KMS provider identity and auth coordinates.
 
@@ -22961,13 +25162,13 @@ Create an external key config owned by the caller's organization.
 
         Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
 
-  - `DisplayName param.Field[string] Optional`
+  - `DisplayName param.Opt[string] Optional`
 
     Human-friendly display name.
 
     minLength: 1, maxLength: 255
 
-  - `Geo param.Field[BetaOrganizationExternalKeyNewParamsGeo] Optional`
+  - `Geo BetaOrganizationExternalKeyNewParamsGeo Optional`
 
     Data residency geo. Only `us` is supported.
 
@@ -23143,13 +25344,13 @@ Results are ordered by creation time (newest first). Use the
 
 - `query BetaOrganizationExternalKeyListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of results per page.
 
     minimum: 1, maximum: 100
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page`.
 
@@ -23494,19 +25695,19 @@ encrypted data requires the original key identity to decrypt.
 
 - `body BetaOrganizationExternalKeyUpdateParams`
 
-  - `DisplayName param.Field[string] Optional`
+  - `DisplayName param.Opt[string] Optional`
 
     Human-friendly display name.
 
     minLength: 1, maxLength: 255
 
-  - `Geo param.Field[BetaOrganizationExternalKeyUpdateParamsGeo] Optional`
+  - `Geo BetaOrganizationExternalKeyUpdateParamsGeo Optional`
 
     Data residency geo. Only `us` is supported.
 
     - `const BetaOrganizationExternalKeyUpdateParamsGeoUs BetaOrganizationExternalKeyUpdateParamsGeo = "us"`
 
-  - `ProviderConfig param.Field[BetaOrganizationExternalKeyUpdateParamsProviderConfigUnion] Optional`
+  - `ProviderConfig BetaOrganizationExternalKeyUpdateParamsProviderConfigUnion Optional`
 
     KMS provider identity and auth coordinates.
 
@@ -23884,23 +26085,23 @@ matched as the JWT's `iss` claim and is not fetched.
 
 - `params BetaOrganizationFederationIssuerNewParams`
 
-  - `IssuerURL param.Field[string]`
+  - `IssuerURL string`
 
     The `iss` claim value to match against.
 
     minLength: 1
 
-  - `Name param.Field[string]`
+  - `Name string`
 
     Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
     minLength: 1, maxLength: 255
 
-  - `CheckJTI param.Field[bool] Optional`
+  - `CheckJTI param.Opt[bool] Optional`
 
     Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Defaults to true. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
 
-  - `JWKS param.Field[BetaOrganizationFederationIssuerNewParamsJWKSUnion] Optional`
+  - `JWKS BetaOrganizationFederationIssuerNewParamsJWKSUnion Optional`
 
     How signing keys are obtained. Defaults to OIDC discovery.
 
@@ -23950,13 +26151,13 @@ matched as the JWT's `iss` claim and is not fetched.
 
         minItems: 1
 
-  - `MaxJWTLifetimeSeconds param.Field[int64] Optional`
+  - `MaxJWTLifetimeSeconds param.Opt[int64] Optional`
 
     Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Defaults to 3600 (1h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
 
     minimum: 1, maximum: 176400
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -24273,21 +26474,21 @@ Archived issuers are excluded unless `include_archived=true`.
 
 - `params BetaOrganizationFederationIssuerListParams`
 
-  - `IncludeArchived param.Field[bool] Optional` (query parameter)
+  - `IncludeArchived param.Opt[bool] Optional` (query parameter)
 
     Include archived resources. Defaults to false.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of results per page.
 
     minimum: 1, maximum: 100
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page`.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -24608,7 +26809,7 @@ Retrieve a federation issuer by its ID (`fdis_...`).
 
 - `query BetaOrganizationFederationIssuerGetParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -24935,17 +27136,17 @@ session.
 
 - `params BetaOrganizationFederationIssuerUpdateParams`
 
-  - `CheckJTI param.Field[bool] Optional`
+  - `CheckJTI param.Opt[bool] Optional`
 
     Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
 
-  - `IssuerURL param.Field[string] Optional`
+  - `IssuerURL param.Opt[string] Optional`
 
     Replaces the `iss` claim value to match against. For discovery-mode issuers without a `discovery_base`, this is also the URL Anthropic fetches the OIDC discovery document and signing keys from, so changing it repoints the JWKS source. Changing the issuer URL to a well-known shared platform is rejected while any live rule under this issuer would not constrain tenant identity.
 
     minLength: 1
 
-  - `JWKS param.Field[BetaOrganizationFederationIssuerUpdateParamsJWKSUnion] Optional`
+  - `JWKS BetaOrganizationFederationIssuerUpdateParamsJWKSUnion Optional`
 
     Replaces the entire JWKS configuration.
 
@@ -24995,23 +27196,23 @@ session.
 
         minItems: 1
 
-  - `JWKSPollingDisabled param.Field[bool] Optional`
+  - `JWKSPollingDisabled param.Opt[bool] Optional`
 
     Only `false` is accepted, to re-enable polling after the system pauses it. Polling is paused automatically; sending `true` is rejected.
 
-  - `MaxJWTLifetimeSeconds param.Field[int64] Optional`
+  - `MaxJWTLifetimeSeconds param.Opt[int64] Optional`
 
     Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
 
     minimum: 1, maximum: 176400
 
-  - `Name param.Field[string] Optional`
+  - `Name param.Opt[string] Optional`
 
     Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
     minLength: 1, maxLength: 255
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -25336,7 +27537,7 @@ issuer cannot be changed), or recreate them against another issuer.
 
 - `body BetaOrganizationFederationIssuerArchiveParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -25668,55 +27869,55 @@ manage rules whose `oauth_scope` is `workspace:developer` or
 
 - `params BetaOrganizationFederationRuleNewParams`
 
-  - `IssuerID param.Field[string]`
+  - `IssuerID string`
 
     Tagged ID of the federation issuer.
 
-  - `Match param.Field[BetaFederationRuleMatch]`
+  - `Match BetaFederationRuleMatchParam`
 
     Conditions the verified JWT must satisfy for this rule to apply. At least one of `subject_prefix` (other than a wildcard-only value like `*`), `claims`, or `condition` is required; `audience` alone is not sufficient.
 
-  - `Name param.Field[string]`
+  - `Name string`
 
     Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
     minLength: 1, maxLength: 255
 
-  - `OAuthScope param.Field[string]`
+  - `OAuthScope string`
 
     Space-separated OAuth scopes. OAuth callers may only set `workspace:developer` or `workspace:inference`; other scopes (such as `org:admin`) require a Console session.
 
     minLength: 1
 
-  - `Target param.Field[BetaServiceAccountTarget]`
+  - `Target BetaServiceAccountTargetParam`
 
     Identity that tokens minted via this rule act as. Currently always a `service_account` target.
 
-  - `AppliesToAllWorkspaces param.Field[bool] Optional`
+  - `AppliesToAllWorkspaces param.Opt[bool] Optional`
 
     When true, enable this rule for every workspace in the org (including workspaces created later).
 
-  - `Attributes param.Field[map[string, string]] Optional`
+  - `Attributes map[string, string] Optional`
 
     CEL expressions `{name: expr}` extracting named values from claims. Not yet supported; any non-empty value is rejected with 400.
 
-  - `Description param.Field[string] Optional`
+  - `Description param.Opt[string] Optional`
 
     Optional free-text description.
 
     maxLength: 2000
 
-  - `TokenLifetimeSeconds param.Field[int64] Optional`
+  - `TokenLifetimeSeconds param.Opt[int64] Optional`
 
     Lifetime in seconds for access tokens minted via this rule (60-86400). Defaults to 3600 (1h). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
 
     minimum: 60, maximum: 86400
 
-  - `WorkspaceID param.Field[string] Optional`
+  - `WorkspaceID param.Opt[string] Optional`
 
     Tagged ID of the workspace to enable this rule for. Required unless `applies_to_all_workspaces` is true. Additional workspaces can be added via the `/federation_rules/{federation_rule_id}/workspaces` sub-resource.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -25919,7 +28120,7 @@ manage rules whose `oauth_scope` is `workspace:developer` or
 
   - `Target BetaServiceAccountTarget`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
     - `Type ServiceAccount`
 
@@ -26045,25 +28246,25 @@ unless `include_archived=true`.
 
 - `params BetaOrganizationFederationRuleListParams`
 
-  - `IncludeArchived param.Field[bool] Optional` (query parameter)
+  - `IncludeArchived param.Opt[bool] Optional` (query parameter)
 
     Include archived resources. Defaults to false.
 
-  - `IssuerID param.Field[string] Optional` (query parameter)
+  - `IssuerID param.Opt[string] Optional` (query parameter)
 
     Filter to rules referencing this federation issuer.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of results per page.
 
     minimum: 1, maximum: 100
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page`.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -26266,7 +28467,7 @@ unless `include_archived=true`.
 
   - `Target BetaServiceAccountTarget`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
     - `Type ServiceAccount`
 
@@ -26390,7 +28591,7 @@ Retrieve a federation rule by its ID (`fdrl_...`).
 
 - `query BetaOrganizationFederationRuleGetParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -26593,7 +28794,7 @@ Retrieve a federation rule by its ID (`fdrl_...`).
 
   - `Target BetaServiceAccountTarget`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
     - `Type ServiceAccount`
 
@@ -26732,51 +28933,51 @@ Console session.
 
 - `params BetaOrganizationFederationRuleUpdateParams`
 
-  - `AppliesToAllWorkspaces param.Field[bool] Optional`
+  - `AppliesToAllWorkspaces param.Opt[bool] Optional`
 
     When true, enables this rule for every workspace in the org (including workspaces created later). Setting `false` is rejected with 400 if no workspace would remain enabled; a rule with only a legacy `workspace_id` binding continues to mint.
 
-  - `Attributes param.Field[map[string, string]] Optional`
+  - `Attributes map[string, string] Optional`
 
     Replaces the CEL expressions `{name: expr}` extracting named values from claims. Send null to clear them. Not yet supported; any non-empty value is rejected with 400.
 
-  - `Description param.Field[string] Optional`
+  - `Description param.Opt[string] Optional`
 
     Replaces the description. Omit to leave unchanged; send `null` to clear (the field is stored as an empty string).
 
     maxLength: 2000
 
-  - `Match param.Field[BetaFederationRuleMatch] Optional`
+  - `Match BetaFederationRuleMatchParam Optional`
 
     Replaces the entire match object. All populated matcher fields must pass.
 
-  - `Name param.Field[string] Optional`
+  - `Name param.Opt[string] Optional`
 
     Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
     minLength: 1, maxLength: 255
 
-  - `OAuthScope param.Field[string] Optional`
+  - `OAuthScope param.Opt[string] Optional`
 
     Replaces the space-separated OAuth scopes granted on minted tokens. OAuth callers may only set `workspace:developer` or `workspace:inference`; other scopes (such as `org:admin`) require a Console session.
 
     minLength: 1
 
-  - `Target param.Field[BetaServiceAccountTarget] Optional`
+  - `Target BetaServiceAccountTargetParam Optional`
 
     Replaces the entire target object. Currently always a `service_account` target.
 
-  - `TokenLifetimeSeconds param.Field[int64] Optional`
+  - `TokenLifetimeSeconds param.Opt[int64] Optional`
 
     Replaces the lifetime in seconds for access tokens minted via this rule (60-86400). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
 
     minimum: 60, maximum: 86400
 
-  - `WorkspaceID param.Field[string] Optional`
+  - `WorkspaceID param.Opt[string] Optional`
 
     Replaces the existing single workspace enablement (the previous one is removed). Rejected with 400 if the rule is enabled for more than one workspace; use the `/federation_rules/{federation_rule_id}/workspaces` sub-resource instead.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -26979,7 +29180,7 @@ Console session.
 
   - `Target BetaServiceAccountTarget`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
     - `Type ServiceAccount`
 
@@ -27110,7 +29311,7 @@ other scopes require a Console session.
 
 - `body BetaOrganizationFederationRuleArchiveParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -27313,7 +29514,7 @@ other scopes require a Console session.
 
   - `Target BetaServiceAccountTarget`
 
-    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+    What this rule targets. Check `type` before reading the other fields. Tokens minted via a rule whose target `type` is `service_account` act as that service account.
 
     - `Type ServiceAccount`
 
@@ -27447,11 +29648,11 @@ other scopes require a Console session.
 
 - `params BetaOrganizationFederationRuleWorkspaceAddParams`
 
-  - `WorkspaceID param.Field[string]`
+  - `WorkspaceID string`
 
     Tagged ID of the workspace to enable this rule for.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -27653,17 +29854,17 @@ rules with `applies_to_all_workspaces` or a legacy single
 
 - `params BetaOrganizationFederationRuleWorkspaceListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of results per page.
 
     minimum: 1, maximum: 100
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page`.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -27849,2108 +30050,3 @@ func main() {
 `client.Beta.Organization.Federation.Rules.Workspaces.Remove(ctx, workspaceID, params) (*BetaOrganizationFederationRuleWorkspaceRemoveResponse, error)`
 
 **DELETE** `/v1/organizations/federation_rules/{federation_rule_id}/workspaces/{workspace_id}`
-
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
-
-Disable a federation rule for a workspace.
-
-Idempotent; succeeds even if the enablement was already removed. OAuth
-callers may only manage rules whose `oauth_scope` is
-`workspace:developer` or `workspace:inference`; other scopes require a
-Console session.
-
-#### Parameters
-
-- `workspaceID string` (path parameter)
-
-  ID of the workspace to disable for.
-
-- `params BetaOrganizationFederationRuleWorkspaceRemoveParams`
-
-  - `FederationRuleID param.Field[string]` (path parameter)
-
-    ID of the federation rule.
-
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
-
-    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
-
-    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
-
-    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
-
-    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
-
-    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
-
-    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
-
-    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
-
-    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
-
-    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
-
-    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
-
-    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
-
-    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
-
-    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
-
-    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
-
-    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
-
-    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
-
-    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
-
-    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
-
-    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
-
-    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
-
-    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
-
-    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
-
-    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
-
-    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
-
-    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
-
-    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
-
-    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
-
-    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
-
-    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
-
-    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
-
-    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
-
-    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
-
-    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
-
-    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
-
-    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
-
-    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
-
-    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
-
-    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
-
-    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
-
-    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
-
-    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
-
-    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
-
-    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
-
-    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
-
-    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
-
-    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
-
-    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
-
-    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
-
-    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
-
-#### Returns
-
-- `type BetaOrganizationFederationRuleWorkspaceRemoveResponse`
-
-  - `Type FederationRuleWorkspaceDeleted`
-
-    default: federation_rule_workspace_deleted
-
-  - `FederationRuleID string`
-
-    Tagged ID of the federation rule.
-
-  - `WorkspaceID string`
-
-    Tagged ID of the workspace named in the delete request. Removal is idempotent.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	workspace, err := client.Beta.Organization.Federation.Rules.Workspaces.Remove(
-		context.TODO(),
-		"workspace_id",
-		anthropic.BetaOrganizationFederationRuleWorkspaceRemoveParams{
-			FederationRuleID: "federation_rule_id",
-		},
-	)
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", workspace.FederationRuleID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "federation_rule_id": "federation_rule_id",
-  "type": "federation_rule_workspace_deleted",
-  "workspace_id": "workspace_id"
-}
-```
-
-## Beta › Organization › Invites
-
-### Create Invite
-
-`client.Beta.Organization.Invites.New(ctx, body) (*BetaOrganizationInvite, error)`
-
-**POST** `/v1/organizations/invites`
-
-Invite a user to join the organization by email.
-
-On plans that draw members from a finite pool of purchased seats, the invite automatically consumes a seat from the lowest tier with availability; there is no seat-tier parameter. When no seat is free the request fails with a 400 error rather than purchasing a seat.
-
-#### Parameters
-
-- `body BetaOrganizationInviteNewParams`
-
-  - `Email param.Field[string]`
-
-    Email of the User.
-
-    format: email
-
-  - `Role param.Field[BetaOrganizationInviteNewParamsRole]`
-
-    Role for the invited User.
-
-    The accepted values depend on the organization type. Console and API organizations accept `user`, `developer`, `billing`, and `claude_code_user`; `admin` cannot be assigned through the API. Claude Enterprise organizations accept `user` and `managed`.
-
-    - `const BetaOrganizationInviteNewParamsRoleBilling BetaOrganizationInviteNewParamsRole = "billing"`
-
-    - `const BetaOrganizationInviteNewParamsRoleClaudeCodeUser BetaOrganizationInviteNewParamsRole = "claude_code_user"`
-
-    - `const BetaOrganizationInviteNewParamsRoleDeveloper BetaOrganizationInviteNewParamsRole = "developer"`
-
-    - `const BetaOrganizationInviteNewParamsRoleManaged BetaOrganizationInviteNewParamsRole = "managed"`
-
-    - `const BetaOrganizationInviteNewParamsRoleUser BetaOrganizationInviteNewParamsRole = "user"`
-
-  - `RBACGroupIDs param.Field[[]string] Optional`
-
-    RBAC group IDs to assign to the User when the Invite is accepted. A non-empty array is accepted only for a Claude Enterprise organization with RBAC groups, and requires the key to carry the `write:rbac_groups` scope.
-
-    maxItems: 100
-
-#### Returns
-
-- `type BetaOrganizationInvite`
-
-  - `Type Invite`
-
-    Object type.
-
-    For Invites, this is always `"invite"`.
-
-    default: invite
-
-  - `ID string`
-
-    ID of the Invite.
-
-  - `AcceptedAt Time`
-
-    RFC 3339 datetime string indicating when the Invite was accepted, or null.
-
-    format: date-time
-
-  - `Email string`
-
-    Email of the User being invited.
-
-  - `ExpiresAt Time`
-
-    RFC 3339 datetime string indicating when the Invite expires.
-
-    format: date-time
-
-  - `InvitedAt Time`
-
-    RFC 3339 datetime string indicating when the Invite was created.
-
-    format: date-time
-
-  - `RBACGroupIDs []string`
-
-    RBAC group IDs recorded on the Invite (Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
-
-  - `Role BetaOrganizationRole`
-
-    Organization role of the User.
-
-    - `const BetaOrganizationRoleAdmin BetaOrganizationRole = "admin"`
-
-    - `const BetaOrganizationRoleBilling BetaOrganizationRole = "billing"`
-
-    - `const BetaOrganizationRoleClaudeCodeUser BetaOrganizationRole = "claude_code_user"`
-
-    - `const BetaOrganizationRoleDeveloper BetaOrganizationRole = "developer"`
-
-    - `const BetaOrganizationRoleManaged BetaOrganizationRole = "managed"`
-
-    - `const BetaOrganizationRoleMembershipAdmin BetaOrganizationRole = "membership_admin"`
-
-    - `const BetaOrganizationRoleOwner BetaOrganizationRole = "owner"`
-
-    - `const BetaOrganizationRolePrimaryOwner BetaOrganizationRole = "primary_owner"`
-
-    - `const BetaOrganizationRoleUser BetaOrganizationRole = "user"`
-
-  - `Status BetaOrganizationInviteStatus`
-
-    Status of the Invite.
-
-    - `const BetaOrganizationInviteStatusAccepted BetaOrganizationInviteStatus = "accepted"`
-
-    - `const BetaOrganizationInviteStatusDeleted BetaOrganizationInviteStatus = "deleted"`
-
-    - `const BetaOrganizationInviteStatusExpired BetaOrganizationInviteStatus = "expired"`
-
-    - `const BetaOrganizationInviteStatusPending BetaOrganizationInviteStatus = "pending"`
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	betaOrganizationInvite, err := client.Beta.Organization.Invites.New(context.TODO(), anthropic.BetaOrganizationInviteNewParams{
-		Email: "user@emaildomain.com",
-		Role:  anthropic.BetaOrganizationInviteNewParamsRoleUser,
-	})
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", betaOrganizationInvite.ID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "invite_015gWxCN9Hfg2QhZwTK7Mdeu",
-  "accepted_at": "2019-12-27T18:11:19.117Z",
-  "email": "user@emaildomain.com",
-  "expires_at": "2024-11-20T23:58:27.427722Z",
-  "invited_at": "2024-10-30T23:58:27.427722Z",
-  "rbac_group_ids": [
-    "string"
-  ],
-  "role": "admin",
-  "status": "pending",
-  "type": "invite"
-}
-```
-
-### List Invites
-
-`client.Beta.Organization.Invites.List(ctx, query) (*Page[BetaOrganizationInvite], error)`
-
-**GET** `/v1/organizations/invites`
-
-List the organization's invites.
-
-#### Parameters
-
-- `query BetaOrganizationInviteListParams`
-
-  - `AfterID param.Field[string] Optional` (query parameter)
-
-    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
-
-  - `BeforeID param.Field[string] Optional` (query parameter)
-
-    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
-
-  - `Email param.Field[string] Optional` (query parameter)
-
-    Filter by the email address the Invite was sent to. Matches the same way as the Users list's `email` filter (normalized, case-insensitive).
-
-    format: email
-
-  - `Limit param.Field[int64] Optional` (query parameter)
-
-    Number of items to return per page.
-
-    Defaults to `20`. Ranges from `1` to `1000`.
-
-    minimum: 1, maximum: 1000
-
-  - `Roles param.Field[[]string] Optional` (query parameter)
-
-    Filter to items whose `role` equals one of the supplied values. Repeatable; values are OR'ed together.
-
-    Accepted values depend on the organization type: Console and API organizations accept `user`, `developer`, `billing`, `admin`, and `claude_code_user`; Claude Enterprise organizations accept `user`, `owner`, `primary_owner`, `membership_admin`, and `managed`.
-
-  - `Statuses param.Field[[]string] Optional` (query parameter)
-
-    Filter by Invite status. Repeatable; values are OR'ed together. Omit to return `pending`, `accepted`, and `expired` Invites alike.
-
-    - `const BetaOrganizationInviteListParamsStatusAccepted BetaOrganizationInviteListParamsStatus = "accepted"`
-
-    - `const BetaOrganizationInviteListParamsStatusExpired BetaOrganizationInviteListParamsStatus = "expired"`
-
-    - `const BetaOrganizationInviteListParamsStatusPending BetaOrganizationInviteListParamsStatus = "pending"`
-
-#### Returns
-
-- `type BetaOrganizationInvite`
-
-  - `Type Invite`
-
-    Object type.
-
-    For Invites, this is always `"invite"`.
-
-    default: invite
-
-  - `ID string`
-
-    ID of the Invite.
-
-  - `AcceptedAt Time`
-
-    RFC 3339 datetime string indicating when the Invite was accepted, or null.
-
-    format: date-time
-
-  - `Email string`
-
-    Email of the User being invited.
-
-  - `ExpiresAt Time`
-
-    RFC 3339 datetime string indicating when the Invite expires.
-
-    format: date-time
-
-  - `InvitedAt Time`
-
-    RFC 3339 datetime string indicating when the Invite was created.
-
-    format: date-time
-
-  - `RBACGroupIDs []string`
-
-    RBAC group IDs recorded on the Invite (Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
-
-  - `Role BetaOrganizationRole`
-
-    Organization role of the User.
-
-    - `const BetaOrganizationRoleAdmin BetaOrganizationRole = "admin"`
-
-    - `const BetaOrganizationRoleBilling BetaOrganizationRole = "billing"`
-
-    - `const BetaOrganizationRoleClaudeCodeUser BetaOrganizationRole = "claude_code_user"`
-
-    - `const BetaOrganizationRoleDeveloper BetaOrganizationRole = "developer"`
-
-    - `const BetaOrganizationRoleManaged BetaOrganizationRole = "managed"`
-
-    - `const BetaOrganizationRoleMembershipAdmin BetaOrganizationRole = "membership_admin"`
-
-    - `const BetaOrganizationRoleOwner BetaOrganizationRole = "owner"`
-
-    - `const BetaOrganizationRolePrimaryOwner BetaOrganizationRole = "primary_owner"`
-
-    - `const BetaOrganizationRoleUser BetaOrganizationRole = "user"`
-
-  - `Status BetaOrganizationInviteStatus`
-
-    Status of the Invite.
-
-    - `const BetaOrganizationInviteStatusAccepted BetaOrganizationInviteStatus = "accepted"`
-
-    - `const BetaOrganizationInviteStatusDeleted BetaOrganizationInviteStatus = "deleted"`
-
-    - `const BetaOrganizationInviteStatusExpired BetaOrganizationInviteStatus = "expired"`
-
-    - `const BetaOrganizationInviteStatusPending BetaOrganizationInviteStatus = "pending"`
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	page, err := client.Beta.Organization.Invites.List(context.TODO(), anthropic.BetaOrganizationInviteListParams{})
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", page)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "invite_015gWxCN9Hfg2QhZwTK7Mdeu",
-      "accepted_at": "2019-12-27T18:11:19.117Z",
-      "email": "user@emaildomain.com",
-      "expires_at": "2024-11-20T23:58:27.427722Z",
-      "invited_at": "2024-10-30T23:58:27.427722Z",
-      "rbac_group_ids": [
-        "string"
-      ],
-      "role": "admin",
-      "status": "pending",
-      "type": "invite"
-    }
-  ],
-  "first_id": "first_id",
-  "has_more": true,
-  "last_id": "last_id"
-}
-```
-
-### Get Invite
-
-`client.Beta.Organization.Invites.Get(ctx, inviteID) (*BetaOrganizationInvite, error)`
-
-**GET** `/v1/organizations/invites/{invite_id}`
-
-Retrieve an invite by ID.
-
-#### Parameters
-
-- `inviteID string` (path parameter)
-
-  ID of the Invite.
-
-#### Returns
-
-- `type BetaOrganizationInvite`
-
-  - `Type Invite`
-
-    Object type.
-
-    For Invites, this is always `"invite"`.
-
-    default: invite
-
-  - `ID string`
-
-    ID of the Invite.
-
-  - `AcceptedAt Time`
-
-    RFC 3339 datetime string indicating when the Invite was accepted, or null.
-
-    format: date-time
-
-  - `Email string`
-
-    Email of the User being invited.
-
-  - `ExpiresAt Time`
-
-    RFC 3339 datetime string indicating when the Invite expires.
-
-    format: date-time
-
-  - `InvitedAt Time`
-
-    RFC 3339 datetime string indicating when the Invite was created.
-
-    format: date-time
-
-  - `RBACGroupIDs []string`
-
-    RBAC group IDs recorded on the Invite (Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
-
-  - `Role BetaOrganizationRole`
-
-    Organization role of the User.
-
-    - `const BetaOrganizationRoleAdmin BetaOrganizationRole = "admin"`
-
-    - `const BetaOrganizationRoleBilling BetaOrganizationRole = "billing"`
-
-    - `const BetaOrganizationRoleClaudeCodeUser BetaOrganizationRole = "claude_code_user"`
-
-    - `const BetaOrganizationRoleDeveloper BetaOrganizationRole = "developer"`
-
-    - `const BetaOrganizationRoleManaged BetaOrganizationRole = "managed"`
-
-    - `const BetaOrganizationRoleMembershipAdmin BetaOrganizationRole = "membership_admin"`
-
-    - `const BetaOrganizationRoleOwner BetaOrganizationRole = "owner"`
-
-    - `const BetaOrganizationRolePrimaryOwner BetaOrganizationRole = "primary_owner"`
-
-    - `const BetaOrganizationRoleUser BetaOrganizationRole = "user"`
-
-  - `Status BetaOrganizationInviteStatus`
-
-    Status of the Invite.
-
-    - `const BetaOrganizationInviteStatusAccepted BetaOrganizationInviteStatus = "accepted"`
-
-    - `const BetaOrganizationInviteStatusDeleted BetaOrganizationInviteStatus = "deleted"`
-
-    - `const BetaOrganizationInviteStatusExpired BetaOrganizationInviteStatus = "expired"`
-
-    - `const BetaOrganizationInviteStatusPending BetaOrganizationInviteStatus = "pending"`
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	betaOrganizationInvite, err := client.Beta.Organization.Invites.Get(context.TODO(), "invite_id")
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", betaOrganizationInvite.ID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "invite_015gWxCN9Hfg2QhZwTK7Mdeu",
-  "accepted_at": "2019-12-27T18:11:19.117Z",
-  "email": "user@emaildomain.com",
-  "expires_at": "2024-11-20T23:58:27.427722Z",
-  "invited_at": "2024-10-30T23:58:27.427722Z",
-  "rbac_group_ids": [
-    "string"
-  ],
-  "role": "admin",
-  "status": "pending",
-  "type": "invite"
-}
-```
-
-### Delete Invite
-
-`client.Beta.Organization.Invites.Delete(ctx, inviteID) (*BetaOrganizationInviteDeleteResponse, error)`
-
-**DELETE** `/v1/organizations/invites/{invite_id}`
-
-Delete a pending invite.
-
-#### Parameters
-
-- `inviteID string` (path parameter)
-
-  ID of the Invite.
-
-#### Returns
-
-- `type BetaOrganizationInviteDeleteResponse`
-
-  - `Type InviteDeleted`
-
-    Deleted object type.
-
-    For Invites, this is always `"invite_deleted"`.
-
-    default: invite_deleted
-
-  - `ID string`
-
-    ID of the Invite.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	invite, err := client.Beta.Organization.Invites.Delete(context.TODO(), "invite_id")
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", invite.ID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "invite_015gWxCN9Hfg2QhZwTK7Mdeu",
-  "type": "invite_deleted"
-}
-```
-
-## Beta › Organization › Service Accounts
-
-### Create Service Account
-
-`client.Beta.Organization.ServiceAccounts.New(ctx, params) (*BetaServiceAccount, error)`
-
-**POST** `/v1/organizations/service_accounts`
-
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
-
-Create a service account.
-
-A service account is a named workload identity that federation rules
-target. `organization_role` is `developer` (default) or `admin`; a rule
-may only be created or retargeted to grant `org:admin` scope when the
-target's `organization_role` is `admin`. Creating an `admin`-role service
-account requires an interactive credential (a user OAuth token or a
-Console session) — a workload may only create `developer`-role service
-accounts.
-
-#### Parameters
-
-- `params BetaOrganizationServiceAccountNewParams`
-
-  - `Name param.Field[string]`
-
-    Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
-
-    minLength: 1, maxLength: 255
-
-  - `Description param.Field[string] Optional`
-
-    Optional free-text description.
-
-    maxLength: 2000
-
-  - `OrganizationRole param.Field[BetaOrganizationServiceAccountNewParamsOrganizationRole] Optional`
-
-    Org-level role. Defaults to `developer`.
-
-    - `const BetaOrganizationServiceAccountNewParamsOrganizationRoleAdmin BetaOrganizationServiceAccountNewParamsOrganizationRole = "admin"`
-
-    - `const BetaOrganizationServiceAccountNewParamsOrganizationRoleDeveloper BetaOrganizationServiceAccountNewParamsOrganizationRole = "developer"`
-
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
-
-    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
-
-    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
-
-    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
-
-    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
-
-    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
-
-    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
-
-    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
-
-    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
-
-    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
-
-    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
-
-    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
-
-    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
-
-    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
-
-    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
-
-    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
-
-    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
-
-    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
-
-    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
-
-    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
-
-    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
-
-    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
-
-    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
-
-    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
-
-    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
-
-    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
-
-    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
-
-    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
-
-    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
-
-    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
-
-    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
-
-    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
-
-    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
-
-    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
-
-    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
-
-    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
-
-    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
-
-    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
-
-    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
-
-    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
-
-    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
-
-    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
-
-    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
-
-    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
-
-    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
-
-    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
-
-    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
-
-    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
-
-    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
-
-    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
-
-#### Returns
-
-- `type BetaServiceAccount`
-
-  Named non-human identity within the caller's organization.
-
-  A service account is a pure identity: name + org. Authorization lives on
-  whatever references it (federation rules).
-
-  - `Type ServiceAccount`
-
-    default: service_account
-
-  - `ID string`
-
-    Tagged ID of the service account.
-
-  - `ArchivedAt Time`
-
-    If set, this service account is archived.
-
-    format: date-time
-
-  - `ArchivedByActorID string`
-
-    Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
-
-  - `CreatedAt Time`
-
-    When this service account was created.
-
-    format: date-time
-
-  - `CreatedByActorID string`
-
-    Tagged ID (`user_`/`svac_`) of the actor that created this service account.
-
-  - `Description string`
-
-    Optional free-text description.
-
-  - `Name string`
-
-    Admin-chosen slug identifier.
-
-  - `OrganizationRole BetaServiceAccountOrganizationRole`
-
-    Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
-
-    - `const BetaServiceAccountOrganizationRoleAdmin BetaServiceAccountOrganizationRole = "admin"`
-
-    - `const BetaServiceAccountOrganizationRoleDeveloper BetaServiceAccountOrganizationRole = "developer"`
-
-  - `UpdatedAt Time`
-
-    When this service account was last updated.
-
-    format: date-time
-
-  - `UpdatedByActorID string`
-
-    Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	betaServiceAccount, err := client.Beta.Organization.ServiceAccounts.New(context.TODO(), anthropic.BetaOrganizationServiceAccountNewParams{
-		Name: "ci-deploy-bot",
-	})
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", betaServiceAccount.ID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "archived_by_actor_id": "archived_by_actor_id",
-  "created_at": "2024-10-30T23:58:27.427722Z",
-  "created_by_actor_id": "created_by_actor_id",
-  "description": "description",
-  "name": "ci-deploy-bot",
-  "organization_role": "admin",
-  "type": "service_account",
-  "updated_at": "2024-10-30T23:58:27.427722Z",
-  "updated_by_actor_id": "updated_by_actor_id"
-}
-```
-
-### List Service Accounts
-
-`client.Beta.Organization.ServiceAccounts.List(ctx, params) (*PageCursor[BetaServiceAccount], error)`
-
-**GET** `/v1/organizations/service_accounts`
-
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
-
-List service accounts in the caller's organization.
-
-Results are ordered by creation time, newest first. Use `limit` and the
-`next_page` cursor to paginate; set `include_archived=true` to include
-archived service accounts.
-
-#### Parameters
-
-- `params BetaOrganizationServiceAccountListParams`
-
-  - `IncludeArchived param.Field[bool] Optional` (query parameter)
-
-    Include archived resources. Defaults to false.
-
-  - `Limit param.Field[int64] Optional` (query parameter)
-
-    Number of results per page.
-
-    minimum: 1, maximum: 100
-
-  - `Page param.Field[string] Optional` (query parameter)
-
-    Opaque cursor from a previous response's `next_page`.
-
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
-
-    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
-
-    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
-
-    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
-
-    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
-
-    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
-
-    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
-
-    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
-
-    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
-
-    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
-
-    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
-
-    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
-
-    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
-
-    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
-
-    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
-
-    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
-
-    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
-
-    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
-
-    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
-
-    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
-
-    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
-
-    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
-
-    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
-
-    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
-
-    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
-
-    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
-
-    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
-
-    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
-
-    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
-
-    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
-
-    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
-
-    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
-
-    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
-
-    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
-
-    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
-
-    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
-
-    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
-
-    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
-
-    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
-
-    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
-
-    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
-
-    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
-
-    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
-
-    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
-
-    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
-
-    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
-
-    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
-
-    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
-
-    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
-
-    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
-
-#### Returns
-
-- `type BetaServiceAccount`
-
-  Named non-human identity within the caller's organization.
-
-  A service account is a pure identity: name + org. Authorization lives on
-  whatever references it (federation rules).
-
-  - `Type ServiceAccount`
-
-    default: service_account
-
-  - `ID string`
-
-    Tagged ID of the service account.
-
-  - `ArchivedAt Time`
-
-    If set, this service account is archived.
-
-    format: date-time
-
-  - `ArchivedByActorID string`
-
-    Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
-
-  - `CreatedAt Time`
-
-    When this service account was created.
-
-    format: date-time
-
-  - `CreatedByActorID string`
-
-    Tagged ID (`user_`/`svac_`) of the actor that created this service account.
-
-  - `Description string`
-
-    Optional free-text description.
-
-  - `Name string`
-
-    Admin-chosen slug identifier.
-
-  - `OrganizationRole BetaServiceAccountOrganizationRole`
-
-    Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
-
-    - `const BetaServiceAccountOrganizationRoleAdmin BetaServiceAccountOrganizationRole = "admin"`
-
-    - `const BetaServiceAccountOrganizationRoleDeveloper BetaServiceAccountOrganizationRole = "developer"`
-
-  - `UpdatedAt Time`
-
-    When this service account was last updated.
-
-    format: date-time
-
-  - `UpdatedByActorID string`
-
-    Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	page, err := client.Beta.Organization.ServiceAccounts.List(context.TODO(), anthropic.BetaOrganizationServiceAccountListParams{})
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", page)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
-      "archived_at": "2019-12-27T18:11:19.117Z",
-      "archived_by_actor_id": "archived_by_actor_id",
-      "created_at": "2024-10-30T23:58:27.427722Z",
-      "created_by_actor_id": "created_by_actor_id",
-      "description": "description",
-      "name": "ci-deploy-bot",
-      "organization_role": "admin",
-      "type": "service_account",
-      "updated_at": "2024-10-30T23:58:27.427722Z",
-      "updated_by_actor_id": "updated_by_actor_id"
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-### Get Service Account
-
-`client.Beta.Organization.ServiceAccounts.Get(ctx, serviceAccountID, query) (*BetaServiceAccount, error)`
-
-**GET** `/v1/organizations/service_accounts/{service_account_id}`
-
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
-
-Retrieve a service account by its ID (`svac_...`).
-
-#### Parameters
-
-- `serviceAccountID string` (path parameter)
-
-  ID of the service account.
-
-- `query BetaOrganizationServiceAccountGetParams`
-
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
-
-    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
-
-    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
-
-    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
-
-    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
-
-    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
-
-    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
-
-    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
-
-    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
-
-    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
-
-    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
-
-    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
-
-    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
-
-    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
-
-    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
-
-    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
-
-    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
-
-    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
-
-    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
-
-    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
-
-    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
-
-    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
-
-    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
-
-    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
-
-    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
-
-    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
-
-    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
-
-    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
-
-    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
-
-    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
-
-    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
-
-    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
-
-    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
-
-    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
-
-    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
-
-    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
-
-    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
-
-    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
-
-    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
-
-    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
-
-    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
-
-    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
-
-    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
-
-    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
-
-    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
-
-    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
-
-    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
-
-    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
-
-    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
-
-    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
-
-#### Returns
-
-- `type BetaServiceAccount`
-
-  Named non-human identity within the caller's organization.
-
-  A service account is a pure identity: name + org. Authorization lives on
-  whatever references it (federation rules).
-
-  - `Type ServiceAccount`
-
-    default: service_account
-
-  - `ID string`
-
-    Tagged ID of the service account.
-
-  - `ArchivedAt Time`
-
-    If set, this service account is archived.
-
-    format: date-time
-
-  - `ArchivedByActorID string`
-
-    Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
-
-  - `CreatedAt Time`
-
-    When this service account was created.
-
-    format: date-time
-
-  - `CreatedByActorID string`
-
-    Tagged ID (`user_`/`svac_`) of the actor that created this service account.
-
-  - `Description string`
-
-    Optional free-text description.
-
-  - `Name string`
-
-    Admin-chosen slug identifier.
-
-  - `OrganizationRole BetaServiceAccountOrganizationRole`
-
-    Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
-
-    - `const BetaServiceAccountOrganizationRoleAdmin BetaServiceAccountOrganizationRole = "admin"`
-
-    - `const BetaServiceAccountOrganizationRoleDeveloper BetaServiceAccountOrganizationRole = "developer"`
-
-  - `UpdatedAt Time`
-
-    When this service account was last updated.
-
-    format: date-time
-
-  - `UpdatedByActorID string`
-
-    Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	betaServiceAccount, err := client.Beta.Organization.ServiceAccounts.Get(
-		context.TODO(),
-		"service_account_id",
-		anthropic.BetaOrganizationServiceAccountGetParams{},
-	)
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", betaServiceAccount.ID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "archived_by_actor_id": "archived_by_actor_id",
-  "created_at": "2024-10-30T23:58:27.427722Z",
-  "created_by_actor_id": "created_by_actor_id",
-  "description": "description",
-  "name": "ci-deploy-bot",
-  "organization_role": "admin",
-  "type": "service_account",
-  "updated_at": "2024-10-30T23:58:27.427722Z",
-  "updated_by_actor_id": "updated_by_actor_id"
-}
-```
-
-### Update Service Account
-
-`client.Beta.Organization.ServiceAccounts.Update(ctx, serviceAccountID, params) (*BetaServiceAccount, error)`
-
-**POST** `/v1/organizations/service_accounts/{service_account_id}`
-
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
-
-Update a service account.
-
-Only `description` and `organization_role` are mutable; `name` cannot be
-changed. Archived service accounts cannot be updated; this returns 400.
-Setting `organization_role` to `admin` (even when unchanged) requires an
-interactive credential (a user OAuth token or a Console session).
-
-#### Parameters
-
-- `serviceAccountID string` (path parameter)
-
-  ID of the service account to update.
-
-- `params BetaOrganizationServiceAccountUpdateParams`
-
-  - `Description param.Field[string] Optional`
-
-    Replaces the description. Omit to leave unchanged; send `null` to clear (the field is stored as an empty string).
-
-    maxLength: 2000
-
-  - `OrganizationRole param.Field[BetaOrganizationServiceAccountUpdateParamsOrganizationRole] Optional`
-
-    Replaces the org-level role. Omit or send `null` to leave unchanged.
-
-    - `const BetaOrganizationServiceAccountUpdateParamsOrganizationRoleAdmin BetaOrganizationServiceAccountUpdateParamsOrganizationRole = "admin"`
-
-    - `const BetaOrganizationServiceAccountUpdateParamsOrganizationRoleDeveloper BetaOrganizationServiceAccountUpdateParamsOrganizationRole = "developer"`
-
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
-
-    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
-
-    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
-
-    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
-
-    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
-
-    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
-
-    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
-
-    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
-
-    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
-
-    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
-
-    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
-
-    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
-
-    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
-
-    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
-
-    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
-
-    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
-
-    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
-
-    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
-
-    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
-
-    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
-
-    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
-
-    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
-
-    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
-
-    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
-
-    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
-
-    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
-
-    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
-
-    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
-
-    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
-
-    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
-
-    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
-
-    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
-
-    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
-
-    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
-
-    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
-
-    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
-
-    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
-
-    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
-
-    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
-
-    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
-
-    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
-
-    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
-
-    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
-
-    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
-
-    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
-
-    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
-
-    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
-
-    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
-
-    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
-
-    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
-
-#### Returns
-
-- `type BetaServiceAccount`
-
-  Named non-human identity within the caller's organization.
-
-  A service account is a pure identity: name + org. Authorization lives on
-  whatever references it (federation rules).
-
-  - `Type ServiceAccount`
-
-    default: service_account
-
-  - `ID string`
-
-    Tagged ID of the service account.
-
-  - `ArchivedAt Time`
-
-    If set, this service account is archived.
-
-    format: date-time
-
-  - `ArchivedByActorID string`
-
-    Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
-
-  - `CreatedAt Time`
-
-    When this service account was created.
-
-    format: date-time
-
-  - `CreatedByActorID string`
-
-    Tagged ID (`user_`/`svac_`) of the actor that created this service account.
-
-  - `Description string`
-
-    Optional free-text description.
-
-  - `Name string`
-
-    Admin-chosen slug identifier.
-
-  - `OrganizationRole BetaServiceAccountOrganizationRole`
-
-    Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
-
-    - `const BetaServiceAccountOrganizationRoleAdmin BetaServiceAccountOrganizationRole = "admin"`
-
-    - `const BetaServiceAccountOrganizationRoleDeveloper BetaServiceAccountOrganizationRole = "developer"`
-
-  - `UpdatedAt Time`
-
-    When this service account was last updated.
-
-    format: date-time
-
-  - `UpdatedByActorID string`
-
-    Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	betaServiceAccount, err := client.Beta.Organization.ServiceAccounts.Update(
-		context.TODO(),
-		"service_account_id",
-		anthropic.BetaOrganizationServiceAccountUpdateParams{},
-	)
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", betaServiceAccount.ID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "archived_by_actor_id": "archived_by_actor_id",
-  "created_at": "2024-10-30T23:58:27.427722Z",
-  "created_by_actor_id": "created_by_actor_id",
-  "description": "description",
-  "name": "ci-deploy-bot",
-  "organization_role": "admin",
-  "type": "service_account",
-  "updated_at": "2024-10-30T23:58:27.427722Z",
-  "updated_by_actor_id": "updated_by_actor_id"
-}
-```
-
-### Archive Service Account
-
-`client.Beta.Organization.ServiceAccounts.Archive(ctx, serviceAccountID, body) (*BetaServiceAccount, error)`
-
-**POST** `/v1/organizations/service_accounts/{service_account_id}/archive`
-
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
-
-Archive a service account.
-
-Idempotent; re-archiving returns the service account with its original
-`archived_at`. Rejected with 400 if any live (non-archived) federation
-rule still targets this service account, same as issuer archival; archive
-those rules first or change their target to another service account.
-
-#### Parameters
-
-- `serviceAccountID string` (path parameter)
-
-  ID of the service account to archive.
-
-- `body BetaOrganizationServiceAccountArchiveParams`
-
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
-
-    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
-
-    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
-
-    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
-
-    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
-
-    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
-
-    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
-
-    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
-
-    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
-
-    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
-
-    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
-
-    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
-
-    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
-
-    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
-
-    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
-
-    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
-
-    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
-
-    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
-
-    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
-
-    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
-
-    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
-
-    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
-
-    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
-
-    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
-
-    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
-
-    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
-
-    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
-
-    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
-
-    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
-
-    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
-
-    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
-
-    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
-
-    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
-
-    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
-
-    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
-
-    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
-
-    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
-
-    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
-
-    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
-
-    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
-
-    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
-
-    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
-
-    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
-
-    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
-
-    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
-
-    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
-
-    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
-
-    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
-
-    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
-
-    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
-
-#### Returns
-
-- `type BetaServiceAccount`
-
-  Named non-human identity within the caller's organization.
-
-  A service account is a pure identity: name + org. Authorization lives on
-  whatever references it (federation rules).
-
-  - `Type ServiceAccount`
-
-    default: service_account
-
-  - `ID string`
-
-    Tagged ID of the service account.
-
-  - `ArchivedAt Time`
-
-    If set, this service account is archived.
-
-    format: date-time
-
-  - `ArchivedByActorID string`
-
-    Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
-
-  - `CreatedAt Time`
-
-    When this service account was created.
-
-    format: date-time
-
-  - `CreatedByActorID string`
-
-    Tagged ID (`user_`/`svac_`) of the actor that created this service account.
-
-  - `Description string`
-
-    Optional free-text description.
-
-  - `Name string`
-
-    Admin-chosen slug identifier.
-
-  - `OrganizationRole BetaServiceAccountOrganizationRole`
-
-    Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
-
-    - `const BetaServiceAccountOrganizationRoleAdmin BetaServiceAccountOrganizationRole = "admin"`
-
-    - `const BetaServiceAccountOrganizationRoleDeveloper BetaServiceAccountOrganizationRole = "developer"`
-
-  - `UpdatedAt Time`
-
-    When this service account was last updated.
-
-    format: date-time
-
-  - `UpdatedByActorID string`
-
-    Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	betaServiceAccount, err := client.Beta.Organization.ServiceAccounts.Archive(
-		context.TODO(),
-		"service_account_id",
-		anthropic.BetaOrganizationServiceAccountArchiveParams{},
-	)
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", betaServiceAccount.ID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "archived_by_actor_id": "archived_by_actor_id",
-  "created_at": "2024-10-30T23:58:27.427722Z",
-  "created_by_actor_id": "created_by_actor_id",
-  "description": "description",
-  "name": "ci-deploy-bot",
-  "organization_role": "admin",
-  "type": "service_account",
-  "updated_at": "2024-10-30T23:58:27.427722Z",
-  "updated_by_actor_id": "updated_by_actor_id"
-}
-```
-
-## Beta › Organization › Service Accounts › Workspaces
-
-### Add Workspace To Service Account
-
-`client.Beta.Organization.ServiceAccounts.Workspaces.Add(ctx, serviceAccountID, params) (*BetaServiceAccountWorkspaceMember, error)`
-
-**POST** `/v1/organizations/service_accounts/{service_account_id}/workspaces`
-
-**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
-
-Add a service account to a workspace with the given `workspace_role`.
-
-Mirror of `POST /workspaces/{workspace_id}/service_accounts`, addressed
-from the service-account side; both create the same membership. If the
-service account is already an explicit member of the workspace, its
-`workspace_role` is replaced with the value supplied here. Archived
-workspaces return 400. Archived service accounts cannot be added and are
-rejected.
-
-#### Parameters
-
-- `serviceAccountID string` (path parameter)
-
-  ID of the service account.
-
-- `params BetaOrganizationServiceAccountWorkspaceAddParams`
-
-  - `WorkspaceID param.Field[string]`
-
-    Tagged workspace ID to add the service account to.
-
-  - `WorkspaceRole param.Field[BetaNoBillingWorkspaceRole]`
-
-    Role to assign to the service account in this workspace.
-
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
-
-    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
-
-    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
-
-    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
-
-    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
-
-    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
-
-    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
-
-    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
-
-    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
-
-    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
-
-    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
-
-    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
-
-    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
-
-    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
-
-    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
-
-    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
-
-    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
-
-    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
-
-    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
-
-    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
-
-    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
-
-    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
-
-    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
-
-    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
-
-    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
-
-    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
-
-    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
-
-    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
-
-    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
-
-    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
-
-    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
-
-    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
-
-    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
-
-    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
-
-    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
-
-    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
-
-    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
-
-    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
-
-    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
-
-    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
-
-    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
-
-    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
-
-    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
-
-    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
-
-    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
-
-    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
-
-    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
-
-    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
-
-    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
-
-    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
-
-#### Returns
-
-- `type BetaServiceAccountWorkspaceMember`
-
-  - `Type ServiceAccountWorkspaceMember`
-
-    default: service_account_workspace_member
-
-  - `CreatedByActorID string`
-
-    Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
-
-  - `Implicit bool`
-
-    True when this is the implicit default-workspace membership every service account has when no explicit membership exists. Implicit memberships have role `workspace_user` and cannot be removed.
-
-  - `ServiceAccountID string`
-
-    Tagged service account ID (`svac_...`).
-
-  - `WorkspaceID string`

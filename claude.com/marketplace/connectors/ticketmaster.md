@@ -61,10 +61,10 @@ Search and compare hotels with public and private wholesale rates.
 
 [Add Brek - Hotel Wholesale Booking in Claude (opens in new tab)](https://claude.ai/directory/5590ae2e-c452-4baf-afe8-697ec9f2ef70 "Add in Claude")
 
-![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
+![](https://metricool.com/wp-content/uploads/cropped-web-app-manifest-512x512-1-180x180.png)
 
-### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
+### [Metricool Social Media Management](https://claude.com/marketplace/connectors/metricool-social-media-management)
 
-Faites vos courses rapidement
+Schedule posts, analyze, and manage social media with AI
 
-[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
+[Add Metricool Social Media Management in Claude (opens in new tab)](https://claude.ai/directory/70ba6d62-7e98-4ef4-9073-d161d900a95f "Add in Claude")

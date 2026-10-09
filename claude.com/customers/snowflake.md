@@ -72,12 +72,12 @@ Snowflake aims to transform how organizations interact with their data—moving 
 
 This partnership represents more than just technological advancement. By combining Claude's advanced capabilities with Snowflake's trusted platform, customers are creating a future where data insights aren't confined to technical specialists. Instead, every employee can engage with their organization's data naturally and confidently, unlocking new possibilities for innovation, decision-making, and growth. Together, Snowflake and Anthropic are democratizing data intelligence and, as AI technology advances, extending its benefits across [every level of the enterprise](https://claude.com/solutions/enterprise).
 
-[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
+[![Zendesk](https://assets.claude.com/eb4ae3eeaffc7fb16618696c1baa3ef6c6224977.svg)
+
+### Zendesk built custom agents on Claude and reached 1 million agent executions in 7 weeks](https://claude.com/customers/zendesk)[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
 ### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
 ### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
-
-### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)

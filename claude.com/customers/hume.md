@@ -88,12 +88,12 @@ As this future approaches, Hume sees personalization as key to building trust. "
 
 The alignment between Hume and Anthropic's core values and long-term vision makes their collaboration powerful. Both are committed to research-driven development and responsible AI prioritizing human wellbeing. "Hume and Anthropic are mission-driven, research-based companies with strong scientific cultures and a long-term focus on AI alignment," said Cowen. Together, we aim to ensure that as voice AI becomes ubiquitous, it optimizes for human wellbeing and builds genuine trust with users.
 
-[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
+[![Zendesk](https://assets.claude.com/eb4ae3eeaffc7fb16618696c1baa3ef6c6224977.svg)
+
+### Zendesk built custom agents on Claude and reached 1 million agent executions in 7 weeks](https://claude.com/customers/zendesk)[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
 ### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
 ### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
-
-### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)

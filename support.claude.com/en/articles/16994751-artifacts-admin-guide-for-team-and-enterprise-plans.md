@@ -141,17 +141,23 @@ Design systems shared with everyone in your organization are listed in **[Organi
 
 ### Restrict who can manage design systems
 
-By default, any user with access to design systems can publish one, set the organization default, and delete design systems. On Enterprise plans using custom roles, the **Claude Design Admin** permission reserves these actions for specific users, so your organization keeps one authoritative set of design systems.
+In Artifacts, any user with access to design systems can create one, share it with specific people, and delete their own, and the owner of a design system can delete it. Only an Owner or Primary Owner can share a design system with everyone in your organization, set the organization default, or delete a design system that’s shared with everyone.
 
-Users in custom roles with the permission set to “Can manage” can:
+To share someone else’s design system with everyone, an Owner or Primary Owner first needs its creator to invite them in the Share dialog at the highest access level. A design system must be shared with everyone before it can be set as the organization default.
+
+On Enterprise plans, custom roles control who can create design systems. Turn **Design systems** on or off under **Artifacts** in a role’s **Capabilities** tab.
+
+Design systems migrated from standalone Claude Design can arrive already shared with everyone. Published design systems that weren’t private there are shared with everyone in your organization, and if your organization’s default design system migrates, it becomes the default in Artifacts too, unless you’ve already set one.
+
+**In standalone Claude Design**
+
+The **Claude Design Admin** permission applies only to the standalone Claude Design app. It doesn’t let anyone share, set as default, or delete a design system created in artifacts. In standalone Claude Design, Enterprise plans can reserve the following for users in custom roles with the permission set to “Can manage”
 
 * **Publish a design system:** make it available across your organization so anyone can attach it to a project.
-* **Set the organization default:** choose the design system new artifacts use automatically.
+* **Set the organization default:** choose the design system new projects use automatically.
 * **Delete a design system:** permanently remove it from your organization.
 
 Everyone else can still create, edit, and use any published design system. If a user without the permission tries to publish, set the default, or delete, they'll see a note directing them to contact their administrator.
-
-**Note:** If you don't assign this permission to anyone, nothing changes. All users keep the same access to design systems as before.
 
 **To grant the permission:**
 
@@ -219,16 +225,18 @@ Yes, on Enterprise plans, with custom roles. Each template has its own capabilit
 
 **External sharing** lets users publish an artifact that anyone outside your organization can open with a link. **Email invitations outside your organization** lets users invite named people outside your organization to a specific artifact. Each has its own setting.
 
-### Who can publish, set the default, or delete design systems?
+### Who can share a design system with everyone, set the default, or delete one?
 
-If you haven't assigned the **Claude Design Admin** permission to anyone, any user with access to design systems can take these actions. On Enterprise plans, you can reserve them for specific users.
+In Artifacts, an organization Owner or Primary Owner can share a design system with everyone in your organization and set or remove the organization default. Members with the User, Admin, or custom role can't. A design system's owner, normally the person who created it, can delete it, and an organization Owner or Primary Owner can delete one that’s shared with everyone.
+
+The **Claude Design Admin** permission applies only in the standalone Claude Design app. It doesn't let anyone share, set as default, or delete a design system created in Artifacts.
 
 ### Can users export what they make?
 
 Yes. For more information, refer to **[View and export](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them#h_71205f2c4b)** in **[What are artifacts and how do I use them?](https://support.claude.com/en/articles/9487310)**
 
 * [Share artifacts](https://support.claude.com/en/articles/9547008-share-artifacts)
+* [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
 * [Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)
 * [Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)
-* [Get started with Claude Docs](https://support.claude.com/en/articles/16923645-get-started-with-claude-docs)
 * [What are artifacts and how do I use them?](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them)

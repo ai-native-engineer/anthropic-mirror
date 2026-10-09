@@ -28,6 +28,14 @@ Search flights, hotels and seats, then get alerted the moment a price drops.
 
 [Add SlickTrip in Claude (opens in new tab)](https://claude.ai/directory/c1cba93e-98f4-4146-8afa-e9551a789823 "Add in Claude")
 
+![](https://all.accor.com/a/content/dam/all/global-marketing/brand-identity/logos/all-accor/blue/vertical/Logo%20ALL%20ACCOR_BLUE_Vertical_RGB.svg)
+
+### [ALL Accor](https://claude.com/marketplace/connectors/all-accor)
+
+Search and book Accor hotels
+
+[Add ALL Accor in Claude (opens in new tab)](https://claude.ai/directory/f6d1695c-f2b8-4641-829f-435ac17cfd02 "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=brek.com&sz=96)
 
 ### [Brek - Hotel Wholesale Booking](https://claude.com/marketplace/connectors/brek-hotel-wholesale-booking)
@@ -37,14 +45,6 @@ Anthropic verifiedTrending
 Search and compare hotels with public and private wholesale rates.
 
 [Add Brek - Hotel Wholesale Booking in Claude (opens in new tab)](https://claude.ai/directory/5590ae2e-c452-4baf-afe8-697ec9f2ef70 "Add in Claude")
-
-![](https://all.accor.com/a/content/dam/all/global-marketing/brand-identity/logos/all-accor/blue/vertical/Logo%20ALL%20ACCOR_BLUE_Vertical_RGB.svg)
-
-### [ALL Accor](https://claude.com/marketplace/connectors/all-accor)
-
-Search and book Accor hotels
-
-[Add ALL Accor in Claude (opens in new tab)](https://claude.ai/directory/f6d1695c-f2b8-4641-829f-435ac17cfd02 "Add in Claude")
 
 ![](https://tineo.ai/favicon/favicon-96x96.png)
 

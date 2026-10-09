@@ -34,5 +34,3 @@ The alliance will begin in four areas where DXC already runs large operations fo
 “For more than 50 years, DXC and the companies it was built from run the systems that run the world,” said Raul Fernandez, President and CEO, DXC Technology. “We know what it takes to deliver in these environments. This alliance with Anthropic combines trust and experience with the most advanced AI technology available, and gives our customers something they cannot get anywhere else. We are already using Claude across our own operations and our new OASIS platform. Now we are scaling that capability directly into the mission-critical technology systems we run for our customers. This is a defining moment for DXC and for the industry.”
 
 To learn more about the Claude Partner Network, visit [anthropic.com/partners](http://anthropic.com/partners).
-
-DXC integrates Claude for regulated industries \ Anthropic

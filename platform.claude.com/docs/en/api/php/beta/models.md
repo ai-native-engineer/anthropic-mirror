@@ -169,6 +169,15 @@ var_dump($page);
         "pdf_input": {
           "supported": true
         },
+        "server_tools": {
+          "code_execution": {
+            "supported": true
+          },
+          "supported": true,
+          "web_search": {
+            "supported": true
+          }
+        },
         "structured_outputs": {
           "supported": true
         },
@@ -176,6 +185,9 @@ var_dump($page);
           "supported": true,
           "types": {
             "adaptive": {
+              "supported": true
+            },
+            "disabled": {
               "supported": true
             },
             "enabled": {
@@ -344,6 +356,15 @@ var_dump($betaModelInfo);
     "pdf_input": {
       "supported": true
     },
+    "server_tools": {
+      "code_execution": {
+        "supported": true
+      },
+      "supported": true,
+      "web_search": {
+        "supported": true
+      }
+    },
     "structured_outputs": {
       "supported": true
     },
@@ -351,6 +372,9 @@ var_dump($betaModelInfo);
       "supported": true,
       "types": {
         "adaptive": {
+          "supported": true
+        },
+        "disabled": {
           "supported": true
         },
         "enabled": {
@@ -452,7 +476,7 @@ var_dump($betaModelInfo);
 
   - `BetaCapabilitySupport codeExecution`
 
-    Whether the model supports code execution tools.
+    Whether code that the model runs in the code execution tool can call the request's other tools, as in programmatic tool calling and dynamic filtering for web search and web fetch. Support for the code execution tool itself is in `server_tools.code_execution`.
 
   - `?BetaCompactionCapability compaction`
 
@@ -473,6 +497,10 @@ var_dump($betaModelInfo);
   - `BetaCapabilitySupport pdfInput`
 
     Whether the model accepts PDF content blocks.
+
+  - `BetaServerToolsCapability serverTools`
+
+    Whether this model supports the web search and code execution server tools. `supported` is true when the model supports at least one of the tools. A supported tool can still be rejected for your organization, for example when an admin has turned web search off.
 
   - `BetaCapabilitySupport structuredOutputs`
 
@@ -538,6 +566,22 @@ var_dump($betaModelInfo);
 
   - `"mythos"`
 
+### Beta Server Tools Capability
+
+- `class BetaServerToolsCapability`
+
+  - `BetaCapabilitySupport codeExecution`
+
+    Whether the model supports the code execution tool: true when the model supports at least one version of the tool, not necessarily every version.
+
+  - `bool supported`
+
+    Whether this capability is supported by the model.
+
+  - `BetaCapabilitySupport webSearch`
+
+    Whether the model supports the web search tool: true when the model supports at least one version of the tool, not necessarily every version.
+
 ### Beta Thinking Capability
 
 - `class BetaThinkingCapability`
@@ -556,8 +600,12 @@ var_dump($betaModelInfo);
 
   - `BetaCapabilitySupport adaptive`
 
-    Whether the model supports thinking with type 'adaptive' (auto).
+    Whether the model accepts thinking with type 'adaptive' (the model decides whether and how much to think).
+
+  - `BetaCapabilitySupport disabled`
+
+    Whether the model accepts thinking with type 'disabled' (thinking turned off). False exactly when a request that sends it gets a 400 from this model. True on a model that does not support thinking.
 
   - `BetaCapabilitySupport enabled`
 
-    Whether the model supports thinking with type 'enabled'.
+    Whether the model accepts thinking with type 'enabled' (extended thinking with a caller-set `budget_tokens`).

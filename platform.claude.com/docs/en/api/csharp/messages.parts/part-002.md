@@ -1,0 +1,3127 @@
+<!-- source: https://platform.claude.com/docs/en/api/csharp/messages -->
+<!-- part of: https://platform.claude.com/docs/en/api/csharp/messages -->
+
+<!-- chunk-start -->
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BrowserNavigateConfig? Navigate`
+
+              `navigate`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BrowserNewTabConfig? NewTab`
+
+              `new_tab`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BrowserReadConsoleConfig? ReadConsole`
+
+              `read_console`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BrowserReadNetworkConfig? ReadNetwork`
+
+              `read_network`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BrowserReadPageConfig? ReadPage`
+
+              `read_page`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BrowserRightClickConfig? RightClick`
+
+              `right_click`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BrowserScreenshotConfig? Screenshot`
+
+              `screenshot`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BrowserScrollConfig? Scroll`
+
+              `scroll`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BrowserScrollToConfig? ScrollTo`
+
+              `scroll_to`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BrowserSwitchTabConfig? SwitchTab`
+
+              `switch_tab`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BrowserTripleClickConfig? TripleClick`
+
+              `triple_click`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BrowserWaitConfig? Wait`
+
+              `wait`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BrowserZoomConfig? Zoom`
+
+              `zoom`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `class MemoryTool20250818`
+
+          - `JsonElement Type = "memory_20250818"`
+
+          - `JsonElement Name = "memory"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct("direct")`
+
+            - `CodeExecution20250825("code_execution_20250825")`
+
+            - `CodeExecution20260120("code_execution_20260120")`
+
+            - `CodeExecution20260521("code_execution_20260521")`
+
+          - `CacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `class ComputerToolset20260801`
+
+          The computer toolset: a single `tools[]` entry (carrying no
+          `name`) that declares the computer tool family. The model is
+          served the family's tool with any members disabled via `configs`
+          removed from its schema. Every member is enabled by default, zoom
+          included. The single-tool options `display_number` and
+          `enable_zoom` are not fields of a toolset entry — it carries only
+          `type`, `configs`, and `cache_control`; zoom is controlled
+          via `configs.zoom.enabled`.
+
+          - `JsonElement Type = "computer_toolset_20260801"`
+
+          - `CacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `ComputerToolsetConfigs? Configs`
+
+            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+            - `ComputerTypeConfig? Type`
+
+              `type`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerCursorPositionConfig? CursorPosition`
+
+              `cursor_position`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerDoubleClickConfig? DoubleClick`
+
+              `double_click`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerHoldKeyConfig? HoldKey`
+
+              `hold_key`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerKeyConfig? Key`
+
+              `key`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerLeftClickConfig? LeftClick`
+
+              `left_click`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerLeftClickDragConfig? LeftClickDrag`
+
+              `left_click_drag`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerLeftMouseDownConfig? LeftMouseDown`
+
+              `left_mouse_down`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerLeftMouseUpConfig? LeftMouseUp`
+
+              `left_mouse_up`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerMiddleClickConfig? MiddleClick`
+
+              `middle_click`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerMouseMoveConfig? MouseMove`
+
+              `mouse_move`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerRightClickConfig? RightClick`
+
+              `right_click`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerScreenshotConfig? Screenshot`
+
+              `screenshot`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerScrollConfig? Scroll`
+
+              `scroll`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerTripleClickConfig? TripleClick`
+
+              `triple_click`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerWaitConfig? Wait`
+
+              `wait`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ComputerZoomConfig? Zoom`
+
+              `zoom`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `class ToolTextEditor20250124`
+
+          - `JsonElement Type = "text_editor_20250124"`
+
+          - `JsonElement Name = "str_replace_editor"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct("direct")`
+
+            - `CodeExecution20250825("code_execution_20250825")`
+
+            - `CodeExecution20260120("code_execution_20260120")`
+
+            - `CodeExecution20260521("code_execution_20260521")`
+
+          - `CacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `class ToolTextEditor20250429`
+
+          - `JsonElement Type = "text_editor_20250429"`
+
+          - `JsonElement Name = "str_replace_based_edit_tool"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct("direct")`
+
+            - `CodeExecution20250825("code_execution_20250825")`
+
+            - `CodeExecution20260120("code_execution_20260120")`
+
+            - `CodeExecution20260521("code_execution_20260521")`
+
+          - `CacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `class ToolTextEditor20250728`
+
+          - `JsonElement Type = "text_editor_20250728"`
+
+          - `JsonElement Name = "str_replace_based_edit_tool"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct("direct")`
+
+            - `CodeExecution20250825("code_execution_20250825")`
+
+            - `CodeExecution20260120("code_execution_20260120")`
+
+            - `CodeExecution20260521("code_execution_20260521")`
+
+          - `CacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
+
+          - `long? MaxCharacters`
+
+            Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+            minimum: 1
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `class WebSearchTool20250305`
+
+          - `JsonElement Type = "web_search_20250305"`
+
+          - `JsonElement Name = "web_search"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct("direct")`
+
+            - `CodeExecution20250825("code_execution_20250825")`
+
+            - `CodeExecution20260120("code_execution_20260120")`
+
+            - `CodeExecution20260521("code_execution_20260521")`
+
+          - `IReadOnlyList<string>? AllowedDomains`
+
+            If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+          - `IReadOnlyList<string>? BlockedDomains`
+
+            If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+          - `CacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `long? MaxUses`
+
+            Maximum number of times the tool can be used in the API request.
+
+            minimum: 1
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+          - `UserLocation? UserLocation`
+
+            Parameters for the user's location. Used to provide more relevant search results.
+
+            - `JsonElement Type = "approximate"`
+
+            - `string? City`
+
+              The city of the user.
+
+              minLength: 1, maxLength: 255
+
+            - `string? Country`
+
+              The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+              minLength: 2, maxLength: 2
+
+            - `string? Region`
+
+              The region of the user.
+
+              minLength: 1, maxLength: 255
+
+            - `string? Timezone`
+
+              The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+              minLength: 1, maxLength: 255
+
+        - `class WebFetchTool20250910`
+
+          - `JsonElement Type = "web_fetch_20250910"`
+
+          - `JsonElement Name = "web_fetch"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct("direct")`
+
+            - `CodeExecution20250825("code_execution_20250825")`
+
+            - `CodeExecution20260120("code_execution_20260120")`
+
+            - `CodeExecution20260521("code_execution_20260521")`
+
+          - `IReadOnlyList<string>? AllowedDomains`
+
+            List of domains to allow fetching from
+
+          - `IReadOnlyList<string>? BlockedDomains`
+
+            List of domains to block fetching from
+
+          - `CacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `CitationsConfigParam? Citations`
+
+            Citations configuration for fetched documents. Citations are disabled by default.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `long? MaxContentTokens`
+
+            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+            minimum: 1
+
+          - `long? MaxUses`
+
+            Maximum number of times the tool can be used in the API request.
+
+            minimum: 1
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+          - `WebFetchUrlSources? UrlSources`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+            - `ClientToolResults ClientToolResults`
+
+              Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+              - `class WebFetchUrlSourceAll`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+                - `JsonElement Type = "all"`
+
+              - `class WebFetchUrlSourceNone`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+                - `JsonElement Type = "none"`
+
+              - `class WebFetchUrlSourceOnly`
+
+                The tool filter variant under which only the named tools' results
+                contribute.
+
+                - `JsonElement Type = "only"`
+
+                - `required IReadOnlyList<WebFetchUrlSourceToolReference> Tools`
+
+                  - `JsonElement Type = "tool_reference"`
+
+                  - `required string Name`
+
+              - `class WebFetchUrlSourceExcept`
+
+                The tool filter variant under which every result but the named
+                tools' contributes.
+
+                - `JsonElement Type = "except"`
+
+                - `required IReadOnlyList<WebFetchUrlSourceToolReference> Tools`
+
+                  - `JsonElement Type = "tool_reference"`
+
+                  - `required string Name`
+
+            - `ServerToolResults ServerToolResults`
+
+              Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+              - `class WebFetchUrlSourceAll`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+              - `class WebFetchUrlSourceNone`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+              - `class WebFetchUrlSourceOnly`
+
+                The tool filter variant under which only the named tools' results
+                contribute.
+
+              - `class WebFetchUrlSourceExcept`
+
+                The tool filter variant under which every result but the named
+                tools' contributes.
+
+            - `UserInput UserInput`
+
+              Whether URLs in user messages are fetchable: "all" or "none".
+
+              - `class WebFetchUrlSourceAll`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+              - `class WebFetchUrlSourceNone`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+        - `class WebSearchTool20260209`
+
+          - `JsonElement Type = "web_search_20260209"`
+
+          - `JsonElement Name = "web_search"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct("direct")`
+
+            - `CodeExecution20250825("code_execution_20250825")`
+
+            - `CodeExecution20260120("code_execution_20260120")`
+
+            - `CodeExecution20260521("code_execution_20260521")`
+
+          - `IReadOnlyList<string>? AllowedDomains`
+
+            If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+          - `IReadOnlyList<string>? BlockedDomains`
+
+            If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+          - `CacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `long? MaxUses`
+
+            Maximum number of times the tool can be used in the API request.
+
+            minimum: 1
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+          - `UserLocation? UserLocation`
+
+            Parameters for the user's location. Used to provide more relevant search results.
+
+        - `class WebFetchTool20260209`
+
+          - `JsonElement Type = "web_fetch_20260209"`
+
+          - `JsonElement Name = "web_fetch"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct("direct")`
+
+            - `CodeExecution20250825("code_execution_20250825")`
+
+            - `CodeExecution20260120("code_execution_20260120")`
+
+            - `CodeExecution20260521("code_execution_20260521")`
+
+          - `IReadOnlyList<string>? AllowedDomains`
+
+            List of domains to allow fetching from
+
+          - `IReadOnlyList<string>? BlockedDomains`
+
+            List of domains to block fetching from
+
+          - `CacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `CitationsConfigParam? Citations`
+
+            Citations configuration for fetched documents. Citations are disabled by default.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `long? MaxContentTokens`
+
+            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+            minimum: 1
+
+          - `long? MaxUses`
+
+            Maximum number of times the tool can be used in the API request.
+
+            minimum: 1
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+          - `WebFetchUrlSources? UrlSources`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+        - `class WebFetchTool20260309`
+
+          Web fetch tool with use_cache parameter for bypassing cached content.
+
+          - `JsonElement Type = "web_fetch_20260309"`
+
+          - `JsonElement Name = "web_fetch"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct("direct")`
+
+            - `CodeExecution20250825("code_execution_20250825")`
+
+            - `CodeExecution20260120("code_execution_20260120")`
+
+            - `CodeExecution20260521("code_execution_20260521")`
+
+          - `IReadOnlyList<string>? AllowedDomains`
+
+            List of domains to allow fetching from
+
+          - `IReadOnlyList<string>? BlockedDomains`
+
+            List of domains to block fetching from
+
+          - `CacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `CitationsConfigParam? Citations`
+
+            Citations configuration for fetched documents. Citations are disabled by default.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `long? MaxContentTokens`
+
+            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+            minimum: 1
+
+          - `long? MaxUses`
+
+            Maximum number of times the tool can be used in the API request.
+
+            minimum: 1
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+          - `WebFetchUrlSources? UrlSources`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+          - `bool UseCache`
+
+            Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+        - `class WebSearchTool20260318`
+
+          - `JsonElement Type = "web_search_20260318"`
+
+          - `JsonElement Name = "web_search"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct("direct")`
+
+            - `CodeExecution20250825("code_execution_20250825")`
+
+            - `CodeExecution20260120("code_execution_20260120")`
+
+            - `CodeExecution20260521("code_execution_20260521")`
+
+          - `IReadOnlyList<string>? AllowedDomains`
+
+            If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+          - `IReadOnlyList<string>? BlockedDomains`
+
+            If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+          - `CacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `long? MaxUses`
+
+            Maximum number of times the tool can be used in the API request.
+
+            minimum: 1
+
+          - `ResponseInclusion ResponseInclusion`
+
+            How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+            - `Full("full")`
+
+            - `Excluded("excluded")`
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+          - `UserLocation? UserLocation`
+
+            Parameters for the user's location. Used to provide more relevant search results.
+
+        - `class WebFetchTool20260318`
+
+          - `JsonElement Type = "web_fetch_20260318"`
+
+          - `JsonElement Name = "web_fetch"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct("direct")`
+
+            - `CodeExecution20250825("code_execution_20250825")`
+
+            - `CodeExecution20260120("code_execution_20260120")`
+
+            - `CodeExecution20260521("code_execution_20260521")`
+
+          - `IReadOnlyList<string>? AllowedDomains`
+
+            List of domains to allow fetching from
+
+          - `IReadOnlyList<string>? BlockedDomains`
+
+            List of domains to block fetching from
+
+          - `CacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `CitationsConfigParam? Citations`
+
+            Citations configuration for fetched documents. Citations are disabled by default.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `long? MaxContentTokens`
+
+            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+            minimum: 1
+
+          - `long? MaxUses`
+
+            Maximum number of times the tool can be used in the API request.
+
+            minimum: 1
+
+          - `ResponseInclusion ResponseInclusion`
+
+            How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+            - `Full("full")`
+
+            - `Excluded("excluded")`
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+          - `WebFetchUrlSources? UrlSources`
+
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+          - `bool UseCache`
+
+            Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+        - `class ToolSearchToolBm25_20251119`
+
+          - `required Type Type`
+
+            - `ToolSearchToolBm25_20251119("tool_search_tool_bm25_20251119")`
+
+            - `ToolSearchToolBm25("tool_search_tool_bm25")`
+
+          - `JsonElement Name = "tool_search_tool_bm25"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct("direct")`
+
+            - `CodeExecution20250825("code_execution_20250825")`
+
+            - `CodeExecution20260120("code_execution_20260120")`
+
+            - `CodeExecution20260521("code_execution_20260521")`
+
+          - `CacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `class ToolSearchToolRegex20251119`
+
+          - `required Type Type`
+
+            - `ToolSearchToolRegex20251119("tool_search_tool_regex_20251119")`
+
+            - `ToolSearchToolRegex("tool_search_tool_regex")`
+
+          - `JsonElement Name = "tool_search_tool_regex"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct("direct")`
+
+            - `CodeExecution20250825("code_execution_20250825")`
+
+            - `CodeExecution20260120("code_execution_20260120")`
+
+            - `CodeExecution20260521("code_execution_20260521")`
+
+          - `CacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+      - `double Temperature`
+
+        **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+
+        Amount of randomness injected into the response.
+
+        Defaults to `1.0`. Ranges from `0.0` to `1.0`. Use `temperature` closer to `0.0` for analytical / multiple choice, and closer to `1.0` for creative and generative tasks.
+
+        Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
+
+        minimum: 0, maximum: 1
+
+      - `long TopK`
+
+        **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not accept top_k; any value will be rejected with a 400 error.
+
+        Only sample from the top K options for each subsequent token.
+
+        Used to remove "long tail" low probability responses. [Learn more technical details here](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277).
+
+        Recommended for advanced use cases only.
+
+        minimum: 0
+
+      - `double TopP`
+
+        **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting top_p. A value >= 0.99 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+
+        Use nucleus sampling.
+
+        In nucleus sampling, we compute the cumulative distribution over all the options for each subsequent token in decreasing probability order and cut it off once it reaches a particular probability specified by `top_p`.
+
+        Recommended for advanced use cases only.
+
+        minimum: 0, maximum: 1
+
+  - `string userProfileID` (header parameter)
+
+    The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
+
+  - `string workspaceID` (header parameter)
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class MessageBatch`
+
+  - `JsonElement Type = "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+  - `required string ID`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
+
+    format: date-time
+
+  - `required DateTimeOffset? CancelInitiatedAt`
+
+    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
+
+    format: date-time
+
+  - `required DateTimeOffset CreatedAt`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was created.
+
+    format: date-time
+
+  - `required DateTimeOffset? EndedAt`
+
+    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
+
+    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
+
+    format: date-time
+
+  - `required DateTimeOffset ExpiresAt`
+
+    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
+
+    format: date-time
+
+  - `required ProcessingStatus ProcessingStatus`
+
+    Processing status of the Message Batch.
+
+    - `InProgress("in_progress")`
+
+    - `Canceling("canceling")`
+
+    - `Ended("ended")`
+
+  - `required MessageBatchRequestCounts RequestCounts`
+
+    Tallies requests within the Message Batch, categorized by their status.
+
+    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
+    - `required long Canceled`
+
+      Number of requests in the Message Batch that have been canceled.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `required long Errored`
+
+      Number of requests in the Message Batch that encountered an error.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `required long Expired`
+
+      Number of requests in the Message Batch that have expired.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `required long Processing`
+
+      Number of requests in the Message Batch that are processing.
+
+    - `required long Succeeded`
+
+      Number of requests in the Message Batch that have completed successfully.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+  - `required string? ResultsUrl`
+
+    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
+
+    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+#### Example
+
+```csharp
+BatchCreateParams parameters = new()
+{
+    Requests =
+    [
+        new()
+        {
+            CustomID = "my-custom-id-1",
+            Params = new()
+            {
+                MaxTokens = 1024,
+                Messages =
+                [
+                    new()
+                    {
+                        Content = "Hello, world",
+                        Role = Role.User,
+                    },
+                ],
+                Model = Model.ClaudeOpus5,
+                CacheControl = new() { Ttl = Ttl.Ttl5m },
+                Container = new ContainerParams()
+                {
+                    ID = "id",
+                    Skills =
+                    [
+                        new()
+                        {
+                            SkillID = "pdf",
+                            Type = SkillParamsType.Anthropic,
+                            Version = "latest",
+                        },
+                    ],
+                },
+                Diagnostics = new()
+                {
+                    PreviousMessageID = "previous_message_id"
+                },
+                InferenceGeo = "inference_geo",
+                Metadata = new()
+                {
+                    UserID = "13803d75-b4b5-4c3e-b2a2-6f21399b021b"
+                },
+                OutputConfig = new()
+                {
+                    Effort = Effort.Low,
+                    Format = new()
+                    {
+                        Schema = new Dictionary<string, JsonElement>()
+                        {
+                            { "foo", JsonSerializer.SerializeToElement("bar") }
+                        },
+                    },
+                },
+                ServiceTier = ServiceTier.Auto,
+                StopSequences =
+                [
+                    "string"
+                ],
+                Stream = false,
+                System = new(
+
+                    [
+                        new TextBlockParam()
+                        {
+                            Text = "Today's date is 2024-06-01.",
+                            CacheControl = new() { Ttl = Ttl.Ttl5m },
+                            Citations =
+                            [
+                                new CitationCharLocationParam()
+                                {
+                                    CitedText = "The grass is green. The sky is blue.",
+                                    DocumentIndex = 0,
+                                    DocumentTitle = "x",
+                                    EndCharIndex = 0,
+                                    StartCharIndex = 0,
+                                },
+                            ],
+                        },
+                    ]
+                ),
+                Temperature = 1,
+                Thinking = new ThinkingConfigAdaptive()
+                {
+                    Display = Display.Summarized
+                },
+                ToolChoice = new ToolChoiceAuto()
+                {
+                    DisableParallelToolUse = true
+                },
+                Tools =
+                [
+                    new Tool()
+                    {
+                        InputSchema = new()
+                        {
+                            Properties = new Dictionary<string, JsonElement>()
+                            {
+                                { "location", JsonSerializer.SerializeToElement("bar") },
+                                { "unit", JsonSerializer.SerializeToElement("bar") },
+                            },
+                            Required =
+                            [
+                                "location"
+                            ],
+                        },
+                        Name = "name",
+                        AllowedCallers =
+                        [
+                            AllowedCaller.Direct
+                        ],
+                        CacheControl = new() { Ttl = Ttl.Ttl5m },
+                        DeferLoading = true,
+                        Description = "Get the current weather in a given location",
+                        EagerInputStreaming = true,
+                        InputExamples =
+                        [
+                            new Dictionary<string, JsonElement>()
+                            {
+                                { "foo", JsonSerializer.SerializeToElement("bar") },
+                            },
+                        ],
+                        Strict = true,
+                        Type = Type.Custom,
+                    },
+                ],
+                TopK = 5,
+                TopP = 0.7,
+            },
+        },
+    ],
+};
+
+var messageBatch = await client.Messages.Batches.Create(parameters);
+
+Console.WriteLine(messageBatch);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "archived_at": "2024-08-20T18:37:24.100435Z",
+  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+  "created_at": "2024-08-20T18:37:24.100435Z",
+  "ended_at": "2024-08-20T18:37:24.100435Z",
+  "expires_at": "2024-08-20T18:37:24.100435Z",
+  "processing_status": "in_progress",
+  "request_counts": {
+    "canceled": 10,
+    "errored": 30,
+    "expired": 10,
+    "processing": 100,
+    "succeeded": 50
+  },
+  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+  "type": "message_batch"
+}
+```
+
+### Retrieve a Message Batch
+
+`MessageBatch Messages.Batches.Retrieve(parameters, cancellationToken = default)`
+
+**GET** `/v1/messages/batches/{message_batch_id}`
+
+This endpoint is idempotent and can be used to poll for Message Batch completion. To access the results of a Message Batch, make a request to the `results_url` field in the response.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `BatchRetrieveParams parameters`
+
+  - `required string messageBatchID` (path parameter)
+
+    ID of the Message Batch.
+
+  - `string workspaceID` (header parameter)
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class MessageBatch`
+
+  - `JsonElement Type = "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+  - `required string ID`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
+
+    format: date-time
+
+  - `required DateTimeOffset? CancelInitiatedAt`
+
+    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
+
+    format: date-time
+
+  - `required DateTimeOffset CreatedAt`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was created.
+
+    format: date-time
+
+  - `required DateTimeOffset? EndedAt`
+
+    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
+
+    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
+
+    format: date-time
+
+  - `required DateTimeOffset ExpiresAt`
+
+    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
+
+    format: date-time
+
+  - `required ProcessingStatus ProcessingStatus`
+
+    Processing status of the Message Batch.
+
+    - `InProgress("in_progress")`
+
+    - `Canceling("canceling")`
+
+    - `Ended("ended")`
+
+  - `required MessageBatchRequestCounts RequestCounts`
+
+    Tallies requests within the Message Batch, categorized by their status.
+
+    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
+    - `required long Canceled`
+
+      Number of requests in the Message Batch that have been canceled.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `required long Errored`
+
+      Number of requests in the Message Batch that encountered an error.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `required long Expired`
+
+      Number of requests in the Message Batch that have expired.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `required long Processing`
+
+      Number of requests in the Message Batch that are processing.
+
+    - `required long Succeeded`
+
+      Number of requests in the Message Batch that have completed successfully.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+  - `required string? ResultsUrl`
+
+    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
+
+    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+#### Example
+
+```csharp
+BatchRetrieveParams parameters = new() { MessageBatchID = "message_batch_id" };
+
+var messageBatch = await client.Messages.Batches.Retrieve(parameters);
+
+Console.WriteLine(messageBatch);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "archived_at": "2024-08-20T18:37:24.100435Z",
+  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+  "created_at": "2024-08-20T18:37:24.100435Z",
+  "ended_at": "2024-08-20T18:37:24.100435Z",
+  "expires_at": "2024-08-20T18:37:24.100435Z",
+  "processing_status": "in_progress",
+  "request_counts": {
+    "canceled": 10,
+    "errored": 30,
+    "expired": 10,
+    "processing": 100,
+    "succeeded": 50
+  },
+  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+  "type": "message_batch"
+}
+```
+
+### List Message Batches
+
+`BatchListPage Messages.Batches.List(parameters, cancellationToken = default)`
+
+**GET** `/v1/messages/batches`
+
+List all Message Batches within a Workspace. Most recently created batches are returned first.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `BatchListParams parameters`
+
+  - `string afterID` (query parameter)
+
+    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+
+  - `string beforeID` (query parameter)
+
+    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+
+  - `long limit` (query parameter)
+
+    Number of items to return per page.
+
+    Defaults to `20`. Ranges from `1` to `1000`.
+
+    minimum: 1, maximum: 1000
+
+  - `string workspaceID` (header parameter)
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class MessageBatch`
+
+  - `JsonElement Type = "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+  - `required string ID`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
+
+    format: date-time
+
+  - `required DateTimeOffset? CancelInitiatedAt`
+
+    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
+
+    format: date-time
+
+  - `required DateTimeOffset CreatedAt`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was created.
+
+    format: date-time
+
+  - `required DateTimeOffset? EndedAt`
+
+    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
+
+    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
+
+    format: date-time
+
+  - `required DateTimeOffset ExpiresAt`
+
+    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
+
+    format: date-time
+
+  - `required ProcessingStatus ProcessingStatus`
+
+    Processing status of the Message Batch.
+
+    - `InProgress("in_progress")`
+
+    - `Canceling("canceling")`
+
+    - `Ended("ended")`
+
+  - `required MessageBatchRequestCounts RequestCounts`
+
+    Tallies requests within the Message Batch, categorized by their status.
+
+    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
+    - `required long Canceled`
+
+      Number of requests in the Message Batch that have been canceled.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `required long Errored`
+
+      Number of requests in the Message Batch that encountered an error.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `required long Expired`
+
+      Number of requests in the Message Batch that have expired.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `required long Processing`
+
+      Number of requests in the Message Batch that are processing.
+
+    - `required long Succeeded`
+
+      Number of requests in the Message Batch that have completed successfully.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+  - `required string? ResultsUrl`
+
+    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
+
+    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+#### Example
+
+```csharp
+BatchListParams parameters = new();
+
+var page = await client.Messages.Batches.List(parameters);
+await foreach (var item in page.Paginate())
+{
+    Console.WriteLine(item);
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+      "archived_at": "2024-08-20T18:37:24.100435Z",
+      "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+      "created_at": "2024-08-20T18:37:24.100435Z",
+      "ended_at": "2024-08-20T18:37:24.100435Z",
+      "expires_at": "2024-08-20T18:37:24.100435Z",
+      "processing_status": "in_progress",
+      "request_counts": {
+        "canceled": 10,
+        "errored": 30,
+        "expired": 10,
+        "processing": 100,
+        "succeeded": 50
+      },
+      "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+      "type": "message_batch"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+### Cancel a Message Batch
+
+`MessageBatch Messages.Batches.Cancel(parameters, cancellationToken = default)`
+
+**POST** `/v1/messages/batches/{message_batch_id}/cancel`
+
+Batches may be canceled any time before processing ends. Once cancellation is initiated, the batch enters a `canceling` state, at which time the system may complete any in-progress, non-interruptible requests before finalizing cancellation.
+
+The number of canceled requests is specified in `request_counts`. To determine which requests were canceled, check the individual results within the batch. Note that cancellation may not result in any canceled requests if they were non-interruptible.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `BatchCancelParams parameters`
+
+  - `required string messageBatchID` (path parameter)
+
+    ID of the Message Batch.
+
+  - `string workspaceID` (header parameter)
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class MessageBatch`
+
+  - `JsonElement Type = "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+  - `required string ID`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
+
+    format: date-time
+
+  - `required DateTimeOffset? CancelInitiatedAt`
+
+    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
+
+    format: date-time
+
+  - `required DateTimeOffset CreatedAt`
+
+    RFC 3339 datetime string representing the time at which the Message Batch was created.
+
+    format: date-time
+
+  - `required DateTimeOffset? EndedAt`
+
+    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
+
+    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
+
+    format: date-time
+
+  - `required DateTimeOffset ExpiresAt`
+
+    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
+
+    format: date-time
+
+  - `required ProcessingStatus ProcessingStatus`
+
+    Processing status of the Message Batch.
+
+    - `InProgress("in_progress")`
+
+    - `Canceling("canceling")`
+
+    - `Ended("ended")`
+
+  - `required MessageBatchRequestCounts RequestCounts`
+
+    Tallies requests within the Message Batch, categorized by their status.
+
+    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
+    - `required long Canceled`
+
+      Number of requests in the Message Batch that have been canceled.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `required long Errored`
+
+      Number of requests in the Message Batch that encountered an error.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `required long Expired`
+
+      Number of requests in the Message Batch that have expired.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+    - `required long Processing`
+
+      Number of requests in the Message Batch that are processing.
+
+    - `required long Succeeded`
+
+      Number of requests in the Message Batch that have completed successfully.
+
+      This is zero until processing of the entire Message Batch has ended.
+
+  - `required string? ResultsUrl`
+
+    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
+
+    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+#### Example
+
+```csharp
+BatchCancelParams parameters = new() { MessageBatchID = "message_batch_id" };
+
+var messageBatch = await client.Messages.Batches.Cancel(parameters);
+
+Console.WriteLine(messageBatch);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "archived_at": "2024-08-20T18:37:24.100435Z",
+  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+  "created_at": "2024-08-20T18:37:24.100435Z",
+  "ended_at": "2024-08-20T18:37:24.100435Z",
+  "expires_at": "2024-08-20T18:37:24.100435Z",
+  "processing_status": "in_progress",
+  "request_counts": {
+    "canceled": 10,
+    "errored": 30,
+    "expired": 10,
+    "processing": 100,
+    "succeeded": 50
+  },
+  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+  "type": "message_batch"
+}
+```
+
+### Delete a Message Batch
+
+`DeletedMessageBatch Messages.Batches.Delete(parameters, cancellationToken = default)`
+
+**DELETE** `/v1/messages/batches/{message_batch_id}`
+
+Delete a Message Batch.
+
+Message Batches can only be deleted once they've finished processing. If you'd like to delete an in-progress batch, you must first cancel it.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `BatchDeleteParams parameters`
+
+  - `required string messageBatchID` (path parameter)
+
+    ID of the Message Batch.
+
+  - `string workspaceID` (header parameter)
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class DeletedMessageBatch`
+
+  - `JsonElement Type = "message_batch_deleted"`
+
+    Deleted object type.
+
+    For Message Batches, this is always `"message_batch_deleted"`.
+
+  - `required string ID`
+
+    ID of the Message Batch.
+
+#### Example
+
+```csharp
+BatchDeleteParams parameters = new() { MessageBatchID = "message_batch_id" };
+
+var deletedMessageBatch = await client.Messages.Batches.Delete(parameters);
+
+Console.WriteLine(deletedMessageBatch);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "type": "message_batch_deleted"
+}
+```
+
+### Retrieve Message Batch results
+
+`MessageBatchIndividualResponse Messages.Batches.ResultsStreaming(parameters, cancellationToken = default)`
+
+**GET** `/v1/messages/batches/{message_batch_id}/results`
+
+Streams the results of a Message Batch as a `.jsonl` file.
+
+Each line in the file is a JSON object containing the result of a single request in the Message Batch. Results are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `BatchResultsParams parameters`
+
+  - `required string messageBatchID` (path parameter)
+
+    ID of the Message Batch.
+
+  - `string workspaceID` (header parameter)
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class MessageBatchIndividualResponse`
+
+  This is a single line in the response `.jsonl` file and does not represent the response as a whole.
+
+  - `required string CustomID`
+
+    Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
+
+    Must be unique for each request within the Message Batch.
+
+  - `required MessageBatchResult Result`
+
+    Processing result for this request.
+
+    Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
+
+    - `class MessageBatchSucceededResult`
+
+      - `JsonElement Type = "succeeded"`
+
+      - `required Message Message`
+
+        - `JsonElement Type = "message"`
+
+          Object type.
+
+          For Messages, this is always `"message"`.
+
+        - `required string ID`
+
+          Unique object identifier.
+
+          The format and length of IDs may change over time.
+
+        - `required Container? Container`
+
+          Information about the container used in this request.
+
+          This will be non-null if a container tool (e.g. code execution) was used.
+
+          - `required string ID`
+
+            Identifier for the container used in this request
+
+          - `required DateTimeOffset ExpiresAt`
+
+            The time at which the container will expire.
+
+            format: date-time
+
+          - `required IReadOnlyList<ContainerSkill>? Skills`
+
+            Skills loaded in the container
+
+            - `required ContainerSkillType Type`
+
+              Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+              - `Anthropic("anthropic")`
+
+              - `Custom("custom")`
+
+            - `required string SkillID`
+
+              Skill ID
+
+              minLength: 1, maxLength: 64
+
+            - `required string Version`
+
+              The resolved version: a skill version ID for custom skills.
+
+              minLength: 1, maxLength: 64
+
+        - `required IReadOnlyList<ContentBlock> Content`
+
+          Content generated by the model.
+
+          This is an array of content blocks, each of which has a `type` that determines its shape.
+
+          Example:
+
+          ```json
+          [{"type": "text", "text": "Hi, I'm Claude."}]
+          ```
+
+          If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
+
+          For example, if the input `messages` were:
+
+          ```json
+          [
+            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+            {"role": "assistant", "content": "The best answer is ("}
+          ]
+          ```
+
+          Then the response `content` might be:
+
+          ```json
+          [{"type": "text", "text": "B)"}]
+          ```
+
+          - `class TextBlock`
+
+            - `JsonElement Type = "text"`
+
+            - `required IReadOnlyList<TextCitation>? Citations`
+
+              Citations supporting the text block.
+
+              The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+              - `class CitationCharLocation`
+
+                - `JsonElement Type = "char_location"`
+
+                - `required string CitedText`
+
+                - `required long DocumentIndex`
+
+                  minimum: 0
+
+                - `required string? DocumentTitle`
+
+                - `required long EndCharIndex`
+
+                - `required string? FileID`
+
+                - `required long StartCharIndex`
+
+                  minimum: 0
+
+              - `class CitationPageLocation`
+
+                - `JsonElement Type = "page_location"`
+
+                - `required string CitedText`
+
+                - `required long DocumentIndex`
+
+                  minimum: 0
+
+                - `required string? DocumentTitle`
+
+                - `required long EndPageNumber`
+
+                - `required string? FileID`
+
+                - `required long StartPageNumber`
+
+                  minimum: 1
+
+              - `class CitationContentBlockLocation`
+
+                - `JsonElement Type = "content_block_location"`
+
+                - `required string CitedText`
+
+                  The full text of the cited block range, concatenated.
+
+                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                - `required long DocumentIndex`
+
+                  minimum: 0
+
+                - `required string? DocumentTitle`
+
+                - `required long EndBlockIndex`
+
+                  Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                - `required string? FileID`
+
+                - `required long StartBlockIndex`
+
+                  0-based index of the first cited block in the source's `content` array.
+
+                  minimum: 0
+
+              - `class CitationsWebSearchResultLocation`
+
+                - `JsonElement Type = "web_search_result_location"`
+
+                - `required string CitedText`
+
+                - `required string EncryptedIndex`
+
+                - `required string? Title`
+
+                  maxLength: 512
+
+                - `required string Url`
+
+              - `class CitationsSearchResultLocation`
+
+                - `JsonElement Type = "search_result_location"`
+
+                - `required string CitedText`
+
+                  The full text of the cited block range, concatenated.
+
+                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                - `required long EndBlockIndex`
+
+                  Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                - `required long SearchResultIndex`
+
+                  0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+                  Counted separately from `document_index`; server-side web search results are not included in this count.
+
+                  minimum: 0
+
+                - `required string Source`
+
+                - `required long StartBlockIndex`
+
+                  0-based index of the first cited block in the source's `content` array.
+
+                  minimum: 0
+
+                - `required string? Title`
+
+            - `required string Text`
+
+          - `class ThinkingBlock`
+
+            - `JsonElement Type = "thinking"`
+
+            - `required string Signature`
+
+              A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+              This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+            - `required string Thinking`
+
+              The text of Claude's thinking process for this block.
+
+          - `class RedactedThinkingBlock`
+
+            - `JsonElement Type = "redacted_thinking"`
+
+            - `required string Data`
+
+              The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+              Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
+
+          - `class ToolUseBlock`
+
+            - `JsonElement Type = "tool_use"`
+
+            - `required string ID`
+
+              pattern: ^[a-zA-Z0-9_-]+$
+
+            - `required Caller Caller`
+
+              - `class DirectCaller`
+
+                Tool invocation directly from the model.
+
+                - `JsonElement Type = "direct"`
+
+              - `class ServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+                - `JsonElement Type = "code_execution_20250825"`
+
+                - `required string ToolID`
+
+                  pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+              - `class ServerToolCaller20260120`
+
+                - `JsonElement Type = "code_execution_20260120"`
+
+                - `required string ToolID`
+
+                  pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `required IReadOnlyDictionary<string, JsonElement> Input`
+
+            - `required string Name`
+
+              minLength: 1
+
+            - `string? ToolsetName`
+
+              For a toolset member tool_use, the toolset family.
+
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
+
+          - `class ServerToolUseBlock`
+
+            - `JsonElement Type = "server_tool_use"`
+
+            - `required string ID`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `required Caller Caller`
+
+              - `class DirectCaller`
+
+                Tool invocation directly from the model.
+
+              - `class ServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+              - `class ServerToolCaller20260120`
+
+            - `required IReadOnlyDictionary<string, JsonElement> Input`
+
+            - `required Name Name`
+
+              - `WebSearch("web_search")`
+
+              - `WebFetch("web_fetch")`
+
+              - `CodeExecution("code_execution")`
+
+              - `BashCodeExecution("bash_code_execution")`
+
+              - `TextEditorCodeExecution("text_editor_code_execution")`
+
+              - `ToolSearchToolRegex("tool_search_tool_regex")`
+
+              - `ToolSearchToolBm25("tool_search_tool_bm25")`
+
+          - `class WebSearchToolResultBlock`
+
+            - `JsonElement Type = "web_search_tool_result"`
+
+            - `required Caller Caller`
+
+              - `class DirectCaller`
+
+                Tool invocation directly from the model.
+
+              - `class ServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+              - `class ServerToolCaller20260120`
+
+            - `required WebSearchToolResultBlockContent Content`
+
+              - `class WebSearchToolResultError`
+
+                - `JsonElement Type = "web_search_tool_result_error"`
+
+                - `required WebSearchToolResultErrorCode ErrorCode`
+
+                  - `InvalidToolInput("invalid_tool_input")`
+
+                  - `Unavailable("unavailable")`
+
+                  - `MaxUsesExceeded("max_uses_exceeded")`
+
+                  - `TooManyRequests("too_many_requests")`
+
+                  - `QueryTooLong("query_too_long")`
+
+                  - `RequestTooLarge("request_too_large")`
+
+              - `IReadOnlyList<WebSearchResultBlock>`
+
+                - `JsonElement Type = "web_search_result"`
+
+                - `required string EncryptedContent`
+
+                - `required string? PageAge`
+
+                - `required string Title`
+
+                - `required string Url`
+
+            - `required string ToolUseID`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class WebFetchToolResultBlock`
+
+            - `JsonElement Type = "web_fetch_tool_result"`
+
+            - `required Caller Caller`
+
+              - `class DirectCaller`
+
+                Tool invocation directly from the model.
+
+              - `class ServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+              - `class ServerToolCaller20260120`
+
+            - `required Content Content`
+
+              - `class WebFetchToolResultErrorBlock`
+
+                - `JsonElement Type = "web_fetch_tool_result_error"`
+
+                - `required WebFetchToolResultErrorCode ErrorCode`
+
+                  - `InvalidToolInput("invalid_tool_input")`
+
+                  - `UrlTooLong("url_too_long")`
+
+                  - `UrlNotAllowed("url_not_allowed")`
+
+                  - `UrlNotInPriorContext("url_not_in_prior_context")`
+
+                  - `UrlNotAccessible("url_not_accessible")`
+
+                  - `UnsupportedContentType("unsupported_content_type")`
+
+                  - `TooManyRequests("too_many_requests")`
+
+                  - `MaxUsesExceeded("max_uses_exceeded")`
+
+                  - `Unavailable("unavailable")`
+
+                  - `ContentTooLarge("content_too_large")`
+
+              - `class WebFetchBlock`
+
+                - `JsonElement Type = "web_fetch_result"`
+
+                - `required DocumentBlock Content`
+
+                  - `JsonElement Type = "document"`
+
+                  - `required CitationsConfig? Citations`
+
+                    Citation configuration for the document
+
+                    - `required bool Enabled`
+
+                  - `required Source Source`
+
+                    - `class Base64PdfSource`
+
+                      - `JsonElement Type = "base64"`
+
+                      - `required string Data`
+
+                        format: byte
+
+                      - `JsonElement MediaType = "application/pdf"`
+
+                    - `class PlainTextSource`
+
+                      - `JsonElement Type = "text"`
+
+                      - `required string Data`
+
+                      - `JsonElement MediaType = "text/plain"`
+
+                  - `required string? Title`
+
+                    The title of the document
+
+                - `required string? RetrievedAt`
+
+                  ISO 8601 timestamp when the content was retrieved
+
+                - `required string Url`
+
+                  Fetched content URL
+
+            - `required string ToolUseID`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class CodeExecutionToolResultBlock`
+
+            - `JsonElement Type = "code_execution_tool_result"`
+
+            - `required CodeExecutionToolResultBlockContent Content`
+
+              - `class CodeExecutionToolResultError`
+
+                - `JsonElement Type = "code_execution_tool_result_error"`
+
+                - `required CodeExecutionToolResultErrorCode ErrorCode`
+
+                  - `InvalidToolInput("invalid_tool_input")`
+
+                  - `Unavailable("unavailable")`
+
+                  - `TooManyRequests("too_many_requests")`
+
+                  - `ExecutionTimeExceeded("execution_time_exceeded")`
+
+              - `class CodeExecutionResultBlock`
+
+                - `JsonElement Type = "code_execution_result"`
+
+                - `required IReadOnlyList<CodeExecutionOutputBlock> Content`
+
+                  - `JsonElement Type = "code_execution_output"`
+
+                  - `required string FileID`
+
+                - `required long ReturnCode`
+
+                - `required string Stderr`
+
+                - `required string Stdout`
+
+              - `class EncryptedCodeExecutionResultBlock`
+
+                Code execution result with encrypted stdout for PFC + web_search results.
+
+                - `JsonElement Type = "encrypted_code_execution_result"`
+
+                - `required IReadOnlyList<CodeExecutionOutputBlock> Content`
+
+                  - `JsonElement Type = "code_execution_output"`
+
+                  - `required string FileID`
+
+                - `required string EncryptedStdout`
+
+                - `required long ReturnCode`
+
+                - `required string Stderr`
+
+            - `required string ToolUseID`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class BashCodeExecutionToolResultBlock`
+
+            - `JsonElement Type = "bash_code_execution_tool_result"`
+
+            - `required Content Content`
+
+              - `class BashCodeExecutionToolResultError`
+
+                - `JsonElement Type = "bash_code_execution_tool_result_error"`
+
+                - `required BashCodeExecutionToolResultErrorCode ErrorCode`
+
+                  - `InvalidToolInput("invalid_tool_input")`
+
+                  - `Unavailable("unavailable")`
+
+                  - `TooManyRequests("too_many_requests")`
+
+                  - `ExecutionTimeExceeded("execution_time_exceeded")`
+
+                  - `OutputFileTooLarge("output_file_too_large")`
+
+              - `class BashCodeExecutionResultBlock`
+
+                - `JsonElement Type = "bash_code_execution_result"`
+
+                - `required IReadOnlyList<BashCodeExecutionOutputBlock> Content`
+
+                  - `JsonElement Type = "bash_code_execution_output"`
+
+                  - `required string FileID`
+
+                - `required long ReturnCode`
+
+                - `required string Stderr`
+
+                - `required string Stdout`
+
+            - `required string ToolUseID`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class TextEditorCodeExecutionToolResultBlock`
+
+            - `JsonElement Type = "text_editor_code_execution_tool_result"`
+
+            - `required Content Content`
+
+              - `class TextEditorCodeExecutionToolResultError`
+
+                - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
+
+                - `required TextEditorCodeExecutionToolResultErrorCode ErrorCode`
+
+                  - `InvalidToolInput("invalid_tool_input")`
+
+                  - `Unavailable("unavailable")`
+
+                  - `TooManyRequests("too_many_requests")`
+
+                  - `ExecutionTimeExceeded("execution_time_exceeded")`
+
+                  - `FileNotFound("file_not_found")`
+
+                - `required string? ErrorMessage`
+
+              - `class TextEditorCodeExecutionViewResultBlock`
+
+                - `JsonElement Type = "text_editor_code_execution_view_result"`
+
+                - `required string Content`
+
+                - `required FileType FileType`
+
+                  - `Text("text")`
+
+                  - `Image("image")`
+
+                  - `Pdf("pdf")`
+
+                - `required long? NumLines`
+
+                - `required long? StartLine`
+
+                - `required long? TotalLines`
+
+              - `class TextEditorCodeExecutionCreateResultBlock`
+
+                - `JsonElement Type = "text_editor_code_execution_create_result"`
+
+                - `required bool IsFileUpdate`
+
+              - `class TextEditorCodeExecutionStrReplaceResultBlock`
+
+                - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
+
+                - `required IReadOnlyList<string>? Lines`
+
+                - `required long? NewLines`
+
+                - `required long? NewStart`
+
+                - `required long? OldLines`
+
+                - `required long? OldStart`
+
+            - `required string ToolUseID`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class ToolSearchToolResultBlock`
+
+            - `JsonElement Type = "tool_search_tool_result"`
+
+            - `required Content Content`
+
+              - `class ToolSearchToolResultError`
+
+                - `JsonElement Type = "tool_search_tool_result_error"`
+
+                - `required ToolSearchToolResultErrorCode ErrorCode`
+
+                  - `InvalidToolInput("invalid_tool_input")`
+
+                  - `Unavailable("unavailable")`
+
+                  - `TooManyRequests("too_many_requests")`
+
+                  - `ExecutionTimeExceeded("execution_time_exceeded")`
+
+                - `required string? ErrorMessage`
+
+              - `class ToolSearchToolSearchResultBlock`
+
+                - `JsonElement Type = "tool_search_tool_search_result"`
+
+                - `required IReadOnlyList<ToolReferenceBlock> ToolReferences`
+
+                  - `JsonElement Type = "tool_reference"`
+
+                  - `required string ToolName`
+
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+            - `required string ToolUseID`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `class ContainerUploadBlock`
+
+            Response model for a file uploaded to the container.
+
+            - `JsonElement Type = "container_upload"`
+
+            - `required string FileID`
+
+        - `required Diagnostics? Diagnostics`
+
+          Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
+
+          - `required CacheMissReason? CacheMissReason`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+            - `class CacheMissModelChanged`
+
+              - `JsonElement Type = "model_changed"`
+
+              - `required long CacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissSystemChanged`
+
+              - `JsonElement Type = "system_changed"`
+
+              - `required long CacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissToolsChanged`
+
+              - `JsonElement Type = "tools_changed"`
+
+              - `required long CacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissMessagesChanged`
+
+              - `JsonElement Type = "messages_changed"`
+
+              - `required long CacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissPreviousMessageNotFound`
+
+              - `JsonElement Type = "previous_message_not_found"`
+
+            - `class CacheMissUnavailable`
+
+              - `JsonElement Type = "unavailable"`
+
+        - `required Model Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+            Fastest model for high-volume, real-time tasks
+
+          - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+            Efficient model for coding and agents
+
+          - `ClaudeFable5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `ClaudeOpus5_5("claude-opus-5-5")`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
+
+          - `ClaudeMythos5_1("claude-mythos-5-1")`
+
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+          - `ClaudeSonnet5("claude-sonnet-5")`
+
+            Efficient model for coding and agents
+
+          - `ClaudeFable5("claude-fable-5")`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `ClaudeMythos5("claude-mythos-5")`
+
+            Most capable model for cybersecurity and biology research
+
+          - `ClaudeOpus5("claude-opus-5")`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `ClaudeOpus4_8("claude-opus-4-8")`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `ClaudeOpus4_7("claude-opus-4-7")`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `ClaudeOpus4_6("claude-opus-4-6")`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `ClaudeSonnet4_6("claude-sonnet-4-6")`
+
+            Best combination of speed and intelligence
+
+          - `ClaudeHaiku4_5("claude-haiku-4-5")`
+
+            Fastest model with near-frontier intelligence
+
+          - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
+
+            Fastest model with near-frontier intelligence
+
+          - `ClaudeOpus4_5("claude-opus-4-5")`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `ClaudeMythosPreview("claude-mythos-preview")`
+
+            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            New class of intelligence, strongest in coding and cybersecurity
+
+          - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            High-performance model for agents and coding
+
+          - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+            **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            High-performance model for agents and coding
+
+        - `JsonElement Role = "assistant"`
+
+          Conversational role of the generated message.
+
+          This will always be `"assistant"`.
+
+        - `required RefusalStopDetails? StopDetails`
+
+          Structured information about why model output stopped.
+
+          This is `null` when the `stop_reason` has no additional detail to report.
+
+          - `JsonElement Type = "refusal"`
+
+          - `required Category? Category`
+
+            The policy category that triggered the refusal.
+
+            `null` when the refusal doesn't map to a named category.
+
+            - `Cyber("cyber")`
+
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
+            - `Bio("bio")`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+
+            - `FrontierLlm("frontier_llm")`
+
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
+            - `ReasoningExtraction("reasoning_extraction")`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `GeneralHarms("general_harms")`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
+          - `required string? Explanation`
+
+            Human-readable explanation of the refusal.
+
+            This text is not guaranteed to be stable. `null` when no explanation is available for the category.
+
+        - `required StopReason? StopReason`
+
+          The reason that we stopped.
+
+          This may be one the following values:
+
+          * `"end_turn"`: the model reached a natural stopping point
+          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          * `"tool_use"`: the model invoked one or more tools
+          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          * `"model_context_window_exceeded"`: we exceeded the model's context window
+
+          In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
+          - `EndTurn("end_turn")`
+
+          - `MaxTokens("max_tokens")`
+
+          - `StopSequence("stop_sequence")`
+
+          - `ToolUse("tool_use")`
+
+          - `PauseTurn("pause_turn")`
+
+          - `Refusal("refusal")`
+
+          - `ModelContextWindowExceeded("model_context_window_exceeded")`
+
+        - `required string? StopSequence`
+
+          Which custom stop sequence was generated, if any.
+
+          This value will be a non-null string if one of your custom stop sequences was generated.
+
+        - `required Usage Usage`
+
+          Billing and rate-limit usage.
+
+          Anthropic's API bills and rate-limits by token counts, as tokens represent the underlying cost to our systems.
+
+          Under the hood, the API transforms requests into a format suitable for the model. The model's output then goes through a parsing stage before becoming an API response. As a result, the token counts in `usage` will not match one-to-one with the exact visible content of an API request or response.
+
+          For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
+
+          Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
+          - `required CacheCreation? CacheCreation`
+
+            Breakdown of cached tokens by TTL
+
+            - `required long Ephemeral1hInputTokens`
+
+              The number of input tokens used to create the 1 hour cache entry.
+
+              minimum: 0
+
+            - `required long Ephemeral5mInputTokens`
+
+              The number of input tokens used to create the 5 minute cache entry.
+
+              minimum: 0
+
+          - `required long? CacheCreationInputTokens`
+
+            The number of input tokens used to create the cache entry.
+
+            minimum: 0
+
+          - `required long? CacheReadInputTokens`
+
+            The number of input tokens read from the cache.
+
+            minimum: 0
+
+          - `required string? InferenceGeo`
+
+            The geographic region where inference was performed for this request.
+
+          - `required long InputTokens`
+
+            The number of input tokens which were used.
+
+            minimum: 0
+
+          - `required long OutputTokens`
+
+            The number of output tokens which were used.
+
+            minimum: 0
+
+          - `required OutputTokensDetails? OutputTokensDetails`
+
+            Breakdown of output tokens by category.
+
+            `output_tokens` remains the inclusive, authoritative total used for billing.
+            This object provides a read-only decomposition for observability — for example,
+            how many of the billed output tokens were spent on internal reasoning that may
+            have been summarized before being returned to you.
+
+            - `required long ThinkingTokens`
+
+              Number of output tokens the model generated as internal reasoning, including
+              the thinking-block delimiter tokens.
+
+              Reflects the raw reasoning the model produced, not the (possibly shorter)
+              summarized thinking text returned in the response body. Computed by
+              re-tokenizing the raw reasoning text, so it may differ from the model's exact
+              generation count by a small number of tokens. Always ≤ `output_tokens`;
+              `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
+              minimum: 0
+
+          - `required ServerToolUsage? ServerToolUse`
+
+            The number of server tool requests.
+
+            - `required long WebFetchRequests`
+
+              The number of web fetch tool requests.
+
+              minimum: 0
+
+            - `required long WebSearchRequests`
+
+              The number of web search tool requests.
+
+              minimum: 0
+
+          - `required ServiceTier? ServiceTier`
+
+            If the request used the priority, standard, or batch tier.
+
+            - `Standard("standard")`
+
+            - `Priority("priority")`
+
+            - `Batch("batch")`
+
+    - `class MessageBatchErroredResult`
+
+      - `JsonElement Type = "errored"`
+
+      - `required ErrorResponse Error`
+
+        - `JsonElement Type = "error"`
+
+        - `required ErrorObject Error`
+
+          - `class InvalidRequestError`
+
+            - `JsonElement Type = "invalid_request_error"`
+
+            - `required string Message`
+
+          - `class AuthenticationError`
+
+            - `JsonElement Type = "authentication_error"`
+
+            - `required string Message`
+
+          - `class BillingError`
+
+            - `JsonElement Type = "billing_error"`
+
+            - `required string Message`
+
+          - `class PermissionError`
+
+            - `JsonElement Type = "permission_error"`
+
+            - `required string Message`
+
+          - `class NotFoundError`
+
+            - `JsonElement Type = "not_found_error"`
+
+            - `required string Message`
+
+          - `class RateLimitError`
+
+            - `JsonElement Type = "rate_limit_error"`
+
+            - `required string Message`
+
+          - `class GatewayTimeoutError`
+
+            - `JsonElement Type = "timeout_error"`
+
+            - `required string Message`
+
+          - `class ApiErrorObject`
+
+            - `JsonElement Type = "api_error"`
+
+            - `required string Message`
+
+          - `class OverloadedError`
+
+            - `JsonElement Type = "overloaded_error"`
+
+            - `required string Message`
+
+        - `required string? RequestID`
+
+    - `class MessageBatchCanceledResult`
+
+      - `JsonElement Type = "canceled"`
+
+    - `class MessageBatchExpiredResult`
+
+      - `JsonElement Type = "expired"`
+
+#### Example
+
+```csharp
+BatchResultsParams parameters = new() { MessageBatchID = "message_batch_id" };
+
+await foreach (var messageBatchIndividualResponse in client.Messages.Batches.ResultsStreaming(parameters))
+{
+    Console.WriteLine(messageBatchIndividualResponse);
+}
+```

@@ -52,10 +52,10 @@ Capacity issues will not appear on our status page because they represent normal
 
 Service incidents are disruptions where Claude is unavailable or significantly degraded for all or most users. These represent actual technical problems with our systems. To check for confirmed incidents, visit status.claude.com, where you'll find real-time updates on scope, impact, and resolution progress for any active incidents.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1791333900&signature=f4990f8d0e602451ae6b8eb1bc274255ee275cb8d9f0a08ee7b736ac48723ae5&req=dSciFc53m4NbXvMW1HO4za4BX64g0bHN7y68oYp%2BYg93ekcnAHKrm0jIQlBi%0A0nthbVeUOhywIR0Esl0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1791333900&signature=f4990f8d0e602451ae6b8eb1bc274255ee275cb8d9f0a08ee7b736ac48723ae5&req=dSciFc53m4NbXvMW1HO4za4BX64g0bHN7y68oYp%2BYg93ekcnAHKrm0jIQlBi%0A0nthbVeUOhywIR0Esl0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1791434700&signature=4600e73c6480e3bdedf4d8b252bf8ffb45a7c160d8b764d3a20e34858080ba41&req=dSciFc53m4NbXvMW1HO4za4BX64n0bbD7y68oYp%2BYg95Up0Cg3YcMgkLFfSL%0A6mGqVSIT5DjdBWMOr%2B8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1791434700&signature=4600e73c6480e3bdedf4d8b252bf8ffb45a7c160d8b764d3a20e34858080ba41&req=dSciFc53m4NbXvMW1HO4za4BX64n0bbD7y68oYp%2BYg95Up0Cg3YcMgkLFfSL%0A6mGqVSIT5DjdBWMOr%2B8%3D%0A)
 
 * [What is the Pro plan?](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)
-* [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
+* [How can I get higher rate limits on the Claude API?](https://support.claude.com/en/articles/10366389-how-can-i-get-higher-rate-limits-on-the-claude-api)
+* [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
 * [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 * [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
-* [Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)

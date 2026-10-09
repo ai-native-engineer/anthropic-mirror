@@ -130,7 +130,7 @@ How people answered the five questions (share of respondents at each answers)
   1–2 months~3 months~6 months~9 monthsA year2 years3+ years or never
 
 * General publicn = 10,980
-* Site visitorsn = 31,006
+* Site visitorsn = 31,162
 
 ### You predicted one possible future for the economy. Here’s what that future could look like.
 

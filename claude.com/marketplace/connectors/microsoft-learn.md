@@ -16,6 +16,16 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
+![](https://raw.githubusercontent.com/grafana/ai-marketplace/12be5634a492f73c189d466c5449d09b853ad7a4/plugins/grafana-cloud-mcp/assets/logo.svg)
+
+### [Grafana Cloud](https://claude.com/marketplace/connectors/grafana-cloud)
+
+Anthropic verifiedNew
+
+Query metrics, logs, and traces and manage dashboards and alerts
+
+[Add Grafana Cloud in Claude (opens in new tab)](https://claude.ai/directory/3392c633-e335-4638-bda7-5b259808c3f7 "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
 ### [monday.com](https://claude.com/marketplace/connectors/monday)
@@ -55,11 +65,3 @@ Analyze, debug, and manage projects and deployments
 Automate workflows across thousands of apps via conversation
 
 [Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
-
-![](https://assets.claude.com/91600ba8839d48035fa701c5bd18d1a5230e3929.svg?w=128&fit=max&auto=format)
-
-### [Lovable](https://claude.com/marketplace/connectors/lovable)
-
-Build, iterate, inspect, and deploy Lovable apps
-
-[Add Lovable in Claude (opens in new tab)](https://claude.ai/directory/1d9dadfe-0a7d-4a47-af18-101ae0ae0efd "Add in Claude")

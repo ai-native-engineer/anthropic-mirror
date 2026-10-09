@@ -130,7 +130,7 @@ Across enterprise security programs and inside Anthropic, teams use Claude to im
 
 Claude SecurityClaude CodeClaude Developer Platform
 
-[![](https://assets.claude.com/db5b0eb52879bafd5325601021c5431e874ba9f3.png)](https://assets.claude.com/15a276ba3a448f2c1ee91c6287345a06059bb9ab.webm)
+![](https://assets.claude.com/db5b0eb52879bafd5325601021c5431e874ba9f3.png)
 
 ### Find and fix vulnerabilities with Claude Security
 

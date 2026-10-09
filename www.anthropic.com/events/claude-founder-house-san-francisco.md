@@ -202,6 +202,18 @@ Head of Anthropic Labs, Anthropic
 
 Co-host, Acquired
 
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac510d54dd5d567d5639757_jared-kaplan.jpg)
+
+### Jared Kaplan
+
+Chief Science Officer, Anthropic
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6823ec2b06cb0a301cc32905_dianne-penn.jpg)
+
+### Dianne Penn
+
+Head of Product Management (Research) at Anthropic
+
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ab1bfa97fa97e48b3d4236a_travis-zack.jpg)
 
 ### Travis Zack
@@ -447,12 +459,6 @@ CTO, Lila Sciences
 ### Kevin Tang
 
 Member of Technical Staff, Anthropic
-
-![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac510d54dd5d567d5639757_jared-kaplan.jpg)
-
-### Jared Kaplan
-
-Chief Science Officer, Anthropic
 
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac512293586c3d1c559a7ee_shivani-poddar.jpg)
 
@@ -478,6 +484,18 @@ Head of Anthropic Labs, Anthropic
 
 Co-host, Acquired
 
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac510d54dd5d567d5639757_jared-kaplan.jpg)
+
+### Jared Kaplan
+
+Chief Science Officer, Anthropic
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6823ec2b06cb0a301cc32905_dianne-penn.jpg)
+
+### Dianne Penn
+
+Head of Product Management (Research) at Anthropic
+
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ab1bfa97fa97e48b3d4236a_travis-zack.jpg)
 
 ### Travis Zack
@@ -723,12 +741,6 @@ CTO, Lila Sciences
 ### Kevin Tang
 
 Member of Technical Staff, Anthropic
-
-![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac510d54dd5d567d5639757_jared-kaplan.jpg)
-
-### Jared Kaplan
-
-Chief Science Officer, Anthropic
 
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6ac512293586c3d1c559a7ee_shivani-poddar.jpg)
 
@@ -1248,7 +1260,7 @@ Talk
 
 Artemis, XBOW and Outtake discuss how they use frontier models to help defenders protect mission-critical infrastructure in the evolving landscape.
 
-Shachar Hirshberg, Co-founder and CEO, Artemis · Erdem Menges, VP of Marketing, XBOW · Alex Dhillon, CEO, Outtake
+Shachar Hirshberg, Co-founder and CEO, Artemis · Erdem Menges, VP of Marketing, XBOW · Steve Pascucci, VP of GTM, Outtake
 
 Wednesday
 
@@ -1263,6 +1275,30 @@ Oct 7
 -
 
 3:00 pm
+
+PDT
+
+#### Building a personal AI agent people trust
+
+Talk
+
+Fo makes calls, sends emails and makes purchases on your behalf. Shivani Poddar, Founder and CEO of Wajo, shares what it took to launch an agent that gets real-world tasks done, where AI still falls short, and why Wajo keeps humans in the loop.
+
+Shivani Poddar, Founder, Wajo AI
+
+Wednesday
+
+,
+
+Oct 7
+
+,
+
+3:00 pm
+
+-
+
+3:25 pm
 
 PDT
 
@@ -1490,7 +1526,35 @@ Talk
 
 Artemis, XBOW and Outtake discuss how they use frontier models to help defenders protect mission-critical infrastructure in the evolving landscape.
 
-Shachar Hirshberg, Co-founder and CEO, Artemis · Erdem Menges, VP of Marketing, XBOW · Alex Dhillon, CEO, Outtake
+Shachar Hirshberg, Co-founder and CEO, Artemis · Erdem Menges, VP of Marketing, XBOW · Steve Pascucci, VP of GTM, Outtake
+
+3:00 pm
+
+-
+
+3:25 pm
+
+PDT
+
+### Building a personal AI agent people trust
+
+Talk
+
+3:00 pm
+
+-
+
+3:25 pm
+
+PDT
+
+### Building a personal AI agent people trust
+
+Talk
+
+Fo makes calls, sends emails and makes purchases on your behalf. Shivani Poddar, Founder and CEO of Wajo, shares what it took to launch an agent that gets real-world tasks done, where AI still falls short, and why Wajo keeps humans in the loop.
+
+Shivani Poddar, Founder, Wajo AI
 
 3:30 pm
 

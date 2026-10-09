@@ -6,15 +6,15 @@ Owners and Primary Owners of Team plans with monthly subscriptions can switch fr
 2. You’ll see a banner confirming your current monthly plan in your Billing settings; click the “Switch to Annual” button.
 3. Or from /upgrade, click the “Switch to Annual plan” button:
 
-   ![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1690325734/d47f714680d78408d6022d06b8d1/image.png?expires=1791450000&signature=a6aebfa50f23170c16e43533ebb9790998656393237f9a907e6e7fb0a4d75c7f&req=dSYuFsp8mIZcXfMW3Hu4gZzas%2FXsuDtXnWrRiVwqPzYtqzXe8SbCYinSexDN%0A0Q%3D%3D%0A)
+   ![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1690325734/d47f714680d78408d6022d06b8d1/image.png?expires=1791558000&signature=43eccab93ed49ef422dc9bbaebf4884c519ee59b240d87e74419d1fcd7ff8c6b&req=dSYuFsp8mIZcXfMW3Hu4gZzas%2FXsuDpXlWrRiVwqPzZPPB2gIhNf1i4QVQP5%0A7Q%3D%3D%0A)
 4. The confirmation screen will display the total cost for your upgrade from monthly to annual billing:
 
-   ![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1690326039/3a91cdc5fff57d188a18ecc6273f/image.png?expires=1791450000&signature=bb69c4052440d8d4a564842b83dedca37738818dae6bbffabc23ec3f62fcb2b0&req=dSYuFsp8m4FcUPMW3Hu4gbNj%2Bk79XQnki%2B5vzcg6znWugGII4U9GSBL%2FG1vA%0AdA%3D%3D%0A)
+   ![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1690326039/3a91cdc5fff57d188a18ecc6273f/image.png?expires=1791558000&signature=b7d3363023745da06565aa538f37430172fa2d29294f1cd94d1ce44ef2515060&req=dSYuFsp8m4FcUPMW3Hu4gbNj%2Bk79XQjkg%2B5vzcg6znXrIjgzboQbIAbNaq7p%0A8g%3D%3D%0A)
 5. Click “Confirm subscription.”
 6. Your new annual Team plan will start immediately and you will be credited for any unused time on your previous monthly plan.
 
-* [How do I sign up for the Pro plan?](https://support.claude.com/en/articles/8325609-how-do-i-sign-up-for-the-pro-plan)
 * [Get started with the Team plan](https://support.claude.com/en/articles/9267247-get-started-with-the-team-plan)
 * [How is my Team plan bill calculated?](https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated)
 * [How to change your Pro plan from monthly to annual billing](https://support.claude.com/en/articles/10185996-how-to-change-your-pro-plan-from-monthly-to-annual-billing)
 * [How do I sign up for the Max plan?](https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan)
+* [Monthly API credits for Max and Team plans](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans)

@@ -787,7 +787,7 @@ ant beta:vaults:credentials create \
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -1018,7 +1018,7 @@ ant beta:vaults:credentials list \
 {
   "data": [
     {
-      "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+      "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
       "archived_at": null,
       "auth": {
         "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -1226,14 +1226,14 @@ Get Credential
 ant beta:vaults:credentials retrieve \
   --api-key my-anthropic-api-key \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv \
-  --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
+  --credential-id vcrd_011CZkZEMt8gZan2iYPQfSkw
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -1452,14 +1452,14 @@ Update Credential
 ant beta:vaults:credentials update \
   --api-key my-anthropic-api-key \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv \
-  --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
+  --credential-id vcrd_011CZkZEMt8gZan2iYPQfSkw
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -1522,14 +1522,14 @@ Delete Credential
 ant beta:vaults:credentials delete \
   --api-key my-anthropic-api-key \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv \
-  --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
+  --credential-id vcrd_011CZkZEMt8gZan2iYPQfSkw
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "type": "vault_credential_deleted"
 }
 ```
@@ -1722,14 +1722,14 @@ Archive Credential
 ant beta:vaults:credentials archive \
   --api-key my-anthropic-api-key \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv \
-  --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
+  --credential-id vcrd_011CZkZEMt8gZan2iYPQfSkw
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "archived_at": null,
   "auth": {
     "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
@@ -1898,14 +1898,14 @@ Validate Credential
 ant beta:vaults:credentials mcp-oauth-validate \
   --api-key my-anthropic-api-key \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv \
-  --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
+  --credential-id vcrd_011CZkZEMt8gZan2iYPQfSkw
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "credential_id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "has_refresh_token": true,
   "mcp_probe": {
     "http_response": {

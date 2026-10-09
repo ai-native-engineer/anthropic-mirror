@@ -2,7 +2,7 @@
 
 # What is the Life Sciences Verification Program?
 
-Updated over a week ago
+Updated today
 
 Table of contents
 
@@ -36,9 +36,9 @@ We’ve designed these new safeguards specifically to defend against three conce
 
 ### Models
 
-Access grants apply to Claude Opus 5.5, Claude Mythos 5.1, Claude Opus 5, and Claude Sonnet 5 today, and to select future models as they launch.
+Access grants apply to Claude Mythos 5.1, Claude Opus 5.5, Claude Opus 5, and Claude Sonnet 5 today, and to select future models as they launch.
 
-On Sonnet 5.5, LSVP relaxes biology safeguards only through the High-risk Use add-on.
+On Sonnet 5.5 and Haiku 5.5, LSVP relaxes biology safeguards only through the High-risk Use add-on.
 
 Claude Fable models aren't part of LSVP and keep their full biology safeguards under every grant. If you hold an LSVP grant, use Claude Mythos 5.1 instead of Fable. The older Claude Mythos 5 preview is not offered under LSVP access.
 

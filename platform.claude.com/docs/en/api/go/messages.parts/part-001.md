@@ -26,7 +26,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `params MessageNewParams`
 
-  - `MaxTokens param.Field[int64]`
+  - `MaxTokens int64`
 
     The maximum number of tokens to generate before stopping.
 
@@ -38,7 +38,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     minimum: 0
 
-  - `Messages param.Field[[]MessageParamResp]`
+  - `Messages []MessageParam`
 
     Input messages.
 
@@ -1062,37 +1062,37 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `const MessageParamRoleSystem MessageParamRole = "system"`
 
-  - `Model param.Field[Model]`
+  - `Model Model`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-  - `CacheControl param.Field[CacheControlEphemeral] Optional`
+  - `CacheControl CacheControlEphemeralParam Optional`
 
     Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
-  - `Container param.Field[MessageCreateParamsContainerUnionResp] Optional`
+  - `Container MessageCreateParamsContainerUnion Optional`
 
     Container identifier for reuse across requests.
 
-  - `Diagnostics param.Field[DiagnosticsParamResp] Optional`
+  - `Diagnostics DiagnosticsParam Optional`
 
     Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
 
-  - `InferenceGeo param.Field[string] Optional`
+  - `InferenceGeo param.Opt[string] Optional`
 
     Specifies the geographic region for inference processing. If not specified, the workspace's `default_inference_geo` is used.
 
-  - `Metadata param.Field[Metadata] Optional`
+  - `Metadata MetadataParam Optional`
 
     An object describing metadata about the request.
 
-  - `OutputConfig param.Field[OutputConfig] Optional`
+  - `OutputConfig OutputConfigParam Optional`
 
     Configuration options for the model's output, such as the output format.
 
-  - `ServiceTier param.Field[MessageNewParamsServiceTier] Optional`
+  - `ServiceTier MessageNewParamsServiceTier Optional`
 
     Determines whether to use priority capacity (if available) or standard capacity for this request.
 
@@ -1102,7 +1102,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `const MessageNewParamsServiceTierStandardOnly MessageNewParamsServiceTier = "standard_only"`
 
-  - `StopSequences param.Field[[]string] Optional`
+  - `StopSequences []string Optional`
 
     Custom text sequences that will cause the model to stop generating.
 
@@ -1110,7 +1110,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     If you want the model to stop generating when it encounters custom strings of text, you can use the `stop_sequences` parameter. If the model encounters one of the custom sequences, the response `stop_reason` value will be `"stop_sequence"` and the response `stop_sequence` value will contain the matched stop sequence.
 
-  - `System param.Field[[]TextBlockParamResp] Optional`
+  - `System []TextBlockParam Optional`
 
     System prompt.
 
@@ -1130,7 +1130,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Citations []TextCitationParamUnionResp Optional`
 
-  - `Thinking param.Field[ThinkingConfigParamUnionResp] Optional`
+  - `Thinking ThinkingConfigParamUnion Optional`
 
     Configuration for enabling Claude's extended thinking.
 
@@ -1138,11 +1138,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-  - `ToolChoice param.Field[ToolChoiceUnion] Optional`
+  - `ToolChoice ToolChoiceUnionParam Optional`
 
     How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
-  - `Tools param.Field[[]ToolUnion] Optional`
+  - `Tools []ToolUnionParam Optional`
 
     Definitions of tools that the model may use.
 
@@ -2782,17 +2782,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-  - `UserProfileID param.Field[string] Optional` (header parameter)
+  - `UserProfileID param.Opt[string] Optional` (header parameter)
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
     Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
-  - `Temperature param.Field[float64] Optional`
+  - `Temperature param.Opt[float64] Optional`
 
     **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
@@ -2804,7 +2804,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     minimum: 0, maximum: 1
 
-  - `TopK param.Field[int64] Optional`
+  - `TopK param.Opt[int64] Optional`
 
     **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not accept top_k; any value will be rejected with a 400 error.
 
@@ -2816,7 +2816,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     minimum: 0
 
-  - `TopP param.Field[float64] Optional`
+  - `TopP param.Opt[float64] Optional`
 
     **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting top_p. A value >= 0.99 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
@@ -3667,6 +3667,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+      Fastest model for high-volume, real-time tasks
+
     - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
       Efficient model for coding and agents
@@ -4257,7 +4261,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 - `params MessageCountTokensParams`
 
-  - `Messages param.Field[[]MessageParamResp]`
+  - `Messages []MessageParam`
 
     Input messages.
 
@@ -5281,21 +5285,21 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `const MessageParamRoleSystem MessageParamRole = "system"`
 
-  - `Model param.Field[Model]`
+  - `Model Model`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-  - `CacheControl param.Field[CacheControlEphemeral] Optional`
+  - `CacheControl CacheControlEphemeralParam Optional`
 
     Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
-  - `OutputConfig param.Field[OutputConfig] Optional`
+  - `OutputConfig OutputConfigParam Optional`
 
     Configuration options for the model's output, such as the output format.
 
-  - `System param.Field[MessageCountTokensParamsSystemUnion] Optional`
+  - `System MessageCountTokensParamsSystemUnion Optional`
 
     System prompt.
 
@@ -5317,7 +5321,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `Citations []TextCitationParamUnionResp Optional`
 
-  - `Thinking param.Field[ThinkingConfigParamUnionResp] Optional`
+  - `Thinking ThinkingConfigParamUnion Optional`
 
     Configuration for enabling Claude's extended thinking.
 
@@ -5325,11 +5329,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-  - `ToolChoice param.Field[ToolChoiceUnion] Optional`
+  - `ToolChoice ToolChoiceUnionParam Optional`
 
     How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
-  - `Tools param.Field[[]MessageCountTokensToolUnion] Optional`
+  - `Tools []MessageCountTokensToolUnionParam Optional`
 
     Definitions of tools that the model may use.
 
@@ -6969,11 +6973,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-  - `UserProfileID param.Field[string] Optional` (header parameter)
+  - `UserProfileID param.Opt[string] Optional` (header parameter)
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -7291,6 +7295,43 @@ func main() {
 
     - `const BashCodeExecutionToolResultErrorCodeOutputFileTooLarge BashCodeExecutionToolResultErrorCode = "output_file_too_large"`
 
+### Browser Click Target
+
+- `type BrowserClickTargetUnion interface{…}`
+
+  Where to act: either a viewport coordinate or an element reference.
+
+  - `type BrowserCoordinateTarget`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+    - `Type Coordinate`
+
+    - `X int64`
+
+      Pixels from the left edge of the viewport.
+
+      minimum: 0
+
+    - `Y int64`
+
+      Pixels from the top edge of the viewport.
+
+      minimum: 0
+
+  - `type BrowserRefTarget`
+
+    An element on the page, identified by a reference from a prior `read_page` or
+    `find` result. References are scoped to the tab that produced them and become
+    stale after navigation or a major re-render.
+
+    - `Type Ref`
+
+    - `Ref string`
+
+      An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
 ### Browser Close Tab Config
 
 - `type BrowserCloseTabConfig`
@@ -7304,6 +7345,89 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Close Tab Input
+
+- `type BrowserCloseTabInput`
+
+  Close the tab with the given tab_id.
+
+  - `TabID string`
+
+    The tab to close.
+
+### Browser Close Tab Tool Use Block
+
+- `type BrowserCloseTabToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserCloseTabInput`
+
+    Close the tab with the given tab_id.
+
+    - `TabID string`
+
+      The tab to close.
+
+  - `Name CloseTab`
+
+  - `ToolsetName Browser`
+
+### Browser Coordinate Target
+
+- `type BrowserCoordinateTarget`
+
+  A point in the browser viewport, in viewport pixels (the same frame as a
+  full-viewport screenshot).
+
+  - `Type Coordinate`
+
+  - `X int64`
+
+    Pixels from the left edge of the viewport.
+
+    minimum: 0
+
+  - `Y int64`
+
+    Pixels from the top edge of the viewport.
+
+    minimum: 0
 
 ### Browser Double Click Config
 
@@ -7319,6 +7443,146 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Browser Double Click Input
+
+- `type BrowserDoubleClickInput`
+
+  Double left-click at a viewport coordinate or on an element by reference.
+
+  - `Target BrowserClickTargetUnion`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+    - `type BrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `type BrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `Modifiers string Optional`
+
+    Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Double Click Tool Use Block
+
+- `type BrowserDoubleClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserDoubleClickInput`
+
+    Double left-click at a viewport coordinate or on an element by reference.
+
+    - `Target BrowserClickTargetUnion`
+
+      Where to act: either a viewport coordinate or an element reference.
+
+      - `type BrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+        - `Type Coordinate`
+
+        - `X int64`
+
+          Pixels from the left edge of the viewport.
+
+          minimum: 0
+
+        - `Y int64`
+
+          Pixels from the top edge of the viewport.
+
+          minimum: 0
+
+      - `type BrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+        - `Type Ref`
+
+        - `Ref string`
+
+          An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `Modifiers string Optional`
+
+      Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name DoubleClick`
+
+  - `ToolsetName Browser`
+
 ### Browser File Upload Config
 
 - `type BrowserFileUploadConfig`
@@ -7332,6 +7596,118 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser File Upload Input
+
+- `type BrowserFileUploadInput`
+
+  Set the value of a file-input element to one or more files. The target must be an
+  element reference; at least one of paths or document_ids is required.
+
+  - `Target BrowserRefTarget`
+
+    An element on the page, identified by a reference from a prior `read_page` or
+    `find` result. References are scoped to the tab that produced them and become
+    stale after navigation or a major re-render.
+
+    - `Type Ref`
+
+    - `Ref string`
+
+      An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `DocumentIDs []string Optional`
+
+    References to files the harness has staged, for deployments where the browser executor cannot read the caller's filesystem.
+
+    minItems: 1
+
+  - `Paths []string Optional`
+
+    File paths on the browser executor's filesystem.
+
+    minItems: 1
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser File Upload Tool Use Block
+
+- `type BrowserFileUploadToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserFileUploadInput`
+
+    Set the value of a file-input element to one or more files. The target must be an
+    element reference; at least one of paths or document_ids is required.
+
+    - `Target BrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `DocumentIDs []string Optional`
+
+      References to files the harness has staged, for deployments where the browser executor cannot read the caller's filesystem.
+
+      minItems: 1
+
+    - `Paths []string Optional`
+
+      File paths on the browser executor's filesystem.
+
+      minItems: 1
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name FileUpload`
+
+  - `ToolsetName Browser`
 
 ### Browser Find Config
 
@@ -7347,6 +7723,78 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Browser Find Input
+
+- `type BrowserFindInput`
+
+  Find elements matching a natural-language description (e.g. "search bar", "add to
+  cart button") and return up to 20 matches with element references.
+
+  - `Query string`
+
+    Natural-language description of the element(s) to find.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Find Tool Use Block
+
+- `type BrowserFindToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserFindInput`
+
+    Find elements matching a natural-language description (e.g. "search bar", "add to
+    cart button") and return up to 20 matches with element references.
+
+    - `Query string`
+
+      Natural-language description of the element(s) to find.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Find`
+
+  - `ToolsetName Browser`
+
 ### Browser Form Input Config
 
 - `type BrowserFormInputConfig`
@@ -7360,6 +7808,124 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Form Input Input
+
+- `type BrowserFormInputInput`
+
+  Set the value of a form element (input, textarea, select, checkbox). Use a
+  boolean for checkboxes, an option value or text for selects.
+
+  - `Target BrowserRefTarget`
+
+    An element on the page, identified by a reference from a prior `read_page` or
+    `find` result. References are scoped to the tab that produced them and become
+    stale after navigation or a major re-render.
+
+    - `Type Ref`
+
+    - `Ref string`
+
+      An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `Value BrowserFormInputValueUnion`
+
+    The value to set.
+
+    - `string`
+
+    - `float64`
+
+    - `bool`
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Form Input Tool Use Block
+
+- `type BrowserFormInputToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserFormInputInput`
+
+    Set the value of a form element (input, textarea, select, checkbox). Use a
+    boolean for checkboxes, an option value or text for selects.
+
+    - `Target BrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `Value BrowserFormInputValueUnion`
+
+      The value to set.
+
+      - `string`
+
+      - `float64`
+
+      - `bool`
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name FormInput`
+
+  - `ToolsetName Browser`
+
+### Browser Form Input Value
+
+- `type BrowserFormInputValueUnion interface{…}`
+
+  - `string`
+
+  - `float64`
+
+  - `bool`
 
 ### Browser Get Page Text Config
 
@@ -7375,6 +7941,70 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Browser Get Page Text Input
+
+- `type BrowserGetPageTextInput`
+
+  Return the page's visible text content as plain text, prioritizing article
+  content. Suited to articles, documentation, and other text-heavy pages.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Get Page Text Tool Use Block
+
+- `type BrowserGetPageTextToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserGetPageTextInput`
+
+    Return the page's visible text content as plain text, prioritizing article
+    content. Suited to articles, documentation, and other text-heavy pages.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name GetPageText`
+
+  - `ToolsetName Browser`
+
 ### Browser Hold Key Config
 
 - `type BrowserHoldKeyConfig`
@@ -7388,6 +8018,90 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Hold Key Input
+
+- `type BrowserHoldKeyInput`
+
+  Hold a key or key chord down for a duration, then release it. Uses the same key
+  names and "+" chord syntax as the key action.
+
+  - `Duration float64`
+
+    Seconds to hold the key down (maximum 30).
+
+    minimum: 0, maximum: 30
+
+  - `Text string`
+
+    The key or chord to hold.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Hold Key Tool Use Block
+
+- `type BrowserHoldKeyToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserHoldKeyInput`
+
+    Hold a key or key chord down for a duration, then release it. Uses the same key
+    names and "+" chord syntax as the key action.
+
+    - `Duration float64`
+
+      Seconds to hold the key down (maximum 30).
+
+      minimum: 0, maximum: 30
+
+    - `Text string`
+
+      The key or chord to hold.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name HoldKey`
+
+  - `ToolsetName Browser`
 
 ### Browser Hover Config
 
@@ -7403,6 +8117,138 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Browser Hover Input
+
+- `type BrowserHoverInput`
+
+  Move the cursor to a coordinate or element without clicking.
+
+  - `Target BrowserClickTargetUnion`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+    - `type BrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `type BrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Hover Tool Use Block
+
+- `type BrowserHoverToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserHoverInput`
+
+    Move the cursor to a coordinate or element without clicking.
+
+    - `Target BrowserClickTargetUnion`
+
+      Where to act: either a viewport coordinate or an element reference.
+
+      - `type BrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+        - `Type Coordinate`
+
+        - `X int64`
+
+          Pixels from the left edge of the viewport.
+
+          minimum: 0
+
+        - `Y int64`
+
+          Pixels from the top edge of the viewport.
+
+          minimum: 0
+
+      - `type BrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+        - `Type Ref`
+
+        - `Ref string`
+
+          An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Hover`
+
+  - `ToolsetName Browser`
+
 ### Browser Javascript Exec Config
 
 - `type BrowserJavascriptExecConfig`
@@ -7417,6 +8263,80 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Browser Javascript Exec Input
+
+- `type BrowserJavascriptExecInput`
+
+  Execute JavaScript in the page context and return the value of the last
+  expression. The code runs with access to the DOM, `window`, and page variables.
+  Write the expression you want evaluated — do NOT use `return`.
+
+  - `Text string`
+
+    JavaScript to execute in the page context.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Javascript Exec Tool Use Block
+
+- `type BrowserJavascriptExecToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserJavascriptExecInput`
+
+    Execute JavaScript in the page context and return the value of the last
+    expression. The code runs with access to the DOM, `window`, and page variables.
+    Write the expression you want evaluated — do NOT use `return`.
+
+    - `Text string`
+
+      JavaScript to execute in the page context.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name JavascriptExec`
+
+  - `ToolsetName Browser`
+
 ### Browser Key Config
 
 - `type BrowserKeyConfig`
@@ -7430,6 +8350,92 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Key Input
+
+- `type BrowserKeyInput`
+
+  Press a key or key chord. Use "+" to combine modifiers with a key (e.g. "ctrl+a",
+  "cmd+shift+p") and space to sequence presses (e.g. "Backspace Backspace Delete").
+  Common names like "Return", "Tab", "Escape", "BackSpace" are supported.
+
+  - `Text string`
+
+    The key, chord, or space-separated sequence to press.
+
+  - `Repeat int64 Optional`
+
+    Number of times to repeat. Default 1.
+
+    minimum: 1, maximum: 100
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Key Tool Use Block
+
+- `type BrowserKeyToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserKeyInput`
+
+    Press a key or key chord. Use "+" to combine modifiers with a key (e.g. "ctrl+a",
+    "cmd+shift+p") and space to sequence presses (e.g. "Backspace Backspace Delete").
+    Common names like "Return", "Tab", "Escape", "BackSpace" are supported.
+
+    - `Text string`
+
+      The key, chord, or space-separated sequence to press.
+
+    - `Repeat int64 Optional`
+
+      Number of times to repeat. Default 1.
+
+      minimum: 1, maximum: 100
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Key`
+
+  - `ToolsetName Browser`
 
 ### Browser Left Click Config
 
@@ -7459,6 +8465,256 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Browser Left Click Drag Input
+
+- `type BrowserLeftClickDragInput`
+
+  Press at `from`, drag to `target`, release. Both must be coordinate targets.
+
+  - `From BrowserCoordinateTarget`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+    - `Type Coordinate`
+
+    - `X int64`
+
+      Pixels from the left edge of the viewport.
+
+      minimum: 0
+
+    - `Y int64`
+
+      Pixels from the top edge of the viewport.
+
+      minimum: 0
+
+  - `Target BrowserCoordinateTarget`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Left Click Drag Tool Use Block
+
+- `type BrowserLeftClickDragToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserLeftClickDragInput`
+
+    Press at `from`, drag to `target`, release. Both must be coordinate targets.
+
+    - `From BrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `Target BrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name LeftClickDrag`
+
+  - `ToolsetName Browser`
+
+### Browser Left Click Input
+
+- `type BrowserLeftClickInput`
+
+  Left-click at a viewport coordinate or on an element by reference.
+
+  - `Target BrowserClickTargetUnion`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+    - `type BrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `type BrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `Modifiers string Optional`
+
+    Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Left Click Tool Use Block
+
+- `type BrowserLeftClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserLeftClickInput`
+
+    Left-click at a viewport coordinate or on an element by reference.
+
+    - `Target BrowserClickTargetUnion`
+
+      Where to act: either a viewport coordinate or an element reference.
+
+      - `type BrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+        - `Type Coordinate`
+
+        - `X int64`
+
+          Pixels from the left edge of the viewport.
+
+          minimum: 0
+
+        - `Y int64`
+
+          Pixels from the top edge of the viewport.
+
+          minimum: 0
+
+      - `type BrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+        - `Type Ref`
+
+        - `Ref string`
+
+          An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `Modifiers string Optional`
+
+      Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name LeftClick`
+
+  - `ToolsetName Browser`
+
 ### Browser Left Mouse Down Config
 
 - `type BrowserLeftMouseDownConfig`
@@ -7472,6 +8728,108 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Left Mouse Down Input
+
+- `type BrowserLeftMouseDownInput`
+
+  Press and hold the left mouse button at a viewport coordinate. Pair with
+  left_mouse_up to perform a custom drag.
+
+  - `Target BrowserCoordinateTarget`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+    - `Type Coordinate`
+
+    - `X int64`
+
+      Pixels from the left edge of the viewport.
+
+      minimum: 0
+
+    - `Y int64`
+
+      Pixels from the top edge of the viewport.
+
+      minimum: 0
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Left Mouse Down Tool Use Block
+
+- `type BrowserLeftMouseDownToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserLeftMouseDownInput`
+
+    Press and hold the left mouse button at a viewport coordinate. Pair with
+    left_mouse_up to perform a custom drag.
+
+    - `Target BrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name LeftMouseDown`
+
+  - `ToolsetName Browser`
 
 ### Browser Left Mouse Up Config
 
@@ -7487,6 +8845,106 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Browser Left Mouse Up Input
+
+- `type BrowserLeftMouseUpInput`
+
+  Release the left mouse button at a viewport coordinate.
+
+  - `Target BrowserCoordinateTarget`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+    - `Type Coordinate`
+
+    - `X int64`
+
+      Pixels from the left edge of the viewport.
+
+      minimum: 0
+
+    - `Y int64`
+
+      Pixels from the top edge of the viewport.
+
+      minimum: 0
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Left Mouse Up Tool Use Block
+
+- `type BrowserLeftMouseUpToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserLeftMouseUpInput`
+
+    Release the left mouse button at a viewport coordinate.
+
+    - `Target BrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name LeftMouseUp`
+
+  - `ToolsetName Browser`
+
 ### Browser List Tabs Config
 
 - `type BrowserListTabsConfig`
@@ -7500,6 +8958,60 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser List Tabs Input
+
+- `type BrowserListTabsInput struct{…}`
+
+  List all open tabs with each tab's tab_id, title, and URL.
+
+### Browser List Tabs Tool Use Block
+
+- `type BrowserListTabsToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserListTabsInput`
+
+    List all open tabs with each tab's tab_id, title, and URL.
+
+  - `Name ListTabs`
+
+  - `ToolsetName Browser`
 
 ### Browser Middle Click Config
 
@@ -7515,6 +9027,146 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Browser Middle Click Input
+
+- `type BrowserMiddleClickInput`
+
+  Middle-click at a viewport coordinate or on an element by reference.
+
+  - `Target BrowserClickTargetUnion`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+    - `type BrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `type BrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `Modifiers string Optional`
+
+    Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Middle Click Tool Use Block
+
+- `type BrowserMiddleClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserMiddleClickInput`
+
+    Middle-click at a viewport coordinate or on an element by reference.
+
+    - `Target BrowserClickTargetUnion`
+
+      Where to act: either a viewport coordinate or an element reference.
+
+      - `type BrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+        - `Type Coordinate`
+
+        - `X int64`
+
+          Pixels from the left edge of the viewport.
+
+          minimum: 0
+
+        - `Y int64`
+
+          Pixels from the top edge of the viewport.
+
+          minimum: 0
+
+      - `type BrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+        - `Type Ref`
+
+        - `Ref string`
+
+          An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `Modifiers string Optional`
+
+      Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name MiddleClick`
+
+  - `ToolsetName Browser`
+
 ### Browser Mouse Move Config
 
 - `type BrowserMouseMoveConfig`
@@ -7528,6 +9180,106 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Mouse Move Input
+
+- `type BrowserMouseMoveInput`
+
+  Move the pointer to a viewport coordinate without clicking.
+
+  - `Target BrowserCoordinateTarget`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+    - `Type Coordinate`
+
+    - `X int64`
+
+      Pixels from the left edge of the viewport.
+
+      minimum: 0
+
+    - `Y int64`
+
+      Pixels from the top edge of the viewport.
+
+      minimum: 0
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Mouse Move Tool Use Block
+
+- `type BrowserMouseMoveToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserMouseMoveInput`
+
+    Move the pointer to a viewport coordinate without clicking.
+
+    - `Target BrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name MouseMove`
+
+  - `ToolsetName Browser`
 
 ### Browser Navigate Config
 
@@ -7543,6 +9295,78 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Browser Navigate Input
+
+- `type BrowserNavigateInput`
+
+  Navigate to a URL, or go back/forward/reload in history. The protocol may be
+  omitted (defaults to https://).
+
+  - `URL string`
+
+    The URL to navigate to, or "back" / "forward" / "reload" for history navigation.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Navigate Tool Use Block
+
+- `type BrowserNavigateToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserNavigateInput`
+
+    Navigate to a URL, or go back/forward/reload in history. The protocol may be
+    omitted (defaults to https://).
+
+    - `URL string`
+
+      The URL to navigate to, or "back" / "forward" / "reload" for history navigation.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Navigate`
+
+  - `ToolsetName Browser`
+
 ### Browser New Tab Config
 
 - `type BrowserNewTabConfig`
@@ -7556,6 +9380,60 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser New Tab Input
+
+- `type BrowserNewTabInput struct{…}`
+
+  Open a new empty tab and return its tab_id.
+
+### Browser New Tab Tool Use Block
+
+- `type BrowserNewTabToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserNewTabInput`
+
+    Open a new empty tab and return its tab_id.
+
+  - `Name NewTab`
+
+  - `ToolsetName Browser`
 
 ### Browser Read Console Config
 
@@ -7571,6 +9449,72 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Browser Read Console Input
+
+- `type BrowserReadConsoleInput`
+
+  Return console output (log entries, errors, warnings) accumulated since the
+  driver attached to the tab and since the last read, one line per entry. An empty
+  result does not mean no traffic for a tab that predates attach.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Read Console Tool Use Block
+
+- `type BrowserReadConsoleToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserReadConsoleInput`
+
+    Return console output (log entries, errors, warnings) accumulated since the
+    driver attached to the tab and since the last read, one line per entry. An empty
+    result does not mean no traffic for a tab that predates attach.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name ReadConsole`
+
+  - `ToolsetName Browser`
+
 ### Browser Read Network Config
 
 - `type BrowserReadNetworkConfig`
@@ -7584,6 +9528,72 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Read Network Input
+
+- `type BrowserReadNetworkInput`
+
+  Return the network requests (method, URL, status, MIME type, timing) recorded
+  since the driver attached to the tab and since the last read, one line per entry.
+  An empty result does not mean no traffic for a tab that predates attach.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Read Network Tool Use Block
+
+- `type BrowserReadNetworkToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserReadNetworkInput`
+
+    Return the network requests (method, URL, status, MIME type, timing) recorded
+    since the driver attached to the tab and since the last read, one line per entry.
+    An empty result does not mean no traffic for a tab that predates attach.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name ReadNetwork`
+
+  - `ToolsetName Browser`
 
 ### Browser Read Page Config
 
@@ -7599,6 +9609,132 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Browser Read Page Filter
+
+- `type BrowserReadPageFilter string`
+
+  - `const BrowserReadPageFilterAll BrowserReadPageFilter = "all"`
+
+  - `const BrowserReadPageFilterInteractive BrowserReadPageFilter = "interactive"`
+
+### Browser Read Page Input
+
+- `type BrowserReadPageInput`
+
+  Return a structured accessibility tree of the page (or the subtree rooted at
+  `ref`), with element references like [ref_7] that can be used as targets on later
+  actions. Output is capped at 50,000 characters — narrow with `ref` or a smaller
+  `depth` when exceeded.
+
+  - `Depth int64 Optional`
+
+    Maximum tree depth. Default 15.
+
+    minimum: 1
+
+  - `Filter BrowserReadPageFilter Optional`
+
+    Which elements to include. Omitted: every visible element. "interactive": interactive elements only. "all": additionally includes off-viewport elements.
+
+    - `const BrowserReadPageFilterAll BrowserReadPageFilter = "all"`
+
+    - `const BrowserReadPageFilterInteractive BrowserReadPageFilter = "interactive"`
+
+  - `Ref string Optional`
+
+    Element reference to read a subtree from. Omit to read from the page root.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Read Page Tool Use Block
+
+- `type BrowserReadPageToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserReadPageInput`
+
+    Return a structured accessibility tree of the page (or the subtree rooted at
+    `ref`), with element references like [ref_7] that can be used as targets on later
+    actions. Output is capped at 50,000 characters — narrow with `ref` or a smaller
+    `depth` when exceeded.
+
+    - `Depth int64 Optional`
+
+      Maximum tree depth. Default 15.
+
+      minimum: 1
+
+    - `Filter BrowserReadPageFilter Optional`
+
+      Which elements to include. Omitted: every visible element. "interactive": interactive elements only. "all": additionally includes off-viewport elements.
+
+      - `const BrowserReadPageFilterAll BrowserReadPageFilter = "all"`
+
+      - `const BrowserReadPageFilterInteractive BrowserReadPageFilter = "interactive"`
+
+    - `Ref string Optional`
+
+      Element reference to read a subtree from. Omit to read from the page root.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name ReadPage`
+
+  - `ToolsetName Browser`
+
+### Browser Ref Target
+
+- `type BrowserRefTarget`
+
+  An element on the page, identified by a reference from a prior `read_page` or
+  `find` result. References are scoped to the tab that produced them and become
+  stale after navigation or a major re-render.
+
+  - `Type Ref`
+
+  - `Ref string`
+
+    An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
 ### Browser Right Click Config
 
 - `type BrowserRightClickConfig`
@@ -7612,6 +9748,146 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Right Click Input
+
+- `type BrowserRightClickInput`
+
+  Right-click at a viewport coordinate or on an element by reference.
+
+  - `Target BrowserClickTargetUnion`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+    - `type BrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `type BrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `Modifiers string Optional`
+
+    Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Right Click Tool Use Block
+
+- `type BrowserRightClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserRightClickInput`
+
+    Right-click at a viewport coordinate or on an element by reference.
+
+    - `Target BrowserClickTargetUnion`
+
+      Where to act: either a viewport coordinate or an element reference.
+
+      - `type BrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+        - `Type Coordinate`
+
+        - `X int64`
+
+          Pixels from the left edge of the viewport.
+
+          minimum: 0
+
+        - `Y int64`
+
+          Pixels from the top edge of the viewport.
+
+          minimum: 0
+
+      - `type BrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+        - `Type Ref`
+
+        - `Ref string`
+
+          An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `Modifiers string Optional`
+
+      Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name RightClick`
+
+  - `ToolsetName Browser`
 
 ### Browser Screenshot Config
 
@@ -7627,6 +9903,68 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Browser Screenshot Input
+
+- `type BrowserScreenshotInput`
+
+  Capture the current browser viewport.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Screenshot Tool Use Block
+
+- `type BrowserScreenshotToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserScreenshotInput`
+
+    Capture the current browser viewport.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Screenshot`
+
+  - `ToolsetName Browser`
+
 ### Browser Scroll Config
 
 - `type BrowserScrollConfig`
@@ -7641,6 +9979,63 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Browser Scroll Direction
+
+- `type BrowserScrollDirection string`
+
+  - `const BrowserScrollDirectionUp BrowserScrollDirection = "up"`
+
+  - `const BrowserScrollDirectionDown BrowserScrollDirection = "down"`
+
+  - `const BrowserScrollDirectionLeft BrowserScrollDirection = "left"`
+
+  - `const BrowserScrollDirectionRight BrowserScrollDirection = "right"`
+
+### Browser Scroll Input
+
+- `type BrowserScrollInput`
+
+  Scroll at a viewport position. `target` must be a coordinate target.
+
+  - `ScrollDirection BrowserScrollDirection`
+
+    - `const BrowserScrollDirectionUp BrowserScrollDirection = "up"`
+
+    - `const BrowserScrollDirectionDown BrowserScrollDirection = "down"`
+
+    - `const BrowserScrollDirectionLeft BrowserScrollDirection = "left"`
+
+    - `const BrowserScrollDirectionRight BrowserScrollDirection = "right"`
+
+  - `Target BrowserCoordinateTarget`
+
+    A point in the browser viewport, in viewport pixels (the same frame as a
+    full-viewport screenshot).
+
+    - `Type Coordinate`
+
+    - `X int64`
+
+      Pixels from the left edge of the viewport.
+
+      minimum: 0
+
+    - `Y int64`
+
+      Pixels from the top edge of the viewport.
+
+      minimum: 0
+
+  - `ScrollAmount int64 Optional`
+
+    Scroll-wheel notches (1–10). Default 3.
+
+    minimum: 1, maximum: 10
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
 ### Browser Scroll To Config
 
 - `type BrowserScrollToConfig`
@@ -7654,6 +10049,179 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Scroll To Input
+
+- `type BrowserScrollToInput`
+
+  Scroll an element into view.
+
+  - `Target BrowserRefTarget`
+
+    An element on the page, identified by a reference from a prior `read_page` or
+    `find` result. References are scoped to the tab that produced them and become
+    stale after navigation or a major re-render.
+
+    - `Type Ref`
+
+    - `Ref string`
+
+      An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Scroll To Tool Use Block
+
+- `type BrowserScrollToToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserScrollToInput`
+
+    Scroll an element into view.
+
+    - `Target BrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name ScrollTo`
+
+  - `ToolsetName Browser`
+
+### Browser Scroll Tool Use Block
+
+- `type BrowserScrollToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserScrollInput`
+
+    Scroll at a viewport position. `target` must be a coordinate target.
+
+    - `ScrollDirection BrowserScrollDirection`
+
+      - `const BrowserScrollDirectionUp BrowserScrollDirection = "up"`
+
+      - `const BrowserScrollDirectionDown BrowserScrollDirection = "down"`
+
+      - `const BrowserScrollDirectionLeft BrowserScrollDirection = "left"`
+
+      - `const BrowserScrollDirectionRight BrowserScrollDirection = "right"`
+
+    - `Target BrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `ScrollAmount int64 Optional`
+
+      Scroll-wheel notches (1–10). Default 3.
+
+      minimum: 1, maximum: 10
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Scroll`
+
+  - `ToolsetName Browser`
 
 ### Browser State Block Param
 
@@ -8063,6 +10631,1145 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Switch Tab Input
+
+- `type BrowserSwitchTabInput`
+
+  Make the tab with the given tab_id the active tab — the tab that actions without
+  a tab_id apply to.
+
+  - `TabID string`
+
+    The tab to switch to.
+
+### Browser Switch Tab Tool Use Block
+
+- `type BrowserSwitchTabToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserSwitchTabInput`
+
+    Make the tab with the given tab_id the active tab — the tab that actions without
+    a tab_id apply to.
+
+    - `TabID string`
+
+      The tab to switch to.
+
+  - `Name SwitchTab`
+
+  - `ToolsetName Browser`
+
+### Browser Tool Use Block
+
+- `type BrowserToolUseBlockUnion interface{…}`
+
+  - `type BrowserNavigateToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `type DirectCaller`
+
+        Tool invocation directly from the model.
+
+        - `Type Direct`
+
+      - `type ServerToolCaller`
+
+        Tool invocation generated by a server-side tool.
+
+        - `Type CodeExecution20250825`
+
+        - `ToolID string`
+
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `type ServerToolCaller20260120`
+
+        - `Type CodeExecution20260120`
+
+        - `ToolID string`
+
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `Input BrowserNavigateInput`
+
+      Navigate to a URL, or go back/forward/reload in history. The protocol may be
+      omitted (defaults to https://).
+
+      - `URL string`
+
+        The URL to navigate to, or "back" / "forward" / "reload" for history navigation.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Navigate`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserListTabsToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserListTabsInput`
+
+      List all open tabs with each tab's tab_id, title, and URL.
+
+    - `Name ListTabs`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserNewTabToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserNewTabInput`
+
+      Open a new empty tab and return its tab_id.
+
+    - `Name NewTab`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserSwitchTabToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserSwitchTabInput`
+
+      Make the tab with the given tab_id the active tab — the tab that actions without
+      a tab_id apply to.
+
+      - `TabID string`
+
+        The tab to switch to.
+
+    - `Name SwitchTab`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserCloseTabToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserCloseTabInput`
+
+      Close the tab with the given tab_id.
+
+      - `TabID string`
+
+        The tab to close.
+
+    - `Name CloseTab`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserReadPageToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserReadPageInput`
+
+      Return a structured accessibility tree of the page (or the subtree rooted at
+      `ref`), with element references like [ref_7] that can be used as targets on later
+      actions. Output is capped at 50,000 characters — narrow with `ref` or a smaller
+      `depth` when exceeded.
+
+      - `Depth int64 Optional`
+
+        Maximum tree depth. Default 15.
+
+        minimum: 1
+
+      - `Filter BrowserReadPageFilter Optional`
+
+        Which elements to include. Omitted: every visible element. "interactive": interactive elements only. "all": additionally includes off-viewport elements.
+
+        - `const BrowserReadPageFilterAll BrowserReadPageFilter = "all"`
+
+        - `const BrowserReadPageFilterInteractive BrowserReadPageFilter = "interactive"`
+
+      - `Ref string Optional`
+
+        Element reference to read a subtree from. Omit to read from the page root.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name ReadPage`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserGetPageTextToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserGetPageTextInput`
+
+      Return the page's visible text content as plain text, prioritizing article
+      content. Suited to articles, documentation, and other text-heavy pages.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name GetPageText`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserReadConsoleToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserReadConsoleInput`
+
+      Return console output (log entries, errors, warnings) accumulated since the
+      driver attached to the tab and since the last read, one line per entry. An empty
+      result does not mean no traffic for a tab that predates attach.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name ReadConsole`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserReadNetworkToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserReadNetworkInput`
+
+      Return the network requests (method, URL, status, MIME type, timing) recorded
+      since the driver attached to the tab and since the last read, one line per entry.
+      An empty result does not mean no traffic for a tab that predates attach.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name ReadNetwork`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserFindToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserFindInput`
+
+      Find elements matching a natural-language description (e.g. "search bar", "add to
+      cart button") and return up to 20 matches with element references.
+
+      - `Query string`
+
+        Natural-language description of the element(s) to find.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Find`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserFormInputToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserFormInputInput`
+
+      Set the value of a form element (input, textarea, select, checkbox). Use a
+      boolean for checkboxes, an option value or text for selects.
+
+      - `Target BrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+        - `Type Ref`
+
+        - `Ref string`
+
+          An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+      - `Value BrowserFormInputValueUnion`
+
+        The value to set.
+
+        - `string`
+
+        - `float64`
+
+        - `bool`
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name FormInput`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserFileUploadToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserFileUploadInput`
+
+      Set the value of a file-input element to one or more files. The target must be an
+      element reference; at least one of paths or document_ids is required.
+
+      - `Target BrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+      - `DocumentIDs []string Optional`
+
+        References to files the harness has staged, for deployments where the browser executor cannot read the caller's filesystem.
+
+        minItems: 1
+
+      - `Paths []string Optional`
+
+        File paths on the browser executor's filesystem.
+
+        minItems: 1
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name FileUpload`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserScrollToToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserScrollToInput`
+
+      Scroll an element into view.
+
+      - `Target BrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name ScrollTo`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserScreenshotToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserScreenshotInput`
+
+      Capture the current browser viewport.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Screenshot`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserZoomToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserZoomInput`
+
+      Return a cropped screenshot of the given viewport region, scaled up for closer
+      inspection — useful for small icons, buttons, or text. Coordinates are in the
+      same viewport-pixel space as a full screenshot.
+
+      - `Region []int64`
+
+        [x0, y0, x1, y1] in viewport pixels.
+
+        minItems: 4, maxItems: 4
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Zoom`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserLeftClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserLeftClickInput`
+
+      Left-click at a viewport coordinate or on an element by reference.
+
+      - `Target BrowserClickTargetUnion`
+
+        Where to act: either a viewport coordinate or an element reference.
+
+        - `type BrowserCoordinateTarget`
+
+          A point in the browser viewport, in viewport pixels (the same frame as a
+          full-viewport screenshot).
+
+          - `Type Coordinate`
+
+          - `X int64`
+
+            Pixels from the left edge of the viewport.
+
+            minimum: 0
+
+          - `Y int64`
+
+            Pixels from the top edge of the viewport.
+
+            minimum: 0
+
+        - `type BrowserRefTarget`
+
+          An element on the page, identified by a reference from a prior `read_page` or
+          `find` result. References are scoped to the tab that produced them and become
+          stale after navigation or a major re-render.
+
+      - `Modifiers string Optional`
+
+        Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name LeftClick`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserRightClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserRightClickInput`
+
+      Right-click at a viewport coordinate or on an element by reference.
+
+      - `Target BrowserClickTargetUnion`
+
+        Where to act: either a viewport coordinate or an element reference.
+
+      - `Modifiers string Optional`
+
+        Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name RightClick`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserMiddleClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserMiddleClickInput`
+
+      Middle-click at a viewport coordinate or on an element by reference.
+
+      - `Target BrowserClickTargetUnion`
+
+        Where to act: either a viewport coordinate or an element reference.
+
+      - `Modifiers string Optional`
+
+        Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name MiddleClick`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserDoubleClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserDoubleClickInput`
+
+      Double left-click at a viewport coordinate or on an element by reference.
+
+      - `Target BrowserClickTargetUnion`
+
+        Where to act: either a viewport coordinate or an element reference.
+
+      - `Modifiers string Optional`
+
+        Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name DoubleClick`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserTripleClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserTripleClickInput`
+
+      Triple left-click at a viewport coordinate or on an element by reference
+      (typically selects a line or paragraph).
+
+      - `Target BrowserClickTargetUnion`
+
+        Where to act: either a viewport coordinate or an element reference.
+
+      - `Modifiers string Optional`
+
+        Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name TripleClick`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserHoverToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserHoverInput`
+
+      Move the cursor to a coordinate or element without clicking.
+
+      - `Target BrowserClickTargetUnion`
+
+        Where to act: either a viewport coordinate or an element reference.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Hover`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserLeftClickDragToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserLeftClickDragInput`
+
+      Press at `from`, drag to `target`, release. Both must be coordinate targets.
+
+      - `From BrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+      - `Target BrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name LeftClickDrag`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserLeftMouseDownToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserLeftMouseDownInput`
+
+      Press and hold the left mouse button at a viewport coordinate. Pair with
+      left_mouse_up to perform a custom drag.
+
+      - `Target BrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name LeftMouseDown`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserLeftMouseUpToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserLeftMouseUpInput`
+
+      Release the left mouse button at a viewport coordinate.
+
+      - `Target BrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name LeftMouseUp`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserMouseMoveToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserMouseMoveInput`
+
+      Move the pointer to a viewport coordinate without clicking.
+
+      - `Target BrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name MouseMove`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserScrollToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserScrollInput`
+
+      Scroll at a viewport position. `target` must be a coordinate target.
+
+      - `ScrollDirection BrowserScrollDirection`
+
+        - `const BrowserScrollDirectionUp BrowserScrollDirection = "up"`
+
+        - `const BrowserScrollDirectionDown BrowserScrollDirection = "down"`
+
+        - `const BrowserScrollDirectionLeft BrowserScrollDirection = "left"`
+
+        - `const BrowserScrollDirectionRight BrowserScrollDirection = "right"`
+
+      - `Target BrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+      - `ScrollAmount int64 Optional`
+
+        Scroll-wheel notches (1–10). Default 3.
+
+        minimum: 1, maximum: 10
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Scroll`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserTypeToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserTypeInput`
+
+      Type a literal string at the current focus.
+
+      - `Text string`
+
+        The text to type.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Type`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserKeyToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserKeyInput`
+
+      Press a key or key chord. Use "+" to combine modifiers with a key (e.g. "ctrl+a",
+      "cmd+shift+p") and space to sequence presses (e.g. "Backspace Backspace Delete").
+      Common names like "Return", "Tab", "Escape", "BackSpace" are supported.
+
+      - `Text string`
+
+        The key, chord, or space-separated sequence to press.
+
+      - `Repeat int64 Optional`
+
+        Number of times to repeat. Default 1.
+
+        minimum: 1, maximum: 100
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Key`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserHoldKeyToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserHoldKeyInput`
+
+      Hold a key or key chord down for a duration, then release it. Uses the same key
+      names and "+" chord syntax as the key action.
+
+      - `Duration float64`
+
+        Seconds to hold the key down (maximum 30).
+
+        minimum: 0, maximum: 30
+
+      - `Text string`
+
+        The key or chord to hold.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name HoldKey`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserWaitToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserWaitInput`
+
+      Pause for the given duration.
+
+      - `Duration float64`
+
+        Seconds to wait (maximum 30).
+
+        minimum: 0, maximum: 30
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name Wait`
+
+    - `ToolsetName Browser`
+
+  - `type BrowserJavascriptExecToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input BrowserJavascriptExecInput`
+
+      Execute JavaScript in the page context and return the value of the last
+      expression. The code runs with access to the DOM, `window`, and page variables.
+      Write the expression you want evaluated — do NOT use `return`.
+
+      - `Text string`
+
+        JavaScript to execute in the page context.
+
+      - `TabID string Optional`
+
+        Tab to act on. Defaults to the active tab when omitted.
+
+    - `Name JavascriptExec`
+
+    - `ToolsetName Browser`
 
 ### Browser Toolset 20260801
 
@@ -8869,6 +12576,148 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Browser Triple Click Input
+
+- `type BrowserTripleClickInput`
+
+  Triple left-click at a viewport coordinate or on an element by reference
+  (typically selects a line or paragraph).
+
+  - `Target BrowserClickTargetUnion`
+
+    Where to act: either a viewport coordinate or an element reference.
+
+    - `type BrowserCoordinateTarget`
+
+      A point in the browser viewport, in viewport pixels (the same frame as a
+      full-viewport screenshot).
+
+      - `Type Coordinate`
+
+      - `X int64`
+
+        Pixels from the left edge of the viewport.
+
+        minimum: 0
+
+      - `Y int64`
+
+        Pixels from the top edge of the viewport.
+
+        minimum: 0
+
+    - `type BrowserRefTarget`
+
+      An element on the page, identified by a reference from a prior `read_page` or
+      `find` result. References are scoped to the tab that produced them and become
+      stale after navigation or a major re-render.
+
+      - `Type Ref`
+
+      - `Ref string`
+
+        An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+  - `Modifiers string Optional`
+
+    Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Triple Click Tool Use Block
+
+- `type BrowserTripleClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserTripleClickInput`
+
+    Triple left-click at a viewport coordinate or on an element by reference
+    (typically selects a line or paragraph).
+
+    - `Target BrowserClickTargetUnion`
+
+      Where to act: either a viewport coordinate or an element reference.
+
+      - `type BrowserCoordinateTarget`
+
+        A point in the browser viewport, in viewport pixels (the same frame as a
+        full-viewport screenshot).
+
+        - `Type Coordinate`
+
+        - `X int64`
+
+          Pixels from the left edge of the viewport.
+
+          minimum: 0
+
+        - `Y int64`
+
+          Pixels from the top edge of the viewport.
+
+          minimum: 0
+
+      - `type BrowserRefTarget`
+
+        An element on the page, identified by a reference from a prior `read_page` or
+        `find` result. References are scoped to the tab that produced them and become
+        stale after navigation or a major re-render.
+
+        - `Type Ref`
+
+        - `Ref string`
+
+          An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+    - `Modifiers string Optional`
+
+      Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name TripleClick`
+
+  - `ToolsetName Browser`
+
 ### Browser Type Config
 
 - `type BrowserTypeConfig`
@@ -8882,6 +12731,76 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Type Input
+
+- `type BrowserTypeInput`
+
+  Type a literal string at the current focus.
+
+  - `Text string`
+
+    The text to type.
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Type Tool Use Block
+
+- `type BrowserTypeToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserTypeInput`
+
+    Type a literal string at the current focus.
+
+    - `Text string`
+
+      The text to type.
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Type`
+
+  - `ToolsetName Browser`
 
 ### Browser Wait Config
 
@@ -8897,6 +12816,80 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Browser Wait Input
+
+- `type BrowserWaitInput`
+
+  Pause for the given duration.
+
+  - `Duration float64`
+
+    Seconds to wait (maximum 30).
+
+    minimum: 0, maximum: 30
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Wait Tool Use Block
+
+- `type BrowserWaitToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserWaitInput`
+
+    Pause for the given duration.
+
+    - `Duration float64`
+
+      Seconds to wait (maximum 30).
+
+      minimum: 0, maximum: 30
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Wait`
+
+  - `ToolsetName Browser`
+
 ### Browser Zoom Config
 
 - `type BrowserZoomConfig`
@@ -8910,6 +12903,84 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Browser Zoom Input
+
+- `type BrowserZoomInput`
+
+  Return a cropped screenshot of the given viewport region, scaled up for closer
+  inspection — useful for small icons, buttons, or text. Coordinates are in the
+  same viewport-pixel space as a full screenshot.
+
+  - `Region []int64`
+
+    [x0, y0, x1, y1] in viewport pixels.
+
+    minItems: 4, maxItems: 4
+
+  - `TabID string Optional`
+
+    Tab to act on. Defaults to the active tab when omitted.
+
+### Browser Zoom Tool Use Block
+
+- `type BrowserZoomToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input BrowserZoomInput`
+
+    Return a cropped screenshot of the given viewport region, scaled up for closer
+    inspection — useful for small icons, buttons, or text. Coordinates are in the
+    same viewport-pixel space as a full screenshot.
+
+    - `Region []int64`
+
+      [x0, y0, x1, y1] in viewport pixels.
+
+      minItems: 4, maxItems: 4
+
+    - `TabID string Optional`
+
+      Tab to act on. Defaults to the active tab when omitted.
+
+  - `Name Zoom`
+
+  - `ToolsetName Browser`
 
 ### Cache Control Ephemeral
 
@@ -10081,6 +14152,60 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Computer Cursor Position Input
+
+- `type ComputerCursorPositionInput struct{…}`
+
+  Get the current (x, y) pixel coordinate of the cursor.
+
+### Computer Cursor Position Tool Use Block
+
+- `type ComputerCursorPositionToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerCursorPositionInput`
+
+    Get the current (x, y) pixel coordinate of the cursor.
+
+  - `Name CursorPosition`
+
+  - `ToolsetName Computer`
+
 ### Computer Double Click Config
 
 - `type ComputerDoubleClickConfig`
@@ -10094,6 +14219,82 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Double Click Input
+
+- `type ComputerDoubleClickInput`
+
+  Double-click the left mouse button at the specified (x, y) pixel coordinate, or
+  the current cursor position if `coordinate` is omitted.
+
+  - `Coordinate []int64 Optional`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `Text string Optional`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Computer Double Click Tool Use Block
+
+- `type ComputerDoubleClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerDoubleClickInput`
+
+    Double-click the left mouse button at the specified (x, y) pixel coordinate, or
+    the current cursor position if `coordinate` is omitted.
+
+    - `Coordinate []int64 Optional`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `Text string Optional`
+
+      Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+  - `Name DoubleClick`
+
+  - `ToolsetName Computer`
 
 ### Computer Hold Key Config
 
@@ -10109,6 +14310,82 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Computer Hold Key Input
+
+- `type ComputerHoldKeyInput`
+
+  Hold down a key or key-combination for a specified duration. Uses the same key
+  syntax as `key`.
+
+  - `Duration int64`
+
+    Duration to hold the key, in seconds.
+
+    maximum: 300
+
+  - `Text string`
+
+    The key or key-combination to hold.
+
+### Computer Hold Key Tool Use Block
+
+- `type ComputerHoldKeyToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerHoldKeyInput`
+
+    Hold down a key or key-combination for a specified duration. Uses the same key
+    syntax as `key`.
+
+    - `Duration int64`
+
+      Duration to hold the key, in seconds.
+
+      maximum: 300
+
+    - `Text string`
+
+      The key or key-combination to hold.
+
+  - `Name HoldKey`
+
+  - `ToolsetName Computer`
+
 ### Computer Key Config
 
 - `type ComputerKeyConfig`
@@ -10122,6 +14399,88 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Key Input
+
+- `type ComputerKeyInput`
+
+  Press a key or key-combination on the keyboard. Use "+" to combine modifiers with
+  a key (e.g. "ctrl+s", "alt+Tab", "ctrl+shift+Escape"). Key names are
+  case-insensitive; common names like "Return", "Tab", "Escape", "Up", "Down",
+  "Left", "Right", "Home", "End", "Page_Up", "Page_Down", "Delete", "BackSpace" are
+  supported.
+
+  - `Text string`
+
+    The key or key-combination to press.
+
+  - `Repeat int64 Optional`
+
+    Number of times to repeat the key press. Default is 1.
+
+    minimum: 1, maximum: 100
+
+### Computer Key Tool Use Block
+
+- `type ComputerKeyToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerKeyInput`
+
+    Press a key or key-combination on the keyboard. Use "+" to combine modifiers with
+    a key (e.g. "ctrl+s", "alt+Tab", "ctrl+shift+Escape"). Key names are
+    case-insensitive; common names like "Return", "Tab", "Escape", "Up", "Down",
+    "Left", "Right", "Home", "End", "Page_Up", "Page_Down", "Delete", "BackSpace" are
+    supported.
+
+    - `Text string`
+
+      The key or key-combination to press.
+
+    - `Repeat int64 Optional`
+
+      Number of times to repeat the key press. Default is 1.
+
+      minimum: 1, maximum: 100
+
+  - `Name Key`
+
+  - `ToolsetName Computer`
 
 ### Computer Left Click Config
 
@@ -10151,6 +14510,168 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Computer Left Click Drag Input
+
+- `type ComputerLeftClickDragInput`
+
+  Click and drag the cursor from `start_coordinate` to `coordinate`.
+
+  - `Coordinate []int64`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `StartCoordinate []int64`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `Text string Optional`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Computer Left Click Drag Tool Use Block
+
+- `type ComputerLeftClickDragToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerLeftClickDragInput`
+
+    Click and drag the cursor from `start_coordinate` to `coordinate`.
+
+    - `Coordinate []int64`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `StartCoordinate []int64`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `Text string Optional`
+
+      Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+  - `Name LeftClickDrag`
+
+  - `ToolsetName Computer`
+
+### Computer Left Click Input
+
+- `type ComputerLeftClickInput`
+
+  Click the left mouse button at the specified (x, y) pixel coordinate, or the
+  current cursor position if `coordinate` is omitted.
+
+  - `Coordinate []int64 Optional`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `Text string Optional`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Computer Left Click Tool Use Block
+
+- `type ComputerLeftClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerLeftClickInput`
+
+    Click the left mouse button at the specified (x, y) pixel coordinate, or the
+    current cursor position if `coordinate` is omitted.
+
+    - `Coordinate []int64 Optional`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `Text string Optional`
+
+      Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+  - `Name LeftClick`
+
+  - `ToolsetName Computer`
+
 ### Computer Left Mouse Down Config
 
 - `type ComputerLeftMouseDownConfig`
@@ -10164,6 +14685,60 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Left Mouse Down Input
+
+- `type ComputerLeftMouseDownInput struct{…}`
+
+  Press and hold the left mouse button at the current cursor position.
+
+### Computer Left Mouse Down Tool Use Block
+
+- `type ComputerLeftMouseDownToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerLeftMouseDownInput`
+
+    Press and hold the left mouse button at the current cursor position.
+
+  - `Name LeftMouseDown`
+
+  - `ToolsetName Computer`
 
 ### Computer Left Mouse Up Config
 
@@ -10179,6 +14754,60 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Computer Left Mouse Up Input
+
+- `type ComputerLeftMouseUpInput struct{…}`
+
+  Release the left mouse button.
+
+### Computer Left Mouse Up Tool Use Block
+
+- `type ComputerLeftMouseUpToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerLeftMouseUpInput`
+
+    Release the left mouse button.
+
+  - `Name LeftMouseUp`
+
+  - `ToolsetName Computer`
+
 ### Computer Middle Click Config
 
 - `type ComputerMiddleClickConfig`
@@ -10192,6 +14821,82 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Middle Click Input
+
+- `type ComputerMiddleClickInput`
+
+  Click the middle mouse button at the specified (x, y) pixel coordinate, or the
+  current cursor position if `coordinate` is omitted.
+
+  - `Coordinate []int64 Optional`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `Text string Optional`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Computer Middle Click Tool Use Block
+
+- `type ComputerMiddleClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerMiddleClickInput`
+
+    Click the middle mouse button at the specified (x, y) pixel coordinate, or the
+    current cursor position if `coordinate` is omitted.
+
+    - `Coordinate []int64 Optional`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `Text string Optional`
+
+      Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+  - `Name MiddleClick`
+
+  - `ToolsetName Computer`
 
 ### Computer Mouse Move Config
 
@@ -10207,6 +14912,74 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Computer Mouse Move Input
+
+- `type ComputerMouseMoveInput`
+
+  Move the cursor to a specified (x, y) pixel coordinate. Use this ONLY to hover
+  without clicking; otherwise use a click action directly.
+
+  - `Coordinate []int64`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+### Computer Mouse Move Tool Use Block
+
+- `type ComputerMouseMoveToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerMouseMoveInput`
+
+    Move the cursor to a specified (x, y) pixel coordinate. Use this ONLY to hover
+    without clicking; otherwise use a click action directly.
+
+    - `Coordinate []int64`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+  - `Name MouseMove`
+
+  - `ToolsetName Computer`
+
 ### Computer Right Click Config
 
 - `type ComputerRightClickConfig`
@@ -10220,6 +14993,82 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Right Click Input
+
+- `type ComputerRightClickInput`
+
+  Click the right mouse button at the specified (x, y) pixel coordinate, or the
+  current cursor position if `coordinate` is omitted.
+
+  - `Coordinate []int64 Optional`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `Text string Optional`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Computer Right Click Tool Use Block
+
+- `type ComputerRightClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerRightClickInput`
+
+    Click the right mouse button at the specified (x, y) pixel coordinate, or the
+    current cursor position if `coordinate` is omitted.
+
+    - `Coordinate []int64 Optional`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `Text string Optional`
+
+      Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+  - `Name RightClick`
+
+  - `ToolsetName Computer`
 
 ### Computer Screenshot Config
 
@@ -10235,6 +15084,60 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Computer Screenshot Input
+
+- `type ComputerScreenshotInput struct{…}`
+
+  Take a screenshot of the screen.
+
+### Computer Screenshot Tool Use Block
+
+- `type ComputerScreenshotToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerScreenshotInput`
+
+    Take a screenshot of the screen.
+
+  - `Name Screenshot`
+
+  - `ToolsetName Computer`
+
 ### Computer Scroll Config
 
 - `type ComputerScrollConfig`
@@ -10248,6 +15151,670 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Scroll Direction
+
+- `type ComputerScrollDirection string`
+
+  - `const ComputerScrollDirectionUp ComputerScrollDirection = "up"`
+
+  - `const ComputerScrollDirectionDown ComputerScrollDirection = "down"`
+
+  - `const ComputerScrollDirectionLeft ComputerScrollDirection = "left"`
+
+  - `const ComputerScrollDirectionRight ComputerScrollDirection = "right"`
+
+### Computer Scroll Input
+
+- `type ComputerScrollInput`
+
+  Scroll the screen at the specified (x, y) pixel coordinate, or the current cursor
+  position if `coordinate` is omitted. Do NOT use PageUp/PageDown to scroll.
+
+  - `ScrollAmount int64`
+
+    Number of 'clicks' of the scroll wheel.
+
+  - `ScrollDirection ComputerScrollDirection`
+
+    - `const ComputerScrollDirectionUp ComputerScrollDirection = "up"`
+
+    - `const ComputerScrollDirectionDown ComputerScrollDirection = "down"`
+
+    - `const ComputerScrollDirectionLeft ComputerScrollDirection = "left"`
+
+    - `const ComputerScrollDirectionRight ComputerScrollDirection = "right"`
+
+  - `Coordinate []int64 Optional`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `Text string Optional`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Computer Scroll Tool Use Block
+
+- `type ComputerScrollToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerScrollInput`
+
+    Scroll the screen at the specified (x, y) pixel coordinate, or the current cursor
+    position if `coordinate` is omitted. Do NOT use PageUp/PageDown to scroll.
+
+    - `ScrollAmount int64`
+
+      Number of 'clicks' of the scroll wheel.
+
+    - `ScrollDirection ComputerScrollDirection`
+
+      - `const ComputerScrollDirectionUp ComputerScrollDirection = "up"`
+
+      - `const ComputerScrollDirectionDown ComputerScrollDirection = "down"`
+
+      - `const ComputerScrollDirectionLeft ComputerScrollDirection = "left"`
+
+      - `const ComputerScrollDirectionRight ComputerScrollDirection = "right"`
+
+    - `Coordinate []int64 Optional`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `Text string Optional`
+
+      Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+  - `Name Scroll`
+
+  - `ToolsetName Computer`
+
+### Computer Tool Use Block
+
+- `type ComputerToolUseBlockUnion interface{…}`
+
+  - `type ComputerKeyToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `type DirectCaller`
+
+        Tool invocation directly from the model.
+
+        - `Type Direct`
+
+      - `type ServerToolCaller`
+
+        Tool invocation generated by a server-side tool.
+
+        - `Type CodeExecution20250825`
+
+        - `ToolID string`
+
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `type ServerToolCaller20260120`
+
+        - `Type CodeExecution20260120`
+
+        - `ToolID string`
+
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `Input ComputerKeyInput`
+
+      Press a key or key-combination on the keyboard. Use "+" to combine modifiers with
+      a key (e.g. "ctrl+s", "alt+Tab", "ctrl+shift+Escape"). Key names are
+      case-insensitive; common names like "Return", "Tab", "Escape", "Up", "Down",
+      "Left", "Right", "Home", "End", "Page_Up", "Page_Down", "Delete", "BackSpace" are
+      supported.
+
+      - `Text string`
+
+        The key or key-combination to press.
+
+      - `Repeat int64 Optional`
+
+        Number of times to repeat the key press. Default is 1.
+
+        minimum: 1, maximum: 100
+
+    - `Name Key`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerHoldKeyToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerHoldKeyInput`
+
+      Hold down a key or key-combination for a specified duration. Uses the same key
+      syntax as `key`.
+
+      - `Duration int64`
+
+        Duration to hold the key, in seconds.
+
+        maximum: 300
+
+      - `Text string`
+
+        The key or key-combination to hold.
+
+    - `Name HoldKey`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerTypeToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerTypeInput`
+
+      Type a string of text on the keyboard.
+
+      - `Text string`
+
+        The text to type.
+
+    - `Name Type`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerCursorPositionToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerCursorPositionInput`
+
+      Get the current (x, y) pixel coordinate of the cursor.
+
+    - `Name CursorPosition`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerMouseMoveToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerMouseMoveInput`
+
+      Move the cursor to a specified (x, y) pixel coordinate. Use this ONLY to hover
+      without clicking; otherwise use a click action directly.
+
+      - `Coordinate []int64`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+    - `Name MouseMove`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerLeftMouseDownToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerLeftMouseDownInput`
+
+      Press and hold the left mouse button at the current cursor position.
+
+    - `Name LeftMouseDown`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerLeftMouseUpToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerLeftMouseUpInput`
+
+      Release the left mouse button.
+
+    - `Name LeftMouseUp`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerLeftClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerLeftClickInput`
+
+      Click the left mouse button at the specified (x, y) pixel coordinate, or the
+      current cursor position if `coordinate` is omitted.
+
+      - `Coordinate []int64 Optional`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `Text string Optional`
+
+        Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+    - `Name LeftClick`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerLeftClickDragToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerLeftClickDragInput`
+
+      Click and drag the cursor from `start_coordinate` to `coordinate`.
+
+      - `Coordinate []int64`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `StartCoordinate []int64`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `Text string Optional`
+
+        Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+    - `Name LeftClickDrag`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerRightClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerRightClickInput`
+
+      Click the right mouse button at the specified (x, y) pixel coordinate, or the
+      current cursor position if `coordinate` is omitted.
+
+      - `Coordinate []int64 Optional`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `Text string Optional`
+
+        Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+    - `Name RightClick`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerMiddleClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerMiddleClickInput`
+
+      Click the middle mouse button at the specified (x, y) pixel coordinate, or the
+      current cursor position if `coordinate` is omitted.
+
+      - `Coordinate []int64 Optional`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `Text string Optional`
+
+        Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+    - `Name MiddleClick`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerDoubleClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerDoubleClickInput`
+
+      Double-click the left mouse button at the specified (x, y) pixel coordinate, or
+      the current cursor position if `coordinate` is omitted.
+
+      - `Coordinate []int64 Optional`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `Text string Optional`
+
+        Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+    - `Name DoubleClick`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerTripleClickToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerTripleClickInput`
+
+      Triple-click the left mouse button at the specified (x, y) pixel coordinate, or
+      the current cursor position if `coordinate` is omitted.
+
+      - `Coordinate []int64 Optional`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `Text string Optional`
+
+        Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+    - `Name TripleClick`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerScrollToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerScrollInput`
+
+      Scroll the screen at the specified (x, y) pixel coordinate, or the current cursor
+      position if `coordinate` is omitted. Do NOT use PageUp/PageDown to scroll.
+
+      - `ScrollAmount int64`
+
+        Number of 'clicks' of the scroll wheel.
+
+      - `ScrollDirection ComputerScrollDirection`
+
+        - `const ComputerScrollDirectionUp ComputerScrollDirection = "up"`
+
+        - `const ComputerScrollDirectionDown ComputerScrollDirection = "down"`
+
+        - `const ComputerScrollDirectionLeft ComputerScrollDirection = "left"`
+
+        - `const ComputerScrollDirectionRight ComputerScrollDirection = "right"`
+
+      - `Coordinate []int64 Optional`
+
+        (x, y): x pixels from the left edge, y pixels from the top edge.
+
+        minItems: 2, maxItems: 2
+
+      - `Text string Optional`
+
+        Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+    - `Name Scroll`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerWaitToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerWaitInput`
+
+      Wait for a specified duration.
+
+      - `Duration int64`
+
+        Duration to wait, in seconds.
+
+        maximum: 300
+
+    - `Name Wait`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerScreenshotToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerScreenshotInput`
+
+      Take a screenshot of the screen.
+
+    - `Name Screenshot`
+
+    - `ToolsetName Computer`
+
+  - `type ComputerZoomToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseCallerUnion`
+
+      Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `Input ComputerZoomInput`
+
+      Take a screenshot of a rectangular region. Region coordinates are in the
+      full-screenshot space (not physical display pixels). The crop is scaled up to
+      fill the image budget so fine details become legible.
+
+      - `Region []int64`
+
+        (x0, y0, x1, y1): The region to capture.
+
+        minItems: 4, maxItems: 4
+
+    - `Name Zoom`
+
+    - `ToolsetName Computer`
 
 ### Computer Toolset 20260801
 
@@ -10722,6 +16289,82 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Computer Triple Click Input
+
+- `type ComputerTripleClickInput`
+
+  Triple-click the left mouse button at the specified (x, y) pixel coordinate, or
+  the current cursor position if `coordinate` is omitted.
+
+  - `Coordinate []int64 Optional`
+
+    (x, y): x pixels from the left edge, y pixels from the top edge.
+
+    minItems: 2, maxItems: 2
+
+  - `Text string Optional`
+
+    Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+### Computer Triple Click Tool Use Block
+
+- `type ComputerTripleClickToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerTripleClickInput`
+
+    Triple-click the left mouse button at the specified (x, y) pixel coordinate, or
+    the current cursor position if `coordinate` is omitted.
+
+    - `Coordinate []int64 Optional`
+
+      (x, y): x pixels from the left edge, y pixels from the top edge.
+
+      minItems: 2, maxItems: 2
+
+    - `Text string Optional`
+
+      Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+  - `Name TripleClick`
+
+  - `ToolsetName Computer`
+
 ### Computer Type Config
 
 - `type ComputerTypeConfig`
@@ -10735,6 +16378,68 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Type Input
+
+- `type ComputerTypeInput`
+
+  Type a string of text on the keyboard.
+
+  - `Text string`
+
+    The text to type.
+
+### Computer Type Tool Use Block
+
+- `type ComputerTypeToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerTypeInput`
+
+    Type a string of text on the keyboard.
+
+    - `Text string`
+
+      The text to type.
+
+  - `Name Type`
+
+  - `ToolsetName Computer`
 
 ### Computer Wait Config
 
@@ -10750,6 +16455,72 @@ func main() {
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
+### Computer Wait Input
+
+- `type ComputerWaitInput`
+
+  Wait for a specified duration.
+
+  - `Duration int64`
+
+    Duration to wait, in seconds.
+
+    maximum: 300
+
+### Computer Wait Tool Use Block
+
+- `type ComputerWaitToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerWaitInput`
+
+    Wait for a specified duration.
+
+    - `Duration int64`
+
+      Duration to wait, in seconds.
+
+      maximum: 300
+
+  - `Name Wait`
+
+  - `ToolsetName Computer`
+
 ### Computer Zoom Config
 
 - `type ComputerZoomConfig`
@@ -10763,6 +16534,76 @@ func main() {
   - `Enabled bool Optional`
 
     Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+### Computer Zoom Input
+
+- `type ComputerZoomInput`
+
+  Take a screenshot of a rectangular region. Region coordinates are in the
+  full-screenshot space (not physical display pixels). The crop is scaled up to
+  fill the image budget so fine details become legible.
+
+  - `Region []int64`
+
+    (x0, y0, x1, y1): The region to capture.
+
+    minItems: 4, maxItems: 4
+
+### Computer Zoom Tool Use Block
+
+- `type ComputerZoomToolUseBlock`
+
+  - `Type ToolUse`
+
+    default: tool_use
+
+  - `ID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Caller ToolUseCallerUnion`
+
+    Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+    - `type DirectCaller`
+
+      Tool invocation directly from the model.
+
+      - `Type Direct`
+
+    - `type ServerToolCaller`
+
+      Tool invocation generated by a server-side tool.
+
+      - `Type CodeExecution20250825`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `type ServerToolCaller20260120`
+
+      - `Type CodeExecution20260120`
+
+      - `ToolID string`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Input ComputerZoomInput`
+
+    Take a screenshot of a rectangular region. Region coordinates are in the
+    full-screenshot space (not physical display pixels). The crop is scaled up to
+    fill the image budget so fine details become legible.
+
+    - `Region []int64`
+
+      (x0, y0, x1, y1): The region to capture.
+
+      minItems: 4, maxItems: 4
+
+  - `Name Zoom`
+
+  - `ToolsetName Computer`
 
 ### Container
 
@@ -14435,6 +20276,10 @@ func main() {
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+      Fastest model for high-volume, real-time tasks
+
     - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
       Efficient model for coding and agents
@@ -17417,6 +23262,10 @@ func main() {
 
   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+  - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+    Fastest model for high-volume, real-time tasks
+
   - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
     Efficient model for coding and agents
@@ -19651,6 +25500,10 @@ func main() {
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+        Fastest model for high-volume, real-time tasks
+
       - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
         Efficient model for coding and agents
@@ -20777,6 +26630,10 @@ func main() {
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `const ModelClaudeHaiku5_5 Model = "claude-haiku-5-5"`
+
+          Fastest model for high-volume, real-time tasks
 
         - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
 
@@ -25709,6 +31566,1671 @@ func main() {
 
     minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
+### Tool Use Caller
+
+- `type ToolUseCallerUnion interface{…}`
+
+  Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+  - `type DirectCaller`
+
+    Tool invocation directly from the model.
+
+    - `Type Direct`
+
+  - `type ServerToolCaller`
+
+    Tool invocation generated by a server-side tool.
+
+    - `Type CodeExecution20250825`
+
+    - `ToolID string`
+
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `type ServerToolCaller20260120`
+
+    - `Type CodeExecution20260120`
+
+    - `ToolID string`
+
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Toolset Tool Use Block
+
+- `type ToolsetToolUseBlockUnion interface{…}`
+
+  - `type BrowserToolUseBlockUnion interface{…}`
+
+    - `type BrowserNavigateToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+        - `type DirectCaller`
+
+          Tool invocation directly from the model.
+
+          - `Type Direct`
+
+        - `type ServerToolCaller`
+
+          Tool invocation generated by a server-side tool.
+
+          - `Type CodeExecution20250825`
+
+          - `ToolID string`
+
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+        - `type ServerToolCaller20260120`
+
+          - `Type CodeExecution20260120`
+
+          - `ToolID string`
+
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `Input BrowserNavigateInput`
+
+        Navigate to a URL, or go back/forward/reload in history. The protocol may be
+        omitted (defaults to https://).
+
+        - `URL string`
+
+          The URL to navigate to, or "back" / "forward" / "reload" for history navigation.
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name Navigate`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserListTabsToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserListTabsInput`
+
+        List all open tabs with each tab's tab_id, title, and URL.
+
+      - `Name ListTabs`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserNewTabToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserNewTabInput`
+
+        Open a new empty tab and return its tab_id.
+
+      - `Name NewTab`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserSwitchTabToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserSwitchTabInput`
+
+        Make the tab with the given tab_id the active tab — the tab that actions without
+        a tab_id apply to.
+
+        - `TabID string`
+
+          The tab to switch to.
+
+      - `Name SwitchTab`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserCloseTabToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserCloseTabInput`
+
+        Close the tab with the given tab_id.
+
+        - `TabID string`
+
+          The tab to close.
+
+      - `Name CloseTab`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserReadPageToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserReadPageInput`
+
+        Return a structured accessibility tree of the page (or the subtree rooted at
+        `ref`), with element references like [ref_7] that can be used as targets on later
+        actions. Output is capped at 50,000 characters — narrow with `ref` or a smaller
+        `depth` when exceeded.
+
+        - `Depth int64 Optional`
+
+          Maximum tree depth. Default 15.
+
+          minimum: 1
+
+        - `Filter BrowserReadPageFilter Optional`
+
+          Which elements to include. Omitted: every visible element. "interactive": interactive elements only. "all": additionally includes off-viewport elements.
+
+          - `const BrowserReadPageFilterAll BrowserReadPageFilter = "all"`
+
+          - `const BrowserReadPageFilterInteractive BrowserReadPageFilter = "interactive"`
+
+        - `Ref string Optional`
+
+          Element reference to read a subtree from. Omit to read from the page root.
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name ReadPage`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserGetPageTextToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserGetPageTextInput`
+
+        Return the page's visible text content as plain text, prioritizing article
+        content. Suited to articles, documentation, and other text-heavy pages.
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name GetPageText`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserReadConsoleToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserReadConsoleInput`
+
+        Return console output (log entries, errors, warnings) accumulated since the
+        driver attached to the tab and since the last read, one line per entry. An empty
+        result does not mean no traffic for a tab that predates attach.
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name ReadConsole`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserReadNetworkToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserReadNetworkInput`
+
+        Return the network requests (method, URL, status, MIME type, timing) recorded
+        since the driver attached to the tab and since the last read, one line per entry.
+        An empty result does not mean no traffic for a tab that predates attach.
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name ReadNetwork`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserFindToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserFindInput`
+
+        Find elements matching a natural-language description (e.g. "search bar", "add to
+        cart button") and return up to 20 matches with element references.
+
+        - `Query string`
+
+          Natural-language description of the element(s) to find.
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name Find`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserFormInputToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserFormInputInput`
+
+        Set the value of a form element (input, textarea, select, checkbox). Use a
+        boolean for checkboxes, an option value or text for selects.
+
+        - `Target BrowserRefTarget`
+
+          An element on the page, identified by a reference from a prior `read_page` or
+          `find` result. References are scoped to the tab that produced them and become
+          stale after navigation or a major re-render.
+
+          - `Type Ref`
+
+          - `Ref string`
+
+            An element reference (e.g. "ref_7") returned by a prior `read_page` or `find` result.
+
+        - `Value BrowserFormInputValueUnion`
+
+          The value to set.
+
+          - `string`
+
+          - `float64`
+
+          - `bool`
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name FormInput`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserFileUploadToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserFileUploadInput`
+
+        Set the value of a file-input element to one or more files. The target must be an
+        element reference; at least one of paths or document_ids is required.
+
+        - `Target BrowserRefTarget`
+
+          An element on the page, identified by a reference from a prior `read_page` or
+          `find` result. References are scoped to the tab that produced them and become
+          stale after navigation or a major re-render.
+
+        - `DocumentIDs []string Optional`
+
+          References to files the harness has staged, for deployments where the browser executor cannot read the caller's filesystem.
+
+          minItems: 1
+
+        - `Paths []string Optional`
+
+          File paths on the browser executor's filesystem.
+
+          minItems: 1
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name FileUpload`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserScrollToToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserScrollToInput`
+
+        Scroll an element into view.
+
+        - `Target BrowserRefTarget`
+
+          An element on the page, identified by a reference from a prior `read_page` or
+          `find` result. References are scoped to the tab that produced them and become
+          stale after navigation or a major re-render.
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name ScrollTo`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserScreenshotToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserScreenshotInput`
+
+        Capture the current browser viewport.
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name Screenshot`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserZoomToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserZoomInput`
+
+        Return a cropped screenshot of the given viewport region, scaled up for closer
+        inspection — useful for small icons, buttons, or text. Coordinates are in the
+        same viewport-pixel space as a full screenshot.
+
+        - `Region []int64`
+
+          [x0, y0, x1, y1] in viewport pixels.
+
+          minItems: 4, maxItems: 4
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name Zoom`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserLeftClickToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserLeftClickInput`
+
+        Left-click at a viewport coordinate or on an element by reference.
+
+        - `Target BrowserClickTargetUnion`
+
+          Where to act: either a viewport coordinate or an element reference.
+
+          - `type BrowserCoordinateTarget`
+
+            A point in the browser viewport, in viewport pixels (the same frame as a
+            full-viewport screenshot).
+
+            - `Type Coordinate`
+
+            - `X int64`
+
+              Pixels from the left edge of the viewport.
+
+              minimum: 0
+
+            - `Y int64`
+
+              Pixels from the top edge of the viewport.
+
+              minimum: 0
+
+          - `type BrowserRefTarget`
+
+            An element on the page, identified by a reference from a prior `read_page` or
+            `find` result. References are scoped to the tab that produced them and become
+            stale after navigation or a major re-render.
+
+        - `Modifiers string Optional`
+
+          Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name LeftClick`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserRightClickToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserRightClickInput`
+
+        Right-click at a viewport coordinate or on an element by reference.
+
+        - `Target BrowserClickTargetUnion`
+
+          Where to act: either a viewport coordinate or an element reference.
+
+        - `Modifiers string Optional`
+
+          Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name RightClick`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserMiddleClickToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserMiddleClickInput`
+
+        Middle-click at a viewport coordinate or on an element by reference.
+
+        - `Target BrowserClickTargetUnion`
+
+          Where to act: either a viewport coordinate or an element reference.
+
+        - `Modifiers string Optional`
+
+          Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name MiddleClick`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserDoubleClickToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserDoubleClickInput`
+
+        Double left-click at a viewport coordinate or on an element by reference.
+
+        - `Target BrowserClickTargetUnion`
+
+          Where to act: either a viewport coordinate or an element reference.
+
+        - `Modifiers string Optional`
+
+          Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name DoubleClick`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserTripleClickToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserTripleClickInput`
+
+        Triple left-click at a viewport coordinate or on an element by reference
+        (typically selects a line or paragraph).
+
+        - `Target BrowserClickTargetUnion`
+
+          Where to act: either a viewport coordinate or an element reference.
+
+        - `Modifiers string Optional`
+
+          Optional modifier key chord to hold for the duration of this action (e.g. "shift", "ctrl+shift", "cmd+alt").
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name TripleClick`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserHoverToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserHoverInput`
+
+        Move the cursor to a coordinate or element without clicking.
+
+        - `Target BrowserClickTargetUnion`
+
+          Where to act: either a viewport coordinate or an element reference.
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name Hover`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserLeftClickDragToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserLeftClickDragInput`
+
+        Press at `from`, drag to `target`, release. Both must be coordinate targets.
+
+        - `From BrowserCoordinateTarget`
+
+          A point in the browser viewport, in viewport pixels (the same frame as a
+          full-viewport screenshot).
+
+        - `Target BrowserCoordinateTarget`
+
+          A point in the browser viewport, in viewport pixels (the same frame as a
+          full-viewport screenshot).
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name LeftClickDrag`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserLeftMouseDownToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserLeftMouseDownInput`
+
+        Press and hold the left mouse button at a viewport coordinate. Pair with
+        left_mouse_up to perform a custom drag.
+
+        - `Target BrowserCoordinateTarget`
+
+          A point in the browser viewport, in viewport pixels (the same frame as a
+          full-viewport screenshot).
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name LeftMouseDown`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserLeftMouseUpToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserLeftMouseUpInput`
+
+        Release the left mouse button at a viewport coordinate.
+
+        - `Target BrowserCoordinateTarget`
+
+          A point in the browser viewport, in viewport pixels (the same frame as a
+          full-viewport screenshot).
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name LeftMouseUp`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserMouseMoveToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserMouseMoveInput`
+
+        Move the pointer to a viewport coordinate without clicking.
+
+        - `Target BrowserCoordinateTarget`
+
+          A point in the browser viewport, in viewport pixels (the same frame as a
+          full-viewport screenshot).
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name MouseMove`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserScrollToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserScrollInput`
+
+        Scroll at a viewport position. `target` must be a coordinate target.
+
+        - `ScrollDirection BrowserScrollDirection`
+
+          - `const BrowserScrollDirectionUp BrowserScrollDirection = "up"`
+
+          - `const BrowserScrollDirectionDown BrowserScrollDirection = "down"`
+
+          - `const BrowserScrollDirectionLeft BrowserScrollDirection = "left"`
+
+          - `const BrowserScrollDirectionRight BrowserScrollDirection = "right"`
+
+        - `Target BrowserCoordinateTarget`
+
+          A point in the browser viewport, in viewport pixels (the same frame as a
+          full-viewport screenshot).
+
+        - `ScrollAmount int64 Optional`
+
+          Scroll-wheel notches (1–10). Default 3.
+
+          minimum: 1, maximum: 10
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name Scroll`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserTypeToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserTypeInput`
+
+        Type a literal string at the current focus.
+
+        - `Text string`
+
+          The text to type.
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name Type`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserKeyToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserKeyInput`
+
+        Press a key or key chord. Use "+" to combine modifiers with a key (e.g. "ctrl+a",
+        "cmd+shift+p") and space to sequence presses (e.g. "Backspace Backspace Delete").
+        Common names like "Return", "Tab", "Escape", "BackSpace" are supported.
+
+        - `Text string`
+
+          The key, chord, or space-separated sequence to press.
+
+        - `Repeat int64 Optional`
+
+          Number of times to repeat. Default 1.
+
+          minimum: 1, maximum: 100
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name Key`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserHoldKeyToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserHoldKeyInput`
+
+        Hold a key or key chord down for a duration, then release it. Uses the same key
+        names and "+" chord syntax as the key action.
+
+        - `Duration float64`
+
+          Seconds to hold the key down (maximum 30).
+
+          minimum: 0, maximum: 30
+
+        - `Text string`
+
+          The key or chord to hold.
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name HoldKey`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserWaitToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserWaitInput`
+
+        Pause for the given duration.
+
+        - `Duration float64`
+
+          Seconds to wait (maximum 30).
+
+          minimum: 0, maximum: 30
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name Wait`
+
+      - `ToolsetName Browser`
+
+    - `type BrowserJavascriptExecToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input BrowserJavascriptExecInput`
+
+        Execute JavaScript in the page context and return the value of the last
+        expression. The code runs with access to the DOM, `window`, and page variables.
+        Write the expression you want evaluated — do NOT use `return`.
+
+        - `Text string`
+
+          JavaScript to execute in the page context.
+
+        - `TabID string Optional`
+
+          Tab to act on. Defaults to the active tab when omitted.
+
+      - `Name JavascriptExec`
+
+      - `ToolsetName Browser`
+
+  - `type ComputerToolUseBlockUnion interface{…}`
+
+    - `type ComputerKeyToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerKeyInput`
+
+        Press a key or key-combination on the keyboard. Use "+" to combine modifiers with
+        a key (e.g. "ctrl+s", "alt+Tab", "ctrl+shift+Escape"). Key names are
+        case-insensitive; common names like "Return", "Tab", "Escape", "Up", "Down",
+        "Left", "Right", "Home", "End", "Page_Up", "Page_Down", "Delete", "BackSpace" are
+        supported.
+
+        - `Text string`
+
+          The key or key-combination to press.
+
+        - `Repeat int64 Optional`
+
+          Number of times to repeat the key press. Default is 1.
+
+          minimum: 1, maximum: 100
+
+      - `Name Key`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerHoldKeyToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerHoldKeyInput`
+
+        Hold down a key or key-combination for a specified duration. Uses the same key
+        syntax as `key`.
+
+        - `Duration int64`
+
+          Duration to hold the key, in seconds.
+
+          maximum: 300
+
+        - `Text string`
+
+          The key or key-combination to hold.
+
+      - `Name HoldKey`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerTypeToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerTypeInput`
+
+        Type a string of text on the keyboard.
+
+        - `Text string`
+
+          The text to type.
+
+      - `Name Type`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerCursorPositionToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerCursorPositionInput`
+
+        Get the current (x, y) pixel coordinate of the cursor.
+
+      - `Name CursorPosition`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerMouseMoveToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerMouseMoveInput`
+
+        Move the cursor to a specified (x, y) pixel coordinate. Use this ONLY to hover
+        without clicking; otherwise use a click action directly.
+
+        - `Coordinate []int64`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+      - `Name MouseMove`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerLeftMouseDownToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerLeftMouseDownInput`
+
+        Press and hold the left mouse button at the current cursor position.
+
+      - `Name LeftMouseDown`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerLeftMouseUpToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerLeftMouseUpInput`
+
+        Release the left mouse button.
+
+      - `Name LeftMouseUp`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerLeftClickToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerLeftClickInput`
+
+        Click the left mouse button at the specified (x, y) pixel coordinate, or the
+        current cursor position if `coordinate` is omitted.
+
+        - `Coordinate []int64 Optional`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `Text string Optional`
+
+          Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+      - `Name LeftClick`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerLeftClickDragToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerLeftClickDragInput`
+
+        Click and drag the cursor from `start_coordinate` to `coordinate`.
+
+        - `Coordinate []int64`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `StartCoordinate []int64`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `Text string Optional`
+
+          Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+      - `Name LeftClickDrag`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerRightClickToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerRightClickInput`
+
+        Click the right mouse button at the specified (x, y) pixel coordinate, or the
+        current cursor position if `coordinate` is omitted.
+
+        - `Coordinate []int64 Optional`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `Text string Optional`
+
+          Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+      - `Name RightClick`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerMiddleClickToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerMiddleClickInput`
+
+        Click the middle mouse button at the specified (x, y) pixel coordinate, or the
+        current cursor position if `coordinate` is omitted.
+
+        - `Coordinate []int64 Optional`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `Text string Optional`
+
+          Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+      - `Name MiddleClick`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerDoubleClickToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerDoubleClickInput`
+
+        Double-click the left mouse button at the specified (x, y) pixel coordinate, or
+        the current cursor position if `coordinate` is omitted.
+
+        - `Coordinate []int64 Optional`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `Text string Optional`
+
+          Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+      - `Name DoubleClick`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerTripleClickToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerTripleClickInput`
+
+        Triple-click the left mouse button at the specified (x, y) pixel coordinate, or
+        the current cursor position if `coordinate` is omitted.
+
+        - `Coordinate []int64 Optional`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `Text string Optional`
+
+          Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+      - `Name TripleClick`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerScrollToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerScrollInput`
+
+        Scroll the screen at the specified (x, y) pixel coordinate, or the current cursor
+        position if `coordinate` is omitted. Do NOT use PageUp/PageDown to scroll.
+
+        - `ScrollAmount int64`
+
+          Number of 'clicks' of the scroll wheel.
+
+        - `ScrollDirection ComputerScrollDirection`
+
+          - `const ComputerScrollDirectionUp ComputerScrollDirection = "up"`
+
+          - `const ComputerScrollDirectionDown ComputerScrollDirection = "down"`
+
+          - `const ComputerScrollDirectionLeft ComputerScrollDirection = "left"`
+
+          - `const ComputerScrollDirectionRight ComputerScrollDirection = "right"`
+
+        - `Coordinate []int64 Optional`
+
+          (x, y): x pixels from the left edge, y pixels from the top edge.
+
+          minItems: 2, maxItems: 2
+
+        - `Text string Optional`
+
+          Optional key combination to hold down during this action (e.g. "ctrl", "shift", "ctrl+shift").
+
+      - `Name Scroll`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerWaitToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerWaitInput`
+
+        Wait for a specified duration.
+
+        - `Duration int64`
+
+          Duration to wait, in seconds.
+
+          maximum: 300
+
+      - `Name Wait`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerScreenshotToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerScreenshotInput`
+
+        Take a screenshot of the screen.
+
+      - `Name Screenshot`
+
+      - `ToolsetName Computer`
+
+    - `type ComputerZoomToolUseBlock`
+
+      - `Type ToolUse`
+
+        default: tool_use
+
+      - `ID string`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `Caller ToolUseCallerUnion`
+
+        Which party invoked the tool call: the model directly, or a server tool on its behalf.
+
+      - `Input ComputerZoomInput`
+
+        Take a screenshot of a rectangular region. Region coordinates are in the
+        full-screenshot space (not physical display pixels). The crop is scaled up to
+        fill the image budget so fine details become legible.
+
+        - `Region []int64`
+
+          (x0, y0, x1, y1): The region to capture.
+
+          minItems: 4, maxItems: 4
+
+      - `Name Zoom`
+
+      - `ToolsetName Computer`
+
+  - `type ToolUseBlock`
+
+    - `Type ToolUse`
+
+      default: tool_use
+
+    - `ID string`
+
+      pattern: ^[a-zA-Z0-9_-]+$
+
+    - `Caller ToolUseBlockCallerUnion`
+
+      default: {"type":"direct"}
+
+      - `type DirectCaller`
+
+        Tool invocation directly from the model.
+
+      - `type ServerToolCaller`
+
+        Tool invocation generated by a server-side tool.
+
+      - `type ServerToolCaller20260120`
+
+    - `Input map[string, any]`
+
+    - `Name string`
+
+      minLength: 1
+
+    - `ToolsetName string Optional`
+
+      For a toolset member tool_use, the toolset family.
+
+      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
+
 ### URL Image Source
 
 - `type URLImageSource`
@@ -27465,4723 +34987,3 @@ func main() {
 ### Web Fetch URL Sources
 
 - `type WebFetchURLSources`
-
-  Which sources contribute to the set of URLs web fetch may fetch.
-
-  Each key is a tagged variant: `user_input` is `all` or `none`; the
-  two tool filters are `all`, `none`, `only` (only the named tools'
-  results) or `except` (every result but the named tools'). A named tool
-  must be declared in this request's `tools[]`.
-
-  - `ClientToolResults WebFetchURLSourcesClientToolResultsUnion Optional`
-
-    Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
-
-    - `type WebFetchURLSourceAll`
-
-      The `url_sources` variant under which a source contributes in
-      full: every result of the tool filter's source, or all user input.
-
-      - `Type All`
-
-    - `type WebFetchURLSourceNone`
-
-      The `url_sources` variant under which a source contributes nothing:
-      no result of the tool filter's source, or no user input.
-
-      - `Type None`
-
-    - `type WebFetchURLSourceOnly`
-
-      The tool filter variant under which only the named tools' results
-      contribute.
-
-      - `Type Only`
-
-      - `Tools []WebFetchURLSourceToolReference`
-
-        - `Type ToolReference`
-
-        - `Name string`
-
-    - `type WebFetchURLSourceExcept`
-
-      The tool filter variant under which every result but the named
-      tools' contributes.
-
-      - `Type Except`
-
-      - `Tools []WebFetchURLSourceToolReference`
-
-        - `Type ToolReference`
-
-        - `Name string`
-
-  - `ServerToolResults WebFetchURLSourcesServerToolResultsUnion Optional`
-
-    Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
-
-    - `type WebFetchURLSourceAll`
-
-      The `url_sources` variant under which a source contributes in
-      full: every result of the tool filter's source, or all user input.
-
-    - `type WebFetchURLSourceNone`
-
-      The `url_sources` variant under which a source contributes nothing:
-      no result of the tool filter's source, or no user input.
-
-    - `type WebFetchURLSourceOnly`
-
-      The tool filter variant under which only the named tools' results
-      contribute.
-
-    - `type WebFetchURLSourceExcept`
-
-      The tool filter variant under which every result but the named
-      tools' contributes.
-
-  - `UserInput WebFetchURLSourcesUserInputUnion Optional`
-
-    Whether URLs in user messages are fetchable: "all" or "none".
-
-    - `type WebFetchURLSourceAll`
-
-      The `url_sources` variant under which a source contributes in
-      full: every result of the tool filter's source, or all user input.
-
-    - `type WebFetchURLSourceNone`
-
-      The `url_sources` variant under which a source contributes nothing:
-      no result of the tool filter's source, or no user input.
-
-### Web Search Result Block
-
-- `type WebSearchResultBlock`
-
-  - `Type WebSearchResult`
-
-    default: web_search_result
-
-  - `EncryptedContent string`
-
-  - `PageAge string`
-
-  - `Title string`
-
-  - `URL string`
-
-### Web Search Result Block Param
-
-- `type WebSearchResultBlockParamResp`
-
-  - `Type WebSearchResult`
-
-  - `EncryptedContent string`
-
-  - `Title string`
-
-  - `URL string`
-
-  - `PageAge string Optional`
-
-### Web Search Tool 20250305
-
-- `type WebSearchTool20250305`
-
-  - `Type WebSearch20250305`
-
-  - `Name WebSearch`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `AllowedCallers []string Optional`
-
-    - `const WebSearchTool20250305AllowedCallerDirect WebSearchTool20250305AllowedCaller = "direct"`
-
-    - `const WebSearchTool20250305AllowedCallerCodeExecution20250825 WebSearchTool20250305AllowedCaller = "code_execution_20250825"`
-
-    - `const WebSearchTool20250305AllowedCallerCodeExecution20260120 WebSearchTool20250305AllowedCaller = "code_execution_20260120"`
-
-    - `const WebSearchTool20250305AllowedCallerCodeExecution20260521 WebSearchTool20250305AllowedCaller = "code_execution_20260521"`
-
-  - `AllowedDomains []string Optional`
-
-    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-  - `BlockedDomains []string Optional`
-
-    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-  - `CacheControl CacheControlEphemeral Optional`
-
-    Create a cache control breakpoint at this content block.
-
-    - `Type Ephemeral`
-
-    - `TTL CacheControlEphemeralTTL Optional`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `const CacheControlEphemeralTTLTTL5m CacheControlEphemeralTTL = "5m"`
-
-      - `const CacheControlEphemeralTTLTTL1h CacheControlEphemeralTTL = "1h"`
-
-  - `DeferLoading bool Optional`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `MaxUses int64 Optional`
-
-    Maximum number of times the tool can be used in the API request.
-
-    minimum: 1
-
-  - `Strict bool Optional`
-
-    When true, guarantees schema validation on tool names and inputs
-
-  - `UserLocation UserLocation Optional`
-
-    Parameters for the user's location. Used to provide more relevant search results.
-
-    - `Type Approximate`
-
-    - `City string Optional`
-
-      The city of the user.
-
-      minLength: 1, maxLength: 255
-
-    - `Country string Optional`
-
-      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-      minLength: 2, maxLength: 2
-
-    - `Region string Optional`
-
-      The region of the user.
-
-      minLength: 1, maxLength: 255
-
-    - `Timezone string Optional`
-
-      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-      minLength: 1, maxLength: 255
-
-### Web Search Tool 20260209
-
-- `type WebSearchTool20260209`
-
-  - `Type WebSearch20260209`
-
-  - `Name WebSearch`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `AllowedCallers []string Optional`
-
-    - `const WebSearchTool20260209AllowedCallerDirect WebSearchTool20260209AllowedCaller = "direct"`
-
-    - `const WebSearchTool20260209AllowedCallerCodeExecution20250825 WebSearchTool20260209AllowedCaller = "code_execution_20250825"`
-
-    - `const WebSearchTool20260209AllowedCallerCodeExecution20260120 WebSearchTool20260209AllowedCaller = "code_execution_20260120"`
-
-    - `const WebSearchTool20260209AllowedCallerCodeExecution20260521 WebSearchTool20260209AllowedCaller = "code_execution_20260521"`
-
-  - `AllowedDomains []string Optional`
-
-    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-  - `BlockedDomains []string Optional`
-
-    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-  - `CacheControl CacheControlEphemeral Optional`
-
-    Create a cache control breakpoint at this content block.
-
-    - `Type Ephemeral`
-
-    - `TTL CacheControlEphemeralTTL Optional`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `const CacheControlEphemeralTTLTTL5m CacheControlEphemeralTTL = "5m"`
-
-      - `const CacheControlEphemeralTTLTTL1h CacheControlEphemeralTTL = "1h"`
-
-  - `DeferLoading bool Optional`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `MaxUses int64 Optional`
-
-    Maximum number of times the tool can be used in the API request.
-
-    minimum: 1
-
-  - `Strict bool Optional`
-
-    When true, guarantees schema validation on tool names and inputs
-
-  - `UserLocation UserLocation Optional`
-
-    Parameters for the user's location. Used to provide more relevant search results.
-
-    - `Type Approximate`
-
-    - `City string Optional`
-
-      The city of the user.
-
-      minLength: 1, maxLength: 255
-
-    - `Country string Optional`
-
-      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-      minLength: 2, maxLength: 2
-
-    - `Region string Optional`
-
-      The region of the user.
-
-      minLength: 1, maxLength: 255
-
-    - `Timezone string Optional`
-
-      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-      minLength: 1, maxLength: 255
-
-### Web Search Tool 20260318
-
-- `type WebSearchTool20260318`
-
-  - `Type WebSearch20260318`
-
-  - `Name WebSearch`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `AllowedCallers []string Optional`
-
-    - `const WebSearchTool20260318AllowedCallerDirect WebSearchTool20260318AllowedCaller = "direct"`
-
-    - `const WebSearchTool20260318AllowedCallerCodeExecution20250825 WebSearchTool20260318AllowedCaller = "code_execution_20250825"`
-
-    - `const WebSearchTool20260318AllowedCallerCodeExecution20260120 WebSearchTool20260318AllowedCaller = "code_execution_20260120"`
-
-    - `const WebSearchTool20260318AllowedCallerCodeExecution20260521 WebSearchTool20260318AllowedCaller = "code_execution_20260521"`
-
-  - `AllowedDomains []string Optional`
-
-    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-  - `BlockedDomains []string Optional`
-
-    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-  - `CacheControl CacheControlEphemeral Optional`
-
-    Create a cache control breakpoint at this content block.
-
-    - `Type Ephemeral`
-
-    - `TTL CacheControlEphemeralTTL Optional`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `const CacheControlEphemeralTTLTTL5m CacheControlEphemeralTTL = "5m"`
-
-      - `const CacheControlEphemeralTTLTTL1h CacheControlEphemeralTTL = "1h"`
-
-  - `DeferLoading bool Optional`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `MaxUses int64 Optional`
-
-    Maximum number of times the tool can be used in the API request.
-
-    minimum: 1
-
-  - `ResponseInclusion WebSearchTool20260318ResponseInclusion Optional`
-
-    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-    - `const WebSearchTool20260318ResponseInclusionFull WebSearchTool20260318ResponseInclusion = "full"`
-
-    - `const WebSearchTool20260318ResponseInclusionExcluded WebSearchTool20260318ResponseInclusion = "excluded"`
-
-  - `Strict bool Optional`
-
-    When true, guarantees schema validation on tool names and inputs
-
-  - `UserLocation UserLocation Optional`
-
-    Parameters for the user's location. Used to provide more relevant search results.
-
-    - `Type Approximate`
-
-    - `City string Optional`
-
-      The city of the user.
-
-      minLength: 1, maxLength: 255
-
-    - `Country string Optional`
-
-      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-      minLength: 2, maxLength: 2
-
-    - `Region string Optional`
-
-      The region of the user.
-
-      minLength: 1, maxLength: 255
-
-    - `Timezone string Optional`
-
-      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-      minLength: 1, maxLength: 255
-
-### Web Search Tool Request Error
-
-- `type WebSearchToolRequestError`
-
-  - `Type WebSearchToolResultError`
-
-  - `ErrorCode WebSearchToolResultErrorCode`
-
-    - `const WebSearchToolResultErrorCodeInvalidToolInput WebSearchToolResultErrorCode = "invalid_tool_input"`
-
-    - `const WebSearchToolResultErrorCodeUnavailable WebSearchToolResultErrorCode = "unavailable"`
-
-    - `const WebSearchToolResultErrorCodeMaxUsesExceeded WebSearchToolResultErrorCode = "max_uses_exceeded"`
-
-    - `const WebSearchToolResultErrorCodeTooManyRequests WebSearchToolResultErrorCode = "too_many_requests"`
-
-    - `const WebSearchToolResultErrorCodeQueryTooLong WebSearchToolResultErrorCode = "query_too_long"`
-
-    - `const WebSearchToolResultErrorCodeRequestTooLarge WebSearchToolResultErrorCode = "request_too_large"`
-
-### Web Search Tool Result Block
-
-- `type WebSearchToolResultBlock`
-
-  - `Type WebSearchToolResult`
-
-    default: web_search_tool_result
-
-  - `Caller WebSearchToolResultBlockCallerUnion`
-
-    default: {"type":"direct"}
-
-    - `type DirectCaller`
-
-      Tool invocation directly from the model.
-
-      - `Type Direct`
-
-    - `type ServerToolCaller`
-
-      Tool invocation generated by a server-side tool.
-
-      - `Type CodeExecution20250825`
-
-      - `ToolID string`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `type ServerToolCaller20260120`
-
-      - `Type CodeExecution20260120`
-
-      - `ToolID string`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `Content WebSearchToolResultBlockContentUnion`
-
-    - `type WebSearchToolResultError`
-
-      - `Type WebSearchToolResultError`
-
-        default: web_search_tool_result_error
-
-      - `ErrorCode WebSearchToolResultErrorCode`
-
-        - `const WebSearchToolResultErrorCodeInvalidToolInput WebSearchToolResultErrorCode = "invalid_tool_input"`
-
-        - `const WebSearchToolResultErrorCodeUnavailable WebSearchToolResultErrorCode = "unavailable"`
-
-        - `const WebSearchToolResultErrorCodeMaxUsesExceeded WebSearchToolResultErrorCode = "max_uses_exceeded"`
-
-        - `const WebSearchToolResultErrorCodeTooManyRequests WebSearchToolResultErrorCode = "too_many_requests"`
-
-        - `const WebSearchToolResultErrorCodeQueryTooLong WebSearchToolResultErrorCode = "query_too_long"`
-
-        - `const WebSearchToolResultErrorCodeRequestTooLarge WebSearchToolResultErrorCode = "request_too_large"`
-
-    - `type WebSearchToolResultBlockContentArray []WebSearchResultBlock`
-
-      - `Type WebSearchResult`
-
-        default: web_search_result
-
-      - `EncryptedContent string`
-
-      - `PageAge string`
-
-      - `Title string`
-
-      - `URL string`
-
-  - `ToolUseID string`
-
-    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-### Web Search Tool Result Block Content
-
-- `type WebSearchToolResultBlockContentUnion interface{…}`
-
-  - `type WebSearchToolResultError`
-
-    - `Type WebSearchToolResultError`
-
-      default: web_search_tool_result_error
-
-    - `ErrorCode WebSearchToolResultErrorCode`
-
-      - `const WebSearchToolResultErrorCodeInvalidToolInput WebSearchToolResultErrorCode = "invalid_tool_input"`
-
-      - `const WebSearchToolResultErrorCodeUnavailable WebSearchToolResultErrorCode = "unavailable"`
-
-      - `const WebSearchToolResultErrorCodeMaxUsesExceeded WebSearchToolResultErrorCode = "max_uses_exceeded"`
-
-      - `const WebSearchToolResultErrorCodeTooManyRequests WebSearchToolResultErrorCode = "too_many_requests"`
-
-      - `const WebSearchToolResultErrorCodeQueryTooLong WebSearchToolResultErrorCode = "query_too_long"`
-
-      - `const WebSearchToolResultErrorCodeRequestTooLarge WebSearchToolResultErrorCode = "request_too_large"`
-
-  - `type WebSearchToolResultBlockContentArray []WebSearchResultBlock`
-
-    - `Type WebSearchResult`
-
-      default: web_search_result
-
-    - `EncryptedContent string`
-
-    - `PageAge string`
-
-    - `Title string`
-
-    - `URL string`
-
-### Web Search Tool Result Block Param
-
-- `type WebSearchToolResultBlockParamResp`
-
-  - `Type WebSearchToolResult`
-
-  - `Content WebSearchToolResultBlockParamContentUnionResp`
-
-    - `[]WebSearchResultBlockParamResp`
-
-      - `Type WebSearchResult`
-
-      - `EncryptedContent string`
-
-      - `Title string`
-
-      - `URL string`
-
-      - `PageAge string Optional`
-
-    - `type WebSearchToolRequestError`
-
-      - `Type WebSearchToolResultError`
-
-      - `ErrorCode WebSearchToolResultErrorCode`
-
-        - `const WebSearchToolResultErrorCodeInvalidToolInput WebSearchToolResultErrorCode = "invalid_tool_input"`
-
-        - `const WebSearchToolResultErrorCodeUnavailable WebSearchToolResultErrorCode = "unavailable"`
-
-        - `const WebSearchToolResultErrorCodeMaxUsesExceeded WebSearchToolResultErrorCode = "max_uses_exceeded"`
-
-        - `const WebSearchToolResultErrorCodeTooManyRequests WebSearchToolResultErrorCode = "too_many_requests"`
-
-        - `const WebSearchToolResultErrorCodeQueryTooLong WebSearchToolResultErrorCode = "query_too_long"`
-
-        - `const WebSearchToolResultErrorCodeRequestTooLarge WebSearchToolResultErrorCode = "request_too_large"`
-
-  - `ToolUseID string`
-
-    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `CacheControl CacheControlEphemeral Optional`
-
-    Create a cache control breakpoint at this content block.
-
-    - `Type Ephemeral`
-
-    - `TTL CacheControlEphemeralTTL Optional`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `const CacheControlEphemeralTTLTTL5m CacheControlEphemeralTTL = "5m"`
-
-      - `const CacheControlEphemeralTTLTTL1h CacheControlEphemeralTTL = "1h"`
-
-  - `Caller WebSearchToolResultBlockParamCallerUnionResp Optional`
-
-    - `type DirectCaller`
-
-      Tool invocation directly from the model.
-
-      - `Type Direct`
-
-    - `type ServerToolCaller`
-
-      Tool invocation generated by a server-side tool.
-
-      - `Type CodeExecution20250825`
-
-      - `ToolID string`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `type ServerToolCaller20260120`
-
-      - `Type CodeExecution20260120`
-
-      - `ToolID string`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-### Web Search Tool Result Block Param Content
-
-- `type WebSearchToolResultBlockParamContentUnionResp interface{…}`
-
-  - `[]WebSearchResultBlockParamResp`
-
-    - `Type WebSearchResult`
-
-    - `EncryptedContent string`
-
-    - `Title string`
-
-    - `URL string`
-
-    - `PageAge string Optional`
-
-  - `type WebSearchToolRequestError`
-
-    - `Type WebSearchToolResultError`
-
-    - `ErrorCode WebSearchToolResultErrorCode`
-
-      - `const WebSearchToolResultErrorCodeInvalidToolInput WebSearchToolResultErrorCode = "invalid_tool_input"`
-
-      - `const WebSearchToolResultErrorCodeUnavailable WebSearchToolResultErrorCode = "unavailable"`
-
-      - `const WebSearchToolResultErrorCodeMaxUsesExceeded WebSearchToolResultErrorCode = "max_uses_exceeded"`
-
-      - `const WebSearchToolResultErrorCodeTooManyRequests WebSearchToolResultErrorCode = "too_many_requests"`
-
-      - `const WebSearchToolResultErrorCodeQueryTooLong WebSearchToolResultErrorCode = "query_too_long"`
-
-      - `const WebSearchToolResultErrorCodeRequestTooLarge WebSearchToolResultErrorCode = "request_too_large"`
-
-### Web Search Tool Result Error
-
-- `type WebSearchToolResultError`
-
-  - `Type WebSearchToolResultError`
-
-    default: web_search_tool_result_error
-
-  - `ErrorCode WebSearchToolResultErrorCode`
-
-    - `const WebSearchToolResultErrorCodeInvalidToolInput WebSearchToolResultErrorCode = "invalid_tool_input"`
-
-    - `const WebSearchToolResultErrorCodeUnavailable WebSearchToolResultErrorCode = "unavailable"`
-
-    - `const WebSearchToolResultErrorCodeMaxUsesExceeded WebSearchToolResultErrorCode = "max_uses_exceeded"`
-
-    - `const WebSearchToolResultErrorCodeTooManyRequests WebSearchToolResultErrorCode = "too_many_requests"`
-
-    - `const WebSearchToolResultErrorCodeQueryTooLong WebSearchToolResultErrorCode = "query_too_long"`
-
-    - `const WebSearchToolResultErrorCodeRequestTooLarge WebSearchToolResultErrorCode = "request_too_large"`
-
-### Web Search Tool Result Error Code
-
-- `type WebSearchToolResultErrorCode string`
-
-  - `const WebSearchToolResultErrorCodeInvalidToolInput WebSearchToolResultErrorCode = "invalid_tool_input"`
-
-  - `const WebSearchToolResultErrorCodeUnavailable WebSearchToolResultErrorCode = "unavailable"`
-
-  - `const WebSearchToolResultErrorCodeMaxUsesExceeded WebSearchToolResultErrorCode = "max_uses_exceeded"`
-
-  - `const WebSearchToolResultErrorCodeTooManyRequests WebSearchToolResultErrorCode = "too_many_requests"`
-
-  - `const WebSearchToolResultErrorCodeQueryTooLong WebSearchToolResultErrorCode = "query_too_long"`
-
-  - `const WebSearchToolResultErrorCodeRequestTooLarge WebSearchToolResultErrorCode = "request_too_large"`
-
-## Messages › Batches
-
-### Create a Message Batch
-
-`client.Messages.Batches.New(ctx, params) (*MessageBatch, error)`
-
-**POST** `/v1/messages/batches`
-
-Send a batch of Message creation requests.
-
-The Message Batches API can be used to process multiple Messages API requests at once. Once a Message Batch is created, it begins processing immediately. Batches can take up to 24 hours to complete.
-
-Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
-
-#### Parameters
-
-- `params MessageBatchNewParams`
-
-  - `Requests param.Field[[]MessageBatchNewParamsRequest]`
-
-    List of requests for prompt completion. Each is an individual request to create a Message.
-
-    minItems: 1, maxItems: 100000
-
-    - `CustomID string`
-
-      Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
-
-      Must be unique for each request within the Message Batch.
-
-      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]{1,64}$
-
-    - `Params MessageBatchNewParamsRequestParams`
-
-      Messages API creation parameters for the individual request.
-
-      See the [Messages API reference](https://platform.claude.com/docs/en/api/messages) for full documentation on available parameters.
-
-      - `MaxTokens int64`
-
-        The maximum number of tokens to generate before stopping.
-
-        Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate.
-
-        Set to `0` to populate the [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
-
-        Different models have different maximum values for this parameter.  See [models](https://platform.claude.com/docs/en/about-claude/models/overview) for details.
-
-        minimum: 0
-
-      - `Messages []MessageParamResp`
-
-        Input messages.
-
-        Our models are trained to operate on alternating `user` and `assistant` conversational turns. When creating a new `Message`, you specify the prior conversational turns with the `messages` parameter, and the model then generates the next `Message` in the conversation. Consecutive `user` or `assistant` turns in your request will be combined into a single turn.
-
-        Each input message must be an object with a `role` and `content`. You can specify a single `user`-role message, or you can include multiple `user` and `assistant` messages.
-
-        If the final message uses the `assistant` role, the response content will continue immediately from the content in that message. This can be used to constrain part of the model's response.
-
-        Example with a single `user` message:
-
-        ```json
-        [{"role": "user", "content": "Hello, Claude"}]
-        ```
-
-        Example with multiple conversational turns:
-
-        ```json
-        [
-          {"role": "user", "content": "Hello there."},
-          {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
-          {"role": "user", "content": "Can you explain LLMs in plain English?"},
-        ]
-        ```
-
-        Example with a partially-filled response from Claude:
-
-        ```json
-        [
-          {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
-          {"role": "assistant", "content": "The best answer is ("},
-        ]
-        ```
-
-        Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
-
-        ```json
-        {"role": "user", "content": "Hello, Claude"}
-        ```
-
-        ```json
-        {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
-        ```
-
-        See [input examples](https://platform.claude.com/docs/en/build-with-claude/working-with-messages).
-
-        Note that if you want to include a [system prompt](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
-
-        There is a limit of 100,000 messages in a single request.
-
-        - `Content []ContentBlockParamUnionResp`
-
-          - `[]ContentBlockParamUnionResp`
-
-            - `type TextBlockParamResp`
-
-              - `Type Text`
-
-              - `Text string`
-
-                minLength: 1
-
-              - `CacheControl CacheControlEphemeral Optional`
-
-                Create a cache control breakpoint at this content block.
-
-                - `Type Ephemeral`
-
-                - `TTL CacheControlEphemeralTTL Optional`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-                  - `const CacheControlEphemeralTTLTTL5m CacheControlEphemeralTTL = "5m"`
-
-                  - `const CacheControlEphemeralTTLTTL1h CacheControlEphemeralTTL = "1h"`
-
-              - `Citations []TextCitationParamUnionResp Optional`
-
-                - `type CitationCharLocationParamResp`
-
-                  - `Type CharLocation`
-
-                  - `CitedText string`
-
-                  - `DocumentIndex int64`
-
-                    minimum: 0
-
-                  - `DocumentTitle string`
-
-                    minLength: 1, maxLength: 500
-
-                  - `EndCharIndex int64`
-
-                  - `StartCharIndex int64`
-
-                    minimum: 0
-
-                - `type CitationPageLocationParamResp`
-
-                  - `Type PageLocation`
-
-                  - `CitedText string`
-
-                  - `DocumentIndex int64`
-
-                    minimum: 0
-
-                  - `DocumentTitle string`
-
-                    minLength: 1, maxLength: 500
-
-                  - `EndPageNumber int64`
-
-                  - `StartPageNumber int64`
-
-                    minimum: 1
-
-                - `type CitationContentBlockLocationParamResp`
-
-                  - `Type ContentBlockLocation`
-
-                  - `CitedText string`
-
-                    The full text of the cited block range, concatenated.
-
-                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                  - `DocumentIndex int64`
-
-                    minimum: 0
-
-                  - `DocumentTitle string`
-
-                    minLength: 1, maxLength: 500
-
-                  - `EndBlockIndex int64`
-
-                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                  - `StartBlockIndex int64`
-
-                    0-based index of the first cited block in the source's `content` array.
-
-                    minimum: 0
-
-                - `type CitationWebSearchResultLocationParamResp`
-
-                  - `Type WebSearchResultLocation`
-
-                  - `CitedText string`
-
-                  - `EncryptedIndex string`
-
-                  - `Title string`
-
-                    minLength: 1, maxLength: 512
-
-                  - `URL string`
-
-                    minLength: 1
-
-                - `type CitationSearchResultLocationParamResp`
-
-                  - `Type SearchResultLocation`
-
-                  - `CitedText string`
-
-                    The full text of the cited block range, concatenated.
-
-                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                  - `EndBlockIndex int64`
-
-                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                  - `SearchResultIndex int64`
-
-                    0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                    Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                    minimum: 0
-
-                  - `Source string`
-
-                  - `StartBlockIndex int64`
-
-                    0-based index of the first cited block in the source's `content` array.
-
-                    minimum: 0
-
-                  - `Title string`
-
-            - `type ImageBlockParamResp`
-
-              - `Type Image`
-
-              - `Source ImageBlockParamSourceUnionResp`
-
-                - `type Base64ImageSource`
-
-                  - `Type Base64`
-
-                  - `Data string`
-
-                    format: byte
-
-                  - `MediaType Base64ImageSourceMediaType`
-
-                    - `const Base64ImageSourceMediaTypeImageJPEG Base64ImageSourceMediaType = "image/jpeg"`
-
-                    - `const Base64ImageSourceMediaTypeImagePNG Base64ImageSourceMediaType = "image/png"`
-
-                    - `const Base64ImageSourceMediaTypeImageGIF Base64ImageSourceMediaType = "image/gif"`
-
-                    - `const Base64ImageSourceMediaTypeImageWebP Base64ImageSourceMediaType = "image/webp"`
-
-                - `type URLImageSource`
-
-                  - `Type URL`
-
-                  - `URL string`
-
-                - `type FileImageSource`
-
-                  - `Type File`
-
-                  - `FileID string`
-
-              - `CacheControl CacheControlEphemeral Optional`
-
-                Create a cache control breakpoint at this content block.
-
-              - `Transformations ImageTransformationsParamResp Optional`
-
-                Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
-
-                - `OversizedImage ImageTransformationsParamOversizedImage Optional`
-
-                  What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
-
-                  - `const ImageTransformationsParamOversizedImageDownsize ImageTransformationsParamOversizedImage = "downsize"`
-
-                  - `const ImageTransformationsParamOversizedImageError ImageTransformationsParamOversizedImage = "error"`
-
-            - `type DocumentBlockParamResp`
-
-              - `Type Document`
-
-              - `Source DocumentBlockParamSourceUnionResp`
-
-                - `type Base64PDFSource`
-
-                  - `Type Base64`
-
-                  - `Data string`
-
-                    format: byte
-
-                  - `MediaType ApplicationPDF`
-
-                - `type PlainTextSource`
-
-                  - `Type Text`
-
-                  - `Data string`
-
-                  - `MediaType TextPlain`
-
-                - `type ContentBlockSource`
-
-                  - `Type Content`
-
-                  - `Content ContentBlockSourceContentUnion`
-
-                    - `string`
-
-                    - `[]ContentBlockSourceContentItemUnion`
-
-                      - `type TextBlockParamResp`
-
-                      - `type ImageBlockParamResp`
-
-                - `type URLPDFSource`
-
-                  - `Type URL`
-
-                  - `URL string`
-
-                - `type FileDocumentSource`
-
-                  - `Type File`
-
-                  - `FileID string`
-
-              - `CacheControl CacheControlEphemeral Optional`
-
-                Create a cache control breakpoint at this content block.
-
-              - `Citations CitationsConfigParamResp Optional`
-
-                - `Enabled bool Optional`
-
-              - `Context string Optional`
-
-                minLength: 1
-
-              - `Title string Optional`
-
-                minLength: 1, maxLength: 500
-
-            - `type SearchResultBlockParamResp`
-
-              - `Type SearchResult`
-
-              - `Content []TextBlockParamResp`
-
-                - `Type Text`
-
-                - `Text string`
-
-                  minLength: 1
-
-                - `CacheControl CacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `Citations []TextCitationParamUnionResp Optional`
-
-              - `Source string`
-
-              - `Title string`
-
-              - `CacheControl CacheControlEphemeral Optional`
-
-                Create a cache control breakpoint at this content block.
-
-              - `Citations CitationsConfigParamResp Optional`
-
-            - `type ThinkingBlockParamResp`
-
-              - `Type Thinking`
-
-              - `Signature string`
-
-                The `signature` value of this thinking block, exactly as returned by the API in a previous response. Used to verify that the block was generated by Claude.
-
-                Thinking blocks must be passed back unmodified and in their original order; a modified block results in a 400 `invalid_request_error`.
-
-              - `Thinking string`
-
-                The `thinking` text of this block as returned by the API.
-
-            - `type RedactedThinkingBlockParamResp`
-
-              - `Type RedactedThinking`
-
-              - `Data string`
-
-                The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
-
-            - `type ToolUseBlockParamResp`
-
-              - `Type ToolUse`
-
-              - `ID string`
-
-                pattern: ^[a-zA-Z0-9_-]+$
-
-              - `Input map[string, any]`
-
-              - `Name string`
-
-                minLength: 1, maxLength: 200
-
-              - `CacheControl CacheControlEphemeral Optional`
-
-                Create a cache control breakpoint at this content block.
-
-              - `Caller ToolUseBlockParamCallerUnionResp Optional`
-
-                - `type DirectCaller`
-
-                  Tool invocation directly from the model.
-
-                  - `Type Direct`
-
-                - `type ServerToolCaller`
-
-                  Tool invocation generated by a server-side tool.
-
-                  - `Type CodeExecution20250825`
-
-                  - `ToolID string`
-
-                    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type ServerToolCaller20260120`
-
-                  - `Type CodeExecution20260120`
-
-                  - `ToolID string`
-
-                    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `ToolsetName string Optional`
-
-                For a toolset member tool_use, the toolset family this member belongs to.
-
-                minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
-
-            - `type ToolResultBlockParamResp`
-
-              - `Type ToolResult`
-
-              - `ToolUseID string`
-
-                pattern: ^[a-zA-Z0-9_-]+$
-
-              - `CacheControl CacheControlEphemeral Optional`
-
-                Create a cache control breakpoint at this content block.
-
-              - `Content []ToolResultBlockParamContentUnionResp Optional`
-
-                - `[]ToolResultBlockParamContentUnionResp`
-
-                  - `type TextBlockParamResp`
-
-                  - `type ImageBlockParamResp`
-
-                  - `type SearchResultBlockParamResp`
-
-                  - `type DocumentBlockParamResp`
-
-                  - `type ToolReferenceBlockParamResp`
-
-                    Tool reference block that can be included in tool_result content.
-
-                    - `Type ToolReference`
-
-                    - `ToolName string`
-
-                      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                    - `CacheControl CacheControlEphemeral Optional`
-
-                      Create a cache control breakpoint at this content block.
-
-                  - `type BrowserStateBlockParamResp`
-
-                    The caller's browser state after a browser toolset member call —
-                    the full inventory of open tabs, which tab is active, and any side
-                    effects (tabs opened, download state changes) the call produced.
-
-                    At most one per `tool_result`, only on a non-error result answering a
-                    browser toolset member `tool_use`. The server renders the
-                    model-visible text from it; the model never sees the raw fields.
-
-                    - `Type BrowserState`
-
-                    - `Tabs []BrowserStateTabEntry`
-
-                      All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
-
-                      maxItems: 100
-
-                      - `TabID string`
-
-                        The caller-assigned identifier for this tab, unique within the inventory.
-
-                        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                      - `Title string`
-
-                        The title of the page the tab is showing. May be empty.
-
-                        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                      - `URL string`
-
-                        The URL of the page the tab is showing. May be empty.
-
-                        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                      - `Active bool Optional`
-
-                        Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
-
-                    - `CacheControl CacheControlEphemeral Optional`
-
-                      Create a cache control breakpoint at this content block.
-
-                    - `StateChanges []BrowserStateChangeUnion Optional`
-
-                      Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
-
-                      minItems: 1, maxItems: 200
-
-                      - `type BrowserStateChangeTabOpened`
-
-                        A tab this call's execution opened that remains open at its end —
-                        the creation delta of the `tabs` inventory, not an event log.
-
-                        Carries only the `tab_id`; the tab's `title` and `url` live on its
-                        `tabs` entry, which must include the same `tab_id`. A tab opened
-                        during a failed call gets no deferred `tab_opened`; it simply appears
-                        in the next result's `tabs` inventory.
-
-                        - `Type TabOpened`
-
-                        - `TabID string`
-
-                          The `tab_id` of the opened tab, present in `tabs`.
-
-                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                      - `type BrowserStateChangeDownloadStarted`
-
-                        A file download that started during this call.
-
-                        - `Type DownloadStarted`
-
-                        - `DownloadID string`
-
-                          The caller-assigned identifier for this download, stable across the state changes reporting it.
-
-                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                        - `URL string`
-
-                          The final post-redirect URL the download was served from.
-
-                          maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                      - `type BrowserStateChangeDownloadCompleted`
-
-                        A file download that finished during this call, reported with the
-                        same `download_id` as its `download_started` — or without a prior
-                        `download_started`, when the download finished during the call that
-                        started it (at most one state change per `download_id` per result).
-
-                        - `Type DownloadCompleted`
-
-                        - `DownloadID string`
-
-                          The caller-assigned identifier for this download, stable across the state changes reporting it.
-
-                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                        - `URL string`
-
-                          The final post-redirect URL the download was served from.
-
-                          maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                        - `Path string Optional`
-
-                          Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
-
-                          maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                        - `SizeBytes int64 Optional`
-
-                          The completed download's size.
-
-                          minimum: 0
-
-                      - `type BrowserStateChangeDownloadFailed`
-
-                        A file download that failed — or was cancelled — during this call.
-
-                        - `Type DownloadFailed`
-
-                        - `DownloadID string`
-
-                          The caller-assigned identifier for this download, stable across the state changes reporting it.
-
-                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                        - `URL string`
-
-                          The final post-redirect URL the download was served from.
-
-                          maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                        - `Error string Optional`
-
-                          The failure or cancellation detail, when known.
-
-                          maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-              - `IsError bool Optional`
-
-              - `ToolsetName string Optional`
-
-                For a toolset member tool_result, the toolset family of the paired tool_use.
-
-                minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
-
-            - `type ServerToolUseBlockParamResp`
-
-              - `Type ServerToolUse`
-
-              - `ID string`
-
-                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `Input map[string, any]`
-
-              - `Name ServerToolUseBlockParamName`
-
-                - `const ServerToolUseBlockParamNameWebSearch ServerToolUseBlockParamName = "web_search"`
-
-                - `const ServerToolUseBlockParamNameWebFetch ServerToolUseBlockParamName = "web_fetch"`
-
-                - `const ServerToolUseBlockParamNameCodeExecution ServerToolUseBlockParamName = "code_execution"`
-
-                - `const ServerToolUseBlockParamNameBashCodeExecution ServerToolUseBlockParamName = "bash_code_execution"`
-
-                - `const ServerToolUseBlockParamNameTextEditorCodeExecution ServerToolUseBlockParamName = "text_editor_code_execution"`
-
-                - `const ServerToolUseBlockParamNameToolSearchToolRegex ServerToolUseBlockParamName = "tool_search_tool_regex"`
-
-                - `const ServerToolUseBlockParamNameToolSearchToolBm25 ServerToolUseBlockParamName = "tool_search_tool_bm25"`
-
-              - `CacheControl CacheControlEphemeral Optional`
-
-                Create a cache control breakpoint at this content block.
-
-              - `Caller ServerToolUseBlockParamCallerUnionResp Optional`
-
-                - `type DirectCaller`
-
-                  Tool invocation directly from the model.
-
-                - `type ServerToolCaller`
-
-                  Tool invocation generated by a server-side tool.
-
-                - `type ServerToolCaller20260120`
-
-            - `type WebSearchToolResultBlockParamResp`
-
-              - `Type WebSearchToolResult`
-
-              - `Content WebSearchToolResultBlockParamContentUnionResp`
-
-                - `[]WebSearchResultBlockParamResp`
-
-                  - `Type WebSearchResult`
-
-                  - `EncryptedContent string`
-
-                  - `Title string`
-
-                  - `URL string`
-
-                  - `PageAge string Optional`
-
-                - `type WebSearchToolRequestError`
-
-                  - `Type WebSearchToolResultError`
-
-                  - `ErrorCode WebSearchToolResultErrorCode`
-
-                    - `const WebSearchToolResultErrorCodeInvalidToolInput WebSearchToolResultErrorCode = "invalid_tool_input"`
-
-                    - `const WebSearchToolResultErrorCodeUnavailable WebSearchToolResultErrorCode = "unavailable"`
-
-                    - `const WebSearchToolResultErrorCodeMaxUsesExceeded WebSearchToolResultErrorCode = "max_uses_exceeded"`
-
-                    - `const WebSearchToolResultErrorCodeTooManyRequests WebSearchToolResultErrorCode = "too_many_requests"`
-
-                    - `const WebSearchToolResultErrorCodeQueryTooLong WebSearchToolResultErrorCode = "query_too_long"`
-
-                    - `const WebSearchToolResultErrorCodeRequestTooLarge WebSearchToolResultErrorCode = "request_too_large"`
-
-              - `ToolUseID string`
-
-                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `CacheControl CacheControlEphemeral Optional`
-
-                Create a cache control breakpoint at this content block.
-
-              - `Caller WebSearchToolResultBlockParamCallerUnionResp Optional`
-
-                - `type DirectCaller`
-
-                  Tool invocation directly from the model.
-
-                - `type ServerToolCaller`
-
-                  Tool invocation generated by a server-side tool.
-
-                - `type ServerToolCaller20260120`
-
-            - `type WebFetchToolResultBlockParamResp`
-
-              - `Type WebFetchToolResult`
-
-              - `Content WebFetchToolResultBlockParamContentUnionResp`
-
-                - `type WebFetchToolResultErrorBlockParamResp`
-
-                  - `Type WebFetchToolResultError`
-
-                  - `ErrorCode WebFetchToolResultErrorCode`
-
-                    - `const WebFetchToolResultErrorCodeInvalidToolInput WebFetchToolResultErrorCode = "invalid_tool_input"`
-
-                    - `const WebFetchToolResultErrorCodeURLTooLong WebFetchToolResultErrorCode = "url_too_long"`
-
-                    - `const WebFetchToolResultErrorCodeURLNotAllowed WebFetchToolResultErrorCode = "url_not_allowed"`
-
-                    - `const WebFetchToolResultErrorCodeURLNotInPriorContext WebFetchToolResultErrorCode = "url_not_in_prior_context"`
-
-                    - `const WebFetchToolResultErrorCodeURLNotAccessible WebFetchToolResultErrorCode = "url_not_accessible"`
-
-                    - `const WebFetchToolResultErrorCodeUnsupportedContentType WebFetchToolResultErrorCode = "unsupported_content_type"`
-
-                    - `const WebFetchToolResultErrorCodeTooManyRequests WebFetchToolResultErrorCode = "too_many_requests"`
-
-                    - `const WebFetchToolResultErrorCodeMaxUsesExceeded WebFetchToolResultErrorCode = "max_uses_exceeded"`
-
-                    - `const WebFetchToolResultErrorCodeUnavailable WebFetchToolResultErrorCode = "unavailable"`
-
-                    - `const WebFetchToolResultErrorCodeContentTooLarge WebFetchToolResultErrorCode = "content_too_large"`
-
-                - `type WebFetchBlockParamResp`
-
-                  - `Type WebFetchResult`
-
-                  - `Content DocumentBlockParamResp`
-
-                  - `URL string`
-
-                    Fetched content URL
-
-                  - `RetrievedAt string Optional`
-
-                    ISO 8601 timestamp when the content was retrieved
-
-              - `ToolUseID string`
-
-                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `CacheControl CacheControlEphemeral Optional`
-
-                Create a cache control breakpoint at this content block.
-
-              - `Caller WebFetchToolResultBlockParamCallerUnionResp Optional`
-
-                - `type DirectCaller`
-
-                  Tool invocation directly from the model.
-
-                - `type ServerToolCaller`
-
-                  Tool invocation generated by a server-side tool.
-
-                - `type ServerToolCaller20260120`
-
-            - `type CodeExecutionToolResultBlockParamResp`
-
-              - `Type CodeExecutionToolResult`
-
-              - `Content CodeExecutionToolResultBlockParamContentUnionResp`
-
-                - `type CodeExecutionToolResultErrorParamResp`
-
-                  - `Type CodeExecutionToolResultError`
-
-                  - `ErrorCode CodeExecutionToolResultErrorCode`
-
-                    - `const CodeExecutionToolResultErrorCodeInvalidToolInput CodeExecutionToolResultErrorCode = "invalid_tool_input"`
-
-                    - `const CodeExecutionToolResultErrorCodeUnavailable CodeExecutionToolResultErrorCode = "unavailable"`
-
-                    - `const CodeExecutionToolResultErrorCodeTooManyRequests CodeExecutionToolResultErrorCode = "too_many_requests"`
-
-                    - `const CodeExecutionToolResultErrorCodeExecutionTimeExceeded CodeExecutionToolResultErrorCode = "execution_time_exceeded"`
-
-                - `type CodeExecutionResultBlockParamResp`
-
-                  - `Type CodeExecutionResult`
-
-                  - `Content []CodeExecutionOutputBlockParamResp`
-
-                    - `Type CodeExecutionOutput`
-
-                    - `FileID string`
-
-                  - `ReturnCode int64`
-
-                  - `Stderr string`
-
-                  - `Stdout string`
-
-                - `type EncryptedCodeExecutionResultBlockParamResp`
-
-                  Code execution result with encrypted stdout for PFC + web_search results.
-
-                  - `Type EncryptedCodeExecutionResult`
-
-                  - `Content []CodeExecutionOutputBlockParamResp`
-
-                    - `Type CodeExecutionOutput`
-
-                    - `FileID string`
-
-                  - `EncryptedStdout string`
-
-                  - `ReturnCode int64`
-
-                  - `Stderr string`
-
-              - `ToolUseID string`
-
-                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `CacheControl CacheControlEphemeral Optional`
-
-                Create a cache control breakpoint at this content block.
-
-            - `type BashCodeExecutionToolResultBlockParamResp`
-
-              - `Type BashCodeExecutionToolResult`
-
-              - `Content BashCodeExecutionToolResultBlockParamContentUnionResp`
-
-                - `type BashCodeExecutionToolResultErrorParamResp`
-
-                  - `Type BashCodeExecutionToolResultError`
-
-                  - `ErrorCode BashCodeExecutionToolResultErrorCode`
-
-                    - `const BashCodeExecutionToolResultErrorCodeInvalidToolInput BashCodeExecutionToolResultErrorCode = "invalid_tool_input"`
-
-                    - `const BashCodeExecutionToolResultErrorCodeUnavailable BashCodeExecutionToolResultErrorCode = "unavailable"`
-
-                    - `const BashCodeExecutionToolResultErrorCodeTooManyRequests BashCodeExecutionToolResultErrorCode = "too_many_requests"`
-
-                    - `const BashCodeExecutionToolResultErrorCodeExecutionTimeExceeded BashCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
-
-                    - `const BashCodeExecutionToolResultErrorCodeOutputFileTooLarge BashCodeExecutionToolResultErrorCode = "output_file_too_large"`
-
-                - `type BashCodeExecutionResultBlockParamResp`
-
-                  - `Type BashCodeExecutionResult`
-
-                  - `Content []BashCodeExecutionOutputBlockParamResp`
-
-                    - `Type BashCodeExecutionOutput`
-
-                    - `FileID string`
-
-                  - `ReturnCode int64`
-
-                  - `Stderr string`
-
-                  - `Stdout string`
-
-              - `ToolUseID string`
-
-                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `CacheControl CacheControlEphemeral Optional`
-
-                Create a cache control breakpoint at this content block.
-
-            - `type TextEditorCodeExecutionToolResultBlockParamResp`
-
-              - `Type TextEditorCodeExecutionToolResult`
-
-              - `Content TextEditorCodeExecutionToolResultBlockParamContentUnionResp`
-
-                - `type TextEditorCodeExecutionToolResultErrorParamResp`
-
-                  - `Type TextEditorCodeExecutionToolResultError`
-
-                  - `ErrorCode TextEditorCodeExecutionToolResultErrorCode`
-
-                    - `const TextEditorCodeExecutionToolResultErrorCodeInvalidToolInput TextEditorCodeExecutionToolResultErrorCode = "invalid_tool_input"`
-
-                    - `const TextEditorCodeExecutionToolResultErrorCodeUnavailable TextEditorCodeExecutionToolResultErrorCode = "unavailable"`
-
-                    - `const TextEditorCodeExecutionToolResultErrorCodeTooManyRequests TextEditorCodeExecutionToolResultErrorCode = "too_many_requests"`
-
-                    - `const TextEditorCodeExecutionToolResultErrorCodeExecutionTimeExceeded TextEditorCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
-
-                    - `const TextEditorCodeExecutionToolResultErrorCodeFileNotFound TextEditorCodeExecutionToolResultErrorCode = "file_not_found"`
-
-                  - `ErrorMessage string Optional`
-
-                - `type TextEditorCodeExecutionViewResultBlockParamResp`
-
-                  - `Type TextEditorCodeExecutionViewResult`
-
-                  - `Content string`
-
-                  - `FileType TextEditorCodeExecutionViewResultBlockParamFileType`
-
-                    - `const TextEditorCodeExecutionViewResultBlockParamFileTypeText TextEditorCodeExecutionViewResultBlockParamFileType = "text"`
-
-                    - `const TextEditorCodeExecutionViewResultBlockParamFileTypeImage TextEditorCodeExecutionViewResultBlockParamFileType = "image"`
-
-                    - `const TextEditorCodeExecutionViewResultBlockParamFileTypePDF TextEditorCodeExecutionViewResultBlockParamFileType = "pdf"`
-
-                  - `NumLines int64 Optional`
-
-                  - `StartLine int64 Optional`
-
-                  - `TotalLines int64 Optional`
-
-                - `type TextEditorCodeExecutionCreateResultBlockParamResp`
-
-                  - `Type TextEditorCodeExecutionCreateResult`
-
-                  - `IsFileUpdate bool`
-
-                - `type TextEditorCodeExecutionStrReplaceResultBlockParamResp`
-
-                  - `Type TextEditorCodeExecutionStrReplaceResult`
-
-                  - `Lines []string Optional`
-
-                  - `NewLines int64 Optional`
-
-                  - `NewStart int64 Optional`
-
-                  - `OldLines int64 Optional`
-
-                  - `OldStart int64 Optional`
-
-              - `ToolUseID string`
-
-                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `CacheControl CacheControlEphemeral Optional`
-
-                Create a cache control breakpoint at this content block.
-
-            - `type ToolSearchToolResultBlockParamResp`
-
-              - `Type ToolSearchToolResult`
-
-              - `Content ToolSearchToolResultBlockParamContentUnionResp`
-
-                - `type ToolSearchToolResultErrorParamResp`
-
-                  - `Type ToolSearchToolResultError`
-
-                  - `ErrorCode ToolSearchToolResultErrorCode`
-
-                    - `const ToolSearchToolResultErrorCodeInvalidToolInput ToolSearchToolResultErrorCode = "invalid_tool_input"`
-
-                    - `const ToolSearchToolResultErrorCodeUnavailable ToolSearchToolResultErrorCode = "unavailable"`
-
-                    - `const ToolSearchToolResultErrorCodeTooManyRequests ToolSearchToolResultErrorCode = "too_many_requests"`
-
-                    - `const ToolSearchToolResultErrorCodeExecutionTimeExceeded ToolSearchToolResultErrorCode = "execution_time_exceeded"`
-
-                  - `ErrorMessage string Optional`
-
-                - `type ToolSearchToolSearchResultBlockParamResp`
-
-                  - `Type ToolSearchToolSearchResult`
-
-                  - `ToolReferences []ToolReferenceBlockParamResp`
-
-                    - `Type ToolReference`
-
-                    - `ToolName string`
-
-                      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                    - `CacheControl CacheControlEphemeral Optional`
-
-                      Create a cache control breakpoint at this content block.
-
-              - `ToolUseID string`
-
-                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `CacheControl CacheControlEphemeral Optional`
-
-                Create a cache control breakpoint at this content block.
-
-            - `type ContainerUploadBlockParamResp`
-
-              A content block that represents a file to be uploaded to the container
-              Files uploaded via this block will be available in the container's input directory.
-
-              - `Type ContainerUpload`
-
-              - `FileID string`
-
-              - `CacheControl CacheControlEphemeral Optional`
-
-                Create a cache control breakpoint at this content block.
-
-        - `Role MessageParamRole`
-
-          - `const MessageParamRoleUser MessageParamRole = "user"`
-
-          - `const MessageParamRoleAssistant MessageParamRole = "assistant"`
-
-          - `const MessageParamRoleSystem MessageParamRole = "system"`
-
-      - `Model Model`
-
-        The model that will complete your prompt.
-
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `const ModelClaudeSonnet5_5 Model = "claude-sonnet-5-5"`
-
-          Efficient model for coding and agents
-
-        - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
-
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-        - `const ModelClaudeOpus5_5 Model = "claude-opus-5-5"`
-
-          Powerful intelligence for coding, knowledge work, and long-running agents
-
-        - `const ModelClaudeMythos5_1 Model = "claude-mythos-5-1"`
-
-          Our most capable model for cybersecurity and biology research, available through trusted access programs
-
-        - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
-
-          Efficient model for coding and agents
-
-        - `const ModelClaudeFable5 Model = "claude-fable-5"`
-
-          Next generation of intelligence for the hardest knowledge work and coding problems
-
-        - `const ModelClaudeMythos5 Model = "claude-mythos-5"`
-
-          Most capable model for cybersecurity and biology research
-
-        - `const ModelClaudeOpus5 Model = "claude-opus-5"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `const ModelClaudeSonnet4_6 Model = "claude-sonnet-4-6"`
-
-          Best combination of speed and intelligence
-
-        - `const ModelClaudeHaiku4_5 Model = "claude-haiku-4-5"`
-
-          Fastest model with near-frontier intelligence
-
-        - `const ModelClaudeHaiku4_5_20251001 Model = "claude-haiku-4-5-20251001"`
-
-          Fastest model with near-frontier intelligence
-
-        - `const ModelClaudeOpus4_5 Model = "claude-opus-4-5"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `const ModelClaudeOpus4_5_20251101 Model = "claude-opus-4-5-20251101"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-          New class of intelligence, strongest in coding and cybersecurity
-
-        - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-          High-performance model for agents and coding
-
-        - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-          High-performance model for agents and coding
-
-      - `CacheControl CacheControlEphemeral Optional`
-
-        Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
-
-      - `Container MessageCreateParamsContainerUnionResp Optional`
-
-        Container identifier for reuse across requests.
-
-        - `type ContainerParamsResp`
-
-          Container parameters with skills to be loaded.
-
-          - `ID string Optional`
-
-            Container id
-
-          - `Skills []SkillParamsResp Optional`
-
-            List of skills to load in the container
-
-            maxItems: 20
-
-            - `Type SkillParamsType`
-
-              Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
-              - `const SkillParamsTypeAnthropic SkillParamsType = "anthropic"`
-
-              - `const SkillParamsTypeCustom SkillParamsType = "custom"`
-
-            - `SkillID string`
-
-              Skill ID
-
-              minLength: 1, maxLength: 64
-
-            - `Version string Optional`
-
-              Skill version or 'latest' for most recent version
-
-              minLength: 1, maxLength: 64
-
-        - `string`
-
-      - `Diagnostics DiagnosticsParamResp Optional`
-
-        Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
-
-        - `PreviousMessageID string Optional`
-
-          The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
-
-          maxLength: 256
-
-      - `InferenceGeo string Optional`
-
-        Specifies the geographic region for inference processing. If not specified, the workspace's `default_inference_geo` is used.
-
-      - `Metadata Metadata Optional`
-
-        An object describing metadata about the request.
-
-        - `UserID string Optional`
-
-          An external identifier for the user who is associated with the request.
-
-          This should be a uuid, hash value, or other opaque identifier. Anthropic may use this id to help detect abuse. Do not include any identifying information such as name, email address, or phone number.
-
-          maxLength: 512
-
-      - `OutputConfig OutputConfig Optional`
-
-        Configuration options for the model's output, such as the output format.
-
-        - `Effort OutputConfigEffort Optional`
-
-          How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
-
-          Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
-
-          - `const OutputConfigEffortLow OutputConfigEffort = "low"`
-
-          - `const OutputConfigEffortMedium OutputConfigEffort = "medium"`
-
-          - `const OutputConfigEffortHigh OutputConfigEffort = "high"`
-
-          - `const OutputConfigEffortXhigh OutputConfigEffort = "xhigh"`
-
-          - `const OutputConfigEffortMax OutputConfigEffort = "max"`
-
-        - `Format JSONOutputFormat Optional`
-
-          A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
-
-          - `Type JSONSchema`
-
-          - `Schema map[string, any]`
-
-            The JSON schema of the format
-
-      - `ServiceTier string Optional`
-
-        Determines whether to use priority capacity (if available) or standard capacity for this request.
-
-        Anthropic offers different levels of service for your API requests. See [service-tiers](https://platform.claude.com/docs/en/api/service-tiers) for details.
-
-        - `const MessageBatchNewParamsRequestParamsServiceTierAuto MessageBatchNewParamsRequestParamsServiceTier = "auto"`
-
-        - `const MessageBatchNewParamsRequestParamsServiceTierStandardOnly MessageBatchNewParamsRequestParamsServiceTier = "standard_only"`
-
-      - `StopSequences []string Optional`
-
-        Custom text sequences that will cause the model to stop generating.
-
-        Our models will normally stop when they have naturally completed their turn, which will result in a response `stop_reason` of `"end_turn"`.
-
-        If you want the model to stop generating when it encounters custom strings of text, you can use the `stop_sequences` parameter. If the model encounters one of the custom sequences, the response `stop_reason` value will be `"stop_sequence"` and the response `stop_sequence` value will contain the matched stop sequence.
-
-      - `Stream bool Optional`
-
-        Whether to incrementally stream the response using server-sent events. When `true`, SDKs return a raw event stream.
-
-        In the TypeScript, Python and Ruby SDKs, the recommended way to stream is `messages.stream()`. It sets `stream` for you and accumulates the events into the final message. See [Streaming with SDKs](https://platform.claude.com/docs/en/build-with-claude/streaming#streaming-with-sdks) for an example in each language.
-
-      - `System []TextBlockParamResp Optional`
-
-        System prompt.
-
-        A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
-
-        - `[]TextBlockParam`
-
-          - `Type Text`
-
-          - `Text string`
-
-            minLength: 1
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `Citations []TextCitationParamUnionResp Optional`
-
-      - `Thinking ThinkingConfigParamUnionResp Optional`
-
-        Configuration for enabling Claude's extended thinking.
-
-        When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
-
-        See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
-
-        - `type ThinkingConfigEnabled`
-
-          - `Type Enabled`
-
-          - `BudgetTokens int64`
-
-            Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
-
-            Must be ≥1024 and less than `max_tokens`.
-
-            See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
-
-            minimum: 1024
-
-          - `Display ThinkingConfigEnabledDisplay Optional`
-
-            Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
-            - `const ThinkingConfigEnabledDisplaySummarized ThinkingConfigEnabledDisplay = "summarized"`
-
-            - `const ThinkingConfigEnabledDisplayOmitted ThinkingConfigEnabledDisplay = "omitted"`
-
-        - `type ThinkingConfigDisabled`
-
-          - `Type Disabled`
-
-        - `type ThinkingConfigBetweenTools`
-
-          - `Type BetweenTools`
-
-        - `type ThinkingConfigAdaptive`
-
-          - `Type Adaptive`
-
-          - `Display ThinkingConfigAdaptiveDisplay Optional`
-
-            Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
-            - `const ThinkingConfigAdaptiveDisplaySummarized ThinkingConfigAdaptiveDisplay = "summarized"`
-
-            - `const ThinkingConfigAdaptiveDisplayOmitted ThinkingConfigAdaptiveDisplay = "omitted"`
-
-      - `ToolChoice ToolChoiceUnion Optional`
-
-        How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
-
-        - `type ToolChoiceAuto`
-
-          The model will automatically decide whether to use tools.
-
-          - `Type Auto`
-
-          - `DisableParallelToolUse bool Optional`
-
-            Whether to disable parallel tool use.
-
-            Defaults to `false`. If set to `true`, the model will output at most one tool use.
-
-        - `type ToolChoiceAny`
-
-          The model will use any available tools.
-
-          - `Type Any`
-
-          - `DisableParallelToolUse bool Optional`
-
-            Whether to disable parallel tool use.
-
-            Defaults to `false`. If set to `true`, the model will output exactly one tool use.
-
-        - `type ToolChoiceTool`
-
-          The model will use the specified tool with `tool_choice.name`.
-
-          - `Type Tool`
-
-          - `Name string`
-
-            The name of the tool to use.
-
-          - `DisableParallelToolUse bool Optional`
-
-            Whether to disable parallel tool use.
-
-            Defaults to `false`. If set to `true`, the model will output exactly one tool use.
-
-        - `type ToolChoiceNone`
-
-          The model will not be allowed to use tools.
-
-          - `Type None`
-
-      - `Tools []ToolUnion Optional`
-
-        Definitions of tools that the model may use.
-
-        If you include `tools` in your API request, the model may return `tool_use` content blocks that represent the model's use of those tools. You can then run those tools using the tool input generated by the model and then optionally return results back to the model using `tool_result` content blocks.
-
-        There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool)).
-
-        Each tool definition includes:
-
-        * `name`: Name of the tool.
-        * `description`: Optional, but strongly-recommended description of the tool.
-        * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
-
-        For example, if you defined `tools` as:
-
-        ```json
-        [
-          {
-            "name": "get_stock_price",
-            "description": "Get the current stock price for a given ticker symbol.",
-            "input_schema": {
-              "type": "object",
-              "properties": {
-                "ticker": {
-                  "type": "string",
-                  "description": "The stock ticker symbol, e.g. AAPL for Apple Inc."
-                }
-              },
-              "required": ["ticker"]
-            }
-          }
-        ]
-        ```
-
-        And then asked the model "What's the S&P 500 at today?", the model might produce `tool_use` content blocks in the response like this:
-
-        ```json
-        [
-          {
-            "type": "tool_use",
-            "id": "toolu_01D7FLrfh4GYq7yT1ULFeyMV",
-            "name": "get_stock_price",
-            "input": { "ticker": "^GSPC" }
-          }
-        ]
-        ```
-
-        You might then run your `get_stock_price` tool with `{"ticker": "^GSPC"}` as an input, and return the following back to the model in a subsequent `user` message:
-
-        ```json
-        [
-          {
-            "type": "tool_result",
-            "tool_use_id": "toolu_01D7FLrfh4GYq7yT1ULFeyMV",
-            "content": "259.75 USD"
-          }
-        ]
-        ```
-
-        Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
-
-        See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
-
-        - `type Tool`
-
-          - `Type ToolType Optional`
-
-          - `InputSchema ToolInputSchema`
-
-            [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
-
-            This defines the shape of the `input` that your tool accepts and that the model will produce.
-
-            - `Type Object`
-
-            - `Properties map[string, any] Optional`
-
-            - `Required []string Optional`
-
-          - `Name string`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-            minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-          - `AllowedCallers []string Optional`
-
-            - `const ToolAllowedCallerDirect ToolAllowedCaller = "direct"`
-
-            - `const ToolAllowedCallerCodeExecution20250825 ToolAllowedCaller = "code_execution_20250825"`
-
-            - `const ToolAllowedCallerCodeExecution20260120 ToolAllowedCaller = "code_execution_20260120"`
-
-            - `const ToolAllowedCallerCodeExecution20260521 ToolAllowedCaller = "code_execution_20260521"`
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `Description string Optional`
-
-            Description of what this tool does.
-
-            Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
-
-          - `EagerInputStreaming bool Optional`
-
-            Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
-
-          - `InputExamples []map[string, any] Optional`
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `type ToolBash20250124`
-
-          - `Type Bash20250124`
-
-          - `Name Bash`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const ToolBash20250124AllowedCallerDirect ToolBash20250124AllowedCaller = "direct"`
-
-            - `const ToolBash20250124AllowedCallerCodeExecution20250825 ToolBash20250124AllowedCaller = "code_execution_20250825"`
-
-            - `const ToolBash20250124AllowedCallerCodeExecution20260120 ToolBash20250124AllowedCaller = "code_execution_20260120"`
-
-            - `const ToolBash20250124AllowedCallerCodeExecution20260521 ToolBash20250124AllowedCaller = "code_execution_20260521"`
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `InputExamples []map[string, any] Optional`
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `type CodeExecutionTool20250522`
-
-          - `Type CodeExecution20250522`
-
-          - `Name CodeExecution`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const CodeExecutionTool20250522AllowedCallerDirect CodeExecutionTool20250522AllowedCaller = "direct"`
-
-            - `const CodeExecutionTool20250522AllowedCallerCodeExecution20250825 CodeExecutionTool20250522AllowedCaller = "code_execution_20250825"`
-
-            - `const CodeExecutionTool20250522AllowedCallerCodeExecution20260120 CodeExecutionTool20250522AllowedCaller = "code_execution_20260120"`
-
-            - `const CodeExecutionTool20250522AllowedCallerCodeExecution20260521 CodeExecutionTool20250522AllowedCaller = "code_execution_20260521"`
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `type CodeExecutionTool20250825`
-
-          - `Type CodeExecution20250825`
-
-          - `Name CodeExecution`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const CodeExecutionTool20250825AllowedCallerDirect CodeExecutionTool20250825AllowedCaller = "direct"`
-
-            - `const CodeExecutionTool20250825AllowedCallerCodeExecution20250825 CodeExecutionTool20250825AllowedCaller = "code_execution_20250825"`
-
-            - `const CodeExecutionTool20250825AllowedCallerCodeExecution20260120 CodeExecutionTool20250825AllowedCaller = "code_execution_20260120"`
-
-            - `const CodeExecutionTool20250825AllowedCallerCodeExecution20260521 CodeExecutionTool20250825AllowedCaller = "code_execution_20260521"`
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `type CodeExecutionTool20260120`
-
-          Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
-
-          - `Type CodeExecution20260120`
-
-          - `Name CodeExecution`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const CodeExecutionTool20260120AllowedCallerDirect CodeExecutionTool20260120AllowedCaller = "direct"`
-
-            - `const CodeExecutionTool20260120AllowedCallerCodeExecution20250825 CodeExecutionTool20260120AllowedCaller = "code_execution_20250825"`
-
-            - `const CodeExecutionTool20260120AllowedCallerCodeExecution20260120 CodeExecutionTool20260120AllowedCaller = "code_execution_20260120"`
-
-            - `const CodeExecutionTool20260120AllowedCallerCodeExecution20260521 CodeExecutionTool20260120AllowedCaller = "code_execution_20260521"`
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `type CodeExecutionTool20260521`
-
-          Code execution tool with REPL state persistence.
-
-          - `Type CodeExecution20260521`
-
-          - `Name CodeExecution`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const CodeExecutionTool20260521AllowedCallerDirect CodeExecutionTool20260521AllowedCaller = "direct"`
-
-            - `const CodeExecutionTool20260521AllowedCallerCodeExecution20250825 CodeExecutionTool20260521AllowedCaller = "code_execution_20250825"`
-
-            - `const CodeExecutionTool20260521AllowedCallerCodeExecution20260120 CodeExecutionTool20260521AllowedCaller = "code_execution_20260120"`
-
-            - `const CodeExecutionTool20260521AllowedCallerCodeExecution20260521 CodeExecutionTool20260521AllowedCaller = "code_execution_20260521"`
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `type BrowserToolset20260801`
-
-          The browser toolset: a single `tools[]` entry (carrying no
-          `name`) that declares the browser tool family. The model is served
-          the family's tool with any members disabled via `configs` removed
-          from its schema.
-
-          - `Type BrowserToolset20260801`
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `Configs BrowserToolsetConfigs Optional`
-
-            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
-
-            - `Type BrowserTypeConfig Optional`
-
-              `type`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `CloseTab BrowserCloseTabConfig Optional`
-
-              `close_tab`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `DoubleClick BrowserDoubleClickConfig Optional`
-
-              `double_click`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `FileUpload BrowserFileUploadConfig Optional`
-
-              `file_upload`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `Find BrowserFindConfig Optional`
-
-              `find`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `FormInput BrowserFormInputConfig Optional`
-
-              `form_input`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `GetPageText BrowserGetPageTextConfig Optional`
-
-              `get_page_text`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `HoldKey BrowserHoldKeyConfig Optional`
-
-              `hold_key`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `Hover BrowserHoverConfig Optional`
-
-              `hover`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `JavascriptExec BrowserJavascriptExecConfig Optional`
-
-              `javascript_exec`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `Key BrowserKeyConfig Optional`
-
-              `key`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `LeftClick BrowserLeftClickConfig Optional`
-
-              `left_click`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `LeftClickDrag BrowserLeftClickDragConfig Optional`
-
-              `left_click_drag`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `LeftMouseDown BrowserLeftMouseDownConfig Optional`
-
-              `left_mouse_down`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `LeftMouseUp BrowserLeftMouseUpConfig Optional`
-
-              `left_mouse_up`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `ListTabs BrowserListTabsConfig Optional`
-
-              `list_tabs`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `MiddleClick BrowserMiddleClickConfig Optional`
-
-              `middle_click`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `MouseMove BrowserMouseMoveConfig Optional`
-
-              `mouse_move`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `Navigate BrowserNavigateConfig Optional`
-
-              `navigate`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `NewTab BrowserNewTabConfig Optional`
-
-              `new_tab`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `ReadConsole BrowserReadConsoleConfig Optional`
-
-              `read_console`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `ReadNetwork BrowserReadNetworkConfig Optional`
-
-              `read_network`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `ReadPage BrowserReadPageConfig Optional`
-
-              `read_page`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `RightClick BrowserRightClickConfig Optional`
-
-              `right_click`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `Screenshot BrowserScreenshotConfig Optional`
-
-              `screenshot`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `Scroll BrowserScrollConfig Optional`
-
-              `scroll`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `ScrollTo BrowserScrollToConfig Optional`
-
-              `scroll_to`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `SwitchTab BrowserSwitchTabConfig Optional`
-
-              `switch_tab`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `TripleClick BrowserTripleClickConfig Optional`
-
-              `triple_click`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `Wait BrowserWaitConfig Optional`
-
-              `wait`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `Zoom BrowserZoomConfig Optional`
-
-              `zoom`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `type MemoryTool20250818`
-
-          - `Type Memory20250818`
-
-          - `Name Memory`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const MemoryTool20250818AllowedCallerDirect MemoryTool20250818AllowedCaller = "direct"`
-
-            - `const MemoryTool20250818AllowedCallerCodeExecution20250825 MemoryTool20250818AllowedCaller = "code_execution_20250825"`
-
-            - `const MemoryTool20250818AllowedCallerCodeExecution20260120 MemoryTool20250818AllowedCaller = "code_execution_20260120"`
-
-            - `const MemoryTool20250818AllowedCallerCodeExecution20260521 MemoryTool20250818AllowedCaller = "code_execution_20260521"`
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `InputExamples []map[string, any] Optional`
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `type ComputerToolset20260801`
-
-          The computer toolset: a single `tools[]` entry (carrying no
-          `name`) that declares the computer tool family. The model is
-          served the family's tool with any members disabled via `configs`
-          removed from its schema. Every member is enabled by default, zoom
-          included. The single-tool options `display_number` and
-          `enable_zoom` are not fields of a toolset entry — it carries only
-          `type`, `configs`, and `cache_control`; zoom is controlled
-          via `configs.zoom.enabled`.
-
-          - `Type ComputerToolset20260801`
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `Configs ComputerToolsetConfigs Optional`
-
-            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
-
-            - `Type ComputerTypeConfig Optional`
-
-              `type`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `CursorPosition ComputerCursorPositionConfig Optional`
-
-              `cursor_position`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `DoubleClick ComputerDoubleClickConfig Optional`
-
-              `double_click`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `HoldKey ComputerHoldKeyConfig Optional`
-
-              `hold_key`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `Key ComputerKeyConfig Optional`
-
-              `key`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `LeftClick ComputerLeftClickConfig Optional`
-
-              `left_click`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `LeftClickDrag ComputerLeftClickDragConfig Optional`
-
-              `left_click_drag`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `LeftMouseDown ComputerLeftMouseDownConfig Optional`
-
-              `left_mouse_down`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `LeftMouseUp ComputerLeftMouseUpConfig Optional`
-
-              `left_mouse_up`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `MiddleClick ComputerMiddleClickConfig Optional`
-
-              `middle_click`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `MouseMove ComputerMouseMoveConfig Optional`
-
-              `mouse_move`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `RightClick ComputerRightClickConfig Optional`
-
-              `right_click`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `Screenshot ComputerScreenshotConfig Optional`
-
-              `screenshot`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `Scroll ComputerScrollConfig Optional`
-
-              `scroll`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `TripleClick ComputerTripleClickConfig Optional`
-
-              `triple_click`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `Wait ComputerWaitConfig Optional`
-
-              `wait`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-            - `Zoom ComputerZoomConfig Optional`
-
-              `zoom`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `type ToolTextEditor20250124`
-
-          - `Type TextEditor20250124`
-
-          - `Name StrReplaceEditor`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const ToolTextEditor20250124AllowedCallerDirect ToolTextEditor20250124AllowedCaller = "direct"`
-
-            - `const ToolTextEditor20250124AllowedCallerCodeExecution20250825 ToolTextEditor20250124AllowedCaller = "code_execution_20250825"`
-
-            - `const ToolTextEditor20250124AllowedCallerCodeExecution20260120 ToolTextEditor20250124AllowedCaller = "code_execution_20260120"`
-
-            - `const ToolTextEditor20250124AllowedCallerCodeExecution20260521 ToolTextEditor20250124AllowedCaller = "code_execution_20260521"`
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `InputExamples []map[string, any] Optional`
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `type ToolTextEditor20250429`
-
-          - `Type TextEditor20250429`
-
-          - `Name StrReplaceBasedEditTool`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const ToolTextEditor20250429AllowedCallerDirect ToolTextEditor20250429AllowedCaller = "direct"`
-
-            - `const ToolTextEditor20250429AllowedCallerCodeExecution20250825 ToolTextEditor20250429AllowedCaller = "code_execution_20250825"`
-
-            - `const ToolTextEditor20250429AllowedCallerCodeExecution20260120 ToolTextEditor20250429AllowedCaller = "code_execution_20260120"`
-
-            - `const ToolTextEditor20250429AllowedCallerCodeExecution20260521 ToolTextEditor20250429AllowedCaller = "code_execution_20260521"`
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `InputExamples []map[string, any] Optional`
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `type ToolTextEditor20250728`
-
-          - `Type TextEditor20250728`
-
-          - `Name StrReplaceBasedEditTool`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const ToolTextEditor20250728AllowedCallerDirect ToolTextEditor20250728AllowedCaller = "direct"`
-
-            - `const ToolTextEditor20250728AllowedCallerCodeExecution20250825 ToolTextEditor20250728AllowedCaller = "code_execution_20250825"`
-
-            - `const ToolTextEditor20250728AllowedCallerCodeExecution20260120 ToolTextEditor20250728AllowedCaller = "code_execution_20260120"`
-
-            - `const ToolTextEditor20250728AllowedCallerCodeExecution20260521 ToolTextEditor20250728AllowedCaller = "code_execution_20260521"`
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `InputExamples []map[string, any] Optional`
-
-          - `MaxCharacters int64 Optional`
-
-            Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
-
-            minimum: 1
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `type WebSearchTool20250305`
-
-          - `Type WebSearch20250305`
-
-          - `Name WebSearch`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const WebSearchTool20250305AllowedCallerDirect WebSearchTool20250305AllowedCaller = "direct"`
-
-            - `const WebSearchTool20250305AllowedCallerCodeExecution20250825 WebSearchTool20250305AllowedCaller = "code_execution_20250825"`
-
-            - `const WebSearchTool20250305AllowedCallerCodeExecution20260120 WebSearchTool20250305AllowedCaller = "code_execution_20260120"`
-
-            - `const WebSearchTool20250305AllowedCallerCodeExecution20260521 WebSearchTool20250305AllowedCaller = "code_execution_20260521"`
-
-          - `AllowedDomains []string Optional`
-
-            If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-          - `BlockedDomains []string Optional`
-
-            If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `MaxUses int64 Optional`
-
-            Maximum number of times the tool can be used in the API request.
-
-            minimum: 1
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-          - `UserLocation UserLocation Optional`
-
-            Parameters for the user's location. Used to provide more relevant search results.
-
-            - `Type Approximate`
-
-            - `City string Optional`
-
-              The city of the user.
-
-              minLength: 1, maxLength: 255
-
-            - `Country string Optional`
-
-              The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-              minLength: 2, maxLength: 2
-
-            - `Region string Optional`
-
-              The region of the user.
-
-              minLength: 1, maxLength: 255
-
-            - `Timezone string Optional`
-
-              The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-              minLength: 1, maxLength: 255
-
-        - `type WebFetchTool20250910`
-
-          - `Type WebFetch20250910`
-
-          - `Name WebFetch`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const WebFetchTool20250910AllowedCallerDirect WebFetchTool20250910AllowedCaller = "direct"`
-
-            - `const WebFetchTool20250910AllowedCallerCodeExecution20250825 WebFetchTool20250910AllowedCaller = "code_execution_20250825"`
-
-            - `const WebFetchTool20250910AllowedCallerCodeExecution20260120 WebFetchTool20250910AllowedCaller = "code_execution_20260120"`
-
-            - `const WebFetchTool20250910AllowedCallerCodeExecution20260521 WebFetchTool20250910AllowedCaller = "code_execution_20260521"`
-
-          - `AllowedDomains []string Optional`
-
-            List of domains to allow fetching from
-
-          - `BlockedDomains []string Optional`
-
-            List of domains to block fetching from
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `Citations CitationsConfigParamResp Optional`
-
-            Citations configuration for fetched documents. Citations are disabled by default.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `MaxContentTokens int64 Optional`
-
-            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-            minimum: 1
-
-          - `MaxUses int64 Optional`
-
-            Maximum number of times the tool can be used in the API request.
-
-            minimum: 1
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-          - `URLSources WebFetchURLSources Optional`
-
-            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-            - `ClientToolResults WebFetchURLSourcesClientToolResultsUnion Optional`
-
-              Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
-
-              - `type WebFetchURLSourceAll`
-
-                The `url_sources` variant under which a source contributes in
-                full: every result of the tool filter's source, or all user input.
-
-                - `Type All`
-
-              - `type WebFetchURLSourceNone`
-
-                The `url_sources` variant under which a source contributes nothing:
-                no result of the tool filter's source, or no user input.
-
-                - `Type None`
-
-              - `type WebFetchURLSourceOnly`
-
-                The tool filter variant under which only the named tools' results
-                contribute.
-
-                - `Type Only`
-
-                - `Tools []WebFetchURLSourceToolReference`
-
-                  - `Type ToolReference`
-
-                  - `Name string`
-
-              - `type WebFetchURLSourceExcept`
-
-                The tool filter variant under which every result but the named
-                tools' contributes.
-
-                - `Type Except`
-
-                - `Tools []WebFetchURLSourceToolReference`
-
-                  - `Type ToolReference`
-
-                  - `Name string`
-
-            - `ServerToolResults WebFetchURLSourcesServerToolResultsUnion Optional`
-
-              Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
-
-              - `type WebFetchURLSourceAll`
-
-                The `url_sources` variant under which a source contributes in
-                full: every result of the tool filter's source, or all user input.
-
-              - `type WebFetchURLSourceNone`
-
-                The `url_sources` variant under which a source contributes nothing:
-                no result of the tool filter's source, or no user input.
-
-              - `type WebFetchURLSourceOnly`
-
-                The tool filter variant under which only the named tools' results
-                contribute.
-
-              - `type WebFetchURLSourceExcept`
-
-                The tool filter variant under which every result but the named
-                tools' contributes.
-
-            - `UserInput WebFetchURLSourcesUserInputUnion Optional`
-
-              Whether URLs in user messages are fetchable: "all" or "none".
-
-              - `type WebFetchURLSourceAll`
-
-                The `url_sources` variant under which a source contributes in
-                full: every result of the tool filter's source, or all user input.
-
-              - `type WebFetchURLSourceNone`
-
-                The `url_sources` variant under which a source contributes nothing:
-                no result of the tool filter's source, or no user input.
-
-        - `type WebSearchTool20260209`
-
-          - `Type WebSearch20260209`
-
-          - `Name WebSearch`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const WebSearchTool20260209AllowedCallerDirect WebSearchTool20260209AllowedCaller = "direct"`
-
-            - `const WebSearchTool20260209AllowedCallerCodeExecution20250825 WebSearchTool20260209AllowedCaller = "code_execution_20250825"`
-
-            - `const WebSearchTool20260209AllowedCallerCodeExecution20260120 WebSearchTool20260209AllowedCaller = "code_execution_20260120"`
-
-            - `const WebSearchTool20260209AllowedCallerCodeExecution20260521 WebSearchTool20260209AllowedCaller = "code_execution_20260521"`
-
-          - `AllowedDomains []string Optional`
-
-            If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-          - `BlockedDomains []string Optional`
-
-            If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `MaxUses int64 Optional`
-
-            Maximum number of times the tool can be used in the API request.
-
-            minimum: 1
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-          - `UserLocation UserLocation Optional`
-
-            Parameters for the user's location. Used to provide more relevant search results.
-
-        - `type WebFetchTool20260209`
-
-          - `Type WebFetch20260209`
-
-          - `Name WebFetch`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const WebFetchTool20260209AllowedCallerDirect WebFetchTool20260209AllowedCaller = "direct"`
-
-            - `const WebFetchTool20260209AllowedCallerCodeExecution20250825 WebFetchTool20260209AllowedCaller = "code_execution_20250825"`
-
-            - `const WebFetchTool20260209AllowedCallerCodeExecution20260120 WebFetchTool20260209AllowedCaller = "code_execution_20260120"`
-
-            - `const WebFetchTool20260209AllowedCallerCodeExecution20260521 WebFetchTool20260209AllowedCaller = "code_execution_20260521"`
-
-          - `AllowedDomains []string Optional`
-
-            List of domains to allow fetching from
-
-          - `BlockedDomains []string Optional`
-
-            List of domains to block fetching from
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `Citations CitationsConfigParamResp Optional`
-
-            Citations configuration for fetched documents. Citations are disabled by default.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `MaxContentTokens int64 Optional`
-
-            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-            minimum: 1
-
-          - `MaxUses int64 Optional`
-
-            Maximum number of times the tool can be used in the API request.
-
-            minimum: 1
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-          - `URLSources WebFetchURLSources Optional`
-
-            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-        - `type WebFetchTool20260309`
-
-          Web fetch tool with use_cache parameter for bypassing cached content.
-
-          - `Type WebFetch20260309`
-
-          - `Name WebFetch`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const WebFetchTool20260309AllowedCallerDirect WebFetchTool20260309AllowedCaller = "direct"`
-
-            - `const WebFetchTool20260309AllowedCallerCodeExecution20250825 WebFetchTool20260309AllowedCaller = "code_execution_20250825"`
-
-            - `const WebFetchTool20260309AllowedCallerCodeExecution20260120 WebFetchTool20260309AllowedCaller = "code_execution_20260120"`
-
-            - `const WebFetchTool20260309AllowedCallerCodeExecution20260521 WebFetchTool20260309AllowedCaller = "code_execution_20260521"`
-
-          - `AllowedDomains []string Optional`
-
-            List of domains to allow fetching from
-
-          - `BlockedDomains []string Optional`
-
-            List of domains to block fetching from
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `Citations CitationsConfigParamResp Optional`
-
-            Citations configuration for fetched documents. Citations are disabled by default.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `MaxContentTokens int64 Optional`
-
-            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-            minimum: 1
-
-          - `MaxUses int64 Optional`
-
-            Maximum number of times the tool can be used in the API request.
-
-            minimum: 1
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-          - `URLSources WebFetchURLSources Optional`
-
-            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-          - `UseCache bool Optional`
-
-            Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-        - `type WebSearchTool20260318`
-
-          - `Type WebSearch20260318`
-
-          - `Name WebSearch`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const WebSearchTool20260318AllowedCallerDirect WebSearchTool20260318AllowedCaller = "direct"`
-
-            - `const WebSearchTool20260318AllowedCallerCodeExecution20250825 WebSearchTool20260318AllowedCaller = "code_execution_20250825"`
-
-            - `const WebSearchTool20260318AllowedCallerCodeExecution20260120 WebSearchTool20260318AllowedCaller = "code_execution_20260120"`
-
-            - `const WebSearchTool20260318AllowedCallerCodeExecution20260521 WebSearchTool20260318AllowedCaller = "code_execution_20260521"`
-
-          - `AllowedDomains []string Optional`
-
-            If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-          - `BlockedDomains []string Optional`
-
-            If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `MaxUses int64 Optional`
-
-            Maximum number of times the tool can be used in the API request.
-
-            minimum: 1
-
-          - `ResponseInclusion WebSearchTool20260318ResponseInclusion Optional`
-
-            How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-            - `const WebSearchTool20260318ResponseInclusionFull WebSearchTool20260318ResponseInclusion = "full"`
-
-            - `const WebSearchTool20260318ResponseInclusionExcluded WebSearchTool20260318ResponseInclusion = "excluded"`
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-          - `UserLocation UserLocation Optional`
-
-            Parameters for the user's location. Used to provide more relevant search results.
-
-        - `type WebFetchTool20260318`
-
-          - `Type WebFetch20260318`
-
-          - `Name WebFetch`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const WebFetchTool20260318AllowedCallerDirect WebFetchTool20260318AllowedCaller = "direct"`
-
-            - `const WebFetchTool20260318AllowedCallerCodeExecution20250825 WebFetchTool20260318AllowedCaller = "code_execution_20250825"`
-
-            - `const WebFetchTool20260318AllowedCallerCodeExecution20260120 WebFetchTool20260318AllowedCaller = "code_execution_20260120"`
-
-            - `const WebFetchTool20260318AllowedCallerCodeExecution20260521 WebFetchTool20260318AllowedCaller = "code_execution_20260521"`
-
-          - `AllowedDomains []string Optional`
-
-            List of domains to allow fetching from
-
-          - `BlockedDomains []string Optional`
-
-            List of domains to block fetching from
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `Citations CitationsConfigParamResp Optional`
-
-            Citations configuration for fetched documents. Citations are disabled by default.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `MaxContentTokens int64 Optional`
-
-            Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-            minimum: 1
-
-          - `MaxUses int64 Optional`
-
-            Maximum number of times the tool can be used in the API request.
-
-            minimum: 1
-
-          - `ResponseInclusion WebFetchTool20260318ResponseInclusion Optional`
-
-            How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-            - `const WebFetchTool20260318ResponseInclusionFull WebFetchTool20260318ResponseInclusion = "full"`
-
-            - `const WebFetchTool20260318ResponseInclusionExcluded WebFetchTool20260318ResponseInclusion = "excluded"`
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-          - `URLSources WebFetchURLSources Optional`
-
-            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-          - `UseCache bool Optional`
-
-            Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-        - `type ToolSearchToolBm25_20251119`
-
-          - `Type ToolSearchToolBm25_20251119Type`
-
-            - `const ToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 ToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
-
-            - `const ToolSearchToolBm25_20251119TypeToolSearchToolBm25 ToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
-
-          - `Name ToolSearchToolBm25`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const ToolSearchToolBm25_20251119AllowedCallerDirect ToolSearchToolBm25_20251119AllowedCaller = "direct"`
-
-            - `const ToolSearchToolBm25_20251119AllowedCallerCodeExecution20250825 ToolSearchToolBm25_20251119AllowedCaller = "code_execution_20250825"`
-
-            - `const ToolSearchToolBm25_20251119AllowedCallerCodeExecution20260120 ToolSearchToolBm25_20251119AllowedCaller = "code_execution_20260120"`
-
-            - `const ToolSearchToolBm25_20251119AllowedCallerCodeExecution20260521 ToolSearchToolBm25_20251119AllowedCaller = "code_execution_20260521"`
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-        - `type ToolSearchToolRegex20251119`
-
-          - `Type ToolSearchToolRegex20251119Type`
-
-            - `const ToolSearchToolRegex20251119TypeToolSearchToolRegex20251119 ToolSearchToolRegex20251119Type = "tool_search_tool_regex_20251119"`
-
-            - `const ToolSearchToolRegex20251119TypeToolSearchToolRegex ToolSearchToolRegex20251119Type = "tool_search_tool_regex"`
-
-          - `Name ToolSearchToolRegex`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `AllowedCallers []string Optional`
-
-            - `const ToolSearchToolRegex20251119AllowedCallerDirect ToolSearchToolRegex20251119AllowedCaller = "direct"`
-
-            - `const ToolSearchToolRegex20251119AllowedCallerCodeExecution20250825 ToolSearchToolRegex20251119AllowedCaller = "code_execution_20250825"`
-
-            - `const ToolSearchToolRegex20251119AllowedCallerCodeExecution20260120 ToolSearchToolRegex20251119AllowedCaller = "code_execution_20260120"`
-
-            - `const ToolSearchToolRegex20251119AllowedCallerCodeExecution20260521 ToolSearchToolRegex20251119AllowedCaller = "code_execution_20260521"`
-
-          - `CacheControl CacheControlEphemeral Optional`
-
-            Create a cache control breakpoint at this content block.
-
-          - `DeferLoading bool Optional`
-
-            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-          - `Strict bool Optional`
-
-            When true, guarantees schema validation on tool names and inputs
-
-      - `Temperature float64 Optional`
-
-        **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
-
-        Amount of randomness injected into the response.
-
-        Defaults to `1.0`. Ranges from `0.0` to `1.0`. Use `temperature` closer to `0.0` for analytical / multiple choice, and closer to `1.0` for creative and generative tasks.
-
-        Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
-
-        minimum: 0, maximum: 1
-
-      - `TopK int64 Optional`
-
-        **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not accept top_k; any value will be rejected with a 400 error.
-
-        Only sample from the top K options for each subsequent token.
-
-        Used to remove "long tail" low probability responses. [Learn more technical details here](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277).
-
-        Recommended for advanced use cases only.
-
-        minimum: 0
-
-      - `TopP float64 Optional`
-
-        **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting top_p. A value >= 0.99 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
-
-        Use nucleus sampling.
-
-        In nucleus sampling, we compute the cumulative distribution over all the options for each subsequent token in decreasing probability order and cut it off once it reaches a particular probability specified by `top_p`.
-
-        Recommended for advanced use cases only.
-
-        minimum: 0, maximum: 1
-
-  - `UserProfileID param.Field[string] Optional` (header parameter)
-
-    The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
-
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `type MessageBatch`
-
-  - `Type MessageBatch`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
-
-  - `ID string`
-
-    Unique object identifier.
-
-    The format and length of IDs may change over time.
-
-  - `ArchivedAt Time`
-
-    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
-
-    format: date-time
-
-  - `CancelInitiatedAt Time`
-
-    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
-
-    format: date-time
-
-  - `CreatedAt Time`
-
-    RFC 3339 datetime string representing the time at which the Message Batch was created.
-
-    format: date-time
-
-  - `EndedAt Time`
-
-    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
-
-    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
-
-    format: date-time
-
-  - `ExpiresAt Time`
-
-    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
-
-    format: date-time
-
-  - `ProcessingStatus MessageBatchProcessingStatus`
-
-    Processing status of the Message Batch.
-
-    - `const MessageBatchProcessingStatusInProgress MessageBatchProcessingStatus = "in_progress"`
-
-    - `const MessageBatchProcessingStatusCanceling MessageBatchProcessingStatus = "canceling"`
-
-    - `const MessageBatchProcessingStatusEnded MessageBatchProcessingStatus = "ended"`
-
-  - `RequestCounts MessageBatchRequestCounts`
-
-    Tallies requests within the Message Batch, categorized by their status.
-
-    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
-
-    - `Canceled int64`
-
-      Number of requests in the Message Batch that have been canceled.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-    - `Errored int64`
-
-      Number of requests in the Message Batch that encountered an error.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-    - `Expired int64`
-
-      Number of requests in the Message Batch that have expired.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-    - `Processing int64`
-
-      Number of requests in the Message Batch that are processing.
-
-      default: 0
-
-    - `Succeeded int64`
-
-      Number of requests in the Message Batch that have completed successfully.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-  - `ResultsURL string`
-
-    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
-
-    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	messageBatch, err := client.Messages.Batches.New(context.TODO(), anthropic.MessageBatchNewParams{
-		Requests: []anthropic.MessageBatchNewParamsRequest{anthropic.MessageBatchNewParamsRequest{
-			CustomID: "my-custom-id-1",
-			Params: anthropic.MessageBatchNewParamsRequestParams{
-				MaxTokens: 1024,
-				Messages: []anthropic.MessageParam{anthropic.MessageParam{
-					Content: []anthropic.ContentBlockParamUnion{anthropic.ContentBlockParamUnion{
-						OfText: &anthropic.TextBlockParam{
-							Text: "x",
-						},
-					}},
-					Role: anthropic.MessageParamRoleUser,
-				}},
-				Model: anthropic.ModelClaudeOpus5,
-			},
-		}},
-	})
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", messageBatch.ID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
-  "archived_at": "2024-08-20T18:37:24.100435Z",
-  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
-  "created_at": "2024-08-20T18:37:24.100435Z",
-  "ended_at": "2024-08-20T18:37:24.100435Z",
-  "expires_at": "2024-08-20T18:37:24.100435Z",
-  "processing_status": "in_progress",
-  "request_counts": {
-    "canceled": 10,
-    "errored": 30,
-    "expired": 10,
-    "processing": 100,
-    "succeeded": 50
-  },
-  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
-  "type": "message_batch"
-}
-```
-
-### Retrieve a Message Batch
-
-`client.Messages.Batches.Get(ctx, messageBatchID, query) (*MessageBatch, error)`
-
-**GET** `/v1/messages/batches/{message_batch_id}`
-
-This endpoint is idempotent and can be used to poll for Message Batch completion. To access the results of a Message Batch, make a request to the `results_url` field in the response.
-
-Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
-
-#### Parameters
-
-- `messageBatchID string` (path parameter)
-
-  ID of the Message Batch.
-
-- `query MessageBatchGetParams`
-
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `type MessageBatch`
-
-  - `Type MessageBatch`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
-
-  - `ID string`
-
-    Unique object identifier.
-
-    The format and length of IDs may change over time.
-
-  - `ArchivedAt Time`
-
-    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
-
-    format: date-time
-
-  - `CancelInitiatedAt Time`
-
-    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
-
-    format: date-time
-
-  - `CreatedAt Time`
-
-    RFC 3339 datetime string representing the time at which the Message Batch was created.
-
-    format: date-time
-
-  - `EndedAt Time`
-
-    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
-
-    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
-
-    format: date-time
-
-  - `ExpiresAt Time`
-
-    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
-
-    format: date-time
-
-  - `ProcessingStatus MessageBatchProcessingStatus`
-
-    Processing status of the Message Batch.
-
-    - `const MessageBatchProcessingStatusInProgress MessageBatchProcessingStatus = "in_progress"`
-
-    - `const MessageBatchProcessingStatusCanceling MessageBatchProcessingStatus = "canceling"`
-
-    - `const MessageBatchProcessingStatusEnded MessageBatchProcessingStatus = "ended"`
-
-  - `RequestCounts MessageBatchRequestCounts`
-
-    Tallies requests within the Message Batch, categorized by their status.
-
-    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
-
-    - `Canceled int64`
-
-      Number of requests in the Message Batch that have been canceled.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-    - `Errored int64`
-
-      Number of requests in the Message Batch that encountered an error.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-    - `Expired int64`
-
-      Number of requests in the Message Batch that have expired.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-    - `Processing int64`
-
-      Number of requests in the Message Batch that are processing.
-
-      default: 0
-
-    - `Succeeded int64`
-
-      Number of requests in the Message Batch that have completed successfully.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-  - `ResultsURL string`
-
-    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
-
-    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	messageBatch, err := client.Messages.Batches.Get(
-		context.TODO(),
-		"message_batch_id",
-		anthropic.MessageBatchGetParams{},
-	)
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", messageBatch.ID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
-  "archived_at": "2024-08-20T18:37:24.100435Z",
-  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
-  "created_at": "2024-08-20T18:37:24.100435Z",
-  "ended_at": "2024-08-20T18:37:24.100435Z",
-  "expires_at": "2024-08-20T18:37:24.100435Z",
-  "processing_status": "in_progress",
-  "request_counts": {
-    "canceled": 10,
-    "errored": 30,
-    "expired": 10,
-    "processing": 100,
-    "succeeded": 50
-  },
-  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
-  "type": "message_batch"
-}
-```
-
-### List Message Batches
-
-`client.Messages.Batches.List(ctx, params) (*Page[MessageBatch], error)`
-
-**GET** `/v1/messages/batches`
-
-List all Message Batches within a Workspace. Most recently created batches are returned first.
-
-Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
-
-#### Parameters
-
-- `params MessageBatchListParams`
-
-  - `AfterID param.Field[string] Optional` (query parameter)
-
-    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
-
-  - `BeforeID param.Field[string] Optional` (query parameter)
-
-    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
-
-  - `Limit param.Field[int64] Optional` (query parameter)
-
-    Number of items to return per page.
-
-    Defaults to `20`. Ranges from `1` to `1000`.
-
-    minimum: 1, maximum: 1000
-
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `type MessageBatch`
-
-  - `Type MessageBatch`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
-
-  - `ID string`
-
-    Unique object identifier.
-
-    The format and length of IDs may change over time.
-
-  - `ArchivedAt Time`
-
-    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
-
-    format: date-time
-
-  - `CancelInitiatedAt Time`
-
-    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
-
-    format: date-time
-
-  - `CreatedAt Time`
-
-    RFC 3339 datetime string representing the time at which the Message Batch was created.
-
-    format: date-time
-
-  - `EndedAt Time`
-
-    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
-
-    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
-
-    format: date-time
-
-  - `ExpiresAt Time`
-
-    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
-
-    format: date-time
-
-  - `ProcessingStatus MessageBatchProcessingStatus`
-
-    Processing status of the Message Batch.
-
-    - `const MessageBatchProcessingStatusInProgress MessageBatchProcessingStatus = "in_progress"`
-
-    - `const MessageBatchProcessingStatusCanceling MessageBatchProcessingStatus = "canceling"`
-
-    - `const MessageBatchProcessingStatusEnded MessageBatchProcessingStatus = "ended"`
-
-  - `RequestCounts MessageBatchRequestCounts`
-
-    Tallies requests within the Message Batch, categorized by their status.
-
-    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
-
-    - `Canceled int64`
-
-      Number of requests in the Message Batch that have been canceled.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-    - `Errored int64`
-
-      Number of requests in the Message Batch that encountered an error.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-    - `Expired int64`
-
-      Number of requests in the Message Batch that have expired.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-    - `Processing int64`
-
-      Number of requests in the Message Batch that are processing.
-
-      default: 0
-
-    - `Succeeded int64`
-
-      Number of requests in the Message Batch that have completed successfully.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-  - `ResultsURL string`
-
-    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
-
-    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	page, err := client.Messages.Batches.List(context.TODO(), anthropic.MessageBatchListParams{})
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", page)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
-      "archived_at": "2024-08-20T18:37:24.100435Z",
-      "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
-      "created_at": "2024-08-20T18:37:24.100435Z",
-      "ended_at": "2024-08-20T18:37:24.100435Z",
-      "expires_at": "2024-08-20T18:37:24.100435Z",
-      "processing_status": "in_progress",
-      "request_counts": {
-        "canceled": 10,
-        "errored": 30,
-        "expired": 10,
-        "processing": 100,
-        "succeeded": 50
-      },
-      "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
-      "type": "message_batch"
-    }
-  ],
-  "first_id": "first_id",
-  "has_more": true,
-  "last_id": "last_id"
-}
-```
-
-### Cancel a Message Batch
-
-`client.Messages.Batches.Cancel(ctx, messageBatchID, body) (*MessageBatch, error)`
-
-**POST** `/v1/messages/batches/{message_batch_id}/cancel`
-
-Batches may be canceled any time before processing ends. Once cancellation is initiated, the batch enters a `canceling` state, at which time the system may complete any in-progress, non-interruptible requests before finalizing cancellation.
-
-The number of canceled requests is specified in `request_counts`. To determine which requests were canceled, check the individual results within the batch. Note that cancellation may not result in any canceled requests if they were non-interruptible.
-
-Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
-
-#### Parameters
-
-- `messageBatchID string` (path parameter)
-
-  ID of the Message Batch.
-
-- `body MessageBatchCancelParams`
-
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `type MessageBatch`
-
-  - `Type MessageBatch`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
-
-  - `ID string`
-
-    Unique object identifier.
-
-    The format and length of IDs may change over time.
-
-  - `ArchivedAt Time`
-
-    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
-
-    format: date-time
-
-  - `CancelInitiatedAt Time`
-
-    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
-
-    format: date-time
-
-  - `CreatedAt Time`
-
-    RFC 3339 datetime string representing the time at which the Message Batch was created.
-
-    format: date-time
-
-  - `EndedAt Time`
-
-    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
-
-    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
-
-    format: date-time
-
-  - `ExpiresAt Time`
-
-    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
-
-    format: date-time
-
-  - `ProcessingStatus MessageBatchProcessingStatus`
-
-    Processing status of the Message Batch.
-
-    - `const MessageBatchProcessingStatusInProgress MessageBatchProcessingStatus = "in_progress"`
-
-    - `const MessageBatchProcessingStatusCanceling MessageBatchProcessingStatus = "canceling"`
-
-    - `const MessageBatchProcessingStatusEnded MessageBatchProcessingStatus = "ended"`
-
-  - `RequestCounts MessageBatchRequestCounts`
-
-    Tallies requests within the Message Batch, categorized by their status.
-
-    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
-
-    - `Canceled int64`
-
-      Number of requests in the Message Batch that have been canceled.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-    - `Errored int64`
-
-      Number of requests in the Message Batch that encountered an error.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-    - `Expired int64`
-
-      Number of requests in the Message Batch that have expired.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-    - `Processing int64`
-
-      Number of requests in the Message Batch that are processing.
-
-      default: 0
-
-    - `Succeeded int64`
-
-      Number of requests in the Message Batch that have completed successfully.
-
-      This is zero until processing of the entire Message Batch has ended.
-
-      default: 0
-
-  - `ResultsURL string`
-
-    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
-
-    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	messageBatch, err := client.Messages.Batches.Cancel(
-		context.TODO(),
-		"message_batch_id",
-		anthropic.MessageBatchCancelParams{},
-	)
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", messageBatch.ID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
-  "archived_at": "2024-08-20T18:37:24.100435Z",
-  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
-  "created_at": "2024-08-20T18:37:24.100435Z",
-  "ended_at": "2024-08-20T18:37:24.100435Z",
-  "expires_at": "2024-08-20T18:37:24.100435Z",
-  "processing_status": "in_progress",
-  "request_counts": {
-    "canceled": 10,
-    "errored": 30,
-    "expired": 10,
-    "processing": 100,
-    "succeeded": 50
-  },
-  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
-  "type": "message_batch"
-}
-```
-
-### Delete a Message Batch
-
-`client.Messages.Batches.Delete(ctx, messageBatchID, body) (*DeletedMessageBatch, error)`
-
-**DELETE** `/v1/messages/batches/{message_batch_id}`
-
-Delete a Message Batch.
-
-Message Batches can only be deleted once they've finished processing. If you'd like to delete an in-progress batch, you must first cancel it.
-
-Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
-
-#### Parameters
-
-- `messageBatchID string` (path parameter)
-
-  ID of the Message Batch.
-
-- `body MessageBatchDeleteParams`
-
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `type DeletedMessageBatch`
-
-  - `Type MessageBatchDeleted`
-
-    Deleted object type.
-
-    For Message Batches, this is always `"message_batch_deleted"`.
-
-    default: message_batch_deleted
-
-  - `ID string`
-
-    ID of the Message Batch.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	deletedMessageBatch, err := client.Messages.Batches.Delete(
-		context.TODO(),
-		"message_batch_id",
-		anthropic.MessageBatchDeleteParams{},
-	)
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", deletedMessageBatch.ID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
-  "type": "message_batch_deleted"
-}
-```
-
-### Retrieve Message Batch results
-
-`client.Messages.Batches.Results(ctx, messageBatchID, query) (*MessageBatchIndividualResponse, error)`
-
-**GET** `/v1/messages/batches/{message_batch_id}/results`
-
-Streams the results of a Message Batch as a `.jsonl` file.
-
-Each line in the file is a JSON object containing the result of a single request in the Message Batch. Results are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
-
-#### Parameters
-
-- `messageBatchID string` (path parameter)
-
-  ID of the Message Batch.
-
-- `query MessageBatchResultsParams`
-
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `type MessageBatchIndividualResponse`
-
-  This is a single line in the response `.jsonl` file and does not represent the response as a whole.
-
-  - `CustomID string`
-
-    Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
-
-    Must be unique for each request within the Message Batch.
-
-  - `Result MessageBatchResultUnion`
-
-    Processing result for this request.
-
-    Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
-
-    - `type MessageBatchSucceededResult`
-
-      - `Type Succeeded`
-
-        default: succeeded
-
-      - `Message Message`
-
-        - `Type Message`
-
-          Object type.
-
-          For Messages, this is always `"message"`.
-
-          default: message
-
-        - `ID string`
-
-          Unique object identifier.
-
-          The format and length of IDs may change over time.
-
-        - `Container Container`
-
-          Information about the container used in this request.
-
-          This will be non-null if a container tool (e.g. code execution) was used.
-
-          - `ID string`
-
-            Identifier for the container used in this request
-
-          - `ExpiresAt Time`
-
-            The time at which the container will expire.
-
-            format: date-time
-
-          - `Skills []ContainerSkill`
-
-            Skills loaded in the container
-
-            - `Type ContainerSkillType`
-
-              Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
-              - `const ContainerSkillTypeAnthropic ContainerSkillType = "anthropic"`

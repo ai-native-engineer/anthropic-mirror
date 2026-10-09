@@ -2,7 +2,7 @@
 
 # Configure custom data retention controls for Enterprise plans
 
-Updated over 3 weeks ago
+Updated today
 
 Table of contents
 
@@ -17,8 +17,21 @@ Custom data retention controls allow organizations to manage how long Claude sto
 Data retention is based on the last observed activity:
 
 * **For chats:** Retention period starts from the time of the last message in the conversation.
-* **For projects:** Retention period starts from the time the project was last updated (this includes chat creation or project knowledge base modifications).
+* **For projects:**
 
+  + These actions reset the retention period:
+
+    - Sending a message in an existing chat in the project
+    - Creating a new chat in the project
+    - Editing the project's knowledge files, instructions, or sharing settings
+    - Starting a Claude Cowork session in the cloud from the project, or moving a cloud session into the project (this resets the period once, when the session starts or is moved)
+    - Connecting or disconnecting a local folder for Cowork
+    - Editing the project's knowledge files from a Cowork session
+  + These actions don't reset the retention period:
+
+    - Viewing a project or opening a chat in it
+    - Starting a *local* Cowork session
+    - Other work in a Cowork session, whether it runs in the cloud or on your computer
   + Project retention always takes precedence over chat retention for chats inside a project. This applies even if you haven’t set a custom project retention period: by default, projects are retained indefinitely, so chats inside projects are not deleted by your chat retention period.
 
 The minimum retention period is 30 days, and each month is counted as 30 days. For example, a three-month retention period equals 90 days.
@@ -60,8 +73,8 @@ All retention-related actions and changes are automatically tracked in **[audit 
 ---
 
 * [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
-* [Can you delete data sent via Claude?](https://privacy.claude.com/en/articles/7996878-can-you-delete-data-sent-via-claude)
-* [Can you delete data that I sent via Team and Enterprise plans?](https://privacy.claude.com/en/articles/9796617-can-you-delete-data-that-i-sent-via-team-and-enterprise-plans)
+* [Business Associate Agreements (BAA) for Commercial Customers](https://privacy.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
+* [I have a zero data retention agreement with Anthropic. What products does it apply to?](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)
 * [How long do you store my data?](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data)
 * [Data retention practices for Covered Models](https://privacy.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
 

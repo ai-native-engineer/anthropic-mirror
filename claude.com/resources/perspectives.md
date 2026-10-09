@@ -94,5 +94,3 @@ In this guide, written with Accenture, we share seven considerations for taking 
 Claude Enterprise](https://claude.com/resources/articles/deploying-ai-from-pilot-to-production)
 
 View more
-
-Perspectives | Claude by Anthropic

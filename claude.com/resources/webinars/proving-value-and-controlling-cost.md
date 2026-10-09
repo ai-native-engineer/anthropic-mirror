@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/resources/webinars/proving-value-and-controlling-cost -->
 
+## Featured speakers
+
 * ![](https://assets.claude.com/5394f890644fbcb0e8dfab57851062fbe53b6f63.png?w=128&h=128&fit=crop)
 
   Shannon McNeil
@@ -11,6 +13,12 @@
 
   Finance & Strategy @ Anthropic
 
+## What you’ll learn
+
 * The levers you have to better control spend: model choice, effort levels, spend limits, and admin reporting
 * How to baseline, measure, and report on the value your organisation is realizing, using our Value Realization framework
 * How to bring cost control and value measurement together into one story you can take to your leadership
+
+## Transform how your organization operates with Claude
+
+[Try Claude (opens in new tab)](https://claude.ai)[Contact sales](https://claude.com/contact-sales)

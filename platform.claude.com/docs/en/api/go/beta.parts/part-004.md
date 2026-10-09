@@ -3,6 +3,2111 @@
 
 <!-- chunk-start -->
 
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
+
+Disable a federation rule for a workspace.
+
+Idempotent; succeeds even if the enablement was already removed. OAuth
+callers may only manage rules whose `oauth_scope` is
+`workspace:developer` or `workspace:inference`; other scopes require a
+Console session.
+
+#### Parameters
+
+- `workspaceID string` (path parameter)
+
+  ID of the workspace to disable for.
+
+- `params BetaOrganizationFederationRuleWorkspaceRemoveParams`
+
+  - `FederationRuleID string` (path parameter)
+
+    ID of the federation rule.
+
+  - `Betas []AnthropicBeta Optional` (header parameter)
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
+
+    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
+
+#### Returns
+
+- `type BetaOrganizationFederationRuleWorkspaceRemoveResponse`
+
+  - `Type FederationRuleWorkspaceDeleted`
+
+    default: federation_rule_workspace_deleted
+
+  - `FederationRuleID string`
+
+    Tagged ID of the federation rule.
+
+  - `WorkspaceID string`
+
+    Tagged ID of the workspace named in the delete request. Removal is idempotent.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	workspace, err := client.Beta.Organization.Federation.Rules.Workspaces.Remove(
+		context.TODO(),
+		"workspace_id",
+		anthropic.BetaOrganizationFederationRuleWorkspaceRemoveParams{
+			FederationRuleID: "federation_rule_id",
+		},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", workspace.FederationRuleID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "federation_rule_id": "federation_rule_id",
+  "type": "federation_rule_workspace_deleted",
+  "workspace_id": "workspace_id"
+}
+```
+
+## Beta › Organization › Invites
+
+### Create Invite
+
+`client.Beta.Organization.Invites.New(ctx, body) (*BetaOrganizationInvite, error)`
+
+**POST** `/v1/organizations/invites`
+
+Invite a user to join the organization by email.
+
+On plans that draw members from a finite pool of purchased seats, the invite automatically consumes a seat from the lowest tier with availability; there is no seat-tier parameter. When no seat is free the request fails with a 400 error rather than purchasing a seat.
+
+#### Parameters
+
+- `body BetaOrganizationInviteNewParams`
+
+  - `Email string`
+
+    Email of the User.
+
+    format: email
+
+  - `Role BetaOrganizationInviteNewParamsRole`
+
+    Role for the invited User.
+
+    The accepted values depend on the organization type. Console and API organizations accept `user`, `developer`, `billing`, and `claude_code_user`; `admin` cannot be assigned through the API. Claude Enterprise organizations accept `user` and `managed`.
+
+    - `const BetaOrganizationInviteNewParamsRoleBilling BetaOrganizationInviteNewParamsRole = "billing"`
+
+    - `const BetaOrganizationInviteNewParamsRoleClaudeCodeUser BetaOrganizationInviteNewParamsRole = "claude_code_user"`
+
+    - `const BetaOrganizationInviteNewParamsRoleDeveloper BetaOrganizationInviteNewParamsRole = "developer"`
+
+    - `const BetaOrganizationInviteNewParamsRoleManaged BetaOrganizationInviteNewParamsRole = "managed"`
+
+    - `const BetaOrganizationInviteNewParamsRoleUser BetaOrganizationInviteNewParamsRole = "user"`
+
+  - `RBACGroupIDs []string Optional`
+
+    RBAC group IDs to assign to the User when the Invite is accepted. A non-empty array is accepted only for a Claude Enterprise organization with RBAC groups, and requires the key to carry the `write:rbac_groups` scope.
+
+    maxItems: 100
+
+#### Returns
+
+- `type BetaOrganizationInvite`
+
+  - `Type Invite`
+
+    Object type.
+
+    For Invites, this is always `"invite"`.
+
+    default: invite
+
+  - `ID string`
+
+    ID of the Invite.
+
+  - `AcceptedAt Time`
+
+    RFC 3339 datetime string indicating when the Invite was accepted, or null.
+
+    format: date-time
+
+  - `Email string`
+
+    Email of the User being invited.
+
+  - `ExpiresAt Time`
+
+    RFC 3339 datetime string indicating when the Invite expires.
+
+    format: date-time
+
+  - `InvitedAt Time`
+
+    RFC 3339 datetime string indicating when the Invite was created.
+
+    format: date-time
+
+  - `RBACGroupIDs []string`
+
+    RBAC group IDs recorded on the Invite (Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
+
+  - `Role BetaOrganizationRole`
+
+    Organization role of the User.
+
+    - `const BetaOrganizationRoleAdmin BetaOrganizationRole = "admin"`
+
+    - `const BetaOrganizationRoleBilling BetaOrganizationRole = "billing"`
+
+    - `const BetaOrganizationRoleClaudeCodeUser BetaOrganizationRole = "claude_code_user"`
+
+    - `const BetaOrganizationRoleDeveloper BetaOrganizationRole = "developer"`
+
+    - `const BetaOrganizationRoleManaged BetaOrganizationRole = "managed"`
+
+    - `const BetaOrganizationRoleMembershipAdmin BetaOrganizationRole = "membership_admin"`
+
+    - `const BetaOrganizationRoleOwner BetaOrganizationRole = "owner"`
+
+    - `const BetaOrganizationRolePrimaryOwner BetaOrganizationRole = "primary_owner"`
+
+    - `const BetaOrganizationRoleUser BetaOrganizationRole = "user"`
+
+  - `Status BetaOrganizationInviteStatus`
+
+    Status of the Invite.
+
+    - `const BetaOrganizationInviteStatusAccepted BetaOrganizationInviteStatus = "accepted"`
+
+    - `const BetaOrganizationInviteStatusDeleted BetaOrganizationInviteStatus = "deleted"`
+
+    - `const BetaOrganizationInviteStatusExpired BetaOrganizationInviteStatus = "expired"`
+
+    - `const BetaOrganizationInviteStatusPending BetaOrganizationInviteStatus = "pending"`
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaOrganizationInvite, err := client.Beta.Organization.Invites.New(context.TODO(), anthropic.BetaOrganizationInviteNewParams{
+		Email: "user@emaildomain.com",
+		Role:  anthropic.BetaOrganizationInviteNewParamsRoleUser,
+	})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaOrganizationInvite.ID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "invite_015gWxCN9Hfg2QhZwTK7Mdeu",
+  "accepted_at": "2019-12-27T18:11:19.117Z",
+  "email": "user@emaildomain.com",
+  "expires_at": "2024-11-20T23:58:27.427722Z",
+  "invited_at": "2024-10-30T23:58:27.427722Z",
+  "rbac_group_ids": [
+    "string"
+  ],
+  "role": "admin",
+  "status": "pending",
+  "type": "invite"
+}
+```
+
+### List Invites
+
+`client.Beta.Organization.Invites.List(ctx, query) (*Page[BetaOrganizationInvite], error)`
+
+**GET** `/v1/organizations/invites`
+
+List the organization's invites.
+
+#### Parameters
+
+- `query BetaOrganizationInviteListParams`
+
+  - `AfterID param.Opt[string] Optional` (query parameter)
+
+    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+
+  - `BeforeID param.Opt[string] Optional` (query parameter)
+
+    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+
+  - `Email param.Opt[string] Optional` (query parameter)
+
+    Filter by the email address the Invite was sent to. Matches the same way as the Users list's `email` filter (normalized, case-insensitive).
+
+    format: email
+
+  - `Limit param.Opt[int64] Optional` (query parameter)
+
+    Number of items to return per page.
+
+    Defaults to `20`. Ranges from `1` to `1000`.
+
+    minimum: 1, maximum: 1000
+
+  - `Roles []string Optional` (query parameter)
+
+    Filter to items whose `role` equals one of the supplied values. Repeatable; values are OR'ed together.
+
+    Accepted values depend on the organization type: Console and API organizations accept `user`, `developer`, `billing`, `admin`, and `claude_code_user`; Claude Enterprise organizations accept `user`, `owner`, `primary_owner`, `membership_admin`, and `managed`.
+
+  - `Statuses []string Optional` (query parameter)
+
+    Filter by Invite status. Repeatable; values are OR'ed together. Omit to return `pending`, `accepted`, and `expired` Invites alike.
+
+    - `const BetaOrganizationInviteListParamsStatusAccepted BetaOrganizationInviteListParamsStatus = "accepted"`
+
+    - `const BetaOrganizationInviteListParamsStatusExpired BetaOrganizationInviteListParamsStatus = "expired"`
+
+    - `const BetaOrganizationInviteListParamsStatusPending BetaOrganizationInviteListParamsStatus = "pending"`
+
+#### Returns
+
+- `type BetaOrganizationInvite`
+
+  - `Type Invite`
+
+    Object type.
+
+    For Invites, this is always `"invite"`.
+
+    default: invite
+
+  - `ID string`
+
+    ID of the Invite.
+
+  - `AcceptedAt Time`
+
+    RFC 3339 datetime string indicating when the Invite was accepted, or null.
+
+    format: date-time
+
+  - `Email string`
+
+    Email of the User being invited.
+
+  - `ExpiresAt Time`
+
+    RFC 3339 datetime string indicating when the Invite expires.
+
+    format: date-time
+
+  - `InvitedAt Time`
+
+    RFC 3339 datetime string indicating when the Invite was created.
+
+    format: date-time
+
+  - `RBACGroupIDs []string`
+
+    RBAC group IDs recorded on the Invite (Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
+
+  - `Role BetaOrganizationRole`
+
+    Organization role of the User.
+
+    - `const BetaOrganizationRoleAdmin BetaOrganizationRole = "admin"`
+
+    - `const BetaOrganizationRoleBilling BetaOrganizationRole = "billing"`
+
+    - `const BetaOrganizationRoleClaudeCodeUser BetaOrganizationRole = "claude_code_user"`
+
+    - `const BetaOrganizationRoleDeveloper BetaOrganizationRole = "developer"`
+
+    - `const BetaOrganizationRoleManaged BetaOrganizationRole = "managed"`
+
+    - `const BetaOrganizationRoleMembershipAdmin BetaOrganizationRole = "membership_admin"`
+
+    - `const BetaOrganizationRoleOwner BetaOrganizationRole = "owner"`
+
+    - `const BetaOrganizationRolePrimaryOwner BetaOrganizationRole = "primary_owner"`
+
+    - `const BetaOrganizationRoleUser BetaOrganizationRole = "user"`
+
+  - `Status BetaOrganizationInviteStatus`
+
+    Status of the Invite.
+
+    - `const BetaOrganizationInviteStatusAccepted BetaOrganizationInviteStatus = "accepted"`
+
+    - `const BetaOrganizationInviteStatusDeleted BetaOrganizationInviteStatus = "deleted"`
+
+    - `const BetaOrganizationInviteStatusExpired BetaOrganizationInviteStatus = "expired"`
+
+    - `const BetaOrganizationInviteStatusPending BetaOrganizationInviteStatus = "pending"`
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	page, err := client.Beta.Organization.Invites.List(context.TODO(), anthropic.BetaOrganizationInviteListParams{})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", page)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "invite_015gWxCN9Hfg2QhZwTK7Mdeu",
+      "accepted_at": "2019-12-27T18:11:19.117Z",
+      "email": "user@emaildomain.com",
+      "expires_at": "2024-11-20T23:58:27.427722Z",
+      "invited_at": "2024-10-30T23:58:27.427722Z",
+      "rbac_group_ids": [
+        "string"
+      ],
+      "role": "admin",
+      "status": "pending",
+      "type": "invite"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+### Get Invite
+
+`client.Beta.Organization.Invites.Get(ctx, inviteID) (*BetaOrganizationInvite, error)`
+
+**GET** `/v1/organizations/invites/{invite_id}`
+
+Retrieve an invite by ID.
+
+#### Parameters
+
+- `inviteID string` (path parameter)
+
+  ID of the Invite.
+
+#### Returns
+
+- `type BetaOrganizationInvite`
+
+  - `Type Invite`
+
+    Object type.
+
+    For Invites, this is always `"invite"`.
+
+    default: invite
+
+  - `ID string`
+
+    ID of the Invite.
+
+  - `AcceptedAt Time`
+
+    RFC 3339 datetime string indicating when the Invite was accepted, or null.
+
+    format: date-time
+
+  - `Email string`
+
+    Email of the User being invited.
+
+  - `ExpiresAt Time`
+
+    RFC 3339 datetime string indicating when the Invite expires.
+
+    format: date-time
+
+  - `InvitedAt Time`
+
+    RFC 3339 datetime string indicating when the Invite was created.
+
+    format: date-time
+
+  - `RBACGroupIDs []string`
+
+    RBAC group IDs recorded on the Invite (Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
+
+  - `Role BetaOrganizationRole`
+
+    Organization role of the User.
+
+    - `const BetaOrganizationRoleAdmin BetaOrganizationRole = "admin"`
+
+    - `const BetaOrganizationRoleBilling BetaOrganizationRole = "billing"`
+
+    - `const BetaOrganizationRoleClaudeCodeUser BetaOrganizationRole = "claude_code_user"`
+
+    - `const BetaOrganizationRoleDeveloper BetaOrganizationRole = "developer"`
+
+    - `const BetaOrganizationRoleManaged BetaOrganizationRole = "managed"`
+
+    - `const BetaOrganizationRoleMembershipAdmin BetaOrganizationRole = "membership_admin"`
+
+    - `const BetaOrganizationRoleOwner BetaOrganizationRole = "owner"`
+
+    - `const BetaOrganizationRolePrimaryOwner BetaOrganizationRole = "primary_owner"`
+
+    - `const BetaOrganizationRoleUser BetaOrganizationRole = "user"`
+
+  - `Status BetaOrganizationInviteStatus`
+
+    Status of the Invite.
+
+    - `const BetaOrganizationInviteStatusAccepted BetaOrganizationInviteStatus = "accepted"`
+
+    - `const BetaOrganizationInviteStatusDeleted BetaOrganizationInviteStatus = "deleted"`
+
+    - `const BetaOrganizationInviteStatusExpired BetaOrganizationInviteStatus = "expired"`
+
+    - `const BetaOrganizationInviteStatusPending BetaOrganizationInviteStatus = "pending"`
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaOrganizationInvite, err := client.Beta.Organization.Invites.Get(context.TODO(), "invite_id")
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaOrganizationInvite.ID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "invite_015gWxCN9Hfg2QhZwTK7Mdeu",
+  "accepted_at": "2019-12-27T18:11:19.117Z",
+  "email": "user@emaildomain.com",
+  "expires_at": "2024-11-20T23:58:27.427722Z",
+  "invited_at": "2024-10-30T23:58:27.427722Z",
+  "rbac_group_ids": [
+    "string"
+  ],
+  "role": "admin",
+  "status": "pending",
+  "type": "invite"
+}
+```
+
+### Delete Invite
+
+`client.Beta.Organization.Invites.Delete(ctx, inviteID) (*BetaOrganizationInviteDeleteResponse, error)`
+
+**DELETE** `/v1/organizations/invites/{invite_id}`
+
+Delete a pending invite.
+
+#### Parameters
+
+- `inviteID string` (path parameter)
+
+  ID of the Invite.
+
+#### Returns
+
+- `type BetaOrganizationInviteDeleteResponse`
+
+  - `Type InviteDeleted`
+
+    Deleted object type.
+
+    For Invites, this is always `"invite_deleted"`.
+
+    default: invite_deleted
+
+  - `ID string`
+
+    ID of the Invite.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	invite, err := client.Beta.Organization.Invites.Delete(context.TODO(), "invite_id")
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", invite.ID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "invite_015gWxCN9Hfg2QhZwTK7Mdeu",
+  "type": "invite_deleted"
+}
+```
+
+## Beta › Organization › Service Accounts
+
+### Create Service Account
+
+`client.Beta.Organization.ServiceAccounts.New(ctx, params) (*BetaServiceAccount, error)`
+
+**POST** `/v1/organizations/service_accounts`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
+
+Create a service account.
+
+A service account is a named workload identity that federation rules
+target. `organization_role` is `developer` (default) or `admin`; a rule
+may only be created or retargeted to grant `org:admin` scope when the
+target's `organization_role` is `admin`. Creating an `admin`-role service
+account requires an interactive credential (a user OAuth token or a
+Console session) — a workload may only create `developer`-role service
+accounts.
+
+#### Parameters
+
+- `params BetaOrganizationServiceAccountNewParams`
+
+  - `Name string`
+
+    Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+    minLength: 1, maxLength: 255
+
+  - `Description param.Opt[string] Optional`
+
+    Optional free-text description.
+
+    maxLength: 2000
+
+  - `OrganizationRole BetaOrganizationServiceAccountNewParamsOrganizationRole Optional`
+
+    Org-level role. Defaults to `developer`.
+
+    - `const BetaOrganizationServiceAccountNewParamsOrganizationRoleAdmin BetaOrganizationServiceAccountNewParamsOrganizationRole = "admin"`
+
+    - `const BetaOrganizationServiceAccountNewParamsOrganizationRoleDeveloper BetaOrganizationServiceAccountNewParamsOrganizationRole = "developer"`
+
+  - `Betas []AnthropicBeta Optional` (header parameter)
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
+
+    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
+
+#### Returns
+
+- `type BetaServiceAccount`
+
+  Named non-human identity within the caller's organization.
+
+  A service account is a pure identity: name + org. Authorization lives on
+  whatever references it (federation rules).
+
+  - `Type ServiceAccount`
+
+    default: service_account
+
+  - `ID string`
+
+    Tagged ID of the service account.
+
+  - `ArchivedAt Time`
+
+    If set, this service account is archived.
+
+    format: date-time
+
+  - `ArchivedByActorID string`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
+
+  - `CreatedAt Time`
+
+    When this service account was created.
+
+    format: date-time
+
+  - `CreatedByActorID string`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this service account.
+
+  - `Description string`
+
+    Optional free-text description.
+
+  - `Name string`
+
+    Admin-chosen slug identifier.
+
+  - `OrganizationRole BetaServiceAccountOrganizationRole`
+
+    Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
+
+    - `const BetaServiceAccountOrganizationRoleAdmin BetaServiceAccountOrganizationRole = "admin"`
+
+    - `const BetaServiceAccountOrganizationRoleDeveloper BetaServiceAccountOrganizationRole = "developer"`
+
+  - `UpdatedAt Time`
+
+    When this service account was last updated.
+
+    format: date-time
+
+  - `UpdatedByActorID string`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaServiceAccount, err := client.Beta.Organization.ServiceAccounts.New(context.TODO(), anthropic.BetaOrganizationServiceAccountNewParams{
+		Name: "ci-deploy-bot",
+	})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaServiceAccount.ID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "name": "ci-deploy-bot",
+  "organization_role": "admin",
+  "type": "service_account",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### List Service Accounts
+
+`client.Beta.Organization.ServiceAccounts.List(ctx, params) (*PageCursor[BetaServiceAccount], error)`
+
+**GET** `/v1/organizations/service_accounts`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
+
+List service accounts in the caller's organization.
+
+Results are ordered by creation time, newest first. Use `limit` and the
+`next_page` cursor to paginate; set `include_archived=true` to include
+archived service accounts.
+
+#### Parameters
+
+- `params BetaOrganizationServiceAccountListParams`
+
+  - `IncludeArchived param.Opt[bool] Optional` (query parameter)
+
+    Include archived resources. Defaults to false.
+
+  - `Limit param.Opt[int64] Optional` (query parameter)
+
+    Number of results per page.
+
+    minimum: 1, maximum: 100
+
+  - `Page param.Opt[string] Optional` (query parameter)
+
+    Opaque cursor from a previous response's `next_page`.
+
+  - `Betas []AnthropicBeta Optional` (header parameter)
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
+
+    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
+
+#### Returns
+
+- `type BetaServiceAccount`
+
+  Named non-human identity within the caller's organization.
+
+  A service account is a pure identity: name + org. Authorization lives on
+  whatever references it (federation rules).
+
+  - `Type ServiceAccount`
+
+    default: service_account
+
+  - `ID string`
+
+    Tagged ID of the service account.
+
+  - `ArchivedAt Time`
+
+    If set, this service account is archived.
+
+    format: date-time
+
+  - `ArchivedByActorID string`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
+
+  - `CreatedAt Time`
+
+    When this service account was created.
+
+    format: date-time
+
+  - `CreatedByActorID string`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this service account.
+
+  - `Description string`
+
+    Optional free-text description.
+
+  - `Name string`
+
+    Admin-chosen slug identifier.
+
+  - `OrganizationRole BetaServiceAccountOrganizationRole`
+
+    Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
+
+    - `const BetaServiceAccountOrganizationRoleAdmin BetaServiceAccountOrganizationRole = "admin"`
+
+    - `const BetaServiceAccountOrganizationRoleDeveloper BetaServiceAccountOrganizationRole = "developer"`
+
+  - `UpdatedAt Time`
+
+    When this service account was last updated.
+
+    format: date-time
+
+  - `UpdatedByActorID string`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	page, err := client.Beta.Organization.ServiceAccounts.List(context.TODO(), anthropic.BetaOrganizationServiceAccountListParams{})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", page)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "archived_by_actor_id": "archived_by_actor_id",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "created_by_actor_id": "created_by_actor_id",
+      "description": "description",
+      "name": "ci-deploy-bot",
+      "organization_role": "admin",
+      "type": "service_account",
+      "updated_at": "2024-10-30T23:58:27.427722Z",
+      "updated_by_actor_id": "updated_by_actor_id"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get Service Account
+
+`client.Beta.Organization.ServiceAccounts.Get(ctx, serviceAccountID, query) (*BetaServiceAccount, error)`
+
+**GET** `/v1/organizations/service_accounts/{service_account_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
+
+Retrieve a service account by its ID (`svac_...`).
+
+#### Parameters
+
+- `serviceAccountID string` (path parameter)
+
+  ID of the service account.
+
+- `query BetaOrganizationServiceAccountGetParams`
+
+  - `Betas []AnthropicBeta Optional` (header parameter)
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
+
+    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
+
+#### Returns
+
+- `type BetaServiceAccount`
+
+  Named non-human identity within the caller's organization.
+
+  A service account is a pure identity: name + org. Authorization lives on
+  whatever references it (federation rules).
+
+  - `Type ServiceAccount`
+
+    default: service_account
+
+  - `ID string`
+
+    Tagged ID of the service account.
+
+  - `ArchivedAt Time`
+
+    If set, this service account is archived.
+
+    format: date-time
+
+  - `ArchivedByActorID string`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
+
+  - `CreatedAt Time`
+
+    When this service account was created.
+
+    format: date-time
+
+  - `CreatedByActorID string`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this service account.
+
+  - `Description string`
+
+    Optional free-text description.
+
+  - `Name string`
+
+    Admin-chosen slug identifier.
+
+  - `OrganizationRole BetaServiceAccountOrganizationRole`
+
+    Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
+
+    - `const BetaServiceAccountOrganizationRoleAdmin BetaServiceAccountOrganizationRole = "admin"`
+
+    - `const BetaServiceAccountOrganizationRoleDeveloper BetaServiceAccountOrganizationRole = "developer"`
+
+  - `UpdatedAt Time`
+
+    When this service account was last updated.
+
+    format: date-time
+
+  - `UpdatedByActorID string`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaServiceAccount, err := client.Beta.Organization.ServiceAccounts.Get(
+		context.TODO(),
+		"service_account_id",
+		anthropic.BetaOrganizationServiceAccountGetParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaServiceAccount.ID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "name": "ci-deploy-bot",
+  "organization_role": "admin",
+  "type": "service_account",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### Update Service Account
+
+`client.Beta.Organization.ServiceAccounts.Update(ctx, serviceAccountID, params) (*BetaServiceAccount, error)`
+
+**POST** `/v1/organizations/service_accounts/{service_account_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
+
+Update a service account.
+
+Only `description` and `organization_role` are mutable; `name` cannot be
+changed. Archived service accounts cannot be updated; this returns 400.
+Setting `organization_role` to `admin` (even when unchanged) requires an
+interactive credential (a user OAuth token or a Console session).
+
+#### Parameters
+
+- `serviceAccountID string` (path parameter)
+
+  ID of the service account to update.
+
+- `params BetaOrganizationServiceAccountUpdateParams`
+
+  - `Description param.Opt[string] Optional`
+
+    Replaces the description. Omit to leave unchanged; send `null` to clear (the field is stored as an empty string).
+
+    maxLength: 2000
+
+  - `OrganizationRole BetaOrganizationServiceAccountUpdateParamsOrganizationRole Optional`
+
+    Replaces the org-level role. Omit or send `null` to leave unchanged.
+
+    - `const BetaOrganizationServiceAccountUpdateParamsOrganizationRoleAdmin BetaOrganizationServiceAccountUpdateParamsOrganizationRole = "admin"`
+
+    - `const BetaOrganizationServiceAccountUpdateParamsOrganizationRoleDeveloper BetaOrganizationServiceAccountUpdateParamsOrganizationRole = "developer"`
+
+  - `Betas []AnthropicBeta Optional` (header parameter)
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
+
+    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
+
+#### Returns
+
+- `type BetaServiceAccount`
+
+  Named non-human identity within the caller's organization.
+
+  A service account is a pure identity: name + org. Authorization lives on
+  whatever references it (federation rules).
+
+  - `Type ServiceAccount`
+
+    default: service_account
+
+  - `ID string`
+
+    Tagged ID of the service account.
+
+  - `ArchivedAt Time`
+
+    If set, this service account is archived.
+
+    format: date-time
+
+  - `ArchivedByActorID string`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
+
+  - `CreatedAt Time`
+
+    When this service account was created.
+
+    format: date-time
+
+  - `CreatedByActorID string`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this service account.
+
+  - `Description string`
+
+    Optional free-text description.
+
+  - `Name string`
+
+    Admin-chosen slug identifier.
+
+  - `OrganizationRole BetaServiceAccountOrganizationRole`
+
+    Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
+
+    - `const BetaServiceAccountOrganizationRoleAdmin BetaServiceAccountOrganizationRole = "admin"`
+
+    - `const BetaServiceAccountOrganizationRoleDeveloper BetaServiceAccountOrganizationRole = "developer"`
+
+  - `UpdatedAt Time`
+
+    When this service account was last updated.
+
+    format: date-time
+
+  - `UpdatedByActorID string`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaServiceAccount, err := client.Beta.Organization.ServiceAccounts.Update(
+		context.TODO(),
+		"service_account_id",
+		anthropic.BetaOrganizationServiceAccountUpdateParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaServiceAccount.ID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "name": "ci-deploy-bot",
+  "organization_role": "admin",
+  "type": "service_account",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### Archive Service Account
+
+`client.Beta.Organization.ServiceAccounts.Archive(ctx, serviceAccountID, body) (*BetaServiceAccount, error)`
+
+**POST** `/v1/organizations/service_accounts/{service_account_id}/archive`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
+
+Archive a service account.
+
+Idempotent; re-archiving returns the service account with its original
+`archived_at`. Rejected with 400 if any live (non-archived) federation
+rule still targets this service account, same as issuer archival; archive
+those rules first or change their target to another service account.
+
+#### Parameters
+
+- `serviceAccountID string` (path parameter)
+
+  ID of the service account to archive.
+
+- `body BetaOrganizationServiceAccountArchiveParams`
+
+  - `Betas []AnthropicBeta Optional` (header parameter)
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
+
+    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
+
+#### Returns
+
+- `type BetaServiceAccount`
+
+  Named non-human identity within the caller's organization.
+
+  A service account is a pure identity: name + org. Authorization lives on
+  whatever references it (federation rules).
+
+  - `Type ServiceAccount`
+
+    default: service_account
+
+  - `ID string`
+
+    Tagged ID of the service account.
+
+  - `ArchivedAt Time`
+
+    If set, this service account is archived.
+
+    format: date-time
+
+  - `ArchivedByActorID string`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
+
+  - `CreatedAt Time`
+
+    When this service account was created.
+
+    format: date-time
+
+  - `CreatedByActorID string`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this service account.
+
+  - `Description string`
+
+    Optional free-text description.
+
+  - `Name string`
+
+    Admin-chosen slug identifier.
+
+  - `OrganizationRole BetaServiceAccountOrganizationRole`
+
+    Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
+
+    - `const BetaServiceAccountOrganizationRoleAdmin BetaServiceAccountOrganizationRole = "admin"`
+
+    - `const BetaServiceAccountOrganizationRoleDeveloper BetaServiceAccountOrganizationRole = "developer"`
+
+  - `UpdatedAt Time`
+
+    When this service account was last updated.
+
+    format: date-time
+
+  - `UpdatedByActorID string`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaServiceAccount, err := client.Beta.Organization.ServiceAccounts.Archive(
+		context.TODO(),
+		"service_account_id",
+		anthropic.BetaOrganizationServiceAccountArchiveParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaServiceAccount.ID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "name": "ci-deploy-bot",
+  "organization_role": "admin",
+  "type": "service_account",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+## Beta › Organization › Service Accounts › Workspaces
+
+### Add Workspace To Service Account
+
+`client.Beta.Organization.ServiceAccounts.Workspaces.Add(ctx, serviceAccountID, params) (*BetaServiceAccountWorkspaceMember, error)`
+
+**POST** `/v1/organizations/service_accounts/{service_account_id}/workspaces`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](https://platform.claude.com/docs/en/manage-claude/wif-admin-api).
+
+Add a service account to a workspace with the given `workspace_role`.
+
+Mirror of `POST /workspaces/{workspace_id}/service_accounts`, addressed
+from the service-account side; both create the same membership. If the
+service account is already an explicit member of the workspace, its
+`workspace_role` is replaced with the value supplied here. Archived
+workspaces return 400. Archived service accounts cannot be added and are
+rejected.
+
+#### Parameters
+
+- `serviceAccountID string` (path parameter)
+
+  ID of the service account.
+
+- `params BetaOrganizationServiceAccountWorkspaceAddParams`
+
+  - `WorkspaceID string`
+
+    Tagged workspace ID to add the service account to.
+
+  - `WorkspaceRole BetaNoBillingWorkspaceRole`
+
+    Role to assign to the service account in this workspace.
+
+  - `Betas []AnthropicBeta Optional` (header parameter)
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
+
+    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
+
+#### Returns
+
+- `type BetaServiceAccountWorkspaceMember`
+
+  - `Type ServiceAccountWorkspaceMember`
+
+    default: service_account_workspace_member
+
+  - `CreatedByActorID string`
+
+    Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
+
+  - `Implicit bool`
+
+    True when this is the implicit default-workspace membership every service account has when no explicit membership exists. Implicit memberships have role `workspace_user` and cannot be removed.
+
+  - `ServiceAccountID string`
+
+    Tagged service account ID (`svac_...`).
+
+  - `WorkspaceID string`
+
     Tagged workspace ID (`wrkspc_...`).
 
   - `WorkspaceRole BetaWorkspaceRole`
@@ -96,17 +2201,17 @@ page to recover.
 
 - `params BetaOrganizationServiceAccountWorkspaceListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of results per page.
 
     minimum: 1, maximum: 100
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page`.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -321,11 +2426,11 @@ to the implicit `workspace_user` membership. Archived workspaces return
 
 - `params BetaOrganizationServiceAccountWorkspaceRemoveParams`
 
-  - `ServiceAccountID param.Field[string]` (path parameter)
+  - `ServiceAccountID string` (path parameter)
 
     ID of the service account.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -500,21 +2605,21 @@ List the organization's members.
 
 - `query BetaOrganizationUserListParams`
 
-  - `AfterID param.Field[string] Optional` (query parameter)
+  - `AfterID param.Opt[string] Optional` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `BeforeID param.Field[string] Optional` (query parameter)
+  - `BeforeID param.Opt[string] Optional` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `Email param.Field[string] Optional` (query parameter)
+  - `Email param.Opt[string] Optional` (query parameter)
 
     Filter by user email.
 
     format: email
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -522,7 +2627,7 @@ List the organization's members.
 
     minimum: 1, maximum: 1000
 
-  - `Roles param.Field[[]string] Optional` (query parameter)
+  - `Roles []string Optional` (query parameter)
 
     Filter to items whose `role` equals one of the supplied values. Repeatable; values are OR'ed together.
 
@@ -745,7 +2850,7 @@ Update a member's organization role.
 
 - `body BetaOrganizationUserUpdateParams`
 
-  - `Role param.Field[BetaOrganizationUserUpdateParamsRole]`
+  - `Role BetaOrganizationUserUpdateParamsRole`
 
     New role for the User.
 
@@ -935,23 +3040,23 @@ List Workspaces
 
 - `query BetaOrganizationWorkspaceListParams`
 
-  - `AfterID param.Field[string] Optional` (query parameter)
+  - `AfterID param.Opt[string] Optional` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `BeforeID param.Field[string] Optional` (query parameter)
+  - `BeforeID param.Opt[string] Optional` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `IncludeArchived param.Field[bool] Optional` (query parameter)
+  - `IncludeArchived param.Opt[bool] Optional` (query parameter)
 
     Whether to include Workspaces that have been archived in the response
 
-  - `IncludeDefault param.Field[bool] Optional` (query parameter)
+  - `IncludeDefault param.Opt[bool] Optional` (query parameter)
 
     Whether to include the organization's default Workspace in the response
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -1123,23 +3228,23 @@ Create Workspace
 
 - `params BetaOrganizationWorkspaceNewParams`
 
-  - `Name param.Field[string]`
+  - `Name string`
 
     Name of the Workspace.
 
     minLength: 1, maxLength: 40
 
-  - `DataResidency param.Field[BetaDataResidencyCreateConfig] Optional`
+  - `DataResidency BetaDataResidencyCreateConfigParam Optional`
 
     Data residency configuration for the workspace. If omitted, defaults to `workspace_geo: "us"`, `allowed_inference_geos: "unrestricted"`, and `default_inference_geo: "global"`.
 
-  - `DisplayColor param.Field[string] Optional`
+  - `DisplayColor param.Opt[string] Optional`
 
     Hex color code representing the Workspace in the Anthropic Console.
 
     maxLength: 7, pattern: ^#[0-9A-Fa-f]{6}$
 
-  - `ExternalKeyID param.Field[string] Optional`
+  - `ExternalKeyID param.Opt[string] Optional`
 
     ID of the customer-managed encryption key (CMEK) configuration to use for this
     Workspace. Setting this field requires CMEK to be enabled for your
@@ -1153,11 +3258,11 @@ Create Workspace
     rotate key material, rotate the underlying key on your cloud KMS; the
     `external_key_id` stays the same.
 
-  - `Tags param.Field[map[string, string]] Optional`
+  - `Tags map[string, string] Optional`
 
     User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -1581,17 +3686,17 @@ Update Workspace
 
 - `body BetaOrganizationWorkspaceUpdateParams`
 
-  - `DataResidency param.Field[BetaDataResidencyUpdateConfig] Optional`
+  - `DataResidency BetaDataResidencyUpdateConfigParam Optional`
 
     Data residency configuration for the workspace.
 
-  - `DisplayColor param.Field[string] Optional`
+  - `DisplayColor param.Opt[string] Optional`
 
     Hex color code representing the Workspace in the Anthropic Console.
 
     maxLength: 7, pattern: ^#[0-9A-Fa-f]{6}$
 
-  - `ExternalKeyID param.Field[string] Optional`
+  - `ExternalKeyID param.Opt[string] Optional`
 
     ID of the customer-managed encryption key (CMEK) configuration to use for this
     Workspace. Setting this field requires CMEK to be enabled for your
@@ -1605,13 +3710,13 @@ Update Workspace
     rotate key material, rotate the underlying key on your cloud KMS; the
     `external_key_id` stays the same.
 
-  - `Name param.Field[string] Optional`
+  - `Name param.Opt[string] Optional`
 
     Name of the Workspace.
 
     minLength: 1, maxLength: 40
 
-  - `Tags param.Field[map[string, string]] Optional`
+  - `Tags map[string, string] Optional`
 
     User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
 
@@ -1949,7 +4054,7 @@ the remaining entries.
 
 - `query BetaOrganizationWorkspaceRateLimitListParams`
 
-  - `GroupType param.Field[BetaOrganizationWorkspaceRateLimitListParamsGroupType] Optional` (query parameter)
+  - `GroupType BetaOrganizationWorkspaceRateLimitListParamsGroupType Optional` (query parameter)
 
     Filter by group type.
 
@@ -1965,11 +4070,11 @@ the remaining entries.
 
     - `const BetaOrganizationWorkspaceRateLimitListParamsGroupTypeWebSearch BetaOrganizationWorkspaceRateLimitListParamsGroupType = "web_search"`
 
-  - `IncludeInherited param.Field[bool] Optional` (query parameter)
+  - `IncludeInherited param.Opt[bool] Optional` (query parameter)
 
     Also list the limiter values the workspace inherits from the organization, including groups with no workspace-level override.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum number of items to return per page. Ranges from `1` to `1000`.
 
@@ -1977,7 +4082,7 @@ the remaining entries.
 
     minimum: 1, maximum: 1000
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page`.
 
@@ -2218,15 +4323,15 @@ List Workspace Members
 
 - `query BetaOrganizationWorkspaceMemberListParams`
 
-  - `AfterID param.Field[string] Optional` (query parameter)
+  - `AfterID param.Opt[string] Optional` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
-  - `BeforeID param.Field[string] Optional` (query parameter)
+  - `BeforeID param.Opt[string] Optional` (query parameter)
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -2331,11 +4436,11 @@ Create Workspace Member
 
 - `body BetaOrganizationWorkspaceMemberAddParams`
 
-  - `UserID param.Field[string]`
+  - `UserID string`
 
     ID of the User.
 
-  - `WorkspaceRole param.Field[BetaNoBillingWorkspaceRole]`
+  - `WorkspaceRole BetaNoBillingWorkspaceRole`
 
     Role of the new Workspace Member. Cannot be `workspace_billing`.
 
@@ -2432,7 +4537,7 @@ Get Workspace Member
 
 - `query BetaOrganizationWorkspaceMemberGetParams`
 
-  - `WorkspaceID param.Field[string]` (path parameter)
+  - `WorkspaceID string` (path parameter)
 
     ID of the Workspace.
 
@@ -2528,11 +4633,11 @@ Update Workspace Member
 
 - `params BetaOrganizationWorkspaceMemberUpdateParams`
 
-  - `WorkspaceID param.Field[string]` (path parameter)
+  - `WorkspaceID string` (path parameter)
 
     ID of the Workspace.
 
-  - `WorkspaceRole param.Field[BetaWorkspaceRole]`
+  - `WorkspaceRole BetaWorkspaceRole`
 
     New workspace role for the User.
 
@@ -2629,7 +4734,7 @@ Delete Workspace Member
 
 - `body BetaOrganizationWorkspaceMemberRemoveParams`
 
-  - `WorkspaceID param.Field[string]` (path parameter)
+  - `WorkspaceID string` (path parameter)
 
     ID of the Workspace.
 
@@ -2721,17 +4826,17 @@ omitted from the results.
 
 - `params BetaOrganizationWorkspaceServiceAccountListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of results per page.
 
     minimum: 1, maximum: 100
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page`.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -2947,15 +5052,15 @@ accounts cannot be added and are rejected.
 
 - `params BetaOrganizationWorkspaceServiceAccountAddParams`
 
-  - `ServiceAccountID param.Field[string]`
+  - `ServiceAccountID string`
 
     Tagged service account ID to add.
 
-  - `WorkspaceRole param.Field[BetaNoBillingWorkspaceRole]`
+  - `WorkspaceRole BetaNoBillingWorkspaceRole`
 
     Role to assign to the service account in this workspace.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -3167,11 +5272,11 @@ account returns 404.
 
 - `params BetaOrganizationWorkspaceServiceAccountGetParams`
 
-  - `WorkspaceID param.Field[string]` (path parameter)
+  - `WorkspaceID string` (path parameter)
 
     ID of the workspace.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -3382,15 +5487,15 @@ rejected.
 
 - `params BetaOrganizationWorkspaceServiceAccountUpdateParams`
 
-  - `WorkspaceID param.Field[string]` (path parameter)
+  - `WorkspaceID string` (path parameter)
 
     ID of the workspace.
 
-  - `WorkspaceRole param.Field[BetaNoBillingWorkspaceRole]`
+  - `WorkspaceRole BetaNoBillingWorkspaceRole`
 
     New role for the service account in this workspace.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -3601,11 +5706,11 @@ membership. Archived workspaces return 400.
 
 - `params BetaOrganizationWorkspaceServiceAccountRemoveParams`
 
-  - `WorkspaceID param.Field[string]` (path parameter)
+  - `WorkspaceID string` (path parameter)
 
     ID of the workspace.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -3788,7 +5893,7 @@ the remaining entries.
 
 - `query BetaOrganizationRateLimitListParams`
 
-  - `GroupType param.Field[BetaOrganizationRateLimitListParamsGroupType] Optional` (query parameter)
+  - `GroupType BetaOrganizationRateLimitListParamsGroupType Optional` (query parameter)
 
     Filter by group type.
 
@@ -3804,7 +5909,7 @@ the remaining entries.
 
     - `const BetaOrganizationRateLimitListParamsGroupTypeWebSearch BetaOrganizationRateLimitListParamsGroupType = "web_search"`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum number of items to return per page. Ranges from `1` to `1000`.
 
@@ -3812,11 +5917,11 @@ the remaining entries.
 
     minimum: 1, maximum: 1000
 
-  - `Model param.Field[string] Optional` (query parameter)
+  - `Model param.Opt[string] Optional` (query parameter)
 
     Filter to the single entry containing this model. Accepts full model names and aliases. Returns 404 if the model is not found or has no rate limits for this organization.
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page`.
 
@@ -4102,7 +6207,7 @@ compliance settings.
 
 - `body BetaOrganizationComplianceSettingUpdateParams`
 
-  - `State param.Field[BetaComplianceSettingsStateParamUnionResp]`
+  - `State BetaComplianceSettingsStateParamUnion`
 
     Desired state. Accepts the string shorthand "enabled" or "disabled" in place of the object form; the response always returns the canonical object form.
 
@@ -4195,31 +6300,31 @@ Enterprise plan. Requires an API key with the `read:analytics` scope.
 
 - `query BetaOrganizationAnalyticsSummaryListParams`
 
-  - `StartingDate param.Field[Time]` (query parameter)
+  - `StartingDate Time` (query parameter)
 
     UTC date in YYYY-MM-DD format. Start of the date range (inclusive). Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
     format: date
 
-  - `EndingDate param.Field[Time] Optional` (query parameter)
+  - `EndingDate param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. End of the date range (exclusive). Data is typically available with a 1-day lag, so this can be at most today — which is also the default when omitted, making the last entry cover the most recent available day. Data may be revised by a few percent over the following days. The range may span at most 366 days.
 
     format: date
 
-  - `Filter param.Field[[]string] Optional` (query parameter)
+  - `Filter []string Optional` (query parameter)
 
     Filters as `dimension:value`. Only `rbac_group_id` is supported (e.g. `filter[]=rbac_group_id:{id}`); repeat the param to OR across groups. Scopes the whole day series to members of the matching group(s), re-aggregated from member-level activity — org-wide seat/invite fields and the adoption rates derived from them are null on scoped rows. `rbac_group_id` accepts the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each UTC day (time-of-usage attribution). At most 100 entries.
 
     maxItems: 100
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of results per page (1-1000, default 100). The day series (at most 366 entries) is currently returned in full in a single page, so `limit` does not yet shorten it.
 
     minimum: 1, maximum: 1000
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field. `next_page` is currently always null, so there is never a cursor to send.
 
@@ -4471,25 +6576,25 @@ the `read:analytics` scope.
 
 - `query BetaOrganizationAnalyticsUserListParams`
 
-  - `Date param.Field[Time] Optional` (query parameter)
+  - `Date param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. The day to get user activity for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
     format: date
 
-  - `EndingDate param.Field[Time] Optional` (query parameter)
+  - `EndingDate param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with `starting_date`. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after `starting_date`.
 
     format: date
 
-  - `Filter param.Field[[]string] Optional` (query parameter)
+  - `Filter []string Optional` (query parameter)
 
     Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `project_id`, `rbac_group_id`, `user_id`. Value forms: `project_id` takes a tagged project id (`claude_proj_...`) and scopes each member's row to their claude.ai chat activity within that project (it cannot be combined with `group_by[]` or an `rbac_group_id` filter); `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
     maxItems: 100
 
-  - `GroupBy param.Field[[]string] Optional` (query parameter)
+  - `GroupBy []string Optional` (query parameter)
 
     Dimensions to break results out by (e.g. `group_by[]=rbac_group_id`). Supported on this endpoint: `rbac_group_id`. Rows are already per-member, so the one supported grouping aggregates them per RBAC group instead. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via `next_page`; an unsupported dimension returns 400. `rbac_group_id` attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
@@ -4497,13 +6602,13 @@ the `read:analytics` scope.
 
     - `const BetaOrganizationAnalyticsUserListParamsGroupByRBACGroupID BetaOrganizationAnalyticsUserListParamsGroupBy = "rbac_group_id"`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of results per page (1-1000, default 100).
 
     minimum: 1, maximum: 1000
 
-  - `Order param.Field[BetaOrganizationAnalyticsUserListParamsOrder] Optional` (query parameter)
+  - `Order BetaOrganizationAnalyticsUserListParamsOrder Optional` (query parameter)
 
     Sort direction: `asc` or `desc`. Defaults to `asc` for the endpoint's sort column and to `desc` when `order_by` names a metric (a top-N ranking). Applies to `order_by`, or to the endpoint's default sort field when `order_by` is omitted.
 
@@ -4511,15 +6616,15 @@ the `read:analytics` scope.
 
     - `const BetaOrganizationAnalyticsUserListParamsOrderDesc BetaOrganizationAnalyticsUserListParamsOrder = "desc"`
 
-  - `OrderBy param.Field[string] Optional` (query parameter)
+  - `OrderBy param.Opt[string] Optional` (query parameter)
 
     Sort field. Restricted to the endpoint's sort column plus its rankable metrics (metrics default to descending; a few metrics rank in date-range mode only, per the endpoint's documented orderable set).
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `StartingDate param.Field[Time] Optional` (query parameter)
+  - `StartingDate param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either `date` or `starting_date`, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
@@ -5024,25 +7129,25 @@ plan. Requires an API key with the `read:analytics` scope.
 
 - `query BetaOrganizationAnalyticsAppChatProjectListParams`
 
-  - `Date param.Field[Time] Optional` (query parameter)
+  - `Date param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. The day to get project activity for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
     format: date
 
-  - `EndingDate param.Field[Time] Optional` (query parameter)
+  - `EndingDate param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with `starting_date`. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after `starting_date`.
 
     format: date
 
-  - `Filter param.Field[[]string] Optional` (query parameter)
+  - `Filter []string Optional` (query parameter)
 
     Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `project_id`, `rbac_group_id`, `user_id`. Value forms: `project_id` takes a tagged project id (`claude_proj_...`); `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
     maxItems: 100
 
-  - `GroupBy param.Field[[]string] Optional` (query parameter)
+  - `GroupBy []string Optional` (query parameter)
 
     Dimensions to break results out by (e.g. `group_by[]=user_id`). Supported on this endpoint: `rbac_group_id`, `user_id`. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via `next_page`; an unsupported dimension returns 400. `rbac_group_id` attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
@@ -5052,13 +7157,13 @@ plan. Requires an API key with the `read:analytics` scope.
 
     - `const BetaOrganizationAnalyticsAppChatProjectListParamsGroupByUserID BetaOrganizationAnalyticsAppChatProjectListParamsGroupBy = "user_id"`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of results per page (1-1000, default 100).
 
     minimum: 1, maximum: 1000
 
-  - `Order param.Field[BetaOrganizationAnalyticsAppChatProjectListParamsOrder] Optional` (query parameter)
+  - `Order BetaOrganizationAnalyticsAppChatProjectListParamsOrder Optional` (query parameter)
 
     Sort direction: `asc` or `desc`. Defaults to `asc` for the endpoint's sort column and to `desc` when `order_by` names a metric (a top-N ranking). Applies to `order_by`, or to the endpoint's default sort field when `order_by` is omitted.
 
@@ -5066,15 +7171,15 @@ plan. Requires an API key with the `read:analytics` scope.
 
     - `const BetaOrganizationAnalyticsAppChatProjectListParamsOrderDesc BetaOrganizationAnalyticsAppChatProjectListParamsOrder = "desc"`
 
-  - `OrderBy param.Field[string] Optional` (query parameter)
+  - `OrderBy param.Opt[string] Optional` (query parameter)
 
     Sort field. Restricted to the endpoint's sort column plus its rankable metrics (metrics default to descending; a few metrics rank in date-range mode only, per the endpoint's documented orderable set).
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `StartingDate param.Field[Time] Optional` (query parameter)
+  - `StartingDate param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either `date` or `starting_date`, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
@@ -5221,25 +7326,25 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
 - `query BetaOrganizationAnalyticsConnectorListParams`
 
-  - `Date param.Field[Time] Optional` (query parameter)
+  - `Date param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. The day to get connector usage for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
     format: date
 
-  - `EndingDate param.Field[Time] Optional` (query parameter)
+  - `EndingDate param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with `starting_date`. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after `starting_date`.
 
     format: date
 
-  - `Filter param.Field[[]string] Optional` (query parameter)
+  - `Filter []string Optional` (query parameter)
 
     Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `connector_name`, `product`, `rbac_group_id`, `user_id`. Value forms: `connector_name` matches case-insensitively, a display name such as 'GitHub MCP' also matches its normalized stored form ('github'), and for rows whose `connector_name` is an opaque connector id the connector's display name (`connector_display_name`) also matches; `product` is one of `chat`, `claude_code`, `cowork`, or `office_agent`; `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
     maxItems: 100
 
-  - `GroupBy param.Field[[]string] Optional` (query parameter)
+  - `GroupBy []string Optional` (query parameter)
 
     Dimensions to break results out by (e.g. `group_by[]=user_id`). Supported on this endpoint: `product`, `rbac_group_id`, `user_id`. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via `next_page`; an unsupported dimension returns 400. `rbac_group_id` attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
@@ -5251,13 +7356,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaOrganizationAnalyticsConnectorListParamsGroupByUserID BetaOrganizationAnalyticsConnectorListParamsGroupBy = "user_id"`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of results per page (1-1000, default 100).
 
     minimum: 1, maximum: 1000
 
-  - `Order param.Field[BetaOrganizationAnalyticsConnectorListParamsOrder] Optional` (query parameter)
+  - `Order BetaOrganizationAnalyticsConnectorListParamsOrder Optional` (query parameter)
 
     Sort direction: `asc` or `desc`. Defaults to `asc` for the endpoint's sort column and to `desc` when `order_by` names a metric (a top-N ranking). Applies to `order_by`, or to the endpoint's default sort field when `order_by` is omitted.
 
@@ -5265,15 +7370,15 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaOrganizationAnalyticsConnectorListParamsOrderDesc BetaOrganizationAnalyticsConnectorListParamsOrder = "desc"`
 
-  - `OrderBy param.Field[string] Optional` (query parameter)
+  - `OrderBy param.Opt[string] Optional` (query parameter)
 
     Sort field. Restricted to the endpoint's sort column plus its rankable metrics (metrics default to descending; a few metrics rank in date-range mode only, per the endpoint's documented orderable set).
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `StartingDate param.Field[Time] Optional` (query parameter)
+  - `StartingDate param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either `date` or `starting_date`, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
@@ -5479,25 +7584,25 @@ range-rollup mode like `/skills`.
 
 - `query BetaOrganizationAnalyticsPluginListParams`
 
-  - `Date param.Field[Time] Optional` (query parameter)
+  - `Date param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. The day to get plugin usage for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
     format: date
 
-  - `EndingDate param.Field[Time] Optional` (query parameter)
+  - `EndingDate param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with `starting_date`. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after `starting_date`.
 
     format: date
 
-  - `Filter param.Field[[]string] Optional` (query parameter)
+  - `Filter []string Optional` (query parameter)
 
     Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `plugin_name`, `product`, `rbac_group_id`, `user_id`. Value forms: `plugin_name` matches case-insensitively; `product` is `claude_code` or `cowork` (the only surfaces with plugin attribution); `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
     maxItems: 100
 
-  - `GroupBy param.Field[[]string] Optional` (query parameter)
+  - `GroupBy []string Optional` (query parameter)
 
     Dimensions to break results out by (e.g. `group_by[]=user_id`). Supported on this endpoint: `product`, `rbac_group_id`, `user_id`. On this endpoint `product` takes the values `claude_code` or `cowork` only (the surfaces with plugin attribution). Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via `next_page`; an unsupported dimension returns 400. `rbac_group_id` attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
@@ -5509,13 +7614,13 @@ range-rollup mode like `/skills`.
 
     - `const BetaOrganizationAnalyticsPluginListParamsGroupByUserID BetaOrganizationAnalyticsPluginListParamsGroupBy = "user_id"`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of results per page (1-1000, default 100).
 
     minimum: 1, maximum: 1000
 
-  - `Order param.Field[BetaOrganizationAnalyticsPluginListParamsOrder] Optional` (query parameter)
+  - `Order BetaOrganizationAnalyticsPluginListParamsOrder Optional` (query parameter)
 
     Sort direction: `asc` or `desc`. Defaults to `asc` for the endpoint's sort column and to `desc` when `order_by` names a metric (a top-N ranking). Applies to `order_by`, or to the endpoint's default sort field when `order_by` is omitted.
 
@@ -5523,15 +7628,15 @@ range-rollup mode like `/skills`.
 
     - `const BetaOrganizationAnalyticsPluginListParamsOrderDesc BetaOrganizationAnalyticsPluginListParamsOrder = "desc"`
 
-  - `OrderBy param.Field[string] Optional` (query parameter)
+  - `OrderBy param.Opt[string] Optional` (query parameter)
 
     Sort field. Restricted to the endpoint's sort column plus its rankable metrics (metrics default to descending; a few metrics rank in date-range mode only, per the endpoint's documented orderable set).
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `StartingDate param.Field[Time] Optional` (query parameter)
+  - `StartingDate param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either `date` or `starting_date`, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
@@ -5674,25 +7779,25 @@ on a Claude Enterprise plan. Requires an API key with the
 
 - `query BetaOrganizationAnalyticsSkillListParams`
 
-  - `Date param.Field[Time] Optional` (query parameter)
+  - `Date param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. The day to get skill usage for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
     format: date
 
-  - `EndingDate param.Field[Time] Optional` (query parameter)
+  - `EndingDate param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with `starting_date`. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after `starting_date`.
 
     format: date
 
-  - `Filter param.Field[[]string] Optional` (query parameter)
+  - `Filter []string Optional` (query parameter)
 
     Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `product`, `rbac_group_id`, `share_status`, `skill_name`, `user_id`. Value forms: `product` is one of `chat`, `claude_code`, `cowork`, or `office_agent`; `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `share_status` is one of `organization`, `private`, or `public`; `skill_name` matches case-insensitively; `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
     maxItems: 100
 
-  - `GroupBy param.Field[[]string] Optional` (query parameter)
+  - `GroupBy []string Optional` (query parameter)
 
     Dimensions to break results out by (e.g. `group_by[]=user_id`). Supported on this endpoint: `product`, `rbac_group_id`, `user_id`. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via `next_page`; an unsupported dimension returns 400. `rbac_group_id` attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
@@ -5704,13 +7809,13 @@ on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaOrganizationAnalyticsSkillListParamsGroupByUserID BetaOrganizationAnalyticsSkillListParamsGroupBy = "user_id"`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of results per page (1-1000, default 100).
 
     minimum: 1, maximum: 1000
 
-  - `Order param.Field[BetaOrganizationAnalyticsSkillListParamsOrder] Optional` (query parameter)
+  - `Order BetaOrganizationAnalyticsSkillListParamsOrder Optional` (query parameter)
 
     Sort direction: `asc` or `desc`. Defaults to `asc` for the endpoint's sort column and to `desc` when `order_by` names a metric (a top-N ranking). Applies to `order_by`, or to the endpoint's default sort field when `order_by` is omitted.
 
@@ -5718,15 +7823,15 @@ on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaOrganizationAnalyticsSkillListParamsOrderDesc BetaOrganizationAnalyticsSkillListParamsOrder = "desc"`
 
-  - `OrderBy param.Field[string] Optional` (query parameter)
+  - `OrderBy param.Opt[string] Optional` (query parameter)
 
     Sort field. Restricted to the endpoint's sort column plus its rankable metrics (metrics default to descending; a few metrics rank in date-range mode only, per the endpoint's documented orderable set).
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `StartingDate param.Field[Time] Optional` (query parameter)
+  - `StartingDate param.Opt[Time] Optional` (query parameter)
 
     UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either `date` or `starting_date`, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
@@ -5937,19 +8042,19 @@ can be broken out per product, per member, or per RBAC group via
 
 - `query BetaOrganizationAnalyticsArtifactListParams`
 
-  - `Date param.Field[Time]` (query parameter)
+  - `Date Time` (query parameter)
 
     UTC date in YYYY-MM-DD format. The day to get artifact activity for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
     format: date
 
-  - `Filter param.Field[[]string] Optional` (query parameter)
+  - `Filter []string Optional` (query parameter)
 
     Filters as `dimension:value`, e.g. `filter[]=rbac_group_id:{id}`. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: `artifact_type`, `is_shared`, `product`, `rbac_group_id`, `user_id`. Value forms: `artifact_type` is a canonical artifact MIME type (e.g. `text/markdown`) or `other`; `is_shared` is `true` or `false`; `product` is `chat`, `claude_code`, or `cowork` (the surfaces that create artifacts); `rbac_group_id` takes the tagged id (`rbac_group_...`, as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); `user_id` takes a tagged user id (`user_...`), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
     maxItems: 100
 
-  - `GroupBy param.Field[[]string] Optional` (query parameter)
+  - `GroupBy []string Optional` (query parameter)
 
     Dimensions to break results out by: `product`, `user_id` and/or `rbac_group_id`. The ungrouped artifact-type cube is finite and returned in full; grouped queries multiply the cube and paginate via `next_page`. `product` takes the values `chat`, `claude_code`, or `cowork` (the surfaces that create artifacts). `rbac_group_id` attributes a user to every group they held at any point during the requested UTC day, so grouped rows are not an exclusive partition. At most 100 entries.
 
@@ -5961,13 +8066,13 @@ can be broken out per product, per member, or per RBAC group via
 
     - `const BetaOrganizationAnalyticsArtifactListParamsGroupByUserID BetaOrganizationAnalyticsArtifactListParamsGroupBy = "user_id"`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum rows to return (1-1000, default 100). The ungrouped artifact-type cube is finite and returned in full; `limit` is the page size only when `group_by[]` multiplies the cube.
 
     minimum: 1, maximum: 1000
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field. Only valid with `group_by[]` — the ungrouped cube is never paginated.
 
@@ -6090,13 +8195,13 @@ key with the `read:analytics` scope.
 
 - `query BetaOrganizationAnalyticsUsageReportListParams`
 
-  - `StartingAt param.Field[Time]` (query parameter)
+  - `StartingAt Time` (query parameter)
 
     Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
 
     format: date-time
 
-  - `BucketWidth param.Field[BetaOrganizationAnalyticsUsageReportListParamsBucketWidth] Optional` (query parameter)
+  - `BucketWidth BetaOrganizationAnalyticsUsageReportListParamsBucketWidth Optional` (query parameter)
 
     Time bucket granularity.
 
@@ -6106,7 +8211,7 @@ key with the `read:analytics` scope.
 
     - `const BetaOrganizationAnalyticsUsageReportListParamsBucketWidthMinute BetaOrganizationAnalyticsUsageReportListParamsBucketWidth = "1m"`
 
-  - `ClaudeTagCategories param.Field[[]BetaAnalyticsClaudeTagCategory] Optional` (query parameter)
+  - `ClaudeTagCategories []BetaAnalyticsClaudeTagCategory Optional` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
 
@@ -6122,13 +8227,13 @@ key with the `read:analytics` scope.
 
     - `const BetaAnalyticsClaudeTagCategoryScheduled BetaAnalyticsClaudeTagCategory = "scheduled"`
 
-  - `ClaudeTagUserIDs param.Field[[]string] Optional` (query parameter)
+  - `ClaudeTagUserIDs []string Optional` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
 
     maxItems: 100
 
-  - `ContextWindows param.Field[[]BetaAnalyticsContextWindow] Optional` (query parameter)
+  - `ContextWindows []BetaAnalyticsContextWindow Optional` (query parameter)
 
     Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
@@ -6138,13 +8243,13 @@ key with the `read:analytics` scope.
 
     - `const BetaAnalyticsContextWindowFrom200kTo1M BetaAnalyticsContextWindow = "200k-1M"`
 
-  - `EndingAt param.Field[Time] Optional` (query parameter)
+  - `EndingAt param.Opt[Time] Optional` (query parameter)
 
     End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
     format: date-time
 
-  - `GroupBy param.Field[[]string] Optional` (query parameter)
+  - `GroupBy []string Optional` (query parameter)
 
     Dimensions to break each time bucket out by. Defaults to no grouping (one total per bucket). Each bucket reports at most its top 100 groups; a group beyond that cap has no row in that bucket (there is no remainder row), so grouped buckets are not exhaustive when a dimension has more than 100 distinct values.
 
@@ -6168,7 +8273,7 @@ key with the `read:analytics` scope.
 
     - `const BetaOrganizationAnalyticsUsageReportListParamsGroupBySpeed BetaOrganizationAnalyticsUsageReportListParamsGroupBy = "speed"`
 
-  - `InferenceGeos param.Field[[]BetaAnalyticsInferenceGeoFilter] Optional` (query parameter)
+  - `InferenceGeos []BetaAnalyticsInferenceGeoFilter Optional` (query parameter)
 
     Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
@@ -6180,23 +8285,23 @@ key with the `read:analytics` scope.
 
     - `const BetaAnalyticsInferenceGeoFilterUs BetaAnalyticsInferenceGeoFilter = "us"`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum number of time buckets per page. Defaults and caps vary by `bucket_width` (`1d`: default 7, max 31; `1h`: default 24, max 168; `1m`: default 60, max 256).
 
     minimum: 1
 
-  - `Models param.Field[[]string] Optional` (query parameter)
+  - `Models []string Optional` (query parameter)
 
     Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
 
     maxItems: 100
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `Products param.Field[[]BetaAnalyticsProductFilter] Optional` (query parameter)
+  - `Products []BetaAnalyticsProductFilter Optional` (query parameter)
 
     Product surfaces to include. Defaults to all products. Use `group_by[]=product` to break out per-product values.
 
@@ -6216,19 +8321,19 @@ key with the `read:analytics` scope.
 
     - `const BetaAnalyticsProductFilterOfficeAgent BetaAnalyticsProductFilter = "office_agent"`
 
-  - `RBACGroupIDs param.Field[[]string] Optional` (query parameter)
+  - `RBACGroupIDs []string Optional` (query parameter)
 
     Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
 
     maxItems: 100
 
-  - `SlackChannelIDs param.Field[[]string] Optional` (query parameter)
+  - `SlackChannelIDs []string Optional` (query parameter)
 
     Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
     maxItems: 100
 
-  - `Speeds param.Field[[]string] Optional` (query parameter)
+  - `Speeds []string Optional` (query parameter)
 
     Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
 
@@ -6238,7 +8343,7 @@ key with the `read:analytics` scope.
 
     - `const BetaOrganizationAnalyticsUsageReportListParamsSpeedStandard BetaOrganizationAnalyticsUsageReportListParamsSpeed = "standard"`
 
-  - `UserIDs param.Field[[]string] Optional` (query parameter)
+  - `UserIDs []string Optional` (query parameter)
 
     Filter to specific users by tagged user ID.
 
@@ -6453,13 +8558,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
 - `query BetaOrganizationAnalyticsUserUsageReportListParams`
 
-  - `StartingAt param.Field[Time]` (query parameter)
+  - `StartingAt Time` (query parameter)
 
     Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
 
     format: date-time
 
-  - `BucketWidth param.Field[BetaOrganizationAnalyticsUserUsageReportListParamsBucketWidth] Optional` (query parameter)
+  - `BucketWidth BetaOrganizationAnalyticsUserUsageReportListParamsBucketWidth Optional` (query parameter)
 
     Time-bucket granularity. When set, each row's `starting_at` and `ending_at` are populated and one actor may span several rows (one per time bucket with usage). The time bucket counts toward `limit`, so one page can return multiple rows for the same actor. `ending_at` is required when `bucket_width` is set, and with `bucket_width="1m"` the range may span at most 24 hours. When omitted, each row aggregates the full `[starting_at, ending_at)` range.
 
@@ -6469,7 +8574,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaOrganizationAnalyticsUserUsageReportListParamsBucketWidthMinute BetaOrganizationAnalyticsUserUsageReportListParamsBucketWidth = "1m"`
 
-  - `ClaudeTagCategories param.Field[[]BetaAnalyticsClaudeTagCategory] Optional` (query parameter)
+  - `ClaudeTagCategories []BetaAnalyticsClaudeTagCategory Optional` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
 
@@ -6485,13 +8590,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaAnalyticsClaudeTagCategoryScheduled BetaAnalyticsClaudeTagCategory = "scheduled"`
 
-  - `ClaudeTagUserIDs param.Field[[]string] Optional` (query parameter)
+  - `ClaudeTagUserIDs []string Optional` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
 
     maxItems: 100
 
-  - `ContextWindows param.Field[[]BetaAnalyticsContextWindow] Optional` (query parameter)
+  - `ContextWindows []BetaAnalyticsContextWindow Optional` (query parameter)
 
     Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
@@ -6501,17 +8606,17 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaAnalyticsContextWindowFrom200kTo1M BetaAnalyticsContextWindow = "200k-1M"`
 
-  - `EndingAt param.Field[Time] Optional` (query parameter)
+  - `EndingAt param.Opt[Time] Optional` (query parameter)
 
     End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
     format: date-time
 
-  - `ExcludeDeletedUsers param.Field[bool] Optional` (query parameter)
+  - `ExcludeDeletedUsers param.Opt[bool] Optional` (query parameter)
 
     If true, omit rows for users who are deleted (`deleted: true`). A page may contain fewer than `limit` rows; use `has_more` and `next_page` to paginate as usual.
 
-  - `GroupBy param.Field[[]string] Optional` (query parameter)
+  - `GroupBy []string Optional` (query parameter)
 
     Break each actor's row out by the given dimensions. Accepts the same values as the bucketed `/usage_report` endpoint. `limit` bounds (actor × time bucket × dimension) rows — with dimensions or `bucket_width` present, one actor may span several rows.
 
@@ -6535,7 +8640,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaOrganizationAnalyticsUserUsageReportListParamsGroupBySpeed BetaOrganizationAnalyticsUserUsageReportListParamsGroupBy = "speed"`
 
-  - `InferenceGeos param.Field[[]BetaAnalyticsInferenceGeoFilter] Optional` (query parameter)
+  - `InferenceGeos []BetaAnalyticsInferenceGeoFilter Optional` (query parameter)
 
     Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
@@ -6547,19 +8652,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaAnalyticsInferenceGeoFilterUs BetaAnalyticsInferenceGeoFilter = "us"`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of rows per page (1-1000, default 20). One row per actor unless `group_by[]` or `bucket_width` splits an actor across rows; `cost_type`/`token_type` fan-out rows (cost endpoint only) are the exception — they do not count toward this limit, so `data` can exceed it.
 
     minimum: 1, maximum: 1000
 
-  - `Models param.Field[[]string] Optional` (query parameter)
+  - `Models []string Optional` (query parameter)
 
     Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
 
     maxItems: 100
 
-  - `Order param.Field[BetaOrganizationAnalyticsUserUsageReportListParamsOrder] Optional` (query parameter)
+  - `Order BetaOrganizationAnalyticsUserUsageReportListParamsOrder Optional` (query parameter)
 
     Sort direction. Defaults to `desc`.
 
@@ -6567,7 +8672,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaOrganizationAnalyticsUserUsageReportListParamsOrderDesc BetaOrganizationAnalyticsUserUsageReportListParamsOrder = "desc"`
 
-  - `OrderBy param.Field[BetaOrganizationAnalyticsUserUsageReportListParamsOrderBy] Optional` (query parameter)
+  - `OrderBy BetaOrganizationAnalyticsUserUsageReportListParamsOrderBy Optional` (query parameter)
 
     Metric to rank actors by. Defaults to `total_tokens`.
 
@@ -6579,11 +8684,11 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaOrganizationAnalyticsUserUsageReportListParamsOrderByUncachedInputTokens BetaOrganizationAnalyticsUserUsageReportListParamsOrderBy = "uncached_input_tokens"`
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `Products param.Field[[]BetaAnalyticsProductFilter] Optional` (query parameter)
+  - `Products []BetaAnalyticsProductFilter Optional` (query parameter)
 
     Product surfaces to include. Defaults to all products.
 
@@ -6603,19 +8708,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaAnalyticsProductFilterOfficeAgent BetaAnalyticsProductFilter = "office_agent"`
 
-  - `RBACGroupIDs param.Field[[]string] Optional` (query parameter)
+  - `RBACGroupIDs []string Optional` (query parameter)
 
     Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
 
     maxItems: 100
 
-  - `SlackChannelIDs param.Field[[]string] Optional` (query parameter)
+  - `SlackChannelIDs []string Optional` (query parameter)
 
     Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
     maxItems: 100
 
-  - `Speeds param.Field[[]string] Optional` (query parameter)
+  - `Speeds []string Optional` (query parameter)
 
     Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
 
@@ -6625,7 +8730,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaOrganizationAnalyticsUserUsageReportListParamsSpeedStandard BetaOrganizationAnalyticsUserUsageReportListParamsSpeed = "standard"`
 
-  - `UserIDs param.Field[[]string] Optional` (query parameter)
+  - `UserIDs []string Optional` (query parameter)
 
     Filter to specific users by tagged user ID.
 
@@ -6866,13 +8971,13 @@ Requires an API key with the `read:analytics` scope.
 
 - `query BetaOrganizationAnalyticsCostReportListParams`
 
-  - `StartingAt param.Field[Time]` (query parameter)
+  - `StartingAt Time` (query parameter)
 
     Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
 
     format: date-time
 
-  - `BucketWidth param.Field[BetaOrganizationAnalyticsCostReportListParamsBucketWidth] Optional` (query parameter)
+  - `BucketWidth BetaOrganizationAnalyticsCostReportListParamsBucketWidth Optional` (query parameter)
 
     Time bucket granularity.
 
@@ -6882,7 +8987,7 @@ Requires an API key with the `read:analytics` scope.
 
     - `const BetaOrganizationAnalyticsCostReportListParamsBucketWidthMinute BetaOrganizationAnalyticsCostReportListParamsBucketWidth = "1m"`
 
-  - `ClaudeTagCategories param.Field[[]BetaAnalyticsClaudeTagCategory] Optional` (query parameter)
+  - `ClaudeTagCategories []BetaAnalyticsClaudeTagCategory Optional` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
 
@@ -6898,13 +9003,13 @@ Requires an API key with the `read:analytics` scope.
 
     - `const BetaAnalyticsClaudeTagCategoryScheduled BetaAnalyticsClaudeTagCategory = "scheduled"`
 
-  - `ClaudeTagUserIDs param.Field[[]string] Optional` (query parameter)
+  - `ClaudeTagUserIDs []string Optional` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
 
     maxItems: 100
 
-  - `ContextWindows param.Field[[]BetaAnalyticsContextWindow] Optional` (query parameter)
+  - `ContextWindows []BetaAnalyticsContextWindow Optional` (query parameter)
 
     Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
@@ -6914,13 +9019,13 @@ Requires an API key with the `read:analytics` scope.
 
     - `const BetaAnalyticsContextWindowFrom200kTo1M BetaAnalyticsContextWindow = "200k-1M"`
 
-  - `EndingAt param.Field[Time] Optional` (query parameter)
+  - `EndingAt param.Opt[Time] Optional` (query parameter)
 
     End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
     format: date-time
 
-  - `GroupBy param.Field[[]string] Optional` (query parameter)
+  - `GroupBy []string Optional` (query parameter)
 
     Dimensions to break each time bucket out by. Defaults to no grouping (one total per bucket). Each bucket reports at most its top 100 groups; a group beyond that cap has no row in that bucket (there is no remainder row), so grouped buckets are not exhaustive when a dimension has more than 100 distinct values.
 
@@ -6948,7 +9053,7 @@ Requires an API key with the `read:analytics` scope.
 
     - `const BetaOrganizationAnalyticsCostReportListParamsGroupByTokenType BetaOrganizationAnalyticsCostReportListParamsGroupBy = "token_type"`
 
-  - `InferenceGeos param.Field[[]BetaAnalyticsInferenceGeoFilter] Optional` (query parameter)
+  - `InferenceGeos []BetaAnalyticsInferenceGeoFilter Optional` (query parameter)
 
     Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
@@ -6960,23 +9065,23 @@ Requires an API key with the `read:analytics` scope.
 
     - `const BetaAnalyticsInferenceGeoFilterUs BetaAnalyticsInferenceGeoFilter = "us"`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum number of time buckets per page. Defaults and caps vary by `bucket_width` (`1d`: default 7, max 31; `1h`: default 24, max 168; `1m`: default 60, max 256).
 
     minimum: 1
 
-  - `Models param.Field[[]string] Optional` (query parameter)
+  - `Models []string Optional` (query parameter)
 
     Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
 
     maxItems: 100
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `Products param.Field[[]BetaAnalyticsProductFilter] Optional` (query parameter)
+  - `Products []BetaAnalyticsProductFilter Optional` (query parameter)
 
     Product surfaces to include. Defaults to all products. Use `group_by[]=product` to break out per-product values.
 
@@ -6996,19 +9101,19 @@ Requires an API key with the `read:analytics` scope.
 
     - `const BetaAnalyticsProductFilterOfficeAgent BetaAnalyticsProductFilter = "office_agent"`
 
-  - `RBACGroupIDs param.Field[[]string] Optional` (query parameter)
+  - `RBACGroupIDs []string Optional` (query parameter)
 
     Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
 
     maxItems: 100
 
-  - `SlackChannelIDs param.Field[[]string] Optional` (query parameter)
+  - `SlackChannelIDs []string Optional` (query parameter)
 
     Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
     maxItems: 100
 
-  - `Speeds param.Field[[]string] Optional` (query parameter)
+  - `Speeds []string Optional` (query parameter)
 
     Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
 
@@ -7018,7 +9123,7 @@ Requires an API key with the `read:analytics` scope.
 
     - `const BetaOrganizationAnalyticsCostReportListParamsSpeedStandard BetaOrganizationAnalyticsCostReportListParamsSpeed = "standard"`
 
-  - `UserIDs param.Field[[]string] Optional` (query parameter)
+  - `UserIDs []string Optional` (query parameter)
 
     Filter to specific users by tagged user ID.
 
@@ -7230,13 +9335,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
 - `query BetaOrganizationAnalyticsUserCostReportListParams`
 
-  - `StartingAt param.Field[Time]` (query parameter)
+  - `StartingAt Time` (query parameter)
 
     Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
 
     format: date-time
 
-  - `BucketWidth param.Field[BetaOrganizationAnalyticsUserCostReportListParamsBucketWidth] Optional` (query parameter)
+  - `BucketWidth BetaOrganizationAnalyticsUserCostReportListParamsBucketWidth Optional` (query parameter)
 
     Time-bucket granularity. When set, each row's `starting_at` and `ending_at` are populated and one actor may span several rows (one per time bucket with usage). The time bucket counts toward `limit`, so one page can return multiple rows for the same actor. `ending_at` is required when `bucket_width` is set, and with `bucket_width="1m"` the range may span at most 24 hours. When omitted, each row aggregates the full `[starting_at, ending_at)` range.
 
@@ -7246,7 +9351,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaOrganizationAnalyticsUserCostReportListParamsBucketWidthMinute BetaOrganizationAnalyticsUserCostReportListParamsBucketWidth = "1m"`
 
-  - `ClaudeTagCategories param.Field[[]BetaAnalyticsClaudeTagCategory] Optional` (query parameter)
+  - `ClaudeTagCategories []BetaAnalyticsClaudeTagCategory Optional` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
 
@@ -7262,13 +9367,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaAnalyticsClaudeTagCategoryScheduled BetaAnalyticsClaudeTagCategory = "scheduled"`
 
-  - `ClaudeTagUserIDs param.Field[[]string] Optional` (query parameter)
+  - `ClaudeTagUserIDs []string Optional` (query parameter)
 
     Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
 
     maxItems: 100
 
-  - `ContextWindows param.Field[[]BetaAnalyticsContextWindow] Optional` (query parameter)
+  - `ContextWindows []BetaAnalyticsContextWindow Optional` (query parameter)
 
     Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
@@ -7278,17 +9383,17 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaAnalyticsContextWindowFrom200kTo1M BetaAnalyticsContextWindow = "200k-1M"`
 
-  - `EndingAt param.Field[Time] Optional` (query parameter)
+  - `EndingAt param.Opt[Time] Optional` (query parameter)
 
     End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
     format: date-time
 
-  - `ExcludeDeletedUsers param.Field[bool] Optional` (query parameter)
+  - `ExcludeDeletedUsers param.Opt[bool] Optional` (query parameter)
 
     If true, omit rows for users who are deleted (`deleted: true`). A page may contain fewer than `limit` rows; use `has_more` and `next_page` to paginate as usual.
 
-  - `GroupBy param.Field[[]string] Optional` (query parameter)
+  - `GroupBy []string Optional` (query parameter)
 
     Break each actor's row out by the given dimensions. Accepts the same values as the bucketed `/cost_report` endpoint. The `product`, `model`, `context_window`, `inference_geo`, and `speed` dimensions — and the time bucket, when `bucket_width` is set — count toward `limit`. `cost_type` and `token_type` do not: `cost_type` returns one row per cost component (tokens, web search, code execution); `token_type` returns one row per token type, each with `cost_type: "tokens"`; combining both returns the per-token-type rows plus the web-search and code-execution rows. A page can therefore contain more rows than `limit` when `cost_type` or `token_type` is requested.
 
@@ -7316,7 +9421,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaOrganizationAnalyticsUserCostReportListParamsGroupByTokenType BetaOrganizationAnalyticsUserCostReportListParamsGroupBy = "token_type"`
 
-  - `InferenceGeos param.Field[[]BetaAnalyticsInferenceGeoFilter] Optional` (query parameter)
+  - `InferenceGeos []BetaAnalyticsInferenceGeoFilter Optional` (query parameter)
 
     Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
@@ -7328,19 +9433,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaAnalyticsInferenceGeoFilterUs BetaAnalyticsInferenceGeoFilter = "us"`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of rows per page (1-1000, default 20). One row per actor unless `group_by[]` or `bucket_width` splits an actor across rows; `cost_type`/`token_type` fan-out rows (cost endpoint only) are the exception — they do not count toward this limit, so `data` can exceed it.
 
     minimum: 1, maximum: 1000
 
-  - `Models param.Field[[]string] Optional` (query parameter)
+  - `Models []string Optional` (query parameter)
 
     Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
 
     maxItems: 100
 
-  - `Order param.Field[BetaOrganizationAnalyticsUserCostReportListParamsOrder] Optional` (query parameter)
+  - `Order BetaOrganizationAnalyticsUserCostReportListParamsOrder Optional` (query parameter)
 
     Sort direction. Defaults to `desc`.
 
@@ -7348,7 +9453,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaOrganizationAnalyticsUserCostReportListParamsOrderDesc BetaOrganizationAnalyticsUserCostReportListParamsOrder = "desc"`
 
-  - `OrderBy param.Field[BetaOrganizationAnalyticsUserCostReportListParamsOrderBy] Optional` (query parameter)
+  - `OrderBy BetaOrganizationAnalyticsUserCostReportListParamsOrderBy Optional` (query parameter)
 
     Metric to rank actors by. Defaults to `amount`.
 
@@ -7356,11 +9461,11 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaOrganizationAnalyticsUserCostReportListParamsOrderByListAmount BetaOrganizationAnalyticsUserCostReportListParamsOrderBy = "list_amount"`
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `Products param.Field[[]BetaAnalyticsProductFilter] Optional` (query parameter)
+  - `Products []BetaAnalyticsProductFilter Optional` (query parameter)
 
     Product surfaces to include. Defaults to all products.
 
@@ -7380,19 +9485,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaAnalyticsProductFilterOfficeAgent BetaAnalyticsProductFilter = "office_agent"`
 
-  - `RBACGroupIDs param.Field[[]string] Optional` (query parameter)
+  - `RBACGroupIDs []string Optional` (query parameter)
 
     Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
 
     maxItems: 100
 
-  - `SlackChannelIDs param.Field[[]string] Optional` (query parameter)
+  - `SlackChannelIDs []string Optional` (query parameter)
 
     Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
     maxItems: 100
 
-  - `Speeds param.Field[[]string] Optional` (query parameter)
+  - `Speeds []string Optional` (query parameter)
 
     Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
 
@@ -7402,7 +9507,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     - `const BetaOrganizationAnalyticsUserCostReportListParamsSpeedStandard BetaOrganizationAnalyticsUserCostReportListParamsSpeed = "standard"`
 
-  - `UserIDs param.Field[[]string] Optional` (query parameter)
+  - `UserIDs []string Optional` (query parameter)
 
     Filter to specific users by tagged user ID.
 
@@ -7620,7 +9725,7 @@ func main() {
 
 ### Set Spend Limit
 
-`client.Beta.Organization.SpendLimits.Set(ctx, body) (*BetaSpendLimit, error)`
+`client.Beta.Organization.SpendLimits.Set(ctx, params) (*BetaSpendLimit, error)`
 
 **POST** `/v1/organizations/spend_limits`
 
@@ -7636,13 +9741,13 @@ Anthropic account team.
 
 #### Parameters
 
-- `body BetaOrganizationSpendLimitSetParams`
+- `params BetaOrganizationSpendLimitSetParams`
 
-  - `Amount param.Field[string]`
+  - `Amount param.Opt[string]`
 
     Limit amount as a non-negative integer decimal string in the minor unit of the organization's billing currency (cents for USD): "50000" is $500.00. `null` sets an explicit no-limit override for this scope and `period` only — each period resolves independently, so caps for other periods still apply.
 
-  - `Scope param.Field[BetaOrganizationSpendLimitSetParamsScopeUnion]`
+  - `Scope BetaOrganizationSpendLimitSetParamsScopeUnion`
 
     What the limit applies to. Claude Enterprise organizations set `user` limits. Claude Console organizations set `organization` and `workspace` limits. Any other combination returns 400. Setting `organization` and `workspace` limits through the API is in an early access preview. To request access, contact your Anthropic account team.
 
@@ -7680,7 +9785,111 @@ Anthropic account team.
 
         Tagged ID of the workspace the spend limit applies to.
 
-  - `Period param.Field[BetaSpendLimitPeriod] Optional`
+  - `Period BetaSpendLimitPeriod Optional`
+
+  - `Betas []AnthropicBeta Optional` (header parameter)
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+
+    - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+
+    - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+
+    - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+
+    - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+
+    - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+
+    - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+
+    - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+
+    - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+
+    - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+
+    - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+
+    - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+
+    - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+
+    - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+
+    - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+
+    - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+
+    - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+
+    - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+
+    - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+
+    - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+
+    - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+    - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
+
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
+    - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+
+    - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+
+    - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+    - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
+    - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+    - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+    - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+    - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+    - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
+
+    - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
+
+    - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
+
+    - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
+
+    - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
+
+    - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
+
+    - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+
+    - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+
+    - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+
+    - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+    - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+    - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
+    - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+    - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+    - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
+    - `const AnthropicBetaCEPlugins2026_09_01 AnthropicBeta = "ce-plugins-2026-09-01"`
+
+    - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
 #### Returns
 
@@ -8097,21 +10306,21 @@ is not creation order.
 
 - `params BetaOrganizationSpendLimitListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum number of limits per page. Defaults to `20`.
 
     minimum: 1, maximum: 1000
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `ScopeType param.Field[[]string] Optional` (query parameter)
+  - `ScopeType []string Optional` (query parameter)
 
     Return only limits with these scope types. A Claude Console organization has `organization` and `workspace` limits; a Claude Enterprise organization has `organization`, `seat_tier`, `rbac_group`, `organization_service` and `user` limits. Omit for all.
 
-    maxItems: 6
+    maxItems: 100
 
     - `const BetaOrganizationSpendLimitListParamsScopeTypeOrganization BetaOrganizationSpendLimitListParamsScopeType = "organization"`
 
@@ -8125,7 +10334,7 @@ is not creation order.
 
     - `const BetaOrganizationSpendLimitListParamsScopeTypeWorkspace BetaOrganizationSpendLimitListParamsScopeType = "workspace"`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `spend-limit-reads-2026-09-26` in this header.
 
@@ -8408,17 +10617,17 @@ Paginates by member, so a member's periods never split across pages.
 
 - `query BetaOrganizationSpendLimitEffectiveListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Maximum number of members per page. A member's period rows never split across pages, so a page may carry more rows than this. Defaults to `20`.
 
     minimum: 1, maximum: 1000
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page` field.
 
-  - `Period param.Field[[]string] Optional` (query parameter)
+  - `Period []string Optional` (query parameter)
 
     Restrict the report to these limit periods. Omit to return one row per period each member resolves a spend limit for.
 
@@ -8430,7 +10639,7 @@ Paginates by member, so a member's periods never split across pages.
 
     - `const BetaOrganizationSpendLimitEffectiveListParamsPeriodWeekly BetaOrganizationSpendLimitEffectiveListParamsPeriod = "weekly"`
 
-  - `UserIDs param.Field[[]string] Optional` (query parameter)
+  - `UserIDs []string Optional` (query parameter)
 
     Restrict the report to these members, by tagged user ID (`user_...`). At most 100 entries.
 
@@ -8660,19 +10869,19 @@ Requests whose requester is no longer a member are excluded.
 
 - `query BetaOrganizationSpendLimitIncreaseRequestListParams`
 
-  - `ActorIDs param.Field[[]string] Optional` (query parameter)
+  - `ActorIDs []string Optional` (query parameter)
 
     Filter by requester, as `user_...` tagged IDs.
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     minimum: 1, maximum: 1000
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Opaque cursor from a previous response's `next_page`.
 
-  - `Status param.Field[[]BetaSpendLimitIncreaseRequestStatus] Optional` (query parameter)
+  - `Status []BetaSpendLimitIncreaseRequestStatus Optional` (query parameter)
 
     Filter by status. Omit to return all.
 
@@ -9273,13 +11482,13 @@ the member was blocked on. Anthropic emails the requester unless
 
 - `body BetaOrganizationSpendLimitIncreaseRequestApproveParams`
 
-  - `Amount param.Field[string]`
+  - `Amount string`
 
     New per-user spend limit as a non-negative integer decimal string (minor units).
 
-  - `Period param.Field[BetaSpendLimitPeriod] Optional`
+  - `Period BetaSpendLimitPeriod Optional`
 
-  - `SuppressNotification param.Field[bool] Optional`
+  - `SuppressNotification param.Opt[bool] Optional`
 
 #### Returns
 
@@ -9656,7 +11865,7 @@ Idempotent on `denied`; denying an already-`approved` request returns
 
 - `body BetaOrganizationSpendLimitIncreaseRequestDenyParams`
 
-  - `SuppressNotification param.Field[bool] Optional`
+  - `SuppressNotification param.Opt[bool] Optional`
 
 #### Returns
 
@@ -9952,7 +12161,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 - `body BetaOrganizationRBACGroupNewParams`
 
-  - `Name param.Field[string]`
+  - `Name string`
 
     Name of the RBAC Group. Not uniqueness-enforced.
 
@@ -10062,7 +12271,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 - `query BetaOrganizationRBACGroupListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -10070,7 +12279,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     minimum: 1, maximum: 1000
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Optionally set to the `next_page` token from the previous response.
 
@@ -10290,7 +12499,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 - `body BetaOrganizationRBACGroupUpdateParams`
 
-  - `Name param.Field[string] Optional`
+  - `Name param.Opt[string] Optional`
 
     Name of the RBAC Group. Not uniqueness-enforced.
 
@@ -10474,7 +12683,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 - `query BetaOrganizationRBACGroupMemberListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -10482,7 +12691,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     minimum: 1, maximum: 1000
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Optionally set to the `next_page` token from the previous response.
 
@@ -10582,7 +12791,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 - `body BetaOrganizationRBACGroupMemberAddParams`
 
-  - `UserID param.Field[string]`
+  - `UserID string`
 
     ID of the User.
 
@@ -10678,7 +12887,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 - `body BetaOrganizationRBACGroupMemberRemoveParams`
 
-  - `RBACGroupID param.Field[string]` (path parameter)
+  - `RBACGroupID string` (path parameter)
 
     ID of the RBAC Group.
 
@@ -10758,7 +12967,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
 - `query BetaOrganizationRBACRoleListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -10766,7 +12975,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
     minimum: 1, maximum: 1000
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Optionally set to the `next_page` token from the previous response.
 
@@ -10964,7 +13173,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
 - `query BetaOrganizationRBACRolePermissionListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -10972,7 +13181,7 @@ The RBAC Roles API is available to Claude Enterprise organizations only.
 
     minimum: 1, maximum: 1000
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Optionally set to the `next_page` token from the previous response.
 
@@ -11181,21 +13390,21 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginNewParams`
 
-  - `Files param.Field[[]Reader]`
+  - `Files []Reader`
 
     The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
 
-  - `MarketplaceID param.Field[string] Optional`
+  - `MarketplaceID param.Opt[string] Optional`
 
     ID of the organization-owned plugin marketplace to create the Plugin in (prefixed `marketplace_`). It must be a `manual` marketplace, one whose Plugins are uploaded rather than synchronized from a repository. When omitted, the Plugin is created in the organization's library marketplace, an organization-owned `manual` marketplace created on first use.
 
-  - `ReleaseNotes param.Field[string] Optional`
+  - `ReleaseNotes param.Opt[string] Optional`
 
     Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
 
     maxLength: 5000
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -11588,11 +13797,11 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginGetParams`
 
-  - `OrganizationID param.Field[string] Optional` (query parameter)
+  - `OrganizationID param.Opt[string] Optional` (query parameter)
 
     For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -12005,11 +14214,11 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginUpdateParams`
 
-  - `ServedVersionID param.Field[string]`
+  - `ServedVersionID string`
 
     Serve this version of the Plugin (prefixed `pluginver_`) and pin the served version to it; `latest` is not accepted.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -12406,31 +14615,31 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginListParams`
 
-  - `CreatedAtGt param.Field[Time] Optional` (query parameter)
+  - `CreatedAtGt param.Opt[Time] Optional` (query parameter)
 
     RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
 
     format: date-time
 
-  - `CreatedAtGte param.Field[Time] Optional` (query parameter)
+  - `CreatedAtGte param.Opt[Time] Optional` (query parameter)
 
     RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
 
     format: date-time
 
-  - `CreatedAtLt param.Field[Time] Optional` (query parameter)
+  - `CreatedAtLt param.Opt[Time] Optional` (query parameter)
 
     RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
 
     format: date-time
 
-  - `CreatedAtLte param.Field[Time] Optional` (query parameter)
+  - `CreatedAtLte param.Opt[Time] Optional` (query parameter)
 
     RFC 3339 timestamp bound; combine [gte], [gt], [lte], [lt].
 
     format: date-time
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -12438,15 +14647,15 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     minimum: 1, maximum: 100
 
-  - `MarketplaceID param.Field[string] Optional` (query parameter)
+  - `MarketplaceID param.Opt[string] Optional` (query parameter)
 
     Only Plugins in this plugin marketplace (prefixed `marketplace_`).
 
-  - `OrganizationID param.Field[string] Optional` (query parameter)
+  - `OrganizationID param.Opt[string] Optional` (query parameter)
 
     For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `OwnerType param.Field[BetaOrganizationPluginListParamsOwnerType] Optional` (query parameter)
+  - `OwnerType BetaOrganizationPluginListParamsOwnerType Optional` (query parameter)
 
     `organization` for Plugins in the organization's plugin marketplaces, `user` for Plugins in members' personal plugin marketplaces.
 
@@ -12454,17 +14663,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     - `const BetaOrganizationPluginListParamsOwnerTypeUser BetaOrganizationPluginListParamsOwnerType = "user"`
 
-  - `OwnerUserID param.Field[string] Optional` (query parameter)
+  - `OwnerUserID param.Opt[string] Optional` (query parameter)
 
     Only Plugins in this member's personal plugin marketplaces (prefixed `user_`); a removed member's ID is accepted.
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Optionally set to the `next_page` token from the previous response.
 
     maxLength: 2048
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -12869,7 +15078,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `body BetaOrganizationPluginDeleteParams`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -13066,17 +15275,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginVersionNewParams`
 
-  - `Files param.Field[[]Reader]`
+  - `Files []Reader`
 
     The version's files: one part per file, the part's filename being the file's path within the Plugin (for example `skills/review-pr/SKILL.md`), or a single `.zip` or `.plugin` archive holding them all. On the wire each part is named `files[]`, and a part named plain `files` is not read; with cURL, `-F 'files[]=@SKILL.md;filename=skills/review-pr/SKILL.md'`. The files must include the manifest, `.claude-plugin/plugin.json`.
 
-  - `ReleaseNotes param.Field[string] Optional`
+  - `ReleaseNotes param.Opt[string] Optional`
 
     Release notes stored with the version and shown in its version history in claude.ai; up to 5,000 characters.
 
     maxLength: 5000
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -13409,7 +15618,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginVersionListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -13417,17 +15626,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     minimum: 1, maximum: 1000
 
-  - `OrganizationID param.Field[string] Optional` (query parameter)
+  - `OrganizationID param.Opt[string] Optional` (query parameter)
 
     For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Optionally set to the `next_page` token from the previous response.
 
     maxLength: 2048
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -13758,15 +15967,15 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginVersionGetParams`
 
-  - `PluginID param.Field[string]` (path parameter)
+  - `PluginID string` (path parameter)
 
     ID of the Plugin (prefixed `plugin_`).
 
-  - `OrganizationID param.Field[string] Optional` (query parameter)
+  - `OrganizationID param.Opt[string] Optional` (query parameter)
 
     For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -14110,15 +16319,15 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginVersionDownloadParams`
 
-  - `PluginID param.Field[string]` (path parameter)
+  - `PluginID string` (path parameter)
 
     ID of the Plugin (prefixed `plugin_`).
 
-  - `OrganizationID param.Field[string] Optional` (query parameter)
+  - `OrganizationID param.Opt[string] Optional` (query parameter)
 
     For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -14284,7 +16493,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginInstallationSettingListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -14292,17 +16501,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     minimum: 1, maximum: 100
 
-  - `OrganizationID param.Field[string] Optional` (query parameter)
+  - `OrganizationID param.Opt[string] Optional` (query parameter)
 
     For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Optionally set to the `next_page` token from the previous response.
 
     maxLength: 2048
 
-  - `TargetType param.Field[BetaOrganizationPluginInstallationSettingListParamsTargetType] Optional` (query parameter)
+  - `TargetType BetaOrganizationPluginInstallationSettingListParamsTargetType Optional` (query parameter)
 
     Only settings for this kind of target: `organization` (the organization-wide setting) or `rbac_group` (an RBAC Group's).
 
@@ -14310,7 +16519,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     - `const BetaOrganizationPluginInstallationSettingListParamsTargetTypeRBACGroup BetaOrganizationPluginInstallationSettingListParamsTargetType = "rbac_group"`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -14573,11 +16782,11 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginInstallationSettingSetParams`
 
-  - `PluginID param.Field[string]` (path parameter)
+  - `PluginID string` (path parameter)
 
     ID of the Plugin (prefixed `plugin_`).
 
-  - `InstallationPreference param.Field[BetaOrganizationPluginInstallationSettingSetParamsInstallationPreference]`
+  - `InstallationPreference BetaOrganizationPluginInstallationSettingSetParamsInstallationPreference`
 
     The installation setting the target is to hold for this Plugin: one of `required`, `auto_install`, `available`, `not_available`.
 
@@ -14589,7 +16798,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     - `const BetaOrganizationPluginInstallationSettingSetParamsInstallationPreferenceRequired BetaOrganizationPluginInstallationSettingSetParamsInstallationPreference = "required"`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -14854,11 +17063,11 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginInstallationSettingRemoveParams`
 
-  - `PluginID param.Field[string]` (path parameter)
+  - `PluginID string` (path parameter)
 
     ID of the Plugin (prefixed `plugin_`).
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -15087,7 +17296,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginShareListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -15095,17 +17304,17 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     minimum: 1, maximum: 100
 
-  - `OrganizationID param.Field[string] Optional` (query parameter)
+  - `OrganizationID param.Opt[string] Optional` (query parameter)
 
     For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Optionally set to the `next_page` token from the previous response.
 
     maxLength: 2048
 
-  - `TargetType param.Field[BetaOrganizationPluginShareListParamsTargetType] Optional` (query parameter)
+  - `TargetType BetaOrganizationPluginShareListParamsTargetType Optional` (query parameter)
 
     Only shares with this kind of target: `organization` (every member), `rbac_group` (one RBAC Group), or `organization_member` (one member).
 
@@ -15115,7 +17324,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     - `const BetaOrganizationPluginShareListParamsTargetTypeRBACGroup BetaOrganizationPluginShareListParamsTargetType = "rbac_group"`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -15350,7 +17559,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginMarketplaceListParams`
 
-  - `Limit param.Field[int64] Optional` (query parameter)
+  - `Limit param.Opt[int64] Optional` (query parameter)
 
     Number of items to return per page.
 
@@ -15358,11 +17567,11 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     minimum: 1, maximum: 1000
 
-  - `OrganizationID param.Field[string] Optional` (query parameter)
+  - `OrganizationID param.Opt[string] Optional` (query parameter)
 
     For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `OwnerType param.Field[BetaOrganizationPluginMarketplaceListParamsOwnerType] Optional` (query parameter)
+  - `OwnerType BetaOrganizationPluginMarketplaceListParamsOwnerType Optional` (query parameter)
 
     `organization` for the organization's plugin marketplaces, `user` for members' personal plugin marketplaces.
 
@@ -15370,13 +17579,13 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     - `const BetaOrganizationPluginMarketplaceListParamsOwnerTypeUser BetaOrganizationPluginMarketplaceListParamsOwnerType = "user"`
 
-  - `Page param.Field[string] Optional` (query parameter)
+  - `Page param.Opt[string] Optional` (query parameter)
 
     Optionally set to the `next_page` token from the previous response.
 
     maxLength: 2048
 
-  - `Source param.Field[BetaOrganizationPluginMarketplaceListParamsSource] Optional` (query parameter)
+  - `Source BetaOrganizationPluginMarketplaceListParamsSource Optional` (query parameter)
 
     Only plugin marketplaces with this `source`: `manual` for those whose Plugins are uploaded; `github`, `gitlab` or `public_git` for those synchronized from a Git repository. `directory` (Anthropic's catalog) is never listed here.
 
@@ -15390,7 +17599,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     - `const BetaOrganizationPluginMarketplaceListParamsSourcePublicGit BetaOrganizationPluginMarketplaceListParamsSource = "public_git"`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -15663,11 +17872,11 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginMarketplaceGetParams`
 
-  - `OrganizationID param.Field[string] Optional` (query parameter)
+  - `OrganizationID param.Opt[string] Optional` (query parameter)
 
     For a `read:org_audit` or `read:compliance_org_data` key created for all of a parent organization's linked organizations: a child organization of that parent to read instead of the organization the key was created in, given as the organization's UUID or its `org_`-prefixed ID. A value that is neither returns a 400; an organization that is not a child of the key's parent, or where the Plugins API is not available, returns a 404. Any other key may pass only its own organization's ID here; another organization returns a 404.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -15944,7 +18153,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginMarketplaceUpdateParams`
 
-  - `DefaultInstallationPreference param.Field[BetaOrganizationPluginMarketplaceUpdateParamsDefaultInstallationPreference]`
+  - `DefaultInstallationPreference BetaOrganizationPluginMarketplaceUpdateParamsDefaultInstallationPreference`
 
     The organization-wide installation setting every Plugin in the marketplace without one of its own gets: one of `required`, `auto_install`, `available`, `not_available`. Once set it can be changed but not removed.
 
@@ -15956,7 +18165,7 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
     - `const BetaOrganizationPluginMarketplaceUpdateParamsDefaultInstallationPreferenceRequired BetaOrganizationPluginMarketplaceUpdateParamsDefaultInstallationPreference = "required"`
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -16241,19 +18450,19 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginMarketplaceValidateRepositoryParams`
 
-  - `RepositoryURL param.Field[string]`
+  - `RepositoryURL string`
 
     The `https://` URL of a public repository on github.com that holds the marketplace. Any other host, a URL with credentials in it, or one that does not name a repository is a 400.
 
     minLength: 1
 
-  - `Ref param.Field[string] Optional`
+  - `Ref param.Opt[string] Optional`
 
     The branch to validate the tip of, or the full 40-character SHA of the commit to validate. When omitted, the branch a synchronization would read (usually the repository's default branch); if that is not the default branch, the report's `ref` says which branch was read. An empty string, or a value that is neither a branch name nor a 40-character SHA, is a 400.
 
     minLength: 1
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 
@@ -16520,13 +18729,13 @@ Every request must include the beta header `anthropic-beta: ce-plugins-2026-09-0
 
 - `params BetaOrganizationPluginMarketplaceValidateArchiveParams`
 
-  - `Archive param.Field[Reader]`
+  - `Archive Reader`
 
     A .zip of the marketplace directory (its contents at the root, or wrapped in one folder as a Git host's download produces), sent as a file part with a filename; DEFLATE- or STORE-compressed, at most 32 MB. A part sent without a filename, a second archive part, or any other form field is a 400; a larger archive is a 413.
 
     format: binary
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     This endpoint is in beta: requests must send `ce-plugins-2026-09-01` in this header.
 

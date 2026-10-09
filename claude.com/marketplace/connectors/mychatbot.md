@@ -102,3 +102,5 @@ Connect to Asana to coordinate tasks, projects, and goals
 Build, manage, and analyze your Shopify store
 
 [Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
+
+MyChatBot connector | Claude by Anthropic

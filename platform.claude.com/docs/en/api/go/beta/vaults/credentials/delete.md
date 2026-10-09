@@ -21,11 +21,11 @@ Delete Credential
 
 - `params BetaVaultCredentialDeleteParams`
 
-  - `VaultID param.Field[string]` (path parameter)
+  - `VaultID string` (path parameter)
 
     Identifier of the vault containing the credential.
 
-  - `Betas param.Field[[]AnthropicBeta] Optional` (header parameter)
+  - `Betas []AnthropicBeta Optional` (header parameter)
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -129,7 +129,7 @@ Delete Credential
 
     - `const AnthropicBetaSpendLimitReads2026_09_26 AnthropicBeta = "spend-limit-reads-2026-09-26"`
 
-  - `WorkspaceID param.Field[string] Optional` (header parameter)
+  - `WorkspaceID param.Opt[string] Optional` (header parameter)
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
 
@@ -166,7 +166,7 @@ func main() {
 	)
 	betaManagedAgentsDeletedCredential, err := client.Beta.Vaults.Credentials.Delete(
 		context.TODO(),
-		"vcrd_011CZkZEMt8gZan2iYOQfSkw",
+		"vcrd_011CZkZEMt8gZan2iYPQfSkw",
 		anthropic.BetaVaultCredentialDeleteParams{
 			VaultID: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
 		},
@@ -182,7 +182,7 @@ func main() {
 
 ```json
 {
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "id": "vcrd_011CZkZEMt8gZan2iYPQfSkw",
   "type": "vault_credential_deleted"
 }
 ```

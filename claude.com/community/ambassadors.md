@@ -103,5 +103,3 @@ Yes! We encourage you to share it on social media, your resume, and LinkedIn.
 Applications are open. If you’re a builder who brings people together, we’d love to hear from you.
 
 [Apply now (opens in new tab)](https://form.typeform.com/to/OIUYgsnS)
-
-Claude Community Ambassadors | Claude by Anthropic

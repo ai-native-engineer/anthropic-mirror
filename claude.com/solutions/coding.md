@@ -6,7 +6,7 @@ Claude is the not-so-secret advantage for world class engineering teams and soft
 
 [Start building (opens in new tab)](https://platform.claude.com/)[Contact sales](https://claude.com/contact-sales)
 
-[![](https://assets.claude.com/2b058b37151273b2dfff681861d4f99dc28a882d.png)](https://assets.claude.com/27884c4362fe884eca5dba08fe5c7efb1bbf567a.mp4)
+![](https://assets.claude.com/2b058b37151273b2dfff681861d4f99dc28a882d.png)
 
 * 66.4%
 

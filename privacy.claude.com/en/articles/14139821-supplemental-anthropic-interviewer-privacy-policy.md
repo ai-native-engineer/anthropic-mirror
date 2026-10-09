@@ -45,7 +45,7 @@ Study Participation Data may be disclosed to the categories of recipients set ou
 
 ### 7. Your Rights, Retention, International Transfers, and Contact7
 
-For information on your rights and how to exercise them, how long we retain personal data, international data transfers, and how to contact us (including our Data Protection Officer), please see the corresponding sections of the Privacy Policy. To exercise your rights, you can submit a request by emailing us at [[email protected]](https://privacy.claude.com/cdn-cgi/l/email-protection#cabab8a3bcaba9b38aaba4bea2b8a5baa3a9e4a9a5a7).
+For information on your rights and how to exercise them, how long we retain personal data, international data transfers, and how to contact us (including our Data Protection Officer), please see the corresponding sections of the Privacy Policy. To exercise your rights, you can submit a request by emailing us at [[email protected]](https://privacy.claude.com/cdn-cgi/l/email-protection#3444465d4255574d74555a405c465b445d571a575b59).
 
 ---
 

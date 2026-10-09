@@ -3,6 +3,4497 @@
 
 <!-- chunk-start -->
 
+                  Parameters for the user's location. Used to provide more relevant search results.
+
+                  - `JsonElement Type = "approximate"`
+
+                  - `string? City`
+
+                    The city of the user.
+
+                    minLength: 1, maxLength: 255
+
+                  - `string? Country`
+
+                    The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+                    minLength: 2, maxLength: 2
+
+                  - `string? Region`
+
+                    The region of the user.
+
+                    minLength: 1, maxLength: 255
+
+                  - `string? Timezone`
+
+                    The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+                    minLength: 1, maxLength: 255
+
+              - `class BetaWebFetchTool20250910`
+
+                - `JsonElement Type = "web_fetch_20250910"`
+
+                - `JsonElement Name = "web_fetch"`
+
+                  Name of the tool.
+
+                  This is how the tool will be called by the model and in `tool_use` blocks.
+
+                - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+                  - `Direct("direct")`
+
+                  - `CodeExecution20250825("code_execution_20250825")`
+
+                  - `CodeExecution20260120("code_execution_20260120")`
+
+                  - `CodeExecution20260521("code_execution_20260521")`
+
+                - `IReadOnlyList<string>? AllowedDomains`
+
+                  List of domains to allow fetching from
+
+                - `IReadOnlyList<string>? BlockedDomains`
+
+                  List of domains to block fetching from
+
+                - `BetaCacheControlEphemeral? CacheControl`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `BetaCitationsConfigParam? Citations`
+
+                  Citations configuration for fetched documents. Citations are disabled by default.
+
+                - `bool DeferLoading`
+
+                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                - `long? MaxContentTokens`
+
+                  Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                  minimum: 1
+
+                - `long? MaxUses`
+
+                  Maximum number of times the tool can be used in the API request.
+
+                  minimum: 1
+
+                - `bool Strict`
+
+                  When true, guarantees schema validation on tool names and inputs
+
+                - `BetaWebFetchUrlSources? UrlSources`
+
+                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                  - `ClientToolResults ClientToolResults`
+
+                    Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+                    - `class BetaWebFetchUrlSourceAll`
+
+                      The `url_sources` variant under which a source contributes in
+                      full: every result of the tool filter's source, or all user input.
+
+                      - `JsonElement Type = "all"`
+
+                    - `class BetaWebFetchUrlSourceNone`
+
+                      The `url_sources` variant under which a source contributes nothing:
+                      no result of the tool filter's source, or no user input.
+
+                      - `JsonElement Type = "none"`
+
+                    - `class BetaWebFetchUrlSourceOnly`
+
+                      The tool filter variant under which only the named tools' results
+                      contribute.
+
+                      - `JsonElement Type = "only"`
+
+                      - `required IReadOnlyList<BetaWebFetchUrlSourceToolReference> Tools`
+
+                        - `JsonElement Type = "tool_reference"`
+
+                        - `required string Name`
+
+                    - `class BetaWebFetchUrlSourceExcept`
+
+                      The tool filter variant under which every result but the named
+                      tools' contributes.
+
+                      - `JsonElement Type = "except"`
+
+                      - `required IReadOnlyList<BetaWebFetchUrlSourceToolReference> Tools`
+
+                        - `JsonElement Type = "tool_reference"`
+
+                        - `required string Name`
+
+                  - `ServerToolResults ServerToolResults`
+
+                    Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+                    - `class BetaWebFetchUrlSourceAll`
+
+                      The `url_sources` variant under which a source contributes in
+                      full: every result of the tool filter's source, or all user input.
+
+                    - `class BetaWebFetchUrlSourceNone`
+
+                      The `url_sources` variant under which a source contributes nothing:
+                      no result of the tool filter's source, or no user input.
+
+                    - `class BetaWebFetchUrlSourceOnly`
+
+                      The tool filter variant under which only the named tools' results
+                      contribute.
+
+                    - `class BetaWebFetchUrlSourceExcept`
+
+                      The tool filter variant under which every result but the named
+                      tools' contributes.
+
+                  - `UserInput UserInput`
+
+                    Whether URLs in user messages are fetchable: "all" or "none".
+
+                    - `class BetaWebFetchUrlSourceAll`
+
+                      The `url_sources` variant under which a source contributes in
+                      full: every result of the tool filter's source, or all user input.
+
+                    - `class BetaWebFetchUrlSourceNone`
+
+                      The `url_sources` variant under which a source contributes nothing:
+                      no result of the tool filter's source, or no user input.
+
+              - `class BetaWebSearchTool20260209`
+
+                - `JsonElement Type = "web_search_20260209"`
+
+                - `JsonElement Name = "web_search"`
+
+                  Name of the tool.
+
+                  This is how the tool will be called by the model and in `tool_use` blocks.
+
+                - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+                  - `Direct("direct")`
+
+                  - `CodeExecution20250825("code_execution_20250825")`
+
+                  - `CodeExecution20260120("code_execution_20260120")`
+
+                  - `CodeExecution20260521("code_execution_20260521")`
+
+                - `IReadOnlyList<string>? AllowedDomains`
+
+                  If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                - `IReadOnlyList<string>? BlockedDomains`
+
+                  If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                - `BetaCacheControlEphemeral? CacheControl`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `bool DeferLoading`
+
+                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                - `long? MaxUses`
+
+                  Maximum number of times the tool can be used in the API request.
+
+                  minimum: 1
+
+                - `bool Strict`
+
+                  When true, guarantees schema validation on tool names and inputs
+
+                - `BetaUserLocation? UserLocation`
+
+                  Parameters for the user's location. Used to provide more relevant search results.
+
+              - `class BetaWebFetchTool20260209`
+
+                - `JsonElement Type = "web_fetch_20260209"`
+
+                - `JsonElement Name = "web_fetch"`
+
+                  Name of the tool.
+
+                  This is how the tool will be called by the model and in `tool_use` blocks.
+
+                - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+                  - `Direct("direct")`
+
+                  - `CodeExecution20250825("code_execution_20250825")`
+
+                  - `CodeExecution20260120("code_execution_20260120")`
+
+                  - `CodeExecution20260521("code_execution_20260521")`
+
+                - `IReadOnlyList<string>? AllowedDomains`
+
+                  List of domains to allow fetching from
+
+                - `IReadOnlyList<string>? BlockedDomains`
+
+                  List of domains to block fetching from
+
+                - `BetaCacheControlEphemeral? CacheControl`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `BetaCitationsConfigParam? Citations`
+
+                  Citations configuration for fetched documents. Citations are disabled by default.
+
+                - `bool DeferLoading`
+
+                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                - `long? MaxContentTokens`
+
+                  Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                  minimum: 1
+
+                - `long? MaxUses`
+
+                  Maximum number of times the tool can be used in the API request.
+
+                  minimum: 1
+
+                - `bool Strict`
+
+                  When true, guarantees schema validation on tool names and inputs
+
+                - `BetaWebFetchUrlSources? UrlSources`
+
+                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+              - `class BetaWebFetchTool20260309`
+
+                Web fetch tool with use_cache parameter for bypassing cached content.
+
+                - `JsonElement Type = "web_fetch_20260309"`
+
+                - `JsonElement Name = "web_fetch"`
+
+                  Name of the tool.
+
+                  This is how the tool will be called by the model and in `tool_use` blocks.
+
+                - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+                  - `Direct("direct")`
+
+                  - `CodeExecution20250825("code_execution_20250825")`
+
+                  - `CodeExecution20260120("code_execution_20260120")`
+
+                  - `CodeExecution20260521("code_execution_20260521")`
+
+                - `IReadOnlyList<string>? AllowedDomains`
+
+                  List of domains to allow fetching from
+
+                - `IReadOnlyList<string>? BlockedDomains`
+
+                  List of domains to block fetching from
+
+                - `BetaCacheControlEphemeral? CacheControl`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `BetaCitationsConfigParam? Citations`
+
+                  Citations configuration for fetched documents. Citations are disabled by default.
+
+                - `bool DeferLoading`
+
+                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                - `long? MaxContentTokens`
+
+                  Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                  minimum: 1
+
+                - `long? MaxUses`
+
+                  Maximum number of times the tool can be used in the API request.
+
+                  minimum: 1
+
+                - `bool Strict`
+
+                  When true, guarantees schema validation on tool names and inputs
+
+                - `BetaWebFetchUrlSources? UrlSources`
+
+                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                - `bool UseCache`
+
+                  Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+              - `class BetaWebSearchTool20260318`
+
+                - `JsonElement Type = "web_search_20260318"`
+
+                - `JsonElement Name = "web_search"`
+
+                  Name of the tool.
+
+                  This is how the tool will be called by the model and in `tool_use` blocks.
+
+                - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+                  - `Direct("direct")`
+
+                  - `CodeExecution20250825("code_execution_20250825")`
+
+                  - `CodeExecution20260120("code_execution_20260120")`
+
+                  - `CodeExecution20260521("code_execution_20260521")`
+
+                - `IReadOnlyList<string>? AllowedDomains`
+
+                  If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                - `IReadOnlyList<string>? BlockedDomains`
+
+                  If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                - `BetaCacheControlEphemeral? CacheControl`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `bool DeferLoading`
+
+                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                - `long? MaxUses`
+
+                  Maximum number of times the tool can be used in the API request.
+
+                  minimum: 1
+
+                - `ResponseInclusion ResponseInclusion`
+
+                  How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+                  - `Full("full")`
+
+                  - `Excluded("excluded")`
+
+                - `bool Strict`
+
+                  When true, guarantees schema validation on tool names and inputs
+
+                - `BetaUserLocation? UserLocation`
+
+                  Parameters for the user's location. Used to provide more relevant search results.
+
+              - `class BetaWebFetchTool20260318`
+
+                - `JsonElement Type = "web_fetch_20260318"`
+
+                - `JsonElement Name = "web_fetch"`
+
+                  Name of the tool.
+
+                  This is how the tool will be called by the model and in `tool_use` blocks.
+
+                - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+                  - `Direct("direct")`
+
+                  - `CodeExecution20250825("code_execution_20250825")`
+
+                  - `CodeExecution20260120("code_execution_20260120")`
+
+                  - `CodeExecution20260521("code_execution_20260521")`
+
+                - `IReadOnlyList<string>? AllowedDomains`
+
+                  List of domains to allow fetching from
+
+                - `IReadOnlyList<string>? BlockedDomains`
+
+                  List of domains to block fetching from
+
+                - `BetaCacheControlEphemeral? CacheControl`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `BetaCitationsConfigParam? Citations`
+
+                  Citations configuration for fetched documents. Citations are disabled by default.
+
+                - `bool DeferLoading`
+
+                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                - `long? MaxContentTokens`
+
+                  Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                  minimum: 1
+
+                - `long? MaxUses`
+
+                  Maximum number of times the tool can be used in the API request.
+
+                  minimum: 1
+
+                - `ResponseInclusion ResponseInclusion`
+
+                  How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+                  - `Full("full")`
+
+                  - `Excluded("excluded")`
+
+                - `bool Strict`
+
+                  When true, guarantees schema validation on tool names and inputs
+
+                - `BetaWebFetchUrlSources? UrlSources`
+
+                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                - `bool UseCache`
+
+                  Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+              - `class BetaAdvisorTool20260301`
+
+                - `JsonElement Type = "advisor_20260301"`
+
+                - `required Model Model`
+
+                  The model that will complete your prompt.
+
+                  See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+                    Fastest model for high-volume, real-time tasks
+
+                  - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+                    Efficient model for coding and agents
+
+                  - `ClaudeFable5_1("claude-fable-5-1")`
+
+                    Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                  - `ClaudeOpus5_5("claude-opus-5-5")`
+
+                    Powerful intelligence for coding, knowledge work, and long-running agents
+
+                  - `ClaudeMythos5_1("claude-mythos-5-1")`
+
+                    Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+                  - `ClaudeSonnet5("claude-sonnet-5")`
+
+                    Efficient model for coding and agents
+
+                  - `ClaudeFable5("claude-fable-5")`
+
+                    Next generation of intelligence for the hardest knowledge work and coding problems
+
+                  - `ClaudeMythos5("claude-mythos-5")`
+
+                    Most capable model for cybersecurity and biology research
+
+                  - `ClaudeOpus5("claude-opus-5")`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `ClaudeOpus4_8("claude-opus-4-8")`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `ClaudeOpus4_7("claude-opus-4-7")`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `ClaudeOpus4_6("claude-opus-4-6")`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `ClaudeSonnet4_6("claude-sonnet-4-6")`
+
+                    Best combination of speed and intelligence
+
+                  - `ClaudeHaiku4_5("claude-haiku-4-5")`
+
+                    Fastest model with near-frontier intelligence
+
+                  - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
+
+                    Fastest model with near-frontier intelligence
+
+                  - `ClaudeOpus4_5("claude-opus-4-5")`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
+
+                    Powerful intelligence for long-running agents and coding
+
+                  - `ClaudeMythosPreview("claude-mythos-preview")`
+
+                    **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                    New class of intelligence, strongest in coding and cybersecurity
+
+                  - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+                    **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                    High-performance model for agents and coding
+
+                  - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+                    **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                    High-performance model for agents and coding
+
+                - `JsonElement Name = "advisor"`
+
+                  Name of the tool.
+
+                  This is how the tool will be called by the model and in `tool_use` blocks.
+
+                - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+                  - `Direct("direct")`
+
+                  - `CodeExecution20250825("code_execution_20250825")`
+
+                  - `CodeExecution20260120("code_execution_20260120")`
+
+                  - `CodeExecution20260521("code_execution_20260521")`
+
+                - `BetaCacheControlEphemeral? CacheControl`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `BetaCacheControlEphemeral? Caching`
+
+                  Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+                - `bool DeferLoading`
+
+                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                - `long? MaxTokens`
+
+                  Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+                  minimum: 1024
+
+                - `long? MaxUses`
+
+                  Maximum number of times the tool can be used in the API request.
+
+                  minimum: 1
+
+                - `bool Strict`
+
+                  When true, guarantees schema validation on tool names and inputs
+
+              - `class BetaToolSearchToolBm25_20251119`
+
+                - `required Type Type`
+
+                  - `ToolSearchToolBm25_20251119("tool_search_tool_bm25_20251119")`
+
+                  - `ToolSearchToolBm25("tool_search_tool_bm25")`
+
+                - `JsonElement Name = "tool_search_tool_bm25"`
+
+                  Name of the tool.
+
+                  This is how the tool will be called by the model and in `tool_use` blocks.
+
+                - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+                  - `Direct("direct")`
+
+                  - `CodeExecution20250825("code_execution_20250825")`
+
+                  - `CodeExecution20260120("code_execution_20260120")`
+
+                  - `CodeExecution20260521("code_execution_20260521")`
+
+                - `BetaCacheControlEphemeral? CacheControl`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `bool DeferLoading`
+
+                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                - `bool Strict`
+
+                  When true, guarantees schema validation on tool names and inputs
+
+              - `class BetaToolSearchToolRegex20251119`
+
+                - `required Type Type`
+
+                  - `ToolSearchToolRegex20251119("tool_search_tool_regex_20251119")`
+
+                  - `ToolSearchToolRegex("tool_search_tool_regex")`
+
+                - `JsonElement Name = "tool_search_tool_regex"`
+
+                  Name of the tool.
+
+                  This is how the tool will be called by the model and in `tool_use` blocks.
+
+                - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+                  - `Direct("direct")`
+
+                  - `CodeExecution20250825("code_execution_20250825")`
+
+                  - `CodeExecution20260120("code_execution_20260120")`
+
+                  - `CodeExecution20260521("code_execution_20260521")`
+
+                - `BetaCacheControlEphemeral? CacheControl`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `bool DeferLoading`
+
+                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                - `bool Strict`
+
+                  When true, guarantees schema validation on tool names and inputs
+
+              - `class BetaMcpToolset`
+
+                Configuration for a group of tools from an MCP server.
+
+                Allows configuring enabled status and defer_loading for all tools
+                from an MCP server, with optional per-tool overrides.
+
+                - `JsonElement Type = "mcp_toolset"`
+
+                - `required string McpServerName`
+
+                  Name of the MCP server to configure tools for
+
+                  minLength: 1, maxLength: 255
+
+                - `BetaCacheControlEphemeral? CacheControl`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `IReadOnlyDictionary<string, BetaMcpToolConfig>? Configs`
+
+                  Configuration overrides for specific tools, keyed by tool name
+
+                  - `bool DeferLoading`
+
+                  - `bool Enabled`
+
+                - `BetaMcpToolDefaultConfig DefaultConfig`
+
+                  Default configuration applied to all tools from this server
+
+                  - `bool DeferLoading`
+
+                  - `bool Enabled`
+
+                - `IReadOnlyList<BetaMcpToolParam>? Tools`
+
+                  The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
+                  - `required IReadOnlyDictionary<string, JsonElement> InputSchema`
+
+                    The tool's input schema as the MCP server lists it, verbatim.
+
+                  - `required string Name`
+
+                    The tool's name as the MCP server lists it (not prefixed with the server name).
+
+                    minLength: 1
+
+                  - `string? Description`
+
+                    The tool's description as the MCP server lists it.
+
+        - `BetaCacheControlEphemeral? CacheControl`
+
+          Create a cache control breakpoint at this content block.
+
+      - `class BetaRequestToolRemovalBlock`
+
+        Mid-conversation directive to withdraw a tool.
+
+        `tool` references a tool (or MCP toolset) by name: one declared in the
+        request's `tools` or defined earlier in `messages`. It is no longer
+        offered to the model from this point in the conversation onward.
+
+        - `JsonElement Type = "tool_removal"`
+
+        - `required Tool Tool`
+
+          - `class BetaToolChangeToolReference`
+
+            Reference to a single tool, by the name the model uses to call it: a
+            tool declared in `tools` or defined by an earlier `tool_addition`
+            block. Does not accept the composed `{server}_{name}` form the server
+            assigns to MCP-resolved tools; use `mcp_tool_reference` or
+            `mcp_toolset_reference` for those.
+
+          - `class BetaToolChangeMcpToolReference`
+
+            Reference to a single MCP tool by its server and remote name; the
+            same `server_name`/`name` pair `mcp_tool_use` carries.
+
+          - `class BetaToolChangeMcpToolsetReference`
+
+            Reference to every tool in the named MCP server's toolset.
+
+        - `BetaCacheControlEphemeral? CacheControl`
+
+          Create a cache control breakpoint at this content block.
+
+  - `class BetaRequestToolAdditionBlock`
+
+    Mid-conversation directive to make a tool available.
+
+    `tool` is a reference to a tool (or MCP toolset) declared in the
+    request's `tools`. Under the `inline-tools-2026-09-15` beta it may
+    instead be a reference to a tool defined earlier in `messages`, or a
+    `tool_definition` object that carries an inline tool definition in
+    `definition` (the same object a `tools` entry holds). An `mcp_toolset`
+    definition also requires the `mcp-client-2026-09-15` beta. The tool is
+    offered to the model from this point in the conversation onward.
+
+  - `class BetaRequestToolRemovalBlock`
+
+    Mid-conversation directive to withdraw a tool.
+
+    `tool` references a tool (or MCP toolset) by name: one declared in the
+    request's `tools` or defined earlier in `messages`. It is no longer
+    offered to the model from this point in the conversation onward.
+
+  - `class BetaMcpToolListingBlockParam`
+
+    The tool listing an MCP server returned while an earlier response was
+    produced, as that response carried it. Send the assistant message back
+    unchanged, this block included, and the server uses this listing for the
+    matching `mcp_toolset` instead of asking the MCP server again.
+
+    - `JsonElement Type = "mcp_tool_listing"`
+
+    - `required string McpServerName`
+
+      The name of the MCP server this listing came from, as `mcp_servers` declares it.
+
+      minLength: 1, maxLength: 255
+
+    - `required IReadOnlyList<BetaMcpToolParam> Tools`
+
+      The server's tools, exactly as the response listed them.
+
+      - `required IReadOnlyDictionary<string, JsonElement> InputSchema`
+
+        The tool's input schema as the MCP server lists it, verbatim.
+
+      - `required string Name`
+
+        The tool's name as the MCP server lists it (not prefixed with the server name).
+
+        minLength: 1
+
+      - `string? Description`
+
+        The tool's description as the MCP server lists it.
+
+  - `class BetaFallbackBlockParam`
+
+    A `fallback` block echoed back from a prior response.
+
+    Accepted in `messages[].content` and not rendered into the prompt; not
+    validated against the request's `fallbacks` chain or top-level `model`.
+
+    Echo the assistant turn back verbatim, including this block in its
+    original position. The block marks the boundary between content produced
+    before and after a fallback hop, and the server relies on that boundary
+    to validate the turn: when thinking runs flank the boundary, omitting
+    the block merges them into one span the server cannot validate (the
+    request is rejected), and moving it into the middle of a single run is
+    likewise rejected; between non-thinking blocks the block's placement has
+    no validation effect.
+
+    - `JsonElement Type = "fallback"`
+
+    - `required BetaFallbackInfoParam From`
+
+      Identifies one hop of a fallback transition.
+
+      - `required Model Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `required BetaFallbackInfoParam To`
+
+      Identifies one hop of a fallback transition.
+
+    - `JsonElement Trigger`
+
+      The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
+
+### Beta Content Block Source
+
+- `class BetaContentBlockSource`
+
+  - `JsonElement Type = "content"`
+
+  - `required Content Content`
+
+    - `string`
+
+    - `IReadOnlyList<BetaContentBlockSourceContent>`
+
+      - `class BetaTextBlockParam`
+
+        - `JsonElement Type = "text"`
+
+        - `required string Text`
+
+          minLength: 1
+
+        - `BetaCacheControlEphemeral? CacheControl`
+
+          Create a cache control breakpoint at this content block.
+
+          - `JsonElement Type = "ephemeral"`
+
+          - `Ttl Ttl`
+
+            The time-to-live for the cache control breakpoint.
+
+            This may be one the following values:
+
+            - `5m`: 5 minutes
+            - `1h`: 1 hour
+
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+            - `Ttl5m("5m")`
+
+            - `Ttl1h("1h")`
+
+        - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
+          - `class BetaCitationCharLocationParam`
+
+            - `JsonElement Type = "char_location"`
+
+            - `required string CitedText`
+
+            - `required long DocumentIndex`
+
+              minimum: 0
+
+            - `required string? DocumentTitle`
+
+              minLength: 1, maxLength: 500
+
+            - `required long EndCharIndex`
+
+            - `required long StartCharIndex`
+
+              minimum: 0
+
+          - `class BetaCitationPageLocationParam`
+
+            - `JsonElement Type = "page_location"`
+
+            - `required string CitedText`
+
+            - `required long DocumentIndex`
+
+              minimum: 0
+
+            - `required string? DocumentTitle`
+
+              minLength: 1, maxLength: 500
+
+            - `required long EndPageNumber`
+
+            - `required long StartPageNumber`
+
+              minimum: 1
+
+          - `class BetaCitationContentBlockLocationParam`
+
+            - `JsonElement Type = "content_block_location"`
+
+            - `required string CitedText`
+
+              The full text of the cited block range, concatenated.
+
+              Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+            - `required long DocumentIndex`
+
+              minimum: 0
+
+            - `required string? DocumentTitle`
+
+              minLength: 1, maxLength: 500
+
+            - `required long EndBlockIndex`
+
+              Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+              Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+            - `required long StartBlockIndex`
+
+              0-based index of the first cited block in the source's `content` array.
+
+              minimum: 0
+
+          - `class BetaCitationWebSearchResultLocationParam`
+
+            - `JsonElement Type = "web_search_result_location"`
+
+            - `required string CitedText`
+
+            - `required string EncryptedIndex`
+
+            - `required string? Title`
+
+              minLength: 1, maxLength: 512
+
+            - `required string Url`
+
+              minLength: 1
+
+          - `class BetaCitationSearchResultLocationParam`
+
+            - `JsonElement Type = "search_result_location"`
+
+            - `required string CitedText`
+
+              The full text of the cited block range, concatenated.
+
+              Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+            - `required long EndBlockIndex`
+
+              Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+              Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+            - `required long SearchResultIndex`
+
+              0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+              Counted separately from `document_index`; server-side web search results are not included in this count.
+
+              minimum: 0
+
+            - `required string Source`
+
+            - `required long StartBlockIndex`
+
+              0-based index of the first cited block in the source's `content` array.
+
+              minimum: 0
+
+            - `required string? Title`
+
+      - `class BetaImageBlockParam`
+
+        - `JsonElement Type = "image"`
+
+        - `required Source Source`
+
+          - `class BetaBase64ImageSource`
+
+            - `JsonElement Type = "base64"`
+
+            - `required string Data`
+
+              format: byte
+
+            - `required MediaType MediaType`
+
+              - `ImageJpeg("image/jpeg")`
+
+              - `ImagePng("image/png")`
+
+              - `ImageGif("image/gif")`
+
+              - `ImageWebP("image/webp")`
+
+          - `class BetaUrlImageSource`
+
+            - `JsonElement Type = "url"`
+
+            - `required string Url`
+
+          - `class BetaFileImageSource`
+
+            - `JsonElement Type = "file"`
+
+            - `required string FileID`
+
+        - `BetaCacheControlEphemeral? CacheControl`
+
+          Create a cache control breakpoint at this content block.
+
+        - `BetaImageTransformationsParam? Transformations`
+
+          Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+          - `OversizedImage OversizedImage`
+
+            What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+            - `Downsize("downsize")`
+
+            - `Error("error")`
+
+### Beta Content Block Source Content
+
+- `class BetaContentBlockSourceContent: union`
+
+  - `class BetaTextBlockParam`
+
+    - `JsonElement Type = "text"`
+
+    - `required string Text`
+
+      minLength: 1
+
+    - `BetaCacheControlEphemeral? CacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+      - `JsonElement Type = "ephemeral"`
+
+      - `Ttl Ttl`
+
+        The time-to-live for the cache control breakpoint.
+
+        This may be one the following values:
+
+        - `5m`: 5 minutes
+        - `1h`: 1 hour
+
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+        - `Ttl5m("5m")`
+
+        - `Ttl1h("1h")`
+
+    - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
+      - `class BetaCitationCharLocationParam`
+
+        - `JsonElement Type = "char_location"`
+
+        - `required string CitedText`
+
+        - `required long DocumentIndex`
+
+          minimum: 0
+
+        - `required string? DocumentTitle`
+
+          minLength: 1, maxLength: 500
+
+        - `required long EndCharIndex`
+
+        - `required long StartCharIndex`
+
+          minimum: 0
+
+      - `class BetaCitationPageLocationParam`
+
+        - `JsonElement Type = "page_location"`
+
+        - `required string CitedText`
+
+        - `required long DocumentIndex`
+
+          minimum: 0
+
+        - `required string? DocumentTitle`
+
+          minLength: 1, maxLength: 500
+
+        - `required long EndPageNumber`
+
+        - `required long StartPageNumber`
+
+          minimum: 1
+
+      - `class BetaCitationContentBlockLocationParam`
+
+        - `JsonElement Type = "content_block_location"`
+
+        - `required string CitedText`
+
+          The full text of the cited block range, concatenated.
+
+          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+        - `required long DocumentIndex`
+
+          minimum: 0
+
+        - `required string? DocumentTitle`
+
+          minLength: 1, maxLength: 500
+
+        - `required long EndBlockIndex`
+
+          Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+        - `required long StartBlockIndex`
+
+          0-based index of the first cited block in the source's `content` array.
+
+          minimum: 0
+
+      - `class BetaCitationWebSearchResultLocationParam`
+
+        - `JsonElement Type = "web_search_result_location"`
+
+        - `required string CitedText`
+
+        - `required string EncryptedIndex`
+
+        - `required string? Title`
+
+          minLength: 1, maxLength: 512
+
+        - `required string Url`
+
+          minLength: 1
+
+      - `class BetaCitationSearchResultLocationParam`
+
+        - `JsonElement Type = "search_result_location"`
+
+        - `required string CitedText`
+
+          The full text of the cited block range, concatenated.
+
+          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+        - `required long EndBlockIndex`
+
+          Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+        - `required long SearchResultIndex`
+
+          0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+          Counted separately from `document_index`; server-side web search results are not included in this count.
+
+          minimum: 0
+
+        - `required string Source`
+
+        - `required long StartBlockIndex`
+
+          0-based index of the first cited block in the source's `content` array.
+
+          minimum: 0
+
+        - `required string? Title`
+
+  - `class BetaImageBlockParam`
+
+    - `JsonElement Type = "image"`
+
+    - `required Source Source`
+
+      - `class BetaBase64ImageSource`
+
+        - `JsonElement Type = "base64"`
+
+        - `required string Data`
+
+          format: byte
+
+        - `required MediaType MediaType`
+
+          - `ImageJpeg("image/jpeg")`
+
+          - `ImagePng("image/png")`
+
+          - `ImageGif("image/gif")`
+
+          - `ImageWebP("image/webp")`
+
+      - `class BetaUrlImageSource`
+
+        - `JsonElement Type = "url"`
+
+        - `required string Url`
+
+      - `class BetaFileImageSource`
+
+        - `JsonElement Type = "file"`
+
+        - `required string FileID`
+
+    - `BetaCacheControlEphemeral? CacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `BetaImageTransformationsParam? Transformations`
+
+      Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+      - `OversizedImage OversizedImage`
+
+        What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+        - `Downsize("downsize")`
+
+        - `Error("error")`
+
+### Beta Context Management Config
+
+- `class BetaContextManagementConfig`
+
+  - `IReadOnlyList<Edit> Edits`
+
+    List of context management edits to apply
+
+    - `class BetaClearToolUses20250919Edit`
+
+      - `JsonElement Type = "clear_tool_uses_20250919"`
+
+      - `BetaInputTokensClearAtLeast? ClearAtLeast`
+
+        Minimum number of tokens that must be cleared when triggered. Context will only be modified if at least this many tokens can be removed.
+
+        - `JsonElement Type = "input_tokens"`
+
+        - `required long Value`
+
+          minimum: 0
+
+      - `ClearToolInputs? ClearToolInputs`
+
+        Whether to clear all tool inputs (bool) or specific tool inputs to clear (list)
+
+        - `bool`
+
+        - `IReadOnlyList<string>`
+
+      - `IReadOnlyList<string>? ExcludeTools`
+
+        Tool names whose uses are preserved from clearing
+
+      - `BetaToolUsesKeep Keep`
+
+        Number of tool uses to retain in the conversation
+
+        - `JsonElement Type = "tool_uses"`
+
+        - `required long Value`
+
+          minimum: 0
+
+      - `Trigger Trigger`
+
+        Condition that triggers the context management strategy
+
+        - `class BetaInputTokensTrigger`
+
+          - `JsonElement Type = "input_tokens"`
+
+          - `required long Value`
+
+            minimum: 1
+
+        - `class BetaToolUsesTrigger`
+
+          - `JsonElement Type = "tool_uses"`
+
+          - `required long Value`
+
+            minimum: 1
+
+    - `class BetaClearThinking20251015Edit`
+
+      - `JsonElement Type = "clear_thinking_20251015"`
+
+      - `Keep Keep`
+
+        Number of most recent assistant turns to keep thinking blocks for. Older turns will have their thinking blocks removed.
+
+        - `class BetaThinkingTurns`
+
+          - `JsonElement Type = "thinking_turns"`
+
+          - `required long Value`
+
+            minimum: 1
+
+        - `class BetaAllThinkingTurns`
+
+          - `JsonElement Type = "all"`
+
+        - `class All:`
+
+    - `class BetaCompact20260112Edit`
+
+      Automatically compact older context when reaching the configured trigger threshold.
+
+      - `JsonElement Type = "compact_20260112"`
+
+      - `string? Instructions`
+
+        Additional instructions for summarization.
+
+      - `bool PauseAfterCompaction`
+
+        Whether to pause after compaction and return the compaction block to the user.
+
+      - `BetaInputTokensTrigger? Trigger`
+
+        When to trigger compaction. Defaults to 150000 input tokens.
+
+### Beta Context Management Response
+
+- `class BetaContextManagementResponse`
+
+  - `required IReadOnlyList<AppliedEdit> AppliedEdits`
+
+    List of context management edits that were applied.
+
+    - `class BetaClearToolUses20250919EditResponse`
+
+      - `JsonElement Type = "clear_tool_uses_20250919"`
+
+        The type of context management edit applied.
+
+      - `required long ClearedInputTokens`
+
+        Number of input tokens cleared by this edit.
+
+        minimum: 0
+
+      - `required long ClearedToolUses`
+
+        Number of tool uses that were cleared.
+
+        minimum: 0
+
+    - `class BetaClearThinking20251015EditResponse`
+
+      - `JsonElement Type = "clear_thinking_20251015"`
+
+        The type of context management edit applied.
+
+      - `required long ClearedInputTokens`
+
+        Number of input tokens cleared by this edit.
+
+        minimum: 0
+
+      - `required long ClearedThinkingTurns`
+
+        Number of thinking turns that were cleared.
+
+        minimum: 0
+
+### Beta Count Tokens Context Management Response
+
+- `class BetaCountTokensContextManagementResponse`
+
+  - `required long OriginalInputTokens`
+
+    The original token count before context management was applied
+
+### Beta Diagnostics
+
+- `class BetaDiagnostics`
+
+  Request-level diagnostics: why the prompt cache could not fully reuse
+  the prefix of the request named by `diagnostics.previous_message_id`.
+
+  - `required BetaCacheMissReason? CacheMissReason`
+
+    Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+    - `class BetaCacheMissModelChanged`
+
+      - `JsonElement Type = "model_changed"`
+
+      - `required long CacheMissedInputTokens`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `class BetaCacheMissSystemChanged`
+
+      - `JsonElement Type = "system_changed"`
+
+      - `required long CacheMissedInputTokens`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `class BetaCacheMissToolsChanged`
+
+      - `JsonElement Type = "tools_changed"`
+
+      - `required long CacheMissedInputTokens`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `class BetaCacheMissMessagesChanged`
+
+      - `JsonElement Type = "messages_changed"`
+
+      - `required long CacheMissedInputTokens`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `class BetaCacheMissPreviousMessageNotFound`
+
+      - `JsonElement Type = "previous_message_not_found"`
+
+    - `class BetaCacheMissUnavailable`
+
+      - `JsonElement Type = "unavailable"`
+
+### Beta Diagnostics Param
+
+- `class BetaDiagnosticsParam`
+
+  Request-level diagnostics. Currently carries the previous response
+  id for prompt-cache divergence reporting.
+
+  - `string? PreviousMessageID`
+
+    The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
+
+    maxLength: 256
+
+### Beta Direct Caller
+
+- `class BetaDirectCaller`
+
+  Tool invocation directly from the model.
+
+  - `JsonElement Type = "direct"`
+
+### Beta Document Block
+
+- `class BetaDocumentBlock`
+
+  - `JsonElement Type = "document"`
+
+  - `required BetaCitationConfig? Citations`
+
+    Citation configuration for the document
+
+    - `required bool Enabled`
+
+  - `required Source Source`
+
+    - `class BetaBase64PdfSource`
+
+      - `JsonElement Type = "base64"`
+
+      - `required string Data`
+
+        format: byte
+
+      - `JsonElement MediaType = "application/pdf"`
+
+    - `class BetaPlainTextSource`
+
+      - `JsonElement Type = "text"`
+
+      - `required string Data`
+
+      - `JsonElement MediaType = "text/plain"`
+
+  - `required string? Title`
+
+    The title of the document
+
+### Beta Encrypted Code Execution Result Block
+
+- `class BetaEncryptedCodeExecutionResultBlock`
+
+  Code execution result with encrypted stdout for PFC + web_search results.
+
+  - `JsonElement Type = "encrypted_code_execution_result"`
+
+  - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
+    - `JsonElement Type = "code_execution_output"`
+
+    - `required string FileID`
+
+  - `required string EncryptedStdout`
+
+  - `required long ReturnCode`
+
+  - `required string Stderr`
+
+### Beta Encrypted Code Execution Result Block Param
+
+- `class BetaEncryptedCodeExecutionResultBlockParam`
+
+  Code execution result with encrypted stdout for PFC + web_search results.
+
+  - `JsonElement Type = "encrypted_code_execution_result"`
+
+  - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
+    - `JsonElement Type = "code_execution_output"`
+
+    - `required string FileID`
+
+  - `required string EncryptedStdout`
+
+  - `required long ReturnCode`
+
+  - `required string Stderr`
+
+### Beta Fallback Block
+
+- `class BetaFallbackBlock`
+
+  Marks the point in `content` where one model's output gives way to the next.
+
+  One block appears per hop where a preceding model actually ran this turn and
+  declined. A turn where no preceding model ran and declined has no such
+  boundary and carries no block — the signal for whether a fallback model
+  served the response is the presence of a `fallback_message` entry in
+  `usage.iterations`, not this block.
+
+  The block is treated like a server-tool content block for streaming: it
+  arrives via the standard `content_block_start` / `content_block_stop`
+  pair and carries no deltas.
+
+  - `JsonElement Type = "fallback"`
+
+  - `required BetaFallbackInfo From`
+
+    The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+    - `required Model Model`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+        Fastest model for high-volume, real-time tasks
+
+      - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
+      - `ClaudeFable5_1("claude-fable-5-1")`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `ClaudeOpus5_5("claude-opus-5-5")`
+
+        Powerful intelligence for coding, knowledge work, and long-running agents
+
+      - `ClaudeMythos5_1("claude-mythos-5-1")`
+
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+      - `ClaudeSonnet5("claude-sonnet-5")`
+
+        Efficient model for coding and agents
+
+      - `ClaudeFable5("claude-fable-5")`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `ClaudeMythos5("claude-mythos-5")`
+
+        Most capable model for cybersecurity and biology research
+
+      - `ClaudeOpus5("claude-opus-5")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeOpus4_8("claude-opus-4-8")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeOpus4_7("claude-opus-4-7")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeOpus4_6("claude-opus-4-6")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeSonnet4_6("claude-sonnet-4-6")`
+
+        Best combination of speed and intelligence
+
+      - `ClaudeHaiku4_5("claude-haiku-4-5")`
+
+        Fastest model with near-frontier intelligence
+
+      - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
+
+        Fastest model with near-frontier intelligence
+
+      - `ClaudeOpus4_5("claude-opus-4-5")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeMythosPreview("claude-mythos-preview")`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
+
+      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+  - `required BetaFallbackInfo To`
+
+    The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+  - `required BetaFallbackRefusalTrigger Trigger`
+
+    What caused the `from` model to hand over at this hop.
+
+    - `JsonElement Type = "refusal"`
+
+    - `required BetaFallbackRefusalTriggerCategory? Category`
+
+      The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
+
+      - `Cyber("cyber")`
+
+        The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
+      - `Bio("bio")`
+
+        The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+
+      - `FrontierLlm("frontier_llm")`
+
+        The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
+      - `ReasoningExtraction("reasoning_extraction")`
+
+        The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+      - `GeneralHarms("general_harms")`
+
+        The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
+### Beta Fallback Block Param
+
+- `class BetaFallbackBlockParam`
+
+  A `fallback` block echoed back from a prior response.
+
+  Accepted in `messages[].content` and not rendered into the prompt; not
+  validated against the request's `fallbacks` chain or top-level `model`.
+
+  Echo the assistant turn back verbatim, including this block in its
+  original position. The block marks the boundary between content produced
+  before and after a fallback hop, and the server relies on that boundary
+  to validate the turn: when thinking runs flank the boundary, omitting
+  the block merges them into one span the server cannot validate (the
+  request is rejected), and moving it into the middle of a single run is
+  likewise rejected; between non-thinking blocks the block's placement has
+  no validation effect.
+
+  - `JsonElement Type = "fallback"`
+
+  - `required BetaFallbackInfoParam From`
+
+    Identifies one hop of a fallback transition.
+
+    - `required Model Model`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+        Fastest model for high-volume, real-time tasks
+
+      - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
+      - `ClaudeFable5_1("claude-fable-5-1")`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `ClaudeOpus5_5("claude-opus-5-5")`
+
+        Powerful intelligence for coding, knowledge work, and long-running agents
+
+      - `ClaudeMythos5_1("claude-mythos-5-1")`
+
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+      - `ClaudeSonnet5("claude-sonnet-5")`
+
+        Efficient model for coding and agents
+
+      - `ClaudeFable5("claude-fable-5")`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `ClaudeMythos5("claude-mythos-5")`
+
+        Most capable model for cybersecurity and biology research
+
+      - `ClaudeOpus5("claude-opus-5")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeOpus4_8("claude-opus-4-8")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeOpus4_7("claude-opus-4-7")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeOpus4_6("claude-opus-4-6")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeSonnet4_6("claude-sonnet-4-6")`
+
+        Best combination of speed and intelligence
+
+      - `ClaudeHaiku4_5("claude-haiku-4-5")`
+
+        Fastest model with near-frontier intelligence
+
+      - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
+
+        Fastest model with near-frontier intelligence
+
+      - `ClaudeOpus4_5("claude-opus-4-5")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeMythosPreview("claude-mythos-preview")`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
+
+      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+  - `required BetaFallbackInfoParam To`
+
+    Identifies one hop of a fallback transition.
+
+  - `JsonElement Trigger`
+
+    The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
+
+### Beta Fallback Credit Not Applied
+
+- `class BetaFallbackCreditNotApplied`
+
+  No reprice was applied; `reason` says why.
+
+  - `JsonElement Type = "not_applied"`
+
+  - `required Reason Reason`
+
+    Why the reprice was not applied.
+
+    A closed enum; additions to the redemption-check vocabulary arrive as
+    deliberate schema updates.
+
+    - `BodyMismatch("body_mismatch")`
+
+    - `ContinuationExcluded("continuation_excluded")`
+
+    - `ContinuationOnly("continuation_only")`
+
+    - `Expired("expired")`
+
+    - `InvalidTargetModel("invalid_target_model")`
+
+    - `NotEnabled("not_enabled")`
+
+    - `RepriceUnavailable("reprice_unavailable")`
+
+    - `TemporarilyUnavailable("temporarily_unavailable")`
+
+    - `VariantFieldsPresent("variant_fields_present")`
+
+    - `WrongOrganization("wrong_organization")`
+
+    - `WrongPlatform("wrong_platform")`
+
+    - `WrongWorkspace("wrong_workspace")`
+
+  - `IReadOnlyList<string>? RemoveToRedeem`
+
+    Request fields to remove before retrying, so the retry can redeem this
+    token.
+
+    Present exactly when `reason` is `variant_fields_present` — never null,
+    never an empty array; absent otherwise. Fields are named only from your own request, and only after
+    the sealed variant hash matched. A served best-effort retry has already
+    been billed at normal price; nothing redeems retroactively, but a corrected
+    re-send inside the token's five-minute window can still redeem.
+
+### Beta Fallback Credit Redeemed
+
+- `class BetaFallbackCreditRedeemed`
+
+  The reprice was applied: the retry is billed as if the conversation
+  had been on the retry model all along.
+
+  - `JsonElement Type = "redeemed"`
+
+### Beta Fallback Credit Token Param
+
+- `class BetaFallbackCreditTokenParam`
+
+  Object form of `fallback_credit_token`: the token plus a redemption
+  mode.
+
+  Requires `anthropic-beta: fallback-credit-2026-07-01`; without that
+  header the field accepts the bare string only. The bare string and the
+  mode-less object are equivalent (both select `strict`), so wrapping
+  an existing token changes nothing by itself.
+
+  - `required string Token`
+
+    The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
+
+    minLength: 1, maxLength: 2048
+
+  - `Mode Mode`
+
+    How a failing token affects the retry. `strict` (the default, and the bare-string behavior): a failing redemption is a 400 and the retry is not served. `best_effort`: the retry is served either way — a token-layer failure no longer rejects the request; the retry proceeds at normal price and the outcome is reported on the response's `usage.fallback_credit`. Two failures stay hard in both modes: a malformed token, and combining `fallback_credit_token` with `fallbacks`.
+
+    - `Strict("strict")`
+
+    - `BestEffort("best_effort")`
+
+### Beta Fallback Credit Usage
+
+- `class BetaFallbackCreditUsage`
+
+  Outcome of the `fallback_credit_token` presented on this request.
+
+  - `required Status Status`
+
+    Whether the fallback-credit reprice was applied to this response's billing.
+
+    A union discriminated on `type`. `redeemed`: the retry is billed as if
+    the conversation had been on the retry model all along — including when the
+    resulting shift is zero because there was nothing to move. `not_applied`:
+    no reprice was applied; the arm's `reason` says why.
+
+    - `class BetaFallbackCreditRedeemed`
+
+      The reprice was applied: the retry is billed as if the conversation
+      had been on the retry model all along.
+
+      - `JsonElement Type = "redeemed"`
+
+    - `class BetaFallbackCreditNotApplied`
+
+      No reprice was applied; `reason` says why.
+
+      - `JsonElement Type = "not_applied"`
+
+      - `required Reason Reason`
+
+        Why the reprice was not applied.
+
+        A closed enum; additions to the redemption-check vocabulary arrive as
+        deliberate schema updates.
+
+        - `BodyMismatch("body_mismatch")`
+
+        - `ContinuationExcluded("continuation_excluded")`
+
+        - `ContinuationOnly("continuation_only")`
+
+        - `Expired("expired")`
+
+        - `InvalidTargetModel("invalid_target_model")`
+
+        - `NotEnabled("not_enabled")`
+
+        - `RepriceUnavailable("reprice_unavailable")`
+
+        - `TemporarilyUnavailable("temporarily_unavailable")`
+
+        - `VariantFieldsPresent("variant_fields_present")`
+
+        - `WrongOrganization("wrong_organization")`
+
+        - `WrongPlatform("wrong_platform")`
+
+        - `WrongWorkspace("wrong_workspace")`
+
+      - `IReadOnlyList<string>? RemoveToRedeem`
+
+        Request fields to remove before retrying, so the retry can redeem this
+        token.
+
+        Present exactly when `reason` is `variant_fields_present` — never null,
+        never an empty array; absent otherwise. Fields are named only from your own request, and only after
+        the sealed variant hash matched. A served best-effort retry has already
+        been billed at normal price; nothing redeems retroactively, but a corrected
+        re-send inside the token's five-minute window can still redeem.
+
+### Beta Fallback Info
+
+- `class BetaFallbackInfo`
+
+  Identifies one hop of a fallback transition.
+
+  - `required Model Model`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+      Fastest model for high-volume, real-time tasks
+
+    - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+      Efficient model for coding and agents
+
+    - `ClaudeFable5_1("claude-fable-5-1")`
+
+      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `ClaudeOpus5_5("claude-opus-5-5")`
+
+      Powerful intelligence for coding, knowledge work, and long-running agents
+
+    - `ClaudeMythos5_1("claude-mythos-5-1")`
+
+      Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+    - `ClaudeSonnet5("claude-sonnet-5")`
+
+      Efficient model for coding and agents
+
+    - `ClaudeFable5("claude-fable-5")`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `ClaudeMythos5("claude-mythos-5")`
+
+      Most capable model for cybersecurity and biology research
+
+    - `ClaudeOpus5("claude-opus-5")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_8("claude-opus-4-8")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_7("claude-opus-4-7")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_6("claude-opus-4-6")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeSonnet4_6("claude-sonnet-4-6")`
+
+      Best combination of speed and intelligence
+
+    - `ClaudeHaiku4_5("claude-haiku-4-5")`
+
+      Fastest model with near-frontier intelligence
+
+    - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
+
+      Fastest model with near-frontier intelligence
+
+    - `ClaudeOpus4_5("claude-opus-4-5")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeMythosPreview("claude-mythos-preview")`
+
+      **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      New class of intelligence, strongest in coding and cybersecurity
+
+    - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+### Beta Fallback Info Param
+
+- `class BetaFallbackInfoParam`
+
+  Identifies one hop of a fallback transition.
+
+  - `required Model Model`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+      Fastest model for high-volume, real-time tasks
+
+    - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+      Efficient model for coding and agents
+
+    - `ClaudeFable5_1("claude-fable-5-1")`
+
+      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `ClaudeOpus5_5("claude-opus-5-5")`
+
+      Powerful intelligence for coding, knowledge work, and long-running agents
+
+    - `ClaudeMythos5_1("claude-mythos-5-1")`
+
+      Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+    - `ClaudeSonnet5("claude-sonnet-5")`
+
+      Efficient model for coding and agents
+
+    - `ClaudeFable5("claude-fable-5")`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `ClaudeMythos5("claude-mythos-5")`
+
+      Most capable model for cybersecurity and biology research
+
+    - `ClaudeOpus5("claude-opus-5")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_8("claude-opus-4-8")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_7("claude-opus-4-7")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_6("claude-opus-4-6")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeSonnet4_6("claude-sonnet-4-6")`
+
+      Best combination of speed and intelligence
+
+    - `ClaudeHaiku4_5("claude-haiku-4-5")`
+
+      Fastest model with near-frontier intelligence
+
+    - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
+
+      Fastest model with near-frontier intelligence
+
+    - `ClaudeOpus4_5("claude-opus-4-5")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeMythosPreview("claude-mythos-preview")`
+
+      **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      New class of intelligence, strongest in coding and cybersecurity
+
+    - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+### Beta Fallback Message Iteration Usage
+
+- `class BetaFallbackMessageIterationUsage`
+
+  Token usage for the fallback-model attempt of a server-side fallback request.
+
+  The terminal entry of a fallback-served turn: when a fallback hop's
+  output is the returned message, the entry for the iteration that
+  completed it carries this type in place of `message`. A declined hop
+  and the serving hop's earlier tool-loop iterations produce `message`
+  entries. Whether a fallback model served the response is signalled by
+  the presence of this entry in `usage.iterations`.
+
+  - `JsonElement Type = "fallback_message"`
+
+    Usage for the fallback-model attempt that served the response
+
+  - `required BetaCacheCreation? CacheCreation`
+
+    Breakdown of cached tokens by TTL
+
+    - `required long Ephemeral1hInputTokens`
+
+      The number of input tokens used to create the 1 hour cache entry.
+
+      minimum: 0
+
+    - `required long Ephemeral5mInputTokens`
+
+      The number of input tokens used to create the 5 minute cache entry.
+
+      minimum: 0
+
+  - `required long CacheCreationInputTokens`
+
+    The number of input tokens used to create the cache entry.
+
+    minimum: 0
+
+  - `required long CacheReadInputTokens`
+
+    The number of input tokens read from the cache.
+
+    minimum: 0
+
+  - `required long InputTokens`
+
+    The number of input tokens which were used.
+
+    minimum: 0
+
+  - `required Model Model`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+      Fastest model for high-volume, real-time tasks
+
+    - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+      Efficient model for coding and agents
+
+    - `ClaudeFable5_1("claude-fable-5-1")`
+
+      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `ClaudeOpus5_5("claude-opus-5-5")`
+
+      Powerful intelligence for coding, knowledge work, and long-running agents
+
+    - `ClaudeMythos5_1("claude-mythos-5-1")`
+
+      Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+    - `ClaudeSonnet5("claude-sonnet-5")`
+
+      Efficient model for coding and agents
+
+    - `ClaudeFable5("claude-fable-5")`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `ClaudeMythos5("claude-mythos-5")`
+
+      Most capable model for cybersecurity and biology research
+
+    - `ClaudeOpus5("claude-opus-5")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_8("claude-opus-4-8")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_7("claude-opus-4-7")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_6("claude-opus-4-6")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeSonnet4_6("claude-sonnet-4-6")`
+
+      Best combination of speed and intelligence
+
+    - `ClaudeHaiku4_5("claude-haiku-4-5")`
+
+      Fastest model with near-frontier intelligence
+
+    - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
+
+      Fastest model with near-frontier intelligence
+
+    - `ClaudeOpus4_5("claude-opus-4-5")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeMythosPreview("claude-mythos-preview")`
+
+      **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      New class of intelligence, strongest in coding and cybersecurity
+
+    - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+  - `required long OutputTokens`
+
+    The number of output tokens which were used.
+
+    minimum: 0
+
+### Beta Fallback Param
+
+- `class BetaFallbackParam`
+
+  One entry in the `fallbacks` chain on a `/v1/messages` request.
+
+  `model` is required. The override fields (`max_tokens`, `thinking`,
+  `output_config`, and `speed`) set the corresponding parameter for this
+  attempt only and are validated as if the request were made to `model`.
+  Any other key is rejected at parse time.
+
+  - `required Model Model`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+      Fastest model for high-volume, real-time tasks
+
+    - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+      Efficient model for coding and agents
+
+    - `ClaudeFable5_1("claude-fable-5-1")`
+
+      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `ClaudeOpus5_5("claude-opus-5-5")`
+
+      Powerful intelligence for coding, knowledge work, and long-running agents
+
+    - `ClaudeMythos5_1("claude-mythos-5-1")`
+
+      Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+    - `ClaudeSonnet5("claude-sonnet-5")`
+
+      Efficient model for coding and agents
+
+    - `ClaudeFable5("claude-fable-5")`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `ClaudeMythos5("claude-mythos-5")`
+
+      Most capable model for cybersecurity and biology research
+
+    - `ClaudeOpus5("claude-opus-5")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_8("claude-opus-4-8")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_7("claude-opus-4-7")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_6("claude-opus-4-6")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeSonnet4_6("claude-sonnet-4-6")`
+
+      Best combination of speed and intelligence
+
+    - `ClaudeHaiku4_5("claude-haiku-4-5")`
+
+      Fastest model with near-frontier intelligence
+
+    - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
+
+      Fastest model with near-frontier intelligence
+
+    - `ClaudeOpus4_5("claude-opus-4-5")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
+
+      Powerful intelligence for long-running agents and coding
+
+    - `ClaudeMythosPreview("claude-mythos-preview")`
+
+      **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      New class of intelligence, strongest in coding and cybersecurity
+
+    - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+    - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+      **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      High-performance model for agents and coding
+
+  - `long? MaxTokens`
+
+  - `BetaOutputConfig? OutputConfig`
+
+    - `Effort? Effort`
+
+      How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+      Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
+
+      - `Low("low")`
+
+      - `Medium("medium")`
+
+      - `High("high")`
+
+      - `Xhigh("xhigh")`
+
+      - `Max("max")`
+
+    - `BetaJsonOutputFormat? Format`
+
+      A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+      - `JsonElement Type = "json_schema"`
+
+      - `required IReadOnlyDictionary<string, JsonElement> Schema`
+
+        The JSON schema of the format
+
+    - `BetaTokenTaskBudget? TaskBudget`
+
+      Configuration for token budget tracking across contexts.
+
+      - `JsonElement Type = "tokens"`
+
+        The budget type. Currently only 'tokens' is supported.
+
+      - `required long Total`
+
+        Total token budget across all contexts in the session.
+
+        minimum: 1024
+
+      - `long? Remaining`
+
+        Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+        minimum: 0
+
+  - `Speed? Speed`
+
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+    - `Standard("standard")`
+
+    - `Fast("fast")`
+
+  - `Thinking? Thinking`
+
+    - `class BetaThinkingConfigEnabled`
+
+      - `JsonElement Type = "enabled"`
+
+      - `required long BudgetTokens`
+
+        Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+        Must be ≥1024 and less than `max_tokens`.
+
+        See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+        minimum: 1024
+
+      - `BetaThinkingBlockBinding? BlockBinding`
+
+        Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
+
+        - `BetaThinkingPrefixMismatchBehavior? PrefixMismatchBehavior`
+
+          "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
+
+          - `Error("error")`
+
+          - `DropBlock("drop_block")`
+
+      - `Display? Display`
+
+        Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+        - `Summarized("summarized")`
+
+        - `Omitted("omitted")`
+
+        - `Updates("updates")`
+
+    - `class BetaThinkingConfigDisabled`
+
+      - `JsonElement Type = "disabled"`
+
+    - `class BetaThinkingConfigBetweenTools`
+
+      - `JsonElement Type = "between_tools"`
+
+    - `class BetaThinkingConfigAdaptive`
+
+      - `JsonElement Type = "adaptive"`
+
+      - `BetaThinkingBlockBinding? BlockBinding`
+
+        Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
+
+      - `Display? Display`
+
+        Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+        - `Summarized("summarized")`
+
+        - `Omitted("omitted")`
+
+        - `Updates("updates")`
+
+### Beta Fallback Refusal Trigger
+
+- `class BetaFallbackRefusalTrigger`
+
+  The `from` model declined for policy reasons.
+
+  - `JsonElement Type = "refusal"`
+
+  - `required BetaFallbackRefusalTriggerCategory? Category`
+
+    The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
+
+    - `Cyber("cyber")`
+
+      The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
+    - `Bio("bio")`
+
+      The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+
+    - `FrontierLlm("frontier_llm")`
+
+      The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
+    - `ReasoningExtraction("reasoning_extraction")`
+
+      The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+    - `GeneralHarms("general_harms")`
+
+      The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
+### Beta Fallbacks Param
+
+- `class BetaFallbacksParam: union`
+
+  Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on. The string "default" requests the requested model's server-defined default fallback configuration.
+
+  - `IReadOnlyList<BetaFallbackParam>`
+
+    - `required Model Model`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+        Fastest model for high-volume, real-time tasks
+
+      - `ClaudeSonnet5_5("claude-sonnet-5-5")`
+
+        Efficient model for coding and agents
+
+      - `ClaudeFable5_1("claude-fable-5-1")`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `ClaudeOpus5_5("claude-opus-5-5")`
+
+        Powerful intelligence for coding, knowledge work, and long-running agents
+
+      - `ClaudeMythos5_1("claude-mythos-5-1")`
+
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+      - `ClaudeSonnet5("claude-sonnet-5")`
+
+        Efficient model for coding and agents
+
+      - `ClaudeFable5("claude-fable-5")`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `ClaudeMythos5("claude-mythos-5")`
+
+        Most capable model for cybersecurity and biology research
+
+      - `ClaudeOpus5("claude-opus-5")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeOpus4_8("claude-opus-4-8")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeOpus4_7("claude-opus-4-7")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeOpus4_6("claude-opus-4-6")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeSonnet4_6("claude-sonnet-4-6")`
+
+        Best combination of speed and intelligence
+
+      - `ClaudeHaiku4_5("claude-haiku-4-5")`
+
+        Fastest model with near-frontier intelligence
+
+      - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
+
+        Fastest model with near-frontier intelligence
+
+      - `ClaudeOpus4_5("claude-opus-4-5")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `ClaudeMythosPreview("claude-mythos-preview")`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
+
+      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
+
+        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        High-performance model for agents and coding
+
+    - `long? MaxTokens`
+
+    - `BetaOutputConfig? OutputConfig`
+
+      - `Effort? Effort`
+
+        How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+        Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
+
+        - `Low("low")`
+
+        - `Medium("medium")`
+
+        - `High("high")`
+
+        - `Xhigh("xhigh")`
+
+        - `Max("max")`
+
+      - `BetaJsonOutputFormat? Format`
+
+        A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+        - `JsonElement Type = "json_schema"`
+
+        - `required IReadOnlyDictionary<string, JsonElement> Schema`
+
+          The JSON schema of the format
+
+      - `BetaTokenTaskBudget? TaskBudget`
+
+        Configuration for token budget tracking across contexts.
+
+        - `JsonElement Type = "tokens"`
+
+          The budget type. Currently only 'tokens' is supported.
+
+        - `required long Total`
+
+          Total token budget across all contexts in the session.
+
+          minimum: 1024
+
+        - `long? Remaining`
+
+          Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+          minimum: 0
+
+    - `Speed? Speed`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `Standard("standard")`
+
+      - `Fast("fast")`
+
+    - `Thinking? Thinking`
+
+      - `class BetaThinkingConfigEnabled`
+
+        - `JsonElement Type = "enabled"`
+
+        - `required long BudgetTokens`
+
+          Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+          Must be ≥1024 and less than `max_tokens`.
+
+          See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+          minimum: 1024
+
+        - `BetaThinkingBlockBinding? BlockBinding`
+
+          Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
+
+          - `BetaThinkingPrefixMismatchBehavior? PrefixMismatchBehavior`
+
+            "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
+
+            - `Error("error")`
+
+            - `DropBlock("drop_block")`
+
+        - `Display? Display`
+
+          Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+          - `Summarized("summarized")`
+
+          - `Omitted("omitted")`
+
+          - `Updates("updates")`
+
+      - `class BetaThinkingConfigDisabled`
+
+        - `JsonElement Type = "disabled"`
+
+      - `class BetaThinkingConfigBetweenTools`
+
+        - `JsonElement Type = "between_tools"`
+
+      - `class BetaThinkingConfigAdaptive`
+
+        - `JsonElement Type = "adaptive"`
+
+        - `BetaThinkingBlockBinding? BlockBinding`
+
+          Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
+
+        - `Display? Display`
+
+          Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+          - `Summarized("summarized")`
+
+          - `Omitted("omitted")`
+
+          - `Updates("updates")`
+
+  - `JsonElement`
+
+### Beta File Document Source
+
+- `class BetaFileDocumentSource`
+
+  - `JsonElement Type = "file"`
+
+  - `required string FileID`
+
+### Beta File Image Source
+
+- `class BetaFileImageSource`
+
+  - `JsonElement Type = "file"`
+
+  - `required string FileID`
+
+### Beta Image Block Param
+
+- `class BetaImageBlockParam`
+
+  - `JsonElement Type = "image"`
+
+  - `required Source Source`
+
+    - `class BetaBase64ImageSource`
+
+      - `JsonElement Type = "base64"`
+
+      - `required string Data`
+
+        format: byte
+
+      - `required MediaType MediaType`
+
+        - `ImageJpeg("image/jpeg")`
+
+        - `ImagePng("image/png")`
+
+        - `ImageGif("image/gif")`
+
+        - `ImageWebP("image/webp")`
+
+    - `class BetaUrlImageSource`
+
+      - `JsonElement Type = "url"`
+
+      - `required string Url`
+
+    - `class BetaFileImageSource`
+
+      - `JsonElement Type = "file"`
+
+      - `required string FileID`
+
+  - `BetaCacheControlEphemeral? CacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+    - `JsonElement Type = "ephemeral"`
+
+    - `Ttl Ttl`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `Ttl5m("5m")`
+
+      - `Ttl1h("1h")`
+
+  - `BetaImageTransformationsParam? Transformations`
+
+    Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+    - `OversizedImage OversizedImage`
+
+      What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+      - `Downsize("downsize")`
+
+      - `Error("error")`
+
+### Beta Image Transformations Param
+
+- `class BetaImageTransformationsParam`
+
+  Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+  - `OversizedImage OversizedImage`
+
+    What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+    - `Downsize("downsize")`
+
+    - `Error("error")`
+
+### Beta Input JSON Delta
+
+- `class BetaInputJsonDelta`
+
+  - `JsonElement Type = "input_json_delta"`
+
+  - `required string PartialJson`
+
+### Beta Input Tokens Clear At Least
+
+- `class BetaInputTokensClearAtLeast`
+
+  - `JsonElement Type = "input_tokens"`
+
+  - `required long Value`
+
+    minimum: 0
+
+### Beta Input Tokens Trigger
+
+- `class BetaInputTokensTrigger`
+
+  - `JsonElement Type = "input_tokens"`
+
+  - `required long Value`
+
+    minimum: 1
+
+### Beta Input Transformation
+
+- `class BetaInputTransformation: union`
+
+  One entry of `input_transformations`: either a change the API made to the
+  request's input before showing it to the model, or a block that failed a
+  binding check and was still shown to the model unchanged. The `type` field
+  says which.
+
+  - `class BetaThinkingDroppedInputTransformation`
+
+    - `JsonElement Type = "thinking_dropped"`
+
+      Always `thinking_dropped` for this entry type.
+
+    - `required string Path`
+
+      Where the removed block was in your request, as `messages.{i}.content.{j}`:
+      `i` indexes the `messages` array you sent and `j` that message's `content`
+      array — the same form error messages use.
+
+    - `required Reason Reason`
+
+      Which binding check removed the block: `model_binding_mismatch` — it was
+      created by a model whose reasoning the requested model may not read;
+      `prefix_binding_mismatch` — the conversation before it differs from the
+      conversation it was created in (the rest of that turn's consecutive thinking
+      blocks are removed with it, each with this reason);
+      `organization_binding_mismatch` — it was created under a different
+      organization (an Anthropic organization, AWS account or Google Cloud project)
+      and this organization is not one of its additional organizations;
+      `end_user_binding_mismatch` — it was created for a different end user, or
+      was removed by the consumer-organization binding. A block that would fail
+      several checks reports one reason, in this order of precedence:
+      `organization_binding_mismatch`, `end_user_binding_mismatch`,
+      `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `ModelBindingMismatch("model_binding_mismatch")`
+
+      - `PrefixBindingMismatch("prefix_binding_mismatch")`
+
+      - `OrganizationBindingMismatch("organization_binding_mismatch")`
+
+      - `EndUserBindingMismatch("end_user_binding_mismatch")`
+
+  - `class BetaThinkingMismatchAllowedInputTransformation`
+
+    - `JsonElement Type = "thinking_mismatch_allowed"`
+
+      Always `thinking_mismatch_allowed` for this entry type.
+
+    - `required string Path`
+
+      Where the block is in your request, as `messages.{i}.content.{j}`:
+      `i` indexes the `messages` array you sent and `j` that message's `content`
+      array — the same form error messages use.
+
+    - `required Reason Reason`
+
+      Which binding check the block failed; the block was shown to the model all
+      the same. Always `prefix_binding_mismatch` today — the conversation before
+      the block differs from the conversation it was created in, or the block
+      carries no record of one on a model that requires it. Were the check
+      enforced for this request, the block would have been removed or the request
+      rejected (`thinking.block_binding.prefix_mismatch_behavior`). A removal also
+      takes the rest of that turn's consecutive thinking blocks, whereas here each
+      block is checked on its own, so `thinking_mismatch_allowed` entries are a
+      lower bound on what enforcement would remove.
+
+      - `ModelBindingMismatch("model_binding_mismatch")`
+
+      - `PrefixBindingMismatch("prefix_binding_mismatch")`
+
+      - `OrganizationBindingMismatch("organization_binding_mismatch")`
+
+      - `EndUserBindingMismatch("end_user_binding_mismatch")`
+
+### Beta JSON Output Format
+
+- `class BetaJsonOutputFormat`
+
+  - `JsonElement Type = "json_schema"`
+
+  - `required IReadOnlyDictionary<string, JsonElement> Schema`
+
+    The JSON schema of the format
+
+### Beta MCP Tool
+
+- `class BetaMcpTool`
+
+  A tool as an MCP server lists it: its name on that server, its
+  description, and its input schema.
+
+  - `required IReadOnlyDictionary<string, JsonElement> InputSchema`
+
+  - `required string Name`
+
+  - `string Description`
+
+### Beta MCP Tool Config
+
+- `class BetaMcpToolConfig`
+
+  Configuration for a specific tool in an MCP toolset.
+
+  - `bool DeferLoading`
+
+  - `bool Enabled`
+
+### Beta MCP Tool Default Config
+
+- `class BetaMcpToolDefaultConfig`
+
+  Default configuration for tools in an MCP toolset.
+
+  - `bool DeferLoading`
+
+  - `bool Enabled`
+
+### Beta MCP Tool Listing Block
+
+- `class BetaMcpToolListingBlock`
+
+  The tool listing the server fetched from an MCP server while producing
+  this response. Send the assistant message back unchanged, this block
+  included, so later requests use this listing instead of asking the MCP
+  server again.
+
+  - `JsonElement Type = "mcp_tool_listing"`
+
+  - `required string McpServerName`
+
+  - `required IReadOnlyList<BetaMcpTool> Tools`
+
+    - `required IReadOnlyDictionary<string, JsonElement> InputSchema`
+
+    - `required string Name`
+
+    - `string Description`
+
+### Beta MCP Tool Listing Block Param
+
+- `class BetaMcpToolListingBlockParam`
+
+  The tool listing an MCP server returned while an earlier response was
+  produced, as that response carried it. Send the assistant message back
+  unchanged, this block included, and the server uses this listing for the
+  matching `mcp_toolset` instead of asking the MCP server again.
+
+  - `JsonElement Type = "mcp_tool_listing"`
+
+  - `required string McpServerName`
+
+    The name of the MCP server this listing came from, as `mcp_servers` declares it.
+
+    minLength: 1, maxLength: 255
+
+  - `required IReadOnlyList<BetaMcpToolParam> Tools`
+
+    The server's tools, exactly as the response listed them.
+
+    - `required IReadOnlyDictionary<string, JsonElement> InputSchema`
+
+      The tool's input schema as the MCP server lists it, verbatim.
+
+    - `required string Name`
+
+      The tool's name as the MCP server lists it (not prefixed with the server name).
+
+      minLength: 1
+
+    - `string? Description`
+
+      The tool's description as the MCP server lists it.
+
+### Beta MCP Tool Param
+
+- `class BetaMcpToolParam`
+
+  A tool as an MCP server lists it: its name on that server, its
+  description, and its input schema.
+
+  - `required IReadOnlyDictionary<string, JsonElement> InputSchema`
+
+    The tool's input schema as the MCP server lists it, verbatim.
+
+  - `required string Name`
+
+    The tool's name as the MCP server lists it (not prefixed with the server name).
+
+    minLength: 1
+
+  - `string? Description`
+
+    The tool's description as the MCP server lists it.
+
+### Beta MCP Tool Result Block
+
+- `class BetaMcpToolResultBlock`
+
+  - `JsonElement Type = "mcp_tool_result"`
+
+  - `required Content Content`
+
+    - `string`
+
+    - `IReadOnlyList<BetaTextBlock>`
+
+      - `JsonElement Type = "text"`
+
+      - `required IReadOnlyList<BetaTextCitation>? Citations`
+
+        Citations supporting the text block.
+
+        The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+        - `class BetaCitationCharLocation`
+
+          - `JsonElement Type = "char_location"`
+
+          - `required string CitedText`
+
+          - `required long DocumentIndex`
+
+            minimum: 0
+
+          - `required string? DocumentTitle`
+
+          - `required long EndCharIndex`
+
+          - `required string? FileID`
+
+          - `required long StartCharIndex`
+
+            minimum: 0
+
+        - `class BetaCitationPageLocation`
+
+          - `JsonElement Type = "page_location"`
+
+          - `required string CitedText`
+
+          - `required long DocumentIndex`
+
+            minimum: 0
+
+          - `required string? DocumentTitle`
+
+          - `required long EndPageNumber`
+
+          - `required string? FileID`
+
+          - `required long StartPageNumber`
+
+            minimum: 1
+
+        - `class BetaCitationContentBlockLocation`
+
+          - `JsonElement Type = "content_block_location"`
+
+          - `required string CitedText`
+
+            The full text of the cited block range, concatenated.
+
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+          - `required long DocumentIndex`
+
+            minimum: 0
+
+          - `required string? DocumentTitle`
+
+          - `required long EndBlockIndex`
+
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+          - `required string? FileID`
+
+          - `required long StartBlockIndex`
+
+            0-based index of the first cited block in the source's `content` array.
+
+            minimum: 0
+
+        - `class BetaCitationsWebSearchResultLocation`
+
+          - `JsonElement Type = "web_search_result_location"`
+
+          - `required string CitedText`
+
+          - `required string EncryptedIndex`
+
+          - `required string? Title`
+
+            maxLength: 512
+
+          - `required string Url`
+
+        - `class BetaCitationSearchResultLocation`
+
+          - `JsonElement Type = "search_result_location"`
+
+          - `required string CitedText`
+
+            The full text of the cited block range, concatenated.
+
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+          - `required long EndBlockIndex`
+
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+          - `required long SearchResultIndex`
+
+            0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+            Counted separately from `document_index`; server-side web search results are not included in this count.
+
+            minimum: 0
+
+          - `required string Source`
+
+          - `required long StartBlockIndex`
+
+            0-based index of the first cited block in the source's `content` array.
+
+            minimum: 0
+
+          - `required string? Title`
+
+      - `required string Text`
+
+  - `required bool IsError`
+
+  - `required string ToolUseID`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+### Beta MCP Tool Use Block
+
+- `class BetaMcpToolUseBlock`
+
+  - `JsonElement Type = "mcp_tool_use"`
+
+  - `required string ID`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `required IReadOnlyDictionary<string, JsonElement> Input`
+
+  - `required string Name`
+
+    The name of the MCP tool
+
+  - `required string ServerName`
+
+    The name of the MCP server
+
+### Beta MCP Tool Use Block Param
+
+- `class BetaMcpToolUseBlockParam`
+
+  - `JsonElement Type = "mcp_tool_use"`
+
+  - `required string ID`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `required IReadOnlyDictionary<string, JsonElement> Input`
+
+  - `required string Name`
+
+  - `required string ServerName`
+
+    The name of the MCP server
+
+  - `BetaCacheControlEphemeral? CacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+    - `JsonElement Type = "ephemeral"`
+
+    - `Ttl Ttl`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `Ttl5m("5m")`
+
+      - `Ttl1h("1h")`
+
+### Beta MCP Toolset
+
+- `class BetaMcpToolset`
+
+  Configuration for a group of tools from an MCP server.
+
+  Allows configuring enabled status and defer_loading for all tools
+  from an MCP server, with optional per-tool overrides.
+
+  - `JsonElement Type = "mcp_toolset"`
+
+  - `required string McpServerName`
+
+    Name of the MCP server to configure tools for
+
+    minLength: 1, maxLength: 255
+
+  - `BetaCacheControlEphemeral? CacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+    - `JsonElement Type = "ephemeral"`
+
+    - `Ttl Ttl`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `Ttl5m("5m")`
+
+      - `Ttl1h("1h")`
+
+  - `IReadOnlyDictionary<string, BetaMcpToolConfig>? Configs`
+
+    Configuration overrides for specific tools, keyed by tool name
+
+    - `bool DeferLoading`
+
+    - `bool Enabled`
+
+  - `BetaMcpToolDefaultConfig DefaultConfig`
+
+    Default configuration applied to all tools from this server
+
+    - `bool DeferLoading`
+
+    - `bool Enabled`
+
+  - `IReadOnlyList<BetaMcpToolParam>? Tools`
+
+    The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
+    - `required IReadOnlyDictionary<string, JsonElement> InputSchema`
+
+      The tool's input schema as the MCP server lists it, verbatim.
+
+    - `required string Name`
+
+      The tool's name as the MCP server lists it (not prefixed with the server name).
+
+      minLength: 1
+
+    - `string? Description`
+
+      The tool's description as the MCP server lists it.
+
+### Beta Memory Tool 20250818
+
+- `class BetaMemoryTool20250818`
+
+  - `JsonElement Type = "memory_20250818"`
+
+  - `JsonElement Name = "memory"`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+    - `Direct("direct")`
+
+    - `CodeExecution20250825("code_execution_20250825")`
+
+    - `CodeExecution20260120("code_execution_20260120")`
+
+    - `CodeExecution20260521("code_execution_20260521")`
+
+  - `BetaCacheControlEphemeral? CacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+    - `JsonElement Type = "ephemeral"`
+
+    - `Ttl Ttl`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `Ttl5m("5m")`
+
+      - `Ttl1h("1h")`
+
+  - `bool DeferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
+
+  - `bool Strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Memory Tool 20250818 Command
+
+- `class BetaMemoryTool20250818Command: union`
+
+  - `class BetaMemoryTool20250818ViewCommand`
+
+    - `JsonElement Command = "view"`
+
+      Command type identifier
+
+    - `required string Path`
+
+      Path to directory or file to view
+
+    - `IReadOnlyList<long> ViewRange`
+
+      Optional line range for viewing specific lines
+
+      minItems: 2, maxItems: 2
+
+  - `class BetaMemoryTool20250818CreateCommand`
+
+    - `JsonElement Command = "create"`
+
+      Command type identifier
+
+    - `required string FileText`
+
+      Content to write to the file
+
+    - `required string Path`
+
+      Path where the file should be created
+
+  - `class BetaMemoryTool20250818StrReplaceCommand`
+
+    - `JsonElement Command = "str_replace"`
+
+      Command type identifier
+
+    - `required string NewStr`
+
+      Text to replace with
+
+    - `required string OldStr`
+
+      Text to search for and replace
+
+    - `required string Path`
+
+      Path to the file where text should be replaced
+
+  - `class BetaMemoryTool20250818InsertCommand`
+
+    - `JsonElement Command = "insert"`
+
+      Command type identifier
+
+    - `required long InsertLine`
+
+      Line number where text should be inserted
+
+      minimum: 1
+
+    - `required string InsertText`
+
+      Text to insert at the specified line
+
+    - `required string Path`
+
+      Path to the file where text should be inserted
+
+  - `class BetaMemoryTool20250818DeleteCommand`
+
+    - `JsonElement Command = "delete"`
+
+      Command type identifier
+
+    - `required string Path`
+
+      Path to the file or directory to delete
+
+  - `class BetaMemoryTool20250818RenameCommand`
+
+    - `JsonElement Command = "rename"`
+
+      Command type identifier
+
+    - `required string NewPath`
+
+      New path for the file or directory
+
+    - `required string OldPath`
+
+      Current path of the file or directory
+
+### Beta Memory Tool 20250818 Create Command
+
+- `class BetaMemoryTool20250818CreateCommand`
+
+  - `JsonElement Command = "create"`
+
+    Command type identifier
+
+  - `required string FileText`
+
+    Content to write to the file
+
+  - `required string Path`
+
+    Path where the file should be created
+
+### Beta Memory Tool 20250818 Delete Command
+
+- `class BetaMemoryTool20250818DeleteCommand`
+
+  - `JsonElement Command = "delete"`
+
+    Command type identifier
+
+  - `required string Path`
+
+    Path to the file or directory to delete
+
+### Beta Memory Tool 20250818 Insert Command
+
+- `class BetaMemoryTool20250818InsertCommand`
+
+  - `JsonElement Command = "insert"`
+
+    Command type identifier
+
+  - `required long InsertLine`
+
+    Line number where text should be inserted
+
+    minimum: 1
+
+  - `required string InsertText`
+
+    Text to insert at the specified line
+
+  - `required string Path`
+
+    Path to the file where text should be inserted
+
+### Beta Memory Tool 20250818 Rename Command
+
+- `class BetaMemoryTool20250818RenameCommand`
+
+  - `JsonElement Command = "rename"`
+
+    Command type identifier
+
+  - `required string NewPath`
+
+    New path for the file or directory
+
+  - `required string OldPath`
+
+    Current path of the file or directory
+
+### Beta Memory Tool 20250818 Str Replace Command
+
+- `class BetaMemoryTool20250818StrReplaceCommand`
+
+  - `JsonElement Command = "str_replace"`
+
+    Command type identifier
+
+  - `required string NewStr`
+
+    Text to replace with
+
+  - `required string OldStr`
+
+    Text to search for and replace
+
+  - `required string Path`
+
+    Path to the file where text should be replaced
+
+### Beta Memory Tool 20250818 View Command
+
+- `class BetaMemoryTool20250818ViewCommand`
+
+  - `JsonElement Command = "view"`
+
+    Command type identifier
+
+  - `required string Path`
+
+    Path to directory or file to view
+
+  - `IReadOnlyList<long> ViewRange`
+
+    Optional line range for viewing specific lines
+
+    minItems: 2, maxItems: 2
+
+### Beta Message
+
+- `class BetaMessage`
+
+  - `JsonElement Type = "message"`
+
+    Object type.
+
+    For Messages, this is always `"message"`.
+
+  - `required string ID`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `required BetaContainer? Container`
+
+    Information about the container used in this request.
+
+    This will be non-null if a container tool (e.g. code execution) was used.
+
+    - `required string ID`
+
+      Identifier for the container used in this request
+
+    - `required DateTimeOffset ExpiresAt`
+
+      The time at which the container will expire.
+
+      format: date-time
+
+    - `required IReadOnlyList<BetaContainerSkill>? Skills`
+
+      Skills loaded in the container
+
+      - `required Type Type`
+
+        Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+        - `Anthropic("anthropic")`
+
+        - `Custom("custom")`
+
+      - `required string SkillID`
+
+        Skill ID
+
+        minLength: 1, maxLength: 64
+
+      - `required string Version`
+
+        The resolved version: a skill version ID for custom skills.
+
+        minLength: 1, maxLength: 64
+
+  - `required IReadOnlyList<BetaContentBlock> Content`
+
+    Content generated by the model.
+
+    This is an array of content blocks, each of which has a `type` that determines its shape.
+
+    Example:
+
+    ```json
+    [{"type": "text", "text": "Hi, I'm Claude."}]
+    ```
+
+    If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
+
+    For example, if the input `messages` were:
+
+    ```json
+    [
+      {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+      {"role": "assistant", "content": "The best answer is ("}
+    ]
+    ```
+
+    Then the response `content` might be:
+
+    ```json
+    [{"type": "text", "text": "B)"}]
+    ```
+
+    - `class BetaTextBlock`
+
+      - `JsonElement Type = "text"`
+
+      - `required IReadOnlyList<BetaTextCitation>? Citations`
+
+        Citations supporting the text block.
+
+        The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+        - `class BetaCitationCharLocation`
+
+          - `JsonElement Type = "char_location"`
+
+          - `required string CitedText`
+
+          - `required long DocumentIndex`
+
+            minimum: 0
+
+          - `required string? DocumentTitle`
+
+          - `required long EndCharIndex`
+
+          - `required string? FileID`
+
+          - `required long StartCharIndex`
+
+            minimum: 0
+
+        - `class BetaCitationPageLocation`
+
+          - `JsonElement Type = "page_location"`
+
+          - `required string CitedText`
+
+          - `required long DocumentIndex`
+
+            minimum: 0
+
+          - `required string? DocumentTitle`
+
+          - `required long EndPageNumber`
+
+          - `required string? FileID`
+
+          - `required long StartPageNumber`
+
+            minimum: 1
+
+        - `class BetaCitationContentBlockLocation`
+
+          - `JsonElement Type = "content_block_location"`
+
+          - `required string CitedText`
+
+            The full text of the cited block range, concatenated.
+
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+          - `required long DocumentIndex`
+
+            minimum: 0
+
+          - `required string? DocumentTitle`
+
+          - `required long EndBlockIndex`
+
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+          - `required string? FileID`
+
+          - `required long StartBlockIndex`
+
+            0-based index of the first cited block in the source's `content` array.
+
+            minimum: 0
+
+        - `class BetaCitationsWebSearchResultLocation`
+
+          - `JsonElement Type = "web_search_result_location"`
+
+          - `required string CitedText`
+
+          - `required string EncryptedIndex`
+
+          - `required string? Title`
+
+            maxLength: 512
+
+          - `required string Url`
+
+        - `class BetaCitationSearchResultLocation`
+
+          - `JsonElement Type = "search_result_location"`
+
+          - `required string CitedText`
+
+            The full text of the cited block range, concatenated.
+
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+          - `required long EndBlockIndex`
+
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+          - `required long SearchResultIndex`
+
+            0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+            Counted separately from `document_index`; server-side web search results are not included in this count.
+
+            minimum: 0
+
+          - `required string Source`
+
+          - `required long StartBlockIndex`
+
+            0-based index of the first cited block in the source's `content` array.
+
+            minimum: 0
+
+          - `required string? Title`
+
+      - `required string Text`
+
+    - `class BetaThinkingBlock`
+
+      - `JsonElement Type = "thinking"`
+
+      - `required string Signature`
+
+        A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+        This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+        See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+      - `required string Thinking`
+
+        The text of Claude's thinking process for this block.
+
+    - `class BetaRedactedThinkingBlock`
+
+      - `JsonElement Type = "redacted_thinking"`
+
+      - `required string Data`
+
+        The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+        Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+        See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
+
+    - `class BetaToolUseBlock`
+
+      - `JsonElement Type = "tool_use"`
+
+      - `required string ID`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `required IReadOnlyDictionary<string, JsonElement> Input`
+
+      - `required string Name`
+
+        minLength: 1
+
+      - `Caller Caller`
+
+        - `class BetaDirectCaller`
+
+          Tool invocation directly from the model.
+
+          - `JsonElement Type = "direct"`
+
+        - `class BetaServerToolCaller`
+
+          Tool invocation generated by a server-side tool.
+
+          - `JsonElement Type = "code_execution_20250825"`
+
+          - `required string ToolID`
+
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+        - `class BetaServerToolCaller20260120`
+
+          - `JsonElement Type = "code_execution_20260120"`
+
+          - `required string ToolID`
+
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `string? ToolsetName`
+
+        For a toolset member tool_use, the toolset family.
+
+        minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
+
+    - `class BetaServerToolUseBlock`
+
+      - `JsonElement Type = "server_tool_use"`
+
+      - `required string ID`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `required IReadOnlyDictionary<string, JsonElement> Input`
+
+      - `required Name Name`
+
+        - `Advisor("advisor")`
+
+        - `WebSearch("web_search")`
+
+        - `WebFetch("web_fetch")`
+
+        - `CodeExecution("code_execution")`
+
+        - `BashCodeExecution("bash_code_execution")`
+
+        - `TextEditorCodeExecution("text_editor_code_execution")`
+
+        - `ToolSearchToolRegex("tool_search_tool_regex")`
+
+        - `ToolSearchToolBm25("tool_search_tool_bm25")`
+
+      - `Caller Caller`
+
+        - `class BetaDirectCaller`
+
+          Tool invocation directly from the model.
+
+        - `class BetaServerToolCaller`
+
+          Tool invocation generated by a server-side tool.
+
+        - `class BetaServerToolCaller20260120`
+
+    - `class BetaWebSearchToolResultBlock`
+
+      - `JsonElement Type = "web_search_tool_result"`
+
+      - `required BetaWebSearchToolResultBlockContent Content`
+
+        - `class BetaWebSearchToolResultError`
+
+          - `JsonElement Type = "web_search_tool_result_error"`
+
+          - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
+            - `InvalidToolInput("invalid_tool_input")`
+
+            - `Unavailable("unavailable")`
+
+            - `MaxUsesExceeded("max_uses_exceeded")`
+
+            - `TooManyRequests("too_many_requests")`
+
+            - `QueryTooLong("query_too_long")`
+
+            - `RequestTooLarge("request_too_large")`
+
+        - `IReadOnlyList<BetaWebSearchResultBlock>`
+
+          - `JsonElement Type = "web_search_result"`
+
+          - `required string EncryptedContent`
+
+          - `required string? PageAge`
+
+          - `required string Title`
+
+          - `required string Url`
+
+      - `required string ToolUseID`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `Caller Caller`
+
+        - `class BetaDirectCaller`
+
+          Tool invocation directly from the model.
+
+        - `class BetaServerToolCaller`
+
+          Tool invocation generated by a server-side tool.
+
+        - `class BetaServerToolCaller20260120`
+
+    - `class BetaWebFetchToolResultBlock`
+
+      - `JsonElement Type = "web_fetch_tool_result"`
+
+      - `required Content Content`
+
+        - `class BetaWebFetchToolResultErrorBlock`
+
+          - `JsonElement Type = "web_fetch_tool_result_error"`
+
+          - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
+            - `InvalidToolInput("invalid_tool_input")`
+
+            - `UrlTooLong("url_too_long")`
+
+            - `UrlNotAllowed("url_not_allowed")`
+
+            - `UrlNotInPriorContext("url_not_in_prior_context")`
+
+            - `UrlNotAccessible("url_not_accessible")`
+
+            - `UnsupportedContentType("unsupported_content_type")`
+
+            - `TooManyRequests("too_many_requests")`
+
+            - `MaxUsesExceeded("max_uses_exceeded")`
+
+            - `Unavailable("unavailable")`
+
+            - `ContentTooLarge("content_too_large")`
+
+        - `class BetaWebFetchBlock`
+
+          - `JsonElement Type = "web_fetch_result"`
+
+          - `required BetaDocumentBlock Content`
+
+            - `JsonElement Type = "document"`
+
+            - `required BetaCitationConfig? Citations`
+
+              Citation configuration for the document
+
+              - `required bool Enabled`
+
+            - `required Source Source`
+
+              - `class BetaBase64PdfSource`
+
+                - `JsonElement Type = "base64"`
+
+                - `required string Data`
+
+                  format: byte
+
+                - `JsonElement MediaType = "application/pdf"`
+
+              - `class BetaPlainTextSource`
+
+                - `JsonElement Type = "text"`
+
+                - `required string Data`
+
+                - `JsonElement MediaType = "text/plain"`
+
+            - `required string? Title`
+
+              The title of the document
+
+          - `required string? RetrievedAt`
+
+            ISO 8601 timestamp when the content was retrieved
+
+          - `required string Url`
+
+            Fetched content URL
+
+      - `required string ToolUseID`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `Caller Caller`
+
+        - `class BetaDirectCaller`
+
+          Tool invocation directly from the model.
+
+        - `class BetaServerToolCaller`
+
+          Tool invocation generated by a server-side tool.
+
+        - `class BetaServerToolCaller20260120`
+
+    - `class BetaAdvisorToolResultBlock`
+
+      - `JsonElement Type = "advisor_tool_result"`
+
+      - `required Content Content`
+
+        - `class BetaAdvisorToolResultError`
+
+          - `JsonElement Type = "advisor_tool_result_error"`
+
+          - `required ErrorCode ErrorCode`
+
+            - `MaxUsesExceeded("max_uses_exceeded")`
+
+            - `PromptTooLong("prompt_too_long")`
+
+            - `TooManyRequests("too_many_requests")`
+
+            - `Overloaded("overloaded")`
+
+            - `Unavailable("unavailable")`
+
+            - `ExecutionTimeExceeded("execution_time_exceeded")`
+
+            - `ModelNotFound("model_not_found")`
+
+        - `class BetaAdvisorResultBlock`
+
+          - `JsonElement Type = "advisor_result"`
+
+          - `required string? StopReason`
+
+            The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
+
+          - `required string Text`
+
+        - `class BetaAdvisorRedactedResultBlock`
+
+          - `JsonElement Type = "advisor_redacted_result"`
+
+          - `required string EncryptedContent`
+
+            Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
+
+          - `required string? StopReason`
+
+            The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
+
+      - `required string ToolUseID`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `class BetaCodeExecutionToolResultBlock`
+
+      - `JsonElement Type = "code_execution_tool_result"`
+
+      - `required BetaCodeExecutionToolResultBlockContent Content`
+
+        - `class BetaCodeExecutionToolResultError`
+
+          - `JsonElement Type = "code_execution_tool_result_error"`
+
+          - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
+            - `InvalidToolInput("invalid_tool_input")`
+
+            - `Unavailable("unavailable")`
+
+            - `TooManyRequests("too_many_requests")`
+
+            - `ExecutionTimeExceeded("execution_time_exceeded")`
+
+        - `class BetaCodeExecutionResultBlock`
+
+          - `JsonElement Type = "code_execution_result"`
+
+          - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
+            - `JsonElement Type = "code_execution_output"`
+
+            - `required string FileID`
+
+          - `required long ReturnCode`
+
+          - `required string Stderr`
+
+          - `required string Stdout`
+
+        - `class BetaEncryptedCodeExecutionResultBlock`
+
+          Code execution result with encrypted stdout for PFC + web_search results.
+
+          - `JsonElement Type = "encrypted_code_execution_result"`
+
+          - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
+            - `JsonElement Type = "code_execution_output"`
+
+            - `required string FileID`
+
+          - `required string EncryptedStdout`
+
+          - `required long ReturnCode`
+
+          - `required string Stderr`
+
+      - `required string ToolUseID`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `class BetaBashCodeExecutionToolResultBlock`
+
+      - `JsonElement Type = "bash_code_execution_tool_result"`
+
+      - `required Content Content`
+
+        - `class BetaBashCodeExecutionToolResultError`
+
+          - `JsonElement Type = "bash_code_execution_tool_result_error"`
+
+          - `required ErrorCode ErrorCode`
+
+            - `InvalidToolInput("invalid_tool_input")`
+
+            - `Unavailable("unavailable")`
+
+            - `TooManyRequests("too_many_requests")`
+
+            - `ExecutionTimeExceeded("execution_time_exceeded")`
+
+            - `OutputFileTooLarge("output_file_too_large")`
+
+        - `class BetaBashCodeExecutionResultBlock`
+
+          - `JsonElement Type = "bash_code_execution_result"`
+
+          - `required IReadOnlyList<BetaBashCodeExecutionOutputBlock> Content`
+
+            - `JsonElement Type = "bash_code_execution_output"`
+
+            - `required string FileID`
+
+          - `required long ReturnCode`
+
+          - `required string Stderr`
+
+          - `required string Stdout`
+
+      - `required string ToolUseID`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `class BetaTextEditorCodeExecutionToolResultBlock`
+
+      - `JsonElement Type = "text_editor_code_execution_tool_result"`
+
+      - `required Content Content`
+
+        - `class BetaTextEditorCodeExecutionToolResultError`
+
+          - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
+
+          - `required ErrorCode ErrorCode`
+
+            - `InvalidToolInput("invalid_tool_input")`
+
+            - `Unavailable("unavailable")`
+
+            - `TooManyRequests("too_many_requests")`
+
+            - `ExecutionTimeExceeded("execution_time_exceeded")`
+
+            - `FileNotFound("file_not_found")`
+
+          - `required string? ErrorMessage`
+
+        - `class BetaTextEditorCodeExecutionViewResultBlock`
+
+          - `JsonElement Type = "text_editor_code_execution_view_result"`
+
+          - `required string Content`
+
+          - `required FileType FileType`
+
+            - `Text("text")`
+
+            - `Image("image")`
+
+            - `Pdf("pdf")`
+
+          - `required long? NumLines`
+
+          - `required long? StartLine`
+
+          - `required long? TotalLines`
+
+        - `class BetaTextEditorCodeExecutionCreateResultBlock`
+
+          - `JsonElement Type = "text_editor_code_execution_create_result"`
+
+          - `required bool IsFileUpdate`
+
+        - `class BetaTextEditorCodeExecutionStrReplaceResultBlock`
+
+          - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
+
+          - `required IReadOnlyList<string>? Lines`
+
+          - `required long? NewLines`
+
+          - `required long? NewStart`
+
+          - `required long? OldLines`
+
+          - `required long? OldStart`
+
+      - `required string ToolUseID`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `class BetaToolSearchToolResultBlock`
+
+      - `JsonElement Type = "tool_search_tool_result"`
+
+      - `required Content Content`
+
+        - `class BetaToolSearchToolResultError`
+
+          - `JsonElement Type = "tool_search_tool_result_error"`
+
+          - `required ErrorCode ErrorCode`
+
+            - `InvalidToolInput("invalid_tool_input")`
+
+            - `Unavailable("unavailable")`
+
+            - `TooManyRequests("too_many_requests")`
+
+            - `ExecutionTimeExceeded("execution_time_exceeded")`
+
+          - `required string? ErrorMessage`
+
+        - `class BetaToolSearchToolSearchResultBlock`
+
+          - `JsonElement Type = "tool_search_tool_search_result"`
+
+          - `required IReadOnlyList<BetaToolReferenceBlock> ToolReferences`
+
+            - `JsonElement Type = "tool_reference"`
+
+            - `required string ToolName`
+
+              minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+      - `required string ToolUseID`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `class BetaMcpToolUseBlock`
+
+      - `JsonElement Type = "mcp_tool_use"`
+
+      - `required string ID`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+      - `required IReadOnlyDictionary<string, JsonElement> Input`
+
+      - `required string Name`
+
+        The name of the MCP tool
+
+      - `required string ServerName`
+
+        The name of the MCP server
+
+    - `class BetaMcpToolResultBlock`
+
+      - `JsonElement Type = "mcp_tool_result"`
+
+      - `required Content Content`
+
+        - `string`
+
+        - `IReadOnlyList<BetaTextBlock>`
+
+          - `JsonElement Type = "text"`
+
+          - `required IReadOnlyList<BetaTextCitation>? Citations`
+
+            Citations supporting the text block.
+
+            The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+          - `required string Text`
+
+      - `required bool IsError`
+
+      - `required string ToolUseID`
+
+        pattern: ^[a-zA-Z0-9_-]+$
+
+    - `class BetaContainerUploadBlock`
+
+      Response model for a file uploaded to the container.
+
+      - `JsonElement Type = "container_upload"`
+
+      - `required string FileID`
+
+    - `class BetaCompactionBlock`
+
+      A compaction block returned when autocompact is triggered.
+
       When content is None, it indicates the compaction failed to produce a valid
       summary (e.g., malformed output from the model). Clients may round-trip
       compaction blocks with null content; the server treats them as no-ops.
@@ -1841,6 +6332,10 @@
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                    - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+                      Fastest model for high-volume, real-time tasks
+
                     - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
                       Efficient model for coding and agents
@@ -3046,6 +7541,10 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+          Fastest model for high-volume, real-time tasks
+
         - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
           Efficient model for coding and agents
@@ -3352,6 +7851,10 @@
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+      Fastest model for high-volume, real-time tasks
 
     - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -6352,6 +10855,10 @@
                       The model that will complete your prompt.
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                      - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+                        Fastest model for high-volume, real-time tasks
 
                       - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -9771,6 +14278,10 @@
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                    - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+                      Fastest model for high-volume, real-time tasks
+
                     - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
                       Efficient model for coding and agents
@@ -10504,6 +15015,10 @@
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+            Fastest model for high-volume, real-time tasks
 
           - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -13484,6 +17999,10 @@
                       The model that will complete your prompt.
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                      - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+                        Fastest model for high-volume, real-time tasks
 
                       - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -17174,6 +21693,10 @@
                         The model that will complete your prompt.
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                        - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+                          Fastest model for high-volume, real-time tasks
 
                         - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
@@ -20914,6 +25437,10 @@
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+              Fastest model for high-volume, real-time tasks
+
             - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
               Efficient model for coding and agents
@@ -23113,6 +27640,10 @@
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `ClaudeHaiku5_5("claude-haiku-5-5")`
+
+              Fastest model for high-volume, real-time tasks
+
             - `ClaudeSonnet5_5("claude-sonnet-5-5")`
 
               Efficient model for coding and agents
@@ -25094,4542 +29625,3 @@
     - `JsonElement Name = "web_search"`
 
       Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-      - `Direct("direct")`
-
-      - `CodeExecution20250825("code_execution_20250825")`
-
-      - `CodeExecution20260120("code_execution_20260120")`
-
-      - `CodeExecution20260521("code_execution_20260521")`
-
-    - `IReadOnlyList<string>? AllowedDomains`
-
-      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-    - `IReadOnlyList<string>? BlockedDomains`
-
-      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-    - `BetaCacheControlEphemeral? CacheControl`
-
-      Create a cache control breakpoint at this content block.
-
-    - `bool DeferLoading`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `long? MaxUses`
-
-      Maximum number of times the tool can be used in the API request.
-
-      minimum: 1
-
-    - `ResponseInclusion ResponseInclusion`
-
-      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-      - `Full("full")`
-
-      - `Excluded("excluded")`
-
-    - `bool Strict`
-
-      When true, guarantees schema validation on tool names and inputs
-
-    - `BetaUserLocation? UserLocation`
-
-      Parameters for the user's location. Used to provide more relevant search results.
-
-  - `class BetaWebFetchTool20260318`
-
-    - `JsonElement Type = "web_fetch_20260318"`
-
-    - `JsonElement Name = "web_fetch"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-      - `Direct("direct")`
-
-      - `CodeExecution20250825("code_execution_20250825")`
-
-      - `CodeExecution20260120("code_execution_20260120")`
-
-      - `CodeExecution20260521("code_execution_20260521")`
-
-    - `IReadOnlyList<string>? AllowedDomains`
-
-      List of domains to allow fetching from
-
-    - `IReadOnlyList<string>? BlockedDomains`
-
-      List of domains to block fetching from
-
-    - `BetaCacheControlEphemeral? CacheControl`
-
-      Create a cache control breakpoint at this content block.
-
-    - `BetaCitationsConfigParam? Citations`
-
-      Citations configuration for fetched documents. Citations are disabled by default.
-
-    - `bool DeferLoading`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `long? MaxContentTokens`
-
-      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-      minimum: 1
-
-    - `long? MaxUses`
-
-      Maximum number of times the tool can be used in the API request.
-
-      minimum: 1
-
-    - `ResponseInclusion ResponseInclusion`
-
-      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-      - `Full("full")`
-
-      - `Excluded("excluded")`
-
-    - `bool Strict`
-
-      When true, guarantees schema validation on tool names and inputs
-
-    - `BetaWebFetchUrlSources? UrlSources`
-
-      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-    - `bool UseCache`
-
-      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-  - `class BetaAdvisorTool20260301`
-
-    - `JsonElement Type = "advisor_20260301"`
-
-    - `required Model Model`
-
-      The model that will complete your prompt.
-
-      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-      - `ClaudeSonnet5_5("claude-sonnet-5-5")`
-
-        Efficient model for coding and agents
-
-      - `ClaudeFable5_1("claude-fable-5-1")`
-
-        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-      - `ClaudeOpus5_5("claude-opus-5-5")`
-
-        Powerful intelligence for coding, knowledge work, and long-running agents
-
-      - `ClaudeMythos5_1("claude-mythos-5-1")`
-
-        Our most capable model for cybersecurity and biology research, available through trusted access programs
-
-      - `ClaudeSonnet5("claude-sonnet-5")`
-
-        Efficient model for coding and agents
-
-      - `ClaudeFable5("claude-fable-5")`
-
-        Next generation of intelligence for the hardest knowledge work and coding problems
-
-      - `ClaudeMythos5("claude-mythos-5")`
-
-        Most capable model for cybersecurity and biology research
-
-      - `ClaudeOpus5("claude-opus-5")`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `ClaudeOpus4_8("claude-opus-4-8")`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `ClaudeOpus4_7("claude-opus-4-7")`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `ClaudeOpus4_6("claude-opus-4-6")`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `ClaudeSonnet4_6("claude-sonnet-4-6")`
-
-        Best combination of speed and intelligence
-
-      - `ClaudeHaiku4_5("claude-haiku-4-5")`
-
-        Fastest model with near-frontier intelligence
-
-      - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
-
-        Fastest model with near-frontier intelligence
-
-      - `ClaudeOpus4_5("claude-opus-4-5")`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
-
-        Powerful intelligence for long-running agents and coding
-
-      - `ClaudeMythosPreview("claude-mythos-preview")`
-
-        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-        New class of intelligence, strongest in coding and cybersecurity
-
-      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-        High-performance model for agents and coding
-
-      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-        **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-        High-performance model for agents and coding
-
-    - `JsonElement Name = "advisor"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-      - `Direct("direct")`
-
-      - `CodeExecution20250825("code_execution_20250825")`
-
-      - `CodeExecution20260120("code_execution_20260120")`
-
-      - `CodeExecution20260521("code_execution_20260521")`
-
-    - `BetaCacheControlEphemeral? CacheControl`
-
-      Create a cache control breakpoint at this content block.
-
-    - `BetaCacheControlEphemeral? Caching`
-
-      Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
-
-    - `bool DeferLoading`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `long? MaxTokens`
-
-      Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
-
-      minimum: 1024
-
-    - `long? MaxUses`
-
-      Maximum number of times the tool can be used in the API request.
-
-      minimum: 1
-
-    - `bool Strict`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `class BetaToolSearchToolBm25_20251119`
-
-    - `required Type Type`
-
-      - `ToolSearchToolBm25_20251119("tool_search_tool_bm25_20251119")`
-
-      - `ToolSearchToolBm25("tool_search_tool_bm25")`
-
-    - `JsonElement Name = "tool_search_tool_bm25"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-      - `Direct("direct")`
-
-      - `CodeExecution20250825("code_execution_20250825")`
-
-      - `CodeExecution20260120("code_execution_20260120")`
-
-      - `CodeExecution20260521("code_execution_20260521")`
-
-    - `BetaCacheControlEphemeral? CacheControl`
-
-      Create a cache control breakpoint at this content block.
-
-    - `bool DeferLoading`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `bool Strict`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `class BetaToolSearchToolRegex20251119`
-
-    - `required Type Type`
-
-      - `ToolSearchToolRegex20251119("tool_search_tool_regex_20251119")`
-
-      - `ToolSearchToolRegex("tool_search_tool_regex")`
-
-    - `JsonElement Name = "tool_search_tool_regex"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-      - `Direct("direct")`
-
-      - `CodeExecution20250825("code_execution_20250825")`
-
-      - `CodeExecution20260120("code_execution_20260120")`
-
-      - `CodeExecution20260521("code_execution_20260521")`
-
-    - `BetaCacheControlEphemeral? CacheControl`
-
-      Create a cache control breakpoint at this content block.
-
-    - `bool DeferLoading`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `bool Strict`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `class BetaMcpToolset`
-
-    Configuration for a group of tools from an MCP server.
-
-    Allows configuring enabled status and defer_loading for all tools
-    from an MCP server, with optional per-tool overrides.
-
-    - `JsonElement Type = "mcp_toolset"`
-
-    - `required string McpServerName`
-
-      Name of the MCP server to configure tools for
-
-      minLength: 1, maxLength: 255
-
-    - `BetaCacheControlEphemeral? CacheControl`
-
-      Create a cache control breakpoint at this content block.
-
-    - `IReadOnlyDictionary<string, BetaMcpToolConfig>? Configs`
-
-      Configuration overrides for specific tools, keyed by tool name
-
-      - `bool DeferLoading`
-
-      - `bool Enabled`
-
-    - `BetaMcpToolDefaultConfig DefaultConfig`
-
-      Default configuration applied to all tools from this server
-
-      - `bool DeferLoading`
-
-      - `bool Enabled`
-
-    - `IReadOnlyList<BetaMcpToolParam>? Tools`
-
-      The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
-
-      - `required IReadOnlyDictionary<string, JsonElement> InputSchema`
-
-        The tool's input schema as the MCP server lists it, verbatim.
-
-      - `required string Name`
-
-        The tool's name as the MCP server lists it (not prefixed with the server name).
-
-        minLength: 1
-
-      - `string? Description`
-
-        The tool's description as the MCP server lists it.
-
-### Beta Search Result Block Param
-
-- `class BetaSearchResultBlockParam`
-
-  - `JsonElement Type = "search_result"`
-
-  - `required IReadOnlyList<BetaTextBlockParam> Content`
-
-    - `JsonElement Type = "text"`
-
-    - `required string Text`
-
-      minLength: 1
-
-    - `BetaCacheControlEphemeral? CacheControl`
-
-      Create a cache control breakpoint at this content block.
-
-      - `JsonElement Type = "ephemeral"`
-
-      - `Ttl Ttl`
-
-        The time-to-live for the cache control breakpoint.
-
-        This may be one the following values:
-
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
-
-        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-        - `Ttl5m("5m")`
-
-        - `Ttl1h("1h")`
-
-    - `IReadOnlyList<BetaTextCitationParam>? Citations`
-
-      - `class BetaCitationCharLocationParam`
-
-        - `JsonElement Type = "char_location"`
-
-        - `required string CitedText`
-
-        - `required long DocumentIndex`
-
-          minimum: 0
-
-        - `required string? DocumentTitle`
-
-          minLength: 1, maxLength: 500
-
-        - `required long EndCharIndex`
-
-        - `required long StartCharIndex`
-
-          minimum: 0
-
-      - `class BetaCitationPageLocationParam`
-
-        - `JsonElement Type = "page_location"`
-
-        - `required string CitedText`
-
-        - `required long DocumentIndex`
-
-          minimum: 0
-
-        - `required string? DocumentTitle`
-
-          minLength: 1, maxLength: 500
-
-        - `required long EndPageNumber`
-
-        - `required long StartPageNumber`
-
-          minimum: 1
-
-      - `class BetaCitationContentBlockLocationParam`
-
-        - `JsonElement Type = "content_block_location"`
-
-        - `required string CitedText`
-
-          The full text of the cited block range, concatenated.
-
-          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-        - `required long DocumentIndex`
-
-          minimum: 0
-
-        - `required string? DocumentTitle`
-
-          minLength: 1, maxLength: 500
-
-        - `required long EndBlockIndex`
-
-          Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-        - `required long StartBlockIndex`
-
-          0-based index of the first cited block in the source's `content` array.
-
-          minimum: 0
-
-      - `class BetaCitationWebSearchResultLocationParam`
-
-        - `JsonElement Type = "web_search_result_location"`
-
-        - `required string CitedText`
-
-        - `required string EncryptedIndex`
-
-        - `required string? Title`
-
-          minLength: 1, maxLength: 512
-
-        - `required string Url`
-
-          minLength: 1
-
-      - `class BetaCitationSearchResultLocationParam`
-
-        - `JsonElement Type = "search_result_location"`
-
-        - `required string CitedText`
-
-          The full text of the cited block range, concatenated.
-
-          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-        - `required long EndBlockIndex`
-
-          Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-        - `required long SearchResultIndex`
-
-          0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-          Counted separately from `document_index`; server-side web search results are not included in this count.
-
-          minimum: 0
-
-        - `required string Source`
-
-        - `required long StartBlockIndex`
-
-          0-based index of the first cited block in the source's `content` array.
-
-          minimum: 0
-
-        - `required string? Title`
-
-  - `required string Source`
-
-  - `required string Title`
-
-  - `BetaCacheControlEphemeral? CacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `BetaCitationsConfigParam Citations`
-
-    - `bool Enabled`
-
-### Beta Server Tool Caller
-
-- `class BetaServerToolCaller`
-
-  Tool invocation generated by a server-side tool.
-
-  - `JsonElement Type = "code_execution_20250825"`
-
-  - `required string ToolID`
-
-    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-### Beta Server Tool Caller 20260120
-
-- `class BetaServerToolCaller20260120`
-
-  - `JsonElement Type = "code_execution_20260120"`
-
-  - `required string ToolID`
-
-    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-### Beta Server Tool Usage
-
-- `class BetaServerToolUsage`
-
-  - `required long WebFetchRequests`
-
-    The number of web fetch tool requests.
-
-    minimum: 0
-
-  - `required long WebSearchRequests`
-
-    The number of web search tool requests.
-
-    minimum: 0
-
-### Beta Server Tool Use Block
-
-- `class BetaServerToolUseBlock`
-
-  - `JsonElement Type = "server_tool_use"`
-
-  - `required string ID`
-
-    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `required IReadOnlyDictionary<string, JsonElement> Input`
-
-  - `required Name Name`
-
-    - `Advisor("advisor")`
-
-    - `WebSearch("web_search")`
-
-    - `WebFetch("web_fetch")`
-
-    - `CodeExecution("code_execution")`
-
-    - `BashCodeExecution("bash_code_execution")`
-
-    - `TextEditorCodeExecution("text_editor_code_execution")`
-
-    - `ToolSearchToolRegex("tool_search_tool_regex")`
-
-    - `ToolSearchToolBm25("tool_search_tool_bm25")`
-
-  - `Caller Caller`
-
-    - `class BetaDirectCaller`
-
-      Tool invocation directly from the model.
-
-      - `JsonElement Type = "direct"`
-
-    - `class BetaServerToolCaller`
-
-      Tool invocation generated by a server-side tool.
-
-      - `JsonElement Type = "code_execution_20250825"`
-
-      - `required string ToolID`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `class BetaServerToolCaller20260120`
-
-      - `JsonElement Type = "code_execution_20260120"`
-
-      - `required string ToolID`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-### Beta Server Tool Use Block Param
-
-- `class BetaServerToolUseBlockParam`
-
-  - `JsonElement Type = "server_tool_use"`
-
-  - `required string ID`
-
-    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `required IReadOnlyDictionary<string, JsonElement> Input`
-
-  - `required Name Name`
-
-    - `Advisor("advisor")`
-
-    - `WebSearch("web_search")`
-
-    - `WebFetch("web_fetch")`
-
-    - `CodeExecution("code_execution")`
-
-    - `BashCodeExecution("bash_code_execution")`
-
-    - `TextEditorCodeExecution("text_editor_code_execution")`
-
-    - `ToolSearchToolRegex("tool_search_tool_regex")`
-
-    - `ToolSearchToolBm25("tool_search_tool_bm25")`
-
-  - `BetaCacheControlEphemeral? CacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-    - `JsonElement Type = "ephemeral"`
-
-    - `Ttl Ttl`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `Ttl5m("5m")`
-
-      - `Ttl1h("1h")`
-
-  - `Caller Caller`
-
-    - `class BetaDirectCaller`
-
-      Tool invocation directly from the model.
-
-      - `JsonElement Type = "direct"`
-
-    - `class BetaServerToolCaller`
-
-      Tool invocation generated by a server-side tool.
-
-      - `JsonElement Type = "code_execution_20250825"`
-
-      - `required string ToolID`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `class BetaServerToolCaller20260120`
-
-      - `JsonElement Type = "code_execution_20260120"`
-
-      - `required string ToolID`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-### Beta Signature Delta
-
-- `class BetaSignatureDelta`
-
-  - `JsonElement Type = "signature_delta"`
-
-  - `required string Signature`
-
-    The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
-
-### Beta Skill Params
-
-- `class BetaSkillParams`
-
-  Specification for a skill to be loaded in a container (request model).
-
-  - `required Type Type`
-
-    Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
-    - `Anthropic("anthropic")`
-
-    - `Custom("custom")`
-
-  - `required string SkillID`
-
-    Skill ID
-
-    minLength: 1, maxLength: 64
-
-  - `string Version`
-
-    Skill version or 'latest' for most recent version
-
-    minLength: 1, maxLength: 64
-
-### Beta Stop Reason
-
-- `enum BetaStopReason`
-
-  - `EndTurn("end_turn")`
-
-  - `MaxTokens("max_tokens")`
-
-  - `StopSequence("stop_sequence")`
-
-  - `ToolUse("tool_use")`
-
-  - `PauseTurn("pause_turn")`
-
-  - `Compaction("compaction")`
-
-  - `Refusal("refusal")`
-
-  - `ModelContextWindowExceeded("model_context_window_exceeded")`
-
-### Beta Summarize Compaction
-
-- `class BetaSummarizeCompaction`
-
-  Compact the whole conversation and return a signed `compaction` block,
-  alone, that a later request sends back first in `messages`, in place of
-  the messages it summarizes. There is no trigger and no pause flag: sending
-  the parameter compacts, and nothing is sampled after the block.
-
-  The summarization prompt is the server's own unless `instructions` are
-  given, which then replace it for this request; a value that is empty or
-  only whitespace counts as absent.
-
-  - `JsonElement Type = "summarize"`
-
-  - `string? Instructions`
-
-    Replaces the server's default summarization prompt for this request. An empty or whitespace-only value counts as absent.
-
-    maxLength: 16384
-
-### Beta System Message Output Config
-
-- `class BetaSystemMessageOutputConfig`
-
-  Per-message output configuration on a role:"system" input message.
-
-  Fields here apply per-turn; `format` remains top-level only. An
-  empty `{}` is accepted on a message that carries content; a message
-  with neither content nor output_config fields is rejected.
-
-  - `Effort? Effort`
-
-    How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
-
-    Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
-
-    - `Low("low")`
-
-    - `Medium("medium")`
-
-    - `High("high")`
-
-    - `Xhigh("xhigh")`
-
-    - `Max("max")`
-
-### Beta Text Block
-
-- `class BetaTextBlock`
-
-  - `JsonElement Type = "text"`
-
-  - `required IReadOnlyList<BetaTextCitation>? Citations`
-
-    Citations supporting the text block.
-
-    The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-
-    - `class BetaCitationCharLocation`
-
-      - `JsonElement Type = "char_location"`
-
-      - `required string CitedText`
-
-      - `required long DocumentIndex`
-
-        minimum: 0
-
-      - `required string? DocumentTitle`
-
-      - `required long EndCharIndex`
-
-      - `required string? FileID`
-
-      - `required long StartCharIndex`
-
-        minimum: 0
-
-    - `class BetaCitationPageLocation`
-
-      - `JsonElement Type = "page_location"`
-
-      - `required string CitedText`
-
-      - `required long DocumentIndex`
-
-        minimum: 0
-
-      - `required string? DocumentTitle`
-
-      - `required long EndPageNumber`
-
-      - `required string? FileID`
-
-      - `required long StartPageNumber`
-
-        minimum: 1
-
-    - `class BetaCitationContentBlockLocation`
-
-      - `JsonElement Type = "content_block_location"`
-
-      - `required string CitedText`
-
-        The full text of the cited block range, concatenated.
-
-        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-      - `required long DocumentIndex`
-
-        minimum: 0
-
-      - `required string? DocumentTitle`
-
-      - `required long EndBlockIndex`
-
-        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-      - `required string? FileID`
-
-      - `required long StartBlockIndex`
-
-        0-based index of the first cited block in the source's `content` array.
-
-        minimum: 0
-
-    - `class BetaCitationsWebSearchResultLocation`
-
-      - `JsonElement Type = "web_search_result_location"`
-
-      - `required string CitedText`
-
-      - `required string EncryptedIndex`
-
-      - `required string? Title`
-
-        maxLength: 512
-
-      - `required string Url`
-
-    - `class BetaCitationSearchResultLocation`
-
-      - `JsonElement Type = "search_result_location"`
-
-      - `required string CitedText`
-
-        The full text of the cited block range, concatenated.
-
-        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-      - `required long EndBlockIndex`
-
-        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-      - `required long SearchResultIndex`
-
-        0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-        Counted separately from `document_index`; server-side web search results are not included in this count.
-
-        minimum: 0
-
-      - `required string Source`
-
-      - `required long StartBlockIndex`
-
-        0-based index of the first cited block in the source's `content` array.
-
-        minimum: 0
-
-      - `required string? Title`
-
-  - `required string Text`
-
-### Beta Text Block Param
-
-- `class BetaTextBlockParam`
-
-  - `JsonElement Type = "text"`
-
-  - `required string Text`
-
-    minLength: 1
-
-  - `BetaCacheControlEphemeral? CacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-    - `JsonElement Type = "ephemeral"`
-
-    - `Ttl Ttl`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `Ttl5m("5m")`
-
-      - `Ttl1h("1h")`
-
-  - `IReadOnlyList<BetaTextCitationParam>? Citations`
-
-    - `class BetaCitationCharLocationParam`
-
-      - `JsonElement Type = "char_location"`
-
-      - `required string CitedText`
-
-      - `required long DocumentIndex`
-
-        minimum: 0
-
-      - `required string? DocumentTitle`
-
-        minLength: 1, maxLength: 500
-
-      - `required long EndCharIndex`
-
-      - `required long StartCharIndex`
-
-        minimum: 0
-
-    - `class BetaCitationPageLocationParam`
-
-      - `JsonElement Type = "page_location"`
-
-      - `required string CitedText`
-
-      - `required long DocumentIndex`
-
-        minimum: 0
-
-      - `required string? DocumentTitle`
-
-        minLength: 1, maxLength: 500
-
-      - `required long EndPageNumber`
-
-      - `required long StartPageNumber`
-
-        minimum: 1
-
-    - `class BetaCitationContentBlockLocationParam`
-
-      - `JsonElement Type = "content_block_location"`
-
-      - `required string CitedText`
-
-        The full text of the cited block range, concatenated.
-
-        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-      - `required long DocumentIndex`
-
-        minimum: 0
-
-      - `required string? DocumentTitle`
-
-        minLength: 1, maxLength: 500
-
-      - `required long EndBlockIndex`
-
-        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-      - `required long StartBlockIndex`
-
-        0-based index of the first cited block in the source's `content` array.
-
-        minimum: 0
-
-    - `class BetaCitationWebSearchResultLocationParam`
-
-      - `JsonElement Type = "web_search_result_location"`
-
-      - `required string CitedText`
-
-      - `required string EncryptedIndex`
-
-      - `required string? Title`
-
-        minLength: 1, maxLength: 512
-
-      - `required string Url`
-
-        minLength: 1
-
-    - `class BetaCitationSearchResultLocationParam`
-
-      - `JsonElement Type = "search_result_location"`
-
-      - `required string CitedText`
-
-        The full text of the cited block range, concatenated.
-
-        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-      - `required long EndBlockIndex`
-
-        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-      - `required long SearchResultIndex`
-
-        0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-        Counted separately from `document_index`; server-side web search results are not included in this count.
-
-        minimum: 0
-
-      - `required string Source`
-
-      - `required long StartBlockIndex`
-
-        0-based index of the first cited block in the source's `content` array.
-
-        minimum: 0
-
-      - `required string? Title`
-
-### Beta Text Citation
-
-- `class BetaTextCitation: union`
-
-  - `class BetaCitationCharLocation`
-
-    - `JsonElement Type = "char_location"`
-
-    - `required string CitedText`
-
-    - `required long DocumentIndex`
-
-      minimum: 0
-
-    - `required string? DocumentTitle`
-
-    - `required long EndCharIndex`
-
-    - `required string? FileID`
-
-    - `required long StartCharIndex`
-
-      minimum: 0
-
-  - `class BetaCitationPageLocation`
-
-    - `JsonElement Type = "page_location"`
-
-    - `required string CitedText`
-
-    - `required long DocumentIndex`
-
-      minimum: 0
-
-    - `required string? DocumentTitle`
-
-    - `required long EndPageNumber`
-
-    - `required string? FileID`
-
-    - `required long StartPageNumber`
-
-      minimum: 1
-
-  - `class BetaCitationContentBlockLocation`
-
-    - `JsonElement Type = "content_block_location"`
-
-    - `required string CitedText`
-
-      The full text of the cited block range, concatenated.
-
-      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-    - `required long DocumentIndex`
-
-      minimum: 0
-
-    - `required string? DocumentTitle`
-
-    - `required long EndBlockIndex`
-
-      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-    - `required string? FileID`
-
-    - `required long StartBlockIndex`
-
-      0-based index of the first cited block in the source's `content` array.
-
-      minimum: 0
-
-  - `class BetaCitationsWebSearchResultLocation`
-
-    - `JsonElement Type = "web_search_result_location"`
-
-    - `required string CitedText`
-
-    - `required string EncryptedIndex`
-
-    - `required string? Title`
-
-      maxLength: 512
-
-    - `required string Url`
-
-  - `class BetaCitationSearchResultLocation`
-
-    - `JsonElement Type = "search_result_location"`
-
-    - `required string CitedText`
-
-      The full text of the cited block range, concatenated.
-
-      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-    - `required long EndBlockIndex`
-
-      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-    - `required long SearchResultIndex`
-
-      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-      Counted separately from `document_index`; server-side web search results are not included in this count.
-
-      minimum: 0
-
-    - `required string Source`
-
-    - `required long StartBlockIndex`
-
-      0-based index of the first cited block in the source's `content` array.
-
-      minimum: 0
-
-    - `required string? Title`
-
-### Beta Text Citation Param
-
-- `class BetaTextCitationParam: union`
-
-  - `class BetaCitationCharLocationParam`
-
-    - `JsonElement Type = "char_location"`
-
-    - `required string CitedText`
-
-    - `required long DocumentIndex`
-
-      minimum: 0
-
-    - `required string? DocumentTitle`
-
-      minLength: 1, maxLength: 500
-
-    - `required long EndCharIndex`
-
-    - `required long StartCharIndex`
-
-      minimum: 0
-
-  - `class BetaCitationPageLocationParam`
-
-    - `JsonElement Type = "page_location"`
-
-    - `required string CitedText`
-
-    - `required long DocumentIndex`
-
-      minimum: 0
-
-    - `required string? DocumentTitle`
-
-      minLength: 1, maxLength: 500
-
-    - `required long EndPageNumber`
-
-    - `required long StartPageNumber`
-
-      minimum: 1
-
-  - `class BetaCitationContentBlockLocationParam`
-
-    - `JsonElement Type = "content_block_location"`
-
-    - `required string CitedText`
-
-      The full text of the cited block range, concatenated.
-
-      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-    - `required long DocumentIndex`
-
-      minimum: 0
-
-    - `required string? DocumentTitle`
-
-      minLength: 1, maxLength: 500
-
-    - `required long EndBlockIndex`
-
-      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-    - `required long StartBlockIndex`
-
-      0-based index of the first cited block in the source's `content` array.
-
-      minimum: 0
-
-  - `class BetaCitationWebSearchResultLocationParam`
-
-    - `JsonElement Type = "web_search_result_location"`
-
-    - `required string CitedText`
-
-    - `required string EncryptedIndex`
-
-    - `required string? Title`
-
-      minLength: 1, maxLength: 512
-
-    - `required string Url`
-
-      minLength: 1
-
-  - `class BetaCitationSearchResultLocationParam`
-
-    - `JsonElement Type = "search_result_location"`
-
-    - `required string CitedText`
-
-      The full text of the cited block range, concatenated.
-
-      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-    - `required long EndBlockIndex`
-
-      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-    - `required long SearchResultIndex`
-
-      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-      Counted separately from `document_index`; server-side web search results are not included in this count.
-
-      minimum: 0
-
-    - `required string Source`
-
-    - `required long StartBlockIndex`
-
-      0-based index of the first cited block in the source's `content` array.
-
-      minimum: 0
-
-    - `required string? Title`
-
-### Beta Text Delta
-
-- `class BetaTextDelta`
-
-  - `JsonElement Type = "text_delta"`
-
-  - `required string Text`
-
-### Beta Text Editor Code Execution Create Result Block
-
-- `class BetaTextEditorCodeExecutionCreateResultBlock`
-
-  - `JsonElement Type = "text_editor_code_execution_create_result"`
-
-  - `required bool IsFileUpdate`
-
-### Beta Text Editor Code Execution Create Result Block Param
-
-- `class BetaTextEditorCodeExecutionCreateResultBlockParam`
-
-  - `JsonElement Type = "text_editor_code_execution_create_result"`
-
-  - `required bool IsFileUpdate`
-
-### Beta Text Editor Code Execution Str Replace Result Block
-
-- `class BetaTextEditorCodeExecutionStrReplaceResultBlock`
-
-  - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
-
-  - `required IReadOnlyList<string>? Lines`
-
-  - `required long? NewLines`
-
-  - `required long? NewStart`
-
-  - `required long? OldLines`
-
-  - `required long? OldStart`
-
-### Beta Text Editor Code Execution Str Replace Result Block Param
-
-- `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
-
-  - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
-
-  - `IReadOnlyList<string>? Lines`
-
-  - `long? NewLines`
-
-  - `long? NewStart`
-
-  - `long? OldLines`
-
-  - `long? OldStart`
-
-### Beta Text Editor Code Execution Tool Result Block
-
-- `class BetaTextEditorCodeExecutionToolResultBlock`
-
-  - `JsonElement Type = "text_editor_code_execution_tool_result"`
-
-  - `required Content Content`
-
-    - `class BetaTextEditorCodeExecutionToolResultError`
-
-      - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
-
-      - `required ErrorCode ErrorCode`
-
-        - `InvalidToolInput("invalid_tool_input")`
-
-        - `Unavailable("unavailable")`
-
-        - `TooManyRequests("too_many_requests")`
-
-        - `ExecutionTimeExceeded("execution_time_exceeded")`
-
-        - `FileNotFound("file_not_found")`
-
-      - `required string? ErrorMessage`
-
-    - `class BetaTextEditorCodeExecutionViewResultBlock`
-
-      - `JsonElement Type = "text_editor_code_execution_view_result"`
-
-      - `required string Content`
-
-      - `required FileType FileType`
-
-        - `Text("text")`
-
-        - `Image("image")`
-
-        - `Pdf("pdf")`
-
-      - `required long? NumLines`
-
-      - `required long? StartLine`
-
-      - `required long? TotalLines`
-
-    - `class BetaTextEditorCodeExecutionCreateResultBlock`
-
-      - `JsonElement Type = "text_editor_code_execution_create_result"`
-
-      - `required bool IsFileUpdate`
-
-    - `class BetaTextEditorCodeExecutionStrReplaceResultBlock`
-
-      - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
-
-      - `required IReadOnlyList<string>? Lines`
-
-      - `required long? NewLines`
-
-      - `required long? NewStart`
-
-      - `required long? OldLines`
-
-      - `required long? OldStart`
-
-  - `required string ToolUseID`
-
-    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-### Beta Text Editor Code Execution Tool Result Block Param
-
-- `class BetaTextEditorCodeExecutionToolResultBlockParam`
-
-  - `JsonElement Type = "text_editor_code_execution_tool_result"`
-
-  - `required Content Content`
-
-    - `class BetaTextEditorCodeExecutionToolResultErrorParam`
-
-      - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
-
-      - `required ErrorCode ErrorCode`
-
-        - `InvalidToolInput("invalid_tool_input")`
-
-        - `Unavailable("unavailable")`
-
-        - `TooManyRequests("too_many_requests")`
-
-        - `ExecutionTimeExceeded("execution_time_exceeded")`
-
-        - `FileNotFound("file_not_found")`
-
-      - `string? ErrorMessage`
-
-    - `class BetaTextEditorCodeExecutionViewResultBlockParam`
-
-      - `JsonElement Type = "text_editor_code_execution_view_result"`
-
-      - `required string Content`
-
-      - `required FileType FileType`
-
-        - `Text("text")`
-
-        - `Image("image")`
-
-        - `Pdf("pdf")`
-
-      - `long? NumLines`
-
-      - `long? StartLine`
-
-      - `long? TotalLines`
-
-    - `class BetaTextEditorCodeExecutionCreateResultBlockParam`
-
-      - `JsonElement Type = "text_editor_code_execution_create_result"`
-
-      - `required bool IsFileUpdate`
-
-    - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
-
-      - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
-
-      - `IReadOnlyList<string>? Lines`
-
-      - `long? NewLines`
-
-      - `long? NewStart`
-
-      - `long? OldLines`
-
-      - `long? OldStart`
-
-  - `required string ToolUseID`
-
-    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `BetaCacheControlEphemeral? CacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-    - `JsonElement Type = "ephemeral"`
-
-    - `Ttl Ttl`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `Ttl5m("5m")`
-
-      - `Ttl1h("1h")`
-
-### Beta Text Editor Code Execution Tool Result Error
-
-- `class BetaTextEditorCodeExecutionToolResultError`
-
-  - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
-
-  - `required ErrorCode ErrorCode`
-
-    - `InvalidToolInput("invalid_tool_input")`
-
-    - `Unavailable("unavailable")`
-
-    - `TooManyRequests("too_many_requests")`
-
-    - `ExecutionTimeExceeded("execution_time_exceeded")`
-
-    - `FileNotFound("file_not_found")`
-
-  - `required string? ErrorMessage`
-
-### Beta Text Editor Code Execution Tool Result Error Param
-
-- `class BetaTextEditorCodeExecutionToolResultErrorParam`
-
-  - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
-
-  - `required ErrorCode ErrorCode`
-
-    - `InvalidToolInput("invalid_tool_input")`
-
-    - `Unavailable("unavailable")`
-
-    - `TooManyRequests("too_many_requests")`
-
-    - `ExecutionTimeExceeded("execution_time_exceeded")`
-
-    - `FileNotFound("file_not_found")`
-
-  - `string? ErrorMessage`
-
-### Beta Text Editor Code Execution View Result Block
-
-- `class BetaTextEditorCodeExecutionViewResultBlock`
-
-  - `JsonElement Type = "text_editor_code_execution_view_result"`
-
-  - `required string Content`
-
-  - `required FileType FileType`
-
-    - `Text("text")`
-
-    - `Image("image")`
-
-    - `Pdf("pdf")`
-
-  - `required long? NumLines`
-
-  - `required long? StartLine`
-
-  - `required long? TotalLines`
-
-### Beta Text Editor Code Execution View Result Block Param
-
-- `class BetaTextEditorCodeExecutionViewResultBlockParam`
-
-  - `JsonElement Type = "text_editor_code_execution_view_result"`
-
-  - `required string Content`
-
-  - `required FileType FileType`
-
-    - `Text("text")`
-
-    - `Image("image")`
-
-    - `Pdf("pdf")`
-
-  - `long? NumLines`
-
-  - `long? StartLine`
-
-  - `long? TotalLines`
-
-### Beta Thinking Block
-
-- `class BetaThinkingBlock`
-
-  - `JsonElement Type = "thinking"`
-
-  - `required string Signature`
-
-    A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
-
-    This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
-
-    See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
-
-  - `required string Thinking`
-
-    The text of Claude's thinking process for this block.
-
-### Beta Thinking Block Binding
-
-- `class BetaThinkingBlockBinding`
-
-  Controls for block binding: what happens when a thinking block this
-  request sends back fails the conversation check. Every field is optional;
-  an empty object means every default.
-
-  - `BetaThinkingPrefixMismatchBehavior? PrefixMismatchBehavior`
-
-    "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
-
-    - `Error("error")`
-
-    - `DropBlock("drop_block")`
-
-### Beta Thinking Block Param
-
-- `class BetaThinkingBlockParam`
-
-  - `JsonElement Type = "thinking"`
-
-  - `required string Signature`
-
-    The `signature` value of this thinking block, exactly as returned by the API in a previous response. Used to verify that the block was generated by Claude.
-
-    Thinking blocks must be passed back unmodified and in their original order; a modified block results in a 400 `invalid_request_error`.
-
-  - `required string Thinking`
-
-    The `thinking` text of this block as returned by the API.
-
-### Beta Thinking Config Adaptive
-
-- `class BetaThinkingConfigAdaptive`
-
-  - `JsonElement Type = "adaptive"`
-
-  - `BetaThinkingBlockBinding? BlockBinding`
-
-    Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
-
-    - `BetaThinkingPrefixMismatchBehavior? PrefixMismatchBehavior`
-
-      "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
-
-      - `Error("error")`
-
-      - `DropBlock("drop_block")`
-
-  - `Display? Display`
-
-    Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
-    - `Summarized("summarized")`
-
-    - `Omitted("omitted")`
-
-    - `Updates("updates")`
-
-### Beta Thinking Config Between Tools
-
-- `class BetaThinkingConfigBetweenTools`
-
-  - `JsonElement Type = "between_tools"`
-
-### Beta Thinking Config Disabled
-
-- `class BetaThinkingConfigDisabled`
-
-  - `JsonElement Type = "disabled"`
-
-### Beta Thinking Config Enabled
-
-- `class BetaThinkingConfigEnabled`
-
-  - `JsonElement Type = "enabled"`
-
-  - `required long BudgetTokens`
-
-    Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
-
-    Must be ≥1024 and less than `max_tokens`.
-
-    See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
-
-    minimum: 1024
-
-  - `BetaThinkingBlockBinding? BlockBinding`
-
-    Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
-
-    - `BetaThinkingPrefixMismatchBehavior? PrefixMismatchBehavior`
-
-      "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
-
-      - `Error("error")`
-
-      - `DropBlock("drop_block")`
-
-  - `Display? Display`
-
-    Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
-    - `Summarized("summarized")`
-
-    - `Omitted("omitted")`
-
-    - `Updates("updates")`
-
-### Beta Thinking Config Param
-
-- `class BetaThinkingConfigParam: union`
-
-  Configuration for enabling Claude's extended thinking.
-
-  When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
-
-  See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
-
-  - `class BetaThinkingConfigEnabled`
-
-    - `JsonElement Type = "enabled"`
-
-    - `required long BudgetTokens`
-
-      Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
-
-      Must be ≥1024 and less than `max_tokens`.
-
-      See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
-
-      minimum: 1024
-
-    - `BetaThinkingBlockBinding? BlockBinding`
-
-      Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
-
-      - `BetaThinkingPrefixMismatchBehavior? PrefixMismatchBehavior`
-
-        "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
-
-        - `Error("error")`
-
-        - `DropBlock("drop_block")`
-
-    - `Display? Display`
-
-      Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
-      - `Summarized("summarized")`
-
-      - `Omitted("omitted")`
-
-      - `Updates("updates")`
-
-  - `class BetaThinkingConfigDisabled`
-
-    - `JsonElement Type = "disabled"`
-
-  - `class BetaThinkingConfigBetweenTools`
-
-    - `JsonElement Type = "between_tools"`
-
-  - `class BetaThinkingConfigAdaptive`
-
-    - `JsonElement Type = "adaptive"`
-
-    - `BetaThinkingBlockBinding? BlockBinding`
-
-      Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
-
-    - `Display? Display`
-
-      Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
-      - `Summarized("summarized")`
-
-      - `Omitted("omitted")`
-
-      - `Updates("updates")`
-
-### Beta Thinking Delta
-
-- `class BetaThinkingDelta`
-
-  - `JsonElement Type = "thinking_delta"`
-
-  - `required long? EstimatedTokens`
-
-    Per-frame increment of a coarse, running estimate of the tokens this thinking block has produced so far. Present whenever the `thinking-token-count-2026-05-13` beta is set; `null` unless `thinking.display` resolves to `"omitted"` and a count is due this frame. Sum the increments across `thinking_delta` frames on this block for a progress indicator. Each increment is a non-negative multiple of a fixed quantum and the cadence is rate-limited, so this is a deliberately lossy display hint, not a billable count; `usage.output_tokens` remains authoritative.
-
-  - `required string Thinking`
-
-    The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
-
-### Beta Thinking Dropped Input Transformation
-
-- `class BetaThinkingDroppedInputTransformation`
-
-  - `JsonElement Type = "thinking_dropped"`
-
-    Always `thinking_dropped` for this entry type.
-
-  - `required string Path`
-
-    Where the removed block was in your request, as `messages.{i}.content.{j}`:
-    `i` indexes the `messages` array you sent and `j` that message's `content`
-    array — the same form error messages use.
-
-  - `required Reason Reason`
-
-    Which binding check removed the block: `model_binding_mismatch` — it was
-    created by a model whose reasoning the requested model may not read;
-    `prefix_binding_mismatch` — the conversation before it differs from the
-    conversation it was created in (the rest of that turn's consecutive thinking
-    blocks are removed with it, each with this reason);
-    `organization_binding_mismatch` — it was created under a different
-    organization (an Anthropic organization, AWS account or Google Cloud project)
-    and this organization is not one of its additional organizations;
-    `end_user_binding_mismatch` — it was created for a different end user, or
-    was removed by the consumer-organization binding. A block that would fail
-    several checks reports one reason, in this order of precedence:
-    `organization_binding_mismatch`, `end_user_binding_mismatch`,
-    `model_binding_mismatch`, `prefix_binding_mismatch`.
-
-    - `ModelBindingMismatch("model_binding_mismatch")`
-
-    - `PrefixBindingMismatch("prefix_binding_mismatch")`
-
-    - `OrganizationBindingMismatch("organization_binding_mismatch")`
-
-    - `EndUserBindingMismatch("end_user_binding_mismatch")`
-
-### Beta Thinking Mismatch Allowed Input Transformation
-
-- `class BetaThinkingMismatchAllowedInputTransformation`
-
-  - `JsonElement Type = "thinking_mismatch_allowed"`
-
-    Always `thinking_mismatch_allowed` for this entry type.
-
-  - `required string Path`
-
-    Where the block is in your request, as `messages.{i}.content.{j}`:
-    `i` indexes the `messages` array you sent and `j` that message's `content`
-    array — the same form error messages use.
-
-  - `required Reason Reason`
-
-    Which binding check the block failed; the block was shown to the model all
-    the same. Always `prefix_binding_mismatch` today — the conversation before
-    the block differs from the conversation it was created in, or the block
-    carries no record of one on a model that requires it. Were the check
-    enforced for this request, the block would have been removed or the request
-    rejected (`thinking.block_binding.prefix_mismatch_behavior`). A removal also
-    takes the rest of that turn's consecutive thinking blocks, whereas here each
-    block is checked on its own, so `thinking_mismatch_allowed` entries are a
-    lower bound on what enforcement would remove.
-
-    - `ModelBindingMismatch("model_binding_mismatch")`
-
-    - `PrefixBindingMismatch("prefix_binding_mismatch")`
-
-    - `OrganizationBindingMismatch("organization_binding_mismatch")`
-
-    - `EndUserBindingMismatch("end_user_binding_mismatch")`
-
-### Beta Thinking Prefix Mismatch Behavior
-
-- `enum BetaThinkingPrefixMismatchBehavior`
-
-  What happens when a thinking block in `messages` fails the conversation
-  check: it was created in a different conversation, or the messages before
-  it have changed since. `"error"` (the default) fails the request with a
-  400 error. `"drop_block"` removes the failing blocks and the request
-  proceeds; the model no longer sees the dropped reasoning.
-
-  - `Error("error")`
-
-  - `DropBlock("drop_block")`
-
-### Beta Thinking Turns
-
-- `class BetaThinkingTurns`
-
-  - `JsonElement Type = "thinking_turns"`
-
-  - `required long Value`
-
-    minimum: 1
-
-### Beta Token Task Budget
-
-- `class BetaTokenTaskBudget`
-
-  User-configurable total token budget across contexts.
-
-  - `JsonElement Type = "tokens"`
-
-    The budget type. Currently only 'tokens' is supported.
-
-  - `required long Total`
-
-    Total token budget across all contexts in the session.
-
-    minimum: 1024
-
-  - `long? Remaining`
-
-    Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
-
-    minimum: 0
-
-### Beta Tool
-
-- `class BetaTool`
-
-  - `Type? Type`
-
-  - `required InputSchema InputSchema`
-
-    [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
-
-    This defines the shape of the `input` that your tool accepts and that the model will produce.
-
-    - `JsonElement Type = "object"`
-
-    - `IReadOnlyDictionary<string, JsonElement>? Properties`
-
-    - `IReadOnlyList<string>? Required`
-
-  - `required string Name`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-    minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-  - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-    - `Direct("direct")`
-
-    - `CodeExecution20250825("code_execution_20250825")`
-
-    - `CodeExecution20260120("code_execution_20260120")`
-
-    - `CodeExecution20260521("code_execution_20260521")`
-
-  - `BetaCacheControlEphemeral? CacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-    - `JsonElement Type = "ephemeral"`
-
-    - `Ttl Ttl`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `Ttl5m("5m")`
-
-      - `Ttl1h("1h")`
-
-  - `bool DeferLoading`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `string Description`
-
-    Description of what this tool does.
-
-    Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
-
-  - `bool? EagerInputStreaming`
-
-    Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
-
-  - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-  - `bool Strict`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Tool Bash 20241022
-
-- `class BetaToolBash20241022`
-
-  - `JsonElement Type = "bash_20241022"`
-
-  - `JsonElement Name = "bash"`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-    - `Direct("direct")`
-
-    - `CodeExecution20250825("code_execution_20250825")`
-
-    - `CodeExecution20260120("code_execution_20260120")`
-
-    - `CodeExecution20260521("code_execution_20260521")`
-
-  - `BetaCacheControlEphemeral? CacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-    - `JsonElement Type = "ephemeral"`
-
-    - `Ttl Ttl`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `Ttl5m("5m")`
-
-      - `Ttl1h("1h")`
-
-  - `bool DeferLoading`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-  - `bool Strict`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Tool Bash 20250124
-
-- `class BetaToolBash20250124`
-
-  - `JsonElement Type = "bash_20250124"`
-
-  - `JsonElement Name = "bash"`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-    - `Direct("direct")`
-
-    - `CodeExecution20250825("code_execution_20250825")`
-
-    - `CodeExecution20260120("code_execution_20260120")`
-
-    - `CodeExecution20260521("code_execution_20260521")`
-
-  - `BetaCacheControlEphemeral? CacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-    - `JsonElement Type = "ephemeral"`
-
-    - `Ttl Ttl`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `Ttl5m("5m")`
-
-      - `Ttl1h("1h")`
-
-  - `bool DeferLoading`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-  - `bool Strict`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Tool Change MCP Tool Reference
-
-- `class BetaToolChangeMcpToolReference`
-
-  Reference to a single MCP tool by its server and remote name; the
-  same `server_name`/`name` pair `mcp_tool_use` carries.
-
-  - `JsonElement Type = "mcp_tool_reference"`
-
-  - `required string Name`
-
-  - `required string ServerName`
-
-### Beta Tool Change MCP Toolset Reference
-
-- `class BetaToolChangeMcpToolsetReference`
-
-  Reference to every tool in the named MCP server's toolset.
-
-  - `JsonElement Type = "mcp_toolset_reference"`
-
-  - `required string ServerName`
-
-### Beta Tool Change Tool Definition
-
-- `class BetaToolChangeToolDefinition`
-
-  A tool defined by value, as a `compaction` block's `tool_changes` entry
-  reports it: `definition` is the tool's definition as it was sent, in the
-  form of a `tools` entry, without `cache_control`. Send it back unchanged
-  with the block.
-
-  - `JsonElement Type = "tool_definition"`
-
-  - `required BetaResponseToolUnion Definition`
-
-    - `class BetaResponseTool`
-
-      A custom tool definition, as sent.
-
-      - `Type? Type`
-
-      - `required BetaResponseToolInputSchema InputSchema`
-
-        [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
-
-        This defines the shape of the `input` that your tool accepts and that the model will produce.
-
-        - `JsonElement Type = "object"`
-
-        - `IReadOnlyDictionary<string, JsonElement>? Properties`
-
-        - `IReadOnlyList<string>? Required`
-
-      - `required string Name`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-        minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `string Description`
-
-        Description of what this tool does.
-
-        Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
-
-      - `bool? EagerInputStreaming`
-
-        Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
-
-      - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolBash20241022`
-
-      - `JsonElement Type = "bash_20241022"`
-
-      - `JsonElement Name = "bash"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-        - `JsonElement Type = "ephemeral"`
-
-        - `Ttl Ttl`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `Ttl5m("5m")`
-
-          - `Ttl1h("1h")`
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolBash20250124`
-
-      - `JsonElement Type = "bash_20250124"`
-
-      - `JsonElement Name = "bash"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaCodeExecutionTool20250522`
-
-      - `JsonElement Type = "code_execution_20250522"`
-
-      - `JsonElement Name = "code_execution"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaCodeExecutionTool20250825`
-
-      - `JsonElement Type = "code_execution_20250825"`
-
-      - `JsonElement Name = "code_execution"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaCodeExecutionTool20260120`
-
-      Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
-
-      - `JsonElement Type = "code_execution_20260120"`
-
-      - `JsonElement Name = "code_execution"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaCodeExecutionTool20260521`
-
-      Code execution tool with REPL state persistence.
-
-      - `JsonElement Type = "code_execution_20260521"`
-
-      - `JsonElement Name = "code_execution"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaBrowserToolset20260801`
-
-      The browser toolset: a single `tools[]` entry (carrying no
-      `name`) that declares the browser tool family. The model is served
-      the family's tool with any members disabled via `configs` removed
-      from its schema.
-
-      - `JsonElement Type = "browser_toolset_20260801"`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `BetaBrowserToolsetConfigs? Configs`
-
-        Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
-
-        - `BetaBrowserTypeConfig? Type`
-
-          `type`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserCloseTabConfig? CloseTab`
-
-          `close_tab`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserDoubleClickConfig? DoubleClick`
-
-          `double_click`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserFileUploadConfig? FileUpload`
-
-          `file_upload`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserFindConfig? Find`
-
-          `find`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserFormInputConfig? FormInput`
-
-          `form_input`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserGetPageTextConfig? GetPageText`
-
-          `get_page_text`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserHoldKeyConfig? HoldKey`
-
-          `hold_key`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserHoverConfig? Hover`
-
-          `hover`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserJavascriptExecConfig? JavascriptExec`
-
-          `javascript_exec`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserKeyConfig? Key`
-
-          `key`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserLeftClickConfig? LeftClick`
-
-          `left_click`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserLeftClickDragConfig? LeftClickDrag`
-
-          `left_click_drag`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserLeftMouseDownConfig? LeftMouseDown`
-
-          `left_mouse_down`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserLeftMouseUpConfig? LeftMouseUp`
-
-          `left_mouse_up`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserListTabsConfig? ListTabs`
-
-          `list_tabs`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserMiddleClickConfig? MiddleClick`
-
-          `middle_click`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserMouseMoveConfig? MouseMove`
-
-          `mouse_move`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserNavigateConfig? Navigate`
-
-          `navigate`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserNewTabConfig? NewTab`
-
-          `new_tab`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserReadConsoleConfig? ReadConsole`
-
-          `read_console`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserReadNetworkConfig? ReadNetwork`
-
-          `read_network`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserReadPageConfig? ReadPage`
-
-          `read_page`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserRightClickConfig? RightClick`
-
-          `right_click`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserScreenshotConfig? Screenshot`
-
-          `screenshot`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserScrollConfig? Scroll`
-
-          `scroll`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserScrollToConfig? ScrollTo`
-
-          `scroll_to`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserSwitchTabConfig? SwitchTab`
-
-          `switch_tab`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserTripleClickConfig? TripleClick`
-
-          `triple_click`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserWaitConfig? Wait`
-
-          `wait`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserZoomConfig? Zoom`
-
-          `zoom`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-    - `class BetaToolComputerUse20241022`
-
-      - `JsonElement Type = "computer_20241022"`
-
-      - `required long DisplayHeightPx`
-
-        The height of the display in pixels.
-
-        minimum: 1
-
-      - `required long DisplayWidthPx`
-
-        The width of the display in pixels.
-
-        minimum: 1
-
-      - `JsonElement Name = "computer"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `long? DisplayNumber`
-
-        The X11 display number (e.g. 0, 1) for the display.
-
-        minimum: 0
-
-      - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaMemoryTool20250818`
-
-      - `JsonElement Type = "memory_20250818"`
-
-      - `JsonElement Name = "memory"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolComputerUse20250124`
-
-      - `JsonElement Type = "computer_20250124"`
-
-      - `required long DisplayHeightPx`
-
-        The height of the display in pixels.
-
-        minimum: 1
-
-      - `required long DisplayWidthPx`
-
-        The width of the display in pixels.
-
-        minimum: 1
-
-      - `JsonElement Name = "computer"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `long? DisplayNumber`
-
-        The X11 display number (e.g. 0, 1) for the display.
-
-        minimum: 0
-
-      - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolTextEditor20241022`
-
-      - `JsonElement Type = "text_editor_20241022"`
-
-      - `JsonElement Name = "str_replace_editor"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolComputerUse20251124`
-
-      - `JsonElement Type = "computer_20251124"`
-
-      - `required long DisplayHeightPx`
-
-        The height of the display in pixels.
-
-        minimum: 1
-
-      - `required long DisplayWidthPx`
-
-        The width of the display in pixels.
-
-        minimum: 1
-
-      - `JsonElement Name = "computer"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `long? DisplayNumber`
-
-        The X11 display number (e.g. 0, 1) for the display.
-
-        minimum: 0
-
-      - `bool EnableZoom`
-
-        Whether to enable an action to take a zoomed-in screenshot of the screen.
-
-      - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaComputerToolset20260801`
-
-      The computer toolset: a single `tools[]` entry (carrying no
-      `name`) that declares the computer tool family. The model is
-      served the family's tool with any members disabled via `configs`
-      removed from its schema. Every member is enabled by default, zoom
-      included. The single-tool options `display_number` and
-      `enable_zoom` are not fields of a toolset entry — it carries only
-      `type`, `configs`, and `cache_control`; zoom is controlled
-      via `configs.zoom.enabled`.
-
-      - `JsonElement Type = "computer_toolset_20260801"`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `BetaComputerToolsetConfigs? Configs`
-
-        Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
-
-        - `BetaComputerTypeConfig? Type`
-
-          `type`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerCursorPositionConfig? CursorPosition`
-
-          `cursor_position`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerDoubleClickConfig? DoubleClick`
-
-          `double_click`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerHoldKeyConfig? HoldKey`
-
-          `hold_key`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerKeyConfig? Key`
-
-          `key`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerLeftClickConfig? LeftClick`
-
-          `left_click`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerLeftClickDragConfig? LeftClickDrag`
-
-          `left_click_drag`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerLeftMouseDownConfig? LeftMouseDown`
-
-          `left_mouse_down`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerLeftMouseUpConfig? LeftMouseUp`
-
-          `left_mouse_up`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerMiddleClickConfig? MiddleClick`
-
-          `middle_click`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerMouseMoveConfig? MouseMove`
-
-          `mouse_move`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerRightClickConfig? RightClick`
-
-          `right_click`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerScreenshotConfig? Screenshot`
-
-          `screenshot`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerScrollConfig? Scroll`
-
-          `scroll`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerTripleClickConfig? TripleClick`
-
-          `triple_click`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerWaitConfig? Wait`
-
-          `wait`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaComputerZoomConfig? Zoom`
-
-          `zoom`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-    - `class BetaToolTextEditor20250124`
-
-      - `JsonElement Type = "text_editor_20250124"`
-
-      - `JsonElement Name = "str_replace_editor"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolTextEditor20250429`
-
-      - `JsonElement Type = "text_editor_20250429"`
-
-      - `JsonElement Name = "str_replace_based_edit_tool"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolTextEditor20250728`
-
-      - `JsonElement Type = "text_editor_20250728"`
-
-      - `JsonElement Name = "str_replace_based_edit_tool"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-      - `long? MaxCharacters`
-
-        Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
-
-        minimum: 1
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaWebSearchTool20250305`
-
-      - `JsonElement Type = "web_search_20250305"`
-
-      - `JsonElement Name = "web_search"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `IReadOnlyList<string>? AllowedDomains`
-
-        If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-      - `IReadOnlyList<string>? BlockedDomains`
-
-        If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `long? MaxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        minimum: 1
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-      - `BetaUserLocation? UserLocation`
-
-        Parameters for the user's location. Used to provide more relevant search results.
-
-        - `JsonElement Type = "approximate"`
-
-        - `string? City`
-
-          The city of the user.
-
-          minLength: 1, maxLength: 255
-
-        - `string? Country`
-
-          The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-          minLength: 2, maxLength: 2
-
-        - `string? Region`
-
-          The region of the user.
-
-          minLength: 1, maxLength: 255
-
-        - `string? Timezone`
-
-          The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-          minLength: 1, maxLength: 255
-
-    - `class BetaWebFetchTool20250910`
-
-      - `JsonElement Type = "web_fetch_20250910"`
-
-      - `JsonElement Name = "web_fetch"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `IReadOnlyList<string>? AllowedDomains`
-
-        List of domains to allow fetching from
-
-      - `IReadOnlyList<string>? BlockedDomains`
-
-        List of domains to block fetching from
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `BetaCitationsConfigParam? Citations`
-
-        Citations configuration for fetched documents. Citations are disabled by default.
-
-        - `bool Enabled`
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `long? MaxContentTokens`
-
-        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-        minimum: 1
-
-      - `long? MaxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        minimum: 1
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-      - `BetaWebFetchUrlSources? UrlSources`
-
-        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-        - `ClientToolResults ClientToolResults`
-
-          Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
-
-          - `class BetaWebFetchUrlSourceAll`
-
-            The `url_sources` variant under which a source contributes in
-            full: every result of the tool filter's source, or all user input.
-
-            - `JsonElement Type = "all"`
-
-          - `class BetaWebFetchUrlSourceNone`
-
-            The `url_sources` variant under which a source contributes nothing:
-            no result of the tool filter's source, or no user input.
-
-            - `JsonElement Type = "none"`
-
-          - `class BetaWebFetchUrlSourceOnly`
-
-            The tool filter variant under which only the named tools' results
-            contribute.
-
-            - `JsonElement Type = "only"`
-
-            - `required IReadOnlyList<BetaWebFetchUrlSourceToolReference> Tools`
-
-              - `JsonElement Type = "tool_reference"`
-
-              - `required string Name`
-
-          - `class BetaWebFetchUrlSourceExcept`
-
-            The tool filter variant under which every result but the named
-            tools' contributes.
-
-            - `JsonElement Type = "except"`
-
-            - `required IReadOnlyList<BetaWebFetchUrlSourceToolReference> Tools`
-
-              - `JsonElement Type = "tool_reference"`
-
-              - `required string Name`
-
-        - `ServerToolResults ServerToolResults`
-
-          Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
-
-          - `class BetaWebFetchUrlSourceAll`
-
-            The `url_sources` variant under which a source contributes in
-            full: every result of the tool filter's source, or all user input.
-
-          - `class BetaWebFetchUrlSourceNone`
-
-            The `url_sources` variant under which a source contributes nothing:
-            no result of the tool filter's source, or no user input.
-
-          - `class BetaWebFetchUrlSourceOnly`
-
-            The tool filter variant under which only the named tools' results
-            contribute.
-
-          - `class BetaWebFetchUrlSourceExcept`
-
-            The tool filter variant under which every result but the named
-            tools' contributes.
-
-        - `UserInput UserInput`
-
-          Whether URLs in user messages are fetchable: "all" or "none".
-
-          - `class BetaWebFetchUrlSourceAll`
-
-            The `url_sources` variant under which a source contributes in
-            full: every result of the tool filter's source, or all user input.
-
-          - `class BetaWebFetchUrlSourceNone`
-
-            The `url_sources` variant under which a source contributes nothing:
-            no result of the tool filter's source, or no user input.
-
-    - `class BetaWebSearchTool20260209`
-
-      - `JsonElement Type = "web_search_20260209"`
-
-      - `JsonElement Name = "web_search"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `IReadOnlyList<string>? AllowedDomains`
-
-        If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-      - `IReadOnlyList<string>? BlockedDomains`
-
-        If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `long? MaxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        minimum: 1
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-      - `BetaUserLocation? UserLocation`
-
-        Parameters for the user's location. Used to provide more relevant search results.
-
-    - `class BetaWebFetchTool20260209`
-
-      - `JsonElement Type = "web_fetch_20260209"`
-
-      - `JsonElement Name = "web_fetch"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `IReadOnlyList<string>? AllowedDomains`
-
-        List of domains to allow fetching from
-
-      - `IReadOnlyList<string>? BlockedDomains`
-
-        List of domains to block fetching from
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `BetaCitationsConfigParam? Citations`
-
-        Citations configuration for fetched documents. Citations are disabled by default.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `long? MaxContentTokens`
-
-        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-        minimum: 1
-
-      - `long? MaxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        minimum: 1
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-      - `BetaWebFetchUrlSources? UrlSources`
-
-        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-    - `class BetaWebFetchTool20260309`
-
-      Web fetch tool with use_cache parameter for bypassing cached content.
-
-      - `JsonElement Type = "web_fetch_20260309"`
-
-      - `JsonElement Name = "web_fetch"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `IReadOnlyList<string>? AllowedDomains`
-
-        List of domains to allow fetching from
-
-      - `IReadOnlyList<string>? BlockedDomains`
-
-        List of domains to block fetching from
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `BetaCitationsConfigParam? Citations`
-
-        Citations configuration for fetched documents. Citations are disabled by default.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `long? MaxContentTokens`
-
-        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-        minimum: 1
-
-      - `long? MaxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        minimum: 1
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-      - `BetaWebFetchUrlSources? UrlSources`
-
-        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-      - `bool UseCache`
-
-        Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-    - `class BetaWebSearchTool20260318`
-
-      - `JsonElement Type = "web_search_20260318"`
-
-      - `JsonElement Name = "web_search"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `IReadOnlyList<string>? AllowedDomains`
-
-        If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-      - `IReadOnlyList<string>? BlockedDomains`
-
-        If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `long? MaxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        minimum: 1
-
-      - `ResponseInclusion ResponseInclusion`
-
-        How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-        - `Full("full")`
-
-        - `Excluded("excluded")`
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-      - `BetaUserLocation? UserLocation`
-
-        Parameters for the user's location. Used to provide more relevant search results.
-
-    - `class BetaWebFetchTool20260318`
-
-      - `JsonElement Type = "web_fetch_20260318"`
-
-      - `JsonElement Name = "web_fetch"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `IReadOnlyList<string>? AllowedDomains`
-
-        List of domains to allow fetching from
-
-      - `IReadOnlyList<string>? BlockedDomains`
-
-        List of domains to block fetching from
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `BetaCitationsConfigParam? Citations`
-
-        Citations configuration for fetched documents. Citations are disabled by default.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `long? MaxContentTokens`
-
-        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-        minimum: 1
-
-      - `long? MaxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        minimum: 1
-
-      - `ResponseInclusion ResponseInclusion`
-
-        How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-        - `Full("full")`
-
-        - `Excluded("excluded")`
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-      - `BetaWebFetchUrlSources? UrlSources`
-
-        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
-
-      - `bool UseCache`
-
-        Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-    - `class BetaAdvisorTool20260301`
-
-      - `JsonElement Type = "advisor_20260301"`
-
-      - `required Model Model`
-
-        The model that will complete your prompt.
-
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `ClaudeSonnet5_5("claude-sonnet-5-5")`
-
-          Efficient model for coding and agents
-
-        - `ClaudeFable5_1("claude-fable-5-1")`
-
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-        - `ClaudeOpus5_5("claude-opus-5-5")`
-
-          Powerful intelligence for coding, knowledge work, and long-running agents
-
-        - `ClaudeMythos5_1("claude-mythos-5-1")`
-
-          Our most capable model for cybersecurity and biology research, available through trusted access programs
-
-        - `ClaudeSonnet5("claude-sonnet-5")`
-
-          Efficient model for coding and agents
-
-        - `ClaudeFable5("claude-fable-5")`
-
-          Next generation of intelligence for the hardest knowledge work and coding problems
-
-        - `ClaudeMythos5("claude-mythos-5")`
-
-          Most capable model for cybersecurity and biology research
-
-        - `ClaudeOpus5("claude-opus-5")`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `ClaudeOpus4_8("claude-opus-4-8")`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `ClaudeOpus4_7("claude-opus-4-7")`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `ClaudeOpus4_6("claude-opus-4-6")`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `ClaudeSonnet4_6("claude-sonnet-4-6")`
-
-          Best combination of speed and intelligence
-
-        - `ClaudeHaiku4_5("claude-haiku-4-5")`
-
-          Fastest model with near-frontier intelligence
-
-        - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
-
-          Fastest model with near-frontier intelligence
-
-        - `ClaudeOpus4_5("claude-opus-4-5")`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `ClaudeMythosPreview("claude-mythos-preview")`
-
-          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-          New class of intelligence, strongest in coding and cybersecurity
-
-        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
-
-          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-          High-performance model for agents and coding
-
-        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
-
-          **Deprecated**: Will reach end-of-life on November 30, 2026. Please migrate to claude-sonnet-5-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-          High-performance model for agents and coding
-
-      - `JsonElement Name = "advisor"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `BetaCacheControlEphemeral? Caching`
-
-        Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `long? MaxTokens`
-
-        Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
-
-        minimum: 1024
-
-      - `long? MaxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        minimum: 1
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolSearchToolBm25_20251119`
-
-      - `required Type Type`
-
-        - `ToolSearchToolBm25_20251119("tool_search_tool_bm25_20251119")`
-
-        - `ToolSearchToolBm25("tool_search_tool_bm25")`
-
-      - `JsonElement Name = "tool_search_tool_bm25"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolSearchToolRegex20251119`
-
-      - `required Type Type`
-
-        - `ToolSearchToolRegex20251119("tool_search_tool_regex_20251119")`
-
-        - `ToolSearchToolRegex("tool_search_tool_regex")`
-
-      - `JsonElement Name = "tool_search_tool_regex"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaMcpToolset`
-
-      Configuration for a group of tools from an MCP server.
-
-      Allows configuring enabled status and defer_loading for all tools
-      from an MCP server, with optional per-tool overrides.
-
-      - `JsonElement Type = "mcp_toolset"`
-
-      - `required string McpServerName`
-
-        Name of the MCP server to configure tools for
-
-        minLength: 1, maxLength: 255
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `IReadOnlyDictionary<string, BetaMcpToolConfig>? Configs`
-
-        Configuration overrides for specific tools, keyed by tool name
-
-        - `bool DeferLoading`
-
-        - `bool Enabled`
-
-      - `BetaMcpToolDefaultConfig DefaultConfig`
-
-        Default configuration applied to all tools from this server
-
-        - `bool DeferLoading`
-
-        - `bool Enabled`
-
-      - `IReadOnlyList<BetaMcpToolParam>? Tools`
-
-        The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
-
-        - `required IReadOnlyDictionary<string, JsonElement> InputSchema`
-
-          The tool's input schema as the MCP server lists it, verbatim.
-
-        - `required string Name`
-
-          The tool's name as the MCP server lists it (not prefixed with the server name).
-
-          minLength: 1
-
-        - `string? Description`
-
-          The tool's description as the MCP server lists it.
-
-### Beta Tool Change Tool Definition Param
-
-- `class BetaToolChangeToolDefinitionParam`
-
-  A tool defined by value: `definition` is a `tools` entry (any kind
-  `tools` accepts, an MCP toolset included). An `mcp_toolset` given here
-  also requires the `mcp-client-2026-09-15` beta.
-
-  - `JsonElement Type = "tool_definition"`
-
-  - `required BetaToolUnion Definition`
-
-    - `class BetaTool`
-
-      - `Type? Type`
-
-      - `required InputSchema InputSchema`
-
-        [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
-
-        This defines the shape of the `input` that your tool accepts and that the model will produce.
-
-        - `JsonElement Type = "object"`
-
-        - `IReadOnlyDictionary<string, JsonElement>? Properties`
-
-        - `IReadOnlyList<string>? Required`
-
-      - `required string Name`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-        minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-        - `JsonElement Type = "ephemeral"`
-
-        - `Ttl Ttl`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-          - `Ttl5m("5m")`
-
-          - `Ttl1h("1h")`
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `string Description`
-
-        Description of what this tool does.
-
-        Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
-
-      - `bool? EagerInputStreaming`
-
-        Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
-
-      - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolBash20241022`
-
-      - `JsonElement Type = "bash_20241022"`
-
-      - `JsonElement Name = "bash"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolBash20250124`
-
-      - `JsonElement Type = "bash_20250124"`
-
-      - `JsonElement Name = "bash"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaCodeExecutionTool20250522`
-
-      - `JsonElement Type = "code_execution_20250522"`
-
-      - `JsonElement Name = "code_execution"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaCodeExecutionTool20250825`
-
-      - `JsonElement Type = "code_execution_20250825"`
-
-      - `JsonElement Name = "code_execution"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaCodeExecutionTool20260120`
-
-      Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
-
-      - `JsonElement Type = "code_execution_20260120"`
-
-      - `JsonElement Name = "code_execution"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaCodeExecutionTool20260521`
-
-      Code execution tool with REPL state persistence.
-
-      - `JsonElement Type = "code_execution_20260521"`
-
-      - `JsonElement Name = "code_execution"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `IReadOnlyList<AllowedCaller> AllowedCallers`
-
-        - `Direct("direct")`
-
-        - `CodeExecution20250825("code_execution_20250825")`
-
-        - `CodeExecution20260120("code_execution_20260120")`
-
-        - `CodeExecution20260521("code_execution_20260521")`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `bool DeferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `bool Strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaBrowserToolset20260801`
-
-      The browser toolset: a single `tools[]` entry (carrying no
-      `name`) that declares the browser tool family. The model is served
-      the family's tool with any members disabled via `configs` removed
-      from its schema.
-
-      - `JsonElement Type = "browser_toolset_20260801"`
-
-      - `BetaCacheControlEphemeral? CacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `BetaBrowserToolsetConfigs? Configs`
-
-        Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
-
-        - `BetaBrowserTypeConfig? Type`
-
-          `type`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-        - `BetaBrowserCloseTabConfig? CloseTab`
-
-          `close_tab`'s config overrides.

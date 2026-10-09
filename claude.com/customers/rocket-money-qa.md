@@ -74,12 +74,12 @@ Aaron Dignan, VP of Product & AI, Rocket Money
 
 **Dignan:** The scope within money alone is almost endless, so the discipline is staying focused rather than saying yes to everything. Our hypothesis is that people will eventually hire a handful of specialized agents for the major roles in their life, not have one agent for everything. Even a billionaire wouldn't hire one person to handle their food, their health, their money, and their business. Specialization is what keeps each one focused and high quality, so we will put real walls around what Rowan is and stay focused.
 
-[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
+[![Zendesk](https://assets.claude.com/eb4ae3eeaffc7fb16618696c1baa3ef6c6224977.svg)
+
+### Zendesk built custom agents on Claude and reached 1 million agent executions in 7 weeks](https://claude.com/customers/zendesk)[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
 ### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
 ### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)[![Notion](https://assets.claude.com/19e0cdfaef9d2980bddd19cd993076d62b46c0c7.svg)
-
-### How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

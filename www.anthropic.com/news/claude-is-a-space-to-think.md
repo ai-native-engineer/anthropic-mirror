@@ -95,3 +95,5 @@ We want our users to trust Claude to help them keep thinking—about their work,
 Our experience of using the internet has made it easy to assume that advertising on the products we use is inevitable. But open a notebook, pick up a well-crafted tool, or stand in front of a clean chalkboard, and there are no ads in sight.
 
 We think Claude should work the same way.
+
+Claude is a space to think \ Anthropic

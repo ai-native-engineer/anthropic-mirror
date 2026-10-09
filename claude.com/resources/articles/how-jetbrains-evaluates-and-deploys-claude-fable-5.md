@@ -76,3 +76,5 @@ Claude PlatformClaude Code](https://claude.com/resources/articles/working-at-the
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
 
 Please provide your email address if you'd like to receive our monthly developer newsletter. You can unsubscribe at any time.
+
+Securing the frontier: How JetBrains evaluates and deploys Claude Fable 5 | Claude by Anthropic

@@ -37,21 +37,3 @@ This work is a result of Anthropic’s investment in Mechanistic Interpretabilit
 Our next challenge is to scale this approach up from the small model we demonstrate success on to frontier models which are many times larger and substantially more complicated. For the first time, we feel that the next primary obstacle to interpreting large language models is engineering rather than science.
 
 To learn more about all of this, read our paper, [*Towards Monosemanticity: Decomposing Language Models With Dictionary Learning*](https://transformer-circuits.pub/2023/monosemantic-features/index.html).
-
-### Claude-shaped science
-
-Guest author Prof. Matthew Schwartz describes what happened when he stopped fighting Claude and allowed Claude to find “Claude-shaped” problems: ones best suited to the capabilities of the current generation of LLM tools. This led him to build BootLoops, a toolkit for exact calculations in quantitative science, which he has been applying across scientific fields alongside experts.
-
-[Read more](https://www.anthropic.com/research/claude-shaped-science)
-
-### What work can robots do?
-
-We built an index of how well today’s robots can perform US job tasks. Robots can already do three-quarters of physical tasks, mostly in limited settings, but are cost-competitive for just 0.3% of them.
-
-[Read more](https://www.anthropic.com/research/what-work-can-robots-do)
-
-### What do you want from AI?
-
-We’re launching a new study using Anthropic Interviewer to learn from your experiences with AI, and we invite you to participate.
-
-[Read more](https://www.anthropic.com/research/your-thoughts-on-ai)

@@ -1094,5 +1094,3 @@ The alignment between many of our recommendations and the AI Action Plan demonst
 We look forward to working with the Administration to implement these initiatives while ensuring appropriate attention to catastrophic risks and maintaining strong export controls. Together, we can ensure that powerful AI systems are developed safely in America, by American companies, reflecting American values and interests.
 
 For more details on our policy recommendations, see our full [submission to OSTP](https://assets.anthropic.com/m/4e20a4ab6512e217/original/Anthropic-Response-to-OSTP-RFI-March-2025-Final-Submission-v3.pdf), and our ongoing work on [responsible AI development](https://www.anthropic.com/news/anthropics-responsible-scaling-policy) and our recent report on [increasing domestic energy capacity](https://www-cdn.anthropic.com/0dc382a2086f6a054eeb17e8a531bd9625b8e6e5.pdf).
-
-Thoughts on America’s AI Action Plan \ Anthropic

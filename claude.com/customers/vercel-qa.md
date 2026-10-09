@@ -106,12 +106,12 @@ Andrew QuChief of Software, Vercel
 
 **Qu:** Internally, yes, though it still feels new. We're releasing a framework for building agents, based on everything we've learned building agents at Vercel and shipping these experiences ourselves. It’s called [eve](http://eve.dev), and one of the core pieces is skills. There are really four things that make up an agent: tools, the initial system instructions, skills, and channels, which are the interfaces for communicating with the agent. Skills are probably the biggest thing people customize. The system prompt will be dense, but the way people actually iterate, we think, is by adding and removing skills. A lot of what we're doing is skill-based, building more markdown and resource-heavy agents. I don't think it's a big industry-wide thing yet, but I think it will be.
 
-[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
+[![Zendesk](https://assets.claude.com/eb4ae3eeaffc7fb16618696c1baa3ef6c6224977.svg)
+
+### Zendesk built custom agents on Claude and reached 1 million agent executions in 7 weeks](https://claude.com/customers/zendesk)[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
 ### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
 ### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
-
-### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)

@@ -67,6 +67,11 @@ What happens to your Pro or Max plan after migrating depends on where you bought
 * **Google Play Store:** Your Pro or Max subscription is canceled automatically as part of the move, and you receive a prorated refund for unused time. Refunds for Google Play purchases can take a few days to appear.
 * **Apple App Store:** Your Pro or Max subscription isn't canceled. Apple doesn't allow third-party cancellation, so you'll need to cancel it yourself through your Apple ID settings. If you don't, Apple keeps charging you after your personal account closes.
 
+If you’ve claimed monthly API credits on your Max plan:
+
+* **Moving to a Team organization:** Your Max link ends. A Team Owner or Primary Owner can claim the team’s credits once the Team plan has been active for seven days.
+* **Moving to an Enterprise organization:** New credits stop. Credits you already have stay usable until they expire. Enterprise plans aren’t eligible for monthly API credits.
+
 For cancellation instructions, see **[Cancel your Pro or Max subscription](https://support.claude.com/en/articles/8325617)**.
 
 ### How to start a migration
@@ -103,7 +108,7 @@ For the full walkthrough of your options, deadlines, and what happens to your su
 
 You may have both a personal account and an organization account tied to the same email address. You can switch between them by clicking your initials or name in the lower left corner of the screen.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1791333900&signature=0fdd435e0fca0a3dc8ba69e9ee4f332f4a9b02b467d9c29b9cc7dabba13b5134&req=diMmFMh3noJbXvMW1HO4zXhPnNE1yxxoufhmlOXMdYYrOJajtiJA8Gwwv7pB%0Am%2FEJkuXyQ4B%2FC%2F98kOo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1791333900&signature=0fdd435e0fca0a3dc8ba69e9ee4f332f4a9b02b467d9c29b9cc7dabba13b5134&req=diMmFMh3noJbXvMW1HO4zXhPnNE1yxxoufhmlOXMdYYrOJajtiJA8Gwwv7pB%0Am%2FEJkuXyQ4B%2FC%2F98kOo%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1791460800&signature=6808ba019d9bb8dbedef4605cd6adf67f8b1bc8ed44b2ef12a94bce366aa7ea9&req=diMmFMh3noJbXvMW3nq%2BgXydQ01V7UMIA%2BRl6PawEblCw%2FZwu%2FBNcRXJ2v2J%0Aao2BhBDsPbp1o8mtw1agfqErIaA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1791460800&signature=6808ba019d9bb8dbedef4605cd6adf67f8b1bc8ed44b2ef12a94bce366aa7ea9&req=diMmFMh3noJbXvMW3nq%2BgXydQ01V7UMIA%2BRl6PawEblCw%2FZwu%2FBNcRXJ2v2J%0Aao2BhBDsPbp1o8mtw1agfqErIaA%3D%0A)
 
 A blue checkmark shows which account you're currently using. Click the other account to switch to it and access its separate conversations and projects.
 
@@ -119,6 +124,6 @@ If you want to close your personal account without moving any of your work into 
 
 * [Get started with the Team plan](https://support.claude.com/en/articles/9267247-get-started-with-the-team-plan)
 * [Export your Claude data](https://support.claude.com/en/articles/9450526-export-your-claude-data)
-* [Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)
+* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
 * [Claim and migrate accounts on your domain](https://support.claude.com/en/articles/14625619-claim-and-migrate-accounts-on-your-domain)
 * [Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account)

@@ -75,8 +75,8 @@ For more information on getting started with projects, see **[How can I create a
 
 For more information on private projects and visibility settings on Team and Enterprise plans, see **[Project visibility and sharing](https://support.claude.com/en/articles/9519189-project-visibility-and-sharing)**.
 
+* [What is the Team plan?](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)
 * [How can I create and manage projects?](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects)
 * [Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)
 * [Retrieval augmented generation (RAG) for projects](https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects)
-* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
 * [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)

@@ -16,21 +16,21 @@ You decide how much Claude does on its own. In the default “Ask before edits�
 
 ## Your connectors, skills, and enterprise controls come with you
 
-When you are signed in with your Claude account, the sidebar has the same models, [connectors](https://claude.com/marketplace/connectors-plugins), and [skills](https://claude.com/skills) you use in Claude. For example, if you ask for a quarterly business review (QBR) deck for your customer, Claude can pull the account history from Salesforce and recent call notes through your Google Drive connector. If you save the QBR format as a skill, your team can build the next deck following the same format and steps.
+When you are signed in with your Claude account, the sidebar has the same models, [connectors (opens in new tab)](https://claude.com/marketplace/connectors-plugins), and [skills (opens in new tab)](https://claude.com/skills) you use in Claude. For example, if you ask for a quarterly business review (QBR) deck for your customer, Claude can pull the account history from Salesforce and recent call notes through your Google Drive connector. If you save the QBR format as a skill, your team can build the next deck following the same format and steps.
 
 On Enterprise plans, controls such as the Compliance API, customer-managed encryption keys (CMEK), and OpenTelemetry audit export apply to the add-on too
 
 ## Edit Google files from Claude
 
-With the [Google Docs, Sheets, and Slides connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors), also in beta, you can start in Claude and it will create and edit your Google files from the chat. Paste a Google file link or ask for a Google doc, sheet, or deck, and on supported setups it will open in a pane beside your conversation. Starting from Claude makes most sense when you need a new file or your work spans several files. Claude’s access matches your existing Google sharing permissions.
+With the [Google Docs, Sheets, and Slides connectors (opens in new tab)](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors), also in beta, you can start in Claude and it will create and edit your Google files from the chat. Paste a Google file link or ask for a Google doc, sheet, or deck, and on supported setups it will open in a pane beside your conversation. Starting from Claude makes most sense when you need a new file or your work spans several files. Claude’s access matches your existing Google sharing permissions.
 
 ## Getting started
 
-[Claude for Google Workspace](https://claude.com/claude-for-google-workspace) is in beta on all paid plans.
+[Claude for Google Workspace (opens in new tab)](https://claude.com/claude-for-google-workspace) is in beta on all paid plans.
 
-Install it from the [Google Workspace Marketplace](https://workspace.google.com/marketplace/app/claude/12459801340), then open a file and go to Extensions > Claude > Open Claude. Admins can deploy it to their domain or selected groups from the Google Admin console. [The Help Center guide covers setup](https://support.claude.com/en/articles/16951679-use-claude-in-google-docs-sheets-and-slides).
+Install it from the [Google Workspace Marketplace (opens in new tab)](https://workspace.google.com/marketplace/app/claude/12459801340), then open a file and go to Extensions > Claude > Open Claude. Admins can deploy it to their domain or selected groups from the Google Admin console. [The Help Center guide covers setup (opens in new tab)](https://support.claude.com/en/articles/16951679-use-claude-in-google-docs-sheets-and-slides).
 
-To edit Google files from Claude, turn on the [Google Docs, Sheets, and Slides connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors). On Team and Enterprise plans, an owner or primary owner needs to enable the connectors first.
+To edit Google files from Claude, turn on the [Google Docs, Sheets, and Slides connectors (opens in new tab)](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors). On Team and Enterprise plans, an owner or primary owner needs to enable the connectors first.
 
 ## Transform how your organization operates with Claude
 

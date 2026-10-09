@@ -3,6 +3,2525 @@
 
 <!-- chunk-start -->
 
+  Opaque cursor from a previous response's `next_page` field.
+
+- `--product: optional array of BetaAnalyticsProductFilter` (query parameter)
+
+  Product surfaces to include. Defaults to all products.
+
+  maxItems: 100
+
+- `--rbac-group-id: optional array of string` (query parameter)
+
+  Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
+
+  maxItems: 100
+
+- `--slack-channel-id: optional array of string` (query parameter)
+
+  Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
+
+  maxItems: 100
+
+- `--speed: optional array of "fast" or "standard"` (query parameter)
+
+  Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
+
+  maxItems: 100
+
+- `--user-id: optional array of string` (query parameter)
+
+  Filter to specific users by tagged user ID.
+
+  maxItems: 100
+
+#### Returns
+
+- `BetaAnalyticsUsageUsersResponse: object`
+
+  - `data: array of BetaAnalyticsUsageUsersItem`
+
+    Rows for this page, ranked by `order_by` in the `order` direction. One row per user, or several per user when `group_by[]` or `bucket_width` breaks that user's usage or cost out across rows. Rows split out by `cost_type` or `token_type` (cost endpoint only) stay adjacent and are ranked as one unit.
+
+    - `actor: object`
+
+      The user this row's usage or cost is attributed to. Always a `user_actor`.
+
+      - `type: "user_actor"`
+
+        Actor type. Always `"user_actor"`.
+
+      - `deleted: boolean`
+
+        True when the account has been deleted, or when the user is no longer a member of the organization or its associated organizations (for example, their membership was removed or they were deprovisioned via your identity provider). `email_address` stays populated for removed users and is null when the account has been deleted. `name` follows the rules described on that field. The `user_id` is still populated for reconciliation.
+
+      - `email_address: string`
+
+        The user's email address, including for users who are no longer members of the organization or its associated organizations. Null when the account has been deleted (check `deleted`) and for system-minted service accounts, which have no person's mailbox behind them (check `name`).
+
+      - `name: string`
+
+        The user's full name. Null when the user has not set a name. Returns `"Deleted User"` when the account itself has been deleted, or when the user is no longer a member of the organization or its associated organizations and the organization has chosen to hide the names of removed users. Otherwise, the name stays populated for removed users. Rows for system-minted service accounts render the service name (for example, `"Claude Security"` for usage by Anthropic's security-patching service) or null.
+
+      - `user_id: string`
+
+        Tagged user ID.
+
+    - `cache_creation: object`
+
+      The number of input tokens for cache creation.
+
+      - `ephemeral_1h_input_tokens: number`
+
+        The number of input tokens used to create the 1 hour cache entry.
+
+        minimum: 0
+
+      - `ephemeral_5m_input_tokens: number`
+
+        The number of input tokens used to create the 5 minute cache entry.
+
+        minimum: 0
+
+    - `cache_read_input_tokens: number`
+
+      The number of input tokens read from the cache.
+
+    - `claude_tag_category: "dm" or "engaged" or "monitoring" or 2 more`
+
+      Claude Tag (Claude in Slack) spend category: `engaged` (a person addressed Claude in a channel or thread), `proactive` (Claude responded without being addressed), `scheduled` (a scheduled routine ran), `monitoring` (Claude watching a channel it was asked to monitor), or `dm` (direct messages with Claude). Populated only when `claude_tag_category` is in `group_by[]`; null for usage that is not Claude Tag. Direct-message usage is billed to the individual user and is reported under that user's product, not under `claude-tag`. New categories may be added over time.
+
+      - `"dm"`
+
+      - `"engaged"`
+
+      - `"monitoring"`
+
+      - `"proactive"`
+
+      - `"scheduled"`
+
+    - `claude_tag_user_id: string`
+
+      Slack user ID (for example `U0123ABCDEF`) of the member the Claude Tag (Claude in Slack) usage is attributed to, not a claude.ai user ID. Populated only when `claude_tag_user_id` is in `group_by[]`; null for usage that is not Claude Tag and for Claude Tag usage that is not attributed to a single user (for example `monitoring`, and `proactive` usage Claude initiated), so per-user rows can sum to less than the Claude Tag total. Cannot be combined with `group_by[]=rbac_group_id` or the `rbac_group_ids[]` filter.
+
+    - `context_window: "0-200k" or "200k-1M"`
+
+      Context-window pricing tier of the usage or cost. Null unless `context_window` is in `group_by[]`; it can also be null on grouped rows with no context-window tier, such as code execution.
+
+      - `"0-200k"`
+
+      - `"200k-1M"`
+
+    - `ending_at: string`
+
+      End of the row's UTC time bucket (exclusive), as an RFC 3339 timestamp; equal to `starting_at` plus one `bucket_width`. Null unless `bucket_width` is set.
+
+      format: date-time
+
+    - `inference_geo: "global" or "us"`
+
+      Inference region of the usage or cost. Null unless `inference_geo` is in `group_by[]`; it can also be null on grouped rows where the region is not set (the rows that `inference_geos[]=not_available` matches).
+
+      - `"global"`
+
+      - `"us"`
+
+    - `model: string`
+
+      Model that produced the usage or cost, as a model name in the form the `models[]` filter accepts (for example, `claude-opus-5`). Null unless `model` is in `group_by[]`; it can also be null on grouped rows whose usage or cost is not attributed to a specific model, such as code execution.
+
+    - `output_tokens: number`
+
+      The number of output tokens generated.
+
+    - `product: string`
+
+      Product surface that produced the usage or cost. Null unless product is in `group_by[]`; it can also be null on grouped rows whose usage cannot be attributed to a known surface. Values include `chat`, `claude_code`, `cowork`, `office_agent`, `claude_in_chrome`, `claude_design`, and `claude-tag`. `claude-tag` is Claude Tag, the Claude product in Slack. Some unattributed usage is reported as "other".
+
+    - `rbac_group_id: string`
+
+      RBAC group (team) the usage is attributed to, in the public tagged `rbac_group_...` spelling — the same spelling the activity resources use for this key, so the same team has one id across resources and it round-trips as an `rbac_group_ids[]` filter value. Populated only when `rbac_group_id` is in `group_by[]`. Any-membership semantics: a user in several groups contributes their full usage to each of those groups' rows, so the named-group rows overlap and their sum can exceed the org total. A null value is the single unassigned row: users in no group on that (UTC) day. For the true org total, run the same query without `group_by[]`.
+
+    - `requests: number`
+
+      Number of API requests in this row's scope. For sandbox / code-execution events, this counts execution spans rather than HTTP requests (these rows surface with `product: null`).
+
+    - `server_tool_use: object`
+
+      Server-side tool usage metrics.
+
+      - `web_search_requests: number`
+
+        The number of web search requests made.
+
+    - `slack_channel_id: string`
+
+      Slack channel the usage originated from. Populated only when `slack_channel_id` is in `group_by[]`; null for usage outside Slack (and for rows recorded before channel attribution was enabled).
+
+    - `speed: "fast" or "standard"`
+
+      Inference speed mode of the usage or cost: `fast` or `standard`. Null unless `speed` is in `group_by[]`.
+
+      - `"fast"`
+
+      - `"standard"`
+
+    - `starting_at: string`
+
+      Start of the row's UTC time bucket (inclusive), as an RFC 3339 timestamp. Null unless `bucket_width` is set; without `bucket_width`, each row aggregates the full requested range.
+
+      format: date-time
+
+    - `total_tokens: number`
+
+      Total token count across all token types. This is the value the default `order_by` (`total_tokens`) sorts on.
+
+    - `uncached_input_tokens: number`
+
+      The number of uncached input tokens processed.
+
+  - `data_refreshed_at: string`
+
+    RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case `data` is empty. Data beyond this watermark is incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours. Values can be revised as late events arrive and reconciliation runs, until about 7 days after the end of the calendar month the usage falls in; for example, values for October 1 can change until about November 7.
+
+    format: date-time
+
+  - `has_more: boolean`
+
+    Whether another page is available. When true, pass `next_page` as the `page` parameter to fetch it.
+
+  - `next_page: string`
+
+    Opaque cursor for the next page, or null when `has_more` is false. Pass it as the `page` parameter, keeping the other parameters unchanged. A cursor can expire after the underlying data refreshes; the request then returns HTTP 410 and pagination must restart from the first page.
+
+  - `organization_id: string`
+
+    ID of the Organization.
+
+#### Example
+
+```bash
+ant beta:organization:analytics:user-usage-report list \
+  --api-key my-anthropic-api-key \
+  --starting-at ''\''2019-12-27T18:11:19.117Z'\'''
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "actor": {
+        "deleted": true,
+        "email": "jane@example.com",
+        "email_address": "jane@example.com",
+        "name": "Jane Smith",
+        "type": "user_actor",
+        "user_id": "user_01AbCdEfGhIjKlMnOpQrSt"
+      },
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_read_input_tokens": 3200000,
+      "claude_tag_category": "dm",
+      "claude_tag_user_id": "U0123ABCDEF",
+      "context_window": "0-200k",
+      "ending_at": "2019-12-27T18:11:19.117Z",
+      "inference_geo": "global",
+      "model": "claude-opus-5",
+      "output_tokens": 891000,
+      "product": "chat",
+      "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+      "requests": 128,
+      "server_tool_use": {
+        "web_search_requests": 10
+      },
+      "slack_channel_id": "C0123ABCDEF",
+      "speed": "fast",
+      "starting_at": "2019-12-27T18:11:19.117Z",
+      "total_tokens": 5377000,
+      "uncached_input_tokens": 1284500
+    }
+  ],
+  "data_refreshed_at": "2019-12-27T18:11:19.117Z",
+  "has_more": true,
+  "next_page": "next_page",
+  "organization_id": "org_013FP9SaFPBg7Kw7fetjn6cF"
+}
+```
+
+## Beta › Organization › Analytics › Cost Report
+
+### Get Cost Over Time
+
+`$ ant beta:organization:analytics:cost-report list`
+
+**GET** `/v1/organizations/analytics/cost_report`
+
+Get cost in USD over time across a date range.
+
+Returns cost bucketed by minute, hour, or day, optionally broken down by
+product, model, context window, inference region, speed, cost type, or
+token type. Available to organizations on a Claude Enterprise plan.
+Requires an API key with the `read:analytics` scope.
+
+#### Parameters
+
+- `--starting-at: string` (query parameter)
+
+  Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
+
+  format: date-time
+
+- `--bucket-width: optional "1d" or "1h" or "1m"` (query parameter)
+
+  Time bucket granularity.
+
+- `--claude-tag-category: optional array of BetaAnalyticsClaudeTagCategory` (query parameter)
+
+  Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
+
+  maxItems: 100
+
+- `--claude-tag-user-id: optional array of string` (query parameter)
+
+  Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
+
+  maxItems: 100
+
+- `--context-window: optional array of BetaAnalyticsContextWindow` (query parameter)
+
+  Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
+
+  maxItems: 100
+
+- `--ending-at: optional string` (query parameter)
+
+  End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
+
+  format: date-time
+
+- `--group-by: optional array of "claude_tag_category" or "claude_tag_user_id" or "context_window" or 8 more` (query parameter)
+
+  Dimensions to break each time bucket out by. Defaults to no grouping (one total per bucket). Each bucket reports at most its top 100 groups; a group beyond that cap has no row in that bucket (there is no remainder row), so grouped buckets are not exhaustive when a dimension has more than 100 distinct values.
+
+  maxItems: 100
+
+- `--inference-geo: optional array of BetaAnalyticsInferenceGeoFilter` (query parameter)
+
+  Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
+
+  maxItems: 100
+
+- `--limit: optional number` (query parameter)
+
+  Maximum number of time buckets per page. Defaults and caps vary by `bucket_width` (`1d`: default 7, max 31; `1h`: default 24, max 168; `1m`: default 60, max 256).
+
+  minimum: 1
+
+- `--model: optional array of string` (query parameter)
+
+  Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
+
+  maxItems: 100
+
+- `--page: optional string` (query parameter)
+
+  Opaque cursor from a previous response's `next_page` field.
+
+- `--product: optional array of BetaAnalyticsProductFilter` (query parameter)
+
+  Product surfaces to include. Defaults to all products. Use `group_by[]=product` to break out per-product values.
+
+  maxItems: 100
+
+- `--rbac-group-id: optional array of string` (query parameter)
+
+  Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
+
+  maxItems: 100
+
+- `--slack-channel-id: optional array of string` (query parameter)
+
+  Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
+
+  maxItems: 100
+
+- `--speed: optional array of "fast" or "standard"` (query parameter)
+
+  Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
+
+  maxItems: 100
+
+- `--user-id: optional array of string` (query parameter)
+
+  Filter to specific users by tagged user ID.
+
+  maxItems: 100
+
+#### Returns
+
+- `BetaAnalyticsCostBucketedResponse: object`
+
+  - `data: array of BetaAnalyticsCostReportTimeBucket`
+
+    Time buckets for this page, oldest first: one per `bucket_width` interval, including intervals with no data (their `results` list is empty). A page holds at most `limit` buckets.
+
+    - `ending_at: string`
+
+      End of the time bucket (exclusive) in RFC 3339 format.
+
+      format: date-time
+
+    - `results: array of BetaAnalyticsCostBucketedResult`
+
+      Rows for this time bucket. Empty when the bucket has no data; otherwise a single combined row when `group_by[]` is omitted, or one row per group (subject to the per-bucket group cap described on the `group_by[]` parameter).
+
+      - `amount: string`
+
+        Amount (post-discount, pre-credit) in fractional cents.
+
+      - `claude_tag_category: "dm" or "engaged" or "monitoring" or 2 more`
+
+        Claude Tag (Claude in Slack) spend category: `engaged` (a person addressed Claude in a channel or thread), `proactive` (Claude responded without being addressed), `scheduled` (a scheduled routine ran), `monitoring` (Claude watching a channel it was asked to monitor), or `dm` (direct messages with Claude). Populated only when `claude_tag_category` is in `group_by[]`; null for usage that is not Claude Tag. Direct-message usage is billed to the individual user and is reported under that user's product, not under `claude-tag`. New categories may be added over time.
+
+        - `"dm"`
+
+        - `"engaged"`
+
+        - `"monitoring"`
+
+        - `"proactive"`
+
+        - `"scheduled"`
+
+      - `claude_tag_user_id: string`
+
+        Slack user ID (for example `U0123ABCDEF`) of the member the Claude Tag (Claude in Slack) usage is attributed to, not a claude.ai user ID. Populated only when `claude_tag_user_id` is in `group_by[]`; null for usage that is not Claude Tag and for Claude Tag usage that is not attributed to a single user (for example `monitoring`, and `proactive` usage Claude initiated), so per-user rows can sum to less than the Claude Tag total. Cannot be combined with `group_by[]=rbac_group_id` or the `rbac_group_ids[]` filter.
+
+      - `context_window: "0-200k" or "200k-1M"`
+
+        Context-window pricing tier of the usage or cost. Null unless `context_window` is in `group_by[]`; it can also be null on grouped rows with no context-window tier, such as code execution.
+
+        - `"0-200k"`
+
+        - `"200k-1M"`
+
+      - `cost_type: "code_execution" or "tokens" or "web_search"`
+
+        Cost component when `group_by[]=cost_type`; null otherwise (amount is the combined total).
+
+        - `"code_execution"`
+
+        - `"tokens"`
+
+        - `"web_search"`
+
+      - `currency: string`
+
+        Currency code for the cost amount. Currently always `"USD"`.
+
+      - `inference_geo: "global" or "us"`
+
+        Inference region of the usage or cost. Null unless `inference_geo` is in `group_by[]`; it can also be null on grouped rows where the region is not set (the rows that `inference_geos[]=not_available` matches).
+
+        - `"global"`
+
+        - `"us"`
+
+      - `list_amount: string`
+
+        List-price amount (pre-discount) in fractional cents.
+
+      - `model: string`
+
+        Model that produced the usage or cost, as a model name in the form the `models[]` filter accepts (for example, `claude-opus-5`). Null unless `model` is in `group_by[]`; it can also be null on grouped rows whose usage or cost is not attributed to a specific model, such as code execution.
+
+      - `product: string`
+
+        Product surface that produced the usage or cost. Null unless product is in `group_by[]`; it can also be null on grouped rows whose usage cannot be attributed to a known surface. Values include `chat`, `claude_code`, `cowork`, `office_agent`, `claude_in_chrome`, `claude_design`, and `claude-tag`. `claude-tag` is Claude Tag, the Claude product in Slack. Some unattributed usage is reported as "other".
+
+      - `rbac_group_id: string`
+
+        RBAC group (team) the usage is attributed to, in the public tagged `rbac_group_...` spelling — the same spelling the activity resources use for this key, so the same team has one id across resources and it round-trips as an `rbac_group_ids[]` filter value. Populated only when `rbac_group_id` is in `group_by[]`. Any-membership semantics: a user in several groups contributes their full usage to each of those groups' rows, so the named-group rows overlap and their sum can exceed the org total. A null value is the single unassigned row: users in no group on that (UTC) day. For the true org total, run the same query without `group_by[]`.
+
+      - `requests: number`
+
+        Number of API requests in this row's scope. Null when `group_by` includes `cost_type` or `token_type` (the count has no per-component attribution; read it from the ungrouped response). For sandbox / code-execution events, this counts execution spans rather than HTTP requests (these rows surface with `product: null`).
+
+      - `slack_channel_id: string`
+
+        Slack channel the usage originated from. Populated only when `slack_channel_id` is in `group_by[]`; null for usage outside Slack (and for rows recorded before channel attribution was enabled).
+
+      - `speed: "fast" or "standard"`
+
+        Inference speed mode of the usage or cost: `fast` or `standard`. Null unless `speed` is in `group_by[]`.
+
+        - `"fast"`
+
+        - `"standard"`
+
+      - `token_type: "cache_creation.ephemeral_1h_input_tokens" or "cache_creation.ephemeral_5m_input_tokens" or "cache_read_input_tokens" or 2 more`
+
+        Token type when `group_by[]=token_type` and `cost_type=tokens`; null otherwise.
+
+        - `"cache_creation.ephemeral_1h_input_tokens"`
+
+        - `"cache_creation.ephemeral_5m_input_tokens"`
+
+        - `"cache_read_input_tokens"`
+
+        - `"output_tokens"`
+
+        - `"uncached_input_tokens"`
+
+    - `starting_at: string`
+
+      Start of the time bucket (inclusive) in RFC 3339 format.
+
+      format: date-time
+
+  - `data_refreshed_at: string`
+
+    RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case every bucket's `results` list is empty. Buckets beyond this watermark are incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours. Values can be revised as late events arrive and reconciliation runs, until about 7 days after the end of the calendar month the usage falls in; for example, values for October 1 can change until about November 7.
+
+    format: date-time
+
+  - `has_more: boolean`
+
+    Whether another page is available. When true, pass `next_page` as the `page` parameter to fetch it.
+
+  - `next_page: string`
+
+    Opaque cursor for the next page, or null when `has_more` is false. Pass it as the `page` parameter, keeping the other parameters unchanged. A cursor can expire after the underlying data refreshes; the request then returns HTTP 410 and pagination must restart from the first page.
+
+  - `organization_id: string`
+
+    ID of the Organization.
+
+#### Example
+
+```bash
+ant beta:organization:analytics:cost-report list \
+  --api-key my-anthropic-api-key \
+  --starting-at ''\''2019-12-27T18:11:19.117Z'\'''
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "ending_at": "2019-12-27T18:11:19.117Z",
+      "results": [
+        {
+          "amount": "amount",
+          "claude_tag_category": "dm",
+          "claude_tag_user_id": "U0123ABCDEF",
+          "context_window": "0-200k",
+          "cost_type": "code_execution",
+          "currency": "USD",
+          "inference_geo": "global",
+          "list_amount": "list_amount",
+          "model": "claude-opus-5",
+          "product": "chat",
+          "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+          "requests": 0,
+          "slack_channel_id": "C0123ABCDEF",
+          "speed": "fast",
+          "token_type": "cache_creation.ephemeral_1h_input_tokens"
+        }
+      ],
+      "starting_at": "2019-12-27T18:11:19.117Z"
+    }
+  ],
+  "data_refreshed_at": "2019-12-27T18:11:19.117Z",
+  "has_more": true,
+  "next_page": "next_page",
+  "organization_id": "org_013FP9SaFPBg7Kw7fetjn6cF"
+}
+```
+
+## Beta › Organization › Analytics › User Cost Report
+
+### Get Per-User Cost
+
+`$ ant beta:organization:analytics:user-cost-report list`
+
+**GET** `/v1/organizations/analytics/user_cost_report`
+
+Get per-user cost in USD across a date range.
+
+Returns one row per user, ranked by spend. Use this to see which users
+account for the most cost. Only cost attributable to a seat user is
+included; for organization-wide totals including direct API-key and
+automation traffic, use the bucketed
+`/v1/organizations/analytics/cost_report` endpoint. Available to
+organizations on a Claude Enterprise plan. Requires an API key with the
+`read:analytics` scope.
+
+#### Parameters
+
+- `--starting-at: string` (query parameter)
+
+  Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
+
+  format: date-time
+
+- `--bucket-width: optional "1d" or "1h" or "1m"` (query parameter)
+
+  Time-bucket granularity. When set, each row's `starting_at` and `ending_at` are populated and one actor may span several rows (one per time bucket with usage). The time bucket counts toward `limit`, so one page can return multiple rows for the same actor. `ending_at` is required when `bucket_width` is set, and with `bucket_width="1m"` the range may span at most 24 hours. When omitted, each row aggregates the full `[starting_at, ending_at)` range.
+
+- `--claude-tag-category: optional array of BetaAnalyticsClaudeTagCategory` (query parameter)
+
+  Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
+
+  maxItems: 100
+
+- `--claude-tag-user-id: optional array of string` (query parameter)
+
+  Filter to Claude Tag (Claude in Slack) usage attributed to specific Slack users, by Slack user ID (for example `U0123ABCDEF`), not claude.ai user ID. Usage that is not Claude Tag, and Claude Tag usage not attributed to a single user, never matches. Use `group_by[]=claude_tag_user_id` to break out per-user values.
+
+  maxItems: 100
+
+- `--context-window: optional array of BetaAnalyticsContextWindow` (query parameter)
+
+  Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
+
+  maxItems: 100
+
+- `--ending-at: optional string` (query parameter)
+
+  End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
+
+  format: date-time
+
+- `--exclude-deleted-users: optional boolean` (query parameter)
+
+  If true, omit rows for users who are deleted (`deleted: true`). A page may contain fewer than `limit` rows; use `has_more` and `next_page` to paginate as usual.
+
+- `--group-by: optional array of "claude_tag_category" or "claude_tag_user_id" or "context_window" or 8 more` (query parameter)
+
+  Break each actor's row out by the given dimensions. Accepts the same values as the bucketed `/cost_report` endpoint. The `product`, `model`, `context_window`, `inference_geo`, and `speed` dimensions — and the time bucket, when `bucket_width` is set — count toward `limit`. `cost_type` and `token_type` do not: `cost_type` returns one row per cost component (tokens, web search, code execution); `token_type` returns one row per token type, each with `cost_type: "tokens"`; combining both returns the per-token-type rows plus the web-search and code-execution rows. A page can therefore contain more rows than `limit` when `cost_type` or `token_type` is requested.
+
+  maxItems: 100
+
+- `--inference-geo: optional array of BetaAnalyticsInferenceGeoFilter` (query parameter)
+
+  Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
+
+  maxItems: 100
+
+- `--limit: optional number` (query parameter)
+
+  Number of rows per page (1-1000, default 20). One row per actor unless `group_by[]` or `bucket_width` splits an actor across rows; `cost_type`/`token_type` fan-out rows (cost endpoint only) are the exception — they do not count toward this limit, so `data` can exceed it.
+
+  minimum: 1, maximum: 1000
+
+- `--model: optional array of string` (query parameter)
+
+  Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
+
+  maxItems: 100
+
+- `--order: optional "asc" or "desc"` (query parameter)
+
+  Sort direction. Defaults to `desc`.
+
+- `--order-by: optional "amount" or "list_amount"` (query parameter)
+
+  Metric to rank actors by. Defaults to `amount`.
+
+- `--page: optional string` (query parameter)
+
+  Opaque cursor from a previous response's `next_page` field.
+
+- `--product: optional array of BetaAnalyticsProductFilter` (query parameter)
+
+  Product surfaces to include. Defaults to all products.
+
+  maxItems: 100
+
+- `--rbac-group-id: optional array of string` (query parameter)
+
+  Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
+
+  maxItems: 100
+
+- `--slack-channel-id: optional array of string` (query parameter)
+
+  Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
+
+  maxItems: 100
+
+- `--speed: optional array of "fast" or "standard"` (query parameter)
+
+  Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
+
+  maxItems: 100
+
+- `--user-id: optional array of string` (query parameter)
+
+  Filter to specific users by tagged user ID.
+
+  maxItems: 100
+
+#### Returns
+
+- `BetaAnalyticsCostUsersResponse: object`
+
+  - `data: array of BetaAnalyticsCostUsersItem`
+
+    Rows for this page, ranked by `order_by` in the `order` direction. One row per user, or several per user when `group_by[]` or `bucket_width` breaks that user's usage or cost out across rows. Rows split out by `cost_type` or `token_type` (cost endpoint only) stay adjacent and are ranked as one unit.
+
+    - `actor: object`
+
+      The user this row's usage or cost is attributed to. Always a `user_actor`.
+
+      - `type: "user_actor"`
+
+        Actor type. Always `"user_actor"`.
+
+      - `deleted: boolean`
+
+        True when the account has been deleted, or when the user is no longer a member of the organization or its associated organizations (for example, their membership was removed or they were deprovisioned via your identity provider). `email_address` stays populated for removed users and is null when the account has been deleted. `name` follows the rules described on that field. The `user_id` is still populated for reconciliation.
+
+      - `email_address: string`
+
+        The user's email address, including for users who are no longer members of the organization or its associated organizations. Null when the account has been deleted (check `deleted`) and for system-minted service accounts, which have no person's mailbox behind them (check `name`).
+
+      - `name: string`
+
+        The user's full name. Null when the user has not set a name. Returns `"Deleted User"` when the account itself has been deleted, or when the user is no longer a member of the organization or its associated organizations and the organization has chosen to hide the names of removed users. Otherwise, the name stays populated for removed users. Rows for system-minted service accounts render the service name (for example, `"Claude Security"` for usage by Anthropic's security-patching service) or null.
+
+      - `user_id: string`
+
+        Tagged user ID.
+
+    - `amount: string`
+
+      Amount (post-discount, pre-credit) in fractional cents (minor units).
+
+    - `claude_tag_category: "dm" or "engaged" or "monitoring" or 2 more`
+
+      Claude Tag (Claude in Slack) spend category: `engaged` (a person addressed Claude in a channel or thread), `proactive` (Claude responded without being addressed), `scheduled` (a scheduled routine ran), `monitoring` (Claude watching a channel it was asked to monitor), or `dm` (direct messages with Claude). Populated only when `claude_tag_category` is in `group_by[]`; null for usage that is not Claude Tag. Direct-message usage is billed to the individual user and is reported under that user's product, not under `claude-tag`. New categories may be added over time.
+
+      - `"dm"`
+
+      - `"engaged"`
+
+      - `"monitoring"`
+
+      - `"proactive"`
+
+      - `"scheduled"`
+
+    - `claude_tag_user_id: string`
+
+      Slack user ID (for example `U0123ABCDEF`) of the member the Claude Tag (Claude in Slack) usage is attributed to, not a claude.ai user ID. Populated only when `claude_tag_user_id` is in `group_by[]`; null for usage that is not Claude Tag and for Claude Tag usage that is not attributed to a single user (for example `monitoring`, and `proactive` usage Claude initiated), so per-user rows can sum to less than the Claude Tag total. Cannot be combined with `group_by[]=rbac_group_id` or the `rbac_group_ids[]` filter.
+
+    - `context_window: "0-200k" or "200k-1M"`
+
+      Context-window pricing tier of the usage or cost. Null unless `context_window` is in `group_by[]`; it can also be null on grouped rows with no context-window tier, such as code execution.
+
+      - `"0-200k"`
+
+      - `"200k-1M"`
+
+    - `cost_type: "code_execution" or "tokens" or "web_search"`
+
+      Cost component breakdown; null when returning the combined total.
+
+      - `"code_execution"`
+
+      - `"tokens"`
+
+      - `"web_search"`
+
+    - `currency: string`
+
+      Currency code for the cost amount. Currently always `"USD"`.
+
+    - `ending_at: string`
+
+      End of the row's UTC time bucket (exclusive), as an RFC 3339 timestamp; equal to `starting_at` plus one `bucket_width`. Null unless `bucket_width` is set.
+
+      format: date-time
+
+    - `inference_geo: "global" or "us"`
+
+      Inference region of the usage or cost. Null unless `inference_geo` is in `group_by[]`; it can also be null on grouped rows where the region is not set (the rows that `inference_geos[]=not_available` matches).
+
+      - `"global"`
+
+      - `"us"`
+
+    - `list_amount: string`
+
+      List-price amount (pre-discount) in fractional cents.
+
+    - `model: string`
+
+      Model that produced the usage or cost, as a model name in the form the `models[]` filter accepts (for example, `claude-opus-5`). Null unless `model` is in `group_by[]`; it can also be null on grouped rows whose usage or cost is not attributed to a specific model, such as code execution.
+
+    - `product: string`
+
+      Product surface that produced the usage or cost. Null unless product is in `group_by[]`; it can also be null on grouped rows whose usage cannot be attributed to a known surface. Values include `chat`, `claude_code`, `cowork`, `office_agent`, `claude_in_chrome`, `claude_design`, and `claude-tag`. `claude-tag` is Claude Tag, the Claude product in Slack. Some unattributed usage is reported as "other".
+
+    - `rbac_group_id: string`
+
+      RBAC group (team) the usage is attributed to, in the public tagged `rbac_group_...` spelling — the same spelling the activity resources use for this key, so the same team has one id across resources and it round-trips as an `rbac_group_ids[]` filter value. Populated only when `rbac_group_id` is in `group_by[]`. Any-membership semantics: a user in several groups contributes their full usage to each of those groups' rows, so the named-group rows overlap and their sum can exceed the org total. A null value is the single unassigned row: users in no group on that (UTC) day. For the true org total, run the same query without `group_by[]`.
+
+    - `requests: number`
+
+      Number of API requests in this row's scope. Null when `group_by` includes `cost_type` or `token_type` (the count has no per-component attribution; read it from the ungrouped response). For sandbox / code-execution events, this counts execution spans rather than HTTP requests (these rows surface with `product: null`).
+
+    - `slack_channel_id: string`
+
+      Slack channel the usage originated from. Populated only when `slack_channel_id` is in `group_by[]`; null for usage outside Slack (and for rows recorded before channel attribution was enabled).
+
+    - `speed: "fast" or "standard"`
+
+      Inference speed mode of the usage or cost: `fast` or `standard`. Null unless `speed` is in `group_by[]`.
+
+      - `"fast"`
+
+      - `"standard"`
+
+    - `starting_at: string`
+
+      Start of the row's UTC time bucket (inclusive), as an RFC 3339 timestamp. Null unless `bucket_width` is set; without `bucket_width`, each row aggregates the full requested range.
+
+      format: date-time
+
+    - `token_type: "cache_creation.ephemeral_1h_input_tokens" or "cache_creation.ephemeral_5m_input_tokens" or "cache_read_input_tokens" or 2 more`
+
+      Token type when `cost_type` is `tokens`; null otherwise.
+
+      - `"cache_creation.ephemeral_1h_input_tokens"`
+
+      - `"cache_creation.ephemeral_5m_input_tokens"`
+
+      - `"cache_read_input_tokens"`
+
+      - `"output_tokens"`
+
+      - `"uncached_input_tokens"`
+
+  - `data_refreshed_at: string`
+
+    RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case `data` is empty. Data beyond this watermark is incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours. Values can be revised as late events arrive and reconciliation runs, until about 7 days after the end of the calendar month the usage falls in; for example, values for October 1 can change until about November 7.
+
+    format: date-time
+
+  - `has_more: boolean`
+
+    Whether another page is available. When true, pass `next_page` as the `page` parameter to fetch it.
+
+  - `next_page: string`
+
+    Opaque cursor for the next page, or null when `has_more` is false. Pass it as the `page` parameter, keeping the other parameters unchanged. A cursor can expire after the underlying data refreshes; the request then returns HTTP 410 and pagination must restart from the first page.
+
+  - `organization_id: string`
+
+    ID of the Organization.
+
+#### Example
+
+```bash
+ant beta:organization:analytics:user-cost-report list \
+  --api-key my-anthropic-api-key \
+  --starting-at ''\''2019-12-27T18:11:19.117Z'\'''
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "actor": {
+        "deleted": true,
+        "email": "jane@example.com",
+        "email_address": "jane@example.com",
+        "name": "Jane Smith",
+        "type": "user_actor",
+        "user_id": "user_01AbCdEfGhIjKlMnOpQrSt"
+      },
+      "amount": "41280.000000",
+      "claude_tag_category": "dm",
+      "claude_tag_user_id": "U0123ABCDEF",
+      "context_window": "0-200k",
+      "cost_type": "code_execution",
+      "currency": "USD",
+      "ending_at": "2019-12-27T18:11:19.117Z",
+      "inference_geo": "global",
+      "list_amount": "51600.000000",
+      "model": "claude-opus-5",
+      "product": "chat",
+      "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+      "requests": 128,
+      "slack_channel_id": "C0123ABCDEF",
+      "speed": "fast",
+      "starting_at": "2019-12-27T18:11:19.117Z",
+      "token_type": "cache_creation.ephemeral_1h_input_tokens"
+    }
+  ],
+  "data_refreshed_at": "2019-12-27T18:11:19.117Z",
+  "has_more": true,
+  "next_page": "next_page",
+  "organization_id": "org_013FP9SaFPBg7Kw7fetjn6cF"
+}
+```
+
+## Beta › Organization › Spend Limits
+
+### Set Spend Limit
+
+`$ ant beta:organization:spend-limits set`
+
+**POST** `/v1/organizations/spend_limits`
+
+Set a spend limit.
+
+Upsert keyed on (scope, period): setting a limit that already exists
+overwrites it in place. A Claude Enterprise organization sets `user`
+limits. Its seat-tier, group, and organization-level defaults are configured
+in claude.ai. A Claude Console organization sets `organization` and
+`workspace` limits, which are monthly and always carry an amount. Setting those
+limits is in an early access preview. To request access, contact your
+Anthropic account team.
+
+#### Parameters
+
+- `--amount: string`
+
+  Limit amount as a non-negative integer decimal string in the minor unit of the organization's billing currency (cents for USD): "50000" is $500.00. `null` sets an explicit no-limit override for this scope and `period` only — each period resolves independently, so caps for other periods still apply.
+
+- `--scope: BetaSpendLimitUserScope or BetaSpendLimitOrganizationScope or BetaSpendLimitWorkspaceScope`
+
+  What the limit applies to. Claude Enterprise organizations set `user` limits. Claude Console organizations set `organization` and `workspace` limits. Any other combination returns 400. Setting `organization` and `workspace` limits through the API is in an early access preview. To request access, contact your Anthropic account team.
+
+- `--period: optional "daily" or "monthly" or "weekly"`
+
+- `--beta: optional array of AnthropicBeta` (header parameter)
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `beta_spend_limit: object`
+
+  A configured spend limit: a cap on metered spend for one scope and period.
+
+  - `type: "spend_limit"`
+
+    Object type. Always `spend_limit`.
+
+  - `id: string`
+
+    Unique tagged ID of the spend limit (`spl_...`).
+
+  - `amount: string`
+
+    Limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD): "50000" is $500.00. `null` means no numeric cap is configured at this scope — see the effective report for whether a limit applies.
+
+  - `created_at: string`
+
+    RFC 3339 datetime at which the spend limit was created.
+
+    format: date-time
+
+  - `currency: string`
+
+    ISO 4217 code of the organization's billing currency; the unit for `amount`.
+
+  - `is_enabled: boolean`
+
+    Read-only. `false` when extra usage is switched off for this organization (`organization` limit) or for this member (`user` limit); `amount` is kept and applies again when it's switched back on. Always `true` for other limits.
+
+  - `period: "daily" or "monthly" or "weekly"`
+
+    Length of the window the limit resets over. `amount` caps spend within each period.
+
+    - `"daily"`
+
+    - `"monthly"`
+
+    - `"weekly"`
+
+  - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
+
+    What the limit applies to. A tagged union on `type`; each variant carries the identifier for its scope.
+
+    - `beta_spend_limit_user_scope: object`
+
+      Scope selecting a single member of the organization.
+
+      - `type: "user"`
+
+        Scope type. Always `user` for this scope.
+
+      - `user_id: string`
+
+        Tagged ID of the member the spend limit applies to.
+
+    - `beta_spend_limit_seat_tier_scope: object`
+
+      - `type: "seat_tier"`
+
+      - `seat_tier: string`
+
+    - `beta_spend_limit_rbac_group_scope: object`
+
+      - `type: "rbac_group"`
+
+      - `rbac_group_id: string`
+
+    - `beta_spend_limit_organization_service_scope: object`
+
+      - `type: "organization_service"`
+
+      - `service: string`
+
+    - `beta_spend_limit_organization_scope: object`
+
+      - `type: "organization"`
+
+    - `beta_spend_limit_workspace_scope: object`
+
+      Scope selecting one workspace of a Claude Console organization.
+
+      - `type: "workspace"`
+
+        Scope type. Always `workspace` for this scope.
+
+      - `workspace_id: string`
+
+        Tagged ID of the workspace the spend limit applies to.
+
+  - `updated_at: string`
+
+    RFC 3339 datetime at which the spend limit was last modified.
+
+    format: date-time
+
+#### Example
+
+```bash
+ant beta:organization:spend-limits set \
+  --api-key my-anthropic-api-key \
+  --amount 50000 \
+  --scope '{type: user, user_id: user_01WCz1FkmYMm4gnmykNKUu3Q}'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "amount": "50000",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "currency": "USD",
+  "is_enabled": true,
+  "period": "daily",
+  "scope": {
+    "type": "user",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "type": "spend_limit",
+  "updated_at": "2019-12-27T18:11:19.117Z"
+}
+```
+
+### Get Spend Limit
+
+`$ ant beta:organization:spend-limits retrieve`
+
+**GET** `/v1/organizations/spend_limits/{spend_limit_id}`
+
+Retrieve a spend limit by ID.
+
+#### Parameters
+
+- `--spend-limit-id: string` (path parameter)
+
+  ID of the Spend Limit.
+
+#### Returns
+
+- `beta_spend_limit: object`
+
+  A configured spend limit: a cap on metered spend for one scope and period.
+
+  - `type: "spend_limit"`
+
+    Object type. Always `spend_limit`.
+
+  - `id: string`
+
+    Unique tagged ID of the spend limit (`spl_...`).
+
+  - `amount: string`
+
+    Limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD): "50000" is $500.00. `null` means no numeric cap is configured at this scope — see the effective report for whether a limit applies.
+
+  - `created_at: string`
+
+    RFC 3339 datetime at which the spend limit was created.
+
+    format: date-time
+
+  - `currency: string`
+
+    ISO 4217 code of the organization's billing currency; the unit for `amount`.
+
+  - `is_enabled: boolean`
+
+    Read-only. `false` when extra usage is switched off for this organization (`organization` limit) or for this member (`user` limit); `amount` is kept and applies again when it's switched back on. Always `true` for other limits.
+
+  - `period: "daily" or "monthly" or "weekly"`
+
+    Length of the window the limit resets over. `amount` caps spend within each period.
+
+    - `"daily"`
+
+    - `"monthly"`
+
+    - `"weekly"`
+
+  - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
+
+    What the limit applies to. A tagged union on `type`; each variant carries the identifier for its scope.
+
+    - `beta_spend_limit_user_scope: object`
+
+      Scope selecting a single member of the organization.
+
+      - `type: "user"`
+
+        Scope type. Always `user` for this scope.
+
+      - `user_id: string`
+
+        Tagged ID of the member the spend limit applies to.
+
+    - `beta_spend_limit_seat_tier_scope: object`
+
+      - `type: "seat_tier"`
+
+      - `seat_tier: string`
+
+    - `beta_spend_limit_rbac_group_scope: object`
+
+      - `type: "rbac_group"`
+
+      - `rbac_group_id: string`
+
+    - `beta_spend_limit_organization_service_scope: object`
+
+      - `type: "organization_service"`
+
+      - `service: string`
+
+    - `beta_spend_limit_organization_scope: object`
+
+      - `type: "organization"`
+
+    - `beta_spend_limit_workspace_scope: object`
+
+      Scope selecting one workspace of a Claude Console organization.
+
+      - `type: "workspace"`
+
+        Scope type. Always `workspace` for this scope.
+
+      - `workspace_id: string`
+
+        Tagged ID of the workspace the spend limit applies to.
+
+  - `updated_at: string`
+
+    RFC 3339 datetime at which the spend limit was last modified.
+
+    format: date-time
+
+#### Example
+
+```bash
+ant beta:organization:spend-limits retrieve \
+  --api-key my-anthropic-api-key \
+  --spend-limit-id spend_limit_id
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "amount": "50000",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "currency": "USD",
+  "is_enabled": true,
+  "period": "daily",
+  "scope": {
+    "type": "user",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "type": "spend_limit",
+  "updated_at": "2019-12-27T18:11:19.117Z"
+}
+```
+
+### Delete Spend Limit
+
+`$ ant beta:organization:spend-limits delete`
+
+**DELETE** `/v1/organizations/spend_limits/{spend_limit_id}`
+
+Delete a spend limit.
+
+For a Claude Enterprise organization, this deletes a per-user override, and
+the member falls back to any inherited spend limit at that period. Its
+seat-tier, group, and organization-level rows cannot be deleted via this
+endpoint. A Claude Console organization deletes its organization and
+workspace limits. Deleting them through the API is in an early access preview.
+
+#### Parameters
+
+- `--spend-limit-id: string` (path parameter)
+
+  ID of the Spend Limit.
+
+#### Returns
+
+- `BetaOrganizationSpendLimitDeleteResponse: object`
+
+  - `type: "spend_limit_deleted"`
+
+  - `id: string`
+
+#### Example
+
+```bash
+ant beta:organization:spend-limits delete \
+  --api-key my-anthropic-api-key \
+  --spend-limit-id spend_limit_id
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "type": "spend_limit_deleted"
+}
+```
+
+### List Spend Limits
+
+`$ ant beta:organization:spend-limits list`
+
+**GET** `/v1/organizations/spend_limits`
+
+List the organization's spend limits.
+
+A Claude Console organization's limits come in an order that is stable across
+pages. A Claude Enterprise organization's are grouped by scope type,
+in the order `organization`, `seat_tier`, `rbac_group`,
+`organization_service`, `user`; within a type they come in a fixed order that
+is not creation order.
+
+#### Parameters
+
+- `--limit: optional number` (query parameter)
+
+  Maximum number of limits per page. Defaults to `20`.
+
+  minimum: 1, maximum: 1000
+
+- `--page: optional string` (query parameter)
+
+  Opaque cursor from a previous response's `next_page` field.
+
+- `--scope-type: optional array of "organization" or "organization_service" or "rbac_group" or 3 more` (query parameter)
+
+  Return only limits with these scope types. A Claude Console organization has `organization` and `workspace` limits; a Claude Enterprise organization has `organization`, `seat_tier`, `rbac_group`, `organization_service` and `user` limits. Omit for all.
+
+  maxItems: 100
+
+- `--beta: optional array of AnthropicBeta` (header parameter)
+
+  This endpoint is in beta: requests must send `spend-limit-reads-2026-09-26` in this header.
+
+#### Returns
+
+- `BetaListSpendLimitsResponse: object`
+
+  - `data: array of BetaSpendLimit`
+
+    - `type: "spend_limit"`
+
+      Object type. Always `spend_limit`.
+
+    - `id: string`
+
+      Unique tagged ID of the spend limit (`spl_...`).
+
+    - `amount: string`
+
+      Limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD): "50000" is $500.00. `null` means no numeric cap is configured at this scope — see the effective report for whether a limit applies.
+
+    - `created_at: string`
+
+      RFC 3339 datetime at which the spend limit was created.
+
+      format: date-time
+
+    - `currency: string`
+
+      ISO 4217 code of the organization's billing currency; the unit for `amount`.
+
+    - `is_enabled: boolean`
+
+      Read-only. `false` when extra usage is switched off for this organization (`organization` limit) or for this member (`user` limit); `amount` is kept and applies again when it's switched back on. Always `true` for other limits.
+
+    - `period: "daily" or "monthly" or "weekly"`
+
+      Length of the window the limit resets over. `amount` caps spend within each period.
+
+      - `"daily"`
+
+      - `"monthly"`
+
+      - `"weekly"`
+
+    - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
+
+      What the limit applies to. A tagged union on `type`; each variant carries the identifier for its scope.
+
+      - `beta_spend_limit_user_scope: object`
+
+        Scope selecting a single member of the organization.
+
+        - `type: "user"`
+
+          Scope type. Always `user` for this scope.
+
+        - `user_id: string`
+
+          Tagged ID of the member the spend limit applies to.
+
+      - `beta_spend_limit_seat_tier_scope: object`
+
+        - `type: "seat_tier"`
+
+        - `seat_tier: string`
+
+      - `beta_spend_limit_rbac_group_scope: object`
+
+        - `type: "rbac_group"`
+
+        - `rbac_group_id: string`
+
+      - `beta_spend_limit_organization_service_scope: object`
+
+        - `type: "organization_service"`
+
+        - `service: string`
+
+      - `beta_spend_limit_organization_scope: object`
+
+        - `type: "organization"`
+
+      - `beta_spend_limit_workspace_scope: object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+        - `type: "workspace"`
+
+          Scope type. Always `workspace` for this scope.
+
+        - `workspace_id: string`
+
+          Tagged ID of the workspace the spend limit applies to.
+
+    - `updated_at: string`
+
+      RFC 3339 datetime at which the spend limit was last modified.
+
+      format: date-time
+
+  - `next_page: string`
+
+#### Example
+
+```bash
+ant beta:organization:spend-limits list \
+  --api-key my-anthropic-api-key
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "amount": "50000",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "currency": "USD",
+      "is_enabled": true,
+      "period": "daily",
+      "scope": {
+        "type": "user",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "type": "spend_limit",
+      "updated_at": "2019-12-27T18:11:19.117Z"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Beta › Organization › Spend Limits › Effective
+
+### List Effective Spend Limits
+
+`$ ant beta:organization:spend-limits:effective list`
+
+**GET** `/v1/organizations/spend_limits/effective`
+
+List each member's effective spend limit and period-to-date spend.
+
+Returns one row per (member, period) the member resolves a spend limit
+for, with the `source` scope the spend limit was inherited from.
+Paginates by member, so a member's periods never split across pages.
+
+#### Parameters
+
+- `--limit: optional number` (query parameter)
+
+  Maximum number of members per page. A member's period rows never split across pages, so a page may carry more rows than this. Defaults to `20`.
+
+  minimum: 1, maximum: 1000
+
+- `--page: optional string` (query parameter)
+
+  Opaque cursor from a previous response's `next_page` field.
+
+- `--period: optional array of "daily" or "monthly" or "weekly"` (query parameter)
+
+  Restrict the report to these limit periods. Omit to return one row per period each member resolves a spend limit for.
+
+  maxItems: 3
+
+- `--user-id: optional array of string` (query parameter)
+
+  Restrict the report to these members, by tagged user ID (`user_...`). At most 100 entries.
+
+  maxItems: 100
+
+#### Returns
+
+- `BetaListEffectiveSpendLimitsResponse: object`
+
+  - `data: array of BetaSpendSummary`
+
+    - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
+
+      - `beta_spend_limit_user_actor: object`
+
+        A user within the organization. `name` and `email_address` are
+        null when the underlying account is unavailable or has been deleted;
+        `deleted` is true only for deleted accounts.
+
+        - `type: "user_actor"`
+
+          Actor type. Always `user_actor`.
+
+        - `deleted: boolean`
+
+          True only when the underlying account has been deleted.
+
+        - `email_address: string`
+
+          The user's email address. Null when the account is unavailable or has been deleted.
+
+        - `name: string`
+
+          The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+
+        - `user_id: string`
+
+          Tagged ID of the user.
+
+      - `beta_spend_limit_scoped_api_key_actor: object`
+
+        A scoped Admin API key acting on behalf of the organization.
+
+        - `type: "scoped_api_key_actor"`
+
+        - `scoped_api_key_id: string`
+
+    - `amount: string`
+
+      Effective limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD). `null` means no limit applies for this row's `period` — each period resolves independently, so another period may still cap this member.
+
+    - `currency: string`
+
+      ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
+
+    - `period: "daily" or "monthly" or "weekly"`
+
+      Period this row's effective limit and spend are reported for.
+
+      - `"daily"`
+
+      - `"monthly"`
+
+      - `"weekly"`
+
+    - `period_to_date_spend: string`
+
+      The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
+
+    - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
+
+      - `beta_spend_limit_user_scope: object`
+
+        Scope selecting a single member of the organization.
+
+        - `type: "user"`
+
+          Scope type. Always `user` for this scope.
+
+        - `user_id: string`
+
+          Tagged ID of the member the spend limit applies to.
+
+      - `beta_spend_limit_seat_tier_scope: object`
+
+        - `type: "seat_tier"`
+
+        - `seat_tier: string`
+
+      - `beta_spend_limit_rbac_group_scope: object`
+
+        - `type: "rbac_group"`
+
+        - `rbac_group_id: string`
+
+      - `beta_spend_limit_organization_service_scope: object`
+
+        - `type: "organization_service"`
+
+        - `service: string`
+
+      - `beta_spend_limit_organization_scope: object`
+
+        - `type: "organization"`
+
+      - `beta_spend_limit_workspace_scope: object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+        - `type: "workspace"`
+
+          Scope type. Always `workspace` for this scope.
+
+        - `workspace_id: string`
+
+          Tagged ID of the workspace the spend limit applies to.
+
+    - `source: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
+
+      - `beta_spend_limit_user_scope: object`
+
+        Scope selecting a single member of the organization.
+
+      - `beta_spend_limit_seat_tier_scope: object`
+
+      - `beta_spend_limit_rbac_group_scope: object`
+
+      - `beta_spend_limit_organization_service_scope: object`
+
+      - `beta_spend_limit_organization_scope: object`
+
+      - `beta_spend_limit_workspace_scope: object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+    - `spend_limit_id: string`
+
+  - `next_page: string`
+
+#### Example
+
+```bash
+ant beta:organization:spend-limits:effective list \
+  --api-key my-anthropic-api-key
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "actor": {
+        "deleted": true,
+        "email_address": "email_address",
+        "name": "name",
+        "type": "user_actor",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "amount": "50000",
+      "currency": "USD",
+      "period": "daily",
+      "period_to_date_spend": "12050.5",
+      "scope": {
+        "type": "user",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "source": {
+        "type": "user",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "spend_limit_id": "spend_limit_id"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Beta › Organization › Spend Limits › Increase Requests
+
+### List Spend Limit Increase Requests
+
+`$ ant beta:organization:spend-limits:increase-requests list`
+
+**GET** `/v1/organizations/spend_limit_increase_requests`
+
+List spend limit increase requests, most recent first.
+
+Pending requests include a live `spend_summary` for the requester.
+Requests whose requester is no longer a member are excluded.
+
+#### Parameters
+
+- `--actor-id: optional array of string` (query parameter)
+
+  Filter by requester, as `user_...` tagged IDs.
+
+- `--limit: optional number` (query parameter)
+
+  minimum: 1, maximum: 1000
+
+- `--page: optional string` (query parameter)
+
+  Opaque cursor from a previous response's `next_page`.
+
+- `--status: optional array of BetaSpendLimitIncreaseRequestStatus` (query parameter)
+
+  Filter by status. Omit to return all.
+
+#### Returns
+
+- `BetaSpendLimitIncreaseRequestListResponse: object`
+
+  - `data: array of BetaSpendLimitIncreaseRequest`
+
+    - `type: "spend_limit_increase_request"`
+
+    - `id: string`
+
+    - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
+
+      - `beta_spend_limit_user_actor: object`
+
+        A user within the organization. `name` and `email_address` are
+        null when the underlying account is unavailable or has been deleted;
+        `deleted` is true only for deleted accounts.
+
+        - `type: "user_actor"`
+
+          Actor type. Always `user_actor`.
+
+        - `deleted: boolean`
+
+          True only when the underlying account has been deleted.
+
+        - `email_address: string`
+
+          The user's email address. Null when the account is unavailable or has been deleted.
+
+        - `name: string`
+
+          The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+
+        - `user_id: string`
+
+          Tagged ID of the user.
+
+      - `beta_spend_limit_scoped_api_key_actor: object`
+
+        A scoped Admin API key acting on behalf of the organization.
+
+        - `type: "scoped_api_key_actor"`
+
+        - `scoped_api_key_id: string`
+
+    - `created_at: string`
+
+      format: date-time
+
+    - `period: "daily" or "monthly" or "weekly"`
+
+      - `"daily"`
+
+      - `"monthly"`
+
+      - `"weekly"`
+
+    - `resolved_at: string`
+
+      format: date-time
+
+    - `resolved_by: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
+
+      - `beta_spend_limit_user_actor: object`
+
+        A user within the organization. `name` and `email_address` are
+        null when the underlying account is unavailable or has been deleted;
+        `deleted` is true only for deleted accounts.
+
+      - `beta_spend_limit_scoped_api_key_actor: object`
+
+        A scoped Admin API key acting on behalf of the organization.
+
+    - `spend_summary: object`
+
+      Per-member effective-limit report row (`GET /spend_limits/effective`).
+
+      - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
+
+        - `beta_spend_limit_user_actor: object`
+
+          A user within the organization. `name` and `email_address` are
+          null when the underlying account is unavailable or has been deleted;
+          `deleted` is true only for deleted accounts.
+
+        - `beta_spend_limit_scoped_api_key_actor: object`
+
+          A scoped Admin API key acting on behalf of the organization.
+
+      - `amount: string`
+
+        Effective limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD). `null` means no limit applies for this row's `period` — each period resolves independently, so another period may still cap this member.
+
+      - `currency: string`
+
+        ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
+
+      - `period: "daily" or "monthly" or "weekly"`
+
+        Period this row's effective limit and spend are reported for.
+
+        - `"daily"`
+
+        - `"monthly"`
+
+        - `"weekly"`
+
+      - `period_to_date_spend: string`
+
+        The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
+
+      - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
+
+        - `beta_spend_limit_user_scope: object`
+
+          Scope selecting a single member of the organization.
+
+          - `type: "user"`
+
+            Scope type. Always `user` for this scope.
+
+          - `user_id: string`
+
+            Tagged ID of the member the spend limit applies to.
+
+        - `beta_spend_limit_seat_tier_scope: object`
+
+          - `type: "seat_tier"`
+
+          - `seat_tier: string`
+
+        - `beta_spend_limit_rbac_group_scope: object`
+
+          - `type: "rbac_group"`
+
+          - `rbac_group_id: string`
+
+        - `beta_spend_limit_organization_service_scope: object`
+
+          - `type: "organization_service"`
+
+          - `service: string`
+
+        - `beta_spend_limit_organization_scope: object`
+
+          - `type: "organization"`
+
+        - `beta_spend_limit_workspace_scope: object`
+
+          Scope selecting one workspace of a Claude Console organization.
+
+          - `type: "workspace"`
+
+            Scope type. Always `workspace` for this scope.
+
+          - `workspace_id: string`
+
+            Tagged ID of the workspace the spend limit applies to.
+
+      - `source: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
+
+        - `beta_spend_limit_user_scope: object`
+
+          Scope selecting a single member of the organization.
+
+        - `beta_spend_limit_seat_tier_scope: object`
+
+        - `beta_spend_limit_rbac_group_scope: object`
+
+        - `beta_spend_limit_organization_service_scope: object`
+
+        - `beta_spend_limit_organization_scope: object`
+
+        - `beta_spend_limit_workspace_scope: object`
+
+          Scope selecting one workspace of a Claude Console organization.
+
+      - `spend_limit_id: string`
+
+    - `status: "approved" or "denied" or "pending"`
+
+      - `"approved"`
+
+      - `"denied"`
+
+      - `"pending"`
+
+  - `next_page: string`
+
+#### Example
+
+```bash
+ant beta:organization:spend-limits:increase-requests list \
+  --api-key my-anthropic-api-key
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "actor": {
+        "deleted": true,
+        "email_address": "email_address",
+        "name": "name",
+        "type": "user_actor",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "period": "daily",
+      "resolved_at": "2019-12-27T18:11:19.117Z",
+      "resolved_by": {
+        "deleted": true,
+        "email_address": "email_address",
+        "name": "name",
+        "type": "user_actor",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "spend_summary": {
+        "actor": {
+          "deleted": true,
+          "email_address": "email_address",
+          "name": "name",
+          "type": "user_actor",
+          "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+        },
+        "amount": "50000",
+        "currency": "USD",
+        "period": "daily",
+        "period_to_date_spend": "12050.5",
+        "scope": {
+          "type": "user",
+          "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+        },
+        "source": {
+          "type": "user",
+          "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+        },
+        "spend_limit_id": "spend_limit_id"
+      },
+      "status": "approved",
+      "type": "spend_limit_increase_request"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get Spend Limit Increase Request
+
+`$ ant beta:organization:spend-limits:increase-requests retrieve`
+
+**GET** `/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}`
+
+Retrieve a spend limit increase request.
+
+While `pending`, the response includes a live `spend_summary` for the
+requester at the request's period.
+
+#### Parameters
+
+- `--spend-limit-increase-request-id: string` (path parameter)
+
+  ID of the spend limit increase request.
+
+#### Returns
+
+- `beta_spend_limit_increase_request: object`
+
+  - `type: "spend_limit_increase_request"`
+
+  - `id: string`
+
+  - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
+
+    - `beta_spend_limit_user_actor: object`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+      - `type: "user_actor"`
+
+        Actor type. Always `user_actor`.
+
+      - `deleted: boolean`
+
+        True only when the underlying account has been deleted.
+
+      - `email_address: string`
+
+        The user's email address. Null when the account is unavailable or has been deleted.
+
+      - `name: string`
+
+        The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+
+      - `user_id: string`
+
+        Tagged ID of the user.
+
+    - `beta_spend_limit_scoped_api_key_actor: object`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+      - `type: "scoped_api_key_actor"`
+
+      - `scoped_api_key_id: string`
+
+  - `created_at: string`
+
+    format: date-time
+
+  - `period: "daily" or "monthly" or "weekly"`
+
+    - `"daily"`
+
+    - `"monthly"`
+
+    - `"weekly"`
+
+  - `resolved_at: string`
+
+    format: date-time
+
+  - `resolved_by: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
+
+    - `beta_spend_limit_user_actor: object`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+    - `beta_spend_limit_scoped_api_key_actor: object`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+  - `spend_summary: object`
+
+    Per-member effective-limit report row (`GET /spend_limits/effective`).
+
+    - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
+
+      - `beta_spend_limit_user_actor: object`
+
+        A user within the organization. `name` and `email_address` are
+        null when the underlying account is unavailable or has been deleted;
+        `deleted` is true only for deleted accounts.
+
+      - `beta_spend_limit_scoped_api_key_actor: object`
+
+        A scoped Admin API key acting on behalf of the organization.
+
+    - `amount: string`
+
+      Effective limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD). `null` means no limit applies for this row's `period` — each period resolves independently, so another period may still cap this member.
+
+    - `currency: string`
+
+      ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
+
+    - `period: "daily" or "monthly" or "weekly"`
+
+      Period this row's effective limit and spend are reported for.
+
+      - `"daily"`
+
+      - `"monthly"`
+
+      - `"weekly"`
+
+    - `period_to_date_spend: string`
+
+      The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
+
+    - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
+
+      - `beta_spend_limit_user_scope: object`
+
+        Scope selecting a single member of the organization.
+
+        - `type: "user"`
+
+          Scope type. Always `user` for this scope.
+
+        - `user_id: string`
+
+          Tagged ID of the member the spend limit applies to.
+
+      - `beta_spend_limit_seat_tier_scope: object`
+
+        - `type: "seat_tier"`
+
+        - `seat_tier: string`
+
+      - `beta_spend_limit_rbac_group_scope: object`
+
+        - `type: "rbac_group"`
+
+        - `rbac_group_id: string`
+
+      - `beta_spend_limit_organization_service_scope: object`
+
+        - `type: "organization_service"`
+
+        - `service: string`
+
+      - `beta_spend_limit_organization_scope: object`
+
+        - `type: "organization"`
+
+      - `beta_spend_limit_workspace_scope: object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+        - `type: "workspace"`
+
+          Scope type. Always `workspace` for this scope.
+
+        - `workspace_id: string`
+
+          Tagged ID of the workspace the spend limit applies to.
+
+    - `source: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
+
+      - `beta_spend_limit_user_scope: object`
+
+        Scope selecting a single member of the organization.
+
+      - `beta_spend_limit_seat_tier_scope: object`
+
+      - `beta_spend_limit_rbac_group_scope: object`
+
+      - `beta_spend_limit_organization_service_scope: object`
+
+      - `beta_spend_limit_organization_scope: object`
+
+      - `beta_spend_limit_workspace_scope: object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+    - `spend_limit_id: string`
+
+  - `status: "approved" or "denied" or "pending"`
+
+    - `"approved"`
+
+    - `"denied"`
+
+    - `"pending"`
+
+#### Example
+
+```bash
+ant beta:organization:spend-limits:increase-requests retrieve \
+  --api-key my-anthropic-api-key \
+  --spend-limit-increase-request-id spend_limit_increase_request_id
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "actor": {
+    "deleted": true,
+    "email_address": "email_address",
+    "name": "name",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "period": "daily",
+  "resolved_at": "2019-12-27T18:11:19.117Z",
+  "resolved_by": {
+    "deleted": true,
+    "email_address": "email_address",
+    "name": "name",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "spend_summary": {
+    "actor": {
+      "deleted": true,
+      "email_address": "email_address",
+      "name": "name",
+      "type": "user_actor",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "amount": "50000",
+    "currency": "USD",
+    "period": "daily",
+    "period_to_date_spend": "12050.5",
+    "scope": {
+      "type": "user",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "source": {
+      "type": "user",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "spend_limit_id": "spend_limit_id"
+  },
+  "status": "approved",
+  "type": "spend_limit_increase_request"
+}
+```
+
+### Approve Spend Limit Increase Request
+
+`$ ant beta:organization:spend-limits:increase-requests approve`
+
+**POST** `/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}/approve`
+
+Approve a pending spend limit increase request.
+
+Writes a per-user spend limit at `amount` for the requester and
+transitions the request to `approved`. `period` defaults to the period
+the member was blocked on. Anthropic emails the requester unless
+`suppress_notification` is set.
+
+#### Parameters
+
+- `--spend-limit-increase-request-id: string` (path parameter)
+
+  ID of the spend limit increase request.
+
+- `--amount: string`
+
+  New per-user spend limit as a non-negative integer decimal string (minor units).
+
+- `--period: optional "daily" or "monthly" or "weekly"`
+
+- `--suppress-notification: optional boolean`
+
+#### Returns
+
+- `BetaOrganizationSpendLimitIncreaseRequestApproveResponse: object`
+
+  - `type: "spend_limit_increase_request"`
+
+  - `id: string`
+
+  - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
+
+    - `beta_spend_limit_user_actor: object`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+      - `type: "user_actor"`
+
+        Actor type. Always `user_actor`.
+
+      - `deleted: boolean`
+
+        True only when the underlying account has been deleted.
+
+      - `email_address: string`
+
+        The user's email address. Null when the account is unavailable or has been deleted.
+
+      - `name: string`
+
+        The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+
+      - `user_id: string`
+
+        Tagged ID of the user.
+
+    - `beta_spend_limit_scoped_api_key_actor: object`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+      - `type: "scoped_api_key_actor"`
+
+      - `scoped_api_key_id: string`
+
+  - `created_at: string`
+
+    format: date-time
+
+  - `period: "daily" or "monthly" or "weekly"`
+
+    - `"daily"`
+
+    - `"monthly"`
+
+    - `"weekly"`
+
+  - `resolved_at: string`
+
+    format: date-time
+
+  - `resolved_by: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
+
+    - `beta_spend_limit_user_actor: object`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+    - `beta_spend_limit_scoped_api_key_actor: object`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+  - `spend_limit: object`
+
+    A configured spend limit: a cap on metered spend for one scope and period.
+
+    - `type: "spend_limit"`
+
+      Object type. Always `spend_limit`.
+
+    - `id: string`
+
+      Unique tagged ID of the spend limit (`spl_...`).
+
+    - `amount: string`
+
+      Limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD): "50000" is $500.00. `null` means no numeric cap is configured at this scope — see the effective report for whether a limit applies.
+
+    - `created_at: string`
+
+      RFC 3339 datetime at which the spend limit was created.
+
+      format: date-time
+
+    - `currency: string`
+
+      ISO 4217 code of the organization's billing currency; the unit for `amount`.
+
+    - `is_enabled: boolean`
+
+      Read-only. `false` when extra usage is switched off for this organization (`organization` limit) or for this member (`user` limit); `amount` is kept and applies again when it's switched back on. Always `true` for other limits.
+
+    - `period: "daily" or "monthly" or "weekly"`
+
+      Length of the window the limit resets over. `amount` caps spend within each period.
+
+      - `"daily"`
+
+      - `"monthly"`
+
+      - `"weekly"`
+
+    - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
+
+      What the limit applies to. A tagged union on `type`; each variant carries the identifier for its scope.
+
+      - `beta_spend_limit_user_scope: object`
+
+        Scope selecting a single member of the organization.
+
+        - `type: "user"`
+
+          Scope type. Always `user` for this scope.
+
+        - `user_id: string`
+
+          Tagged ID of the member the spend limit applies to.
+
+      - `beta_spend_limit_seat_tier_scope: object`
+
+        - `type: "seat_tier"`
+
+        - `seat_tier: string`
+
+      - `beta_spend_limit_rbac_group_scope: object`
+
+        - `type: "rbac_group"`
+
+        - `rbac_group_id: string`
+
+      - `beta_spend_limit_organization_service_scope: object`
+
+        - `type: "organization_service"`
+
+        - `service: string`
+
+      - `beta_spend_limit_organization_scope: object`
+
+        - `type: "organization"`
+
+      - `beta_spend_limit_workspace_scope: object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+        - `type: "workspace"`
+
+          Scope type. Always `workspace` for this scope.
+
+        - `workspace_id: string`
+
+          Tagged ID of the workspace the spend limit applies to.
+
+    - `updated_at: string`
+
+      RFC 3339 datetime at which the spend limit was last modified.
+
+      format: date-time
+
+  - `spend_summary: object`
+
+    Per-member effective-limit report row (`GET /spend_limits/effective`).
+
+    - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
+
+      - `beta_spend_limit_user_actor: object`
+
+        A user within the organization. `name` and `email_address` are
+        null when the underlying account is unavailable or has been deleted;
+        `deleted` is true only for deleted accounts.
+
+      - `beta_spend_limit_scoped_api_key_actor: object`
+
+        A scoped Admin API key acting on behalf of the organization.
+
+    - `amount: string`
+
+      Effective limit amount as a non-negative integer decimal string in the minor unit of `currency` (cents for USD). `null` means no limit applies for this row's `period` — each period resolves independently, so another period may still cap this member.
+
+    - `currency: string`
+
+      ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
+
+    - `period: "daily" or "monthly" or "weekly"`
+
+      Period this row's effective limit and spend are reported for.
+
+      - `"daily"`
+
+      - `"monthly"`
+
+      - `"weekly"`
+
+    - `period_to_date_spend: string`
+
+      The member's spend so far in the current period, as a non-negative decimal string in the minor unit of `currency` (cents for USD). May carry fractional minor units up to three decimal places (e.g. `"12050.5"`) — metered usage is not rounded to whole cents. Reads as `"0"` when the spend reading is temporarily unavailable.
+
+    - `scope: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
+
+      - `beta_spend_limit_user_scope: object`
+
+        Scope selecting a single member of the organization.
+
+      - `beta_spend_limit_seat_tier_scope: object`
+
+      - `beta_spend_limit_rbac_group_scope: object`
+
+      - `beta_spend_limit_organization_service_scope: object`
+
+      - `beta_spend_limit_organization_scope: object`
+
+      - `beta_spend_limit_workspace_scope: object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+    - `source: BetaSpendLimitUserScope or BetaSpendLimitSeatTierScope or BetaSpendLimitRBACGroupScope or 3 more`
+
+      - `beta_spend_limit_user_scope: object`
+
+        Scope selecting a single member of the organization.
+
+      - `beta_spend_limit_seat_tier_scope: object`
+
+      - `beta_spend_limit_rbac_group_scope: object`
+
+      - `beta_spend_limit_organization_service_scope: object`
+
+      - `beta_spend_limit_organization_scope: object`
+
+      - `beta_spend_limit_workspace_scope: object`
+
+        Scope selecting one workspace of a Claude Console organization.
+
+    - `spend_limit_id: string`
+
+  - `status: "approved" or "denied" or "pending"`
+
+    - `"approved"`
+
+    - `"denied"`
+
+    - `"pending"`
+
+#### Example
+
+```bash
+ant beta:organization:spend-limits:increase-requests approve \
+  --api-key my-anthropic-api-key \
+  --spend-limit-increase-request-id spend_limit_increase_request_id \
+  --amount 50000
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "actor": {
+    "deleted": true,
+    "email_address": "email_address",
+    "name": "name",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "period": "daily",
+  "resolved_at": "2019-12-27T18:11:19.117Z",
+  "resolved_by": {
+    "deleted": true,
+    "email_address": "email_address",
+    "name": "name",
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "spend_limit": {
+    "id": "id",
+    "amount": "50000",
+    "created_at": "2019-12-27T18:11:19.117Z",
+    "currency": "USD",
+    "is_enabled": true,
+    "period": "daily",
+    "scope": {
+      "type": "user",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "type": "spend_limit",
+    "updated_at": "2019-12-27T18:11:19.117Z"
+  },
+  "spend_summary": {
+    "actor": {
+      "deleted": true,
+      "email_address": "email_address",
+      "name": "name",
+      "type": "user_actor",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "amount": "50000",
+    "currency": "USD",
+    "period": "daily",
+    "period_to_date_spend": "12050.5",
+    "scope": {
+      "type": "user",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "source": {
+      "type": "user",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+    },
+    "spend_limit_id": "spend_limit_id"
+  },
+  "status": "approved",
+  "type": "spend_limit_increase_request"
+}
+```
+
+### Deny Spend Limit Increase Request
+
+`$ ant beta:organization:spend-limits:increase-requests deny`
+
+**POST** `/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}/deny`
+
+Deny a pending spend limit increase request.
+
+Idempotent on `denied`; denying an already-`approved` request returns
+400. Anthropic emails the requester unless `suppress_notification` is set.
+
+#### Parameters
+
+- `--spend-limit-increase-request-id: string` (path parameter)
+
+  ID of the spend limit increase request.
+
+- `--suppress-notification: optional boolean`
+
+#### Returns
+
+- `beta_spend_limit_increase_request: object`
+
+  - `type: "spend_limit_increase_request"`
+
+  - `id: string`
+
+  - `actor: BetaSpendLimitUserActor or BetaSpendLimitScopedAPIKeyActor`
+
     - `beta_spend_limit_user_actor: object`
 
       A user within the organization. `name` and `email_address` are

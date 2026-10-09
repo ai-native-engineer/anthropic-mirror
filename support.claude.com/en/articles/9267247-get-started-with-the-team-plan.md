@@ -28,6 +28,7 @@ What else happens during an in-place upgrade:
 * Your individual Pro or Max subscription is cancelled automatically and you receive a prorated refund for the unused portion of your billing period. The refund is issued about 24 hours after your Team payment goes through, and depending on your bank, it can take several more business days to appear on your statement.
 * Any prepaid usage credits on your individual account are refunded.
 * Public projects in your account become private once the upgrade is complete. Project owners can give others in their organization access to the project from its **Share** menu. For details, see **[Manage project visibility and sharing](https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing)**.
+* If you’ve claimed monthly API credits on your Max plan, your Max link ends. A Team Owner or Primary Owner can claim the team’s credits once the Team plan has been active for seven days.
 
 **Note:** If you'd rather keep your personal Claude account active alongside your new Team plan, check this box in the team-creation flow before completing your upgrade: **Keep your personal account separate**. We’ll set up a new workspace for this team and your existing chats and projects stay in your personal account. If you check this, your individual subscription stays active and your personal data stays in your individual account instead of moving into the Team org.
 
@@ -45,8 +46,21 @@ If you choose to keep your personal account, your Team plan creates a separate C
 
 To use only your Team plan after upgrading separately, you'll need to **[cancel your paid subscription](https://support.claude.com/en/articles/8325617-how-do-i-cancel-my-paid-claude-subscription)** and **[delete your individual Claude account](https://support.claude.com/en/articles/9028421-how-can-i-delete-my-claude-account)**.
 
-* [What is the Pro plan?](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)
-* [What is the Team plan?](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)
-* [Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)
-* [Request a refund for a paid Claude plan](https://support.claude.com/en/articles/12386328-request-a-refund-for-a-paid-claude-plan)
+## Claim your team’s API credits
+
+Claude Max and Team plans include monthly credits for the Claude API. One owner links a Claude Console organization and claims the pooled credit, up to $500 a month. New subscribers can claim once they’ve been on an eligible plan for seven days.
+
+To claim, you need to be a Primary Owner or Owner on your Team plan and have the Owner, Admin, or Billing role in the Console organization.
+
+1. Go to **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**.
+2. In the **API credits** section, select "Link organization."
+3. Choose the Console organization you want to receive the credits, or create a new one.
+4. Review the **[Supplemental Credit Terms](https://www.anthropic.com/legal/credit-terms)**, then select "Link organization."
+
+Learn more about **[monthly API credits for Max and Team plans](https://support.claude.com/en/articles/17154008)**.
+
+* [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
 * [Team plan billing FAQs](https://support.claude.com/en/articles/12997503-team-plan-billing-faqs)
+* [Understanding your Team plan invoices](https://support.claude.com/en/articles/16607668-understanding-your-team-plan-invoices)
+* [Monthly API credits for Max and Team plans](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans)

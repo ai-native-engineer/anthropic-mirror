@@ -60,7 +60,7 @@ Access discounts and credits worth up to $45,000 from companies building with Cl
 
 Members can book virtual office hours with Anthropic’s Applied AI team and join exclusive Claude Startup events, hackathons, and community meetups.
 
-[![](https://assets.claude.com/9e7c2ea6f6b1fc02b8fc962462e6f7f8683fe4db.png)](https://assets.claude.com/9bac72f65485622b9fdd44bbfa8b6b5481769868.webm)
+![](https://assets.claude.com/9e7c2ea6f6b1fc02b8fc962462e6f7f8683fe4db.png)
 
 * ![Lovable](https://assets.claude.com/3700bd9ac51b52bffdb805ac6aa6ea9f45cb4c78.svg)
 * ![Legora](https://assets.claude.com/666fbd8fbde356286a5ac8370b994f246c08fb10.svg)
@@ -196,7 +196,7 @@ Video
 
 The conversation covers multi-agent orchestration, MCP in production, autonomous agent design, and the tradeoffs each team has worked through along the way.
 
-[![](https://assets.claude.com/7fad5c260b30eed52401da2c183c09ce458cd0fe.png)](https://assets.claude.com/7ec5d231646f15a4873a338f77761f8c75d03633.webm)
+![](https://assets.claude.com/7fad5c260b30eed52401da2c183c09ce458cd0fe.png)
 
 Resources
 
@@ -285,5 +285,3 @@ Applied AI office hours are 45-minute live sessions for members, held every othe
 The Claude Startups program gives founders offers on the tools they build with, technical support from Anthropic, and a community of founders building at the frontier. Apply today.
 
 [Apply now (opens in new tab)](https://platform.claude.com/offers/startups-application)
-
-Claude for Startups program | Claude by Anthropic

@@ -18,7 +18,7 @@ Claude handles research, drafting, and the assembly of legal work, so your team 
 
 [Contact sales](https://claude.com/contact-sales)[Try it now](https://claude.ai/)
 
-[![](https://assets.claude.com/4a55fd129f7219fd048964a3d73f15265674c454.png)](https://assets.claude.com/ee68e8617cf2f772724898748b631b239f60aca5.webm)
+![](https://assets.claude.com/4a55fd129f7219fd048964a3d73f15265674c454.png)
 
 ![EvenUp](https://assets.claude.com/466446f5f59635a264efe3e688a42b51c0e88976.svg)
 

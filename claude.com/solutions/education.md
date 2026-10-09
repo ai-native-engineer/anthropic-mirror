@@ -164,3 +164,5 @@ Collaborate on rigorous scientific research with the Claude Science app. It runs
 Get to know Claude by trying a few sample prompts.
 
 StudentsEducatorsAdministrators
+
+Claude for higher education | Claude by Anthropic

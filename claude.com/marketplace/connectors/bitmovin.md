@@ -63,14 +63,6 @@ Manage your ElevenAgents voice agents in your chat
 
 [Add ElevenLabs in Claude (opens in new tab)](https://claude.ai/directory/4a542638-16d2-4bd1-9937-efa473d3f2f0 "Add in Claude")
 
-![](https://mcp.ws.sonos.com/favicon.ico)
-
-### [Sonos](https://claude.com/marketplace/connectors/sonos-mcp)
-
-Control your Sonos system
-
-[Add Sonos in Claude (opens in new tab)](https://claude.ai/directory/b71a0736-1471-4538-a3f5-f2b474c85662 "Add in Claude")
-
 ![](https://cdn.prod.website-files.com/685be7dcd32275d3830651d3/685be7dcd32275d383065e48_RS_favicon.png)
 
 ### [Riverside](https://claude.com/marketplace/connectors/riverside)
@@ -78,6 +70,14 @@ Control your Sonos system
 Prep, edit, clip, and publish your videos and podcasts
 
 [Add Riverside in Claude (opens in new tab)](https://claude.ai/directory/3366d1e9-5d1d-49b1-a758-677949a84fd9 "Add in Claude")
+
+![](https://mcp.ws.sonos.com/favicon.ico)
+
+### [Sonos](https://claude.com/marketplace/connectors/sonos-mcp)
+
+Control your Sonos system
+
+[Add Sonos in Claude (opens in new tab)](https://claude.ai/directory/b71a0736-1471-4538-a3f5-f2b474c85662 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=tella.com&sz=96)
 

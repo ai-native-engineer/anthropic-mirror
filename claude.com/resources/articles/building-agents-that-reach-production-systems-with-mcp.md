@@ -119,7 +119,9 @@ Arnab Bose, Chief Product Officer at Asana, on how Asana runs AI agents as teamm
 
 Claude Platform](https://claude.com/resources/articles/agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude)[ArticleSep 28, 2026
 
-### Giving companies more control over their AI agents, with NVIDIA
+### A new approach to agent security with Claude Managed Agents and NVIDIA
+
+Note: This blog has been updated from its original version to include additional technical details on Claude Managed Agents.
 
 Claude Platform](https://claude.com/resources/articles/giving-companies-more-control-over-their-ai-agents-with-nvidia)[ArticleSep 8, 2026
 
@@ -144,3 +146,5 @@ Claude Platform](https://claude.com/resources/articles/the-anatomy-of-effective-
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
 
 Please provide your email address if you'd like to receive our monthly developer newsletter. You can unsubscribe at any time.
+
+Building agents that reach production systems with MCP | Claude by Anthropic

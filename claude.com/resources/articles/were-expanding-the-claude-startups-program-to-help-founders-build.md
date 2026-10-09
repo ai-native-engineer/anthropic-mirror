@@ -50,5 +50,3 @@ Visit the [Claude Startups page](https://claude.com/programs/startups) to learn 
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
 
 Please provide your email address if you'd like to receive our monthly developer newsletter. You can unsubscribe at any time.
-
-We’re expanding the Claude Startups program to help founders build | Claude by Anthropic

@@ -4,7 +4,27 @@ Connector URL`https://mcp.rocketreach.co/mcp`
 
 More[Documentation (opens in new tab)](https://docs.rocketreach.co/reference/mcp)[Support (opens in new tab)](mailto:support@rocketreach.co)[Privacy policy (opens in new tab)](https://rocketreach.co/privacy)
 
-Connect RocketReach to Claude so you can find and verify professional contact data from a single conversation. Search across 700M+ professionals worldwide to surface key decision makers, then look them up to reveal verified emails, phone numbers, and social profiles. Enrich contacts and companies with details like funding, headcount, growth, and tech stack, and build targeted lists for sales, marketing, and recruiting, all without leaving the chat.
+Find verified work emails, phone numbers and company data without leaving the conversation. RocketReach searches 700M+ professional profiles and 60M companies powering sales prospecting, lead generation, recruiting, enrichment, and research.
+
+Use it to:
+
+- Find the right person at a company and get their email address and phone number
+
+- Build prospect and lead lists by title, seniority, department, location, skills, years of experience, and company size, revenue and industry
+
+- Find companies that match your ideal customer profile by industry, headcount, revenue, funding, growth, location and tech stack
+
+- Prospect on signals: companies hiring for specific roles, company news such as funding, people who recently changed jobs or were promoted, and buyer intent (intent depth depends on your plan)
+
+- Enrich an existing list from LinkedIn URLs, names and employers, email addresses or NPI numbers
+
+- Source candidates for recruiting by title, skills, experience, education and location
+
+- Get company profiles with description, industry, employee count, revenue, founded year, tech stack and social links
+
+- Check whether an email address is verified and can receive mail
+
+Try for free at rocketreach.co
 
 ## Tools
 
@@ -69,3 +89,5 @@ Create presentations, docs, socials, and sites with AI
 Automate workflows across thousands of apps via conversation
 
 [Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
+
+RocketReach connector | Claude by Anthropic
