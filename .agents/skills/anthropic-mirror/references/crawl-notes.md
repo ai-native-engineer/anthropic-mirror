@@ -31,7 +31,8 @@
 | `$CRAWL/verify-mirror.py` | `python3` | 자막 누락, 1MiB 초과, 빈 이미지, 깨진 로컬 참조 |
 | `$CRAWL/youtube-channels.py`, `pdf-mirror.py`, `extract-images.py`, `split-markdown.py`, `render-video-refs.py` | `python3` | shared 후처리 |
 
-- 인터프리터는 `CRAWL4AI_PYTHON`, shared crawl 위치는 `CRAWL_SCRIPTS_DIR`, YouTube 도구 위치는 `YOUTUBE_DIGEST_SCRIPTS_DIR`로 바꿀 수 있다.
+- 인터프리터는 `CRAWL4AI_PYTHON`, shared crawl 위치는 `CRAWL_SCRIPTS_DIR`, YouTube 도구 위치는 `YOUTUBE_SCRIPTS`로 바꿀 수 있다.
+- YouTube 공유 자막 도구는 `~/.agents/skills/shared/youtube/scripts/{fetch-subs.sh,captions.py}` 쌍을 사용한다. `_yt-cache/academy/`에 원본 SRT, metadata, normalized JSON을 보존하며, 기존 `youtube-digest` 도구 경로는 더 이상 사용하지 않는다.
 - 개별 수집기의 옵션은 해당 스크립트의 `--help`를 정본으로 삼는다.
 
 ## 커버리지

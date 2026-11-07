@@ -2,7 +2,7 @@
 
 영상 레슨은 텍스트 본문이 없어 academy-extract.py가 스킵한다. 이 스크립트는 레슨별 영상 자막을 전사한다.
 영상 플레이어가 코스마다 다르다:
-- youtube iframe (claude-code-101 등): youtube-digest extract_transcript.sh로 자동/수동 자막(en) 추출.
+- youtube iframe (claude-code-101 등): shared fetch-subs.sh/captions.py로 검증된 자막 추출.
 - JWPlayer + English captions 트랙 (MCP 등): jwplayer tracks의 .srt를 다운로드.
 - JWPlayer captions 없음 (partner webinar 등): media ID로 오디오를 받아 apple-stt -l en-US 전사.
 
@@ -57,12 +57,10 @@ STATE = os.path.expanduser(
     if _HOST == "anthropic.skilljar.com"
     else f"~/.crawl4ai/skilljar-{_HOST}.json"
 )
-# youtube 자막은 youtube-digest의 extract_transcript.sh를 재사용(크롬 쿠키로 429 회피 + 수동자막 우선). raw yt-dlp 직접 호출 금지.
-YOUTUBE_DIGEST_SCRIPTS_DIR = os.environ.get(
-    "YOUTUBE_DIGEST_SCRIPTS_DIR",
-    os.path.expanduser("~/.agents/skills/shared/youtube/youtube-digest/scripts"),
+# Use the shared caption acquisition and validation contract; retain audit sources.
+YOUTUBE_SCRIPTS = os.environ.get(
+    "YOUTUBE_SCRIPTS", os.path.expanduser("~/.agents/skills/shared/youtube/scripts")
 )
-EXTRACT = os.path.join(YOUTUBE_DIGEST_SCRIPTS_DIR, "extract_transcript.sh")
 STATE_FILE = ".anthropic-mirror-state.json"
 
 # Playwright driver가 응답을 멈추면 goto 밖의 await(wait_for_selector, evaluate, click)도 같이 멈춘다.
@@ -269,28 +267,56 @@ def cap_to_text(text):
     return " ".join(out)
 
 
-def fetch_youtube(vid):
-    if not os.path.isfile(EXTRACT):
-        raise RuntimeError(
-            f"extract_transcript.sh not found: {EXTRACT}. Set YOUTUBE_DIGEST_SCRIPTS_DIR."
+class CaptionAcquisitionError(RuntimeError):
+    """Acquisition failed; an absent transcript is not evidence of no captions."""
+
+
+def fetch_youtube(vid, helpers=None, cache=None):
+    helpers = Path(helpers or YOUTUBE_SCRIPTS)
+    for name in ("fetch-subs.sh", "captions.py"):
+        if not (helpers / name).is_file():
+            raise CaptionAcquisitionError(f"Missing caption helper: {helpers / name}; set YOUTUBE_SCRIPTS")
+    cache = Path(cache or Path.cwd() / "_yt-cache" / "academy" / vid).resolve()
+    cache.mkdir(parents=True, exist_ok=True)
+    try:
+        result = subprocess.run(
+            ["bash", str(helpers / "fetch-subs.sh"), f"https://www.youtube.com/watch?v={vid}", str(cache)],
+            stdin=subprocess.DEVNULL, capture_output=True, text=True, timeout=180,
         )
-    with tempfile.TemporaryDirectory() as d:
+    except subprocess.TimeoutExpired as exc:
+        raise CaptionAcquisitionError(f"YouTube {vid}: caption acquisition timed out") from exc
+    if result.returncode == 2:
+        return ""
+    if result.returncode != 0:
+        raise CaptionAcquisitionError(f"YouTube {vid}: caption acquisition failed (exit {result.returncode}); retained attempts: {cache}")
+    values = dict(line.split("=", 1) for line in result.stdout.splitlines() if "=" in line)
+    try:
+        paths = {key: Path(values[key]).resolve() for key in ("SRT_PATH", "CAPTIONS_PATH", "METADATA_PATH")}
+        if any(not path.is_relative_to(cache) or not path.is_file() for path in paths.values()):
+            raise ValueError("emitted caption paths must exist inside the retained cache")
+        spec = importlib.util.spec_from_file_location("academy_shared_captions", helpers / "captions.py")
+        captions = importlib.util.module_from_spec(spec)
+        previous_bytecode = sys.dont_write_bytecode
         try:
-            subprocess.run(
-                ["bash", EXTRACT, f"https://www.youtube.com/watch?v={vid}", d],
-                stdin=subprocess.DEVNULL,
-                capture_output=True,
-                timeout=180,
-            )
-        except subprocess.TimeoutExpired:
-            return ""
-        for lang in ("en-orig", "en", "ko"):  # 영어 원본 영상 기준 우선순위
-            f = Path(d) / f"{vid}.{lang}.srt"
-            if f.exists():
-                return cap_to_text(f.read_text(encoding="utf-8", errors="ignore"))
-        for f in Path(d).glob("*.srt"):
-            return cap_to_text(f.read_text(encoding="utf-8", errors="ignore"))
-    return ""
+            sys.dont_write_bytecode = True
+            spec.loader.exec_module(captions)
+        finally:
+            sys.dont_write_bytecode = previous_bytecode
+        document = captions.load_document(paths["CAPTIONS_PATH"])
+        if document["video_id"] != vid or Path(document["source"]["path"]).resolve() != paths["SRT_PATH"]:
+            raise ValueError("caption identity or original SRT path mismatch")
+        metadata = json.loads(paths["METADATA_PATH"].read_text(encoding="utf-8"))
+        if metadata != document["metadata"]:
+            raise ValueError("retained metadata does not match captions JSON")
+        # Shared presentation consumes validated JSON, preserving numeric dialogue and repeats.
+        rendered = captions.markdown(document)
+        _, separator, section = rendered.partition("\n## 자막 (")
+        heading, newline, transcript = section.partition("\n")
+        if not separator or not newline or not heading.endswith(")") or not transcript.strip():
+            raise ValueError("shared Markdown transcript section missing or empty")
+        return transcript.strip()
+    except (KeyError, ValueError, OSError, ImportError) as exc:
+        raise CaptionAcquisitionError(f"YouTube {vid}: invalid caption bundle: {exc}") from exc
 
 
 def fetch_srt(url):
@@ -702,19 +728,24 @@ async def crawl_courses(out_root, courses, ck):
                 for kind, ref in unseen_refs(existing, refs):
                     beat()
                     tag = ref_marker(kind, ref)
-                    tx = fetch_transcript(kind, ref)
-                    if len(tx) >= 50:
+                    try:
+                        tx = fetch_transcript(kind, ref)
+                    except CaptionAcquisitionError as exc:
+                        items.append({"url": f"{BASE}/{course}/{lid}", "class": "extract_failed", "reason": str(exc)})
+                        print(f"[!] {exc}", flush=True)
+                        continue
+                    if tx and (kind == "yt" or len(tx) >= 50):
                         pending = f"<!-- {kind}-pending: {ref} -->"
-                        existing = existing.replace(
-                            f"\n\n{pending}\n\n_(영상 자막 없음 또는 추출 실패)_", ""
-                        )
+                        for note in ("_(영상 자막 없음 또는 추출 실패)_", "_(영상 자막 없음: 공유 수집기가 모든 시도에서 자막 트랙 없음을 확인)_"):
+                            existing = existing.replace(f"\n\n{pending}\n\n{note}", "")
                         existing = f"{existing}\n\n{tag}\n\n## 자막 (영상 전사)\n\n{tx}"
                         got += 1
                     else:
                         pending = f"<!-- {kind}-pending: {ref} -->"
                         if pending in existing:
                             continue
-                        existing = f"{existing}\n\n{pending}\n\n_(영상 자막 없음 또는 추출 실패)_"
+                        note = "_(영상 자막 없음: 공유 수집기가 모든 시도에서 자막 트랙 없음을 확인)_" if kind == "yt" else "_(영상 자막 없음 또는 추출 실패)_"
+                        existing = f"{existing}\n\n{pending}\n\n{note}"
                     added += 1
                 if added:
                     fpath.write_text(f"{existing}\n", encoding="utf-8")
@@ -754,6 +785,60 @@ def fail_auth(out_root, detail):
 
 async def main():
     if sys.argv[1:] == ["--self-test"]:
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            helpers = Path(YOUTUBE_SCRIPTS)
+            cache = root / "retained cache"
+            generation = cache / ".captions-attempt-new"
+            generation.mkdir(parents=True)
+            vid = "ABCDEFGHIJK"
+            srt = generation / "source.en.srt"
+            srt.write_text("1\n00:00:00,000 --> 00:00:01,000\n123\n\n2\n00:00:03,000 --> 00:00:04,000\n123\n", encoding="utf-8")
+            spec = importlib.util.spec_from_file_location("test_captions", helpers / "captions.py")
+            shared = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(shared)
+            bundle = generation / "new.captions.json"
+            bundle.write_text(json.dumps(shared.make_document(srt, vid, "en", "manual", metadata={"id": vid})), encoding="utf-8")
+            metadata = generation / "new.metadata.json"
+            metadata.write_text(json.dumps({"id": vid}), encoding="utf-8")
+            emitted = "\n".join(f"{key}={value}" for key, value in {"SRT_PATH": srt, "CAPTIONS_PATH": bundle, "METADATA_PATH": metadata}.items())
+            with patch.object(subprocess, "run", return_value=subprocess.CompletedProcess([], 0, emitted, "")):
+                text = fetch_youtube(vid, helpers, cache)
+                assert text.count("123") == 2  # Numeric and repeated manual dialogue survive.
+            metadata.write_text(json.dumps({"id": "mismatched"}), encoding="utf-8")
+            with patch.object(subprocess, "run", return_value=subprocess.CompletedProcess([], 0, emitted, "")):
+                try:
+                    fetch_youtube(vid, helpers, cache)
+                    raise AssertionError("mismatched metadata accepted")
+                except CaptionAcquisitionError:
+                    pass
+            metadata.write_text(json.dumps({"id": vid}), encoding="utf-8")
+            invalid = json.loads(bundle.read_text())
+            invalid["cues"][0]["end"] = -1
+            original_valid = bundle.read_bytes()
+            bundle.write_text(json.dumps(invalid), encoding="utf-8")
+            with patch.object(subprocess, "run", return_value=subprocess.CompletedProcess([], 0, emitted, "")):
+                try:
+                    fetch_youtube(vid, helpers, cache)
+                    raise AssertionError("invalid cue accepted")
+                except CaptionAcquisitionError:
+                    pass
+            bundle.write_bytes(original_valid)
+            original = bundle.read_bytes()
+            for rc in (2, 3):
+                with patch.object(subprocess, "run", return_value=subprocess.CompletedProcess([], rc, "", "diagnostic")):
+                    try:
+                        result = fetch_youtube(vid, helpers, cache)
+                        assert rc == 2 and result == ""
+                    except CaptionAcquisitionError:
+                        assert rc == 3
+                assert bundle.read_bytes() == original and srt.exists()
+            try:
+                fetch_youtube(vid, root / "missing", cache)
+                raise AssertionError("missing helpers accepted")
+            except CaptionAcquisitionError:
+                pass
         refs = youtube_refs(
             [
                 "https://youtube.com/embed/ABCDEFGHIJK",
@@ -973,7 +1058,7 @@ async def main():
     if not failed:
         return
     for course, code in sorted(failed.items()):
-        kind = {EXIT_GATED: "등록·권한 필요 레슨", EXIT_DUPLICATE: "중복 본문 저장 거부"}.get(code, "무진행·자식 실패")
+        kind = {EXIT_GATED: "등록·권한 필요 레슨", EXIT_DUPLICATE: "본문 또는 자막 추출 실패"}.get(code, "무진행·자식 실패")
         if code not in (EXIT_GATED, EXIT_DUPLICATE):
             # 죽은 자식은 스스로 기록하지 못한다. 부모가 코스 단위 재시도 대상으로 남긴다.
             mc.record_status(str(out_root), f"academy:{_HOST}:{course}", [
