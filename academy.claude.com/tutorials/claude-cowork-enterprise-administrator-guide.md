@@ -10,7 +10,7 @@ Claude Cowork brings Claude’s agentic capabilities to Claude.ai and the Claude
 
 20 minClaude Cowork
 
-[Open Cowork](claude://cowork/new)
+[Open Cowork](https://claude.ai/new?surface=cowork)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-epz8s4e9.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oerjm7gu.png)
 
@@ -20,12 +20,12 @@ Claude Cowork brings Claude’s agentic capabilities to Claude.ai and the Claude
 
 Claude Cowork brings Claude’s agentic capabilities to Claude.ai and the Claude Desktop app, enabling multi-step knowledge work beyond coding. Rather than responding to individual prompts sequentially, Claude can tackle complex, multi-step tasks and execute them on a user’s behalf. Users delegate work and return to polished deliverables like formatted documents, organized files, synthesized research, and more.
 
-Claude Cowork sits alongside Chat in [Claude.ai(opens in new tab)](http://claude.ai), the API, and Claude Code in the Claude product lineup. What distinguishes it for enterprise is the combination of local file access, connectors to the tools your teams already use (e.g. Slack, Google Workspace, M365), a plugin ecosystem with repeatable workflows that organizations can curate and govern, and scheduled tasks that run on a cadence. It is available on all Claude paid plans, on the web and in the Claude Desktop app for macOS, Windows, and Linux (in beta); working with local files and desktop applications requires the desktop app.
+Claude Cowork sits alongside Chat in [Claude.ai(opens in new tab)](https://claude.ai), the API, and Claude Code in the Claude product lineup. What distinguishes it for enterprise is the combination of local file access, connectors to the tools your teams already use (e.g. Slack, Google Workspace, M365), a plugin ecosystem with repeatable workflows that organizations can curate and govern, and scheduled tasks that run on a cadence. It is available on all Claude paid plans in the Claude Desktop app for macOS, Windows, and Linux (in beta); on Enterprise plans, web and mobile need an Owner to turn it on, and working with local files and desktop applications requires the desktop app. On Enterprise plans, the unified Claude experience brings Chat and Cowork together. See the Help Center’s [setup article for the unified Claude experience(opens in new tab)](https://support.claude.com/en/articles/17444462-set-up-and-manage-the-new-unified-claude-experience-for-your-enterprise-organization) to check availability and how admins manage it. The unified experience is not yet available to organizations with zero data retention, the HIPAA-ready configuration, or customer-managed encryption keys.
 
 ### Requirements[](#requirements)
 
-* **Claude Desktop app:** Required for work on local files, desktop applications, or the browser. Available for macOS, Windows, and Linux (Debian and Ubuntu, in beta). Claude Cowork is also available on the web and in the Claude mobile app, subject to your organization's settings.
-* **Claude subscription:** Claude Cowork is available to paid Claude plans (Pro, Max, Team, and Enterprise), with some features still in research preview. Learn more [here(opens in new tab)](https://claude.com/pricing#team-&-enterprise).
+* **Claude Desktop app:** Required for work on local files, desktop applications, or the browser. Available for macOS, Windows, and Linux (Debian and Ubuntu, in beta). Claude Cowork is also available on the web and in the Claude mobile app, subject to your organization’s settings.
+* **Claude subscription:** Claude Cowork is available to paid Claude plans (Pro, Max, Ultra, Team, and Enterprise), with some features still in research preview. Learn more [here(opens in new tab)](https://claude.com/pricing#team-&-enterprise).
 * **Active internet connection:** Required throughout the session.
 * **Connectors:** Claude Cowork is most powerful when you connect it to your favorite apps, services, and data sources via connectors.
 
@@ -39,7 +39,7 @@ You’re building the delegation infrastructure: identity controls gate who can 
 
 #### Assemble your rollout team
 
-Identify who you need before you start. Later steps stall if these people aren't looped in early.
+Identify who you need before you start. Later steps stall if these people aren’t looped in early.
 
 * Primary Owner (one per org; confirm who holds it)
 * DNS admin and IdP admin (already done if on Claude Enterprise)
@@ -49,7 +49,7 @@ Identify who you need before you start. Later steps stall if these people aren't
 
 #### Plan desktop app installation
 
-* Claude Cowork is available on both the web and the Claude Desktop app. On the Claude Desktop app, decide whether you’ll push via MDM or have users self-install, and plan comms so users know to install it before launch day. See the Claude Desktop collection for installation resources. See [Installing Claude Desktop(opens in new tab)](https://support.claude.com/en/articles/10065433-installing-claude-desktop).
+* Claude Cowork is available in the Claude Desktop app. On Enterprise plans it is also available on the web and mobile once an Owner turns on Run Cowork in the cloud (off by default) and grants the Cowork in the cloud capability to groups through custom roles. The [unified Claude experience(opens in new tab)](https://support.claude.com/en/articles/17444462-set-up-and-manage-the-new-unified-claude-experience-for-your-enterprise-organization) also brings it to the web, desktop, and mobile without that setting. On the Claude Desktop app, decide whether you’ll push via MDM or have users self-install, and plan comms so users know to install it before launch day. See the Claude Desktop collection for installation resources. See [Installing Claude Desktop(opens in new tab)](https://support.claude.com/en/articles/10065433-installing-claude-desktop).
 
 #### Choose your org architecture
 
@@ -57,21 +57,21 @@ Identify who you need before you start. Later steps stall if these people aren't
 
 #### Confirm endpoint and network prerequisites
 
-* Claude Cowork runs locally on each user's machine, with code execution sandboxed in a kernel-isolated environment. As a result, it has different infrastructure requirements than claude.ai. For an overview of how Claude Cowork differs from claude.ai, see [Get started with Cowork(opens in new tab)](https://support.claude.com/en/articles/13345190-get-started-with-cowork#h_bd829a921b).
+* By default on Enterprise plans, Claude Cowork runs locally on each user’s machine, with code execution sandboxed in a kernel-isolated environment. As a result, it has different infrastructure requirements than claude.ai. On the web and mobile, Claude Cowork sessions run in Anthropic’s cloud. For an overview of where Claude Cowork runs, see [Use Claude Cowork on Team and Enterprise plans(opens in new tab)](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans).
 
 Verify your fleet and network can support it — endpoint and network issues are the most common cause of deployment problems. Ensure that required domains are allowlisted, minimum OS versions are met, and any proxy or firewall rules permit Claude Cowork traffic.
 
 #### Plan billing and seats
 
-* Confirm that your [seat allocation(opens in new tab)](https://support.claude.com/en/articles/13799932) covers everyone you intend to provision via SCIM. Even on consumption-based billing, seat count gates provisioning — if SCIM tries to provision more users than you have seats, provisioning silently fails with no error.
+* Confirm that your [seat allocation(opens in new tab)](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans) covers everyone you intend to provision via SCIM. Even on consumption-based billing, seat count gates provisioning — if SCIM tries to provision more users than you have seats, provisioning silently fails with no error.
 
 #### Start your security review
 
-* Assemble your review packet from the [Anthropic Trust Center(opens in new tab)](https://trust.anthropic.com) and the [Use Claude Cowork safely(opens in new tab)](https://support.claude.com/en/articles/13364135) article. This can run in parallel with the rest of Phase 1. Note that Audit Logs do not cover Claude Cowork yet. The Compliance API returns Claude Cowork session transcripts for Claude Enterprise organizations.
+* Assemble your review packet from the [Anthropic Trust Center(opens in new tab)](https://trust.anthropic.com) and the [Use Claude Cowork safely(opens in new tab)](https://support.claude.com/en/articles/13364135) article. This can run in parallel with the rest of Phase 1. Audit logs record the events listed in [Access audit logs(opens in new tab)](https://support.claude.com/en/articles/9970975-access-audit-logs), and Claude Cowork activity isn’t among them; use the Compliance API for Cowork session transcripts.
 
 ### Identity & Access[](#identity-access)
 
-*SSO before RBAC. Do not enforce either until both are fully configured.*
+*SSO before RBAC. Do not enforce SSO or migrate users to custom roles until both are fully configured.*
 
 #### Set up identity and SSO
 
@@ -84,9 +84,9 @@ Identity is the foundation everything else depends on. RBAC, connectors, and dep
 
 #### Configure Role-based access controls
 
-* Enable Claude Cowork at the org level, then create [custom roles(opens in new tab)](https://support.claude.com/en/articles/13930452) with the Claude Cowork entitlement and assign them to groups. See [RBAC setup(opens in new tab)](https://support.claude.com/en/articles/13930458) for configuration steps.
-* Roles are additive — a user in multiple groups gets the union of permissions. [Spend limits(opens in new tab)](https://support.claude.com/en/articles/13799932) use the opposite rule: the most restrictive limit across a user’s groups wins.
-* Migrate to enforcement last. There is no in-product undo — migrating before roles are configured drops every user to zero permissions.
+* Create [custom roles(opens in new tab)](https://support.claude.com/en/articles/13930452) with the Claude Cowork capability and assign them to groups. Users on a built-in role get Claude Cowork whenever it’s on org-wide. If it’s off, leave it off until users are migrated to custom roles. See [RBAC setup(opens in new tab)](https://support.claude.com/en/articles/13930458) for configuration steps.
+* Roles are additive — a user in multiple groups gets the union of permissions. [Spend limits(opens in new tab)](https://support.claude.com/en/articles/13799932) work differently: when a user is in more than one group with a limit, one org-wide setting (Member limit from groups, under Spending defaults in Organization settings > Usage) decides whether the higher or the lower group limit applies.
+* Migrate users to custom roles only once roles are configured and every user you migrate is in a group that has one. Users migrated without a role lose access to every feature custom roles control until they get one or you switch them back to their previous role.
 
 ### Connectors & Hardening[](#connectors-hardening)
 
@@ -95,7 +95,7 @@ Identity is the foundation everything else depends on. RBAC, connectors, and dep
 #### Set up connectors
 
 * Connectors let Claude Cowork reach into the tools your teams already use — Slack, Google Workspace, M365, and more — so Claude can read, search, and act on real work data.
-* Connectors use a two-gate model: an admin enables the connector org-wide, then each user individually OAuths to link their account. There is no per-group connector control — enabling a connector makes it available to everyone in the org. Configure connectors in the admin console under your organization's connector settings.
+* Connectors use a three-gate model: an admin enables the connector org-wide, the user’s role includes it, and each user links their own account, unless you set up managed authorization through your identity provider. Custom roles control connectors per group. Roles that were already in place were set to “Always allow” on every connector, so nothing changes until you narrow a role; check each role’s Connectors tab. A role you create now starts at “Needs approval” (members confirm each call). Users on a built-in role see every connector enabled org-wide, subject to your organization’s tool policies for each connector. Configure connectors in the admin console under your organization’s connector settings.
 * Prioritize enabling the connectors that map to where your users already do their work. Users who can connect to their everyday tools from day one generate fewer support requests and onboard faster.
 
 #### Set Up Plugins
@@ -105,7 +105,7 @@ Identity is the foundation everything else depends on. RBAC, connectors, and dep
 
 #### Configure security controls
 
-* Harden your deployment by configuring network egress allowlists, mount controls, and desktop extension allowlists. These security controls are configured in the admin console under your organization's Claude Cowork settings.
+* Harden your deployment by configuring network egress allowlists, mount controls, and desktop extension allowlists. Network egress allowlists are configured in the admin console under your organization’s Capabilities settings, desktop extension allowlists under its Connectors settings, and mount controls through your MDM tool.
 
 ### Deployment & Launch[](#deployment-launch)
 
@@ -143,11 +143,7 @@ Before defining success metrics, know where your data lives. Claude Cowork usage
 
 #### Admin Dashboard
 
-The admin dashboard (claude.ai org analytics) now includes Claude Cowork alongside Chat and Claude Code. Below is an overview of what you’ll be able to see for Claude Cowork.
-
-* **Active users:** The time-series chart gains a Claude Cowork filter, so you can track daily, weekly, and monthly active users alongside your other Claude products.
-* **Claude Cowork overview card:** Shows total sessions and actions across the org for any date range, providing a quick read on overall engagement.
-* **Data latency:** Dashboard data refreshes on a T+1 schedule (yesterday's data is available today).
+The admin dashboard (claude.ai org analytics) shows Claude Cowork alongside Chat and Claude Code, from active users to Cowork sessions, and its data refreshes daily (yesterday’s data is available today).
 
 See [View usage analytics for Team and Enterprise plans(opens in new tab)](https://support.claude.com/en/articles/12883420) for more details.
 
@@ -159,14 +155,14 @@ The Analytics API (Enterprise plan only) provides programmatic access to Claude 
 * **Org-wide summaries:** Claude Cowork DAU, WAU, and MAU counts alongside existing Chat and Claude Code figures, so you can compare adoption across products.
 * **Skill and connector rankings:** Each entry now shows how many Claude Cowork sessions invoked it, so you can see which tools your Claude Cowork users actually reach for.
 
-For the full endpoint specification, query parameters, and response schemas, see the [Claude Enterprise Admin API reference guide(opens in new tab)](https://support.claude.com/en/articles/15330651-claude-enterprise-admin-api-reference-guide).
+For the full endpoint specification, query parameters, and response schemas, see the [Claude Enterprise Analytics API reference(opens in new tab)](https://platform.claude.com/docs/en/api/beta/organization/analytics).
 
 ### Define Success Metrics[](#define-success-metrics)
 
 The metrics that prove your rollout is working answer three questions — and the answers should improve week over week.
 
-* **Are people using it?**: You're looking for the gap between "has access" and "has delegated a task."
-* **How deeply?:** You're looking for whether users are actually completing work or just chatting.
+* **Are people using it?**: You’re looking for the gap between “has access” and “has delegated a task.”
+* **How deeply?:** You’re looking for whether users are actually completing work or just chatting.
 
 **Is it paying off?:** You’re looking beyond “time saved,” and whether Cowork is being used for work that matters
 
@@ -199,7 +195,7 @@ Champions are enthusiastic adopters who can help drive peer adoption across thei
 
 ### Launch Communications[](#launch-communications)
 
-Stage your communications so users know what’s coming, why it matters, and where to go for help. Claude Cowork works with your files, tools, and browser and hands back finished work — it's a different experience from asking Claude questions, and your messaging should set that expectation.
+Stage your communications so users know what’s coming, why it matters, and where to go for help. Claude Cowork works with your files, tools, and browser and hands back finished work — it’s a different experience from asking Claude questions, and your messaging should set that expectation.
 
 Every message should reinforce the delegation model: Claude Cowork produces deliverables, not just answers. Users describe a task, provide context and tools, define what good looks like, and come back to finished work.
 
@@ -223,7 +219,7 @@ Every message should reinforce the delegation model: Claude Cowork produces deli
 #### Ongoing
 
 * Share regular tips and feature spotlights (e.g., new plugins, scheduled task patterns, Chrome workflows).
-* Announce when new connectors are approved and live. Many connectors require a two-gate authentication system (admin + user). Share directions to authenticate if the connector requires individual OAuth setup.
+* Announce when new connectors are approved and live. Many connectors are not usable until each user links their own account. Share directions to authenticate if the connector requires individual OAuth setup.
 * Publish monthly usage updates to leadership using the metrics defined above.
 * Run quarterly reviews to assess adoption progress and recalibrate targets.
 
@@ -266,7 +262,7 @@ These are the key capabilities users should understand.
 * [**File access**(opens in new tab)](https://support.claude.com/en/articles/14128542): Select which folders Claude Cowork can read from and write to. Finished work is delivered directly back to those folders.
 * [**Connectors**(opens in new tab)](https://support.claude.com/en/articles/11176164): Connect your apps and services so Claude can retrieve data and take actions within them.
 * [**Skills**(opens in new tab)](https://support.claude.com/en/articles/12512180): Instruction sets that Claude loads dynamically to improve performance on specialized tasks.
-* [**Plugins and marketplace**(opens in new tab)](https://support.claude.com/en/articles/13837440): Plugin bundles that package skills, connectors, and subagents together. Available through your organization's private marketplace.
+* [**Plugins and marketplace**(opens in new tab)](https://support.claude.com/en/articles/13837440): Plugin bundles that package skills, connectors, and subagents together. Available through your organization’s private marketplace.
 * [**Scheduled tasks**(opens in new tab)](https://support.claude.com/en/articles/13854387): Tasks that run on-demand or automatically on a cadence of your choosing.
 * [**Projects**(opens in new tab)](https://support.claude.com/en/articles/14116274): Group related tasks into workspaces with their own files, context, and memory.
 * [**Claude in Chrome**(opens in new tab)](https://support.claude.com/en/articles/12012173): Use Claude’s capabilities directly in your browser.
@@ -297,20 +293,16 @@ In Phase 2, you defined metrics across three columns: are people using it?, how 
 
 ### Governance[](#governance)
 
-As usage grows, your governance needs grow with it. Start with the org-level controls you configured in Phase 1, then refine as you observe what teams build. Today, some governance happens in-product and some requires manual processes outside of Claude Cowork. Plan for both
+As usage grows, your governance needs grow with it. Start with the org-level controls you configured in Phase 1, then refine as you observe what teams build. Today, some governance happens in-product and some requires manual processes outside of Claude Cowork. Plan for both.
 
 #### What you can govern in-product today
 
-* **Connector access:** Org-wide on/off. When you enable a new connector, it’s available to everyone — plan your rollout communications accordingly.
-* **Spend controls:** Group-based spend limits with most-restrictive precedence. An org-level cap overrides individual seat limits.
-* **Plugin marketplace:** Curate which plugins appear in your organization's marketplace. Configure distribution policies, pre-approve plugins, and use group-level overrides to control availability per team. Works with SCIM groups.
-* **Skill and plugin publishing:** Org-level setting with three values (Organization settings > Skills, Policy tab). Off: users can't submit skills or plugins to your organization's library, though owners can still add them directly. Requires review: an owner, or anyone whose role has Libraries set to “Can manage”, approves each submission on the Requests tab of the same page before it's published. Open: submissions publish without review.
-* **RBAC:** Control who can access Claude Cowork, Claude Code, and other product surfaces via custom roles assigned to groups.
-
-#### What requires manual governance today
-
-* **Per-group connector access:** Connectors are currently org-wide (on/off). If you need different teams to have access to different connectors, this requires multiple orgs or a manual policy layer.
-* **Peer-to-peer and peer-to-org sharing controls:** Skill sharing, Share with groups and Publishing are set for the whole organization in Organization settings > Skills (Policy tab). On Enterprise, users can also share with a specific group once an admin turns on Share with groups (off by default), and custom roles, where you use them, decide who can.
+* **Connector access:** Org-wide on/off, then per group through custom roles. When you enable a new connector, everyone on a built-in role gets it at once, and so does everyone whose custom role allows it — plan your rollout communications accordingly.
+* **Spend controls:** Group-based spend limits, with an org-wide setting for which limit applies across a user’s groups. An org-level cap overrides individual seat limits.
+* **Plugin marketplace:** Curate which plugins appear in your organization’s marketplace. Configure distribution policies, pre-approve plugins, and use group-level overrides to control availability per team. Works with SCIM groups.
+* **Skill and plugin publishing:** Org-level setting with three values (Organization settings > Plugins & skills, Policy tab). “Off”: users can’t submit skills or plugins to your organization’s library, though owners can still add them directly. “Requires review”: an owner, or anyone whose role has Libraries set to “Can manage”, approves each submission on the Requests tab of the same page before it’s published. “Open”: submissions can publish without review. On Enterprise plans, if no one has chosen a setting, a default applies, and it isn’t the same for every organization, so check the Policy tab.
+* **Skill and plugin sharing:** Skill sharing and Share with groups (off by default) are org-level switches on the same Policy tab, and custom roles, where you use them, decide who can share.
+* **RBAC:** Control who can access Claude Cowork, Claude Code, and other product surfaces via custom roles assigned to groups. Custom roles apply only to users whose role is set to Custom.
 
 #### Ongoing governance practices
 
@@ -325,7 +317,8 @@ As usage grows, your governance needs grow with it. Start with the org-level con
 Claude Cowork’s value comes from capabilities working together — file access, connectors, skills, and code execution combine to produce finished work. As you scale, evaluate these additional capabilities as governance decisions, not just feature toggles:
 
 * **Memory:** Enables Claude Cowork to retain context across sessions. Evaluate what level of persistent context fits your data policies.
-* **Network egress (web search):** Controls what Claude Cowork can reach when researching or verifying information. Your network and data policies should drive this.
+* **Network egress:** Controls what Claude Cowork can reach when running code. Your network and data policies should drive this.
+* **Web search:** Lets Claude search the web in Chat and Claude Cowork. Network egress doesn’t govern it: Owners switch it on or off in Organization settings > Capabilities, and users on a custom role also need a role that grants it.
 * **Office agents (Claude across apps):** Lets Claude work across applications. Consider whether your teams’ workflows cross application boundaries.
 
 ### Building a Lasting Program[](#building-a-lasting-program)

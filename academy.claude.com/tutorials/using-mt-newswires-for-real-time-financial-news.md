@@ -8,7 +8,7 @@
 
 Set up and use MT Newswires for real-time financial news delivering original multi-asset class market intelligence.
 
-15 minClaude.ai
+15 minClaude
 
 [Open Claude](https://claude.ai/new)
 

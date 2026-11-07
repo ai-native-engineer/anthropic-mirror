@@ -10,7 +10,7 @@ Same Claude, two ways of working. Chat is a conversation you steer turn by turn.
 
 5 minClaude Cowork
 
-[Open Cowork](claude://cowork/new)
+[Open Cowork](https://claude.ai/new?surface=cowork)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-m7h6cx31.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bp8m6m89.png)
 

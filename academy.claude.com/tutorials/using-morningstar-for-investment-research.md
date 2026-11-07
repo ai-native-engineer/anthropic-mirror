@@ -8,7 +8,7 @@
 
 Integrate Morningstar's investment research capabilities into Claude for financial metrics, analyst research, and thematic investment analysis.
 
-15 minClaude.ai
+15 minClaude
 
 [Open Claude](https://claude.ai/new)
 

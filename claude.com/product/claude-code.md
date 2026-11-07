@@ -19,8 +19,6 @@ Other ways to use Claude Code:
 * [JetBrains (opens in new tab)](https://plugins.jetbrains.com/plugin/27310-claude-code-beta-)
 * [Slack (opens in new tab)](https://slack.com/oauth/v2/authorize?client_id=1601185624273.8899143856786&scope=app_mentions:read,assistant:write,channels:history,channels:read,chat:write,files:read,files:write,groups:history,groups:read,im:history,im:read,im:write,mpim:history,reactions:write,users:read,users:read.email,commands,search:read.public&user_scope=bookmarks:read,channels:history,channels:read,chat:write,emoji:read,files:read,groups:history,groups:read,groups:write,im:history,im:read,im:write,links:read,mpim:history,mpim:read,mpim:write,mpim:write.topic,pins:read,reactions:read,reactions:write,remote_files:read,team:read,users:read,users:read.email,search:read.public,search:read.private,search:read.im,search:read.mpim,search:read.files,search:read.users,canvases:read,canvases:write)
 
-HomeCode
-
 Pinned
 
 Add a dark mode toggle to settings
@@ -64,8 +62,6 @@ Edited **charges.ts** +9 -3
 Auto
 
 OpusExtra high
-
-HomeCode
 
 Pinned
 
@@ -184,59 +180,52 @@ Disable animations and transitions.
 
 ## Get started with Claude Code
 
-IndividualTeam & Enterprise
+Team & EnterpriseIndividual
 
-### Pro
+### Team
 
-Claude Code is included in your Pro plan. Perfect for short coding sprints in small codebases.
+Claude Code for every seat, with self-serve seat management and up to $500 per month in pooled API credits.
 
-$17
+$20
 
-Per month with annual subscription discount ($200 billed up front). $20 if billed monthly.
+Per seat / month if billed annually. For teams of 2 to 150.
 
-[Try Claude (opens in new tab)](https://claude.ai/login?plan=pro)
+[Get Team plan (opens in new tab)](https://claude.ai/upgrade?initialPlanType=team)
 
-### Max 5x
+### Enterprise
 
-Claude Code is included in your Max plan. Great value for everyday use in larger codebases.
+Everything in Team, plus Claude Security, usage and ROI analytics, role-based access, spend limits, and custom data controls. [Learn more](https://claude.com/product/claude-code/enterprise)
 
-$100
+[Get Enterprise plan (opens in new tab)](https://claude.ai/create/enterprise)
 
-Per month
+### Available on Team and Enterprise
 
-[Try Claude (opens in new tab)](https://claude.ai/login?plan=max)
+[See all features and pricing](https://claude.com/pricing#team-&-enterprise)
 
-### Max 20x
+* Code Review
+* Claude Code on web and mobile
+* Claude Cowork
+* Claude Design, Slides, and Docs
 
-Even more Claude Code included in your Max plan. Great value for power users with the most access to Claude models.
+Deploying through the API or a cloud provider? [See your options](https://code.claude.com/docs/en/third-party-integrations)
 
-$200
+[Usage limits apply](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work). Prices shown don't include applicable tax. Price and plans are subject to change at Anthropic's discretion.
 
-Per month
-
-[Try Claude (opens in new tab)](https://claude.ai/login?plan=max)
-
-[Usage limits apply](https://support.anthropic.com/en/articles/9797557-usage-limit-best-practices). Prices shown don't include applicable tax. Price and plans are subject to change at Anthropic's discretion.
-
-[Usage limits apply](https://support.anthropic.com/en/articles/9797557-usage-limit-best-practices). Price and plans are subject to change at Anthropic's discretion.
+[Usage limits apply](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work). Price and plans are subject to change at Anthropic's discretion.
 
 ## Latest feature announcements
+
+[### **Code Review:** Catch more bugs before they reach production. Now generally available for Team and Enterprise.
+
+BlogOct 15, 2026](https://claude.com/resources/articles/code-review-is-now-generally-available)
+
+[### **Mods:** Change how Claude Code behaves and looks with a few lines of TypeScript. Available in the CLI and desktop app.
+
+BlogOct 1, 2026](https://claude.com/resources/articles/claude-code-mods)
 
 [### **Projects:** Group related coding sessions so you can run and easily supervise multiple Claude agents at once. Available on Claude Code Desktop.
 
 BlogSep 17, 2026](https://claude.com/blog/projects-redesigned)
-
-[### **Auto mode by default:** Claude Code now runs in auto mode by default on Pro, Max, and Team plans, so it can work longer while still catching risky commands.
-
-BlogAug 7, 2026](https://claude.com/blog/auto-mode-default-in-claude-code)
-
-[### **Self-hosted environments:** Run Claude Code sessions on your own infrastructure, inside your network and next to your internal services. Now in public beta.
-
-BlogAug 6, 2026](https://claude.com/blog/run-claude-code-sessions-on-your-own-compute)
-
-[### **Artifacts:** Preview in-progress work as a live, interactive artifact built from your session context, and share it with your team.
-
-BlogJun 18, 2026](https://claude.com/blog/artifacts-in-claude-code)
 
 [View changelog (opens in new tab)](https://code.claude.com/docs/en/changelog)
 
@@ -327,7 +316,7 @@ The architecture allows for both using Excalidraw as a component in other applic
 
 * ### Code onboarding
 
-  Claude Code maps and explains entire codebases in a few seconds. It uses agentic search to understand project structure and dependencies without you having to manually select context files.
+  Claude Code maps and explains large codebases in a few seconds. It uses agentic search to understand project structure and dependencies without you having to manually select context files.
 * ### Turn issues into PRs
 
   Stop bouncing between tools. Claude Code works with GitHub, GitLab, and your command line tools to read issues, write code, run tests, and open pull requests.
@@ -341,7 +330,7 @@ The architecture allows for both using Excalidraw as a component in other applic
 
 ### Start in your terminal
 
-Super powerful terminal integration. Works with all your CLI tools alongside any IDE.
+Super powerful terminal integration. Works with all your CLI tools alongside popular IDEs.
 
 curl -fsSL https://claude.ai/install.sh | bash
 
@@ -417,7 +406,7 @@ Your terminal is where real work happens. Claude Code connects with the tools th
 
 ### How do I get started with Claude?
 
-You can access Claude Code with a Claude Pro or Max plan, a Team or Enterprise plan, or a Claude Console account. [Download Claude Code](https://code.claude.com/docs/en/overview) and sign in with your respective Claude or Console credentials.
+You can access Claude Code with a Claude Pro, Max, or Ultra plan, a Team or Enterprise plan, or a Claude Console account. [Download Claude Code](https://code.claude.com/docs/en/overview) and sign in with your respective Claude or Console credentials.
 
 ### What kind of tasks can Claude Code handle?
 
@@ -431,7 +420,7 @@ Claude Code runs in your terminal and works alongside your preferred IDE and dev
 
 ### Is Claude Code secure?
 
-Yes. Claude Code runs locally in your terminal and talks directly to model APIs without requiring a backend server or remote code index. It also asks for permission before making changes to your files or running commands.
+Claude Code is designed with security in mind. When used in your terminal, Claude Code runs locally and talks directly to model APIs without requiring a backend server or remote code index. It also asks for permission before making changes to your files or running commands.
 
 ### What are the system requirements to run Claude Code?
 
@@ -443,11 +432,11 @@ When used with a Claude Console account, Claude Code consumes API tokens at [sta
 
 ### Does Claude Code work with the Claude desktop app?
 
-Yes. Max, Pro, Team, and Enterprise users can access Claude Code on the [Claude desktop app](https://claude.com/download).
+Yes. Pro, Max, Ultra, Team, and Enterprise users can access Claude Code on the [Claude desktop app](https://claude.com/download).
 
 ### What is fast mode on Claude Code?
 
-Fast mode is a high-speed configuration for Opus 5.5, making the model 2.5x faster at a higher cost per token. Fast mode is available:
+Fast mode is a high-speed configuration for Opus 5.5, delivering lower-latency responses at a higher cost per token. Fast mode is available:
 
 * In research preview on Claude Code, and is priced at $8/$40 per million tokens.
 * On consumption-based plans.

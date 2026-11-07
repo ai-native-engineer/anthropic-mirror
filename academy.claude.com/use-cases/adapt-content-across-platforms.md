@@ -8,7 +8,7 @@
 
 Transform one piece of content into multiple formats adapted for different platforms and audiences.
 
-15 minMarketingClaude.ai
+15 minMarketingClaude
 
 Try in ClaudeCopy prompt
 
@@ -50,7 +50,7 @@ Google Drive
 
 [Connect](https://claude.ai/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 ![](images/a3bfc5814bd6a3e2.svg)
 
@@ -117,9 +117,9 @@ This task will produce several files so may take longer than usual. Claude creat
 
 Leverage Claude to generate the structure of the content, then personalize with your own unique insights. The content artifact can help to streamline the process of viewing all outputs together and pinpointing areas needing refinement.
 
-### [Publish and share artifacts(opens in new tab)](https://support.claude.com/en/articles/9547008-discovering-publishing-customizing-and-sharing-artifacts)[](#publish-and-share-artifacts)
+### [Share artifacts(opens in new tab)](https://support.claude.com/en/articles/9547008-share-artifacts)[](#share-artifacts)
 
-After creating the artifact, [publish(opens in new tab)](https://support.claude.com/en/articles/9547008-discovering-publishing-customizing-and-sharing-artifacts) it to create a shareable URL you can send to others. This can be perfect for brainstorming and sharing ideas with teammates and other stakeholders. Recipients don't need Claude accounts to view published artifacts.
+After creating the artifact, [share(opens in new tab)](https://support.claude.com/en/articles/9547008-share-artifacts) it to get a link you can send to others. This can be perfect for brainstorming and sharing ideas with teammates and other stakeholders. People you invite need a Claude account.
 
 ## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 

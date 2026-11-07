@@ -4,25 +4,25 @@
 
 [Tutorials](https://academy.claude.com/tutorials)
 
-# Using Claude Cowork for your small business
+# Using Claude for your small business
 
 Walk through three workflows from the Small Business plugin — plan payroll, close the month, get a Monday brief — and what Claude does at each step.
 
 15 minClaude Cowork
 
-[Open Cowork](claude://cowork/new)
+[Open Cowork](https://claude.ai/new?surface=cowork)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-lov8vstm.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-cnsmqju3.png)
 
 Running a small business means working across a lot of tools — your books, your payments, your CRM, your inbox. The answers you need usually live across all of them.
 
-With the [Claude for Small Business(opens in new tab)](https://www.anthropic.com/news/claude-for-small-business) plugin installed and set up in [Claude Cowork(opens in new tab)](https://academy.claude.com/tutorials/get-started-in-claude-cowork-in-three-steps), a short prompt can help run a multi-step workflow for your business.
+With the [Claude for Small Business(opens in new tab)](https://www.anthropic.com/news/claude-for-small-business) plugin installed and set up in [Claude(opens in new tab)](https://academy.claude.com/tutorials/get-started-in-claude-cowork-in-three-steps), a short prompt can help run a multi-step workflow for your business.
 
 Below are three examples: what each prompt runs, what Claude does at each step, and what you have when it's done.
 
 ***Tip***: To set up the plugin that enables the workflows below and see the full inventory of skills, visit [How to install and use the Claude for Small Business plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin)
 
-**To learn more:** see [Customize Claude Cowork(opens in new tab)](https://academy.claude.com/tutorials/customize-claude-cowork) and [Customizing plugins in Claude Cowork(opens in new tab)](https://academy.claude.com/tutorials/how-to-customize-plugins-in-cowork)
+**To learn more:** see [Customize Claude(opens in new tab)](https://academy.claude.com/tutorials/customize-claude-cowork) and [Customizing plugins in Claude(opens in new tab)](https://academy.claude.com/tutorials/how-to-customize-plugins-in-cowork)
 
 In this guide
 
@@ -34,7 +34,7 @@ In this guide
 
 Help me build a Monday morning brief every week in Slack. Pull my cash position from QuickBooks, incoming settlements from PayPal, pipeline movement from HubSpot, and what's on my calendar this week. Tell me the three things that need my attention today.
 
-BusinessOpen in Cowork
+Small BusinessOpen in Cowork
 
 This prompt starts the /monday-brief skill, which gives Claude instructions for reading every connected business tool and writing a single page you can scan in a minute. After [customizing the plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin), Claude leads with what matters most for your business.
 
@@ -64,7 +64,7 @@ A one-page brief saved to your folder, ready every Monday morning if you put it 
 
 Close out March for me. Reconcile my QuickBooks transactions against PayPal settlements, flag anything that doesn't match, and write the P&L narrative as a document I can send straight to my accountant.
 
-BusinessOpen in Cowork
+Small BusinessOpen in Cowork
 
 This prompt starts the /close-month skill, which gives Claude instructions for reconciling your books, flagging anything that doesn't line up, and writing a close packet for your accountant. After [customizing the plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin), Claude follows your category conventions and the flags you care about.
 
@@ -100,7 +100,7 @@ The close packet saved to your folder, ready for your accountant to work from. C
 
 Get me ready for payroll on the 15th. Pull my cash position from QuickBooks, my incoming PayPal settlements, and any overdue invoices. Show me whether the next 30 days covers payroll, then draft a reminder for each overdue customer matched to how they've paid before. Show me the drafts before anything sends.
 
-BusinessOpen in Cowork
+Small BusinessOpen in Cowork
 
 This prompt starts the /plan-payroll skill, which gives Claude instructions for forecasting the next 30 days of cash and drafting reminders for overdue invoices. After [customizing the plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin), Claude knows your team and how each customer pays.
 
@@ -136,7 +136,7 @@ A 30-day cash chart, a ranked overdue list with payment history, a reminder for 
 
 * **You approve before anything sends, posts, or pays** — skills draft, propose, and stage. Nothing goes out until you say so.
 * **The big decisions stay with you** — Claude prepares the work and shows you what it found, but the calls that matter — what to charge, what to sign, what to send your accountant — are yours and your professionals' to make.
-* **The skills update when you correct them** — tell `/invoice-chase` you chase at 15 days, tell `/monday-brief` what to lead with, and the change is saved for the next run. The pattern is in [How to customize plugins in Cowork(opens in new tab)](https://academy.claude.com/tutorials/how-to-customize-plugins-in-cowork).
+* **The skills update when you correct them** — tell `/invoice-chase` you chase at 15 days, or tell `/monday-brief` what to lead with, and ask Claude to add the change to the plugin. Save the plugin again when Claude shows the updated version, and the next run uses the change. The pattern is in [How to customize plugins in Claude(opens in new tab)](https://academy.claude.com/tutorials/how-to-customize-plugins-in-cowork).
 * **Your existing permissions hold** — Claude reads what your account in each tool can read. It can't see data you don't already have access to.
 * **Anthropic doesn't train Claude on your business data** — the full policy is in the [Trust Center(opens in new tab)](https://trust.anthropic.com).
 
@@ -144,7 +144,7 @@ A 30-day cash chart, a ranked overdue list with payment history, a reminder for 
 
 * [Introducing Claude for Small Business(opens in new tab)](https://www.anthropic.com/news/claude-for-small-business) — the launch announcement
 * [How to install and use the Claude for Small Business plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin) — install the plugin, browse what's in it, and run your first task
-* [How to customize plugins in Cowork(opens in new tab)](https://academy.claude.com/tutorials/how-to-customize-plugins-in-cowork) — make the skills run from your context
+* [How to customize plugins in Claude(opens in new tab)](https://academy.claude.com/tutorials/how-to-customize-plugins-in-cowork) — make the skills run from your context
 * [What are skills(opens in new tab)](https://academy.claude.com/tutorials/what-are-skills) — how skills work in Claude
 * [AI Fluency for Small Business(opens in new tab)](https://academy.claude.com/courses/ai-fluency-for-small-businesses) — a free course on running a small business with AI
 

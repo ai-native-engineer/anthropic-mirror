@@ -8,7 +8,7 @@
 
 Use Moody's credit ratings connector with Claude for comprehensive financial analysis including credit ratings, outlooks, and research documents.
 
-15 minClaude.ai
+15 minClaude
 
 [Open Claude](https://claude.ai/new)
 

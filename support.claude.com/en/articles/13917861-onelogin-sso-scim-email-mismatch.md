@@ -24,8 +24,8 @@ OneLogin user profiles contain distinct fields for username and email, which may
 |  |  |  |
 | --- | --- | --- |
 | **OneLogin field** | **Typical value** | **Commonly used by** |
-| `Username` | `testuser1` or [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#1367766067666076612253766b727e637f763d707c7e) | Sometimes used in SCIM userName mapping |
-| `Email` | [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#6b1f0e181f451e180e194504050e2b0e130a061b070e45080406) | Recommended for both SCIM and SAML |
+| `Username` | `testuser1` or [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#87f3e2f4f3f2f4e2f5b6c7e2ffe6eaf7ebe2a9e4e8ea) | Sometimes used in SCIM userName mapping |
+| `Email` | [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#e094859394ce95938592ce8f8e85a08598818d908c85ce838f8d) | Recommended for both SCIM and SAML |
 | `Login Name` | May differ from email if SSO is used for non-email logins | Legacy or custom configurations |
 | Custom user fields | Custom attributes defined per org | Advanced attribute mappings |
 

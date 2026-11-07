@@ -8,7 +8,7 @@
 
 How to use the Scientific Problem Selection Skill with Claude
 
-3 minClaude.ai
+3 minClaude
 
 [Open Claude](https://claude.ai/new)
 

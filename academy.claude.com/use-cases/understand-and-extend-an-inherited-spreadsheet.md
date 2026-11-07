@@ -8,7 +8,7 @@
 
 Understand existing formulas and structure then add new data while preserving the original logic.
 
-15 minFinanceClaude.ai
+15 minFinanceClaude
 
 Try in ClaudeCopy prompt
 

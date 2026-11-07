@@ -8,7 +8,7 @@
 
 Claude builds a blank scatter right in the conversation — you place the points, drag them, watch what happens to the fit. For when you can do the calculation but don't yet have a feel for it.
 
-15 minEducationClaude.ai
+15 minEducationClaude
 
 Try in ClaudeCopy prompt
 

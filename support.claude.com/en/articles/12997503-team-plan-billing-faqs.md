@@ -18,13 +18,17 @@ Your organization's billing address determines where your invoices are sent. You
 
 If you want to use a name other than the one tied to your payment method, an organization Owner should check the "Use a different name on invoices" box when adding or updating your payment method in **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1790856900&signature=e4ce5ef364d4dc05dcb8a92b3140a2b432feb789a5c7d03a2e5aaab90ec375c3&req=dSklFMh6mINaWvMW1HO4zRZTxVrJvs3aKAqLF4ERnlVbzsS4KxBHNe%2F2LcHq%0AWIGHAa42EobEplyE%2Bo4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1790856900&signature=e4ce5ef364d4dc05dcb8a92b3140a2b432feb789a5c7d03a2e5aaab90ec375c3&req=dSklFMh6mINaWvMW1HO4zRZTxVrJvs3aKAqLF4ERnlVbzsS4KxBHNe%2F2LcHq%0AWIGHAa42EobEplyE%2Bo4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1794042000&signature=9f2a61a959801fa64b411b8bea58dff9ffef42499a4707d6ef6866c2981b0d13&req=dSklFMh6mINaWvMW1HO4zRZTxV7Bv8nTKAqLF4ERnlXvkYl8%2B6aYiR7gOXH%2B%0A4PVEC2xuzU%2FAnL4heK4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1794042000&signature=9f2a61a959801fa64b411b8bea58dff9ffef42499a4707d6ef6866c2981b0d13&req=dSklFMh6mINaWvMW1HO4zRZTxV7Bv8nTKAqLF4ERnlXvkYl8%2B6aYiR7gOXH%2B%0A4PVEC2xuzU%2FAnL4heK4%3D%0A)
 
 ## When will I be billed?
 
 Your payment method on file will be charged at the beginning of your billing cycle. The amount is based on the number of members on your team at the beginning of the billing cycle. If you add members or upgrade seats during the billing cycle, you'll be charged the prorated amount immediately. Removing members doesn't generate a credit or refund. The seat becomes available to assign to someone else.
 
 See **[How is my Team plan bill calculated?](https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated)** for more information about Team plan pricing.
+
+## Where can I see my monthly API credits?
+
+In the Claude Console. All credits appear under **[Settings > Billing](https://platform.claude.com/settings/billing)** in your linked Console organization, with their amount and expiry date. Usage is never charged to your Claude plan. Learn more about **[monthly API credits for Max, Ultra, and Team plans](https://support.claude.com/en/articles/17154008)**.
 
 ## Where can I find the invoice or receipt for my Team plan payment?
 
@@ -48,16 +52,16 @@ Please click on the message icon in the bottom right of our Help Center to conta
 
 An organization owner can resubscribe for Team plan access by navigating to **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**.
 
-## What happens to my Pro or Max subscription when I upgrade to Team?
+## What happens to my Pro, Max, or Ultra subscription when I upgrade to Team?
 
-When you upgrade from Pro or Max to Team in place, your individual subscription is cancelled automatically and you receive a prorated refund for the unused portion of your billing period. The refund is issued about 24 hours after your Team payment goes through, and depending on your bank, it can take several more business days to appear on your statement. Google Play purchases don't have this wait, but the refund can take a few days to appear. Any prepaid usage credits on your individual account are refunded
+When you upgrade from Pro, Max, or Ultra to Team in place, your individual subscription is cancelled automatically and you receive a prorated refund for the unused portion of your billing period. The refund is issued about 24 hours after your Team payment goes through, and depending on your bank, it can take several more business days to appear on your statement. Google Play purchases don't have this wait, but the refund can take a few days to appear. Any prepaid usage credits on your individual account are refunded
 
-If you signed up for Pro or Max through the Apple App Store, in-place upgrades work differently. For more information, refer to **[Get started with the Team plan](https://support.claude.com/en/articles/9267247-get-started-with-the-team-plan#h_5d142d3f45)**.
+If you signed up for Pro, Max, or Ultra through the Apple App Store, in-place upgrades work differently. For more information, refer to **[Get started with the Team plan](https://support.claude.com/en/articles/9267247-get-started-with-the-team-plan#h_5d142d3f45)**.
 
 If you'd rather keep your personal subscription active, check the opt-out box (**Keep your personal account separate**)in the team-creation flow when you upgrade.
 
 * [Paid plan billing FAQs](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs)
+* [Get started with the Team plan](https://support.claude.com/en/articles/9267247-get-started-with-the-team-plan)
 * [How is my Team plan bill calculated?](https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated)
 * [Add or update your Team plan's tax or VAT ID](https://support.claude.com/en/articles/9927624-add-or-update-your-team-plan-s-tax-or-vat-id)
-* [Change your Team plan from monthly to annual billing](https://support.claude.com/en/articles/12083917-change-your-team-plan-from-monthly-to-annual-billing)
 * [Understanding your Team plan invoices](https://support.claude.com/en/articles/16607668-understanding-your-team-plan-invoices)

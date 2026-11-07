@@ -8,7 +8,7 @@
 
 Claude reads your stack of papers and draws the argument structure inline — clusters by claim, tension lines where camps disagree, blind spots per group. A reading of the debate you test against your own, as you work through the set.
 
-15 minResearchClaude.ai
+15 minResearchClaude
 
 Try in ClaudeCopy prompt
 

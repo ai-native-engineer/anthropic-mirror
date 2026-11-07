@@ -8,7 +8,7 @@
 
 Turn handwritten family recipes into digitally formatted recipes to save and share.
 
-15 minPersonalClaude.ai
+15 minPersonalClaude
 
 Try in ClaudeCopy prompt
 
@@ -106,7 +106,7 @@ When you need Claude to format multiple items the same way, you can upload them 
 
 ### Vary the format to suit your purpose[](#vary-the-format-to-suit-your-purpose)
 
-Claude can create the same content in multiple formats depending on how you'll use it. Request an HTML artifact for digital sharing—you can publish it and send the link to others. Request a PDF when you need something to print or download.
+Claude can create the same content in multiple formats depending on how you'll use it. Request an HTML artifact for digital sharing—you can share it and send the link to others. Request a PDF when you need something to print or download.
 
 ## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 

@@ -8,7 +8,7 @@
 
 Create organization-specific AI usage policies covering data privacy, appropriate use cases, staff guidelines, and ethical considerations tailored to your nonprofit's mission and beneficiary protection needs.
 
-15 minClaude.ai
+15 minClaude
 
 Try in ClaudeCopy prompt
 

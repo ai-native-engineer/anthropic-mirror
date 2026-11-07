@@ -8,7 +8,7 @@
 
 Map the jobs you want to a career plan—skill gaps, timelines, people to contact, and specific next steps.
 
-15 minEducationClaude.ai
+15 minEducationClaude
 
 Try in ClaudeCopy prompt
 
@@ -56,7 +56,7 @@ Google Drive
 
 [Connect](https://claude.ai/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 ### Optional context[](#optional-context)
 

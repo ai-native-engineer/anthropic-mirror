@@ -8,7 +8,7 @@
 
 A guide for students. What the feature is, how to use it well, and what it can do for your coursework.
 
-10 minClaude.ai
+10 minClaude
 
 [Open Claude](https://claude.ai/new)
 

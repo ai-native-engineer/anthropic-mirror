@@ -10,7 +10,7 @@ Before a first call, Claude Cowork pulls everything you’d want to know about a
 
 15 minClaude Cowork
 
-Watch[Open Cowork](claude://cowork/new)
+Watch[Open Cowork](https://claude.ai/new?surface=cowork)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-d0zjjn2v.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hdd30gkj.png)
 
@@ -32,21 +32,21 @@ To dive deeper into Claude Cowork, take the full [Intro to Claude Cowork course(
 
 Set up once
 
-The skill is what turns a one-line prompt into a full account brief — it tells Claude what you’d want to know walking into a first call, which tools have it, and how to lay the brief out. The [Sales plugin(opens in new tab)](https://claude.ai/desktop/customize/plugins/new?marketplace=https%3A%2F%2Fgithub.com%2Fanthropics%2Fknowledge-work-plugins&plugin=sales) ships with an `account-research` skill already built. You install it, point it at your tools, and tell Claude to tailor it to your company.
+The skill is what turns a one-line prompt into a full account brief — it tells Claude what you’d want to know walking into a first call, which tools have it, and how to lay the brief out. The [Sales plugin(opens in new tab)](https://claude.ai/desktop/customize/plugins/new?marketplace=https%3A%2F%2Fgithub.com%2Fanthropics%2Fknowledge-work-plugins&plugin=sales) ships with an `account-research` skill already built. You add the plugin, point it at your tools, and tell Claude to tailor it to your company.
 
-**Install and set it up:**
+**Add the plugin and set it up:**
 
-1. **In Customize → Plugins**, open the [Sales plugin(opens in new tab)](https://claude.ai/desktop/customize/plugins/new?marketplace=https%3A%2F%2Fgithub.com%2Fanthropics%2Fknowledge-work-plugins&plugin=sales) and install it — it comes with the `account-research` skill, built on how a working sales team uses it.
+1. **In Customize → Plugins**, open the [Sales plugin(opens in new tab)](https://claude.ai/desktop/customize/plugins/new?marketplace=https%3A%2F%2Fgithub.com%2Fanthropics%2Fknowledge-work-plugins&plugin=sales) and select **Add**. The plugin comes with the `account-research` skill, built on how a working sales team uses it.
 2. **In Customize → Connectors**, connect the tools the skill draws on — your CRM (like [HubSpot(opens in new tab)](https://claude.ai/desktop/directory/hubspot) or [Salesforce(opens in new tab)](https://claude.ai/desktop/directory/salesforce-headless-360)), the data warehouse, call recordings, email, chat, and the web. When the skill runs, Claude reads all of them at once.
 3. **In the chat bar**, pick a place Claude can read, edit, and save to: a working folder if you're in the desktop app, or a project. The brief lands there before the call and the debrief goes next to it after, so over time it becomes the account’s history.
 
-With the plugin installed and your tools connected, tell Claude to tailor the skill to your company — your systems, the signals that matter, and the brief format you read fastest:
+With the plugin added and your tools connected, tell Claude to tailor the skill to your company — your systems, the signals that matter, and the brief format you read fastest:
 
 Customize the account-research skill from the Sales plugin for my company. My accounts are [the kind of customers I sell to] — ask me about my CRM and data sources, the signals that matter for my deals, and the brief format I read fastest.
 
 AccountsOpen in Cowork
 
-Claude walks you through what information to pull, which connected tools to look through, and how you want the brief laid out, then rewrites the skill to match. Once the skill is built, try running it on an account you already know, compare what comes back to how you’d write it on your own, and tell Claude to fix anything it missed.
+Claude walks you through what information to pull, which connected tools to look through, and how you want the brief laid out, then rewrites the skill to match. Claude shows the result as a file card. Select **Save plugin** to add it to your account. Once the skill is built, try running it on an account you already know, compare what comes back to how you’d write it on your own, and tell Claude to fix anything it missed.
 
 ## Step 2: Run the account brief before the call[](#step-2-run-the-account-brief-before-the-call)
 

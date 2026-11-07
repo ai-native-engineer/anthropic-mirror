@@ -8,7 +8,7 @@
 
 Create spreadsheets that bring clarity to your finances. Spot trends, filter what matters, and understand what your numbers are telling you.
 
-15 minFinanceClaude.ai
+15 minFinanceClaude
 
 Try in ClaudeCopy prompt
 

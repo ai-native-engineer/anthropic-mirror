@@ -8,7 +8,7 @@
 
 Learn how Claude Skills let you package proven work approaches so Claude automatically applies them across conversations.
 
-10 minClaude.ai
+10 minClaude
 
 Watch[Open Claude](https://claude.ai/new)
 
@@ -89,7 +89,9 @@ Even occasional work might require gathering multiple files or tools, explaining
 
 ## Ready to create a skill?[](#ready-to-create-a-skill)
 
-Skills are available on Pro, Max, Team, and Enterprise plans. They also need **Code execution and file creation** turned on, since Skills run in Claude’s secure sandboxed computing environment. To get started, navigate to `Settings` > `Capabilities` > `Skills`, check that code execution is enabled, and toggle on some of the pre-built example skills. From there, when you describe a task to Claude that references a skill’s name or description, Claude recognizes it and loads the skill automatically.
+Skills are available on Free, Pro, Max, Ultra, Team, and Enterprise plans. They also need **Code execution and file creation** turned on, since Skills run in Claude’s secure sandboxed computing environment. On Free, Pro, Max, and Ultra plans, check that this setting is enabled in `Settings` > `Capabilities`. On Team and Enterprise plans, an organization Owner controls both this setting and Skills in `Organization settings` > `Plugins & skills`, on the `Policy` tab.
+
+To get started, open [Customize > Skills(opens in new tab)](https://claude.ai/customize/skills) and add a pre-built skill from `Discover`. From there, when you describe a task to Claude that references a skill’s name or description, Claude recognizes it and loads the skill automatically.
 
 Learn how to write your own [custom skills(opens in new tab)](https://support.claude.com/en/articles/12512198-creating-custom-skills), incorporating guidance from our [skills best practices(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) to understand the principles that make skills most effective.
 
@@ -122,7 +124,7 @@ The habit worth keeping goes beyond skills themselves: whenever you hand Claude 
 
 ### Getting started[](#getting-started)
 
-* [Help Center: Using Skills(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills) - Setup and troubleshooting
+* [Help Center: Using Skills(opens in new tab)](https://support.claude.com/en/articles/12512180-use-skills-in-claude) - Setup and troubleshooting
 * [How to create a skill with Claude(opens in new tab)](https://support.claude.com/en/articles/12599426-how-to-create-a-skill-with-claude-through-conversation) - Build your first Skill with Claude's guidance
 
 ### Going deeper[](#going-deeper)

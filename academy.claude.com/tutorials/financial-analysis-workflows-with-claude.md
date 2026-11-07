@@ -8,7 +8,7 @@
 
 Learn complete financial analysis workflows using a three-phase approach: retrieving data, analyzing information, and creating professional deliverables.
 
-20 minClaude.ai
+7 minClaude
 
 [Open Claude](https://claude.ai/new)
 
@@ -157,7 +157,7 @@ Create an interactive artifact showing: portfolio summary with weighted returns 
 
 Open in Claude
 
-[Artifacts can be shared(opens in new tab)](https://support.claude.com/en/articles/9547008-discovering-publishing-customizing-and-sharing-artifacts#h_264285dcf3) with other members of your organization. The interactive nature allows stakeholders to explore the data without requiring multiple static reports.
+[Artifacts can be shared(opens in new tab)](https://support.claude.com/en/articles/9547008-share-artifacts) with other members of your organization. The interactive nature allows stakeholders to explore the data without requiring multiple static reports.
 
 ## Next Steps[](#next-steps)
 

@@ -18,7 +18,7 @@ If you're responsible for rolling out Claude to your organization, you may also 
 
 ## Additional support
 
-Anthropic has services partners (advisory, training, change management, MCP development) available who can help provide additional support. If you'd like to discuss further, please submit [this interest form](https://forms.gle/ubnR5f7q5E71ECR79). For requests to connect with our Sales team, please contact [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#5221333e372112333c263a203d223b317c313d3f)
+Anthropic has services partners (advisory, training, change management, MCP development) available who can help provide additional support. If you'd like to discuss further, please submit [this interest form](https://forms.gle/ubnR5f7q5E71ECR79). For requests to connect with our Sales team, please contact [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#2053414c455360414e5448524f5049430e434f4d)
 
 ​
 
@@ -27,9 +27,9 @@ Anthropic has services partners (advisory, training, change management, MCP deve
 Related Articles
 
 * [Getting Started with Local MCP Servers on Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)
-* [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
+* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
-* [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
+* [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
 * [Get started with Claude Compliance API integrations](https://support.claude.com/en/articles/15167101-get-started-with-claude-compliance-api-integrations)
 
 Disappointed Reaction😞Neutral Reaction😐Smiley Reaction😃

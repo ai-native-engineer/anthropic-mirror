@@ -35,7 +35,7 @@ Open in Cowork
 
 ## 2. Give Claude context[](#2-give-claude-context)
 
-[Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) is a workspace in Claude that connects to your tools via [connectors(opens in new tab)](https://claude.com/connectors) and reads from browser tabs via [Claude in Chrome(opens in new tab)](https://claude.com/chrome). It lives in the [Claude Desktop(opens in new tab)](https://claude.com/download) app, and with remote sessions (in beta) your Cowork sessions are on web and mobile too. Add your messaging, tasks, and dashboard sources. Cowork queries them in parallel.
+[Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) is a workspace in Claude that connects to your tools via [connectors(opens in new tab)](https://claude.com/connectors) and reads from browser tabs via [Claude in Chrome(opens in new tab)](https://claude.com/chrome). It lives in the [Claude Desktop(opens in new tab)](https://claude.com/download) app, and with remote sessions ([check availability for your plan(opens in new tab)](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)) your Cowork sessions are on web and mobile too. Add your messaging, tasks, and dashboard sources. Cowork queries them in parallel.
 
 **What to expect:** After your initial prompt in Cowork, Claude may ask you questions, like which channels matter most, what timeframe to cover, or how to format the briefing. It then builds a plan you can review in the sidebar. This helps it run more independently and deliver something closer to finished.
 
@@ -43,7 +43,7 @@ Open in Cowork
 
 To get started:
 
-* Download [Claude Desktop(opens in new tab)](https://claude.com/download) — or go to [Claude.ai(opens in new tab)](https://claude.ai) with remote sessions (in beta) — and start a Cowork session
+* Download [Claude Desktop(opens in new tab)](https://claude.com/download) — or go to [Claude.ai(opens in new tab)](https://claude.ai) with remote sessions — and start a Cowork session
 * Add [connectors(opens in new tab)](https://claude.com/connectors) for Slack, Notion, and any other tools you want in the briefing
 * [Install Claude in Chrome(opens in new tab)](https://claude.com/chrome) and add it as a connector for dashboard access
 
@@ -108,7 +108,7 @@ Your first briefing request establishes context. Follow-up prompts can refine wi
 
 ### Briefings run remotely by default[](#briefings-run-remotely-by-default)
 
-A scheduled briefing runs on Anthropic's servers (remote sessions, in beta), so it's ready even while your laptop is closed and follows you across desktop, web, and mobile. If you're compiling something sensitive interactively, you can run that session locally and keep those files on your machine.
+A scheduled briefing runs on Anthropic's servers (remote sessions), so it's ready even while your laptop is closed and follows you across desktop, web, and mobile.
 
 ## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 

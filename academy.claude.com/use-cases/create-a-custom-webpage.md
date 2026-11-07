@@ -8,7 +8,7 @@
 
 Build a portfolio site to showcase your work and learn how to deploy it live without writing a line of code.
 
-15 minPersonalClaude.ai
+15 minPersonalClaude
 
 Try in ClaudeCopy prompt
 

@@ -8,13 +8,15 @@
 
 Set up and use the NPI Registry integration with Claude to validate, look up, and search US healthcare provider credentials in the CMS NPPES registry.
 
-15 minClaude.ai
+15 minClaude
 
 [Open Claude](https://claude.ai/new)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-lhfk8yng.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-c5j7rv4s.png)
 
 The NPI Registry connector gives Claude access to the CMS National Plan and Provider Enumeration System (NPPES) to validate, look up, and search healthcare providers in the United States by their National Provider Identifier (NPI). This article explains how to set up and use the NPI Registry integration with Claude to search and verify US healthcare provider credentials.
+
+An NPI record is not proof of a license. CMS warns that [issuing an NPI does not ensure or validate that a provider is licensed or credentialed(opens in new tab)](https://npiregistry.cms.hhs.gov/). The license numbers and states on a record are what the provider reported. To confirm that a license is active, check with the state licensing board.
 
 The NPI Registry integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
@@ -34,7 +36,7 @@ The connector provides three core tools that access different NPPES endpoints:
 * **Clinical Research Coordinators:** Validate US-based clinical trial investigators' credentials and verify their medical specialties and practice locations
 * **Healthcare IT Developers:** Build provider lookup features, validate NPI numbers in EHR systems, and integrate provider verification into healthcare applications
 * **Medical Affairs Teams:** Identify and locate key opinion leaders, build physician networks, and conduct competitive intelligence on provider affiliations
-* **Compliance Officers:** Verify provider licensing status, validate NPIs for regulatory submissions, and audit provider enrollment data
+* **Compliance Officers:** Review the license numbers and states on a provider's record, validate NPIs for regulatory submissions, and audit provider enrollment data
 * **Healthcare Recruiters:** Find providers by specialty and location, identify practice affiliations, and verify credentials during candidate screening
 * **Health Services Researchers:** Analyze provider distribution patterns, study specialty availability by geographic region, and access provider taxonomy data
 
@@ -73,7 +75,7 @@ Validate NPI 1043248818 and show me their credentials and specialty
 
 Open in Claude
 
-Look up the provider with NPI 1679576722 and tell me if they're actively licensed
+Look up the provider with NPI 1679576722 and show me the license numbers and states on their record
 
 Open in Claude
 
@@ -111,7 +113,7 @@ I have a clinical trial investigator named Dr. Sarah Johnson in Minnesota. Can y
 
 Open in Claude
 
-Verify that the principal investigator John Smith, MD is a licensed oncologist in Texas
+Find the NPI record for principal investigator John Smith, MD, an oncologist in Texas, and show me the specialty, license number, and license state it lists
 
 Open in Claude
 

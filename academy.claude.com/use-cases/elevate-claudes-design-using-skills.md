@@ -8,7 +8,7 @@
 
 Design a skill that automatically activates design principles into Claude’s outputs.
 
-15 minPersonalClaude.ai
+15 minPersonalClaude
 
 Try in ClaudeCopy prompt
 

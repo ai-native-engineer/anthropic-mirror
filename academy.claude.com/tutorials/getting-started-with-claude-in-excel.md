@@ -8,7 +8,7 @@
 
 Claude understands your entire workbook—from nested formulas to multiple tab dependencies.
 
-7 minClaude in Excel
+7 minClaude for Excel
 
 Watch
 

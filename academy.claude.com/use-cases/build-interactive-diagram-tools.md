@@ -8,7 +8,7 @@
 
 From body systems to molecular structures, turn a detailed prompt into a working reference app with the depth and design you specify.
 
-15 minPersonalClaude.ai
+15 minPersonalClaude
 
 Try in ClaudeCopy prompt
 

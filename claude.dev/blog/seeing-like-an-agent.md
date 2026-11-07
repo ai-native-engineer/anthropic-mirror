@@ -4,6 +4,10 @@
 
 Learn how the Claude Code team designs, tests, and evolves tools by thinking from the model's point of view.
 
+Thariq Shihipar
+
+Agents
+
 Apr 10, 2026
 
 7 min
@@ -11,6 +15,8 @@ Apr 10, 2026
 Seeing like an agent: how we design tools in Claude Code
 
 [└Improving elicitation with the AskUserQuestion tool](#improving-elicitation-with-the-askuserquestion-tool)[└Designing a search interface](#designing-a-search-interface)[└Progressive disclosure: the Claude Code Guide agent](#progressive-disclosure-the-claude-code-guide-agent)
+
+7 MIN READ
 
 [X.com](https://twitter.com/intent/tweet?text=Seeing%20like%20an%20agent%3A%20how%20we%20design%20tools%20in%20Claude%20Code%20%2F%20claude.dev%20Blog&url=https%3A%2F%2Fclaude.dev%2Fblog%2Fseeing-like-an-agent%2F)[LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fclaude.dev%2Fblog%2Fseeing-like-an-agent%2F)[Email](mailto:?subject=Seeing%20like%20an%20agent%3A%20how%20we%20design%20tools%20in%20Claude%20Code%20%2F%20claude.dev%20Blog&body=https%3A%2F%2Fclaude.dev%2Fblog%2Fseeing-like-an-agent%2F)Copy URL[Copy markdown](https://claude.dev/blog/seeing-like-an-agent.md)
 
@@ -70,7 +76,7 @@ As models improved, they found To-do lists limiting. Being sent reminders of the
 
 Seeing this, we replaced the TodoWrite feature with [the Task tool](https://x.com/trq212/status/2014480496013803643) . Whereas todos are focused on keeping the model on track, tasks help agents communicate with each other. Tasks could include dependencies, share updates across subagents and the model could alter and delete them.
 
-As model capabilities increase, the tools that your models once needed might now be constraining them. It’s important to constantly revisit previous assumptions on what tools are needed. This is also why it's useful to stick to a small set of models to support that have a fairly similar capabilities profile.
+As model capabilities increase, the tools that your models once needed might now be constraining them. It’s important to [constantly revisit previous assumptions](https://claude.dev/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models/) on what tools are needed. This is also why it's useful to stick to a small set of models to support that have a fairly similar capabilities profile.
 
 ## DESIGNING A SEARCH INTERFACE
 

@@ -51,7 +51,7 @@ S&P Global
 
 [Connect](https://claude.ai/desktop/directory/s-p-global)
 
-Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
+[Browse connectors in Cowork](https://claude.ai/desktop/customize/connectors)
 
 Deal folder
 

@@ -8,7 +8,7 @@
 
 Capture rough thoughts by voice on mobile, then let Claude research your ideas and produce polished deliverables at your desk. Claude maintains full context across devices, so your commute becomes productive thinking time.
 
-20 minResearchClaude.ai
+20 minResearchClaude
 
 Try in ClaudeCopy prompt
 
@@ -169,7 +169,7 @@ Telling Claude "I have a meeting in two hours" helps it calibrate what to priori
 
 ### Desktop unlocks file creation[](#desktop-unlocks-file-creation)
 
-Mobile is ideal for capture and research. When you need polished outputs like slide decks, documents, or spreadsheets, continue on desktop where Claude can create downloadable files.
+Mobile is ideal for capture and research, and you can ask for a deck or a doc there and edit it in the app. When you need downloadable files like spreadsheets, continue on desktop where Claude can create them.
 
 ## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 

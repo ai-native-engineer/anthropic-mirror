@@ -35,7 +35,7 @@ Open in Cowork
 
 ## 2. Give Claude context[](#2-give-claude-context)
 
-[Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) is a workspace in Claude, available in the [Claude Desktop(opens in new tab)](https://claude.com/download) app and — with remote sessions (in beta) — on web and mobile. It connects to your tools via [connectors(opens in new tab)](https://claude.com/connectors) and, run locally, also works with your local files. Give it access to your call transcripts and connect your other feedback sources. Cowork pulls from all of them in parallel.
+[Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) is a workspace in Claude, available in the [Claude Desktop(opens in new tab)](https://claude.com/download) app and — with remote sessions ([check availability for your plan(opens in new tab)](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)) — on web and mobile. It connects to your tools via [connectors(opens in new tab)](https://claude.com/connectors) and, started from the Claude Desktop app, also works with your local files through the app while it's open. The files it uses are processed on Anthropic's servers. Give it access to your call transcripts and connect your other feedback sources. Cowork pulls from all of them in parallel.
 
 **What to expect:** After your initial prompt in Cowork, Claude may ask you questions about what themes matter most or how to prioritize, then build a plan you can review in the sidebar. This helps it work more independently and surface more useful patterns.
 
@@ -111,7 +111,7 @@ Cowork shows which sources Claude is querying and what it's finding in real time
 
 ### Claude works with the files in your local folder[](#claude-works-with-the-files-in-your-local-folder)
 
-When you run Cowork locally, Claude reads your call transcripts and exports right where they live — in the folder you've shared — rather than you uploading them somewhere first. It can only see the folders and sources you give it access to.
+When you start the task from the Claude Desktop app, Claude reads your call transcripts and exports from the folder you've shared, through the app while it's open, so you don't have to upload them yourself first. The files it uses are processed on Anthropic's servers. It can only see the folders and sources you give it access to.
 
 ## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 

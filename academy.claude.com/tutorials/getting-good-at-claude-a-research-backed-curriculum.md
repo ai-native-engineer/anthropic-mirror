@@ -16,7 +16,7 @@ When we launched the [AI Fluency Index(opens in new tab)](https://www.anthropic.
 
 Since then, we've extended the Index to Claude Code and Claude Cowork, bringing the total to over 50,000 conversations across the 11 behavioral AI fluency indicators. Fluency has a shared structure across all three surfaces, but each product has its own entry point. What "getting good at Claude" looks like depends on which Claude you're using, and if you're responsible for helping a team build fluency, that distinction matters for what you teach first.
 
-![](https://academy.claude.com/assets/media/8ddecb99082f17f100033c0b2d7a5e5817fca1d2c66fe08fe9c64f753c1fb51b.png)
+![Chat, Claude Code and Cowork features ringed around the signature moves, from shaping one response to every response.](https://academy.claude.com/assets/media/8ddecb99082f17f100033c0b2d7a5e5817fca1d2c66fe08fe9c64f753c1fb51b.png)
 
 This piece walks through what we found and offers a simple curriculum model you can adapt for your organization.
 

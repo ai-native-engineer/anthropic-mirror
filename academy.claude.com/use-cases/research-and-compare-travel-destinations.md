@@ -8,7 +8,7 @@
 
 Create a visual comparison spreadsheet from research with images, ratings, and insights to simplify your travel planning.
 
-15 minPersonalClaude.ai
+15 minPersonalClaude
 
 Try in ClaudeCopy prompt
 
@@ -38,9 +38,7 @@ Claude can use search online to find current travel information and generate a s
 
 ### Required context[](#required-context)
 
-### Optional context[](#optional-context)
-
-Toggle [Web Search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) on in the chat bar before starting. Claude will handle the research and design the spreadsheet simultaneously.
+Toggle [Web Search(opens in new tab)](https://support.claude.com/en/articles/10684626-enable-and-use-web-search) on in the chat bar before starting. Claude will handle the research and design the spreadsheet simultaneously. If you have the new Claude experience, there's no web search toggle. Claude searches the web when it helps.
 
 [
 

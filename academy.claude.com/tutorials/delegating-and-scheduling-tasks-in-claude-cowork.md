@@ -10,7 +10,7 @@ Claude Cowork lets you delegate complete, multi-step work. You can work alongsid
 
 4 minClaude Cowork
 
-Watch[Open Cowork](claude://cowork/new)
+Watch[Open Cowork](https://claude.ai/new?surface=cowork)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-g4p7r6v4.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-k4i3k0hw.png)
 

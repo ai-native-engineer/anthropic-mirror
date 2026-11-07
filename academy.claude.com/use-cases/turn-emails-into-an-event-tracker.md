@@ -8,7 +8,7 @@
 
 Build an event tracker by extracting dates, locations, and logistics from email threads.
 
-15 minClaude.ai
+15 minClaude
 
 Try in ClaudeCopy prompt
 
@@ -44,7 +44,7 @@ Gmail
 
 [Connect](https://claude.ai/directory/gmail-gmailmcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 ## 3. What Claude creates[](#3-what-claude-creates)
 

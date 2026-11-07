@@ -4,6 +4,10 @@
 
 How and why members of the Claude Code team use HTML instead of Markdown to produce richer, more readable, and easily shareable outputs.
 
+Thariq Shihipar
+
+Playbooks
+
 May 20, 2026
 
 9 min
@@ -11,6 +15,8 @@ May 20, 2026
 Using Claude Code: The unreasonable effectiveness of HTML
 
 [└Why use HTML?](#why-use-html)[└Getting started](#getting-started)[└Use cases](#use-cases)[└Frequently asked questions](#frequently-asked-questions)[└Staying in the loop with Claude](#staying-in-the-loop-with-claude)
+
+9 MIN READ
 
 [X.com](https://twitter.com/intent/tweet?text=Using%20Claude%20Code%3A%20The%20unreasonable%20effectiveness%20of%20HTML%20%2F%20claude.dev%20Blog&url=https%3A%2F%2Fclaude.dev%2Fblog%2Fusing-claude-code-the-unreasonable-effectiveness-of-html%2F)[LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fclaude.dev%2Fblog%2Fusing-claude-code-the-unreasonable-effectiveness-of-html%2F)[Email](mailto:?subject=Using%20Claude%20Code%3A%20The%20unreasonable%20effectiveness%20of%20HTML%20%2F%20claude.dev%20Blog&body=https%3A%2F%2Fclaude.dev%2Fblog%2Fusing-claude-code-the-unreasonable-effectiveness-of-html%2F)Copy URL[Copy markdown](https://claude.dev/blog/using-claude-code-the-unreasonable-effectiveness-of-html.md)
 
@@ -61,7 +67,7 @@ But HTML documents are much easier to read because Claude can organize the struc
 
 Markdown files are fairly hard to share since most browsers do not render them natively well. You often have to add them as attachments to emails or messages.
 
-As long as you upload the HTML file, you can share the link easily. Your colleagues can open it wherever they wish and easily reference it.
+As long as you upload the HTML file, you can [share the link easily](https://claude.com/resources/articles/artifacts-in-claude-code). Your colleagues can open it wherever they wish and easily reference it.
 
 The chance of someone actually reading your spec, report, or PR writeup is much higher if it’s in HTML.
 
@@ -75,13 +81,13 @@ When useful, this can allow you to create individual editing environments for th
 
 ### Data ingestion
 
-One of the biggest reasons to use Claude Code to make HTML files instead of Claude.ai or Claude Design is all of the context Claude Code can ingest. For example, when writing this article, I asked Claude Code to read through my code folder and find all the HTML files I've generated, group and categorize them, and then make an HTML file with diagrams representing each type. The diagrams you see in this article are a direct result of that.
+One of the biggest reasons to use Claude Code to make HTML files instead of Claude.ai or [Claude Design](https://claude.com/product/design) is all of the context Claude Code can ingest. For example, when writing this article, I asked Claude Code to read through my code folder and find all the HTML files I've generated, group and categorize them, and then make an HTML file with diagrams representing each type. The diagrams you see in this article are a direct result of that.
 
-Besides the file system, Claude Code can find additional context using your MCPs (like Slack, Linear, etc.), your web browser (with Claude in Chrome), and your git history.
+Besides the file system, Claude Code can find additional context using your MCPs (like Slack, Linear, etc.), your web browser (with [Claude in Chrome](https://claude.com/claude-in-chrome)), and your git history.
 
 ## GETTING STARTED
 
-One thing worth noting: you don't need to do much to get Claude to generate HTML like this. You can simply prompt it to "*make an HTML file*" or "*make an HTML artifact*." The main thing is knowing what you want the artifact to do and how you might use it. Over time, it may make sense to build a skill around recurring patterns, but starting by prompting from scratch is a good way to get a feel for how it works across different use cases.
+One thing worth noting: you don't need to do much to get Claude to generate HTML like this. You can simply prompt it to "*make an HTML file*" or "*make an HTML artifact*." The main thing is knowing what you want the artifact to do and how you might use it. Over time, it may make sense to [build a skill around recurring patterns](https://claude.dev/blog/lessons-from-building-claude-code-how-we-use-skills/), but starting by prompting from scratch is a good way to get a feel for how it works across different use cases.
 
 ## USE CASES
 

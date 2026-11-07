@@ -2,13 +2,13 @@
 
 Latest news
 
-Claude Cowork is now just Claude.
+Introducing Claude Duet
 
-Rolling out to Pro and Max, with more plans to follow.
+A new app and proactive way to work with Claude, now in research preview.
 
-[Read what changed (opens in new tab)](https://claude.com/blog/cowork-is-now-claude/)
+[Join the waitlist](https://claude.com/product/claude-duet)
 
-![](https://assets.claude.com/82c296c6728990b32f78abb702912d16db00119b.jpg)
+![](https://assets.claude.com/a1dfa29eb8cc8993f5a1b91b2cc420ce3eb24179.svg)
 
 Campaign readout
 
@@ -738,9 +738,9 @@ Learn more
 ### Stay in control
 
 * [Permissions control](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely) — Turn on permissions settings so Claude shows its plan and waits for your approval. Redirect or stop anytime.
-* [Access controls](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access) — Claude works only in the folders and tools you allow, and by default asks before permanently deleting files.
+* [Access controls](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access) — Claude is designed to work in the folders and tools you allow, and by default asks before permanently deleting files.
 * [Administrative tools for Team and Enterprise](https://academy.claude.com/tutorials/claude-enterprise-administrator-guide) — Admins set access by team, manage spend limits, and control tool permissions by department. Activity streams to your SIEM through OpenTelemetry.
-* [Cloud providers](https://claude.com/platform/api) — Use a Claude account, or your own cloud provider: Amazon Bedrock, Google Cloud, or Microsoft Foundry.
+* [Cloud providers](https://claude.com/platform/api) — Use a Claude account, or your own cloud provider: Access Claude through Amazon Bedrock, Gemini Enterprise Agent Platform, or Microsoft Foundry.
 
 ### Work where you want
 
@@ -771,7 +771,7 @@ Task
 
 Campaign readoutCall prepEarnings compsJD checkLegal research draftingAction trackingAsset creationQBR deckMonth-end closeSurvey readoutDeposition prepFeedback digestAudience intelligenceCRM hygieneBudget reforecastMerit analysisContract redlineMetrics dashboard
 
-## FAQs
+## FAQ
 
 What is Claude?
 
@@ -779,13 +779,13 @@ Claude is more than an AI assistant: it’s a helpful, intuitive, and powerful c
 
 What kind of work can I hand off?
 
-Claude can take on anything you want: it can handle routine work like updating metrics, consolidating feedback or data to surface what really needs your opinion, or large projects like audits. Other common use cases include first drafts and editing; creating briefs from meeting notes or account records; reconciling disparate data from different sources and pulling it into a spreadsheet or dashboard; pulling information into slides and presentations, and much more. Not sure where to start or what it can do? Ask Claude.
+Claude can take on a wide range of work: it can handle routine work like updating metrics, consolidating feedback or data to surface what really needs your opinion, or large projects like audits. Other common use cases include first drafts and editing; creating briefs from meeting notes or account records; reconciling disparate data from different sources and pulling it into a spreadsheet or dashboard; pulling information into slides and presentations, and much more. Not sure where to start or what it can do? Ask Claude.
 
 Claude also works directly in other apps like Slack via [Claude Tag](https://claude.com/product/tag), [Microsoft 365](https://claude.com/claude-for-microsoft-365) services, and on the web through [Claude in Chrome](https://claude.com/claude-in-chrome). For coding, visit [Claude Code](https://claude.com/product/claude-code).
 
 What happened to Claude Cowork?
 
-Claude Cowork and chat are becoming one Claude, rolling out to Pro and Max over the coming weeks. Everything is where you left it: your chats, projects, artifacts, connectors, and skills. Open the app and pick up where you left off.
+Claude Cowork and chat are now integrated within Claude.ai. Everything is where you left it: your chats, projects, artifacts, connectors, and skills. Open the app and pick up where you left off.
 
 What apps does Claude work with?
 
@@ -810,7 +810,7 @@ No. Claude runs on web and mobile (iOS and Android). The desktop app is availabl
 
 Can I assign tasks from my phone?
 
-Yes. Start a task from your phone, and Claude keeps working in the cloud even when your laptop is closed. Check in, redirect, or review the result from anywhere. Available in Pro, Max, and Team plans automatically. Enterprise plans can opt in.
+Yes. Start a task from your phone, and Claude keeps working in the cloud even when your laptop is closed. Check in, redirect, or review the result from anywhere. Available in Pro, Max, Ultra, and Team plans automatically. Enterprise plans can opt in.
 
 How much does Claude cost?
 

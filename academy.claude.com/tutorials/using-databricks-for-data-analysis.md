@@ -8,13 +8,13 @@
 
 Integrate Claude with Databricks to access organizational data through Unity Catalog using custom functions, vector search, and natural language queries.
 
-15 minClaude.ai
+15 minClaude
 
 [Open Claude](https://claude.ai/new)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-oaszh3jx.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-k1t9w93z.png)
 
-The Databricks connector provides Claude with access to your organization's internal data through Unity Catalog, enabling analysis of your databases, running custom business logic, and accessing unstructured documents. Databricks provides three separate connectors: one for functions, one for vector search, and one for Genie, each accessing different capabilities within your Databricks workspace.
+The Databricks integration provides Claude with access to your organization's internal data through Unity Catalog, enabling analysis of your databases, running custom business logic, and accessing unstructured documents.
 
 ## Reminder on Databricks Components[](#reminder-on-databricks-components)
 

@@ -8,7 +8,7 @@
 
 What Claude can do, how to write your first prompt, and how to set up a task with your own files and tools.
 
-5 minClaude.ai
+5 minClaude
 
 [Open Claude](https://claude.ai/new)
 
@@ -36,14 +36,16 @@ Diagrams, charts, and interactive explainers drawn inside the response. Ask *"sh
 
 ### Artifacts[](#artifacts)
 
-The work product itself, made in the conversation and opened beside the chat. Three kinds, all in beta, have their own editors, and anything else becomes an interactive artifact.
+The work product itself, made in the conversation and opened beside the chat. Several kinds have their own editors, and anything else becomes an interactive artifact.
 
 * **Claude Design:** screens, flows and visuals laid out as artboards you can edit by hand, in your design system.
-* **Claude Slides:** a deck you can present in Claude or download as PowerPoint or PDF.
-* **Claude Docs:** a document your team reads, comments on and edits in place while Claude keeps it up to date.
+* **Claude Slides:** a deck you can present in Claude, download as PowerPoint or PDF, or export to Google Slides.
+* **Claude Docs:** a document your team reads, comments on and edits in place with Claude.
+* **Claude Dashboards:** a dashboard of your data, where each chart shows when its data was last refreshed. In beta on paid plans.
+* **Claude Motion:** an animated explainer, chart or product walkthrough you can download as an MP4 file. In beta on Team and Enterprise plans.
 * **Interactive artifacts:** ask for a planner, a calculator or a small tool and Claude builds it to use right there.
 
-Edit any of them directly or ask Claude to change them, share them with your team, and find them again in the Artifacts tab in the sidebar. On an Enterprise plan, an admin turns these on. [More on artifacts(opens in new tab)](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them).
+Ask Claude to change any of them, or edit a design, deck or doc directly. You can share them with your team, and you'll find them again in the Artifacts tab in the sidebar. On an Enterprise plan, an organization Owner chooses which of these are on. [More on artifacts(opens in new tab)](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them).
 
 ### Files[](#files)
 
@@ -60,7 +62,7 @@ You've seen what Claude can give back. Now set up your first task. The walkthrou
 The + menu has a few more options for when a task needs them:
 
 * **[Connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities):** let Claude read and act in the apps you already use, such as your email, calendar, drive, chat and CRM. Turn one on once and every conversation can search it, quote from it and, where you allow it, write back. [Browse the directory(opens in new tab)](https://claude.com/connectors).
-* **[Web search(opens in new tab)](https://support.claude.com/en/articles/10684626-enable-and-use-web-search):** on by default for Free, Pro and Max plans. On Team and Enterprise plans it's off by default, and an admin can turn it on. Turn it off when the answer should come only from your documents.
+* **[Web search(opens in new tab)](https://support.claude.com/en/articles/10684626-enable-and-use-web-search):** on by default for Free, Pro, Max, and Ultra plans. On Team and Enterprise plans it's off by default, and an admin can turn it on. Turn it off when the answer should come only from your documents.
 * **[Research(opens in new tab)](https://support.claude.com/en/articles/11088861-use-research-on-claude):** runs many searches and returns one cited brief. It takes minutes, so save it for the big questions.
 * **[Skills(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills):** saved instructions for work you do the same way every time, including a tone or format you want on demand. In the Claude desktop app you can also record yourself doing a task once and keep it as a skill.
 * **Add folder** ([desktop app(opens in new tab)](https://academy.claude.com/tutorials/navigating-the-claude-desktop-app)): hand Claude a whole folder on your computer to read from and save into, instead of uploading files one at a time.

@@ -8,7 +8,7 @@
 
 Build chronologies and identify document patterns across large discovery productions.
 
-15 minLegalClaude.ai
+15 minLegalClaude
 
 Try in ClaudeCopy prompt
 
@@ -52,7 +52,7 @@ Google Drive
 
 [Connect](https://claude.ai/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 Discovery documentsPDF
 
@@ -106,7 +106,7 @@ Claude is excellent at identifying patterns and organizing information across hu
 
 ### Protect sensitive client information appropriately[](#protect-sensitive-client-information-appropriately)
 
-For cases involving truly confidential information (trade secrets, highly sensitive personal data), consider redacting sensitive details before upload or using this approach for the non-sensitive portions of discovery only. Claude doesn't store uploaded documents after your conversation ends and you control what information you provide. Learn more about our [privacy policy(opens in new tab)](https://www.anthropic.com/legal/privacy)
+For cases involving truly confidential information (trade secrets, highly sensitive personal data), consider redacting sensitive details before upload or using this approach for the non-sensitive portions of discovery only. Learn more about our [privacy policy(opens in new tab)](https://www.anthropic.com/legal/privacy)
 
 ### Specify professional legal formatting[](#specify-professional-legal-formatting)
 

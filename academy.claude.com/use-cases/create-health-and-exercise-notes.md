@@ -8,7 +8,7 @@
 
 Research specific exercises and save organized notes directly to your Notes app.
 
-15 minPersonalClaude.ai
+15 minPersonalClaude
 
 Try in ClaudeCopy prompt
 
@@ -46,7 +46,7 @@ A desktop extension of the Claude app on a Mac — enable it under Desktop exten
 
 [Connect](https://claude.ai/customize/connectors)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 ### Optional context[](#optional-context)
 
