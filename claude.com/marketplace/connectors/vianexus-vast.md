@@ -4,23 +4,21 @@ Connector URL`https://vast.blueskyapi.com/vianexus/mcp`
 
 More[Documentation (opens in new tab)](https://www.vianexus.com/vast/)[Support (opens in new tab)](mailto:support@viaNexus.com)[Privacy policy (opens in new tab)](https://blueskydataplatform.com/privacy/)
 
-viaNexus MCP Server
-
-viaNexus is the leading financial data marketplace and fintech infrastructure for AI workflows, providing a single integration for agentic finance and equity research needs. Access real-time and historical stock prices, market data, company fundamentals, financial news, earnings transcripts, index data, and analyst estimates—sourced directly from over 30 premier institutional data partners (including MT Newswires, Aiera, BMLL, ExtractAlpha, and IndexOne).
+viaNexus is the leading financial data marketplace and fintech infrastructure for AI workflows, offering a unified integration for agentic finance, global macro, corporate actions, and equity research. Access real-time and historical stock prices, dividends, stock splits, IPOs, corporate actions, fundamentals, news, earnings transcripts, index data, estimates, and global macro data—sourced directly from over 30 premier institutional data partners (including EIU, MT Newswires, Aiera, BMLL, ExtractAlpha, and IndexOne).
 
 Powered by vAST (viaNexus Agentic Service Technology), our MCP server delivers an agent-ready financial data layer built for LLMs and autonomous AI agents in Claude, Cursor, ChatGPT, and custom Python/TypeScript environments.
 
 Key Features & Capabilities:
 
-Comprehensive Equities & Financial Data: Instantly search and fetch bundled NexusCore reference data alongside premium NexusEdge partner datasets. Query real-time equity quotes, historical tick/daily stock prices, financial statements, EPS forecasts, and breaking market news through a unified catalog.
+Equities, Corporate Actions, Macro & Financial Data: Search and fetch bundled NexusCore reference data alongside premium NexusEdge partner datasets. Query real-time quotes, historical stock prices, corporate events (dividends, splits, spinoffs, IPOs), financial statements, analyst forecasts, news, and EIU global macroeconomic indicators.
 
-Granular Entitlements & Compliance: vAST enforces row-level permissions server-side before data reaches your prompt. Agents automatically discover and query only the equity and market datasets authorized by your subscription, guaranteeing institutional-grade license compliance.
+Granular Entitlements & Compliance: vAST enforces row-level permissions server-side. Agents automatically discover and query only the datasets authorized by your subscription, guaranteeing institutional-grade license compliance.
 
-Fintech-Grade Machine Auth: Built on OAuth 2.0 (PKCE) and signed software statements. Replaces static API keys with short-lived, scoped access tokens to eliminate credential leaks in production AI workflows.
+Fintech-Grade Machine Auth: Built on OAuth 2.0 (PKCE) with signed software statements, replacing static API keys with short-lived, scoped tokens to eliminate credential leaks in production AI workflows.
 
-Zero-Redeploy Dataset Upgrades: Connect once via standard MCP protocols. Manage or expand your stock market and financial dataset subscriptions through the viaNexus console with zero client-side code changes.
+Zero-Redeploy Dataset Upgrades: Connect once via standard MCP protocols. Expand your stock market, corporate event, and macro data subscriptions via the viaNexus console with zero client code changes.
 
-Whether you are developing automated equity research assistants, quantitative trading models, or conversational market analysis tools, viaNexus delivers a compliant, normalized stock and financial data marketplace for modern AI workflows.
+Deliver compliant, normalized stock, corporate action, and financial market data directly to your AI workflows.
 
 ## Tools
 
@@ -55,7 +53,7 @@ Draft replies, summarize threads, & search your inbox
 
 ### [Microsoft 365](https://claude.com/marketplace/connectors/microsoft-365)
 
-Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
+Access SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
 [Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
@@ -67,18 +65,22 @@ Send messages, create canvases, and fetch Slack data
 
 [Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-![](https://assets.claude.com/afd2ecc5d1ddcedf60ce9d230297b84286373bdb.jpg?w=128&fit=max&auto=format)
+![](https://www.google.com/s2/favicons?domain=picsart.com&sz=96)
 
-### [Asana](https://claude.com/marketplace/connectors/asana)
+### [Picsart Media Studio](https://claude.com/marketplace/connectors/picsart-media-studio)
 
-Connect to Asana to coordinate tasks, projects, and goals
+Anthropic verifiedTrending
 
-[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
+Turn your clips and photos into finished videos
 
-![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
+[Add Picsart Media Studio in Claude (opens in new tab)](https://claude.ai/directory/4f1ba81e-dd57-416e-a0ec-5a64c13ba74c "Add in Claude")
 
-### [monday.com](https://claude.com/marketplace/connectors/monday)
+![](https://www.google.com/s2/favicons?domain=getmoneytree.com&sz=96)
 
-monday.com project management & CRM for projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms, dashboards, cross-project portfolio status, and critical paths.
+### [Moneytree](https://claude.com/marketplace/connectors/moneytree)
 
-[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
+Anthropic verifiedTrending
+
+Explore your financial data through conversation
+
+[Add Moneytree in Claude (opens in new tab)](https://claude.ai/directory/c1651cc6-b6c5-4c14-98c9-6c268a050844 "Add in Claude")

@@ -26,14 +26,14 @@ We de-link your feedback from your user ID (e.g. email address) before it’s us
 
 Here’s an example of what you’ll see when using the thumbs up / down button to provide a feedback report:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1790856000&signature=f267ace462b15a10c0b9f2e176cf2af9ae399d0ea513ca31736c190a0af4624d&req=dSQvEMB3nYFYXvMW1HO4zdLW1XepCjPYS2MKBI2FW5VlZS%2B4uMMON4e16PD%2F%0AKf0c%2BnkdffQtW5Z4qvw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1790856000&signature=f267ace462b15a10c0b9f2e176cf2af9ae399d0ea513ca31736c190a0af4624d&req=dSQvEMB3nYFYXvMW1HO4zdLW1XepCjPYS2MKBI2FW5VlZS%2B4uMMON4e16PD%2F%0AKf0c%2BnkdffQtW5Z4qvw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1794098700&signature=3fc999ee0d8e8a6d939f16e4890148292ae98b873135f648dedc795333edf6f1&req=dSQvEMB3nYFYXvMW1HO4zdLW1XOhBj3fS2MKBI2FW5UHgEEQKz8ZWRO%2FCuUa%0AQB%2FQ0LDC4cG%2FaY0yo0A%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1794098700&signature=3fc999ee0d8e8a6d939f16e4890148292ae98b873135f648dedc795333edf6f1&req=dSQvEMB3nYFYXvMW1HO4zdLW1XOhBj3fS2MKBI2FW5UHgEEQKz8ZWRO%2FCuUa%0AQB%2FQ0LDC4cG%2FaY0yo0A%3D%0A)
 
 ---
 
+* [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
 * [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)
 * [How long do you store my data?](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data)
 * [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
-* [How do I change my model improvement privacy settings?](https://privacy.claude.com/en/articles/12109829-how-do-i-change-my-model-improvement-privacy-settings)
 
 Table of contents

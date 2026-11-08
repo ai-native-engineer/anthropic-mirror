@@ -91,14 +91,6 @@ monday.com project management & CRM for projects, tasks, portfolios, boards, wor
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-![](https://www.tomorrow.io/wp-content/uploads/2023/01/cropped-tm-favicon-new-1-2.png)
-
-### [Tomorrow.io Weather MCP App](https://claude.com/marketplace/connectors/tomorrow-io-weather-mcp-app)
-
-Interactive weather, air quality, pollen, and wildfire-risk widgets powered by Tomorrow.io — live forecasts and conditions for any location, right inside Claude
-
-[Add Tomorrow.io Weather MCP App in Claude (opens in new tab)](https://claude.ai/directory/032fc35c-fdc2-42e0-a5c0-372d52ccb605 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
 
 ### [Adobe](https://claude.com/marketplace/connectors/adobe-creativity)
@@ -114,3 +106,11 @@ Design, combine, and edit with Adobe pro tools
 Access and create new content on Miro boards
 
 [Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
+
+![](https://assets.claude.com/7ef12b4f58f26b511f7bc69fbc6c583b926c2022.svg?w=128&fit=max&auto=format)
+
+### [Salesforce - Beta](https://claude.com/marketplace/connectors/salesforce-headless-360)
+
+Sell, serve, and operate at scale with Salesforce.
+
+[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")

@@ -61,14 +61,6 @@ Research the law, analyze dockets and develop case strategy with Clio Library an
 
 [Add Clio in Claude (opens in new tab)](https://claude.ai/directory/456aebd5-3ee4-434a-be3d-1055e5b9c8e5 "Add in Claude")
 
-![](https://filevine-marketing-production-media.s3.amazonaws.com/media/images/alerts/icons/lois-alert-badge.svg)
-
-### [LOIS](https://claude.com/marketplace/connectors/lois)
-
-Ask questions about your Filevine matter documents and get answers grounded in them.
-
-[Add LOIS in Claude (opens in new tab)](https://claude.ai/directory/a644763c-f565-49c6-833d-0bea6a2c68d4 "Add in Claude")
-
 ![](https://assets.claude.com/0ac1d5098007447f019dafd5d1c218e697131c3e.svg?w=128&fit=max&auto=format)
 
 ### [Ironclad Contracts](https://claude.com/marketplace/connectors/ironclad)
@@ -76,3 +68,11 @@ Ask questions about your Filevine matter documents and get answers grounded in t
 Plain language search for faster contract answers and manage your contractual obligations
 
 [Add Ironclad Contracts in Claude (opens in new tab)](https://claude.ai/directory/c5504c7c-d299-4637-a012-29ef1a2354a9 "Add in Claude")
+
+![](https://filevine-marketing-production-media.s3.amazonaws.com/media/images/alerts/icons/lois-alert-badge.svg)
+
+### [LOIS](https://claude.com/marketplace/connectors/lois)
+
+Ask questions about your Filevine matter documents and get answers grounded in them.
+
+[Add LOIS in Claude (opens in new tab)](https://claude.ai/directory/a644763c-f565-49c6-833d-0bea6a2c68d4 "Add in Claude")

@@ -64,10 +64,10 @@ Connect Claude to NetSuite data for analysis & insights
 
 [Add NetSuite in Claude (opens in new tab)](https://claude.ai/directory/d7733f53-723c-477a-a87b-41926580ef7d "Add in Claude")
 
-![](https://sac.schwabinstitutional.com/static/assets/images/cs_logo-04.png)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
-### [Schwab Advisor Services](https://claude.com/marketplace/connectors/schwab-advisor-services)
+### [Intuit QuickBooks](https://claude.com/marketplace/connectors/quickbooks)
 
-Less time searching. More time focused on your clients. For professional use only.
+Business Finances made simple
 
-[Add Schwab Advisor Services in Claude (opens in new tab)](https://claude.ai/directory/135037c6-28e5-43a2-af33-866014d9f449 "Add in Claude")
+[Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")

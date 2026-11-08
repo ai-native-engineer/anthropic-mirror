@@ -19,14 +19,6 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
-![](https://www.tomorrow.io/wp-content/uploads/2023/01/cropped-tm-favicon-new-1-2.png)
-
-### [Tomorrow.io Weather MCP App](https://claude.com/marketplace/connectors/tomorrow-io-weather-mcp-app)
-
-Interactive weather, air quality, pollen, and wildfire-risk widgets powered by Tomorrow.io — live forecasts and conditions for any location, right inside Claude
-
-[Add Tomorrow.io Weather MCP App in Claude (opens in new tab)](https://claude.ai/directory/032fc35c-fdc2-42e0-a5c0-372d52ccb605 "Add in Claude")
-
 ![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
 ### [PubMed](https://claude.com/marketplace/connectors/pubmed)
@@ -42,6 +34,14 @@ Search biomedical literature from PubMed
 Analyze, summarize, and explore your Strava data
 
 [Add Strava in Claude (opens in new tab)](https://claude.ai/directory/135cc9eb-d5aa-4e24-81b0-6e78a3cff862 "Add in Claude")
+
+![](https://www.tomorrow.io/wp-content/uploads/2023/01/cropped-tm-favicon-new-1-2.png)
+
+### [Tomorrow.io Weather MCP App](https://claude.com/marketplace/connectors/tomorrow-io-weather-mcp-app)
+
+Interactive weather, air quality, pollen, and wildfire-risk widgets powered by Tomorrow.io — live forecasts and conditions for any location, right inside Claude
+
+[Add Tomorrow.io Weather MCP App in Claude (opens in new tab)](https://claude.ai/directory/032fc35c-fdc2-42e0-a5c0-372d52ccb605 "Add in Claude")
 
 ![](https://assets.claude.com/2ceed63f77b47ed3a782d750eb83f107b3c5226a.svg?w=128&fit=max&auto=format)
 

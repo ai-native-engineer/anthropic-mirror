@@ -26,47 +26,33 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
-![](https://www.gemini.com/favicon.ico)
+![](https://www.google.com/s2/favicons?domain=getmoneytree.com&sz=96)
 
-### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
-
-Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
-
-[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
-
-![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)
-
-### [BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)
-
-Build, analyze, and compare portfolios for advisors
-
-[Add BlackRock Advisor Center in Claude (opens in new tab)](https://claude.ai/directory/1f085c38-f40c-4079-87ab-1c4dd7ae67dd "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
-
-### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
+### [Moneytree](https://claude.com/marketplace/connectors/moneytree)
 
 Anthropic verifiedTrending
 
-Amazon Selling Partner MCP
+Explore your financial data through conversation
 
-[Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
+[Add Moneytree in Claude (opens in new tab)](https://claude.ai/directory/c1651cc6-b6c5-4c14-98c9-6c268a050844 "Add in Claude")
 
-![](https://resources.swsapp.com/shared/orion.svg)
+![](https://onchaindiligence.com/anthropic-icon.png)
 
-### [Orion](https://claude.com/marketplace/connectors/orion-advisor-solutions)
+### [OnChainDiligence](https://claude.com/marketplace/connectors/onchaindiligence)
 
-Bring Orion Connect portfolio data and Redtail CRM together in Claude — prep for client meetings, capture follow-ups, prioritize your pipeline, and turn reports into talking points.
+Inspect autonomous payments before execution and independently verify evidence afterward.
 
-[Add Orion in Claude (opens in new tab)](https://claude.ai/directory/ae7131fa-f9e7-4f96-b776-b582c7fa09a1 "Add in Claude")
+[Add OnChainDiligence in Claude (opens in new tab)](https://claude.ai/directory/98a20d38-07b8-47ae-8502-bdb282f84352 "Add in Claude")
 
-![](https://assets.claude.com/73fb34c4126e99aa21f0f63e48c061963454ee06.svg?w=128&fit=max&auto=format)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
-### [Addepar MCP](https://claude.com/marketplace/connectors/addepar)
+### [Intuit QuickBooks Labs](https://claude.com/marketplace/connectors/intuit-quickbooks-labs)
 
-Bring Addepar portfolio intelligence into Claude
+Anthropic verifiedTrending
 
-[Add Addepar MCP in Claude (opens in new tab)](https://claude.ai/directory/bc2b011f-5db9-4aef-9df0-fe500264075d "Add in Claude")
+(Beta) Categorize bank transactions, reconcile accounts, send invoices, and run reports with Quickbooks in Claude.
+
+[Add Intuit QuickBooks Labs in Claude (opens in new tab)](https://claude.ai/directory/60b79824-b9a7-4604-92a2-316aead831be "Add in Claude")
 
 ![](https://assets.claude.com/07bae35b38ae52ac6425e5a507288a7bfabc1ffd.jpg?w=128&fit=max&auto=format)
 
@@ -75,3 +61,19 @@ Bring Addepar portfolio intelligence into Claude
 Payment processing and financial infrastructure tools
 
 [Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=netsuite.com&sz=96)
+
+### [NetSuite](https://claude.com/marketplace/connectors/oracle-netsuite)
+
+Connect Claude to NetSuite data for analysis & insights
+
+[Add NetSuite in Claude (opens in new tab)](https://claude.ai/directory/d7733f53-723c-477a-a87b-41926580ef7d "Add in Claude")
+
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
+
+### [Intuit QuickBooks](https://claude.com/marketplace/connectors/quickbooks)
+
+Business Finances made simple
+
+[Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")

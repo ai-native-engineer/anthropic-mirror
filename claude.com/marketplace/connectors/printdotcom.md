@@ -45,14 +45,6 @@ Search, create, autofill, and export Canva designs
 
 [Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-![](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg?w=128&fit=max&auto=format)
-
-### [Figma](https://claude.com/marketplace/connectors/figma)
-
-Generate diagrams and better code from Figma context
-
-[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=picsart.com&sz=96)
 
 ### [Picsart Media Studio](https://claude.com/marketplace/connectors/picsart-media-studio)
@@ -62,6 +54,14 @@ Anthropic verifiedTrending
 Turn your clips and photos into finished videos
 
 [Add Picsart Media Studio in Claude (opens in new tab)](https://claude.ai/directory/4f1ba81e-dd57-416e-a0ec-5a64c13ba74c "Add in Claude")
+
+![](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg?w=128&fit=max&auto=format)
+
+### [Figma](https://claude.com/marketplace/connectors/figma)
+
+Generate diagrams and better code from Figma context
+
+[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
@@ -79,10 +79,10 @@ Build, manage, and analyze your Shopify store
 
 [Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
 
-![](https://www.tomorrow.io/wp-content/uploads/2023/01/cropped-tm-favicon-new-1-2.png)
+![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
 
-### [Tomorrow.io Weather MCP App](https://claude.com/marketplace/connectors/tomorrow-io-weather-mcp-app)
+### [Adobe](https://claude.com/marketplace/connectors/adobe-creativity)
 
-Interactive weather, air quality, pollen, and wildfire-risk widgets powered by Tomorrow.io — live forecasts and conditions for any location, right inside Claude
+Design, combine, and edit with Adobe pro tools
 
-[Add Tomorrow.io Weather MCP App in Claude (opens in new tab)](https://claude.ai/directory/032fc35c-fdc2-42e0-a5c0-372d52ccb605 "Add in Claude")
+[Add Adobe in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")

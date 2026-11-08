@@ -2,7 +2,7 @@
 
 Connector URL`https://mcp.semrush.com/claude/v1/mcp`
 
-More[Documentation (opens in new tab)](https://developer.semrush.com/api/introduction/semrush-mcp/)[Support (opens in new tab)](https://www.semrush.com/company/contacts/)[Privacy policy (opens in new tab)](https://www.semrush.com/company/legal/privacy-policy/)
+More[Documentation (opens in new tab)](https://developer.semrush.com/api/introduction/semrush-mcp/)[Enterprise setup guide (opens in new tab)](https://developer.semrush.com/api/v4/introduction/semrush-mcp/#set-up-enterprise-managed-authorization-for-the-semrush-mcp-connector-in-claude)[Support (opens in new tab)](https://www.semrush.com/company/contacts/)[Privacy policy (opens in new tab)](https://www.semrush.com/company/legal/privacy-policy/)
 
 Semrush gives you access to 28.6B keywords, 808M domain profiles, 142 geo databases, and 43T backlinks: the data behind every SEO, competitor, and market decision worth making. Target the right keywords, audit domains, track competitor performance, close backlink gaps, and fix technical issues. Track paid search moves and catch market shifts early. All in natural language: ask a question, get a structured answer built on real data. Built for SEO analysts, content strategists, marketers, and growth teams.
 
@@ -51,16 +51,6 @@ monday.com project management & CRM for projects, tasks, portfolios, boards, wor
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-![](https://www.gemini.com/favicon.ico)
-
-### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
-
-Anthropic verifiedTrending
-
-Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
-
-[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
-
 ![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 
 ### [Supabase](https://claude.com/marketplace/connectors/supabase)
@@ -68,6 +58,14 @@ Connect AI assistants to live crypto markets, prediction markets, your trading a
 Manage databases, authentication, and storage
 
 [Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
+
+![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
+
+### [Shopify](https://claude.com/marketplace/connectors/shopify)
+
+Build, manage, and analyze your Shopify store
+
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
 
 ![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
 

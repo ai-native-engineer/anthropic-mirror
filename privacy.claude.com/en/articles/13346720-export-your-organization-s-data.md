@@ -2,13 +2,17 @@
 
 # Export your organization's data
 
-June 12, 2026
+Updated this week
 
-Organization data exports are only available to Team and Enterprise plan Primary Owners. Data exports include conversation data and the user data for your account. Individual members of Team and Enterprise organizations do not have a self-serve export option.
+Table of contents
 
-If you're an individual Claude user on a Free, Pro, or Max plan looking to export your data, see **[Export your Claude data](https://privacy.claude.com/en/articles/9450526)**.
+Organization data exports are only available to Team and Enterprise plan Primary Owners. Data exports include conversation data and the user data for your organization. Primary Owners and Owners can also let users export their own data. Learn more in the **[Let users export their own data](#h_68f7c2a1e0)** section below.
+
+If you're an individual Claude user on a Free, Pro, Max, or Ultra plan looking to export your data, see **[Export your Claude data](https://privacy.claude.com/en/articles/9450526)**.
 
 Primary Owners of Team and Enterprise plans can export organization data from **[Organization settings > Data and privacy](https://claude.ai/admin-settings/data-privacy-controls)** on the web app or Claude Desktop.
+
+**Important:** Data exports don’t include the Word, Excel, PowerPoint, or PDF files that Claude creates. Users can download these files from the chat while they’re available. Enterprise organizations using the Compliance API may also be able to retrieve them. Exports also don’t include security center attestation data.
 
 Follow these steps to export your organization's data:
 
@@ -33,8 +37,25 @@ If you're an Enterprise Primary Owner looking to export audit logs, see **[How t
 
 ---
 
+## Let users export their own data
+
+Owners and Primary Owners can let users in your organization export their own chats without exporting the whole organization.
+
+To turn this on:
+
+1. Navigate to **[Organization settings > Data and privacy](https://claude.ai/admin-settings/data-privacy-controls)**.
+2. In the “Data management” section, turn on “Allow members to export their own data."
+
+Once the setting is on, users export their data from **[Settings > Privacy](https://claude.ai/settings/data-privacy-controls)** in Claude on the web or Claude Desktop. Exports aren’t available in Claude for iOS or Claude for Android. Each export covers the user’s own chats and doesn’t include the contents of uploaded files. Learn more about **[exporting your Claude data](https://privacy.claude.com/en/articles/9450526)**.
+
+**Note:** Primary Owners don’t see the personal "Export data" button, even when this setting is on. These roles export the whole organization’s data using the steps above.
+
+---
+
 * [Deleting commercial Anthropic accounts](https://privacy.claude.com/en/articles/7996865-deleting-commercial-anthropic-accounts)
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
 * [Who owns and manages the data of my team?](https://privacy.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)
 * [Export your Claude data](https://privacy.claude.com/en/articles/9450526-export-your-claude-data)
 * [Who owns and manages the data of my Claude for Education account?](https://privacy.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)
+
+Table of contents

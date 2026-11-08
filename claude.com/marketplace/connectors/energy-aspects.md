@@ -27,6 +27,16 @@ Search, read, and upload files instantly
 
 [Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=picsart.com&sz=96)
+
+### [Picsart Media Studio](https://claude.com/marketplace/connectors/picsart-media-studio)
+
+Anthropic verifiedTrending
+
+Turn your clips and photos into finished videos
+
+[Add Picsart Media Studio in Claude (opens in new tab)](https://claude.ai/directory/4f1ba81e-dd57-416e-a0ec-5a64c13ba74c "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
 ### [monday.com](https://claude.com/marketplace/connectors/monday)
@@ -34,16 +44,6 @@ Search, read, and upload files instantly
 monday.com project management & CRM for projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms, dashboards, cross-project portfolio status, and critical paths.
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
-
-![](https://www.gemini.com/favicon.ico)
-
-### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
-
-Anthropic verifiedTrending
-
-Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
-
-[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
 
 ![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 
@@ -61,10 +61,10 @@ Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-![](https://assets.claude.com/47f22a5129fd644c95a682e474b104001065dd42.jpg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/7ef12b4f58f26b511f7bc69fbc6c583b926c2022.svg?w=128&fit=max&auto=format)
 
-### [Zapier](https://claude.com/marketplace/connectors/zapier)
+### [Salesforce - Beta](https://claude.com/marketplace/connectors/salesforce-headless-360)
 
-Automate workflows across thousands of apps via conversation
+Sell, serve, and operate at scale with Salesforce.
 
-[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
+[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")

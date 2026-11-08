@@ -46,16 +46,6 @@ Explore your financial data through conversation
 
 [Add Moneytree in Claude (opens in new tab)](https://claude.ai/directory/c1651cc6-b6c5-4c14-98c9-6c268a050844 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=quizlet.com&sz=96)
-
-### [Quizlet](https://claude.com/marketplace/connectors/quizlet)
-
-Anthropic verifiedTrending
-
-Flashcards, instantly
-
-[Add Quizlet in Claude (opens in new tab)](https://claude.ai/directory/2173a6a5-2a71-4ad3-a9db-a6e5c4a5f993 "Add in Claude")
-
 ![](https://academy.claude.com/favicon.svg)
 
 ### [Claude Academy](https://claude.com/marketplace/connectors/claude-academy)
@@ -81,3 +71,11 @@ Anthropic verifiedTrending
 (Beta) Categorize bank transactions, reconcile accounts, send invoices, and run reports with Quickbooks in Claude.
 
 [Add Intuit QuickBooks Labs in Claude (opens in new tab)](https://claude.ai/directory/60b79824-b9a7-4604-92a2-316aead831be "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=quizlet.com&sz=96)
+
+### [Quizlet](https://claude.com/marketplace/connectors/quizlet)
+
+Flashcards, instantly
+
+[Add Quizlet in Claude (opens in new tab)](https://claude.ai/directory/2173a6a5-2a71-4ad3-a9db-a6e5c4a5f993 "Add in Claude")

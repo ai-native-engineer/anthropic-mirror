@@ -36,9 +36,9 @@ The organization setting is the ceiling. A role can't grant access to a model th
 
 If any custom role uses the model you’re disabling as its default, you’ll be prompted to change that role’s default before the change can be saved.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693921/02ea72756f5163f14e5d158516dc/69102088-cd86-498e-97aa-c8a6e0004419?expires=1790856900&signature=1aee7b6105f33b92d62158b2fa8d1a3cd7f078e9eb9ac5505ad128fce4f80f22&req=diUmEs93nohdWPMW1HO4zXlxE%2BexUtdeQf5Pb7M2Q0vefN7DmS5PVAi2kKdy%0A94%2FmRA%2ByWC046ltFvKc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693921/02ea72756f5163f14e5d158516dc/69102088-cd86-498e-97aa-c8a6e0004419?expires=1790856900&signature=1aee7b6105f33b92d62158b2fa8d1a3cd7f078e9eb9ac5505ad128fce4f80f22&req=diUmEs93nohdWPMW1HO4zXlxE%2BexUtdeQf5Pb7M2Q0vefN7DmS5PVAi2kKdy%0A94%2FmRA%2ByWC046ltFvKc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693921/02ea72756f5163f14e5d158516dc/69102088-cd86-498e-97aa-c8a6e0004419?expires=1794098700&signature=1d8b5f462a51891d4b5d4754ff9000f993a6750a19f35a7a0d263314e5b257a8&req=diUmEs93nohdWPMW1HO4zXlxE%2BO5XtlQQf5Pb7M2Q0vbyL37G0abiGqzhv9a%0A1LU2%2FoZQzNyxviY5Z7o%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693921/02ea72756f5163f14e5d158516dc/69102088-cd86-498e-97aa-c8a6e0004419?expires=1794098700&signature=1d8b5f462a51891d4b5d4754ff9000f993a6750a19f35a7a0d263314e5b257a8&req=diUmEs93nohdWPMW1HO4zXlxE%2BO5XtlQQf5Pb7M2Q0vbyL37G0abiGqzhv9a%0A1LU2%2FoZQzNyxviY5Z7o%3D%0A)
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693922/bfc5de6626eb19dca1d7caf818ca/c3cd8bb6-f86c-4d01-92da-6ae4ca966662?expires=1790856900&signature=54e3833ed5cbd8f3041b5d4dbd842a95519aea8f1f437691b64646bcde2a982a&req=diUmEs93nohdW%2FMW1HO4zTqNsInNQ15eAod9uc510lwHSVqFjMS0dNKBlAsZ%0AO210rZoCu%2F7AjSNnby8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693922/bfc5de6626eb19dca1d7caf818ca/c3cd8bb6-f86c-4d01-92da-6ae4ca966662?expires=1790856900&signature=54e3833ed5cbd8f3041b5d4dbd842a95519aea8f1f437691b64646bcde2a982a&req=diUmEs93nohdW%2FMW1HO4zTqNsInNQ15eAod9uc510lwHSVqFjMS0dNKBlAsZ%0AO210rZoCu%2F7AjSNnby8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693922/bfc5de6626eb19dca1d7caf818ca/c3cd8bb6-f86c-4d01-92da-6ae4ca966662?expires=1794098700&signature=e04cbccad78bf279566c5199719989cd0b13c6865072cdeeec75c3d31ea65d04&req=diUmEs93nohdW%2FMW1HO4zTqNsI3FT1BQAod9uc510lw1T0xqd4dwCw2%2B3XjQ%0AEsN5kqJDXXEv4huC%2BIY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693922/bfc5de6626eb19dca1d7caf818ca/c3cd8bb6-f86c-4d01-92da-6ae4ca966662?expires=1794098700&signature=e04cbccad78bf279566c5199719989cd0b13c6865072cdeeec75c3d31ea65d04&req=diUmEs93nohdW%2FMW1HO4zTqNsI3FT1BQAod9uc510lw1T0xqd4dwCw2%2B3XjQ%0AEsN5kqJDXXEv4huC%2BIY%3D%0A)
 
 ---
 
@@ -65,7 +65,7 @@ If any custom role has an effort cap higher than the new organization cap for th
 
 Only models the role grants access to can be selected as that role’s default model.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693923/880665a87dbd4776cf19d6063a37/29d30c6d-f9fc-408c-8c72-4320c6d88d14?expires=1790856900&signature=2c7cb3dd4a2b58c8d57f4bcee925f2d15830e8aea90867c6842d9b5727bab4d4&req=diUmEs93nohdWvMW1HO4zYj9SPUL6Ie0XsqpNqvyFRJ%2FpjhMeXhd3eXL9AA4%0Aqry5L9JvenLcysmHzwM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693923/880665a87dbd4776cf19d6063a37/29d30c6d-f9fc-408c-8c72-4320c6d88d14?expires=1790856900&signature=2c7cb3dd4a2b58c8d57f4bcee925f2d15830e8aea90867c6842d9b5727bab4d4&req=diUmEs93nohdWvMW1HO4zYj9SPUL6Ie0XsqpNqvyFRJ%2FpjhMeXhd3eXL9AA4%0Aqry5L9JvenLcysmHzwM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693923/880665a87dbd4776cf19d6063a37/29d30c6d-f9fc-408c-8c72-4320c6d88d14?expires=1794098700&signature=1639f2a7b9dc774412cccb34a9ac815d7e721486f77904568eaea77e3598e5d8&req=diUmEs93nohdWvMW1HO4zYj9SPED5Im6XsqpNqvyFRJgtN36pXcai7GnHuTX%0A5W9EwxZaJ8ClhCykVAk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693923/880665a87dbd4776cf19d6063a37/29d30c6d-f9fc-408c-8c72-4320c6d88d14?expires=1794098700&signature=1639f2a7b9dc774412cccb34a9ac815d7e721486f77904568eaea77e3598e5d8&req=diUmEs93nohdWvMW1HO4zYj9SPED5Im6XsqpNqvyFRJgtN36pXcai7GnHuTX%0A5W9EwxZaJ8ClhCykVAk%3D%0A)
 
 ---
 
@@ -79,7 +79,7 @@ Effort limits determine how much computation members on a role can apply per res
 4. Next to a model, click the gear icon and choose a level.
 5. Click "Save" to save your changes.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693927/7a25673b3b075d72adb3cdc371e3/d2d7cd8d-a713-4e91-a706-f589ac46a9fe?expires=1790856900&signature=011e1072777d78b4600a77263f721400b76de3a38c77d54885673a27e2047cd4&req=diUmEs93nohdXvMW1HO4ze1xBzO0dr8QDeA1RkowXUG5QaR0fjk6uyn6pqhp%0AULHpGOTu0pnlFEY6CsY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693927/7a25673b3b075d72adb3cdc371e3/d2d7cd8d-a713-4e91-a706-f589ac46a9fe?expires=1790856900&signature=011e1072777d78b4600a77263f721400b76de3a38c77d54885673a27e2047cd4&req=diUmEs93nohdXvMW1HO4ze1xBzO0dr8QDeA1RkowXUG5QaR0fjk6uyn6pqhp%0AULHpGOTu0pnlFEY6CsY%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693927/7a25673b3b075d72adb3cdc371e3/d2d7cd8d-a713-4e91-a706-f589ac46a9fe?expires=1794098700&signature=a4f73a43322b886d07819f6d947a30d1d7b35414a300e2688ecc974d2f525c44&req=diUmEs93nohdXvMW1HO4ze1xBze8erEeDeA1RkowXUF9eTyjdmR2wVhigM39%0ACkvnn0ot7m%2F6BT2oYXA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693927/7a25673b3b075d72adb3cdc371e3/d2d7cd8d-a713-4e91-a706-f589ac46a9fe?expires=1794098700&signature=a4f73a43322b886d07819f6d947a30d1d7b35414a300e2688ecc974d2f525c44&req=diUmEs93nohdXvMW1HO4ze1xBze8erEeDeA1RkowXUF9eTyjdmR2wVhigM39%0ACkvnn0ot7m%2F6BT2oYXA%3D%0A)
 
 Members on the role see only effort levels at or below the cap in their model menu. Note that available effort levels differ depending on the model, and some models don’t support effort level settings at all. For an explanation of each level, see **[Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678)**.
 
@@ -117,7 +117,7 @@ Model access settings are enforced across these products:
 | **Product** | **Model access settings apply** |
 | Chat (web, desktop, mobile) | ✅ |
 | Claude Cowork | ✅ |
-| Claude Code (CLI, remote, desktop) | ✅ CLI version 2.1.199 or later |
+| Claude Code (terminal, cloud sessions, desktop) | ✅ CLI version 2.1.199 or later |
 | Claude for Microsoft 365 | ✅ |
 | Claude Tag | ✅ |
 | Claude Design | ✅ |
@@ -130,10 +130,10 @@ Model access settings are enforced across these products:
 
 If your organization also configures Claude Code through `managed-settings.json`, the `availableModels` setting and model access work together. In Claude Code CLI and IDE, members see only models that appear in `availableModels` *and* are enabled by their model access settings—a model removed by either one is unavailable.
 
-Managed settings for models apply only to Claude Code CLI and IDE, not to Claude Code on web or desktop. For consistent behavior across all Claude Code surfaces, we recommend using model access settings alone. For more on managed settings, see **[Claude Code settings](https://code.claude.com/docs/en/settings#settings-files)**.
+Managed settings for models apply only to local Claude Code sessions in your terminal or IDE, not to cloud sessions or to Claude Code in Claude Desktop. For consistent behavior across all Claude Code surfaces, we recommend using model access settings alone. For more on managed settings, see **[Claude Code settings](https://code.claude.com/docs/en/settings#settings-files)**.
 
-* [Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)
 * [Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)
 * [Set up role-based permissions on Enterprise plans](https://support.claude.com/en/articles/13930458-set-up-role-based-permissions-on-enterprise-plans)
 * [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)
 * [Set a default model for your organization](https://support.claude.com/en/articles/15330088-set-a-default-model-for-your-organization)
+* [Set up and manage the new unified Claude experience for your Enterprise organization](https://support.claude.com/en/articles/17444462-set-up-and-manage-the-new-unified-claude-experience-for-your-enterprise-organization)

@@ -18,7 +18,7 @@ Your organization's billing address determines where your invoices are sent. You
 
 If you want to use a name other than the one tied to your payment method, an organization Owner should check the "Use a different name on invoices" box when adding or updating your payment method in **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1794042000&signature=9f2a61a959801fa64b411b8bea58dff9ffef42499a4707d6ef6866c2981b0d13&req=dSklFMh6mINaWvMW1HO4zRZTxV7Bv8nTKAqLF4ERnlXvkYl8%2B6aYiR7gOXH%2B%0A4PVEC2xuzU%2FAnL4heK4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1794042000&signature=9f2a61a959801fa64b411b8bea58dff9ffef42499a4707d6ef6866c2981b0d13&req=dSklFMh6mINaWvMW1HO4zRZTxV7Bv8nTKAqLF4ERnlXvkYl8%2B6aYiR7gOXH%2B%0A4PVEC2xuzU%2FAnL4heK4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1794098700&signature=f7fef1c8ba6905e82df4c24b78c68e149466ece404ec5fe9a3528482b40dc820&req=dSklFMh6mINaWvMW1HO4zRZTxV7BssPUKAqLF4ERnlXEvf%2BOuWVOxkIp5Qil%0ARl%2Fu0OulefXN9M3uFlk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1794098700&signature=f7fef1c8ba6905e82df4c24b78c68e149466ece404ec5fe9a3528482b40dc820&req=dSklFMh6mINaWvMW1HO4zRZTxV7BssPUKAqLF4ERnlXEvf%2BOuWVOxkIp5Qil%0ARl%2Fu0OulefXN9M3uFlk%3D%0A)
 
 ## When will I be billed?
 

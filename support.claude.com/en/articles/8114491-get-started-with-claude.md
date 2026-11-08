@@ -33,7 +33,7 @@ You use **prompts** to communicate with Claude. The best approach is to speak to
 
 Type your prompt into the chat interface and click the submit button to start a conversation with Claude. You can click the "+" button in the lower left or type "/" to view additional options and commands:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1790856900&signature=ca7665f5d0081c574faf3bacab70715cfde2a3c013988cbc101c3d32fd454e05&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7C%2FCsYGI9crMELaMZPyq27mZapUZnSS6wKS1%0ANB09qOK9GOJLh5wq64Q%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1790856900&signature=ca7665f5d0081c574faf3bacab70715cfde2a3c013988cbc101c3d32fd454e05&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7C%2FCsYGI9crMELaMZPyq27mZapUZnSS6wKS1%0ANB09qOK9GOJLh5wq64Q%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1794098700&signature=761e57bcee9eed2f76ffc4cc3f9fa705f5fa8f337f550f829040ef48d291935b&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7CvKvY%2BG9crMELaMZPx%2B9xJQ2WIogkl2wUom%0AUutZtH2EveOFGfk8M3I%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1794098700&signature=761e57bcee9eed2f76ffc4cc3f9fa705f5fa8f337f550f829040ef48d291935b&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7CvKvY%2BG9crMELaMZPx%2B9xJQ2WIogkl2wUom%0AUutZtH2EveOFGfk8M3I%3D%0A)
 
 ---
 
@@ -63,7 +63,7 @@ We also have several paid subscriptions that offer additional usage. For more in
 
 ### Can I import my conversation history from another AI provider?
 
-No, it's not possible to import conversation history from another AI provider into Claude at this time. However, Free, Pro, and Max users can use the memory import feature to transfer memory from other AI providers into Claude. For more information, see **[Import and export your memory from Claude](https://support.claude.com/en/articles/12123587-import-and-export-your-memory-from-claude)**.
+No, it's not possible to import conversation history from another AI provider into Claude at this time. However, Free, Pro, Max, and Ultra users can use the memory import feature to transfer memory from other AI providers into Claude. For more information, see **[Import and export your memory from Claude](https://support.claude.com/en/articles/12123587-import-and-export-your-memory-from-claude)**.
 
 ---
 
@@ -85,8 +85,8 @@ Once you've started using Claude, you can:
 * Learn more about designing effective prompts in our **[prompt engineering documentation](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview)**.
 * For additional features and more usage, consider **[upgrading to a paid plan](https://claude.com/pricing)**.
 
+* [Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)
 * [Use Claude for Education at your university](https://support.claude.com/en/articles/11139144-use-claude-for-education-at-your-university)
-* [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
-* [Get started with Claude Design](https://support.claude.com/en/articles/14604416-get-started-with-claude-design)
-* [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)
+* [Get started with Claude Motion](https://support.claude.com/en/articles/17454997-get-started-with-claude-motion)
+* [Get started with Claude Duet](https://support.claude.com/en/articles/17631495-get-started-with-claude-duet)

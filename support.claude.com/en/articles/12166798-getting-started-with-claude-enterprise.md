@@ -18,7 +18,7 @@ If you're responsible for rolling out Claude to your organization, you may also 
 
 ## Additional support
 
-Anthropic has services partners (advisory, training, change management, MCP development) available who can help provide additional support. If you'd like to discuss further, please submit [this interest form](https://forms.gle/ubnR5f7q5E71ECR79). For requests to connect with our Sales team, please contact [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#2053414c455360414e5448524f5049430e434f4d)
+Anthropic has services partners (advisory, training, change management, MCP development) available who can help provide additional support. If you'd like to discuss further, please submit [this interest form](https://forms.gle/ubnR5f7q5E71ECR79). For requests to connect with our Sales team, please contact [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#6e1d0f020b1d2e0f001a061c011e070d400d0103)
 
 ​
 

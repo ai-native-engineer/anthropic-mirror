@@ -5,7 +5,7 @@ Customer must meet and maintain the following security requirements for each Cyb
 ## 1. All Access Levels.
 
 1. **Security Contact.** Customer must provide Anthropic with a named security contact who may receive security and misuse alerts and is able to act on them.
-2. **Incident Reporting.** Customer must report suspected breaches or misuse involving the grant to Anthropic within 72 hours, or within 24 hours for a security incident. Reporting can be done at [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#afdccaccdaddc6dbd6efcec1dbc7ddc0dfc6cc81ccc0c2) or your Account team contact.
+2. **Incident Reporting.** Customer must report suspected breaches or misuse involving the grant to Anthropic within 72 hours, or within 24 hours for a security incident. Reporting can be done at [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#c6b5a3a5b3b4afb2bf86a7a8b2aeb4a9b6afa5e8a5a9ab) or your Account team contact.
 3. **Cooperation.** Customer must investigate any abuse that Anthropic identifies within 48 hours, work with Anthropic to remediate it, and respond to misuse inquiries within seven (7) days.
 4. **Personal Access.** Each Approved User must sign in as themselves. Shared sign-ins, seats, sessions, and workload identities, and browser extensions or proxy tools that expose a session to other people that are not explicitly an Approved User meeting all the requirements below, are not permitted.
 5. **Usage Attribution.** User profiles must remain enabled on the Granted Workspace so that requests can be attributed to a named user or workload identity.

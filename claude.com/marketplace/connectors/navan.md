@@ -57,14 +57,6 @@ Inspect autonomous payments before execution and independently verify evidence a
 
 [Add OnChainDiligence in Claude (opens in new tab)](https://claude.ai/directory/98a20d38-07b8-47ae-8502-bdb282f84352 "Add in Claude")
 
-![](https://www.tomorrow.io/wp-content/uploads/2023/01/cropped-tm-favicon-new-1-2.png)
-
-### [Tomorrow.io Weather MCP App](https://claude.com/marketplace/connectors/tomorrow-io-weather-mcp-app)
-
-Interactive weather, air quality, pollen, and wildfire-risk widgets powered by Tomorrow.io — live forecasts and conditions for any location, right inside Claude
-
-[Add Tomorrow.io Weather MCP App in Claude (opens in new tab)](https://claude.ai/directory/032fc35c-fdc2-42e0-a5c0-372d52ccb605 "Add in Claude")
-
 ![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
 ### [Intuit QuickBooks Labs](https://claude.com/marketplace/connectors/intuit-quickbooks-labs)
@@ -74,6 +66,14 @@ Anthropic verifiedTrending
 (Beta) Categorize bank transactions, reconcile accounts, send invoices, and run reports with Quickbooks in Claude.
 
 [Add Intuit QuickBooks Labs in Claude (opens in new tab)](https://claude.ai/directory/60b79824-b9a7-4604-92a2-316aead831be "Add in Claude")
+
+![](https://www.tomorrow.io/wp-content/uploads/2023/01/cropped-tm-favicon-new-1-2.png)
+
+### [Tomorrow.io Weather MCP App](https://claude.com/marketplace/connectors/tomorrow-io-weather-mcp-app)
+
+Interactive weather, air quality, pollen, and wildfire-risk widgets powered by Tomorrow.io — live forecasts and conditions for any location, right inside Claude
+
+[Add Tomorrow.io Weather MCP App in Claude (opens in new tab)](https://claude.ai/directory/032fc35c-fdc2-42e0-a5c0-372d52ccb605 "Add in Claude")
 
 ![](https://assets.claude.com/07bae35b38ae52ac6425e5a507288a7bfabc1ffd.jpg?w=128&fit=max&auto=format)
 

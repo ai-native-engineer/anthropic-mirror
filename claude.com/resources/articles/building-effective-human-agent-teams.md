@@ -170,5 +170,3 @@ Security teams at Comcast and Booz Allen used Claude Mythos-class models through
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
 
 Please provide your email address if you'd like to receive our monthly developer newsletter. You can unsubscribe at any time.
-
-Lessons from Anthropic on building effective human-agent teams | Claude by Anthropic

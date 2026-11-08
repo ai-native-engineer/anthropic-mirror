@@ -74,10 +74,10 @@ Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-![](https://www.tomorrow.io/wp-content/uploads/2023/01/cropped-tm-favicon-new-1-2.png)
+![](https://assets.claude.com/7ef12b4f58f26b511f7bc69fbc6c583b926c2022.svg?w=128&fit=max&auto=format)
 
-### [Tomorrow.io Weather MCP App](https://claude.com/marketplace/connectors/tomorrow-io-weather-mcp-app)
+### [Salesforce - Beta](https://claude.com/marketplace/connectors/salesforce-headless-360)
 
-Interactive weather, air quality, pollen, and wildfire-risk widgets powered by Tomorrow.io — live forecasts and conditions for any location, right inside Claude
+Sell, serve, and operate at scale with Salesforce.
 
-[Add Tomorrow.io Weather MCP App in Claude (opens in new tab)](https://claude.ai/directory/032fc35c-fdc2-42e0-a5c0-372d52ccb605 "Add in Claude")
+[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")

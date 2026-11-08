@@ -33,7 +33,7 @@ The 8am MyCase MCP is 8am's official connector bringing MyCase practice manageme
 * get\_note
 * get\_people\_group
 
-Show all 73 tools
+Show all 75 tools
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
@@ -47,7 +47,7 @@ Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-![](https://raw.githubusercontent.com/dropbox/dropbox-ai-plugins/refs/heads/main/codex/assets/logo-light.png)
+![](https://raw.githubusercontent.com/dropbox/dropbox-ai-plugins/refs/heads/main/claude/assets/logo.png)
 
 ### [Dropbox](https://claude.com/marketplace/connectors/dropbox)
 
@@ -63,28 +63,28 @@ Intelligent, secure contract management by Docusign
 
 [Add Docusign in Claude (opens in new tab)](https://claude.ai/directory/a876b642-2b05-4808-a565-deeb271802fd "Add in Claude")
 
-![](https://app.paxton.ai/images/paxton-favicon.png)
+![](https://www.clio.com/favicons/production-apple-touch-icon.png)
 
-### [Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)
+### [Clio](https://claude.com/marketplace/connectors/clio)
 
 Anthropic verifiedTrending
 
-Research U.S. law in Claude—with citations you can open and verify.
+Research the law, analyze dockets and develop case strategy with Clio Library and Clio Docket, with citations back to the sources.
 
-[Add Paxton Legal Research in Claude (opens in new tab)](https://claude.ai/directory/4285c08a-451c-46e7-a320-7ccc0d6447b1 "Add in Claude")
+[Add Clio in Claude (opens in new tab)](https://claude.ai/directory/456aebd5-3ee4-434a-be3d-1055e5b9c8e5 "Add in Claude")
 
-![](https://bookface-images.s3.amazonaws.com/small_logos/f848e072de817e8a37aeb1ad8a912f9e2f5d9c52.png)
+![](https://assets.claude.com/0ac1d5098007447f019dafd5d1c218e697131c3e.svg?w=128&fit=max&auto=format)
 
-### [PointOne](https://claude.com/marketplace/connectors/pointone)
+### [Ironclad Contracts](https://claude.com/marketplace/connectors/ironclad)
 
-Timekeeping and firm intelligence
+Plain language search for faster contract answers and manage your contractual obligations
 
-[Add PointOne in Claude (opens in new tab)](https://claude.ai/directory/08c6eea4-6ecb-4e0e-8487-97eed2241965 "Add in Claude")
+[Add Ironclad Contracts in Claude (opens in new tab)](https://claude.ai/directory/c5504c7c-d299-4637-a012-29ef1a2354a9 "Add in Claude")
 
-![](https://cdn.prod.website-files.com/69d3ac38e8e442c9fce520b4/6a0742ee5d1bde6d18668e0b_Frame.png)
+![](https://filevine-marketing-production-media.s3.amazonaws.com/media/images/alerts/icons/lois-alert-badge.svg)
 
-### [General Legal](https://claude.com/marketplace/connectors/general-legal)
+### [LOIS](https://claude.com/marketplace/connectors/lois)
 
-Submit contracts for attorney review, answer their questions, and get redlined documents back — without leaving Claude.
+Ask questions about your Filevine matter documents and get answers grounded in them.
 
-[Add General Legal in Claude (opens in new tab)](https://claude.ai/directory/dba73da3-6015-4b3e-8acc-0ff38e2c511b "Add in Claude")
+[Add LOIS in Claude (opens in new tab)](https://claude.ai/directory/a644763c-f565-49c6-833d-0bea6a2c68d4 "Add in Claude")

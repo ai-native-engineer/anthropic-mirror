@@ -21,6 +21,9 @@ Requires an active account.
 * cna-news-qsearch
 * cna-news-single
 * cna-photo-search
+* cna-video-news-search
+* cna-newscast-search
+* cna-video-footage-search
 * cna-translation-lookup
 * cna-word-map
 * fact-check-guide
@@ -52,15 +55,15 @@ Search, create, autofill, and export Canva designs
 
 [Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-![](https://www.gemini.com/favicon.ico)
+![](https://www.google.com/s2/favicons?domain=picsart.com&sz=96)
 
-### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
+### [Picsart Media Studio](https://claude.com/marketplace/connectors/picsart-media-studio)
 
 Anthropic verifiedTrending
 
-Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
+Turn your clips and photos into finished videos
 
-[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
+[Add Picsart Media Studio in Claude (opens in new tab)](https://claude.ai/directory/4f1ba81e-dd57-416e-a0ec-5a64c13ba74c "Add in Claude")
 
 ![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 
@@ -78,10 +81,10 @@ Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-![](https://assets.claude.com/47f22a5129fd644c95a682e474b104001065dd42.jpg?w=128&fit=max&auto=format)
+![](https://academy.claude.com/favicon.svg)
 
-### [Zapier](https://claude.com/marketplace/connectors/zapier)
+### [Claude Academy](https://claude.com/marketplace/connectors/claude-academy)
 
-Automate workflows across thousands of apps via conversation
+Search and read Claude Academy courses and tutorials
 
-[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
+[Add Claude Academy in Claude (opens in new tab)](https://claude.ai/directory/3a7c3660-f7a6-4274-8ecd-8b6337a77cd1 "Add in Claude")

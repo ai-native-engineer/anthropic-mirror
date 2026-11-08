@@ -2,7 +2,7 @@
 
 # Data retention practices for Covered Models
 
-Updated over 3 weeks ago
+Updated over a week ago
 
 Table of contents
 
@@ -14,7 +14,7 @@ This policy, described below, goes into effect on June 9, 2026.
 
 ## Who this applies to
 
-Consumer plans (Claude Free, Pro, and Max) across our web, desktop, and mobile apps—including Claude.ai and Claude Code—are unaffected by this update, since we already retain inputs and outputs on these surfaces. Learn more about **[how we retain data](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data)** for consumer plans.
+Consumer plans (Claude Free, Pro, Max, and Ultra) across our web, desktop, and mobile apps—including Claude.ai and Claude Code—are unaffected by this update, since we already retain inputs and outputs on these surfaces. Learn more about **[how we retain data](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data)** for consumer plans.
 
 This change only applies to organizations that have set up workspaces with **[zero data retention](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)** (ZDR) in Claude Console, use Claude Code with ZDR in Claude Enterprise, or access Claude through AWS Bedrock, Google Cloud Agent Platform, or Microsoft Foundry with ZDR. Some of these organizations will receive notice that they are eligible to use Fable with ZDR, as described here: **[Zero data retention and Enterprise Frontier Safeguards](https://support.claude.com/en/articles/15425695-covered-models#h_077fc48764)**. The rest of this article applies only to the organizations with zero data retention and did not receive this notice.
 
@@ -34,7 +34,7 @@ This change only applies to organizations that have set up workspaces with zero 
 
 ### If your developers use the Claude API
 
-* **Directly from Anthropic through Claude Platform:** Turn on retention for the workspaces where you want to use covered models in the developer console (**Workspace > Manage > Privacy Controls**). Your other ZDR-enabled workspaces keep ZDR. Learn how to **[turn on data retention for a Workspace in a zero data retention organization](https://support.claude.com/en/articles/16824617-turn-on-data-retention-for-a-workspace-in-a-zero-data-retention-organization)**, or refer to the **[Anthropic Trust Center for additional documentation](https://trust.anthropic.com/)**.
+* **Directly from Anthropic through Claude Platform:** Turn on retention for the workspaces where you want to use covered models in the Claude Console: go to the **Data retention** page (platform.claude.com/settings/privacy) and select the workspace from the dropdown menu at the top of the page. Your other ZDR-enabled workspaces keep ZDR. Learn how to **[turn on data retention for a Workspace in a zero data retention organization](https://support.claude.com/en/articles/16824617-turn-on-data-retention-for-a-workspace-in-a-zero-data-retention-organization)**, or refer to the **[Anthropic Trust Center for additional documentation](https://trust.anthropic.com/)**.
 * **Through Claude Platform on AWS:** Retention works the same way as the direct Claude API. It's configured at the workspace level, and retained data is handled by Anthropic under the same controls.
 * **Through Amazon Bedrock:** Retention will need to be enabled to access covered models, and retained data stays in AWS. Refer to AWS Bedrock’s **[documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/data-retention.html)**.
 * **Through Google Cloud's Agent Platform:** Retention will need to be enabled to access covered models, and retained data stays in GCP. Refer to Google Cloud's Agent Platform **[documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5)**.
@@ -53,9 +53,9 @@ This change only applies to organizations that have set up workspaces with zero 
 ---
 
 * [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
-* [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
 * [Business Associate Agreements (BAA) for Commercial Customers](https://privacy.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [I have a zero data retention agreement with Anthropic. What products does it apply to?](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)
 * [How long do you store my data?](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data)
+* [Configure custom data retention controls for Enterprise plans](https://privacy.claude.com/en/articles/10440198-configure-custom-data-retention-controls-for-enterprise-plans)
 
 Table of contents

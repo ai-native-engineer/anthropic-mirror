@@ -1,14 +1,14 @@
 <!-- source: https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork -->
 
-**Note:** Claude Cowork is now just Claude. Ask for what you need, and Claude decides whether that's a quick answer or a task. This is rolling out gradually to Pro and Max plans, with more plans to follow. If you're on a Pro or Max plan and your message box no longer shows "Chat" and "Cowork" options, you have the new experience, and some steps in this article may look different. Learn more in **[Claude Cowork and chat are one Claude](https://support.claude.com/en/articles/16761823)**, or read our **[blog post](https://claude.com/blog/cowork-is-now-claude)**.
-
 Claude Cowork gives you one continuous conversation with Claude that you can reach from your phone or your desktop. With Dispatch, you can message Claude from your phone and have it work on your desktop computer, using your local files, connectors, plugins, and apps, then come back to the finished work.
-
-**Note:** Dispatch isn't available to new users. If you already use Dispatch, you can keep using it for now, and this article still applies.
 
 Dispatch runs your tasks on your desktop, so your computer needs to be awake and the Claude Desktop app open while Claude works. This is different from a cloud session, which runs on Anthropic's servers and keeps working even when your computer is off. For where Cowork runs on each surface, see **[Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349)**.
 
-This capability is in limited beta for Pro and Max plans on Claude Cowork, and it requires both the Claude Desktop app and the Claude mobile app. Dispatch is only available for some Pro and Max plans, so if you don't see Dispatch in the Cowork side panel, you should **[use Cowork in the cloud](https://support.claude.com/en/articles/15520349)** instead of the pairing flow described here.
+## Availability
+
+Dispatch is in limited beta on some Pro, Max, and Ultra plans, and it isn't available to new users. If you already use Dispatch, you can keep using it for now, and this article still applies. It requires both the Claude Desktop app and the Claude mobile app. If you don't see Dispatch in the Cowork side panel, use Cowork in the cloud instead of the pairing flow described here.
+
+The new Claude experience, which combines chat and Cowork, is rolling out to Pro, Max, and Ultra plans. On Team plans (in beta) and Enterprise plans, it's available where **Chat and Cowork unified** is turned on. If your message box no longer shows "Chat" and "Cowork" options, you have the new experience, and some steps in this article may look different. Learn more in **[Claude Cowork and chat are one Claude](https://support.claude.com/en/articles/16761823)**.
 
 ---
 
@@ -16,9 +16,9 @@ This capability is in limited beta for Pro and Max plans on Claude Cowork, and i
 
 To use this capability, you need:
 
-* The most recent version of the **Claude Desktop app** installed and running on your computer (macOS, Windows x64, or Linux). Your computer must be awake and the app must be open for Claude to work on tasks. Download or update at **[claude.com/download](http://claude.com/download)**.
+* The most recent version of the **Claude Desktop app** installed and running on your computer (macOS, Windows x64, or Linux). Your computer must be awake and the app must be open for Claude to work on tasks. Download or update at **[claude.com/download](https://claude.com/download)**.
 * The most recent version of the **Claude mobile app** installed on your phone. Existing mobile app users will need to update to the latest version before using this capability.
-* **A Pro or Max plan**.
+* **A Pro, Max, or Ultra plan**.
 * **An active internet connection** on both devices.
 
 ---
@@ -45,10 +45,10 @@ Follow these steps to get started:
 4. Click “Dispatch” on the left side panel.
 5. You’ll land on a page describing the functionality. Click “Get started”:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1790856900&signature=280a329ebde19c945cd67d344609e945c2e286d02e7d96c05f09549f990c478e&req=diEhH8B7mYFXX%2FMW1HO4zSZP05KDEAj2B32drIe5EDmOf14aLfturC1zp9L7%0ADA57%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1790856900&signature=280a329ebde19c945cd67d344609e945c2e286d02e7d96c05f09549f990c478e&req=diEhH8B7mYFXX%2FMW1HO4zSZP05KDEAj2B32drIe5EDmOf14aLfturC1zp9L7%0ADA57%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1794098700&signature=b89cfaf2461f60d7a2cf89b0f7a6e3e5c97e90d9ca759743519564a174d7a5e7&req=diEhH8B7mYFXX%2FMW1HO4zSZP05aLHAb4B32drIe5EDmUNPwI0gRIBoNGGNLQ%0AdU%2Bv%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1794098700&signature=b89cfaf2461f60d7a2cf89b0f7a6e3e5c97e90d9ca759743519564a174d7a5e7&req=diEhH8B7mYFXX%2FMW1HO4zSZP05aLHAb4B32drIe5EDmUNPwI0gRIBoNGGNLQ%0AdU%2Bv%0A)
 6. On the next screen, you can give Claude access to your files and keep your computer awake by toggling those on:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1790856900&signature=85cfc40f5e4fb96f7ad130274822aaaa06b5cd30f7db51c1a10c98217f3e473d&req=diEhH8B7mIFXW%2FMW1HO4zaZWstqQWAcXepuGRb1rD3KMwYEzggCCgFXkxGTa%0AR3KD%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1790856900&signature=85cfc40f5e4fb96f7ad130274822aaaa06b5cd30f7db51c1a10c98217f3e473d&req=diEhH8B7mIFXW%2FMW1HO4zaZWstqQWAcXepuGRb1rD3KMwYEzggCCgFXkxGTa%0AR3KD%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1794098700&signature=06102f7661f598c5820fd5247b74c12cd03f987a5d780653b5aff536d2ec5804&req=diEhH8B7mIFXW%2FMW1HO4zaZWst6YVAkZepuGRb1rD3IIXktquqNoOGzzZYi9%0AlMEU%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1794098700&signature=06102f7661f598c5820fd5247b74c12cd03f987a5d780653b5aff536d2ec5804&req=diEhH8B7mIFXW%2FMW1HO4zaZWst6YVAkZepuGRb1rD3IIXktquqNoOGzzZYi9%0AlMEU%0A)
 7. Click “Finish setup.”
 8. Start messaging Claude within the “Dispatch” section.
 
@@ -77,7 +77,7 @@ Claude remembers what you've worked on and learns how you work. Context carries 
 
 You control what Claude remembers. You can view, edit, and delete your memory at any time.
 
-### Scheduled tasks and routines
+### Scheduled tasks
 
 You can set up tasks that Claude runs automatically on a schedule. Tell Claude once to check your email every morning, pull your metrics every week, or compile a Friday report, and it handles it from there without being asked again.
 
@@ -122,5 +122,5 @@ The following limitations apply:
 
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
-* [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
+* [Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork)
 * [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

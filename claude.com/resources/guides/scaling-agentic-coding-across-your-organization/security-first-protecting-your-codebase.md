@@ -49,5 +49,3 @@ Organizations can use agentic coding tools themselves as security reviewers. Thi
 **Collaborative security education:** Let Claude Code explain security issues in developer-friendly terms, turning each security review into a learning opportunity rather than just a compliance checkpoint.
 
 With these best practices in place, Claude Code can help improve your security posture and accelerate code auditing and reviews.
-
-Security first: protecting your codebase - Scaling agentic coding across your organization | Claude by Anthropic

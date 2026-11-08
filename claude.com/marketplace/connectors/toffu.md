@@ -73,10 +73,10 @@ Build, manage, and analyze your Shopify store
 
 [Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
 
-![](https://cdn.bfldr.com/ENSXS21L/at/f5h33bhb29nhpm6963gngs66/webex-3d-symbol-color.png?format=png)
+![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
 
-### [Webex for Claude](https://claude.com/marketplace/connectors/webex-suite)
+### [Box](https://claude.com/marketplace/connectors/box)
 
-Access your Webex meetings, messaging, and Vidcast content securely in Claude.
+Search, edit and get insights on your Box content
 
-[Add Webex for Claude in Claude (opens in new tab)](https://claude.ai/directory/d044bab2-de8d-438e-9333-de76d1a8304a "Add in Claude")
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")

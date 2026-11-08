@@ -6,7 +6,7 @@ More[Documentation (opens in new tab)](https://amass.tech/mcp)[Support (opens in
 
 \*\*The biomedical intelligence layer for AI\*\*
 
-Search and reason across 60M+ cross-linked life science records — including peer-reviewed publications, clinical trials, drugs, genes, regulatory approvals, and patents — from a single connector.
+Search and reason across 60M+ cross-linked life science records — including peer-reviewed publications, conferences, clinical trials, drugs, genes, regulatory approvals, and patents — from a single connector.
 
 Instead of searching individual databases, Amass gives Claude access to a unified biomedical knowledge layer where entities are linked across sources, enabling richer retrieval, evidence synthesis, and scientific reasoning with full source attribution.
 
@@ -36,7 +36,7 @@ Use Amass to power workflows such as:
 
 \*\*BioMedCore\*\*
 
-40M+ peer-reviewed publications from PubMed and PubMed Central, including 3.6M+ with full text and 29M+ with abstracts.
+BioMedCore (43M+ records: peer-reviewed publications from PubMed/PMC and conference abstracts from society meetings)
 
 \*\*TrialCore\*\*
 
@@ -87,6 +87,14 @@ Search biomedical literature from PubMed
 
 [Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
+![](https://www.tomorrow.io/wp-content/uploads/2023/01/cropped-tm-favicon-new-1-2.png)
+
+### [Tomorrow.io Weather MCP App](https://claude.com/marketplace/connectors/tomorrow-io-weather-mcp-app)
+
+Interactive weather, air quality, pollen, and wildfire-risk widgets powered by Tomorrow.io — live forecasts and conditions for any location, right inside Claude
+
+[Add Tomorrow.io Weather MCP App in Claude (opens in new tab)](https://claude.ai/directory/032fc35c-fdc2-42e0-a5c0-372d52ccb605 "Add in Claude")
+
 ![](https://assets.claude.com/2ceed63f77b47ed3a782d750eb83f107b3c5226a.svg?w=128&fit=max&auto=format)
 
 ### [Consensus](https://claude.com/marketplace/connectors/consensus)
@@ -110,14 +118,6 @@ Access ClinicalTrials.gov data
 Access bioRxiv and medRxiv preprint data
 
 [Add bioRxiv in Claude (opens in new tab)](https://claude.ai/directory/7f750eb6-c3cb-47d7-9269-d35c43fe9925 "Add in Claude")
-
-![](https://assets.claude.com/f4e416e3635b80335fd10dbd602a88caa4be89ab.jpg?w=128&fit=max&auto=format)
-
-### [Wiley Scholar Gateway](https://claude.com/marketplace/connectors/scholar-gateway)
-
-Enhance responses with scholarly research and citations
-
-[Add Wiley Scholar Gateway in Claude (opens in new tab)](https://claude.ai/directory/ff091334-0f12-4d0e-a973-c00467dd3818 "Add in Claude")
 
 ![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/chembl.png)
 

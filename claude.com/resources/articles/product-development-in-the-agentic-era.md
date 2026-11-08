@@ -75,3 +75,5 @@ Claude Managed Agents](https://claude.com/resources/articles/how-an-anthropic-ja
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
 
 Please provide your email address if you'd like to receive our monthly developer newsletter. You can unsubscribe at any time.
+
+Product development in the agentic era | Claude by Anthropic

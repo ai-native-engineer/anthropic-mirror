@@ -24,41 +24,41 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
-![](https://www.gemini.com/favicon.ico)
+![](https://www.google.com/s2/favicons?domain=getmoneytree.com&sz=96)
 
-### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
-
-Anthropic verifiedTrending
-
-Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
-
-[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
-
-![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)
-
-### [BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)
-
-Build, analyze, and compare portfolios for advisors
-
-[Add BlackRock Advisor Center in Claude (opens in new tab)](https://claude.ai/directory/1f085c38-f40c-4079-87ab-1c4dd7ae67dd "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
-
-### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
+### [Moneytree](https://claude.com/marketplace/connectors/moneytree)
 
 Anthropic verifiedTrending
 
-Amazon Selling Partner MCP
+Explore your financial data through conversation
 
-[Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
+[Add Moneytree in Claude (opens in new tab)](https://claude.ai/directory/c1651cc6-b6c5-4c14-98c9-6c268a050844 "Add in Claude")
 
-![](https://assets.claude.com/73fb34c4126e99aa21f0f63e48c061963454ee06.svg?w=128&fit=max&auto=format)
+![](https://onchaindiligence.com/anthropic-icon.png)
 
-### [Addepar MCP](https://claude.com/marketplace/connectors/addepar)
+### [OnChainDiligence](https://claude.com/marketplace/connectors/onchaindiligence)
 
-Bring Addepar portfolio intelligence into Claude
+Inspect autonomous payments before execution and independently verify evidence afterward.
 
-[Add Addepar MCP in Claude (opens in new tab)](https://claude.ai/directory/bc2b011f-5db9-4aef-9df0-fe500264075d "Add in Claude")
+[Add OnChainDiligence in Claude (opens in new tab)](https://claude.ai/directory/98a20d38-07b8-47ae-8502-bdb282f84352 "Add in Claude")
+
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
+
+### [Intuit QuickBooks Labs](https://claude.com/marketplace/connectors/intuit-quickbooks-labs)
+
+Anthropic verifiedTrending
+
+(Beta) Categorize bank transactions, reconcile accounts, send invoices, and run reports with Quickbooks in Claude.
+
+[Add Intuit QuickBooks Labs in Claude (opens in new tab)](https://claude.ai/directory/60b79824-b9a7-4604-92a2-316aead831be "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=netsuite.com&sz=96)
+
+### [NetSuite](https://claude.com/marketplace/connectors/oracle-netsuite)
+
+Connect Claude to NetSuite data for analysis & insights
+
+[Add NetSuite in Claude (opens in new tab)](https://claude.ai/directory/d7733f53-723c-477a-a87b-41926580ef7d "Add in Claude")
 
 ![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
@@ -68,10 +68,10 @@ Business Finances made simple
 
 [Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
 
-![](https://assets.claude.com/4b4dffdb47d20c0879d8dee1d2922310cc21a5b8.jpg?w=128&fit=max&auto=format)
+![](https://sac.schwabinstitutional.com/static/assets/images/cs_logo-04.png)
 
-### [Interactive Brokers (IBKR)](https://claude.com/marketplace/connectors/interactive-brokers)
+### [Schwab Advisor Services](https://claude.com/marketplace/connectors/schwab-advisor-services)
 
-Trade, invest, analyze, and manage global markets
+Less time searching. More time focused on your clients. For professional use only.
 
-[Add Interactive Brokers (IBKR) in Claude (opens in new tab)](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912 "Add in Claude")
+[Add Schwab Advisor Services in Claude (opens in new tab)](https://claude.ai/directory/135037c6-28e5-43a2-af33-866014d9f449 "Add in Claude")

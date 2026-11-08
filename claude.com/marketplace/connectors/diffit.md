@@ -23,13 +23,21 @@ Search, create, autofill, and export Canva designs
 
 [Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-![](https://assets.claude.com/949ad8b2de4362c0b945dda5655db3a666ded338.jpg?w=128&fit=max&auto=format)
+![](https://academy.claude.com/favicon.svg)
 
-### [Jotform](https://claude.com/marketplace/connectors/jotform)
+### [Claude Academy](https://claude.com/marketplace/connectors/claude-academy)
 
-Create forms, surveys, quizzes & analyze submissions
+Search and read Claude Academy courses and tutorials
 
-[Add Jotform in Claude (opens in new tab)](https://claude.ai/directory/aed7e2be-868e-4046-9e12-5c917b4e6b97 "Add in Claude")
+[Add Claude Academy in Claude (opens in new tab)](https://claude.ai/directory/3a7c3660-f7a6-4274-8ecd-8b6337a77cd1 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=quizlet.com&sz=96)
+
+### [Quizlet](https://claude.com/marketplace/connectors/quizlet)
+
+Flashcards, instantly
+
+[Add Quizlet in Claude (opens in new tab)](https://claude.ai/directory/2173a6a5-2a71-4ad3-a9db-a6e5c4a5f993 "Add in Claude")
 
 ![](https://storage.googleapis.com/assets.mobbin.com/claude.ai/logo.svg)
 
@@ -39,13 +47,13 @@ Find UI & UX design references
 
 [Add Mobbin in Claude (opens in new tab)](https://claude.ai/directory/705ad993-53e3-4be6-b32c-cc9cff5225f6 "Add in Claude")
 
-![](https://www.articulate.com/favicon.ico)
+![](https://assets.claude.com/949ad8b2de4362c0b945dda5655db3a666ded338.jpg?w=128&fit=max&auto=format)
 
-### [Articulate](https://claude.com/marketplace/connectors/articulate)
+### [Jotform](https://claude.com/marketplace/connectors/jotform)
 
-Build interactive training right from Claude
+Create forms, surveys, quizzes & analyze submissions
 
-[Add Articulate in Claude (opens in new tab)](https://claude.ai/directory/93ea6e24-abcf-48de-a227-7a97e4392192 "Add in Claude")
+[Add Jotform in Claude (opens in new tab)](https://claude.ai/directory/aed7e2be-868e-4046-9e12-5c917b4e6b97 "Add in Claude")
 
 ![](https://assets.claude.com/62162a8aba6991bc7a9493e28b8870257536ae6a.jpg?w=128&fit=max&auto=format)
 
@@ -54,11 +62,3 @@ Build interactive training right from Claude
 K-12 standards, skills, and learning progressions
 
 [Add Learning Commons in Claude (opens in new tab)](https://claude.ai/directory/6e94f5fc-5dc8-4f0a-9fcf-741bcab4e034 "Add in Claude")
-
-![](https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/ae/4c/82ae4ce7-6614-ea43-f543-d3cbd11e9726/AppIcon-0-0-1x_U007epad-0-10-0-85-220.png/512x512bb.png)
-
-### [Jotform Sign](https://claude.com/marketplace/connectors/jotform-sign)
-
-Create, share, and edit e-signature documents right inside Claude
-
-[Add Jotform Sign in Claude (opens in new tab)](https://claude.ai/directory/c8e5e99b-788d-4e64-bf4d-ef65b4cb92d5 "Add in Claude")

@@ -75,14 +75,6 @@ Manage databases, authentication, and storage
 
 [Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-![](https://academy.claude.com/favicon.svg)
-
-### [Claude Academy](https://claude.com/marketplace/connectors/claude-academy)
-
-Search and read Claude Academy courses and tutorials
-
-[Add Claude Academy in Claude (opens in new tab)](https://claude.ai/directory/3a7c3660-f7a6-4274-8ecd-8b6337a77cd1 "Add in Claude")
-
 ![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
 
 ### [Shopify](https://claude.com/marketplace/connectors/shopify)
@@ -90,3 +82,11 @@ Search and read Claude Academy courses and tutorials
 Build, manage, and analyze your Shopify store
 
 [Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
+
+![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
+
+### [Box](https://claude.com/marketplace/connectors/box)
+
+Search, edit and get insights on your Box content
+
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")

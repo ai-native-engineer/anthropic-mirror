@@ -47,14 +47,6 @@ Access ICD-10-CM and ICD-10-PCS code sets
 
 [Add ICD-10 Codes in Claude (opens in new tab)](https://claude.ai/directory/bd8c051d-df35-44c0-a8b8-084b700e1f21 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=athenahealth.com&sz=96)
-
-### [athenahealth (beta)](https://claude.com/marketplace/connectors/athenahealth)
-
-Your athenahealth records, securely connected to Claude
-
-[Add athenahealth (beta) in Claude (opens in new tab)](https://claude.ai/directory/5e4ca902-bf65-43cb-9006-6ad20b2694d0 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=cms.gov&sz=96)
 
 ### [CMS Coverage](https://claude.com/marketplace/connectors/cms-coverage)
@@ -62,3 +54,11 @@ Your athenahealth records, securely connected to Claude
 Access the CMS Coverage Database
 
 [Add CMS Coverage in Claude (opens in new tab)](https://claude.ai/directory/57dd8e8a-f030-4bb7-a9ed-4098933bd70b "Add in Claude")
+
+![](https://assets.claude.com/50afe60d8823ba81e9343bc066bf19aa40e1b76a.svg?w=128&fit=max&auto=format)
+
+### [AllTrails](https://claude.com/marketplace/connectors/alltrails)
+
+Find your next hike
+
+[Add AllTrails in Claude (opens in new tab)](https://claude.ai/directory/2aab1516-4acf-49b3-a85f-ff16c5d8fbb0 "Add in Claude")

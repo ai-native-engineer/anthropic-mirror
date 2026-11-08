@@ -46,5 +46,3 @@ CLAUDE.md files are an ideal place for documenting repository etiquette, develop
 **Branch-specific variations:** For projects with significantly different development patterns across branches (feature branches, release branches), consider branch-specific CLAUDE.md content that reflects the current development focus.
 
 See the appendix for an example project-level **CLAUDE.md** structure.
-
-Rolling out agentic coding at your organization - Scaling agentic coding across your organization | Claude by Anthropic

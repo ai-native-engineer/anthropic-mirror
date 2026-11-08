@@ -69,14 +69,6 @@ Manage databases, authentication, and storage
 
 [Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-![](https://academy.claude.com/favicon.svg)
-
-### [Claude Academy](https://claude.com/marketplace/connectors/claude-academy)
-
-Search and read Claude Academy courses and tutorials
-
-[Add Claude Academy in Claude (opens in new tab)](https://claude.ai/directory/3a7c3660-f7a6-4274-8ecd-8b6337a77cd1 "Add in Claude")
-
 ![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
 
 ### [Shopify](https://claude.com/marketplace/connectors/shopify)
@@ -84,6 +76,14 @@ Search and read Claude Academy courses and tutorials
 Build, manage, and analyze your Shopify store
 
 [Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
+
+![](https://assets.claude.com/a83ae3578683861df7947b5397bb557b0ba73826.svg?w=128&fit=max&auto=format)
+
+### [Granola](https://claude.com/marketplace/connectors/granola)
+
+The AI notepad for meetings, now in Claude. Ask about your notes, transcripts and meeting context.
+
+[Add Granola in Claude (opens in new tab)](https://claude.ai/directory/4d608ca4-1664-4ddd-be1c-c88c0ea2ec7e "Add in Claude")
 
 ![](https://cdn.bfldr.com/ENSXS21L/at/f5h33bhb29nhpm6963gngs66/webex-3d-symbol-color.png?format=png)
 

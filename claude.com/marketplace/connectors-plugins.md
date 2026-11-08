@@ -14,7 +14,7 @@ SortRecommendedMost popularTrendingNewestA–Z
 
 ## Top connectors
 
-Show all 1090
+Show all 1091
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
@@ -164,15 +164,15 @@ Turn your clips and photos into finished videos
 
 [Add Picsart Media Studio in Claude (opens in new tab)](https://claude.ai/directory/4f1ba81e-dd57-416e-a0ec-5a64c13ba74c "Add in Claude")
 
-![](https://www.clio.com/favicons/production-apple-touch-icon.png)
+![](https://www.google.com/s2/favicons?domain=stewdio.ai&sz=96)
 
-### [Clio](https://claude.com/marketplace/connectors/clio)
+### [Stewdio](https://claude.com/marketplace/connectors/stewdio)
 
 Anthropic verifiedTrending
 
-Research the law, analyze dockets and develop case strategy with Clio Library and Clio Docket, with citations back to the sources.
+Create motion graphics, brand assets, and animations by describing them to Claude, then refine them in Stewdio's visual editor.
 
-[Add Clio in Claude (opens in new tab)](https://claude.ai/directory/456aebd5-3ee4-434a-be3d-1055e5b9c8e5 "Add in Claude")
+[Add Stewdio in Claude (opens in new tab)](https://claude.ai/directory/a6b5bfad-cb08-476e-bce8-f198f0c11de8 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=getmoneytree.com&sz=96)
 
@@ -184,29 +184,39 @@ Explore your financial data through conversation
 
 [Add Moneytree in Claude (opens in new tab)](https://claude.ai/directory/c1651cc6-b6c5-4c14-98c9-6c268a050844 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=quizlet.com&sz=96)
+![](https://www.google.com/s2/favicons?domain=scriptivox.com&sz=96)
 
-### [Quizlet](https://claude.com/marketplace/connectors/quizlet)
-
-Anthropic verifiedTrending
-
-Flashcards, instantly
-
-[Add Quizlet in Claude (opens in new tab)](https://claude.ai/directory/2173a6a5-2a71-4ad3-a9db-a6e5c4a5f993 "Add in Claude")
-
-![](https://misc.framerstatic.com/logo-black.png)
-
-### [Framer](https://claude.com/marketplace/connectors/framer)
+### [Scriptivox](https://claude.com/marketplace/connectors/scriptivox)
 
 Anthropic verifiedTrending
 
-Design, update, and publish websites with Framer
+Transcribe meetings, interviews, podcasts and videos into accurate text with speaker labels, then turn them into minutes, show notes or subtitles.
 
-[Add Framer in Claude (opens in new tab)](https://claude.ai/directory/4ce5179f-1765-47b4-9156-3d5c4def8b62 "Add in Claude")
+[Add Scriptivox in Claude (opens in new tab)](https://claude.ai/directory/d4d133ce-2238-4314-99a0-b175403970c4 "Add in Claude")
+
+![](https://www.clio.com/favicons/production-apple-touch-icon.png)
+
+### [Clio](https://claude.com/marketplace/connectors/clio)
+
+Anthropic verifiedTrending
+
+Research the law, analyze dockets and develop case strategy with Clio Library and Clio Docket, with citations back to the sources.
+
+[Add Clio in Claude (opens in new tab)](https://claude.ai/directory/456aebd5-3ee4-434a-be3d-1055e5b9c8e5 "Add in Claude")
 
 ## New connectors
 
-Show all 4
+Show all 5
+
+![](https://www.google.com/s2/favicons?domain=checkhq.com&sz=96)
+
+### [Check](https://claude.com/marketplace/connectors/pending-check)
+
+Anthropic verifiedNew
+
+Run payroll, manage workers, and file taxes via Check
+
+[Add Check in Claude (opens in new tab)](https://claude.ai/directory/d77cfdcf-a9d3-4b22-a7d3-88b91259443b "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=squarespace.com&sz=96)
 
@@ -250,7 +260,7 @@ Research the law, analyze dockets and develop case strategy with Clio Library an
 
 ## All connectors
 
-1090 connectors
+1091 connectors
 
 ![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
@@ -316,14 +326,6 @@ Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian ap
 
 [Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-![](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg?w=128&fit=max&auto=format)
-
-### [Figma](https://claude.com/marketplace/connectors/figma)
-
-Generate diagrams and better code from Figma context
-
-[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=picsart.com&sz=96)
 
 ### [Picsart Media Studio](https://claude.com/marketplace/connectors/picsart-media-studio)
@@ -334,6 +336,14 @@ Turn your clips and photos into finished videos
 
 [Add Picsart Media Studio in Claude (opens in new tab)](https://claude.ai/directory/4f1ba81e-dd57-416e-a0ec-5a64c13ba74c "Add in Claude")
 
+![](https://assets.claude.com/58e9c84c9e164137b0e9f532e05cb242d46204f9.jpg?w=128&fit=max&auto=format)
+
+### [Figma](https://claude.com/marketplace/connectors/figma)
+
+Generate diagrams and better code from Figma context
+
+[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
+
 ![](https://assets.claude.com/cb89159037733bf1e8c66783990c1d38c53231d4.jpg?w=128&fit=max&auto=format)
 
 ### [HubSpot](https://claude.com/marketplace/connectors/hubspot)
@@ -341,6 +351,16 @@ Turn your clips and photos into finished videos
 CRM context for every answer, insight, and action
 
 [Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=getmoneytree.com&sz=96)
+
+### [Moneytree](https://claude.com/marketplace/connectors/moneytree)
+
+Anthropic verifiedTrending
+
+Explore your financial data through conversation
+
+[Add Moneytree in Claude (opens in new tab)](https://claude.ai/directory/c1651cc6-b6c5-4c14-98c9-6c268a050844 "Add in Claude")
 
 ![](https://assets.claude.com/afd2ecc5d1ddcedf60ce9d230297b84286373bdb.jpg?w=128&fit=max&auto=format)
 
@@ -358,16 +378,6 @@ Manage issues, projects & team workflows in Linear
 
 [Add Linear in Claude (opens in new tab)](https://claude.ai/directory/fa50c30c-9f62-4f94-b851-217868185db6 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=getmoneytree.com&sz=96)
-
-### [Moneytree](https://claude.com/marketplace/connectors/moneytree)
-
-Anthropic verifiedTrending
-
-Explore your financial data through conversation
-
-[Add Moneytree in Claude (opens in new tab)](https://claude.ai/directory/c1651cc6-b6c5-4c14-98c9-6c268a050844 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
 ### [monday.com](https://claude.com/marketplace/connectors/monday)
@@ -375,16 +385,6 @@ Explore your financial data through conversation
 monday.com project management & CRM for projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms, dashboards, cross-project portfolio status, and critical paths.
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=quizlet.com&sz=96)
-
-### [Quizlet](https://claude.com/marketplace/connectors/quizlet)
-
-Anthropic verifiedTrending
-
-Flashcards, instantly
-
-[Add Quizlet in Claude (opens in new tab)](https://claude.ai/directory/2173a6a5-2a71-4ad3-a9db-a6e5c4a5f993 "Add in Claude")
 
 ![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 
@@ -394,14 +394,6 @@ Manage databases, authentication, and storage
 
 [Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-![](https://academy.claude.com/favicon.svg)
-
-### [Claude Academy](https://claude.com/marketplace/connectors/claude-academy)
-
-Search and read Claude Academy courses and tutorials
-
-[Add Claude Academy in Claude (opens in new tab)](https://claude.ai/directory/3a7c3660-f7a6-4274-8ecd-8b6337a77cd1 "Add in Claude")
-
 ![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
 
 ### [Shopify](https://claude.com/marketplace/connectors/shopify)
@@ -409,14 +401,6 @@ Search and read Claude Academy courses and tutorials
 Build, manage, and analyze your Shopify store
 
 [Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
-
-![](https://cdn.bfldr.com/ENSXS21L/at/f5h33bhb29nhpm6963gngs66/webex-3d-symbol-color.png?format=png)
-
-### [Webex for Claude](https://claude.com/marketplace/connectors/webex-suite)
-
-Access your Webex meetings, messaging, and Vidcast content securely in Claude.
-
-[Add Webex for Claude in Claude (opens in new tab)](https://claude.ai/directory/d044bab2-de8d-438e-9333-de76d1a8304a "Add in Claude")
 
 ![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
 
@@ -426,14 +410,6 @@ Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-![](https://onchaindiligence.com/anthropic-icon.png)
-
-### [OnChainDiligence](https://claude.com/marketplace/connectors/onchaindiligence)
-
-Inspect autonomous payments before execution and independently verify evidence afterward.
-
-[Add OnChainDiligence in Claude (opens in new tab)](https://claude.ai/directory/98a20d38-07b8-47ae-8502-bdb282f84352 "Add in Claude")
-
 ![](https://assets.claude.com/a83ae3578683861df7947b5397bb557b0ba73826.svg?w=128&fit=max&auto=format)
 
 ### [Granola](https://claude.com/marketplace/connectors/granola)
@@ -442,6 +418,30 @@ The AI notepad for meetings, now in Claude. Ask about your notes, transcripts an
 
 [Add Granola in Claude (opens in new tab)](https://claude.ai/directory/4d608ca4-1664-4ddd-be1c-c88c0ea2ec7e "Add in Claude")
 
+![](https://cdn.bfldr.com/ENSXS21L/at/f5h33bhb29nhpm6963gngs66/webex-3d-symbol-color.png?format=png)
+
+### [Webex for Claude](https://claude.com/marketplace/connectors/webex-suite)
+
+Access your Webex meetings, messaging, and Vidcast content securely in Claude.
+
+[Add Webex for Claude in Claude (opens in new tab)](https://claude.ai/directory/d044bab2-de8d-438e-9333-de76d1a8304a "Add in Claude")
+
+![](https://academy.claude.com/favicon.svg)
+
+### [Claude Academy](https://claude.com/marketplace/connectors/claude-academy)
+
+Search and read Claude Academy courses and tutorials
+
+[Add Claude Academy in Claude (opens in new tab)](https://claude.ai/directory/3a7c3660-f7a6-4274-8ecd-8b6337a77cd1 "Add in Claude")
+
+![](https://onchaindiligence.com/anthropic-icon.png)
+
+### [OnChainDiligence](https://claude.com/marketplace/connectors/onchaindiligence)
+
+Inspect autonomous payments before execution and independently verify evidence afterward.
+
+[Add OnChainDiligence in Claude (opens in new tab)](https://claude.ai/directory/98a20d38-07b8-47ae-8502-bdb282f84352 "Add in Claude")
+
 ![](https://assets.claude.com/f8c4f0634cd056e248c7ea396b1839b922470ac6.jpg?w=128&fit=max&auto=format)
 
 ### [Vercel](https://claude.com/marketplace/connectors/vercel)
@@ -449,5 +449,13 @@ The AI notepad for meetings, now in Claude. Ask about your notes, transcripts an
 Analyze, debug, and manage projects and deployments
 
 [Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
+
+### [Adobe](https://claude.com/marketplace/connectors/adobe-creativity)
+
+Design, combine, and edit with Adobe pro tools
+
+[Add Adobe in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
 
 View more

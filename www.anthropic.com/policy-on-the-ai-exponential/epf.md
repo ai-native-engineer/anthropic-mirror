@@ -2,13 +2,13 @@
 
 # Policy on the AI Exponential
 
-AI is advancing at exponential speed, and the policymaking process was built for a slower world.
-
 We are sharing two policy proposals to prepare for AI progress. The first, our Advanced AI Framework, offers a roadmap for governing increasingly capable systems, from transparency and independent evaluation to government authority to block or deter dangerous deployments. The second, our Economic Policy Framework, turns to the question of how to prepare workers and the economy for AI’s impact and ensure the financial benefits of AI are broadly shared. Together they cover two sides of the same challenge: steering the technology responsibly as it advances, and preparing society for what it brings.
 
 [01Advanced AI Framework](https://www.anthropic.com/policy-on-the-ai-exponential/aaif)[02Economic Policy Framework](https://www.anthropic.com/policy-on-the-ai-exponential/epf)
 
-![](https://www-cdn.anthropic.com/images/4zrzovbb/website/defe0ef867f674dd4e04a0a4d61b06d3601e8a80-1085x611.png)
+### 02Economic Policy Framework
+
+![](https://assets.claude.com/defe0ef867f674dd4e04a0a4d61b06d3601e8a80.png?w=3840&q=75&fm=webp&fit=max)
 
 ## Anthropic’s Economic Policy Framework
 

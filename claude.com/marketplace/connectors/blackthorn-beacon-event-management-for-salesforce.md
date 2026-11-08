@@ -49,16 +49,6 @@ Search, create, autofill, and export Canva designs
 
 [Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=quizlet.com&sz=96)
-
-### [Quizlet](https://claude.com/marketplace/connectors/quizlet)
-
-Anthropic verifiedTrending
-
-Flashcards, instantly
-
-[Add Quizlet in Claude (opens in new tab)](https://claude.ai/directory/2173a6a5-2a71-4ad3-a9db-a6e5c4a5f993 "Add in Claude")
-
 ![](https://academy.claude.com/favicon.svg)
 
 ### [Claude Academy](https://claude.com/marketplace/connectors/claude-academy)
@@ -74,6 +64,14 @@ Search and read Claude Academy courses and tutorials
 Sell, serve, and operate at scale with Salesforce.
 
 [Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=quizlet.com&sz=96)
+
+### [Quizlet](https://claude.com/marketplace/connectors/quizlet)
+
+Flashcards, instantly
+
+[Add Quizlet in Claude (opens in new tab)](https://claude.ai/directory/2173a6a5-2a71-4ad3-a9db-a6e5c4a5f993 "Add in Claude")
 
 ![](https://storage.googleapis.com/assets.mobbin.com/claude.ai/logo.svg)
 

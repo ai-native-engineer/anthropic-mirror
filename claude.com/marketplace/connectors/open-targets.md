@@ -25,16 +25,6 @@ Search, read, and upload files instantly
 
 [Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-![](https://www.gemini.com/favicon.ico)
-
-### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
-
-Anthropic verifiedTrending
-
-Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
-
-[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
-
 ![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 
 ### [Supabase](https://claude.com/marketplace/connectors/supabase)
@@ -51,18 +41,26 @@ Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-![](https://assets.claude.com/47f22a5129fd644c95a682e474b104001065dd42.jpg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/7ef12b4f58f26b511f7bc69fbc6c583b926c2022.svg?w=128&fit=max&auto=format)
 
-### [Zapier](https://claude.com/marketplace/connectors/zapier)
+### [Salesforce - Beta](https://claude.com/marketplace/connectors/salesforce-headless-360)
 
-Automate workflows across thousands of apps via conversation
+Sell, serve, and operate at scale with Salesforce.
 
-[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
+[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
 
-![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
-### [BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)
+### [PubMed](https://claude.com/marketplace/connectors/pubmed)
 
-Build, analyze, and compare portfolios for advisors
+Search biomedical literature from PubMed
 
-[Add BlackRock Advisor Center in Claude (opens in new tab)](https://claude.ai/directory/1f085c38-f40c-4079-87ab-1c4dd7ae67dd "Add in Claude")
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=vidiq.com&sz=96)
+
+### [vidIQ](https://claude.com/marketplace/connectors/vidiq)
+
+Research and create for YouTube, Instagram & TikTok
+
+[Add vidIQ in Claude (opens in new tab)](https://claude.ai/directory/dc5bb20f-6ebd-4dbe-a47e-c2d20fa25acc "Add in Claude")

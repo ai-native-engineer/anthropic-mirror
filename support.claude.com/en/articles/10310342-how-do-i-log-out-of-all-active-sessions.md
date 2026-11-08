@@ -23,21 +23,27 @@ This action will immediately sign you out of your account across all devices whe
 * Web browsers
 * Mobile devices
 * Desktop applications
+* Claude Code, including tokens created with `setup-token` for continuous integration (CI)
+* Claude in your tools, such as Claude in Chrome, Claude in Slack, and [placeholder: public names for what the thread calls “Claude for Sheets” and “Claude for Teams”]
 
 To regain access to your account on any device, you'll need to authenticate again using either Google login or a login link sent to your email address.
 
-## How to log out from Claude Code
+**Note:** Logging out of all active sessions doesn’t affect your API keys.
 
-If you used your Claude account to authenticate into Claude Code, you can manage your authorization tokens by navigating to **[Settings > Claude Code](https://claude.ai/settings/claude-code)**. To remove a token and log out of Claude Code, click the trash can icon.
+## How to log out from Claude Code only
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1790856000&signature=e842a50bf5914664527d19d43099dfc154e9628eae27349f901be9aa7edcd71b&req=dSYnHst4nohdWvMW1HO4zVuHixz102G7AQofdwM8qVdNl5ZV7TkQSkr96gih%0AAgdN%2Be66Dv1d%2BE%2FpXW4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1790856000&signature=e842a50bf5914664527d19d43099dfc154e9628eae27349f901be9aa7edcd71b&req=dSYnHst4nohdWvMW1HO4zVuHixz102G7AQofdwM8qVdNl5ZV7TkQSkr96gih%0AAgdN%2Be66Dv1d%2BE%2FpXW4%3D%0A)
+Logging out of all active sessions also logs you out of Claude Code. To log out of Claude Code and stay signed in everywhere else, remove its authorization token instead.
+
+If you used your Claude account to authenticate into Claude Code, you can see and log out of those sign-ins in **Settings > Account**, where they're listed with your other sessions. If they aren't listed there, manage your authorization tokens in **Settings > Claude Code**. To remove a token and log out of Claude Code, click the trash can icon.
+
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1794098700&signature=41585803236f30889e5652efd809007c50d660069f1cad5f7cc69367aa931ac1&req=dSYnHst4nohdWvMW1HO4zVuHixj932%2B8AQofdwM8qVeYX38Q3PTLP8nQ7DkC%0A812KP5xbU5jUzuknZb4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1794098700&signature=41585803236f30889e5652efd809007c50d660069f1cad5f7cc69367aa931ac1&req=dSYnHst4nohdWvMW1HO4zVuHixj932%2B8AQofdwM8qVeYX38Q3PTLP8nQ7DkC%0A812KP5xbU5jUzuknZb4%3D%0A)
 
 ## Unable to access your account?
 
 If you're unable to sign into your account to log out of all sessions, contact our Support team by clicking on the message icon in the bottom right of any Help Center page. For additional information, refer to **[How to get support](https://support.claude.com/en/articles/9015913)**.
 
-* [How do I sign up for the Pro plan?](https://support.claude.com/en/articles/8325609-how-do-i-sign-up-for-the-pro-plan)
 * [Managing your active sessions](https://support.claude.com/en/articles/13124001-managing-your-active-sessions)
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
 * [Log in to your Console account](https://support.claude.com/en/articles/13371040-log-in-to-your-console-account)
+* [Configure a custom OpenTelemetry collector for Office agents](https://support.claude.com/en/articles/14447276-configure-a-custom-opentelemetry-collector-for-office-agents)
 * [Open the Claude mobile app with a link](https://support.claude.com/en/articles/14898120-open-the-claude-mobile-app-with-a-link)

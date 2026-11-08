@@ -34,16 +34,6 @@ monday.com project management & CRM for projects, tasks, portfolios, boards, wor
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=quizlet.com&sz=96)
-
-### [Quizlet](https://claude.com/marketplace/connectors/quizlet)
-
-Anthropic verifiedTrending
-
-Flashcards, instantly
-
-[Add Quizlet in Claude (opens in new tab)](https://claude.ai/directory/2173a6a5-2a71-4ad3-a9db-a6e5c4a5f993 "Add in Claude")
-
 ![](https://assets.claude.com/89209c1f16bf517eb431ff08e811de0778d70689.svg?w=128&fit=max&auto=format)
 
 ### [Supabase](https://claude.com/marketplace/connectors/supabase)
@@ -67,3 +57,11 @@ Inspect autonomous payments before execution and independently verify evidence a
 Analyze, debug, and manage projects and deployments
 
 [Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")
+
+![](https://assets.claude.com/e64f9962a277a8943b084a17b6a9386a7eb95a61.svg?w=128&fit=max&auto=format)
+
+### [Miro](https://claude.com/marketplace/connectors/miro)
+
+Access and create new content on Miro boards
+
+[Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")

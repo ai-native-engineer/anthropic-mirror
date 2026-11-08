@@ -4,19 +4,15 @@ Connector URL`https://mcp.pinegap.ai/`
 
 More[Documentation (opens in new tab)](https://www.pinegap.ai/docs/mcp)[Support (opens in new tab)](mailto:support@pinegap.us)[Privacy policy (opens in new tab)](https://www.pinegap.ai/mcp/privacy-policy)
 
-Power your equity research with earnings previews, post-earnings recaps, management guidance, KPI tables, comp sheets, risks, read-throughs, and AI-generated thesis synthesis. Pinegap provides 40+ institutional analyst tools — drawing AI-powered deep equity research across earnings, company research, watchlists, agents, and investment thesis tracking.
+Pinegap helps power the day-to-day fundamental research workflows of buy-side equity analysts and portfolio managers across hedge funds, mutual funds, and RIAs - from idea generation and ramping up on new companies to covering earnings and conferences and tracking theses across your watchlist.
 
 ## Tools
 
-* capital-allocation
 * company-profile
 * competitive-landscape
 * conference-recap
 * conference-takeaways
-* earnings-preview
 * earnings-price-reactions
-* earnings-recap
-* earnings-takeaway
 * executive-bios
 * fetch-document
 * guidance
@@ -26,46 +22,50 @@ Power your equity research with earnings previews, post-earnings recaps, managem
 * management-compensation-drivers
 * management-followup
 * market-quote
-* operating-metrics-commentary
 * podcast
 * primer
 * proxy-review
 * proxy-voting
 * quality-of-earnings
+* red-flag-governance
+* sentiment-analysis
+* stock-lookup
+* unusual-disclosure
+* upcoming-events
 
-Show all 36 tools
+Show all 28 tools
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-![](https://www.gemini.com/favicon.ico)
+![](https://www.google.com/s2/favicons?domain=getmoneytree.com&sz=96)
 
-### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
-
-Anthropic verifiedTrending
-
-Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
-
-[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
-
-![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)
-
-### [BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)
-
-Build, analyze, and compare portfolios for advisors
-
-[Add BlackRock Advisor Center in Claude (opens in new tab)](https://claude.ai/directory/1f085c38-f40c-4079-87ab-1c4dd7ae67dd "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
-
-### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
+### [Moneytree](https://claude.com/marketplace/connectors/moneytree)
 
 Anthropic verifiedTrending
 
-Amazon Selling Partner MCP
+Explore your financial data through conversation
 
-[Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
+[Add Moneytree in Claude (opens in new tab)](https://claude.ai/directory/c1651cc6-b6c5-4c14-98c9-6c268a050844 "Add in Claude")
+
+![](https://onchaindiligence.com/anthropic-icon.png)
+
+### [OnChainDiligence](https://claude.com/marketplace/connectors/onchaindiligence)
+
+Inspect autonomous payments before execution and independently verify evidence afterward.
+
+[Add OnChainDiligence in Claude (opens in new tab)](https://claude.ai/directory/98a20d38-07b8-47ae-8502-bdb282f84352 "Add in Claude")
+
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
+
+### [Intuit QuickBooks Labs](https://claude.com/marketplace/connectors/intuit-quickbooks-labs)
+
+Anthropic verifiedTrending
+
+(Beta) Categorize bank transactions, reconcile accounts, send invoices, and run reports with Quickbooks in Claude.
+
+[Add Intuit QuickBooks Labs in Claude (opens in new tab)](https://claude.ai/directory/60b79824-b9a7-4604-92a2-316aead831be "Add in Claude")
 
 ![](https://assets.claude.com/07bae35b38ae52ac6425e5a507288a7bfabc1ffd.jpg?w=128&fit=max&auto=format)
 
@@ -75,13 +75,13 @@ Payment processing and financial infrastructure tools
 
 [Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
-![](https://assets.claude.com/73fb34c4126e99aa21f0f63e48c061963454ee06.svg?w=128&fit=max&auto=format)
+![](https://www.google.com/s2/favicons?domain=netsuite.com&sz=96)
 
-### [Addepar MCP](https://claude.com/marketplace/connectors/addepar)
+### [NetSuite](https://claude.com/marketplace/connectors/oracle-netsuite)
 
-Bring Addepar portfolio intelligence into Claude
+Connect Claude to NetSuite data for analysis & insights
 
-[Add Addepar MCP in Claude (opens in new tab)](https://claude.ai/directory/bc2b011f-5db9-4aef-9df0-fe500264075d "Add in Claude")
+[Add NetSuite in Claude (opens in new tab)](https://claude.ai/directory/d7733f53-723c-477a-a87b-41926580ef7d "Add in Claude")
 
 ![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 

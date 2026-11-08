@@ -64,6 +64,14 @@ Build, manage, and analyze your Shopify store
 
 [Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
 
+![](https://assets.claude.com/a83ae3578683861df7947b5397bb557b0ba73826.svg?w=128&fit=max&auto=format)
+
+### [Granola](https://claude.com/marketplace/connectors/granola)
+
+The AI notepad for meetings, now in Claude. Ask about your notes, transcripts and meeting context.
+
+[Add Granola in Claude (opens in new tab)](https://claude.ai/directory/4d608ca4-1664-4ddd-be1c-c88c0ea2ec7e "Add in Claude")
+
 ![](https://cdn.bfldr.com/ENSXS21L/at/f5h33bhb29nhpm6963gngs66/webex-3d-symbol-color.png?format=png)
 
 ### [Webex for Claude](https://claude.com/marketplace/connectors/webex-suite)
@@ -71,11 +79,3 @@ Build, manage, and analyze your Shopify store
 Access your Webex meetings, messaging, and Vidcast content securely in Claude.
 
 [Add Webex for Claude in Claude (opens in new tab)](https://claude.ai/directory/d044bab2-de8d-438e-9333-de76d1a8304a "Add in Claude")
-
-![](https://onchaindiligence.com/anthropic-icon.png)
-
-### [OnChainDiligence](https://claude.com/marketplace/connectors/onchaindiligence)
-
-Inspect autonomous payments before execution and independently verify evidence afterward.
-
-[Add OnChainDiligence in Claude (opens in new tab)](https://claude.ai/directory/98a20d38-07b8-47ae-8502-bdb282f84352 "Add in Claude")

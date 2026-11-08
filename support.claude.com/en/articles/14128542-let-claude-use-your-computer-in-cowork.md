@@ -116,7 +116,7 @@ To start using computer use:
 4. Open Cowork or Claude Code in the desktop app and start a session.
 5. Ask Claude to do something that involves an app on your computer. Claude will ask for permission to access the app before proceeding.
 
-We’re sharing this early because it’s the kind of capability that gets better with real usage. If something doesn’t work as expected, use the in-app feedback button or reach out to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#295c5a4c5b5a484f4c5d506948475d415b4659404a074a4644).
+We’re sharing this early because it’s the kind of capability that gets better with real usage. If something doesn’t work as expected, use the in-app feedback button or reach out to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#6c191f091e1f0d0a0918152c0d0218041e031c050f420f0301).
 
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
