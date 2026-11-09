@@ -8,11 +8,11 @@
 
 Prepare and prioritize for your upcoming week through connecting your calendar and mail platforms.
 
-15 minClaude.ai
+15 minClaude
 
 Try in ClaudeCopy prompt
 
-![](https://academy.claude.com/assets/v1/thumbnail.light-hteb4ys0.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-n0jyfw6m.png)
+![](https://academy.claude.com/assets/v1/thumbnail.light-1f9oo581.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ezfj6qxl.png)
 
 ![Quickly prep for your week result](https://academy.claude.com/assets/v1/quickly-prep-for-your-week-holgruap.png)
 
@@ -22,7 +22,7 @@ Planning your week typically means opening your calendar, scanning your inbox, m
 
 To start, tell Claude which dates to analyze, where to search, and what the format for the output document.
 
-Help me plan my upcoming week: October 27-31.
+Help me plan my upcoming week: October 21-25.
 
 Using my M365 connector look at my Outlook calendar and find all meetings that need prep, or where I'm making decisions. Show me where I'm overbooked, where I have real focus time, and any scheduling problems I need to fix now.
 
@@ -48,7 +48,7 @@ Microsoft 365
 
 [Connect](https://claude.ai/directory/microsoft-365)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 ## 3. What Claude creates[](#3-what-claude-creates)
 
@@ -163,7 +163,7 @@ Once you've refined this workflow, create and save it as a [Skill(opens in new t
 
 Connect Claude to your Microsoft 365 workspaces and prepare for the week ahead. Claude can search your calendar, email and other tools to show what needs attention and when you have time to handle it.
 
-Help me plan my upcoming week: October 27-31.
+Help me plan my upcoming week: October 21-25.
 
 Using my M365 connector look at my Outlook calendar and find all meetings that need prep, or where I'm making decisions. Show me where I'm overbooked, where I have real focus time, and any scheduling problems I need to fix now.
 

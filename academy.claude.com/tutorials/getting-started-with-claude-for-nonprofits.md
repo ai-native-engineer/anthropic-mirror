@@ -8,20 +8,17 @@
 
 Learn how to access Claude's nonprofit pricing, connect to fundraising and donor management tools, and get your team started.
 
-3 minClaude.ai
+3 minClaude
 
 [Open Claude](https://claude.ai/new)
 
-![](https://academy.claude.com/assets/v1/thumbnail.light-bxsusxgj.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-e856elbs.png)
+![](https://academy.claude.com/assets/v1/thumbnail.light-mql8m27m.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hkk3syn7.png)
 
 Claude for nonprofits enhances mission-driven organizations with specialized capabilities, connecting to donor management platforms, foundation research databases, and collaboration tools while maintaining transparency and accountability. Learn more on the [nonprofit solutions page(opens in new tab)](https://claude.com/solutions/nonprofits).
 
 ## How to access nonprofit tools and features[](#how-to-access-nonprofit-tools-and-features)
 
-Claude for nonprofits is available on two plans:
-
-* **Team plan:** $8/user/month
-* **Enterprise plan:** $10/user/month
+Claude for nonprofits is available on the Team and Enterprise plans at nonprofit pricing. See current prices on the [nonprofit solutions page(opens in new tab)](https://claude.com/solutions/nonprofits).
 
 Both plans include access to the same models as our standard Team and Enterprise plans, with a minimum of 2 seats for teams under 150.
 
@@ -29,11 +26,11 @@ To get started, verify your nonprofit status through our partner Goodstack by co
 
 ## Nonprofit operations and fundraising connectors[](#nonprofit-operations-and-fundraising-connectors)
 
-Claude connects to three nonprofit-specific connectors through the Model Context Protocol (MCP):
+Claude connects to nonprofit platforms through the Model Context Protocol (MCP). Nonprofit connectors include:
 
-* [**Benevity**(opens in new tab)](https://benevity.com/)**:** Access a database of 2.4M+ validated nonprofits for cause discovery and research
+* [**Benevity**(opens in new tab)](https://benevity.com/)**:** Access a database of validated nonprofits for cause discovery and research
 * [**Blackbaud**(opens in new tab)](https://www.blackbaud.com/)**:** Connect to Raiser's Edge NXT for donor records, gift history, events, and personalized communications
-* [**Candid**(opens in new tab)](https://candid.org/)**:** Search 1.9M+ nonprofits and foundations with detailed profiles, financials, and grant data
+* [**Candid**(opens in new tab)](https://candid.org/)**:** Search nonprofits and foundations with detailed profiles, financials, and grant data
 
 Additional connectors include Microsoft 365, Gmail, Google Drive, Asana, Slack, and HubSpot. Browse all available connectors in the [connector directory(opens in new tab)](https://claude.com/connectors).
 
@@ -55,7 +52,7 @@ Explore the [use case library(opens in new tab)](https://academy.claude.com/all?
 
 #### Who is eligible?
 
-501(c)(3) organizations, K–12 schools, and qualifying healthcare organizations.
+501(c)(3) organizations and their international equivalents, K–12 schools, and qualifying healthcare organizations.
 
 #### Who is not eligible?
 
@@ -83,7 +80,7 @@ Submit your tax exemption certificate through [support(opens in new tab)](https:
 
 #### What about organizations with fewer than five employees?
 
-Individual users can access Claude Pro at $20/month. Explore the [AI fluency for nonprofits course(opens in new tab)](https://academy.claude.com/courses/ai-fluency-for-nonprofits) and the [use case library(opens in new tab)](https://academy.claude.com/all?kind=use-case) to get started.
+The Team plan at nonprofit pricing has a minimum of 2 seats, so small organizations can use it too. Individual users can access Claude Pro at $20/month. Explore the [AI fluency for nonprofits course(opens in new tab)](https://academy.claude.com/courses/ai-fluency-for-nonprofits) and the [use case library(opens in new tab)](https://academy.claude.com/all?kind=use-case) to get started.
 
 #### What support and training is available?
 

@@ -22,7 +22,7 @@ SKILL_DIR=$(cd "$(dirname "$0")/.." && pwd -P)
 REPO_ROOT=$(git -C "$SKILL_DIR" rev-parse --show-toplevel)
 CRAWL4AI_PYTHON=${CRAWL4AI_PYTHON:-"$HOME/.local/share/uv/tools/crawl4ai/bin/python"}
 CRAWL_SCRIPTS_DIR=${CRAWL_SCRIPTS_DIR:-"$HOME/.agents/skills/shared/crawl/scripts"}
-YOUTUBE_DIGEST_SCRIPTS_DIR=${YOUTUBE_DIGEST_SCRIPTS_DIR:-"$HOME/.agents/skills/shared/youtube/youtube-digest/scripts"}
+YOUTUBE_SCRIPTS=${YOUTUBE_SCRIPTS:-"$HOME/.agents/skills/shared/youtube/scripts"}
 
 require_file() {
   if [ ! -f "$1" ]; then
@@ -73,8 +73,8 @@ for file in \
   verify-mirror.py; do
   require_file "$CRAWL_SCRIPTS_DIR/$file"
 done
-require_file "$YOUTUBE_DIGEST_SCRIPTS_DIR/extract_transcript.sh"
-require_file "$YOUTUBE_DIGEST_SCRIPTS_DIR/srt-to-md.sh"
+require_file "$YOUTUBE_SCRIPTS/fetch-subs.sh"
+require_file "$YOUTUBE_SCRIPTS/captions.py"
 require_file "$HOME/.crawl4ai/academy_state.json"
 require_file "$HOME/.crawl4ai/skilljar-anthropic-partners.skilljar.com.json"
 
@@ -95,7 +95,7 @@ if ! "$CRAWL4AI_PYTHON" -c 'import bs4, curl_cffi, httpx, markdownify, playwrigh
   exit 1
 fi
 
-export CRAWL_SCRIPTS_DIR YOUTUBE_DIGEST_SCRIPTS_DIR
+export CRAWL_SCRIPTS_DIR YOUTUBE_SCRIPTS
 
 if [ "${CHECK_ONLY:-0}" = 1 ]; then
   PYTHONDONTWRITEBYTECODE=1 python3 "$SKILL_DIR/scripts/add-pdf-text-layer.py" "$REPO_ROOT" --check

@@ -8,7 +8,7 @@
 
 Build a modular content library from your successful proposals and organizational materials then produce foundation-ready submissions in a fraction of the usual time.
 
-20 minClaude.ai
+20 minClaude
 
 Try in ClaudeCopy prompt
 
@@ -88,7 +88,7 @@ Gmail
 
 [Connect](https://claude.ai/directory/gmail-gmailmcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 ![](images/a3bfc5814bd6a3e2.svg)
 

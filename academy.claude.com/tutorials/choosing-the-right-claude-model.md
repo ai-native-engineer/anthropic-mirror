@@ -8,7 +8,7 @@
 
 Learn when to use Haiku, Sonnet, Opus, or Fable to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
-5 minClaude.ai
+5 minClaude
 
 [Open Claude](https://claude.ai/new)
 
@@ -16,7 +16,7 @@ Learn when to use Haiku, Sonnet, Opus, or Fable to get better results and stay i
 
 Claude comes in four models: Haiku, Sonnet, Opus, and Fable. Each is built for different kinds of work, and each uses your rate limit differently. Using Opus on a task Haiku could handle costs you tokens for no gain and slows you down in the process. In this guide you'll learn how to pick the Claude model that can most efficiently accomplish your task *and* keep you more comfortably within your rate limits.
 
-Which models you have and how high your limit is both depend on your [Claude account plan(opens in new tab)](https://claude.com/pricing). Free includes Haiku and Sonnet; [Pro(opens in new tab)](https://claude.com/pricing) and [Max(opens in new tab)](https://support.claude.com/en/articles/11049741-what-is-the-max-plan) add Opus, Fable, and more headroom.
+Which models you have and how high your limit is both depend on your [Claude account plan(opens in new tab)](https://claude.com/pricing). Free includes Haiku and Sonnet; [Pro(opens in new tab)](https://claude.com/pricing), [Max(opens in new tab)](https://support.claude.com/en/articles/11049741-what-is-the-max-plan), and [Ultra(opens in new tab)](https://support.claude.com/en/articles/17728952-what-is-the-ultra-plan) add Opus, Fable, and more headroom.
 
 ## Meet the four models[](#meet-the-four-models)
 
@@ -29,13 +29,15 @@ Claude comes in four versions. Think of them as different tools designed for dif
 | Opus | Heavy | Deep research and complex reasoning that genuinely needs sustained thinking |
 | Fable | Heaviest | Your largest, most critical projects: long, complex tasks Claude works through with fewer check-ins |
 
-**Haiku** is fast and lightweight. Haiku 4.5 is built for everyday requests, and it rivals the reasoning capabilities of our Sonnet 4.0 model. When you need quick answers to simple questions, basic summaries, or synthesis, Haiku gets it done instantly. It's also the most efficient with your rate limit.
+**Haiku** is fast and lightweight. Haiku 5.5 is our fastest model and our most capable Haiku yet, built for everyday requests. When you need quick answers to simple questions, basic summaries, or synthesis, Haiku gets it done instantly. It's also the most efficient with your rate limit.
 
-**Sonnet** is the daily driver. Sonnet 5 brings strong reasoning to the kind of work you do every day: coding, writing, analysis, research, and complex problem-solving. It's responsive enough for real-time collaboration and capable enough that most problems won't outgrow it. It also handles computer use, vision tasks, and document and spreadsheet creation well, making it a versatile default across a wide range of work. If you're not sure which model to pick, start here.
+**Sonnet** is the daily driver. Sonnet 5.5 brings strong reasoning to the kind of work you do every day: coding, writing, analysis, research, and complex problem-solving. It's responsive enough for real-time collaboration and capable enough that most problems won't outgrow it. It also handles computer use, vision tasks, and document and spreadsheet creation well, making it a versatile default across a wide range of work. If you're not sure which model to pick, start here.
 
-**Opus** is a large reasoning specialist. Opus 5 is exceptional for specialized complex tasks requiring advanced reasoning. It's built for problems that genuinely need deep thinking over time. It uses more of your rate limit, so you want to reserve it for tasks that really need it. Opus is available on [Pro plans(opens in new tab)](https://claude.com/pricing) and above.
+**Opus** is a large reasoning specialist. Opus 5.5 is exceptional for specialized complex tasks requiring advanced reasoning. It's built for problems that genuinely need deep thinking over time. It uses more of your rate limit, so you want to reserve it for tasks that really need it. Opus is available on [Pro plans(opens in new tab)](https://claude.com/pricing) and above.
 
 **Fable** is the go-to for your largest, most important projects. Fable 5.1 is our most capable model, built for long, complex tasks. It can work through tasks more autonomously with fewer mid-task check-ins: describe the outcome you want, and it plans the steps and checks its own work along the way. It takes time to think through problems before answering, so responses take longer, and it uses the most of your rate limit. Fable is available on paid plans. You can select it from the model picker when a task needs it.
+
+On some biology and security topics, Claude may switch to a different model than the one you picked, and it tells you when it does. To learn more, visit our [help center(opens in new tab)](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5).
 
 ## Understanding rate limits[](#understanding-rate-limits)
 
@@ -70,7 +72,6 @@ To balance rate limits with efficiency, it's best to consider what kind of outpu
 
 * Deep research and analysis you'll question, redirect, and build on as you go
 * Complex work you're doing in a live, back-and-forth session, where you want each answer sooner
-* Biology and security work: Claude answers these topics with Opus even if you've picked Fable, so starting with Opus is simpler. To learn more, visit our [help center(opens in new tab)](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5).
 * Problems where you've tested with Sonnet and it struggled
 
 ### Use Fable for:[](#use-fable-for)

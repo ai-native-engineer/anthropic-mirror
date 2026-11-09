@@ -6,10 +6,10 @@
 
 # Using Research
 
-Learn how to use Claude's Research feature for practical planning tasks. Available to users with paid Claude plans (Pro, Max, Team, or Enterprise).
+Learn how to use Claude's Research feature for practical planning tasks. Available to users with paid Claude plans (Pro, Max, Ultra, Team, or Enterprise).
 
-3 minClaude.ai
+3 minClaude
 
 Watch[Open Claude](https://claude.ai/new)
 
-![](https://academy.claude.com/assets/v1/thumbnail.light-e3k7qkwv.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-i8dv9pmp.png)
+![](https://academy.claude.com/assets/v1/thumbnail.light-l3fpuj7b.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-k1zbkjix.png)

@@ -8,7 +8,7 @@
 
 Package your brand guidelines into a skill to create presentations, spreadsheets, or documents that automatically match your preferred style.
 
-20 minMarketingClaude.ai
+20 minMarketingClaude
 
 Try in ClaudeCopy prompt
 
@@ -73,7 +73,7 @@ Google Drive
 
 [Connect](https://claude.ai/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 ![](images/a3bfc5814bd6a3e2.svg)
 

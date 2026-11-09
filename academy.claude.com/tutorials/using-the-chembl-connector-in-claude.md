@@ -8,7 +8,7 @@
 
 Set up and use the ChEMBL integration with Claude to access bioactive compound data, biological targets, and activity measurements for drug discovery.
 
-15 minClaude.ai
+15 minClaude
 
 [Open Claude](https://claude.ai/new)
 
@@ -61,10 +61,11 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 **For Claude Code Users**
 
-1. Command: `/plugin marketplace add anthropics/life-sciences`
-2. Command: `/plugin install chembl@life-sciences`
-3. Restart Claude Code
-4. Verify that the server is connected with /mcp
+1. Connect **ChEMBL** in Claude by following the steps above
+2. Sign in to Claude Code with the same Claude account (run `/login` to switch accounts), then restart Claude Code
+3. Run `/mcp` and check that the connector appears in the claude.ai section of the list (if it isn't shown, select **Show unused connectors** at the end of that section)
+
+Learn about [using connectors from Claude in Claude Code(opens in new tab)](https://code.claude.com/docs/en/mcp#use-mcp-servers-from-claude-ai).
 
 ## **Example use cases**[](#example-use-cases)
 

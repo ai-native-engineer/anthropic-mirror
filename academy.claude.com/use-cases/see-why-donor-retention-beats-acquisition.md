@@ -8,7 +8,7 @@
 
 Claude builds a five-year donor projection with sliders for retention and acquisition. Drag either one and the curve redraws, and it becomes clear fairly quickly why a modest retention bump does more than doubling the acquisition spend.
 
-15 minClaude.ai
+15 minClaude
 
 Try in ClaudeCopy prompt
 

@@ -8,7 +8,7 @@
 
 Set up and use LSEG's financial market data integration with Claude for real-time pricing, analytics, and valuation tools across asset classes.
 
-15 minClaude.ai
+15 minClaude
 
 [Open Claude](https://claude.ai/new)
 

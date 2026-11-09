@@ -8,7 +8,7 @@
 
 Transform spreadsheets of program statistics into presentation-ready charts, infographics, and dashboards that tell your impact story visually and help demonstrate program satisfaction to stakeholders.
 
-15 minClaude.ai
+15 minClaude
 
 Try in ClaudeCopy prompt
 
@@ -58,7 +58,7 @@ Google Drive
 
 [Connect](https://claude.ai/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 ![](https://academy.claude.com/surfaces/excel-icon.svg)
 

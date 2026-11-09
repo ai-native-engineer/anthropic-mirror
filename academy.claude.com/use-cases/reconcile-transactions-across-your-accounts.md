@@ -28,7 +28,7 @@ Open in Cowork
 
 ## 2. Give Claude context[](#2-give-claude-context)
 
-[Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) is a workspace in Claude, available in the [Claude Desktop(opens in new tab)](https://claude.com/download) app and — with remote sessions (in beta) — on web and mobile. Run locally, Claude works directly with your local files. It cross-references transactions across your bank statements and chart of accounts and identifies what's off.
+[Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) is a workspace in Claude, available in the [Claude Desktop(opens in new tab)](https://claude.com/download) app and — with remote sessions ([check availability for your plan(opens in new tab)](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)) — on web and mobile. When you start a task from the Claude Desktop app, Claude reaches your local files through the app while it's open, and the files it uses are processed on Anthropic's servers. Claude cross-references transactions across your bank statements and chart of accounts and identifies what's off.
 
 **What to expect:** After your initial prompt in Cowork, Claude may ask you clarifying questions about your accounts, then build a plan you can review in the sidebar. This helps it reconcile more thoroughly and produce a more complete output.
 
@@ -99,7 +99,7 @@ Open in Cowork
 
 ### Use the sidebar panels to track progress[](#use-the-sidebar-panels-to-track-progress)
 
-The Artifacts panel shows files Claude creates, like your journal entries spreadsheet, as they're generated. The Context panel shows which source files Claude is referencing.
+The Outputs panel shows files Claude creates, like your journal entries spreadsheet, as they're generated. The Context panel shows which source files Claude is referencing.
 
 ### Grant folder access for seamless file output[](#grant-folder-access-for-seamless-file-output)
 

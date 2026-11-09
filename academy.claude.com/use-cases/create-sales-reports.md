@@ -8,7 +8,7 @@
 
 Pull metrics from your CRM, analyze trends, and generate polished reports with data visualizations and strategic insights—all without manual data formatting.
 
-15 minSalesClaude.ai
+15 minSalesClaude
 
 Try in ClaudeCopy prompt
 
@@ -55,7 +55,7 @@ HubSpot
 
 [Connect](https://claude.ai/directory/hubspot)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 Q4 Sales Goals documentFILE
 

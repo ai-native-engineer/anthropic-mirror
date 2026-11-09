@@ -10,14 +10,14 @@ Desktop extensions provide a streamlined way to install and manage local MCP ser
 
 ## Installing desktop extensions from the directory
 
-1. Navigate to Settings > Extensions on Claude Desktop.
+1. Navigate to **Settings > Desktop app** and select "Manage" next to **Extensions** (or **Settings > Extensions** in the older Settings layout) on Claude Desktop.
 2. Click “Browse extensions” to view our directory and click on any Anthropic-reviewed tools you want to use. Click "Install" on your desired extension.
 3. Configure any required settings (like API keys) through the user-friendly interface.
 4. The extension will automatically be available in your conversations.
 
 ## Installing custom desktop extensions
 
-1. Navigate to Settings > Extensions on Claude Desktop.
+1. Navigate to **Settings > Desktop app** and select "Manage" next to **Extensions** (or **Settings > Extensions** in the older Settings layout) on Claude Desktop.
 2. Click “Advanced settings” and find the **Extension Developer** section.
 3. Click “Install Extension…”
 4. Select the .mcpb file and follow the prompts to install.
@@ -39,9 +39,9 @@ for specific instructions.
 
 ### Create and upload custom extensions for your organization
 
-Custom desktop extensions uploads allow Team and Enterprise plans to leverage organization-specific workflows that aren’t available in the public directory. After creating a custom desktop extension, Owners and Primary Owners can navigate to Settings > Extensions within Claude Desktop and click “Advanced settings” to access the **Extension Developer** section:
+Custom desktop extensions uploads allow Team and Enterprise plans to leverage organization-specific workflows that aren’t available in the public directory. After creating a custom desktop extension, Owners and Primary Owners can navigate to **Settings > Desktop app**, select "Manage" next to **Extensions** (or **Settings > Extensions** in the older Settings layout), and click "Advanced settings" to access the **Extension Developer** section:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1681607607/ba6e379d2769d190f0970a0adaed/AD_4nXd4aZkqjJFpiXMPF28Pih7HmSJ9pPsnoWAfVgiLdFRFiTkO92YtXteIjvDHaPl7T0tjfpRTBOlyrMbQ_aciCNDgfIuEvV3szmKvt72x5O51DMSClXOYWk1JIRIzylwkj3joXqZcLw?expires=1790856900&signature=8d1519f3115bff576f5df4ac900e9766ae3a9c4d2d4026e6be8ffcf4a774a56c&req=dSYvF89%2BmodfXvMW1HO4zWbPxUB3Mjs7Hn9K2IaIG2I7zqRb0os9xNTbaNrO%0ArdmfQmOsGT3EAmhEnWA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1681607607/ba6e379d2769d190f0970a0adaed/AD_4nXd4aZkqjJFpiXMPF28Pih7HmSJ9pPsnoWAfVgiLdFRFiTkO92YtXteIjvDHaPl7T0tjfpRTBOlyrMbQ_aciCNDgfIuEvV3szmKvt72x5O51DMSClXOYWk1JIRIzylwkj3joXqZcLw?expires=1790856900&signature=8d1519f3115bff576f5df4ac900e9766ae3a9c4d2d4026e6be8ffcf4a774a56c&req=dSYvF89%2BmodfXvMW1HO4zWbPxUB3Mjs7Hn9K2IaIG2I7zqRb0os9xNTbaNrO%0ArdmfQmOsGT3EAmhEnWA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1681607607/ba6e379d2769d190f0970a0adaed/AD_4nXd4aZkqjJFpiXMPF28Pih7HmSJ9pPsnoWAfVgiLdFRFiTkO92YtXteIjvDHaPl7T0tjfpRTBOlyrMbQ_aciCNDgfIuEvV3szmKvt72x5O51DMSClXOYWk1JIRIzylwkj3joXqZcLw?expires=1794098700&signature=65111fc23c66911312a5fbaebeddb12a3a28697dbb869158e242380d15ece895&req=dSYvF89%2BmodfXvMW1HO4zWbPxUR%2FPjU1Hn9K2IaIG2LWF1Bep9uk4uAP3Y4h%0AlNQspkhOotzdaYKkUFk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1681607607/ba6e379d2769d190f0970a0adaed/AD_4nXd4aZkqjJFpiXMPF28Pih7HmSJ9pPsnoWAfVgiLdFRFiTkO92YtXteIjvDHaPl7T0tjfpRTBOlyrMbQ_aciCNDgfIuEvV3szmKvt72x5O51DMSClXOYWk1JIRIzylwkj3joXqZcLw?expires=1794098700&signature=65111fc23c66911312a5fbaebeddb12a3a28697dbb869158e242380d15ece895&req=dSYvF89%2BmodfXvMW1HO4zWbPxUR%2FPjU1Hn9K2IaIG2LWF1Bep9uk4uAP3Y4h%0AlNQspkhOotzdaYKkUFk%3D%0A)
 
 Click “Install Extension…” and select the .mcpb file. Follow the prompts to install and configure your custom desktop extension. For more in-depth information, please refer to our [desktop extension developer documentation](https://github.com/anthropics/mcpb).
 
@@ -67,7 +67,7 @@ For controlling desktop extensions through system policies, please refer to our 
 
 ### Extension configuration issues
 
-* Navigate to Settings > Extensions and click on the extension to review its settings.
+* Navigate to **Settings > Desktop app** and select "Manage" next to **Extensions** (or **Settings > Extensions** in the older Settings layout), then click on the extension to review its settings.
 * Ensure all required configuration fields are completed.
 * Check that file paths (if applicable) point to existing directories you have access to.
 
@@ -81,7 +81,7 @@ For controlling desktop extensions through system policies, please refer to our 
 
 ### How do I check if my MCP servers are properly connected in Claude Desktop?
 
-Click the "+" button on bottom the chat box within Claude Desktop, then select "Connectors." This will show you connected MCP servers and their tools. Alternatively, you can visit Developer settings (under **Desktop app**) to see connection status and look at the logs for any MCP servers.
+Click the "+" button on bottom the chat box within Claude Desktop, then select "Connectors." This will show you connected MCP servers and their tools. Alternatively, go to the **Local MCP servers** section of the Extensions page (**Settings > Desktop app**, then "Manage" next to **Extensions**), or to **Settings > Developer**, under **This computer**, in the older Settings layout, to see connection status and look at the logs for any MCP servers.
 
 ### How do I convert my existing MCP server to a desktop extension?
 
@@ -120,7 +120,7 @@ For more in-depth information on building your own MCP clients and servers, we r
 If you need further guidance, visit our guide on [How to Get Support](https://support.claude.com/en/articles/9015913-how-to-get-support) for additional support options.
 
 * [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
-* [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
+* [When to use desktop and web connectors](https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors)
 * [Deploy Claude Desktop for macOS](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)
 * [Enterprise configuration for Claude Desktop](https://support.claude.com/en/articles/12622667-enterprise-configuration-for-claude-desktop)
 * [Deploying enterprise-grade MCP servers with desktop extensions](https://support.claude.com/en/articles/12702546-deploying-enterprise-grade-mcp-servers-with-desktop-extensions)

@@ -18,7 +18,7 @@ Claude can now work alongside you in your browser, in your context, on your actu
 
 Claude in Chrome is available for paid plan users on the Chrome web browser.
 
-**Important:** Browser use is a feature that allows Claude to interact directly with websites on your behalf, which carries inherent risks. Please review [Using Claude for Chrome Safely(opens in new tab)](https://support.claude.com/en/articles/12902428-using-claude-for-chrome-safely) before use.
+**Important:** Browser use is a feature that allows Claude to interact directly with websites on your behalf, which carries inherent risks. Please review [Use Claude in Chrome safely(opens in new tab)](https://support.claude.com/en/articles/12902428-using-claude-for-chrome-safely) before use.
 
 ## How Claude understands your browser[](#how-claude-understands-your-browser)
 

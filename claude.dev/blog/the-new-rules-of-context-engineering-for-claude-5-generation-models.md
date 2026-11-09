@@ -4,6 +4,10 @@
 
 We removed over 80% of Claude Code's system prompt for more advanced models. How to apply the lessons we learned to your own context engineering in Claude Code and with your own agents.
 
+Thariq Shihipar
+
+Engineering
+
 Jul 24, 2026
 
 7 min
@@ -11,6 +15,8 @@ Jul 24, 2026
 The new rules of context engineering for Claude 5 generation models
 
 [└Unhobbling Claude](#unhobbling-claude)[└Then and now](#then-and-now)[└Applying this to your context](#applying-this-to-your-context)[└Try simplifying](#try-simplifying)
+
+7 MIN READ
 
 [X.com](https://twitter.com/intent/tweet?text=The%20new%20rules%20of%20context%20engineering%20for%20Claude%205%20generation%20models%20%2F%20claude.dev%20Blog&url=https%3A%2F%2Fclaude.dev%2Fblog%2Fthe-new-rules-of-context-engineering-for-claude-5-generation-models%2F)[LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fclaude.dev%2Fblog%2Fthe-new-rules-of-context-engineering-for-claude-5-generation-models%2F)[Email](mailto:?subject=The%20new%20rules%20of%20context%20engineering%20for%20Claude%205%20generation%20models%20%2F%20claude.dev%20Blog&body=https%3A%2F%2Fclaude.dev%2Fblog%2Fthe-new-rules-of-context-engineering-for-claude-5-generation-models%2F)Copy URL[Copy markdown](https://claude.dev/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models.md)
 
@@ -20,7 +26,7 @@ But when you send a message to Claude, the prompt is only a small part of the co
 
 Unlike a prompt, context is used generally across many requests, so it cannot be as specific. How do you build these general prompts and guidance for Claude, especially when you don’t know what a user’s prompt might be?
 
-This can be surprisingly difficult as Claude’s own capabilities evolve. Most recently, we noticed a large jump in the way we prompt the newest generation of Claude models. We removed over 80% of Claude Code’s system prompt for models like Claude Opus 5 and Claude Fable 5 with no measurable loss on our coding evaluations.
+This can be surprisingly difficult as Claude’s own capabilities evolve. Most recently, we noticed a large jump in the way we prompt the newest generation of Claude models. We removed over 80% of [Claude Code](https://claude.com/product/claude-code)’s system prompt for models like Claude Opus 5 and Claude Fable 5 with no measurable loss on our coding evaluations.
 
 Here’s what we’ve learned about prompting this new class of models, and how you can utilize it to update your context engineering. We’ve put these best practices in `claude doctor`; use the command `/doctor` in Claude Code to rightsize your skills, and CLAUDE.md files.
 
@@ -102,7 +108,7 @@ We used to encourage users to save things to Claude’s memory, by using the # h
 
 In plan mode, Claude Code has heavily relied on markdown files with plans. Storing these files as plans helped Claude refer to them when needed. Another similar best practice was to store specs in the codebase for Claude to refer to while working across longer projects.
 
-But we’ve found that Claude can handle increasingly more complicated references. Instead of simple markdown files, Claude can reference HTML artifacts created by our new artifacts feature.
+But we’ve found that Claude can handle increasingly more complicated references. Instead of simple markdown files, Claude can reference [HTML artifacts](https://claude.dev/blog/using-claude-code-the-unreasonable-effectiveness-of-html/) created by our new artifacts feature.
 
 You may also give Claude references in the form of code. A spec may also be a detailed test suite, or a function in a different codebase that Claude might port.
 
@@ -116,7 +122,7 @@ Pulling this all together, what does this look like when you assemble your conte
 
 ### System prompt
 
-A system prompt is heavily tied to the product context. It tells Claude what product it’s operating in and what it’s doing. For Claude Code, you will likely never modify this, but if you are building your own agent harness, this is where you should spend a lot of time.
+A system prompt is heavily tied to the product context. It tells Claude what product it’s operating in and what it’s doing. For Claude Code, you will likely never modify this, but if you are [building your own agent harness](https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop), this is where you should spend a lot of time.
 
 ### CLAUDE.md
 
@@ -126,7 +132,7 @@ Use progressive disclosure heavily, for example if you have several unique instr
 
 ### Skills
 
-Think of skills as lightweight guides to let Claude find information when needed. Avoid making them overconstrained, except in highly important areas.
+Think of [skills as lightweight guides](https://claude.dev/blog/lessons-from-building-claude-code-how-we-use-skills/) to let Claude find information when needed. Avoid making them overconstrained, except in highly important areas.
 
 For long skills, try and use progressive disclosure as much as possible- divide it into many files and split them out.
 

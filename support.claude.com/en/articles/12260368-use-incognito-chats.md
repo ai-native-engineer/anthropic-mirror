@@ -6,13 +6,13 @@
 
 Incognito chats are temporary conversations that aren't saved to your chat history or to **[Claude’s memory](https://support.claude.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context)**.
 
-Incognito chats are available to all Claude users (Free, Pro, Max, Team, and Enterprise plans).
+Incognito chats are available to all Claude users (Free, Pro, Max, Ultra, Team, and Enterprise plans).
 
 These differ from regular chats in several ways:
 
 * Incognito chats are not used for training. See our Privacy Center for more information:
 
-  + **[Is my data used for model training?](https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training)** (for Free, Pro, and Max plans)
+  + **[Is my data used for model training?](https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training)** (for Free, Pro, Max, and Ultra plans)
   + **[Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)** (for Team and Enterprise plans)
 * While incognito chats aren't saved to your chat history, they are retained for either 30 days (default), or longer in accordance with your organization's custom data retention setting (available for Enterprise plans).
 * Claude won’t pull information from incognito chats when searching previous conversations.
@@ -28,7 +28,7 @@ These differ from regular chats in several ways:
 
 When starting a new chat with Claude outside of a project, you'll see a ghost icon in the upper right corner of your screen:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1790942400&signature=e7cc156e464716e7e71bf7865e86974930c59c6014b30a383e5fe31d58d6ae10&req=dScmH854lYZbXfMW3nq%2BgV3vl450548id7W8szMzgHnXOQgom8Yh%2F407Pyft%0AgVhlZ5dgBmx0hAmN86uPG0gd67A%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1790942400&signature=e7cc156e464716e7e71bf7865e86974930c59c6014b30a383e5fe31d58d6ae10&req=dScmH854lYZbXfMW3nq%2BgV3vl450548id7W8szMzgHnXOQgom8Yh%2F407Pyft%0AgVhlZ5dgBmx0hAmN86uPG0gd67A%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1794098700&signature=faa723d28d7f2cbb3f70b4bc9a64b308c1a9432a9b5ecf8ec315bc510abe4ce9&req=dScmH854lYZbXfMW1HO4zeUcuga9Z%2B2MDCAt3Cx%2FSO2zlKduB45HAeDuHUui%0AyQLFyRJaLEvEchwFUkI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1794098700&signature=faa723d28d7f2cbb3f70b4bc9a64b308c1a9432a9b5ecf8ec315bc510abe4ce9&req=dScmH854lYZbXfMW1HO4zeUcuga9Z%2B2MDCAt3Cx%2FSO2zlKduB45HAeDuHUui%0AyQLFyRJaLEvEchwFUkI%3D%0A)
 
 1. Click the ghost icon to enable incognito mode.
 2. The interface will indicate you're in an incognito chat with a black border and “Incognito chat” label in the upper left corner.
@@ -69,8 +69,8 @@ Incognito mode is currently only available for chats outside of projects, so you
 
 Once closed, incognito chats cannot be reopened. Make sure to save any important information before ending your session.
 
-* [What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)
+* [How can I create and manage projects?](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects)
 * [Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context)
-* [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
+* [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
 * [See your monthly recap](https://support.claude.com/en/articles/15672559-see-your-monthly-recap)

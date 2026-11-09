@@ -8,7 +8,7 @@
 
 Turn sales losses and competitive data into ready-to-use battlecards with winning talk tracks, objection handlers, and differentiation strategies your team can use during actual calls.
 
-10 minSalesClaude.ai
+10 minSalesClaude
 
 Try in ClaudeCopy prompt
 
@@ -50,7 +50,7 @@ HubSpot
 
 [Connect](https://claude.ai/directory/hubspot)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 Website reference photoFILE
 

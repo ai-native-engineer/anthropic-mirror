@@ -8,7 +8,7 @@
 
 A self-paced guide to help nonprofit staff build confidence with Claude and discover practical applications for their role.
 
-2 minClaude.ai
+2 minClaude
 
 [Open Claude](https://claude.ai/new)
 
@@ -29,7 +29,7 @@ Welcome to the Claude for nonprofits community. This guide is a pathway to help 
 1. Log in to [Claude.ai(opens in new tab)](https://claude.ai), bookmark it, and start a chat
 2. Ask Claude about five ways it could help in your specific role
 3. Create your first project for an ongoing work initiative
-4. Complete the Claude foundations session
+4. Complete the [Claude 101(opens in new tab)](https://academy.claude.com/courses/claude-101) course
 5. Begin identifying use cases from challenges and repetitive tasks
 
 ### Implementation tips[](#implementation-tips)
@@ -43,20 +43,19 @@ Welcome to the Claude for nonprofits community. This guide is a pathway to help 
 ### Key resources[](#key-resources-2)
 
 * [Use case library(opens in new tab)](https://academy.claude.com/all?kind=use-case)
-* [Claude artifact inspiration gallery(opens in new tab)](https://claude.ai/artifacts?category=learn)
 * [MCP connector directory(opens in new tab)](https://claude.com/connectors)
 
 ### Recommended actions[](#recommended-actions-2)
 
 1. Connect Claude to relevant connectors (Google Drive, Slack, etc.)
-2. Engage with monthly webinars provided by Anthropic
+2. Engage with [webinars(opens in new tab)](https://academy.claude.com/collections/nonprofits#webinars) provided by Anthropic
 3. Explore nonprofit-specific use cases in the library
 
 ### Implementation tips[](#implementation-tips-2)
 
 * Use library prompts as templates for formatting and organizing information
 * Upload organizational documents to projects for persistent context
-* Turn on memory (go to settings > capabilities) to allow Claude to remember relevant context across conversations
+* Turn on [memory(opens in new tab)](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context) to allow Claude to remember relevant context across conversations
 
 ## Reaching new levels with Claude[](#reaching-new-levels-with-claude)
 

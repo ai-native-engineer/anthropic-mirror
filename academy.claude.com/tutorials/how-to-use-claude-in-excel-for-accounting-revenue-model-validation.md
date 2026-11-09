@@ -8,7 +8,7 @@
 
 Use Claude to validate ASC 606 revenue models, surface reconciliation issues, and build financial visualizations
 
-20 minClaude in Excel
+10 minClaude for Excel
 
 Watch
 

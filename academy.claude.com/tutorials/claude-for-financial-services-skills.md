@@ -8,7 +8,7 @@
 
 Introduction to six specialized AI skills for financial professionals including valuation modeling, competitive analysis, research reports, and due diligence.
 
-5 minClaude.ai
+5 minClaude
 
 [Open Claude](https://claude.ai/new)
 
@@ -28,7 +28,7 @@ A comps table, a DCF model, and an earnings update each follow a structure your 
 
 **How to enable Skills**
 
-1. Make sure **Code execution and file creation** is enabled. On Enterprise plans your admin controls this at the organization level; individual Free, Pro, and Max accounts manage it in [Settings > Capabilities(opens in new tab)](https://claude.ai/settings/capabilities). Skills run in Claude’s secure sandboxed computing environment.
+1. Make sure **Code execution and file creation** is enabled. On Enterprise plans your admin controls this at the organization level; individual Free, Pro, Max, and Ultra accounts manage it in [Settings > Capabilities(opens in new tab)](https://claude.ai/settings/capabilities). Skills run in Claude’s secure sandboxed computing environment.
 2. Open [Customize > Skills(opens in new tab)](https://claude.ai/customize/skills).
 3. Toggle individual skills on or off as needed. You can also upload your own.
 

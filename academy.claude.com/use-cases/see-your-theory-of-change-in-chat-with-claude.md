@@ -8,7 +8,7 @@
 
 Describe your program and Claude draws the causal chain inline, inputs through impact, with every arrow clickable to show the assumption behind it. For when you know what you do but have never drawn why it works.
 
-15 minClaude.ai
+15 minClaude
 
 Try in ClaudeCopy prompt
 

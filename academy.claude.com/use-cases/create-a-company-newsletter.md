@@ -8,7 +8,7 @@
 
 Stay informed with a publication-style digest that synthesizes company news from all your channels.
 
-10 minClaude.ai
+10 minClaude
 
 Try in ClaudeCopy prompt
 
@@ -62,13 +62,13 @@ Slack
 
 [Connect](https://claude.ai/directory/slack)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 ## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude reads across all your channels, filters for important discussions, and organizes updates into topic-based sections. You'll receive a clear summary of events, without needing to piece together information from various messages.
 
-Here's your digest for October 27-31:
+Here's your digest for October 14-20:
 
 [**View your Interactive HTML artifact**(opens in new tab)](https://claude.ai/public/artifacts/5c2b5a3f-69ac-4b56-b54e-9cf60dca5bc7)
 
@@ -110,9 +110,9 @@ Open in Claude
 
 The prompt includes phrases like "Print-like typography" or "Institutional publishing elements". These descriptions help inspire Claude to design and format your information in a way that mimics digital publications and online news sites. Without them, Claude may default to more basic formatting.
 
-### Publish and share the artifact[](#publish-and-share-the-artifact)
+### Share the artifact[](#share-the-artifact)
 
-After Claude creates an artifact, [publish and share it(opens in new tab)](https://support.claude.com/en/articles/9547008-discovering-publishing-customizing-and-sharing-artifacts) through the URL. Others can open it in the browser, without needing a Claude account. If someone requests changes, you can ask Claude to update the artifact and republish to display the new version.
+After Claude creates an artifact, [share it(opens in new tab)](https://support.claude.com/en/articles/9547008-share-artifacts) with a link. People you invite need a Claude account. If someone requests changes, you can ask Claude to update the artifact.
 
 ### Tune preferences over time and create skills[](#tune-preferences-over-time-and-create-skills)
 

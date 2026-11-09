@@ -8,7 +8,7 @@
 
 Turn written procedures into visual flowcharts that make complex processes easier to follow and share.
 
-15 minClaude.ai
+15 minClaude
 
 Try in ClaudeCopy prompt
 

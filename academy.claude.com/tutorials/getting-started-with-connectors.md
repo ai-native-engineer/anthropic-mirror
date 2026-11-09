@@ -8,7 +8,7 @@
 
 Learn how to supercharge Claude by connecting the tools you already use. This tutorial shows you how to set up connectors that give Claude access to your files, apps, and workflows.
 
-4 minClaude.ai
+4 minClaude
 
 Watch[Open Claude](https://claude.ai/new)
 

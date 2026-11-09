@@ -19,7 +19,7 @@ Please include the following information with your request:
 * NCMEC Report Identifier (If Applicable)
 
 * [I think a user is infringing my copyright or other intellectual property. How do I report it?](https://support.claude.com/en/articles/10023646-i-think-a-user-is-infringing-my-copyright-or-other-intellectual-property-how-do-i-report-it)
-* [Online Safety Contacts](https://support.claude.com/en/articles/11174660-online-safety-contacts)
+* [Point of Contact for Authorities and Regulators](https://support.claude.com/en/articles/11174660-point-of-contact-for-authorities-and-regulators)
 * [Enforce network-level access control with Tenant Restrictions](https://support.claude.com/en/articles/13198485-enforce-network-level-access-control-with-tenant-restrictions)
 * [Unauthorized Anthropic stock sales and investment scams](https://support.claude.com/en/articles/13704655-unauthorized-anthropic-stock-sales-and-investment-scams)
 * [Child safety guidance for developers](https://support.claude.com/en/articles/15591275-child-safety-guidance-for-developers)

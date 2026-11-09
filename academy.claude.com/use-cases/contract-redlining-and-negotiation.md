@@ -8,7 +8,7 @@
 
 Analyze agreements to spot terms affecting your work, with suggested redlines and negotiation points.
 
-15 minLegalClaude.ai
+15 minLegalClaude
 
 Try in ClaudeCopy prompt
 
@@ -46,7 +46,7 @@ Google Drive
 
 [Connect](https://claude.ai/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 ![](images/a3bfc5814bd6a3e2.svg)
 

@@ -1,0 +1,36 @@
+<!-- source: https://support.claude.com/en/articles/8325617-cancel-your-pro-max-or-ultra-subscription -->
+
+You may cancel your Pro, Max, or Ultra plan subscription at any time by following the cancellation instructions for the platform you signed up on. Your cancellation will take effect at the end of your current billing period and you can continue using your paid plan until then.
+
+**Note:**
+
+* To avoid being charged for your next billing period, cancel your subscription at least 24 hours before your next billing date.
+* Cancelling doesn't refund any usage credits you've purchased. Your balance stays on your account, but usage credits can only be used with an active paid plan. Learn more about **[usage credit expiration and refunds](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans#h_3499c80e6a)**.
+* Monthly API credits included with Max, Ultra, and Team plans aren’t purchased, so they can’t be refunded. They expire at the end of each billing cycle. If you cancel or get a refund for your plan, new monthly credits stop, and credits you already have stay usable until they expire.
+* If you use Personal Finance, you can’t open it after your paid plan ends, and your banks stay linked until you unlink them. If you don’t plan to come back, unlink your banks before your plan ends. Learn more in **[Use Personal Finance in Claude](https://support.claude.com/en/articles/18185620-use-personal-finance-with-claude)**.
+
+## Cancel your Pro, Max, or Ultra subscription on Claude and Claude Desktop
+
+If you signed up for a paid plan on the web version of Claude (**[claude.ai](https://claude.ai)**) or Claude Desktop (Mac, Windows, or Linux), start by logging into your account on a web browser or opening the desktop app. Click on your initials or name in the lower left corner and select “Settings” from the menu. Navigate to **[Settings > Billing](https://claude.ai/settings/billing)** and click the “Cancel” button.
+
+## Cancel your Pro, Max, or Ultra subscription on Claude for iOS
+
+If you subscribed to a Pro, Max, or Ultra plan via Claude for iOS, your subscription and payment will be handled directly on your iOS device.
+
+To cancel your subscription, click on your initials in the top right corner of Claude for iOS, and then click “Billing” from the menu options. Select “Manage subscription” and follow the prompts for cancellation. If you’ve already removed the app from your device, you can also follow the instructions located in this App Store resource to unsubscribe: **[If you want to cancel a subscription from Apple](https://support.apple.com/en-us/118428)**.
+
+You may cancel your Pro, Max, or Ultra subscription at any time from the platform you signed up on. To avoid being charged for your next billing period, cancel your subscription at least 24 hours before your next billing date.
+
+## Cancel your Pro, Max, or Ultra subscription on Claude for Android
+
+If you subscribed to a Pro, Max, or Ultra plan via Claude for Android, your subscription and payment will be handled directly on your Android device.
+
+To cancel your subscription, click on your initials in the top right corner of Claude for Android, and then click “Billing” from the menu options. Select “Manage subscription” and follow the prompts for cancellation. If you’ve already removed the app from your device, you can also follow the instructions located in this Play Store resource to unsubscribe: **[Cancel, pause, or change a subscription on Google Play](https://support.google.com/googleplay/answer/7018481?hl=en&co=GENIE.Platform%3DAndroid)**.
+
+You may cancel your Pro, Max, or Ultra subscription at any time from the platform you signed up on. To avoid being charged for your next billing period, cancel your subscription at least 24 hours before your next billing date.
+
+* [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+* [Use Claude Code with your Pro, Max, or Ultra plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-max-or-ultra-plan)
+* [Understanding your Pro, Max, or Ultra plan invoices](https://support.claude.com/en/articles/16607638-understanding-your-pro-max-or-ultra-plan-invoices)
+* [Monthly API credits for Max, Ultra, and Team plans](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-ultra-and-team-plans)
+* [What is the Ultra plan?](https://support.claude.com/en/articles/17728952-what-is-the-ultra-plan)

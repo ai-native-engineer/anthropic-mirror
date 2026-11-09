@@ -8,7 +8,7 @@
 
 Learn to evaluate published statistics by checking them against raw data.
 
-15 minResearchClaude.ai
+15 minResearchClaude
 
 Try in ClaudeCopy prompt
 

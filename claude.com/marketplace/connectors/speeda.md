@@ -1,0 +1,88 @@
+<!-- source: https://claude.com/marketplace/connectors/speeda -->
+
+Connector URL`https://speeda-mcp.ub-speeda.com/mcp`
+
+More[Documentation (opens in new tab)](https://help-api.ub-speeda.com/hc/ja/articles/59195328975897-Speeda-MCP-%E3%81%AE%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)[Support (opens in new tab)](https://help-api.ub-speeda.com/hc/ja/categories/56835002674841-MCP%E9%80%A3%E6%90%BA)[Privacy policy (opens in new tab)](https://www.ub-speeda.com/top/description/informationpolicy)
+
+The Speeda connector brings Speeda's trusted business intelligence on companies, industries, and markets directly into your AI apps and tools. Access standardized company financials, analyst-written industry and trend reports, expert insights, and primary disclosures such as securities reports and timely disclosures, with new data and features added continuously.
+
+## Tools
+
+* bulk\_lookup\_companies
+* bulk\_lookup\_kpis
+* fetch\_company\_report
+* fetch\_insights
+* fetch\_kpis\_by\_single\_company
+* fetch\_single\_company
+* fetch\_single\_insight
+* fetch\_single\_report
+* get\_as\_reported\_financial\_statements
+* get\_business\_segments
+* get\_company
+* get\_company\_financial\_indicators
+* get\_company\_financial\_reports
+* get\_company\_industries
+* get\_company\_issue\_by\_id
+* get\_company\_issues
+* get\_daily\_quotes
+* get\_element\_value
+* get\_financial\_results\_briefing\_long\_summary
+* get\_flash\_earnings\_report\_content
+* get\_industry
+* get\_industry\_report
+* get\_industry\_segments
+* get\_integrated\_report\_long\_summary
+
+Show all 59 tools
+
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
+
+## Related connectors
+
+![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
+
+### [Google Drive](https://claude.com/marketplace/connectors/google-drive)
+
+Search, read, and upload files instantly
+
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
+
+![](https://assets.claude.com/646945a1897f9146e5221ee6ace82001a2e52f4d.svg?w=128&fit=max&auto=format)
+
+### [Google Calendar](https://claude.com/marketplace/connectors/google-calendar)
+
+Manage your schedule and coordinate meetings effortlessly
+
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
+
+![](https://assets.claude.com/20c8443aa72ae4e4d77f923e6c33314713f965e8.svg?w=128&fit=max&auto=format)
+
+### [Microsoft 365](https://claude.com/marketplace/connectors/microsoft-365)
+
+Access SharePoint, OneDrive, Outlook, and Teams directly in Claude
+
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
+
+![](https://assets.claude.com/517cb0a746dcf968ce8efda7613b69101b536a52.svg?w=128&fit=max&auto=format)
+
+### [Notion](https://claude.com/marketplace/connectors/notion)
+
+Connect your Notion workspace to search, update, and power workflows across tools
+
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
+
+![](https://assets.claude.com/bdf25f3db0bfe9b74855f504c31bd8522659edae.svg?w=128&fit=max&auto=format)
+
+### [Slack](https://claude.com/marketplace/connectors/slack)
+
+Send messages, create canvases, and fetch Slack data
+
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
+
+![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
+
+### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
+
+Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
+
+[Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")

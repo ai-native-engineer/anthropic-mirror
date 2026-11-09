@@ -8,7 +8,7 @@
 
 Turn any tracker, organizer, or goal system you've imagined into a working interactive tool. Describe what you want and watch Claude build it.
 
-15 minPersonalClaude.ai
+15 minPersonalClaude
 
 Try in ClaudeCopy prompt
 
@@ -36,9 +36,11 @@ Open in Claude
 
 ## 2. Give Claude context[](#2-give-claude-context)
 
-Claude can build interactive apps directly in conversation. No uploads or external tools needed. For more sophisticated designs, giving Claude direction about the aesthetic you want produces dramatically better results.
+Claude can build interactive apps directly in conversation. For more sophisticated designs, giving Claude direction about the aesthetic you want produces dramatically better results.
 
 ### Required context[](#required-context)
+
+No uploads or external tools needed.
 
 ## 3. What Claude creates[](#3-what-claude-creates)
 

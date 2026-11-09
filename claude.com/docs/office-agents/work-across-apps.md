@@ -8,6 +8,15 @@
 
 [Skip to main content](#content-area)
 
+Assistant
+
+Responses are generated using AI and may contain mistakes.
+
+After the September and October 2026 Microsoft 365 updates on Windows, some
+users are missing their chat history and uploaded skills in the Claude add-in.
+Anthropic is working with Microsoft to solve this issue. In the meantime, see
+[what you and your IT team can do](https://claude.com/docs/office-agents/data-storage#chat-history-and-skills-missing-after-a-microsoft-365-update-on-windows).
+
 Claude can coordinate between the Excel, PowerPoint, Word, and Outlook
 add-ins in your Microsoft 365 suite. Instead of switching between apps
 and re-providing context each time, Claude can read from one app and
@@ -133,10 +142,14 @@ settings your organization may have set, and activity is not included in
 Enterprise audit logs or data exports. For Enterprise organizations with
 the [Compliance API](https://platform.claude.com/docs/en/manage-claude/compliance-api)
 enabled, add-in sessions are included in the Compliance API. This
-coverage is in public beta and requires no additional setup: the same
-Compliance Access Keys apply. Chat history is stored locally in your
-browser, not on Anthropic’s servers, and can be cleared from Settings at
-any time.
+coverage requires no additional setup: the same Compliance Access Keys
+apply.
+Chat history is stored locally in your browser and can be cleared from
+Settings at any time. The add-ins also send your conversations to
+Anthropic, including the content Claude reads from your open workbooks,
+documents, presentations, email, and calendar, and any files you attach.
+Clearing chat history removes only the copy in your browser. It does not
+delete the messages or attached files that Anthropic keeps.
 
 ##  Current limitations
 

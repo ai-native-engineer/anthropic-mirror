@@ -8,7 +8,7 @@
 
 Set up and use the Daloopa integration with Claude for accessing financial data from public company filings covering 3,500+ companies.
 
-15 minClaude.ai
+15 minClaude
 
 [Open Claude](https://claude.ai/new)
 

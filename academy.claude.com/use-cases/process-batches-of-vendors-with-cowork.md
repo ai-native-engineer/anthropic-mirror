@@ -36,7 +36,7 @@ Open in Cowork
 
 ## 2. Give Claude context[](#2-give-claude-context)
 
-[Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) is a workspace in Claude, available in the [Claude Desktop(opens in new tab)](https://claude.com/download) app and — with remote sessions (in beta) — on web and mobile. Run locally, Claude works directly with your local files, so there's no copying and pasting into the conversation. For browser work like filling portal forms, it uses [Claude in Chrome(opens in new tab)](https://claude.com/chrome).
+[Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) is a workspace in Claude, available in the [Claude Desktop(opens in new tab)](https://claude.com/download) app and — with remote sessions ([check availability for your plan(opens in new tab)](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)) — on web and mobile. When you start a task from the Claude Desktop app, Claude reaches your local files through the app while it's open, and the files it uses are processed on Anthropic's servers. You don't need to copy and paste anything into the conversation. For browser work like filling portal forms, it uses [Claude in Chrome(opens in new tab)](https://claude.com/chrome).
 
 **What to expect:** After your initial prompt in Cowork, Claude may ask you questions about how to handle the batch, then build a plan you can review in the sidebar. This front-loading helps it run end-to-end with fewer interruptions.
 

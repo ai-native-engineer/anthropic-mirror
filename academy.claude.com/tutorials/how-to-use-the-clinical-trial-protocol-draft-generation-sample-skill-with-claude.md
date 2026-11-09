@@ -8,7 +8,7 @@
 
 How to use the Clinical Trial Protocol Draft Generation sample skill with Claude
 
-4 minClaude.ai
+4 minClaude
 
 [Open Claude](https://claude.ai/new)
 

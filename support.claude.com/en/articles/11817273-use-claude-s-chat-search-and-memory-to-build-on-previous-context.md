@@ -2,16 +2,9 @@
 
 You can prompt Claude to search through your previous conversations to find and reference relevant information in new chats. Claude can also remember context from your chats and carry it into new conversations and Cowork tasks. This article explains how chat search and memory work, what Claude does and doesn't remember, how to review and edit what's saved, and how to turn these features on or off.
 
-**Important:** We have introduced an improved experience for memory and migrated users off the legacy experience. If you think Claude has forgotten something in that migration:
-
-* Navigate to **[Settings > Memory](https://claude.ai/new#settings/customize-memory)** and until September 9, 2026, you will see the option to export your legacy memory.
-* Once you have exported your legacy memory, paste it back into Claude, highlighting the portion that may have been forgotten.
-
----
-
 ## Search past chats with Claude
 
-Searching past chats is available to users on paid plans (Pro, Max, Team, and Enterprise plans) on the web, Claude Desktop, and Claude Mobile apps.
+Searching past chats is available to users on paid plans (Pro, Max, Ultra, Team, and Enterprise plans) on the web, Claude Desktop, and Claude Mobile apps.
 
 You can prompt Claude to search through your previous conversations to find relevant information across sessions and reference specific details when needed. Simply ask Claude to find what you discussed before, and it will pull together the appropriate context to keep your conversation flowing. These searches use Retrieval-Augmented Generation (RAG) and will appear as tool calls during your conversations.
 
@@ -21,6 +14,8 @@ You can prompt Claude to search conversations within these boundaries:
 
 * All chats outside of projects.
 * Individual project conversations (searches are limited to within each specific project).
+
+Claude is designed not to search chats in which it has used your linked accounts in Personal Finance.
 
 ## Search and reference past chats
 
@@ -34,13 +29,13 @@ When Claude searches your previous chats, you will see this reflected in your cu
 
 ## Can I prevent Claude from searching my past chats?
 
-Yes, navigate to **[Settings > Memory](https://claude.ai/new#settings/customize-memory)** and switch the toggle next to "Search and reference chats" off:
+Yes, navigate to **Settings > Your Claude** (or **Settings > Memory** in the older Settings layout) and switch the toggle next to **Search and reference chats** off.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482439/4dee2d7b267f865205feefc8f4f3/cb60c334-d1e2-4828-a01d-dfb36bbaa7eb?expires=1790942400&signature=9c53c6042608d0f0fc022190c26e58e73554b3dfb1f3ed72f76976c14ae5c2d3&req=diUkFc12n4VcUPMW3nq%2Bgc%2FqKU4OMURsXlUe7sLh5cyxX2hBHv1Suyur1Gya%0AP1ZwN6%2BQNN%2Bo30gMIX3lKBRCChk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482439/4dee2d7b267f865205feefc8f4f3/cb60c334-d1e2-4828-a01d-dfb36bbaa7eb?expires=1790942400&signature=9c53c6042608d0f0fc022190c26e58e73554b3dfb1f3ed72f76976c14ae5c2d3&req=diUkFc12n4VcUPMW3nq%2Bgc%2FqKU4OMURsXlUe7sLh5cyxX2hBHv1Suyur1Gya%0AP1ZwN6%2BQNN%2Bo30gMIX3lKBRCChk%3D%0A)
+**Note:** This setting also controls whether Claude Duet, a research preview for Pro, Max, and Ultra plans, can search your past chats. Learn more about **[getting started with Claude](https://support.claude.com/en/articles/17631495)** [**Duet**](https://support.claude.com/en/articles/17631495).
 
 ## Can I exclude a specific past chat from searches?
 
-Incognito chats are available to all Claude users (free, Pro, Max, Team, and Enterprise plans). See **[Use incognito chats](https://support.claude.com/en/articles/12260368)** for more information.
+Incognito chats are available to all Claude users (Free, Pro, Max, Ultra, Team, and Enterprise plans). See **[Use incognito chats](https://support.claude.com/en/articles/12260368)** for more information.
 
 When starting a new chat with Claude outside of a project, you'll see a ghost icon in the upper right corner of your screen.
 
@@ -54,7 +49,7 @@ Clicking the ghost icon will open an incognito chat, creating a temporary conver
 
 Claude can generate memory based on your chats. With the addition of memory, Claude transforms from a stateless chat interface into a knowledgeable collaborator that builds understanding over time.
 
-Memory is on by default for Free, Pro, and Max plans on the web, Claude Desktop, and Claude Mobile (update to the latest version of the app). On Team and Enterprise plans, owners control whether memory is available, and it's off for each member until they turn it on. Memory is shared between Chat and Claude Cowork when Cowork runs in the cloud; Cowork sessions that run locally on your computer don't use memory.
+Memory is on by default for Free, Pro, Max, and Ultra plans on the web, Claude Desktop, and Claude Mobile (update to the latest version of the app). On Team and Enterprise plans, owners control whether memory is available. In most organizations created on or after October 31, 2026 (Pacific Time), memory starts on for each member unless they've turned it off before with the same account. In older organizations, it's off for each member until they turn it on. For the exceptions, see **[Controls for Team and Enterprise plan owners](#h_0feedd3ca9)**. Memory is shared between Chat and Claude Cowork when Cowork runs in the cloud; Cowork sessions that run locally on your computer don't use memory.
 
 ## How does Claude’s memory work?
 
@@ -64,13 +59,15 @@ In addition to searching past chats, enabling Claude's memory feature adds sever
 
 Claude saves memory as a set of individual topics as you chat, rather than summarizing conversations after they end. Mention that a deadline moved, and your next conversation already knows. Claude saves on its own, and you can also tell Claude to "remember this" to save something directly.
 
-### Project memory and summary
+### Project memory
 
-Each project has its own separate memory space and dedicated project summary, so the context within each of your projects is focused, relevant, and separate from other projects or non-project chats.
+Each project has its own memory. While working in a project, Claude uses the project's memory alongside your memory from chats outside of projects, but not memory from other projects. New memory is saved to the project, and if you have memory turned on, Claude can reference it in chats outside of projects too. To keep a project's memory fully separate, turn off "Use account memory" under **Memory** on the project's page.
 
 ### One memory across chat and Claude Cowork
 
 What Claude remembers from your chats is available when you hand it a task in Cowork in the cloud, and what comes up in a Cowork task carries back to chat. For example, ask Cowork to draft an update for your manager, and it already knows who that is and how they like updates written.
+
+Claude Duet, a research preview for Pro, Max, and Ultra plans, also uses and adds to your memory, so what Claude knows about you is there from your first message.
 
 To run a single chat or Cowork task without memory, open a new chat, click the “+” menu, and turn off "Memory." Claude won't use or add to your memory in that chat or task, and your other chats and tasks aren't affected. Your memory setting is set when the task starts and can't be changed later.
 
@@ -78,11 +75,9 @@ To run a single chat or Cowork task without memory, open a new chat, click the �
 
 ## Turn memory on or off for your account
 
-**Note:** Members of Enterprise plans can only enable this feature individually when it’s enabled by an owner for their organization. For more information, see **[Controls for Enterprise plan owners](#h_18b0f4a7ce)**.
+**Note:** Members of Team and Enterprise plans can turn memory on or off for themselves unless it's turned off for their organization. On Enterprise plans, members whose role is set to Custom also need memory in one of their custom roles. For more information, see **[Controls for Team and Enterprise plan owners](#h_0feedd3ca9)**.
 
-You can toggle Claude’s memory on by navigating to **[Settings > Memory](https://claude.ai/new#settings/customize-memory)** and turning on **Generate memory from chats**:
-
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482441/b5c806a8e3f68bf34c4a70724d38/d30be013-d099-4c93-99d1-23d404792f08?expires=1790942400&signature=befb7e0437cb1d381bec8f1be025b05756dba487ad434d6e093001c9b5b8bd3b&req=diUkFc12n4VbWPMW3nq%2BgUSsLm4laUeSFTtz1G74VAFilCxs%2FaEcRf8CjkqP%0A5osXYLTYwk5AkGdoeY03oi6KRpc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482441/b5c806a8e3f68bf34c4a70724d38/d30be013-d099-4c93-99d1-23d404792f08?expires=1790942400&signature=befb7e0437cb1d381bec8f1be025b05756dba487ad434d6e093001c9b5b8bd3b&req=diUkFc12n4VbWPMW3nq%2BgUSsLm4laUeSFTtz1G74VAFilCxs%2FaEcRf8CjkqP%0A5osXYLTYwk5AkGdoeY03oi6KRpc%3D%0A)
+You can toggle Claude's memory on by navigating to **[Settings > Your Claude](https://claude.ai/settings/personalization)** (or **Settings > Memory** in the older Settings layout) and turning on Generate memory from chats.
 
 If you want to disable Claude’s memory, click the toggle and you'll see two options:
 
@@ -135,7 +130,7 @@ Claude remembers the everyday context that helps it work with you, such as:
 
 By default, Claude does not store topics related to personal or sensitive subject matter, like your health, race, ethnicity, religious beliefs, politics, gender identity, and other similar areas.
 
-If these are topics you'd rather not keep re-explaining, you can choose to include them. Turn on **Include sensitive topics in memory** in **[Settings > Memory](https://claude.ai/new#settings/customize-memory)**. You can also turn it on from the one-time notice Claude shows in chat the first time it declines to save a memory because it referenced a sensitive topic.
+If these are topics you'd rather not keep re-explaining, you can choose to include them. Turn on **Include sensitive topics in memory** in **Settings > Your Claude** (or **Settings > Memory** in the older Settings layout). You can also turn it on from the one-time notice Claude shows in chat the first time it declines to save a memory because it referenced a sensitive topic.
 
 Once the setting is on:
 
@@ -152,7 +147,7 @@ If you decline the notice, or turn the setting off later, Claude removes any sen
 
 ### Incognito chats
 
-Incognito chats are available to all Claude users (free, Pro, Max, Team, and Enterprise plans).
+Incognito chats are available to all Claude users (Free, Pro, Max, Ultra, Team, and Enterprise plans).
 
 When starting a chat with Claude outside of a project, you will see a ghost icon in the upper right corner of your screen; clicking this enables incognito chats. When this mode is switched on, Claude won’t remember your chats, so they won’t be saved to Claude’s memory or your chat history. Close your current incognito chat when you’re ready for Claude to start remembering your conversations again.
 
@@ -160,18 +155,20 @@ When starting a chat with Claude outside of a project, you will see a ghost icon
 
 If you turn off memory in the “+” menu when you start a new chat, Claude doesn't use memory in that chat, doesn’t search your past chats from it, and doesn’t save anything from it to memory. Unlike incognito chats, they stay in your chat history.
 
+### Chats that used your linked accounts
+
+Once Claude has used your linked accounts in Personal Finance in a chat, it's designed not to save anything from that chat to memory or search that chat later. Learn more in **[Use Personal Finance in Claude](https://support.claude.com/en/articles/18185620-use-personal-finance-with-claude)**.
+
 ---
 
 ## Data retention and privacy
 
-All memory will be retained in accordance with existing chat data retention policies.
-
-* Claude’s memory reflects changes to your conversations as they happen.
-* When a conversation expires or is deleted, related memory entries generated from it won’t be removed, but you can delete individual memories at any time.
+* Claude updates memory as you chat.
+* When a conversation is deleted, including under a retention period, memory entries generated from it aren’t removed, but you can delete individual memories while memory is on.
 * All memory data is included in data exports.
 * Enterprise data retention policies apply to chat search and incognito chats.
 
-**Important:** Memory entries generated from eligible chats before customer data retention was applied won’t be removed, but users can delete individual memories at any time.
+**Important:** If your organization has set a custom data retention period that covers chats, it also applies to your memory, except project memory, while the new unified Claude experience is on for your organization. A memory entry that hasn’t been updated for longer than that period is deleted, and parts of an entry can be removed while the rest stays. This includes entries saved before the period was set, and it still applies while your memory is paused. Project memory is deleted when the project is deleted. As with chat, we may retain content flagged by our trust and safety systems or as required by law.
 
 ---
 
@@ -181,7 +178,7 @@ You have several mechanisms for managing and overseeing Claude's memory.
 
 ### View and manage your memory
 
-See exactly what Claude remembers about you in **[Settings > Memory](https://claude.ai/new#settings/customize-memory)**. Everything Claude remembers is listed under **Topics**. Select any topic to read it, then use the edit icon to change it or select "Delete" to remove it. Fix something in one topic and the change applies to every conversation from then on.
+See exactly what Claude remembers about you in **Settings > Your Claude** by selecting "Manage" next to **Your memory** (or in **Settings > Memory** in the older Settings layout). Everything Claude remembers is listed under **Topics**. Select any topic to read it, then use the edit icon to change it or select "Delete" to remove it. Fix something in one topic and the change applies to every conversation from then on.
 
 You can also update memory directly from a chat. Tell Claude what you'd like it to remember, change, or forget, and the update applies to your next conversation.
 
@@ -191,7 +188,7 @@ When Claude references previous conversations through search, you'll see citatio
 
 ### Toggle search past chats and memory on/off
 
-You maintain control over Claude’s ability to search past chats and use memory.You can turn these features on and off again when needed in **[Settings > Memory](https://claude.ai/new#settings/memory)**, or turn memory off for a single chat or task from the "+" menu before you send the first message.
+You maintain control over Claude’s ability to search past chats and use memory.You can turn these features on and off again when needed in **Settings > Your Claude** (or **Settings > Memory** in the older Settings layout), or turn memory off for a single chat or task from the "+" menu before you send the first message.
 
 ### Importing your memory from other AI tools
 
@@ -201,21 +198,26 @@ You can now transfer your memory between Claude and other AI services. This feat
 
 ## Controls for Team and Enterprise plan owners
 
-Memory and sensitive topics are two separate controls for your organization. Owners control whether memory is available, and it's off for each member until they turn it on.
+Memory and sensitive topics are two separate controls for your organization. Owners control whether memory is available. In organizations created on or after October 31, 2026 (Pacific Time), memory starts on for each member unless they've turned it off before with the same account, and they can turn it off at any time. In older organizations, it's off for each member until they turn it on. If your organization was upgraded from another plan, what counts is when it was first created, not the date of the upgrade. In HIPAA-enabled organizations, organizations on Claude's government platforms, and Claude for Teachers organizations, memory doesn't start on. Each member can check their own setting in **[Settings > Your Claude](https://claude.ai/settings/personalization)** (see **[Turn memory on or off for your account](#h_c9b905eb3f)**).
 
 ### Organization-level memory controls
 
-Owners and Primary Owners can turn memory on for the organization in **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)**. Once enabled, individual users manage their own memory settings. Enabling memory doesn't enable sensitive topics, and even if you allow sensitive topics for your organization, nothing in those categories is saved until each user opts in themselves. Once a user has opted in, they control their own sensitive memories: they can view and delete individual entries, or turn sensitive topics off to stop saving new ones. Owners can't view or edit a user’s individual memories.
+Owners and Primary Owners can turn memory on or off for the organization in **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)**. This organization-wide setting is on by default. While it's on, individual users manage their own memory settings. Owners can't turn memory on for individual users.
+
+Enabling memory doesn't enable sensitive topics, and even if you allow sensitive topics for your organization, nothing in those categories is saved until each user opts in themselves. Once a user has opted in, they control their own sensitive memories: they can view and delete individual entries, or turn sensitive topics off to stop saving new ones. Owners can't view or edit a user’s individual memories.
 
 When an owner turns memory off for the organization, all existing memory entries for all users are deleted immediately, and users can't access the memory setting.
 
 **Important:** Turning off memory at the organization level permanently deletes all memory data for everyone in your organization.
+​
+If your organization has a custom data retention period that covers chats, it still applies while memory is off (see **Data handling and compliance**).
 
-Memory isn't available to organizations with HIPAA, public-sector, or custom data retention agreements.
+The new memory experience isn’t available to organizations with HIPAA or public-sector agreements. Organizations with a custom data retention period that covers chats get it only when the new unified Claude experience is on.
 
 ### Data handling and compliance
 
-* **Memory entries** are stored with encryption at rest. When a conversation expires or is deleted, related memory entries aren't removed, but members can delete individual memories at any time.
+* **Memory entries** are stored with encryption at rest. When a conversation is deleted, including under a retention period, memory entries generated from it aren’t removed, but members can delete individual memories while memory is on.
+* If your organization has a custom data retention period that covers chats, it also applies to current members’ memory, except project memory, while the new unified Claude experience is on for your organization. Project memory is deleted when the project is deleted, including under a data retention period that covers projects. For what custom data retention doesn’t cover, see “Data retention and deletion” in **Set up and manage the new unified Claude experience for your Enterprise organization**.
 * **Incognito chats** don't contribute to memory and aren't visible in members' chat histories, but they remain available to owners through data export and are subject to your data retention policies (retained for at least 30 days for safety purposes).
 
 ### Audit logging and data exports
@@ -223,17 +225,15 @@ Memory isn't available to organizations with HIPAA, public-sector, or custom dat
 * **Audit logging:** The system logs when owners turn org-level memory controls on or off. Standard conversation access logging applies to memory entries. Individual member memory edits aren't logged.
 * **Data exports:** Memory entries are included in standard conversation history exports. Incognito chats are included in organizational data exports.
 
-**Important:** All memory is retained and exportable by admins in accordance with your organization's chat data retention policies.
-
 ---
 
 ## Information for legacy memory users
 
-**Important:** We've introduced an improved experience for memory from chats. If you see **[Settings > Memory](https://claude.ai/new#settings/customize-memory)**, you’re using the new memory experience and the sections above apply to you. The sections below only apply to people who have the legacy memory experience and see **Memory** in **[Settings > Capabilities](https://claude.ai/settings/capabilities)**.
+**Important:** We've introduced an improved experience for memory from chats. If you see **Settings > Memory**, or a Generate memory from chats setting in **Settings > Your Claude** in the updated Settings layout, you're using the new memory experience and the sections above apply to you. The sections below only apply to people who have the legacy memory experience and see **Memory** in **Settings > Capabilities**, or a Generate memory from chats setting in the updated Settings layout.
 
 ### Search past chats with Claude
 
-Searching past chats is available to users on paid plans (Pro, Max, Team, and Enterprise plans) on the web, Claude Desktop, and Claude Mobile apps.
+Searching past chats is available to users on paid plans (Pro, Max, Ultra, Team, and Enterprise plans) on the web, Claude Desktop, and Claude Mobile apps.
 
 You can prompt Claude to search through your previous conversations to find relevant information across sessions and reference specific details when needed. Simply ask Claude to find what you discussed before, and it will pull together the appropriate context to keep your conversation flowing. These searches use Retrieval-Augmented Generation (RAG) and will appear as tool calls during your conversations.
 
@@ -256,17 +256,17 @@ When Claude searches your previous chats, you will see this reflected in your cu
 
 ### Can I prevent Claude from searching my past chats?
 
-Yes, navigate to **[Settings > Capabilities](https://claude.ai/settings/capabilities)** and find the **Preferences** section. Switch the toggle next to “Search and reference chats” off:
+Yes, navigate to **Settings > Your Claude** (or **Settings > Capabilities** in the older Settings layout) and find the **Memory** section. Switch the toggle next to “Search and reference chats” off:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1790942400&signature=ca87558023bce243652238893c7203b1c1db53fa168a5fab16fbb4597b84ae43&req=dScmH859nYlXUPMW3nq%2BgZWAenTxy3a4RRSiEHajSERXmKvGVzs%2BN8%2BNBlMy%0A1QBYVqnDBwockJtIBlvw8IudppM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1790942400&signature=ca87558023bce243652238893c7203b1c1db53fa168a5fab16fbb4597b84ae43&req=dScmH859nYlXUPMW3nq%2BgZWAenTxy3a4RRSiEHajSERXmKvGVzs%2BN8%2BNBlMy%0A1QBYVqnDBwockJtIBlvw8IudppM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1794098700&signature=5b988d35d5fef3e09a33ef4d53b31b8ce372a9fcb3826ccef42f3feb6c951bfa&req=dScmH859nYlXUPMW1HO4zRzXHlswKjnFJG68qZhl781MePAJWfA%2BSriGjvY2%0Akp7NCh%2BdEAc8BNTuuS0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1794098700&signature=5b988d35d5fef3e09a33ef4d53b31b8ce372a9fcb3826ccef42f3feb6c951bfa&req=dScmH859nYlXUPMW1HO4zRzXHlswKjnFJG68qZhl781MePAJWfA%2BSriGjvY2%0Akp7NCh%2BdEAc8BNTuuS0%3D%0A)
 
 ### Can I exclude a specific past chat from searches?
 
-Incognito chats are available to all Claude users (free, Pro, Max, Team, and Enterprise plans). See **[Use incognito chats](https://support.claude.com/en/articles/12260368)** for more information.
+Incognito chats are available to all Claude users (Free, Pro, Max, Ultra, Team, and Enterprise plans). See **[Use incognito chats](https://support.claude.com/en/articles/12260368)** for more information.
 
 When starting a new chat with Claude outside of a project, you'll see a ghost icon in the upper right corner of your screen:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1790942400&signature=eb378b6bfb60547cb0ee0fc9c25c6f8b24364a3f76d00d999f9c0801a66b0b18&req=dScmH859nYlWWvMW3nq%2Bgf44pcp8quT2Nml1mzkyUm2DwX4x0pEAyGvR2xKN%0ASBMKiklh1e5Bg9rGa%2Ft6H0Pl95U%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1790942400&signature=eb378b6bfb60547cb0ee0fc9c25c6f8b24364a3f76d00d999f9c0801a66b0b18&req=dScmH859nYlWWvMW3nq%2Bgf44pcp8quT2Nml1mzkyUm2DwX4x0pEAyGvR2xKN%0ASBMKiklh1e5Bg9rGa%2Ft6H0Pl95U%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1794098700&signature=6fd907ba520de5467289ba344b0df7457bf28a9c0558e2551c96b0f67d8550fb&req=dScmH859nYlWWvMW1HO4za54sadsNY68XDpzhlKsgjMJ6Rx4ZAqblHaa0qxH%0AQPHNX46Yc3KH960wHLg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1794098700&signature=6fd907ba520de5467289ba344b0df7457bf28a9c0558e2551c96b0f67d8550fb&req=dScmH859nYlWWvMW1HO4za54sadsNY68XDpzhlKsgjMJ6Rx4ZAqblHaa0qxH%0AQPHNX46Yc3KH960wHLg%3D%0A)
 
 Clicking the ghost icon will open an incognito chat, creating a temporary conversation that isn’t saved to your chat history. Claude won’t pull information from incognito chats when searching previous conversations.
 
@@ -294,11 +294,11 @@ Each project has its own separate memory space and dedicated project summary, so
 
 ### Enable Claude’s memory
 
-**Note:** Members of Enterprise plans can only enable this feature individually when it’s enabled by an Owner for their organization. See **[Controls for Enterprise plan Owners](#h_f7d6b307e2)** for more information.
+**Note:** Members of Enterprise plans can only enable this feature individually when it’s enabled by an Owner for their organization. See **[Controls for Enterprise plan Owners](#h_18b0f4a7ce)** for more information.
 
-You can toggle Claude’s memory on by navigating to **[Settings > Capabilities](https://claude.ai/settings/capabilities)**:
+You can toggle Claude's memory on by navigating to **Settings > Your Claude** (or **Settings > Capabilities** in the older Settings layout):
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1790942400&signature=63320c1553155674f02fa61d8768e206d8b871afe6ed13d42c1d0fb7c252a144&req=dScmH859nYlWW%2FMW3nq%2BgRexfslT1Hs8VGvBdWCMNKMhZTmh2y0uiqDlh4V1%0AIXLOKUk0eX5kvMGApOnlE4pOsA8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1790942400&signature=63320c1553155674f02fa61d8768e206d8b871afe6ed13d42c1d0fb7c252a144&req=dScmH859nYlWW%2FMW3nq%2BgRexfslT1Hs8VGvBdWCMNKMhZTmh2y0uiqDlh4V1%0AIXLOKUk0eX5kvMGApOnlE4pOsA8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1794098700&signature=35a4ff091a4d69913532be89cd33179b6ce7b1c824e6231406067137f715392a&req=dScmH859nYlWW%2FMW1HO4zTD5McXmfuxCBq9N9dRTKYeZUq%2BqZndNYQR2DYnd%0AoaGLjK%2F19Rh26aG%2BLyM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1794098700&signature=35a4ff091a4d69913532be89cd33179b6ce7b1c824e6231406067137f715392a&req=dScmH859nYlWW%2FMW1HO4zTD5McXmfuxCBq9N9dRTKYeZUq%2BqZndNYQR2DYnd%0AoaGLjK%2F19Rh26aG%2BLyM%3D%0A)
 
 If you want to disable Claude’s memory, click the toggle to see two options:
 
@@ -320,7 +320,7 @@ Claude focuses on work-related context that helps improve collaboration. You wil
 
 **Incognito chats**
 
-Incognito chats are available to all Claude users (free, Pro, Max, Team, and Enterprise plans).
+Incognito chats are available to all Claude users (Free, Pro, Max, Ultra, Team, and Enterprise plans).
 
 When starting a chat with Claude outside of a project, you will see a ghost icon in the upper right corner of your screen; clicking this enables incognito chats. When this mode is switched on, Claude won’t remember your chats, so they won’t be saved to Claude’s memory or your chat history. Close your current incognito chat when you’re ready for Claude to start remembering your conversations again.
 
@@ -343,7 +343,7 @@ You have several mechanisms for managing and overseeing Claude's memory.
 
 **View and manage your memory summary**
 
-See exactly what Claude remembers about you by navigating to **[Settings > Capabilities](https://claude.ai/settings/capabilities)** and clicking “View and edit memory.” The **Manage memory** modal displays everything Claude remembers about you. In addition to asking Claude to edit the existing summary, you can also tell Claude what you want it to remember. To add custom instructions to Claude’s memory, click the pencil icon in the lower left corner of the summary.
+See exactly what Claude remembers about you by navigating to **Settings > Your Claude** and selecting "Manage" next to **Your memory** (or, in the older Settings layout, **Settings > Capabilities** and clicking "View and manage memory"). The **Manage memory** modal displays everything Claude remembers about you. In addition to asking Claude to edit the existing summary, you can also tell Claude what you want it to remember. To add custom instructions to Claude’s memory, click the pencil icon in the lower left corner of the summary.
 
 You can also update your memory summary directly from your chats. Simply tell Claude what you'd like it to remember, and it will update your memory summary without needing to leave the conversation. Any edits made in this way will immediately apply to your next conversation, so you don’t need to wait for the daily synthesis to run.
 
@@ -353,7 +353,7 @@ When Claude references previous conversations through search, you'll see citatio
 
 **Toggle search past chats and memory on/off**
 
-You maintain control over Claude’s ability to search past chats and use memory – you can always disable these features and enable them again when needed in **[Settings > Capabilities](https://claude.ai/settings/capabilities)**.
+You maintain control over Claude’s ability to search past chats and use memory – you can always disable these features and enable them again when needed in **Settings > Your Claude** (or **Settings > Capabilities** in the older Settings layout).
 
 **Importing your memory from other AI tools**
 
@@ -389,6 +389,6 @@ The organization-wide **Generate memory from chat history** toggle is enabled by
 Team plans do not have organization-level controls for memory features. Individual Team plan members manage their own memory settings directly.
 
 * [Use incognito chats](https://support.claude.com/en/articles/12260368-use-incognito-chats)
-* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
 * [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
+* [Set up and manage the new unified Claude experience for your Enterprise organization](https://support.claude.com/en/articles/17444462-set-up-and-manage-the-new-unified-claude-experience-for-your-enterprise-organization)

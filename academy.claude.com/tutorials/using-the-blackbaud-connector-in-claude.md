@@ -8,7 +8,7 @@
 
 Connect Claude to Raiser's Edge NXT to access donor records, gift history, events, and draft personalized communications.
 
-10 minClaude.ai
+10 minClaude
 
 [Open Claude](https://claude.ai/new)
 

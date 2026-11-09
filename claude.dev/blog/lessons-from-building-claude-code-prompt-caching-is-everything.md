@@ -4,6 +4,10 @@
 
 Best practices for optimizing prompt caching in Claude Code, including how to most effectively structure your prompt, use tools, and layer on compaction.
 
+Thariq Shihipar
+
+Engineering
+
 Apr 30, 2026
 
 6 min
@@ -11,6 +15,8 @@ Apr 30, 2026
 Lessons from building Claude Code: Prompt caching is everything
 
 [└Lay out your prompt for caching](#lay-out-your-prompt-for-caching)[└Use messages for updates](#use-messages-for-updates)[└Don't change models mid-session](#dont-change-models-mid-session)[└Never add or remove tools mid-session](#never-add-or-remove-tools-mid-session)[└Compacting without breaking the cache](#compacting-without-breaking-the-cache)[└Lessons learned](#lessons-learned)
+
+6 MIN READ
 
 [X.com](https://twitter.com/intent/tweet?text=Lessons%20from%20building%20Claude%20Code%3A%20Prompt%20caching%20is%20everything%20%2F%20claude.dev%20Blog&url=https%3A%2F%2Fclaude.dev%2Fblog%2Flessons-from-building-claude-code-prompt-caching-is-everything%2F)[LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fclaude.dev%2Fblog%2Flessons-from-building-claude-code-prompt-caching-is-everything%2F)[Email](mailto:?subject=Lessons%20from%20building%20Claude%20Code%3A%20Prompt%20caching%20is%20everything%20%2F%20claude.dev%20Blog&body=https%3A%2F%2Fclaude.dev%2Fblog%2Flessons-from-building-claude-code-prompt-caching-is-everything%2F)Copy URL[Copy markdown](https://claude.dev/blog/lessons-from-building-claude-code-prompt-caching-is-everything.md)
 
@@ -32,7 +38,7 @@ Prompt caching works by prefix matching—the API caches everything from the sta
 
 How you structure a prompt matters for output quality too, not just cache hits — the [prompt engineering fundamentals](https://claude.com/blog/best-practices-for-prompt-engineering) are the other half of the discipline.
 
-The best way to do this is static content first, dynamic content last. For Claude Code this looks like:
+The best way to do this is static content first, dynamic content last. For [Claude Code](https://claude.com/product/claude-code) this looks like:
 
 1. **Static system prompt** & Tools (globally cached)
 2. **CLAUDE.md** (cached within a project)
@@ -104,7 +110,7 @@ Here are a few patterns we’ve found useful for optimizing prompt caching when 
 1. **Prompt caching is a prefix match.** Any change anywhere in the prefix invalidates everything after it. Design your entire system around this constraint. Get the ordering right and most of the caching works for free.
 2. **Use messages instead of system prompt changes**. You may be tempted to edit the system prompt to do things like entering plan mode, changing the date, etc. but it would actually be better to insert these into messages during the conversation.
 3. **Don't change tools or models mid-conversation.** Use tools to model state transitions (like plan mode) rather than changing the tool set. Defer tool loading instead of removing tools.
-4. **Monitor your cache hit rate like you monitor uptime.** We alert on cache breaks and treat them as incidents. A few percentage points of cache miss rate can dramatically affect cost and latency.
+4. **Monitor your cache hit rate like you monitor uptime.** We alert on cache breaks and treat them as incidents. [A few percentage points of cache miss rate](https://claude.dev/blog/what-a-task-costs-on-opus-5-5/) can dramatically affect cost and latency.
 5. **Fork operations need to share the parent's prefix.** If you need to run a side computation (compaction, summarization, skill execution), use identical cache-safe parameters so you get cache hits on the parent's prefix.
 
 Claude Code is built around prompt caching from day one; for the best results when building an agent, we suggest you do, too.

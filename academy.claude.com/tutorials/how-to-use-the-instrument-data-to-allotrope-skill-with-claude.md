@@ -8,7 +8,7 @@
 
 How to use the Instrument Data to Allotrope Skill with Claude
 
-3 minClaude.ai
+3 minClaude
 
 [Open Claude](https://claude.ai/new)
 
@@ -44,11 +44,11 @@ Learn about [provisioning and managing skills for your organization(opens in new
 
 ## **How to access the skills in Claude Code**[](#how-to-access-the-skills-in-claude-code)
 
-Command
+1. Download the [ZIP file for the instrument-data-to-allotrope skill(opens in new tab)](https://github.com/anthropics/life-sciences/releases/download/v1.1.1/instrument-data-to-allotrope-v1.1.1.zip)
+2. On your own computer, unzip it into a new folder named `instrument-data-to-allotrope` inside `~/.claude/skills/`, so that the skill's `SKILL.md` file is at `~/.claude/skills/instrument-data-to-allotrope/SKILL.md`
+3. Start Claude Code and run `/skills` to check that **instrument-data-to-allotrope** is listed
 
-`/plugin marketplace add anthropics/life-sciences`
-
-`/plugin install instrument-data-to-allotrope@life-sciences`
+Learn about [where Claude Code loads skills from(opens in new tab)](https://code.claude.com/docs/en/skills#where-skills-live).
 
 * [What is the Instrument Data to Allotrope skill?](#what-is-the-instrument-data-to-allotrope-skill)
 * [Who should use the Instrument Data to Allotrope skill?](#who-should-use-the-instrument-data-to-allotrope-skill)

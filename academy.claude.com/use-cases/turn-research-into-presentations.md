@@ -8,7 +8,7 @@
 
 Learn how to turn research into presentations that stick. Claude helps translate findings into slide outlines and speaker notes that show what's compelling, how to structure the story, and which visuals would help—giving you the framework to build your presentation.
 
-15 minEducationClaude.ai
+15 minEducationClaude
 
 Try in ClaudeCopy prompt
 
@@ -58,7 +58,7 @@ Canva
 
 [Connect](https://claude.ai/directory/canva)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 Your completed group paperPDF
 

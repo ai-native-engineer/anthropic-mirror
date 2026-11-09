@@ -8,7 +8,7 @@
 
 Set up and use Aiera for access to earnings calls, SEC filings, and expert insights for real-time market analysis.
 
-15 minClaude.ai
+15 minClaude
 
 [Open Claude](https://claude.ai/new)
 

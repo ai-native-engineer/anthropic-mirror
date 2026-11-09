@@ -6,15 +6,15 @@
 
 # Using the Candid connector in Claude
 
-Connect Claude to Candid's database of 1.9M+ nonprofits and foundations for organizational research, grant discovery, and sector analysis.
+Connect Claude to Candid's database of nonprofits and foundations for organizational research, grant discovery, and sector analysis.
 
-10 minClaude.ai
+10 minClaude
 
 [Open Claude](https://claude.ai/new)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-harph06w.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-kabymbiu.png)
 
-The Candid connector gives Claude access to comprehensive nonprofit and philanthropic data, including 1.9M+ nonprofits and foundations, expert knowledge resources, and the Philanthropy Classification System taxonomy.
+The Candid connector gives Claude access to comprehensive nonprofit and philanthropic data, including profiles of nonprofits and foundations, expert knowledge resources, and the Philanthropy Classification System taxonomy.
 
 The Candid integration relies on Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 

@@ -8,7 +8,7 @@
 
 Set up and use the Function integration with Claude to securely view lab test results, ask health questions, and get nutrition plans.
 
-10 minClaude.ai
+10 minClaude
 
 [Open Claude](https://claude.ai/new)
 
@@ -30,7 +30,7 @@ With this connector, you can:
 
 ## **Who should use the Function integration**[](#who-should-use-the-function-integration)
 
-Function members interested in asking health questions in Claude. The Function Health connector is available to Claude Pro and Claude Max users in the United States.
+Function members interested in asking health questions in Claude. The Function Health connector is available to Claude Pro, Max, and Ultra users in the United States.
 
 More details on accessing the integration can be found in [Function Health's MCP Server Documentation(opens in new tab)](https://services.functionhealth.com/auth0/acul/claude_connector_docs.html).
 

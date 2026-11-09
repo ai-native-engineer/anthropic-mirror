@@ -28,7 +28,7 @@ Draft replies, summarize threads, & search your inbox
 
 ### [Microsoft 365](https://claude.com/marketplace/connectors/microsoft-365)
 
-Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
+Access SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
 [Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
@@ -48,18 +48,18 @@ Connect to Asana to coordinate tasks, projects, and goals
 
 [Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
-![](https://assets.claude.com/37ce5968b2e46e9c696132cd4970baeeff9a08f0.jpg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/a83ae3578683861df7947b5397bb557b0ba73826.svg?w=128&fit=max&auto=format)
 
-### [Intercom](https://claude.com/marketplace/connectors/intercom)
+### [Granola](https://claude.com/marketplace/connectors/granola)
 
-Access to Intercom data for better customer insights
+The AI notepad for meetings, now in Claude. Ask about your notes, transcripts and meeting context.
 
-[Add Intercom in Claude (opens in new tab)](https://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771 "Add in Claude")
+[Add Granola in Claude (opens in new tab)](https://claude.ai/directory/4d608ca4-1664-4ddd-be1c-c88c0ea2ec7e "Add in Claude")
 
-![](https://assets.claude.com/e64f9962a277a8943b084a17b6a9386a7eb95a61.svg?w=128&fit=max&auto=format)
+![](https://cdn.bfldr.com/ENSXS21L/at/f5h33bhb29nhpm6963gngs66/webex-3d-symbol-color.png?format=png)
 
-### [Miro](https://claude.com/marketplace/connectors/miro)
+### [Webex for Claude](https://claude.com/marketplace/connectors/webex-suite)
 
-Access and create new content on Miro boards
+Access your Webex meetings, messaging, and Vidcast content securely in Claude.
 
-[Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
+[Add Webex for Claude in Claude (opens in new tab)](https://claude.ai/directory/d044bab2-de8d-438e-9333-de76d1a8304a "Add in Claude")

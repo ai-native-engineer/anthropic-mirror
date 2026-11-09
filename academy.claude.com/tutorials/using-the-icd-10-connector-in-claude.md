@@ -8,7 +8,7 @@
 
 Using the ICD-10 Connector in Claude
 
-5 minClaude.ai
+5 minClaude
 
 [Open Claude](https://claude.ai/new)
 

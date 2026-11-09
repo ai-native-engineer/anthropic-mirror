@@ -4,117 +4,136 @@
 
 [Tutorials](https://academy.claude.com/tutorials)
 
-# Using Claude Design for presentations and slide decks
+# Making slides and presentations with Claude
 
-Claude Design by Anthropic Labs (claude.ai/design) lets you create polished presentations and slide decks directly through conversation. This capability has become one of the most popular use cases internally at Anthropic, enabling teams to build professional decks in minutes rather than hours.
+Turn your notes, files, or data into a slide deck, then edit and present it in Claude.
 
 10 minClaude Design
 
-![](https://academy.claude.com/assets/v1/thumbnail.light-bo89k5cy.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-g612q1rb.png)
+![](https://academy.claude.com/assets/v1/thumbnail.light-h7021hye.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ibapsq93.png)
 
-## Why **use Claude Design for presentations**[](#why-use-claude-design-for-presentations)
+About a third of conversations with Claude produce a written deliverable, like a document or presentation ([Anthropic Economic Index(opens in new tab)](https://www.anthropic.com/research/economic-index-june-2026-report), June 2026). With Claude Slides, you can ask for a deck in any conversation with Claude. It opens beside the conversation, where you can edit it, present it and download it.
 
-#### **Speed and Efficiency**
+Claude Slides is available on every plan. On Team and Enterprise, an owner can [turn it on or off(opens in new tab)](https://support.claude.com/en/articles/16994751-artifacts-admin-guide-for-team-and-enterprise-plans#h_6e06d8f1a8) under **Organization settings > Artifacts**.
 
-Creating a presentation from scratch typically involves wrestling with slide templates, formatting, and layout decisions. Claude Design handles all of this instantly. You describe what you need in plain language, and Claude generates a complete deck ready to present—no design skills required.
+## 1. Ask for a deck[](#1-ask-for-a-deck)
 
-#### **Brand Consistency**
+You can ask for a deck in [any conversation with Claude(opens in new tab)](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them#h_b139cae3e7), on the web, in the desktop app, in the mobile app, or in Claude Code.
 
-If your organization has set up a design system in Claude Design, your slides automatically apply your brand's colors, typography, and visual style. This ensures consistent branding across all presentations without manual tweaking, and eliminates the "this looks different from our other materials" problem.
+Before you ask, think about what Claude should know. The more context it has, the better the deck will be. Say what the deck is for and who will read it, then give Claude:
 
-#### **Interactive and Dynamic**
+* **Information:** Attach your files, such as a memo or your meeting notes, or name the project or connected tool they're in.
+* **Design:** Attach a past deck you like, or name your design system.
 
-Claude Design presentations are generated as interactive HTML rendered in the canvas, offering capabilities beyond static slide software. You can iterate, refine, and customize slides in real-time within the conversation, seeing changes instantly.
+You can also start without any files. Paste in rough notes, or use [dictation or voice mode(opens in new tab)](https://academy.claude.com/tutorials/how-to-choose-between-voice-mode-and-dictation) to talk through what you want to say. Ask Claude for an outline, correct it, then ask for the deck.
 
-### **Real-World Applications**[](#real-world-applications)
+Here are a few ways to ask:
 
-Teams at Anthropic are using Claude Design presentations for:
+* **From a document or notes:** *"Turn the attached strategy memo into a 10-slide deck for Thursday's leadership review. Build it around the memo's recommendations, one slide each, and end on the decisions we need from the room."*
+* **From numbers in a connected tool:** *"Pull Q3 revenue, new customers and churn for my accounts from our CRM and make a quarterly review deck for regional leadership. Keep it to one chart per slide."*
+* **From a deck you already have:** *"Use last quarter's board update (attached) as the pattern and rebuild it with the Q3 numbers in this spreadsheet. Flag any slide where the story changed direction."*
 
-* Meeting prep decks with customer-specific branding
-* All-hands and company-wide presentations
-* Co-branded partner proposals
-* Executive readouts and quarterly reviews
-* Board presentations and investor updates
+You can also open **Artifacts** in the sidebar and start a deck under **Make something new**, then describe it in the conversation that opens.
 
-## **Creating a presentation**[](#creating-a-presentation)
+## 2. What to expect while Claude builds[](#2-what-to-expect-while-claude-builds)
 
-### **Getting Started**[](#getting-started)
+When you give Claude a lot of information, it may get straight to work. When your request is shorter, it may ask a few questions first, or share a short outline for you to respond to.
 
-To create a presentation, simply describe what you need in your prompt. Be specific about your audience, key messages, and any organizational context that should influence the design.
+If a fact or figure isn't in your material, Claude is designed to ask you for it, or to leave a visible placeholder on the slide and mention it in its reply.
 
-#### **Example Prompts**
+Always review Claude's work and check the details. Look at the places where Claude made an assumption, and check figures against your source material before you present. To learn more about evaluating Claude's output, read [How people check Claude's work(opens in new tab)](https://academy.claude.com/tutorials/discernment-toolkit), our education report.
 
-Here are some prompts that work well:
+In this example, Claude shares its plan before it builds, then leaves a placeholder for a figure it didn't have:
 
-Create a 10-slide deck about Q1 results with sections for revenue, product updates, and team highlights
+## 3. Keep it on brand[](#3-keep-it-on-brand)
 
-Copy prompt
+Claude can build your deck in your brand's fonts and colors when you have a design system set up in Claude. What to do depends on what you have:
 
-Build a 15-slide executive overview of our product roadmap for the board
+* **You have a design system:** Claude uses your organization's default. If there is no default, it asks which design system to use. To use a different one for this deck, choose it in the message box under **+ > Design system** before you send the request.
+* **Your design system is in standalone Claude Design (claude.ai/design):** it has to be migrated first. One person can migrate every design system in your organization from the **Artifacts** page. See [Migrate from standalone Claude Design(opens in new tab)](https://academy.claude.com/tutorials/create-a-design-system-with-claude#migrate-from-standalone-claude-design).
+* **You don't have one yet:** attach a deck or brand file and ask Claude to match its look. To start every future deck on brand, see [Setting up a design system in Claude(opens in new tab)](https://academy.claude.com/tutorials/create-a-design-system-with-claude).
 
-Copy prompt
+## 4. Change the deck[](#4-change-the-deck)
 
-Generate a meeting prep deck for my customer call covering use cases, competitive positioning, and next steps
+You can change the deck yourself, leave a comment for Claude, or ask in the conversation. Changes save as you make them, so there's no Save button.
 
-Copy prompt
+### By hand[](#by-hand)
 
-Make a 5-slide partner proposal deck that's co-branded with our partner's logo and colors
+Edit a slide the way you would in PowerPoint or Keynote: click to select, double-click text to retype it, and drag to move or resize. Use the toolbar to add text, images, tables and shapes. **Properties** shows the settings for what you selected, such as font and color.
 
-Copy prompt
+Use the slide thumbnails to add, reorder or duplicate slides. **Skip slide** leaves a slide out when you present or download, without deleting it.
 
-Create an all-hands presentation covering Q2 OKRs, hiring plans, and culture updates
+### With a comment[](#with-a-comment)
 
-Copy prompt
+Use a comment to change one part of a slide. Turn on comments, click the chart or text you want changed, and write your request. Keep **Send to Claude** checked and post it. Claude makes the change and replies in the comment thread. You need edit access to the deck to send a comment to Claude.
 
-### **Customizing your deck**[](#customizing-your-deck)
+### By asking[](#by-asking)
 
-Once Claude generates your initial presentation, you can edit it to match your exact needs.
+To change several slides, their order, or the look of the whole deck, ask in the conversation beside the deck. Say which slides you mean, by number or title, and Claude is designed to change only those. For example:
 
-#### **Editing Individual Slides**
+* *"Slide 4 is a wall of text. Turn it into a chart and one takeaway line."*
+* *"Cut this to a five-slide version for the executive summary, and move the risks slide ahead of the timeline."*
 
-You can request changes to specific slides by referencing them clearly in your message. For example:
+Duplicate before a big change
 
-On slide 3, change the headline to 'Market Opportunity' and rewrite the bullet points to focus on TAM.
+To try a different structure without losing this one, choose **Duplicate** from the deck's title menu and experiment on the copy.
 
-Copy prompt
+## 5. Add charts and images[](#5-add-charts-and-images)
 
-#### **Adding and Removing Slides**
+**Charts:** tell Claude what data to show, or name the file or connected tool it's in, and Claude draws the chart on the slide. The chart shows the data from when Claude built it. If the numbers change, ask Claude to update it.
 
-Need more slides? Just ask. You can request entirely new slides with specific content, or ask Claude to expand a section into multiple slides for better pacing.
+**Images:** attach the logos, product shots and photos you want to use, or drop them onto a slide yourself. Claude may not be able to find or create photos for you.
 
-#### **Charts and Visualizations**
+## 6. Add notes and present[](#6-add-notes-and-present)
 
-Claude Design can incorporate data visualizations directly into your slides. Describe the data you want to visualize and Claude will generate appropriate charts.
+Claude can write speaker notes for you. Ask for them as a script to read from, and you can keep less text on the slides. You can also type your own under each slide. Notes never appear on the slide itself.
 
-A benefit of presenting in HTML (vs. PPT) is that Claude Design can also create animations to storytell across your slides.
+**Present** plays the deck full screen from inside Claude. Once the deck has notes, **Present with speaker notes** opens a second window with your notes, a clock, and the current and next slides.
 
-#### **Images and Embedded Content**
+## 7. Share it or download it[](#7-share-it-or-download-it)
 
-You can ask Claude to include images, logos, and other visual elements in your slides. If you're using a design system with approved imagery, Claude will pull from those assets automatically.
+Other people can't open your deck until you share it. With **Share**, you choose who can open it and whether they can view, comment or edit. People you invite need a Claude account. On Team and Enterprise plans, an owner of your organization decides whether you can share outside it. For the options on each plan, see [Share artifacts(opens in new tab)](https://support.claude.com/en/articles/9547008-share-artifacts) in the Help Center.
 
-### **Sharing & collaboration**[](#sharing-collaboration)
+Teammates with edit access can work in the deck at the same time as you, and the slide thumbnails show who is on each slide.
 
-You can share your presentation with colleagues through the standard Claude sharing mechanism. The options are:
+For someone who can't open the link, download the deck and send the file. With **Download**, you can save it as:
 
-* “Private”
-* “Anyone in your organization with the link can view”
-* “Anyone in your organization with the link can comment” — default
-* “Anyone in your organization with the link can edit”
+* **PDF**
+* **Web page (.html)**, which plays in a browser like Present does and keeps the slide transitions
+* **Current slide as an image (.png)**
+* **PowerPoint, current fonts**
+* **PowerPoint, basic fonts**, which replaces your fonts with ones every computer has
 
-When multiple users have access, they can both chat with the agent together in a group chat-style interface.
+In PowerPoint, you can keep editing text boxes, tables, pictures, slide backgrounds and speaker notes. Charts, icons and shapes become pictures. Slide transitions and skipped slides are left out.
 
-#### **Export & download options**
+If you've [connected Google Drive(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities#h_815337b08c), you can also send the deck to Google Slides. Open **Share**, choose **Export**, and pick **Google Slides** under **Send to**. You get an editable copy in your Google Drive.
 
-Slides are exportable in the following ways:
+If your deck is already a PowerPoint file, Claude can work inside PowerPoint itself. See [Building a PowerPoint with Claude(opens in new tab)](https://academy.claude.com/tutorials/building-a-powerpoint-with-claude).
 
-* Export as standalone HTML - best for interactivity and animations
-* Export as PPTX
-* Export as PDF
-* Download project as .zip
-* Send to Canva
-* Hand off to Claude Code
+## If something looks off[](#if-something-looks-off)
 
-**Have questions about Claude Design presentations?** Reach out to your Design Team or try building a deck yourself – most people find the workflow intuitive once they create their first one.
+| What you see | What to do |
+| --- | --- |
+| The deck is generic and misses your points | Claude had little to work from. Give it your notes, the source file or the earlier conversation, and ask again. |
+| You wanted a deck you can edit in Claude and got a PowerPoint file | Ask Claude: *"Make this a Slides deck."* If that doesn't work, check that you can start a deck under **Artifacts > Make something new**. |
+| You wanted a PowerPoint file and got a deck in Claude | Ask for "a .pptx" by name, or open the deck and use **Download**. |
+| Slides isn't offered anywhere | On Team and Enterprise plans, an owner [turns it on(opens in new tab)](https://support.claude.com/en/articles/16994751-artifacts-admin-guide-for-team-and-enterprise-plans#h_6e06d8f1a8) under **Organization settings > Artifacts**. |
+| The deck doesn't look like your brand | Check which design system is selected in the message box under **+ > Design system**. |
 
-* [Why use Claude Design for presentations](#why-use-claude-design-for-presentations)
-* [Creating a presentation](#creating-a-presentation)
+## More resources[](#more-resources)
+
+* [Using Claude for prototypes and UX(opens in new tab)](https://academy.claude.com/tutorials/using-claude-design-for-prototypes-and-ux) for screens, flows, and clickable prototypes.
+* [Setting up a design system in Claude(opens in new tab)](https://academy.claude.com/tutorials/create-a-design-system-with-claude) so every deck starts on brand.
+* [Collaborate with your team in Claude artifacts(opens in new tab)](https://academy.claude.com/tutorials/intro-to-artifacts) for how decks, docs, and designs are shared and edited.
+* [Building a PowerPoint with Claude(opens in new tab)](https://academy.claude.com/tutorials/building-a-powerpoint-with-claude) when your deck is already a PowerPoint file.
+* Visit the [Help Center(opens in new tab)](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them) for more support and troubleshooting.
+
+* [1. Ask for a deck](#1-ask-for-a-deck)
+* [2. What to expect while Claude builds](#2-what-to-expect-while-claude-builds)
+* [3. Keep it on brand](#3-keep-it-on-brand)
+* [4. Change the deck](#4-change-the-deck)
+* [5. Add charts and images](#5-add-charts-and-images)
+* [6. Add notes and present](#6-add-notes-and-present)
+* [7. Share it or download it](#7-share-it-or-download-it)
+* [If something looks off](#if-something-looks-off)
+* [More resources](#more-resources)

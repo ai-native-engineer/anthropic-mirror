@@ -8,7 +8,7 @@
 
 Create a customized travel itinerary with intelligent guidance, adapting to your preferences and desired activities.
 
-15 minPersonalClaude.ai
+15 minPersonalClaude
 
 Try in ClaudeCopy prompt
 
@@ -40,9 +40,7 @@ Make sure Claude has the right tools to accurately research and build your itine
 
 ### Required context[](#required-context)
 
-### Optional context[](#optional-context)
-
-Make sure [Web search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) is enabled. This lets Claude find current travel information, reviews, and operating hours.
+Make sure [Web search(opens in new tab)](https://support.claude.com/en/articles/10684626-enable-and-use-web-search) is enabled. This lets Claude find current travel information, reviews, and operating hours. If you have the new Claude experience, there's no web search toggle. Claude searches the web when it helps.
 
 ## 3. What Claude creates[](#3-what-claude-creates)
 
@@ -98,7 +96,7 @@ To add photos, tell Claude: "Include small thumbnail images at key locations wit
 
 ### Send to travel companions[](#send-to-travel-companions)
 
-Claude creates artifacts that can be [published and shared(opens in new tab)](https://support.claude.com/en/articles/9547008-discovering-publishing-customizing-and-sharing-artifacts), and [files that open up directly in your work spaces(opens in new tab)](https://support.claude.com/en/articles/12143746-create-and-edit-files-with-claude-to-eliminate-hours-of-busy-work), like Google Drive. Easily share the itinerary with your group and collect their input. You can either make adjustments directly in your file or revisit your chat with Claude to conduct additional research or make changes.
+Claude creates artifacts that can be [shared(opens in new tab)](https://support.claude.com/en/articles/9547008-share-artifacts), and [files that open up directly in your work spaces(opens in new tab)](https://support.claude.com/en/articles/12143746-create-and-edit-files-with-claude-to-eliminate-hours-of-busy-work), like Google Drive. Easily share the itinerary with your group and collect their input. You can either make adjustments directly in your file or revisit your chat with Claude to conduct additional research or make changes.
 
 ## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 

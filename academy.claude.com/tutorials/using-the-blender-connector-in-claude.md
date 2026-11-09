@@ -10,7 +10,7 @@ Connect Claude to Blender so it can read and work with your open scene directly.
 
 10 minClaude Cowork
 
-[Open Cowork](claude://cowork/new)
+[Open Cowork](https://claude.ai/new?surface=cowork)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-m4ibfqqy.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-n82pdpre.png)
 
@@ -33,7 +33,7 @@ First, add the Blender connector in Claude Desktop, then install an add-on insid
 
 In Claude Desktop, go to **Customize > Connectors**, search for **Blender**, and select **Add**.
 
-![](https://academy.claude.com/assets/media/d4391b5d9435fd7fa3ae8d240049d3152ab91d08e754314bfdd9df4090cdb761.png)
+![Blender connector page in the Claude Desktop Directory, with an Install button and a note that an add-on is required.](https://academy.claude.com/assets/media/d4391b5d9435fd7fa3ae8d240049d3152ab91d08e754314bfdd9df4090cdb761.png)
 
 ### **Step 2: Install the add-on in Blender**[](#step-2-install-the-add-on-in-blender)
 
@@ -85,7 +85,7 @@ For each mesh in the scene, report its polygon count alongside how large it appe
 
 Open in Cowork
 
-![](https://academy.claude.com/assets/media/2e2c8a050fe83d42f91004bf7b460c3cf476b579d977dad095fac9940c209d41.png)
+![Claude Desktop prompt to delete objects whose names start with "Curve" and bounds meshes, except "vol_", and 87 were deleted.](https://academy.claude.com/assets/media/2e2c8a050fe83d42f91004bf7b460c3cf476b579d977dad095fac9940c209d41.png)
 
 ## Frequently asked questions[](#frequently-asked-questions)
 

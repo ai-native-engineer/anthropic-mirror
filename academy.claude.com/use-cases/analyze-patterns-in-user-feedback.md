@@ -8,7 +8,7 @@
 
 Find recurring themes and pain points across user feedback to separate meaningful patterns from noise.
 
-15 minProductClaude.ai
+15 minProductClaude
 
 Try in ClaudeCopy prompt
 
@@ -53,7 +53,7 @@ Intercom
 
 [Connect](https://claude.ai/directory/intercom)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 ![](https://academy.claude.com/surfaces/excel-icon.svg)
 

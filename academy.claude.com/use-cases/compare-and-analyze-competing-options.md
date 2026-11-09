@@ -8,7 +8,7 @@
 
 Upload vendor proposals in any format and get a normalized comparison spreadsheet that extracts pricing structures, contract terms, and feature differences
 
-15 minClaude.ai
+15 minClaude
 
 Try in ClaudeCopy prompt
 

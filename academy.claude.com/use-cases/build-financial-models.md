@@ -8,7 +8,7 @@
 
 Create investment analyses with complete financial models, scenario planning, and risk evaluation.
 
-20 minFinanceClaude.ai
+20 minFinanceClaude
 
 Try in ClaudeCopy prompt
 
@@ -66,7 +66,7 @@ S&P Global
 
 [Connect](https://claude.ai/directory/s-p-global)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 ### Optional context[](#optional-context)
 
@@ -141,7 +141,7 @@ Once you connect S&P Capital IQ or Daloopa, refresh comparable company multiples
 
 ### Work directly in your spreadsheet with Claude[](#work-directly-in-your-spreadsheet-with-claude)
 
-Once Claude creates your financial model, download and open the file in Excel. With [Claude for Excel(opens in new tab)](http://claude.com/claude-for-excel), you can get instant explanations of any formula, test scenarios without breaking dependencies, or trace errors to their source. Claude provides cell-level citations for every calculation. Claude for Excel is currently in beta as a research preview. [Join the waitlist(opens in new tab)](https://www.claude.com/claude-for-excel) to get access.
+Once Claude creates your financial model, download and open the file in Excel. With [Claude for Excel(opens in new tab)](http://claude.com/claude-for-excel), you can get instant explanations of any formula, test scenarios without breaking dependencies, or trace errors to their source. Claude provides cell-level citations for every calculation. Claude for Excel is available on all paid plans.
 
 ### Unlock further capabilities[](#unlock-further-capabilities)
 

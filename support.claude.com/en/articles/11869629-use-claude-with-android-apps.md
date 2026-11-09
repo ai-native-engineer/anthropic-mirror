@@ -2,7 +2,7 @@
 
 Claude can now connect with your Android device's system apps to help you take action directly from your conversations. When you chat with Claude, it can draft messages, emails, calendar events, set alarms and timers, find locations, and more—all through your everyday apps without copy-paste.
 
-This feature is supported on all Claude plans and works with your device's native and third-party apps, including messaging, email, calendar, alarms, timers, location services, maps, and Health Connect (in beta on Pro and Max plans only).
+This feature is supported on all Claude plans and works with your device's native and third-party apps, including messaging, email, calendar, alarms, timers, location services, maps, and Health Connect (in beta on Pro, Max, and Ultra plans only).
 
 ## What can Claude do with Android apps?
 
@@ -23,7 +23,7 @@ Claude can help you:
 * **Calendar:** Ability to edit events depends on your ownership of the event.
 * **Reminders:** These are exclusively available on Claude for iOS, so Claude can’t create and manage reminders on Android.
 * **Contacts:** Claude does not have direct access to your contacts.
-* **Health:** Available on Pro and Max plans only. Requires Android 14 or later and Health Connect. Currently limited to users in the US. Claude can read health data but cannot write or modify entries in Health Connect.
+* **Health:** Available on Pro, Max, and Ultra plans only. Requires Android 14 or later and Health Connect. Currently limited to users in the US. Claude can read health data but cannot write or modify entries in Health Connect.
 
 ---
 
@@ -89,7 +89,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 ## Access and analyze your health data
 
-**Note:** Health features are available in beta on Pro and Max plans only, require Android 14 or later, and are limited to users in the US.
+**Note:** Health features are available in beta on Pro, Max, and Ultra plans only, require Android 14 or later, and are limited to users in the US.
 
 Claude can read your health and fitness data from Health Connect to help you understand patterns, track progress, and make informed decisions about your wellbeing. When you ask Claude about your health data, it can display insights using native charts that feel integrated with Android.
 
@@ -169,7 +169,7 @@ Permission requirements vary by feature:
 
 For features requiring permissions (like location or calendar access), Claude will request permission contextually with clear explanations of why the access is needed. You’ll be prompted to approve the action with three options: Allow once, Always allow, or Don't allow.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1790856900&signature=60524d36e3be3415172954198e6da04b80b688362f1160d4ca91e3e78ee1b168&req=dScnEcp7nIdeXfMW1HO4zQe5G1%2BH3iP9S5x65TIld%2FBzkCle0LUfyXyv0KY%2F%0APfXMMhYX%2B6h5vPEcZf0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1790856900&signature=60524d36e3be3415172954198e6da04b80b688362f1160d4ca91e3e78ee1b168&req=dScnEcp7nIdeXfMW1HO4zQe5G1%2BH3iP9S5x65TIld%2FBzkCle0LUfyXyv0KY%2F%0APfXMMhYX%2B6h5vPEcZf0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1794098700&signature=a3c9c341d0cc5258cdac3aac6f5c808da4d4064a7022d4c0f2640ccd46d550e3&req=dScnEcp7nIdeXfMW1HO4zQe5G1uP0i3zS5x65TIld%2FDapA8GHhNsdA%2BK%2F%2FCu%0AjGo66plz0MCmGtsjgu4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1794098700&signature=a3c9c341d0cc5258cdac3aac6f5c808da4d4064a7022d4c0f2640ccd46d550e3&req=dScnEcp7nIdeXfMW1HO4zQe5G1uP0i3zS5x65TIld%2FDapA8GHhNsdA%2BK%2F%2FCu%0AjGo66plz0MCmGtsjgu4%3D%0A)
 
 These permissions can be managed at any time in your device settings by going to Settings > Apps > Claude > Permissions. Click into each permission listed under **Allowed** and **Not allowed** to make changes. You can toggle between “Allow only while using the app” or “Ask every time” to change Claude’s access, or remove permissions by choosing “Don’t allow.” Claude will only request permissions if needed for specific features, and you can always choose to decline while still using other capabilities.
 
@@ -219,7 +219,7 @@ Health Connect permissions are managed separately from other app permissions. Wh
 
 ### Health data isn't appearing or seems incomplete
 
-* Verify that you have a Pro or Max plan and are located in the US.
+* Verify that you have a Pro, Max, or Ultra plan and are located in the US.
 * Ensure you're running Android 14 or later.
 * Check that Health Connect is installed and that your fitness apps are connected to it.
 * Verify that you've granted Claude access to the relevant health data types in Settings > Apps > Health Connect > App permissions > Claude.
@@ -233,4 +233,4 @@ Health Connect permissions are managed separately from other app permissions. Wh
 * [Use the Claude widget on Android](https://support.claude.com/en/articles/10534883-use-the-claude-widget-on-android)
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Use Claude with iOS apps](https://support.claude.com/en/articles/11869619-use-claude-with-ios-apps)
-* [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)
+* [Use Personal Finance in Claude](https://support.claude.com/en/articles/18185620-use-personal-finance-in-claude)

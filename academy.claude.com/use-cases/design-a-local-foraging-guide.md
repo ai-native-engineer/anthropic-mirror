@@ -8,7 +8,7 @@
 
 Build artifacts where the map is the menu. Select your state on an interactive map browse by category and export a printable reference.
 
-15 minPersonalClaude.ai
+15 minPersonalClaude
 
 Try in ClaudeCopy prompt
 
@@ -41,6 +41,8 @@ Claude builds working artifacts directly in conversation. Enable Artifacts in se
 Turn on Artifacts in your settings. This lets Claude generate apps with full interactivity—maps, state management, data visualization—that render right in the chat. No setup or deployment needed.
 
 ### Required context[](#required-context)
+
+Nothing to upload.
 
 ## 3. What Claude creates[](#3-what-claude-creates)
 
@@ -86,7 +88,7 @@ Open in Claude
 
 ### Learn from what Claude builds—or reuse it directly[](#learn-from-what-claude-buildsor-reuse-it-directly)
 
-Ask Claude to walk through the logic so you understand the pattern, not just the output. Or skip the explanation and copy the code directly from the artifact as a starting point for something new. See an example that reuses this pattern to create an [interactive gardening guide(opens in new tab)](https://claude.ai/public/artifacts/0a2e112a-90e2-4219-8d3e-5bfc12d26e2c).
+Ask Claude to walk through the logic so you understand the pattern, not just the output. Or skip the explanation and ask Claude for the code as a starting point for something new. See an example that reuses this pattern to create an [interactive gardening guide(opens in new tab)](https://claude.ai/public/artifacts/0a2e112a-90e2-4219-8d3e-5bfc12d26e2c).
 
 ### Keep refining in the same conversation[](#keep-refining-in-the-same-conversation)
 

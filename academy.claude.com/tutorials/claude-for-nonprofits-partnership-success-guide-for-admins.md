@@ -8,7 +8,7 @@
 
 A phased implementation framework to help nonprofit admins launch, scale, and sustain Claude adoption across their organization.
 
-4 minClaude.ai
+4 minClaude
 
 [Open Claude](https://claude.ai/new)
 
@@ -27,9 +27,9 @@ The framework below is flexible and self-paced. Move through the phases at whate
 
 #### Recommended actions
 
-1. Complete user management and technical configuration (SSO, SCIM)
+1. Complete user management and technical configuration (SSO, plus SCIM on Enterprise plans)
 2. Set data retention and sharing policies
-3. Define success metrics using audit log data and surveys
+3. Define success metrics using your usage analytics dashboard and surveys
 4. Plan your change management strategy with success criteria
 
 #### Implementation tips
@@ -68,16 +68,14 @@ The framework below is flexible and self-paced. Move through the phases at whate
 #### Key resources
 
 * [Use case library(opens in new tab)](https://academy.claude.com/all?kind=use-case)
-* [How to access audit logs(opens in new tab)](https://support.claude.com/en/articles/9970975-how-to-access-audit-logs)
-* [Claude artifact inspiration gallery(opens in new tab)](https://claude.ai/artifacts?category=learn)
+* [View usage analytics for Team and Enterprise plans(opens in new tab)](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
 * [MCP connector directory(opens in new tab)](https://claude.com/connectors)
 
 #### Recommended actions
 
 1. Build a weekly use case spotlight schedule
-2. Track activity metrics via audit logs and surveys
+2. Track activity metrics in your usage analytics dashboard and with surveys
 3. Enable appropriate connectors and capabilities in admin settings
-4. Participate in monthly webinars (third week of each month)
 
 #### Implementation tips
 

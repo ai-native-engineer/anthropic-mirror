@@ -8,7 +8,7 @@
 
 Set up and use the CMS Coverage integration with Claude to search Medicare Part B coverage policies, NCDs, LCDs, and billing articles instantly.
 
-15 minClaude.ai
+15 minClaude
 
 [Open Claude](https://claude.ai/new)
 

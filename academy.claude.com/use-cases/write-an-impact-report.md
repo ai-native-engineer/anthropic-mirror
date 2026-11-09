@@ -8,7 +8,7 @@
 
 Turn raw program data and participant outcomes into compelling narratives with data visualizations, stakeholder-specific insights, and authentic success stories that demonstrate real impact.
 
-15 minClaude.ai
+15 minClaude
 
 Try in ClaudeCopy prompt
 

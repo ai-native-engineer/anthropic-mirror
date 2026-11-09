@@ -1,8 +1,8 @@
 <!-- source: https://claude.com/ -->
 
-# Think fast, build faster
+# Question what’s next
 
-Brainstorm in chat, build in Cowork
+Your thinking partner for big ambitions
 
 Continue with Google
 
@@ -16,11 +16,11 @@ By continuing, you acknowledge Anthropic's [Privacy Policy](https://www.anthropi
 
 Download desktop app
 
-[](https://assets.claude.ai/videos/cowork-login-hero.mp4)
+[![](https://assets.claude.ai/videos/login-hero-kt3-still-005fec8b.webp)](https://assets.claude.ai/videos/login-hero-kt3-932d39be.mp4)
 
 ## Explore plans
 
-IndividualTeam and Enterprise
+IndividualTeam & Enterprise
 
 ### Free
 
@@ -32,20 +32,17 @@ Free for everyone
 
 [Try Claude](https://claude.ai/login?plan=free)
 
-* Chat on web, iOS, Android, and on your desktop
-* Generate code and visualize data
-* Write, edit, and create content
-* Ability to search the web
+* **Limited usage** every 5 hours and every week\*
+* Chat on web, desktop, and mobile
+* Search the web, create files, and run code
 * Memory across conversations
-* Create files and execute code
-* Unlock more from Claude with desktop extensions
-* Connect Slack and Google Workspace services
-* Integrate any context or tool through connectors with remote MCP
-* Extended thinking for complex work
+* Connect your apps and tools
+* Create Artifacts
+* Claude Design, Slides, Docs
 
 ### Pro
 
-For everyday productivity
+For everyday work
 
 $17
 
@@ -55,23 +52,23 @@ Per month with annual subscription discount ($200 billed up front). $20 if bille
 
 No commitment · Cancel anytime
 
-**Everything in Free, plus:**
+Everything in Free, plus:
 
-* More usage\*
-* Includes Claude Code
-* Includes Claude Cowork
-* Includes Claude Design
-* Includes Claude Science
-* Access to unlimited projects to organize chats and documents
-* Access to Research
-* Ability to use more Claude models
-* Claude for Microsoft 365
+* **More usage than Free**, every 5 hours and every week\*
+* Fable, paid with usage credits New
+* Hand off and schedule tasks
+* Claude Dashboards (beta)
+* Claude Code
+* Claude Science
+* Projects
+* More Claude models
+* Claude in Chrome and Microsoft 365
 
 ### Max
 
-5–20x more usage than Pro
+For all-day work
 
-From $100
+$100
 
 Per month
 
@@ -79,16 +76,39 @@ Per month
 
 No commitment · Cancel anytime
 
-**Everything in Pro, plus:**
+Everything in Pro, plus:
 
-* Choose 5x or 20x more usage than Pro\*
-* Higher output limits for all tasks
+* **5x Pro usage** every 5 hours and every week\*
+* Fable included, up to half your weekly limit New
+* $100 a month in API credits to build on the Claude Platform New
 * Early access to advanced Claude features
 * Priority access at high traffic times
 
-\*[Usage limits apply.](https://support.anthropic.com/en/articles/9797557-usage-limit-best-practices) Prices shown don't include applicable tax. Prices and plans are subject to change at Anthropic's discretion.
+### Ultra
 
-\*[Usage limits apply.](https://support.anthropic.com/en/articles/9797557-usage-limit-best-practices) Prices and plans are subject to change at Anthropic's discretion.
+For your longest tasks
+
+$200
+
+Per month
+
+[Try Claude](https://claude.ai/upgrade/max?plan=max_20x)
+
+No commitment · Cancel anytime
+
+Everything in Max, plus:
+
+* **No 5-hour limit**‡
+* **10x Pro usage** every week\*
+* $200 a month in API credits, up from $100 on Max New
+
+\*[Usage limits](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work) apply. How fast you reach a limit depends on the model you use, how long your chats are, and how large your files are.
+
+‡No 5-hour limit for [verified accounts](https://support.claude.com/en/articles/17728952).
+
+Prices shown don’t include applicable tax. Price and plans are subject to change at Anthropic's discretion.
+
+Price and plans are subject to change at Anthropic's discretion.
 
 ## FAQ
 
@@ -104,6 +124,4 @@ If you can dream it, Claude can help you do it. Claude can process large amounts
 
 ### How much does it cost to use?
 
-Claude has five pricing plans available — Free, Pro, Max, Team, and Enterprise. The Free plan offers limited use with no payment required. [Learn more about available pricing plans](https://claude.com/pricing).
-
-Claude
+Claude has six pricing plans available — Free, Pro, Max, Ultra, Team, and Enterprise. The Free plan offers limited use with no payment required. [Learn more about available pricing plans](https://claude.com/pricing).

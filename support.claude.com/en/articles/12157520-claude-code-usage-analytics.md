@@ -20,9 +20,7 @@ Claude Code usage analytics are available to:
 ### API Console users
 
 1. Log in to your **[Claude Console account](https://platform.claude.com)**.
-2. Expand the left side panel.
-3. Click “Claude Code” under **Analytics**.
-4. View Claude Code usage analytics on **[Settings > Claude Code](https://platform.claude.com/claude-code)**.
+2. Go to the **Claude Code** page (platform.claude.com/claude-code).
 
 ---
 
@@ -38,7 +36,7 @@ The **Usage** tab displays the following metrics for your organization. Data on 
 * **Lines accepted over time**: Daily breakdown of accepted code lines.
 * **Top commands**: The Claude Code commands used most often across your organization.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1790856000&signature=dc647550f41fe4ce53bf0ba1629686549878bb2c555d04e73c53e04a0e411256&req=dScmEcx5lINYXvMW1HO4zfiEPqZYin%2FOCX9h5MbdDjM%2FW95x8SS9MaNpNYHW%0ATVPgOsKzktstIGKzSHQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1790856000&signature=dc647550f41fe4ce53bf0ba1629686549878bb2c555d04e73c53e04a0e411256&req=dScmEcx5lINYXvMW1HO4zfiEPqZYin%2FOCX9h5MbdDjM%2FW95x8SS9MaNpNYHW%0ATVPgOsKzktstIGKzSHQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1794098700&signature=3bb7c25c91acf634c7c0649c3c5c84b43ce3dadd29fff64fe76fd659d76f5628&req=dScmEcx5lINYXvMW1HO4zfiEPqJQhnHJCX9h5MbdDjNhGrpTgZkNrvs4Iv1q%0Aolt0Pg9m7BfcR%2BkNbus%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1794098700&signature=3bb7c25c91acf634c7c0649c3c5c84b43ce3dadd29fff64fe76fd659d76f5628&req=dScmEcx5lINYXvMW1HO4zfiEPqJQhnHJCX9h5MbdDjNhGrpTgZkNrvs4Iv1q%0Aolt0Pg9m7BfcR%2BkNbus%3D%0A)
 
 ### User-level metrics
 
@@ -62,7 +60,7 @@ Every formula used on this tab is shown inline. Click any input to adjust it to 
 
 Contribution metrics are a new feature in public beta that helps Team and Enterprise organizations measure how Claude Code affects engineering velocity. By connecting to your organization's GitHub account, these metrics track code shipping activity with and without Claude Code, so you can see where it's making a difference.
 
-Contribution metrics require GitHub Cloud and are not available to Console users at this time.
+Contribution metrics require GitHub Cloud. They aren't available to Console users or to organizations with zero data retention (ZDR) enabled for Claude Code.
 
 For a more in-depth look at contribution metrics, see **[our Claude Code docs](https://code.claude.com/docs/en/analytics#enable-contribution-metrics)**.
 
@@ -111,7 +109,7 @@ Track activity trends to understand when your team uses Claude Code most effecti
 
 ### I'm using an individual paid plan; how can I access usage analytics for Claude Code?
 
-Claude Code usage analytics are not available to individual Pro or Max plans at this time.
+Claude Code usage analytics are not available to individual Pro, Max, or Ultra plans at this time.
 
 ### I'm looking for a specific user but they're missing from the reports.
 
@@ -121,8 +119,8 @@ If you notice that a specific user isn't showing up in your analytics, you shoul
 
 See **[Analytics](https://code.claude.com/docs/en/analytics)** in our Claude Code docs for more information.
 
-* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
 * [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
 * [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)
+* [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)
 * [Use analytics chat to ask Claude about usage](https://support.claude.com/en/articles/14729354-use-analytics-chat-to-ask-claude-about-usage)

@@ -8,7 +8,7 @@
 
 Create a polished client proposal deck with professional layouts data visualizations and cohesive design—then refine through feedback until it matches your standards.
 
-15 minSalesClaude.ai
+15 minSalesClaude
 
 Try in ClaudeCopy prompt
 
@@ -48,7 +48,7 @@ Google Drive
 
 [Connect](https://claude.ai/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 ![](https://academy.claude.com/surfaces/powerpoint-icon.svg)
 

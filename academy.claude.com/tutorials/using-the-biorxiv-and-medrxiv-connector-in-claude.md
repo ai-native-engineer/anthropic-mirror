@@ -8,7 +8,7 @@
 
 Set up and use the bioRxiv integration with Claude to search, retrieve, and summarize preprints from the bioRxiv and medRxiv preprint servers.
 
-15 minClaude.ai
+15 minClaude
 
 [Open Claude](https://claude.ai/new)
 
@@ -64,10 +64,11 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 **For Claude Code Users**
 
-1. Command: `/plugin marketplace add anthropics/life-sciences`
-2. Command: `/plugin install biorxiv@life-sciences`
-3. Restart Claude Code
-4. Verify that the server is connected with /mcp
+1. Connect **bioRxiv** in Claude by following the steps above
+2. Sign in to Claude Code with the same Claude account (run `/login` to switch accounts), then restart Claude Code
+3. Run `/mcp` and check that the connector appears in the claude.ai section of the list (if it isn't shown, select **Show unused connectors** at the end of that section)
+
+Learn about [using connectors from Claude in Claude Code(opens in new tab)](https://code.claude.com/docs/en/mcp#use-mcp-servers-from-claude-ai).
 
 ## **Example use cases**[](#example-use-cases)
 
@@ -118,11 +119,11 @@ Open in Claude
 * Scenario: Tracking research productivity and outputs from specific funding organizations
 * Sample Prompts:
 
-Find all preprints funded by the NIH (ROR ID: 021nxhr62) in the past year
+Find all preprints funded by the NIH (ROR ID: 01cwqze88) in the past year
 
 Open in Claude
 
-What research has the European Commission (ROR: 02mhbdp94) funded that's been posted as preprints?
+What research has the European Commission (ROR: 00k4n6c32) funded that's been posted as preprints?
 
 Open in Claude
 

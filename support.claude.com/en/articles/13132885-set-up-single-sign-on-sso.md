@@ -38,12 +38,12 @@ You can verify multiple domains for a single organization, but all domains must 
 2. In the **Domains** section, click “Add or edit domains.”
 3. Enter the domain(s) you want to verify in the **Update organization email domains** modal and click the “+” button:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1790856900&signature=600e4278c6595faf323bf9437e29ab64a770949d133b50a53835eda4d91bb40a&req=diQuHsF6noNXW%2FMW1HO4zSdmH3wx%2F8KFe3H0OpmIzWGf4hXa7GpkNiJUyGC0%0A53tS%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1790856900&signature=600e4278c6595faf323bf9437e29ab64a770949d133b50a53835eda4d91bb40a&req=diQuHsF6noNXW%2FMW1HO4zSdmH3wx%2F8KFe3H0OpmIzWGf4hXa7GpkNiJUyGC0%0A53tS%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1794098700&signature=900f34f343e899b6679cd5c0add335b47b51e762edc830103eaad7ddea5e4b13&req=diQuHsF6noNXW%2FMW1HO4zSdmH3g588yLe3H0OpmIzWEFgjP1d5%2BDcfj%2BBaJZ%0AaMua%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1794098700&signature=900f34f343e899b6679cd5c0add335b47b51e762edc830103eaad7ddea5e4b13&req=diQuHsF6noNXW%2FMW1HO4zSdmH3g588yLe3H0OpmIzWEFgjP1d5%2BDcfj%2BBaJZ%0AaMua%0A)
 4. Click “Save” when you’re finished adding domains.
 5. The domain(s) you added will now appear in the **Domains** section; click “Verify” to the right of the domain(s) to begin the verification process.
 6. Enter your domain in the text box and click “Continue”:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1790856900&signature=879d850b282e67504ad49b0ebc4e44ea5637d4854122518917864fdfc039a1e0&req=diAjEcl6n4dcWfMW1HO4zWHctB2fktejyoyXAW0OlXo0dzlCaiDjXY88B4W0%0AKUuR%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1790856900&signature=879d850b282e67504ad49b0ebc4e44ea5637d4854122518917864fdfc039a1e0&req=diAjEcl6n4dcWfMW1HO4zWHctB2fktejyoyXAW0OlXo0dzlCaiDjXY88B4W0%0AKUuR%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1794098700&signature=aa14bdc998226a482d109cfd3b5cc90e9c093cde6b24d4ada25fbe4a3467dcb3&req=diAjEcl6n4dcWfMW1HO4zWHctBmXntmtyoyXAW0OlXpWnYG%2FgPYNVVy93IQq%0Ak9vI%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1794098700&signature=aa14bdc998226a482d109cfd3b5cc90e9c093cde6b24d4ada25fbe4a3467dcb3&req=diAjEcl6n4dcWfMW1HO4zWHctBmXntmtyoyXAW0OlXpWnYG%2FgPYNVVy93IQq%0Ak9vI%0A)
 7. The setup screen displays a TXT record. **Copy the full Value using the copy button**—it begins with `anthropic-domain-verification-` and is longer than what's visible in the box. In your DNS provider, add a TXT record to your domain and **Value** set to the copied string. The domain must match exactly what you entered in the previous step, including any subdomains. Add it alongside any existing TXT records; don't replace them. The value is case-sensitive, so paste it exactly. Please refer to your DNS provider's documentation on this topic.
 
    1. **Important:** Save the TXT value before leaving the setup screen. Once the domain shows as Pending, the admin console doesn't display the value again. If you lose it, you'll need to remove and re-add the domain, which generates a new value.
@@ -63,7 +63,7 @@ Clicking "Refresh" re-checks your DNS; it won't show Verified until the publishe
 
 If the record is correct and propagated but the status still shows Pending, contact Support.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1790856900&signature=6623e257ba0c88ca273c56c963b48b623a81ca1a2383fd5f08ab79b53eef8375&req=diAjEcl6mYVWX%2FMW1HO4zVjmWCkIanKwPM2D8ZcdgriYUgJ6zA7%2FgL1M1p0v%0AUMfhWVP3TDpHXVHmV1M%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1790856900&signature=6623e257ba0c88ca273c56c963b48b623a81ca1a2383fd5f08ab79b53eef8375&req=diAjEcl6mYVWX%2FMW1HO4zVjmWCkIanKwPM2D8ZcdgriYUgJ6zA7%2FgL1M1p0v%0AUMfhWVP3TDpHXVHmV1M%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1794098700&signature=ce0ef34f60b2da23961fc2cb5b0287301879711765eb98e3c08a12dbe717a448&req=diAjEcl6mYVWX%2FMW1HO4zVjmWC0AZny%2BPM2D8Zcdgri%2BHAJcrTFt53gYor0M%0AT5TtxGU26bWaJhbNRgI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1794098700&signature=ce0ef34f60b2da23961fc2cb5b0287301879711765eb98e3c08a12dbe717a448&req=diAjEcl6mYVWX%2FMW1HO4zVjmWC0AZny%2BPM2D8Zcdgri%2BHAJcrTFt53gYor0M%0AT5TtxGU26bWaJhbNRgI%3D%0A)
 
 **Note:** Once your domain is verified, you'll see a **Restrict organization creation** toggle under **Security** on the Organization and access organization settings page. Enable this if you want to prevent users from creating new Claude or Console organizations—including personal accounts—using your verified domains.
 
@@ -94,7 +94,7 @@ For IdP-specific setup instructions, see:
 
 You can now choose to toggle on **Require SSO for Console** and/or **Require SSO for Claude,** on the **Organization and access** page, under the **Authentication** section:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1790856900&signature=dbc83cddb7f819cff2df40d207370bc1f19b444a4fe41a99e7d0442989cda591&req=diMmFM93nYNfWfMW1HO4zdAICg%2BpB3oDItXtKivx6ZEVkliqqCCwUiwp5Yey%0AW1vYVLum%2F2QH%2F2J7xp4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1790856900&signature=dbc83cddb7f819cff2df40d207370bc1f19b444a4fe41a99e7d0442989cda591&req=diMmFM93nYNfWfMW1HO4zdAICg%2BpB3oDItXtKivx6ZEVkliqqCCwUiwp5Yey%0AW1vYVLum%2F2QH%2F2J7xp4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1794098700&signature=42439001300349205a67978086b8d2d7d6bbdb6371cf52878329e60d8365d6d6&req=diMmFM93nYNfWfMW1HO4zdAICguhC3QNItXtKivx6ZHJQMFbkvPBbgVf7RVz%0ACAqO2rZVD3nyf%2BWmnAE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1794098700&signature=42439001300349205a67978086b8d2d7d6bbdb6371cf52878329e60d8365d6d6&req=diMmFM93nYNfWfMW1HO4zdAICguhC3QNItXtKivx6ZHJQMFbkvPBbgVf7RVz%0ACAqO2rZVD3nyf%2BWmnAE%3D%0A)
 
 When SSO is required, users must use the “Continue with SSO” option to log in to their Claude/Console accounts. When SSO is not required, they will have the option to choose “Continue with SSO” or “Continue with email.”
 
@@ -122,24 +122,27 @@ For more control over provisioning, see **[Set up JIT or SCIM provisioning](http
 
 ---
 
-## Updating your SSO certificate
+## Update your SSO certificate or client secret
 
-When your Identity Provider's X.509 signing certificate expires or is rotated, you'll need to update it in Claude or Console to maintain SSO functionality.
+When your Identity Provider’s X.509 signing certificate (SAML) or client secret (OpenID Connect) expires or is rotated, you’ll need to update it in Claude or Console to maintain SSO functionality.
 
 1. Navigate to your settings:
 
    * For Team and Enterprise plans: **[claude.ai/admin-settings/organization](https://claude.ai/admin-settings/organization)**
-   * For Claude Console: **[platform.claude.com/settings/identity](https://platform.claude.com/settings/organization)**
+   * For Claude Console: **[platform.claude.com/settings/identity](https://platform.claude.com/settings/identity)**
 2. In the **Authentication** section, click “Manage SSO.”
-3. Find the **Metadata configuration** section and click “Edit.”
-4. Update your certificate information and save your changes.
+3. Update the credential for your connection type:
+
+   1. **SAML:** Find the **Metadata configuration** section, click “Edit,” and update your certificate information.
+   2. **OpenID Connect:** Replace the expired client secret with the new one from your Identity Provider. OpenID Connect connections don’t use a certificate.
+4. Save your changes.
 5. Click "Test sign-in" on the same page to confirm everything is working.
 
-**Important:** If **Require SSO** is turned on and your certificate has already expired, no one in your organization can sign in to update it, because every sign-in option routes through SSO. **[Contact Support](https://support.claude.com/en/articles/9015913)** from an Owner’s or Primary Owner’s email address and we’ll help you regain access so an Owner can update the certificate. To avoid this, note your certificate’s expiry date in your Identity Provider and rotate it ahead of time.
+**Important:** If **Require SSO** is turned on and your certificate or client secret has already expired, no one in your organization can sign in to update it, because every sign-in option routes through SSO. **[Contact Support](https://support.claude.com/en/articles/9015913)** from an Owner’s or Primary Owner’s email address and we’ll help you regain access so an Owner can update it. To avoid this, note the expiry date of your certificate or client secret in your Identity Provider and rotate it ahead of time.
 
 ---
 
-## Turning off SSO
+## Turn off SSO
 
 You can toggle **Require SSO for Claude** or **Require SSO for Console** off at any time. This will make SSO optional for all users.
 
@@ -147,10 +150,10 @@ To fully disconnect SSO, click “Manage SSO” then “Reset connection.” Thi
 
 ## Locked out of admin access?
 
-If none of your Owners or Admins can sign in (for example, after a certificate expiry, an Identity Provider change, or a group mapping that removed your administrators), contact Support from an Owner’s or Primary Owner’s email address. We’ll verify your ownership of the organization and help you regain access so you can correct the configuration.
+If none of your Owners or Admins can sign in (for example, after a certificate or client secret expiry, an Identity Provider change, or a group mapping that removed your administrators), contact Support from an Owner’s or Primary Owner’s email address. We’ll verify your ownership of the organization and help you regain access so you can correct the configuration.
 
 * [Important considerations before enabling single sign-on (SSO) and JIT/SCIM provisioning](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)
 * [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)
-* [OneLogin SSO setup](https://support.claude.com/en/articles/13917899-onelogin-sso-setup)
-* [SSO login](https://support.claude.com/en/articles/14503613-sso-login)
-* [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
+* [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
+* [Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)
+* [Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)

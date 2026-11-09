@@ -8,7 +8,7 @@
 
 Analyze campaign performance data to identify your best and worst performing channels, then get specific budget reallocation recommendations for next quarter.
 
-10 minMarketingClaude.ai
+10 minMarketingClaude
 
 Try in ClaudeCopy prompt
 

@@ -8,7 +8,7 @@
 
 Learn how to connect third-party tools and applications to Claude through the Connectors feature for accessing data across platforms.
 
-6 minClaude.ai
+6 minClaude
 
 Watch[Open Claude](https://claude.ai/new)
 
@@ -32,14 +32,14 @@ Not only do connectors make Claude more knowledgeable, they make it more useful,
 
 The Connectors directory allows you to connect tools to Claude in just a few clicks. To find it, navigate to the “Search and tools” menu in Claude chat, then hit “Add connectors.”
 
-![](https://academy.claude.com/assets/media/a3d9d35c683148082009da737103b06bce167c823e09bc9e8d6ba1d044c23658.png)
+![Search and tools menu in Claude chat, with Web search on and items such as Drive search, and a cursor on "Add connectors".](https://academy.claude.com/assets/media/a3d9d35c683148082009da737103b06bce167c823e09bc9e8d6ba1d044c23658.png)
 
 From here, you can connect Claude to your preferred tools, with more being added all the time. In the directory, you’ll find pre-built connectors in two categories:
 
 * **Web** — these let you to connect and authenticate to remote services, like your Google Drive and Gmail, Asana, Notion, Canva, and more.
 * **Desktop extensions (app only)** — these allow Claude to work with desktop apps and files on your computer like your notes, messages, and code files.
 
-![](https://academy.claude.com/assets/media/e7a37acba3fdb156e795c955e338478be3bc819358b11e409008f477f49113b2.png)
+![Connectors directory, Web tab selected, listing connectors such as Atlassian, Intercom and Linear, each with a plus button.](https://academy.claude.com/assets/media/e7a37acba3fdb156e795c955e338478be3bc819358b11e409008f477f49113b2.png)
 
 ## Setting up your first connection[](#setting-up-your-first-connection)
 

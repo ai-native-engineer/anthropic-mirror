@@ -14,17 +14,17 @@ Session duration controls allow Enterprise and Console Admins to set a maximum s
 4. Click “Enable” next to **Shortened session length**, then select a duration from the dropdown: 1 day, 7 days, 14 days, or 28 days.
 5. Confirm your selection by clicking “Enable.”
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469436/1725e63ea1a2615948faecf4ec73/9bd276a1-7329-414d-87a1-d04dac93fff7?expires=1790856000&signature=bc87dbaacc4d14597a214c34b73fcb07d813c599e0b72a6633df618ac4bc5608&req=dSgvHs14lIVcX%2FMW1HO4zQNx6uIvRlxQg%2F6XaftFnjzfPw3YPiIJHLWEAt0u%0A2sIuV%2FIAb5ep9azajEw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469436/1725e63ea1a2615948faecf4ec73/9bd276a1-7329-414d-87a1-d04dac93fff7?expires=1790856000&signature=bc87dbaacc4d14597a214c34b73fcb07d813c599e0b72a6633df618ac4bc5608&req=dSgvHs14lIVcX%2FMW1HO4zQNx6uIvRlxQg%2F6XaftFnjzfPw3YPiIJHLWEAt0u%0A2sIuV%2FIAb5ep9azajEw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469436/1725e63ea1a2615948faecf4ec73/9bd276a1-7329-414d-87a1-d04dac93fff7?expires=1794098700&signature=779a73531fcbfc4d02a52b15f6a4a087b9e2c75582d590ddd516aad30de8bf1d&req=dSgvHs14lIVcX%2FMW1HO4zQNx6uYnSlJXg%2F6XaftFnjxiPJ2KVVWKoVjQmu%2FD%0ATcUIfIzzfKfWa%2Fh4CWo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469436/1725e63ea1a2615948faecf4ec73/9bd276a1-7329-414d-87a1-d04dac93fff7?expires=1794098700&signature=779a73531fcbfc4d02a52b15f6a4a087b9e2c75582d590ddd516aad30de8bf1d&req=dSgvHs14lIVcX%2FMW1HO4zQNx6uYnSlJXg%2F6XaftFnjxiPJ2KVVWKoVjQmu%2FD%0ATcUIfIzzfKfWa%2Fh4CWo%3D%0A)
 
 ### For Console Admins
 
 1. Log in to your Console account as an Admin.
-2. Navigate to **[Settings > Organization and access](http://platform.claude.com/settings/organization)**.
+2. Navigate to **[Settings > Organization and access](https://platform.claude.com/settings/organization)**.
 3. Locate the **Session security** section.
 4. Click “Enable” next to **Shortened session length**, then select a duration from the dropdown: 1 day, 3 days, or 7 days.
 5. Confirm your selection by clicking “Enable.”
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469435/7a766bbe02e61c7d8f05deb5b8f0/b0bda400-47c6-43dd-9907-131ebe180b36?expires=1790856000&signature=dda3745fcddbf3df2ada275641e2d05fc61c7091526a6ffc1ddc8b2287cb9fcb&req=dSgvHs14lIVcXPMW1HO4zWzx2bk%2BInkhXZ5D7eVpMtcSbxIYaVtkiE4LWGln%0A%2BuZgJ7bh1KcmH4K9yRA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469435/7a766bbe02e61c7d8f05deb5b8f0/b0bda400-47c6-43dd-9907-131ebe180b36?expires=1790856000&signature=dda3745fcddbf3df2ada275641e2d05fc61c7091526a6ffc1ddc8b2287cb9fcb&req=dSgvHs14lIVcXPMW1HO4zWzx2bk%2BInkhXZ5D7eVpMtcSbxIYaVtkiE4LWGln%0A%2BuZgJ7bh1KcmH4K9yRA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469435/7a766bbe02e61c7d8f05deb5b8f0/b0bda400-47c6-43dd-9907-131ebe180b36?expires=1794098700&signature=e2af7a114b36a81568e2c2ed961d0c0a0585e98d6a1073b7f0765df8c7050046&req=dSgvHs14lIVcXPMW1HO4zWzx2b02LncmXZ5D7eVpMtf267rZtlH5Eqmwnpu7%0AoD6S1BVL%2FZyDNzKLCZs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469435/7a766bbe02e61c7d8f05deb5b8f0/b0bda400-47c6-43dd-9907-131ebe180b36?expires=1794098700&signature=e2af7a114b36a81568e2c2ed961d0c0a0585e98d6a1073b7f0765df8c7050046&req=dSgvHs14lIVcXPMW1HO4zWzx2b02LncmXZ5D7eVpMtf267rZtlH5Eqmwnpu7%0AoD6S1BVL%2FZyDNzKLCZs%3D%0A)
 
 ### What happens after enabling shortened session length?
 
@@ -39,7 +39,7 @@ You can change the session duration at any time by selecting a new value from th
 * Sessions older than the new duration will expire immediately.
 * Sessions scheduled to expire beyond the new duration will have their expiration shortened accordingly.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469437/46ac5bc55484ca01556d87a5ade7/b01a7651-ad65-4b32-93ff-16dbc9ca97c0?expires=1790856000&signature=46ac6d05c297d407ea6c4fbf0906ff114149ebf0e724b50cec7cce4d66e0a65a&req=dSgvHs14lIVcXvMW1HO4zZ7mW8iT4j%2BjA00cbyPOLDWZ%2FxItU%2FSRc%2BAhkUlO%0AZ8aO%2FHnlRojJRdHX6ns%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469437/46ac5bc55484ca01556d87a5ade7/b01a7651-ad65-4b32-93ff-16dbc9ca97c0?expires=1790856000&signature=46ac6d05c297d407ea6c4fbf0906ff114149ebf0e724b50cec7cce4d66e0a65a&req=dSgvHs14lIVcXvMW1HO4zZ7mW8iT4j%2BjA00cbyPOLDWZ%2FxItU%2FSRc%2BAhkUlO%0AZ8aO%2FHnlRojJRdHX6ns%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469437/46ac5bc55484ca01556d87a5ade7/b01a7651-ad65-4b32-93ff-16dbc9ca97c0?expires=1794098700&signature=92f09eee91159db87e353ff197affe2b70c43b26153df1e0b60a0aed62685362&req=dSgvHs14lIVcXvMW1HO4zZ7mW8yb7jGkA00cbyPOLDU7Vwgl61yuwfPrXinR%0AB%2FpcH5cSe6hPxu7cppw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469437/46ac5bc55484ca01556d87a5ade7/b01a7651-ad65-4b32-93ff-16dbc9ca97c0?expires=1794098700&signature=92f09eee91159db87e353ff197affe2b70c43b26153df1e0b60a0aed62685362&req=dSgvHs14lIVcXvMW1HO4zZ7mW8yb7jGkA00cbyPOLDU7Vwgl61yuwfPrXinR%0AB%2FpcH5cSe6hPxu7cppw%3D%0A)
 
 ## Disabling session length settings
 
@@ -49,8 +49,8 @@ To disable session duration, select "Disable" next to **Shortened session length
 
 If a user belongs to multiple organizations with different session duration settings, the shortest duration will be applied. For example, if a user is a member of Organization A (7-day limit) and Organization B (28-day limit), their sessions will expire after seven days. This is because a single session is used across all their organizations, so the most restrictive setting takes precedence.
 
-* [Important considerations before enabling single sign-on (SSO) and JIT/SCIM provisioning](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)
 * [Set up single sign-on (SSO)](https://support.claude.com/en/articles/13132885-set-up-single-sign-on-sso)
 * [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)
 * [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
-* [Claude Enterprise activation promo for Claude Code and Cowork](https://support.claude.com/en/articles/15282265-claude-enterprise-activation-promo-for-claude-code-and-cowork)
+* [Cyber Verification Program Security Requirements](https://support.claude.com/en/articles/17202708-cyber-verification-program-security-requirements)
+* [Get started with centralized management](https://support.claude.com/en/articles/18232924-get-started-with-centralized-management)

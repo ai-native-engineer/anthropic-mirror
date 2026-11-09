@@ -8,7 +8,7 @@
 
 Learn how to create Claude Skills through natural conversation by describing workflows and having Claude structure them into reusable formats.
 
-6 minClaude.ai
+6 minClaude
 
 [Open Claude](https://claude.ai/new)
 
@@ -64,7 +64,7 @@ You can build skills for a range of tasks. Skills can capture how your organizat
 
 Skills bundle three types of content together—instructions, reference materials, and scripts. Knowing these components helps you articulate what you need when creating a skill with Claude.
 
-![](https://academy.claude.com/assets/media/95722d23386f3258e1196d70b4b8d219ec60721200f6c11f0ff84df6306b26d0.png)
+![The my-skill-name folder with SKILL.md and the scripts, references and assets folders, beside an example SKILL.md template.](https://academy.claude.com/assets/media/95722d23386f3258e1196d70b4b8d219ec60721200f6c11f0ff84df6306b26d0.png)
 
 ### Instructions[](#instructions)
 

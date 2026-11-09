@@ -28,12 +28,12 @@ Manage Supabase projects directly through Claude. Execute SQL queries on Postgre
 * list\_migrations
 * apply\_migration
 * execute\_sql
-* get\_logs
+* query\_logs
 * get\_advisors
 * get\_project\_url
 * get\_publishable\_keys
 
-Show all 32 tools
+Show all 40 tools
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
@@ -55,16 +55,6 @@ monday.com project management & CRM for projects, tasks, portfolios, boards, wor
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-![](https://www.gemini.com/favicon.ico)
-
-### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
-
-Anthropic verifiedTrending
-
-Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
-
-[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")
-
 ![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
 
 ### [Box](https://claude.com/marketplace/connectors/box)
@@ -73,13 +63,21 @@ Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-![](https://assets.claude.com/e64f9962a277a8943b084a17b6a9386a7eb95a61.svg?w=128&fit=max&auto=format)
+![](https://academy.claude.com/favicon.svg)
 
-### [Miro](https://claude.com/marketplace/connectors/miro)
+### [Claude Academy](https://claude.com/marketplace/connectors/claude-academy)
 
-Access and create new content on Miro boards
+Search and read Claude Academy courses and tutorials
 
-[Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
+[Add Claude Academy in Claude (opens in new tab)](https://claude.ai/directory/3a7c3660-f7a6-4274-8ecd-8b6337a77cd1 "Add in Claude")
+
+![](https://onchaindiligence.com/anthropic-icon.png)
+
+### [OnChainDiligence](https://claude.com/marketplace/connectors/onchaindiligence)
+
+Inspect autonomous payments before execution and independently verify evidence afterward.
+
+[Add OnChainDiligence in Claude (opens in new tab)](https://claude.ai/directory/98a20d38-07b8-47ae-8502-bdb282f84352 "Add in Claude")
 
 ![](https://assets.claude.com/f8c4f0634cd056e248c7ea396b1839b922470ac6.jpg?w=128&fit=max&auto=format)
 

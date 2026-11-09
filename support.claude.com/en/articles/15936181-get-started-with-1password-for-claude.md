@@ -2,7 +2,7 @@
 
 1Password for Claude lets Claude complete browser tasks that require signing in, using logins you've stored in 1Password. 1Password fills the credential directly on the page, so Claude never sees your password or one-time code.
 
-1Password for Claude is in beta for paid plans (Pro, Max, Team, Enterprise) using Claude Desktop on macOS. It's available to 1Password customers on individual, family, and business plans, and requires Claude in Chrome. 1Password for Claude is off by default for Team and Enterprise plans.
+1Password for Claude is in beta for paid plans (Pro, Max, Ultra, Team, Enterprise) using Claude Desktop on macOS. It's available to 1Password customers on individual, family, and business plans, and requires Claude in Chrome. 1Password for Claude is off by default for Team and Enterprise plans.
 
 ## How it works
 
@@ -42,7 +42,7 @@ Once the requirements are in place, you can set up 1Password from a few places i
 3. Toggle on **Enable for your team** if it isn't already on.
 4. Toggle on **Password managers**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1790856900&signature=b3a1db274f6207b65982eb18285ed5eb976ce36192d974c834c708899fe50f67&req=diUjEMh8m4RWX%2FMW1HO4zU5ln2tmqMNqGkiu4hEpcPVn2avypQnalAxBgekC%0Arnj84wQx1YJcz2Vpd%2F4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1790856900&signature=b3a1db274f6207b65982eb18285ed5eb976ce36192d974c834c708899fe50f67&req=diUjEMh8m4RWX%2FMW1HO4zU5ln2tmqMNqGkiu4hEpcPVn2avypQnalAxBgekC%0Arnj84wQx1YJcz2Vpd%2F4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1794098700&signature=eae8b1baf86d7718a868b33f1451c9710dc023d9b4bd4a9b1438fbf3fdd4ec32&req=diUjEMh8m4RWX%2FMW1HO4zU5ln29upM1kGkiu4hEpcPWv8eNDRQmaPD6bt1gC%0ARjMWXbGY%2BOr1DdyJ8Co%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1794098700&signature=eae8b1baf86d7718a868b33f1451c9710dc023d9b4bd4a9b1438fbf3fdd4ec32&req=diUjEMh8m4RWX%2FMW1HO4zU5ln29upM1kGkiu4hEpcPWv8eNDRQmaPD6bt1gC%0ARjMWXbGY%2BOr1DdyJ8Co%3D%0A)
 
 Once enabled, eligible users will see the discovery options above. Users still need to install and set up the required apps and extensions themselves.
 
@@ -82,6 +82,6 @@ Credentials are injected through a secure channel handled by 1Password, outside 
 
 * [Get started with Claude in Chrome](https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome)
 * [Claude in Chrome troubleshooting](https://support.claude.com/en/articles/12902405-claude-in-chrome-troubleshooting)
+* [Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely)
 * [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
-* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Use the built-in browser in Claude Cowork](https://support.claude.com/en/articles/16607400-use-the-built-in-browser-in-claude-cowork)

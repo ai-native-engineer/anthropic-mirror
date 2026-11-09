@@ -8,7 +8,7 @@
 
 Generate professional business cards, flyers, and marketing materials that match your exact branding guidelines—ready to print or edit.
 
-15 minMarketingClaude.ai
+15 minMarketingClaude
 
 Try in ClaudeCopy prompt
 

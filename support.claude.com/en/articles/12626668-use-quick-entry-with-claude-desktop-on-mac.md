@@ -2,7 +2,7 @@
 
 Quick entry is a redesigned experience for Claude Desktop on Mac that lets you access Claude instantly from anywhere on your computer. With quick entry, you can start chats, capture screenshots, share application windows, and use voice dictation to interact with Claude without navigating away from your current task.
 
-Quick entry is available to all Claude users (free, Pro, Max, Team, and Enterprise plans) using Claude Desktop on macOS.
+Quick entry is available to all Claude users (Free, Pro, Max, Ultra, Team, and Enterprise plans) using Claude Desktop on macOS.
 
 ## Key features
 
@@ -29,11 +29,11 @@ When you first open the updated version of Claude Desktop, you'll see a prompt t
 1. Check the box for **Turn on shortcut** in the quick entry prompt.
 2. Click "Continue."
 3. Double-tap the Option key to test the shortcut.
-4. Moving forward, manage this in Settings > General (under **Desktop app**).
+4. Moving forward, manage this in **Settings > Desktop app** (or **Settings > System**, under **This computer**, in the older Settings layout).
 
 Once enabled, double-tapping Option will open a text box where you can type your message and start a new chat. You can also click "New chat" to see your five most recent conversations.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1790856000&signature=b2c9e71a062f569e18b9d43b3edc39c1f939f47ca7527de448c09b41832b7387&req=dSguFcl2lYJZXPMW1HO4zWggDt5Zo5qaRC8c%2FcM5c2J19D5FKd6Uhb7VWxVL%0AVqtGpwAAb1qaulgUIi8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1790856000&signature=b2c9e71a062f569e18b9d43b3edc39c1f939f47ca7527de448c09b41832b7387&req=dSguFcl2lYJZXPMW1HO4zWggDt5Zo5qaRC8c%2FcM5c2J19D5FKd6Uhb7VWxVL%0AVqtGpwAAb1qaulgUIi8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1794098700&signature=b6a854c15575ea9128b8a9a38b9112f9cc4de114787b1a687860c2e0bc4af674&req=dSguFcl2lYJZXPMW1HO4zWggDtpRr5SdRC8c%2FcM5c2K2%2BgX1v9TgiXfjTnNQ%0AuojJhSeLQRcWe%2B%2B8qO4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1794098700&signature=b6a854c15575ea9128b8a9a38b9112f9cc4de114787b1a687860c2e0bc4af674&req=dSguFcl2lYJZXPMW1HO4zWggDtpRr5SdRC8c%2FcM5c2K2%2BgX1v9TgiXfjTnNQ%0AuojJhSeLQRcWe%2B%2B8qO4%3D%0A)
 
 ### Enable the voice shortcut (optional)
 
@@ -46,7 +46,7 @@ To enable voice dictation:
 3. Press Caps Lock once to start dictating.
 4. Press Caps Lock again when you're finished speaking.
 5. Click the arrow to send your transcribed message to Claude.
-6. Moving forward, manage this in Settings > General (under **Desktop app**).
+6. Moving forward, manage this in Settings > Desktop app (or Settings > System, under This computer, in the older Settings layout).
 
 ## Using quick entry
 
@@ -83,7 +83,7 @@ To enable voice dictation:
 You can customize quick entry shortcuts in your Claude Desktop settings.
 
 1. Open Claude Desktop.
-2. Go to Settings > General (under **Desktop app**).
+2. Go to **Settings > Desktop app** (or **Settings > System**, under **This computer**, in the older Settings layout).
 3. Choose from the following next to **Quick access shortcut**:
 
    * Double-tap Option (default)
@@ -130,11 +130,11 @@ Voice dictation transcribes your speech to text in real-time. The transcribed te
 
 ### Can I disable quick entry after enabling it?
 
-Yes. You can disable quick entry shortcuts at any time in Settings > General > Desktop App. You can turn off the quick access shortcut, voice shortcut, or both.
+Yes. You can disable quick entry shortcuts at any time in **Settings > Desktop app** (or **Settings > System**, under **This computer**, in the older Settings layout). You can turn off the quick access shortcut, voice shortcut, or both.
 
 ### What if the shortcuts conflict with other apps?
 
-You can customize the quick access shortcut to use Option + Space or create a custom keyboard shortcut that doesn't conflict with your other applications. The voice shortcut can only use Caps Lock or be disabled.
+You can customize the quick access shortcut to use Option + Space or create a custom keyboard shortcut that doesn't conflict with your other applications. The voice shortcut can use Caps Lock or a custom keyboard shortcut, or be disabled.
 
 * [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
 * [Use dictation on Claude Mobile](https://support.claude.com/en/articles/10065434-use-dictation-on-claude-mobile)

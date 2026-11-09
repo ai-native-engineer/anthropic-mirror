@@ -8,6 +8,15 @@
 
 [Skip to main content](#content-area)
 
+Assistant
+
+Responses are generated using AI and may contain mistakes.
+
+After the September and October 2026 Microsoft 365 updates on Windows, some
+users are missing their chat history and uploaded skills in the Claude add-in.
+Anthropic is working with Microsoft to solve this issue. In the meantime, see
+[what you and your IT team can do](https://claude.com/docs/office-agents/data-storage#chat-history-and-skills-missing-after-a-microsoft-365-update-on-windows).
+
 Claude for Excel is an add-in that brings Claude into Excel. Ask questions
 about open workbooks, adjust assumptions while preserving formula
 relationships, debug errors, and build or populate models, all without
@@ -228,19 +237,23 @@ or generation, except in cases outlined in
 [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data).
 Data is cached for a number of hours after deletion so users can access
 context in recently closed workbooks.
-Chat history is stored locally in your browser using IndexedDB.
-Conversations are not stored on Anthropic’s servers, are not synced
-across devices, and can be cleared from Settings at any time.
+Chat history is stored locally in your browser using IndexedDB. It is
+not synced across devices and can be cleared from Settings at any time.
 Reinstalling the add-in or switching between Claude add-ins does not
 remove it. See [Data storage and retention](https://claude.com/docs/office-agents/data-storage)
 for where it sits on disk and how long it is kept.
+When you sign in with a Claude account, the add-in sends your
+conversations to Anthropic, including the content Claude reads from your
+workbook and any files you attach. Clearing chat history removes only
+the copy in your browser. It does not delete the messages or attached
+files that Anthropic keeps.
 Claude for Excel does not inherit custom data retention settings your
 organization might have set. Activity is not included in Enterprise
 audit logs. For Enterprise organizations with the
 [Compliance API](https://platform.claude.com/docs/en/manage-claude/compliance-api)
 enabled, Claude for Excel sessions are included in the Compliance API.
-This coverage is in public beta and requires no additional setup: the
-same Compliance Access Keys apply.
+This coverage requires no additional setup: the same Compliance Access
+Keys apply.
 
 ##  Current limitations
 

@@ -8,7 +8,7 @@
 
 Introduction to Claude for Financial Services connecting professionals to key data sources through AI for market analysis and investment research.
 
-2 minClaude.ai
+2 minClaude
 
 [Open Claude](https://claude.ai/new)
 

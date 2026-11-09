@@ -8,7 +8,7 @@
 
 Attach your syllabus and Claude shows which weeks are locked by real prerequisites and which you're free to rearrange — right in chat as you work through the order.
 
-10 minEducationClaude.ai
+10 minEducationClaude
 
 Try in ClaudeCopy prompt
 

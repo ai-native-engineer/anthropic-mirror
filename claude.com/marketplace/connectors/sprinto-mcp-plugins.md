@@ -39,6 +39,16 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
+![](https://www.google.com/s2/favicons?domain=picsart.com&sz=96)
+
+### [Picsart Media Studio](https://claude.com/marketplace/connectors/picsart-media-studio)
+
+Anthropic verifiedTrending
+
+Turn your clips and photos into finished videos
+
+[Add Picsart Media Studio in Claude (opens in new tab)](https://claude.ai/directory/4f1ba81e-dd57-416e-a0ec-5a64c13ba74c "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
 ### [monday.com](https://claude.com/marketplace/connectors/monday)
@@ -47,7 +57,7 @@ monday.com project management & CRM for projects, tasks, portfolios, boards, wor
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-![](https://assets.claude.com/46519c8cd657205f9f26b243952e1bd41a07d517.svg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/7ef12b4f58f26b511f7bc69fbc6c583b926c2022.svg?w=128&fit=max&auto=format)
 
 ### [Salesforce - Beta](https://claude.com/marketplace/connectors/salesforce-headless-360)
 
@@ -55,13 +65,13 @@ Sell, serve, and operate at scale with Salesforce.
 
 [Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
 
-![](https://assets.claude.com/dc0fbde8ffbaf1dfce40a72f61df8d9befc9b08a.png?w=128&fit=max&auto=format)
+![](https://www.tomorrow.io/wp-content/uploads/2023/01/cropped-tm-favicon-new-1-2.png)
 
-### [Vibe Prospecting](https://claude.com/marketplace/connectors/vibeprospecting)
+### [Tomorrow.io Weather MCP App](https://claude.com/marketplace/connectors/tomorrow-io-weather-mcp-app)
 
-Find and enrich company and contact data in Claude for prospecting, lead generation, recruiting, and CRM enrichment across 150M+ companies and 800M+ contacts
+Interactive weather, air quality, pollen, and wildfire-risk widgets powered by Tomorrow.io — live forecasts and conditions for any location, right inside Claude
 
-[Add Vibe Prospecting in Claude (opens in new tab)](https://claude.ai/directory/1bdcb159-b6f0-4f13-bc08-fdb40b007828 "Add in Claude")
+[Add Tomorrow.io Weather MCP App in Claude (opens in new tab)](https://claude.ai/directory/032fc35c-fdc2-42e0-a5c0-372d52ccb605 "Add in Claude")
 
 ![](https://storage.googleapis.com/assets.mobbin.com/claude.ai/logo.svg)
 
@@ -71,18 +81,10 @@ Find UI & UX design references
 
 [Add Mobbin in Claude (opens in new tab)](https://claude.ai/directory/705ad993-53e3-4be6-b32c-cc9cff5225f6 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=tinyfish.ai&sz=96)
+![](https://www.google.com/s2/favicons?domain=zillow.com&sz=96)
 
-### [TinyFish](https://claude.com/marketplace/connectors/tinyfish)
+### [Zillow](https://claude.com/marketplace/connectors/zillow)
 
-Browser automation and web scraping with a cloud browser agent: automate websites, log in to portals, fill out and submit forms, scrape listings, prices and reviews, extract data, and monitor change
+Search homes, rentals, neighborhoods, and affordability
 
-[Add TinyFish in Claude (opens in new tab)](https://claude.ai/directory/e2dfb699-dcb9-4124-b190-9bb1f400adb4 "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=terminal49.com&sz=96)
-
-### [Terminal49](https://claude.com/marketplace/connectors/terminal49)
-
-Track ocean shipments and containers
-
-[Add Terminal49 in Claude (opens in new tab)](https://claude.ai/directory/e976edae-40c4-4c29-a1f8-6d5b40bc7cee "Add in Claude")
+[Add Zillow in Claude (opens in new tab)](https://claude.ai/directory/3bc1c8b4-62a1-443e-97d9-408768909ef4 "Add in Claude")

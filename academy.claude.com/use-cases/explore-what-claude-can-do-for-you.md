@@ -8,7 +8,7 @@
 
 New to Claude? Start here. Tell Claude your role and get a personalized guide to the capabilities that will matter for your work.
 
-15 minClaude.ai
+15 minClaude
 
 Try in ClaudeCopy prompt
 
@@ -50,7 +50,7 @@ Google DriveOptional
 
 [Connect](https://claude.ai/directory/google-drive-drivemcp)
 
-Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
+[Browse connectors in Claude](https://claude.ai/customize/connectors)
 
 ## 3. What Claude creates[](#3-what-claude-creates)
 

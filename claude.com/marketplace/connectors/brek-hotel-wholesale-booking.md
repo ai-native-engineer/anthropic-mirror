@@ -16,16 +16,6 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
-![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
-
-### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
-
-Anthropic verifiedTrending
-
-Faites vos courses rapidement
-
-[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
-
 ![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
 
 ### [Shopify](https://claude.com/marketplace/connectors/shopify)
@@ -34,17 +24,7 @@ Build, manage, and analyze your Shopify store
 
 [Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
-
-### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
-
-Anthropic verifiedTrending
-
-Amazon Selling Partner MCP
-
-[Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
-
-![](https://assets.claude.com/46519c8cd657205f9f26b243952e1bd41a07d517.svg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/7ef12b4f58f26b511f7bc69fbc6c583b926c2022.svg?w=128&fit=max&auto=format)
 
 ### [Salesforce - Beta](https://claude.com/marketplace/connectors/salesforce-headless-360)
 
@@ -52,20 +32,36 @@ Sell, serve, and operate at scale with Salesforce.
 
 [Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
 
-![](https://www.rome2rio.com/favicon.ico)
+![](https://www.tomorrow.io/wp-content/uploads/2023/01/cropped-tm-favicon-new-1-2.png)
 
-### [Rome2Rio](https://claude.com/marketplace/connectors/rome2rio)
+### [Tomorrow.io Weather MCP App](https://claude.com/marketplace/connectors/tomorrow-io-weather-mcp-app)
 
-Discover how to get anywhere
+Interactive weather, air quality, pollen, and wildfire-risk widgets powered by Tomorrow.io — live forecasts and conditions for any location, right inside Claude
 
-[Add Rome2Rio in Claude (opens in new tab)](https://claude.ai/directory/0c84f0ce-49ad-468f-babb-3efab67f5aeb "Add in Claude")
+[Add Tomorrow.io Weather MCP App in Claude (opens in new tab)](https://claude.ai/directory/032fc35c-fdc2-42e0-a5c0-372d52ccb605 "Add in Claude")
 
-![](https://mcp.govola.com/icon.png)
+![](https://metricool.com/wp-content/uploads/cropped-web-app-manifest-512x512-1-180x180.png)
 
-### [GoVola](https://claude.com/marketplace/connectors/govola)
+### [Metricool Social Media Management](https://claude.com/marketplace/connectors/metricool-social-media-management)
 
-Anthropic verifiedTrending
+Schedule posts, analyze, and manage social media with AI
 
-Search flight offers
+[Add Metricool Social Media Management in Claude (opens in new tab)](https://claude.ai/directory/70ba6d62-7e98-4ef4-9073-d161d900a95f "Add in Claude")
 
-[Add GoVola in Claude (opens in new tab)](https://claude.ai/directory/cb899a5b-01b8-41a3-8c39-c204acb1bd78 "Add in Claude")
+![](https://www.google.com/s2/favicons?domain=squarespace.com&sz=96)
+
+### [Squarespace](https://claude.com/marketplace/connectors/squarespace)
+
+Anthropic verifiedNew
+
+Find a domain name for your next idea, and run your Squarespace store's orders, products and customers, all from Claude.
+
+[Add Squarespace in Claude (opens in new tab)](https://claude.ai/directory/017e030e-9907-4695-8ff3-7916def95030 "Add in Claude")
+
+![](https://storage.googleapis.com/adspirer-images-v1/Brand%20%26%20Assets/icons/Adspirer.png)
+
+### [Adspirer Retail Media Ads](https://claude.com/marketplace/connectors/adspirer-retail-media-ads)
+
+Retail media agent for Amazon Ads and Walmart Connect — Sponsored Products, Sponsored Brands and Sponsored Display. Plans, launches, and optimizes your retail advertising campaigns with your approval
+
+[Add Adspirer Retail Media Ads in Claude (opens in new tab)](https://claude.ai/directory/1583aff5-134e-4e00-a411-cda0e714726b "Add in Claude")

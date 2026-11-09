@@ -8,7 +8,7 @@
 
 Turn forms from static documents into professional, interactive forms that people fill out right in their PDF reader.
 
-15 minClaude.ai
+15 minClaude
 
 Try in ClaudeCopy prompt
 

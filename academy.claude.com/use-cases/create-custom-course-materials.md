@@ -8,7 +8,7 @@
 
 Transform handwritten equations and notes into formatted LaTeX documents without manual typesetting.
 
-10 minEducationClaude.ai
+10 minEducationClaude
 
 Try in ClaudeCopy prompt
 

@@ -8,7 +8,7 @@
 
 Understand when to choose voice mode versus dictation while working with Claude.
 
-6 minClaude.ai
+6 minClaude
 
 [Open Claude](https://claude.ai/new)
 
